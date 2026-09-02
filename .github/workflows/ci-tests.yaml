@@ -45,6 +45,9 @@ jobs:
                   GITHUB_API_TOKEN: ${{ secrets.KEY_PULL_REPO }}
                   BUILD_MT: '0'     # mt tests are not part of the pyo3 suites
                   SKIP_DUMP: '1'    # no disassembly needed
+                  # Standard ubuntu-24.04 runners have 4 cores; the build script
+                  # defaults JOBS to nproc (4), but pin it explicitly.
+                  JOBS: '4'
               run: ./build_riscv_tests.sh
 
             - name: Collect the ISA ELFs
@@ -64,10 +67,16 @@ jobs:
                   if-no-files-found: error
 
     pyo3-riscv-tests-p:
-        name: pyo3 / riscv-tests -p- (machine mode)
+        name: pyo3 / riscv-tests -p- (machine mode) shard ${{ matrix.shard }}/2
         runs-on: ubuntu-24.04
         timeout-minutes: 120
         needs: [pyo3-riscv-tests-build]
+        strategy:
+            fail-fast: false
+            # 204 *-p-* ELFs split across 2 runners (~102 each). Each runner
+            # runs its shard's tests across all 4 cores (REGRESSION_MAX_JOBS).
+            matrix:
+                shard: [1, 2]
         steps:
             - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@main
               with:
@@ -81,29 +90,33 @@ jobs:
 
             # All 204 *-p-* ELFs: rv64ui/um/uc/ua/uf/ud/uz*, mi, si,
             # ssvnapot, mzicbo and hypervisor/svadu.
-            - name: Run the -p- regression
+            - name: Run the -p- regression (this shard)
               working-directory: src/cpu/pyo3
               env:
-                  PYO3_RESULTS_FILE: ${{ github.workspace }}/results/p-.txt
+                  PYO3_SHARD: ${{ matrix.shard }}/2
+                  REGRESSION_MAX_JOBS: '4'   # all 4 cores on this runner
+                  PYO3_RESULTS_FILE: ${{ github.workspace }}/results/p-${{ matrix.shard }}.txt
               run: ./run_regression_status.sh
 
             - name: Upload the -p- results
               if: always()
               uses: actions/upload-artifact@v4
               with:
-                  name: pyo3-results-p
+                  name: pyo3-results-p-${{ matrix.shard }}
                   path: ${{ github.workspace }}/results
                   retention-days: 14
 
     pyo3-riscv-tests-v:
-        name: pyo3 / riscv-tests -v- (Sv39) shard ${{ matrix.shard }}/4
+        name: pyo3 / riscv-tests -v- (Sv39) shard ${{ matrix.shard }}/8
         runs-on: ubuntu-24.04
         timeout-minutes: 240
         needs: [pyo3-riscv-tests-build]
         strategy:
             fail-fast: false
+            # 173 *-v-* ELFs split across 8 runners (~22 each). Each runner
+            # runs its shard's tests across all 4 cores (VV_MAX_JOBS).
             matrix:
-                shard: [1, 2, 3, 4]
+                shard: [1, 2, 3, 4, 5, 6, 7, 8]
         steps:
             - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@main
               with:
@@ -115,11 +128,12 @@ jobs:
                   name: pyo3-riscv-tests-isa
                   path: src/cpu/pyo3/riscv-tests/isa
 
-            # Every 4th of the 173 *-v-* ELFs at the 200K-cycle cap.
+            # Every 8th of the 173 *-v-* ELFs at the 200K-cycle cap.
             - name: Run the -v- regression (this shard)
               working-directory: src/cpu/pyo3
               env:
-                  PYO3_SHARD: ${{ matrix.shard }}/4
+                  PYO3_SHARD: ${{ matrix.shard }}/8
+                  VV_MAX_JOBS: '4'   # all 4 cores on this runner
                   PYO3_RESULTS_FILE: ${{ github.workspace }}/results/v-${{ matrix.shard }}.txt
               run: ./run_all_vv_80000.sh
 
