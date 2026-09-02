@@ -1,11 +1,11 @@
 # pyo3-ci
 
-Runs the [pyo3 CL-model](https://github.com/rain91508-cmd/gem5) CI suites
-against a chosen ref of the (private) source repo `rain91508-cmd/gem5`, and
+Runs CI suites
+against a chosen ref of the source repo `rain91508-cmd/gem5`, and
 publishes the aggregated report to **this repo's** rolling `pyo3-ci-report`
 pre-release.
 
-Because this repo is **public**, the report is readable by anyone, without a
+The report is readable by anyone, without a
 GitHub account or token:
 
 - **Stable release link:** https://github.com/rain91508-cmd/pyo3-ci/releases/tag/pyo3-ci-report
