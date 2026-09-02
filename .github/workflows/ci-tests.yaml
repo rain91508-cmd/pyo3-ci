@@ -67,16 +67,10 @@ jobs:
                   if-no-files-found: error
 
     pyo3-riscv-tests-p:
-        name: pyo3 / riscv-tests -p- (machine mode) shard ${{ matrix.shard }}/2
+        name: pyo3 / riscv-tests -p- (machine mode)
         runs-on: ubuntu-24.04
         timeout-minutes: 120
         needs: [pyo3-riscv-tests-build]
-        strategy:
-            fail-fast: false
-            # 204 *-p-* ELFs split across 2 runners (~102 each). Each runner
-            # runs its shard's tests across all 4 cores (REGRESSION_MAX_JOBS).
-            matrix:
-                shard: [1, 2]
         steps:
             - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@main
               with:
@@ -89,34 +83,33 @@ jobs:
                   path: src/cpu/pyo3/riscv-tests/isa
 
             # All 204 *-p-* ELFs: rv64ui/um/uc/ua/uf/ud/uz*, mi, si,
-            # ssvnapot, mzicbo and hypervisor/svadu.
-            - name: Run the -p- regression (this shard)
+            # ssvnapot, mzicbo and hypervisor/svadu. One runner, all 4 cores.
+            - name: Run the -p- regression
               working-directory: src/cpu/pyo3
               env:
-                  PYO3_SHARD: ${{ matrix.shard }}/2
                   REGRESSION_MAX_JOBS: '4'   # all 4 cores on this runner
-                  PYO3_RESULTS_FILE: ${{ github.workspace }}/results/p-${{ matrix.shard }}.txt
+                  PYO3_RESULTS_FILE: ${{ github.workspace }}/results/p-.txt
               run: ./run_regression_status.sh
 
             - name: Upload the -p- results
               if: always()
               uses: actions/upload-artifact@v4
               with:
-                  name: pyo3-results-p-${{ matrix.shard }}
+                  name: pyo3-results-p
                   path: ${{ github.workspace }}/results
                   retention-days: 14
 
     pyo3-riscv-tests-v:
-        name: pyo3 / riscv-tests -v- (Sv39) shard ${{ matrix.shard }}/8
+        name: pyo3 / riscv-tests -v- (Sv39) shard ${{ matrix.shard }}/18
         runs-on: ubuntu-24.04
         timeout-minutes: 240
         needs: [pyo3-riscv-tests-build]
         strategy:
             fail-fast: false
-            # 173 *-v-* ELFs split across 8 runners (~22 each). Each runner
+            # 173 *-v-* ELFs split across 18 runners (~10 each). Each runner
             # runs its shard's tests across all 4 cores (VV_MAX_JOBS).
             matrix:
-                shard: [1, 2, 3, 4, 5, 6, 7, 8]
+                shard: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
         steps:
             - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@main
               with:
@@ -132,7 +125,7 @@ jobs:
             - name: Run the -v- regression (this shard)
               working-directory: src/cpu/pyo3
               env:
-                  PYO3_SHARD: ${{ matrix.shard }}/8
+                  PYO3_SHARD: ${{ matrix.shard }}/18
                   VV_MAX_JOBS: '4'   # all 4 cores on this runner
                   PYO3_RESULTS_FILE: ${{ github.workspace }}/results/v-${{ matrix.shard }}.txt
               run: ./run_all_vv_80000.sh
@@ -240,6 +233,44 @@ jobs:
             - name: Publish the report as the job summary
               if: always()
               run: cat "$GITHUB_WORKSPACE/report-brief.md" >> "$GITHUB_STEP_SUMMARY"
+
+            # Checkin the report files into THIS repo (reports/latest/), so the
+            # report is also present in the git tree, not only as a Release
+            # asset. The workspace root is the gem5 clone, so clone pyo3-ci into
+            # a temp dir and commit there.
+            - name: Commit the report into the pyo3-ci repo
+              if: always()
+              run: |
+                  set -euo pipefail
+                  if [ ! -s "$GITHUB_WORKSPACE/pyo3-ci-report.md" ]; then
+                      echo "::warning::no report was built -- skipping the repo checkin"
+                      exit 0
+                  fi
+                  REPO_DIR="$RUNNER_TEMP/pyo3-ci-repo"
+                  rm -rf "$REPO_DIR"
+                  git clone --depth 1 \
+                      "https://x-access-token:${GITHUB_TOKEN}@github.com/rain91508-cmd/pyo3-ci.git" \
+                      "$REPO_DIR"
+                  cd "$REPO_DIR"
+                  git config user.name "github-actions[bot]"
+                  git config user.email "github-actions[bot]@users.noreply.github.com"
+                  mkdir -p reports/latest
+                  cp "$GITHUB_WORKSPACE/pyo3-ci-report.md"  reports/latest/pyo3-ci-report.md
+                  cp "$GITHUB_WORKSPACE/report-brief.md"    reports/latest/report-brief.md
+                  cp "$GITHUB_WORKSPACE/pyo3-ci-results.tsv" reports/latest/pyo3-ci-results.tsv
+                  cp "$GITHUB_WORKSPACE/pyo3-perf-counters.tsv" reports/latest/pyo3-perf-counters.tsv
+                  git add reports/
+                  if git diff --cached --quiet; then
+                      echo "report files unchanged -- nothing to commit"
+                      exit 0
+                  fi
+                  # Append the tested gem5 ref so the commit is traceable.
+                  git commit -m "report: pyo3 CI results for gem5 ${GEM5_REF:-pycpu}@${GEM5_SHA:0:10}"
+                  git push origin HEAD:main
+              env:
+                  GITHUB_TOKEN: ${{ github.token }}
+                  GEM5_SHA: ${{ steps.setup.outputs.gem5_sha }}
+                  GEM5_REF: ${{ inputs.gem5_ref || 'pycpu' }}
 
             # Publish to THIS repo's pre-release (public). The default GITHUB_SHA
             # (pyo3-ci's own commit) is the release --target.
