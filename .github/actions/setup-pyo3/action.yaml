@@ -1,0 +1,77 @@
+---
+# Checkout the pyo3 CL-model source tree and prepare its Python environment.
+#
+# The source is the PRIVATE repo rain91508-cmd/gem5. The pyo3 runners/scripts
+# live inside that tree and resolve pymtl3_submodule/ next to src/, so the gem5
+# tree must sit at the workspace ROOT. This action shallow-clones gem5 at the
+# chosen ref (via the KEY_PULL_REPO PAT over https) into the workspace root,
+# shallow-fetches the two submodules the CI uses (riscv-tests + the private
+# pymtl3_submodule, whose ssh-pinned URL is rewritten to PAT-https for the
+# fetch), then installs python 3.12 + pymtl3 + the test deps.
+#
+# riscv-isa-sim is deliberately not fetched (CI never uses it).
+#
+# Outputs:
+#   gem5_sha   full SHA of the checked-out gem5 commit
+#   gem5_ref   the ref that was checked out
+name: Setup pyo3 (checkout gem5 + python env)
+
+inputs:
+    gem5_ref:
+        description: Branch/tag/SHA in rain91508-cmd/gem5 to test
+        required: false
+        default: pycpu
+    key_pull_repo:
+        description: PAT with read access to rain91508-cmd/gem5
+        required: true
+
+outputs:
+    gem5_sha:
+        description: Full SHA of the checked-out gem5 commit
+        value: ${{ steps.checkout.outputs.gem5_sha }}
+    gem5_ref:
+        description: The gem5 ref that was checked out
+        value: ${{ inputs.gem5_ref }}
+
+runs:
+    using: composite
+    steps:
+        - name: Checkout gem5 @ ${{ inputs.gem5_ref }} (private, via PAT)
+          id: checkout
+          shell: bash
+          env:
+              GEM5_REF: ${{ inputs.gem5_ref }}
+              KEY_PULL_REPO: ${{ inputs.key_pull_repo }}
+          run: |
+              set -euo pipefail
+              echo "Cloning rain91508-cmd/gem5 @ ${GEM5_REF}"
+              git clone --depth 1 --branch "${GEM5_REF}" \
+                  "https://x-access-token:${KEY_PULL_REPO}@github.com/rain91508-cmd/gem5.git" .
+              SHA=$(git rev-parse HEAD)
+              echo "gem5_sha=${SHA}" >> "$GITHUB_OUTPUT"
+              echo "gem5 @ ${GEM5_REF}: $(git rev-parse --short HEAD)"
+              # pymtl3_submodule is ssh-pinned; rewrite ssh->PAT-https for this
+              # fetch only. riscv-tests is public (nested `env` is fetched by
+              # --recursive). riscv-isa-sim is left unfetched (CI never uses it).
+              git -c "url.https://x-access-token:${KEY_PULL_REPO}@github.com/.insteadOf=git@github.com:" \
+                  submodule update --init --recursive --depth 1 -- \
+                      src/cpu/pyo3/riscv-tests pymtl3_submodule
+              test -f pymtl3_submodule/pymtl3/__init__.py || {
+                  echo "::error::pymtl3_submodule missing after checkout"; exit 1; }
+              test -f src/cpu/pyo3/riscv-tests/env/p/riscv_test.h || {
+                  echo "::error::riscv-tests env missing after checkout"; exit 1; }
+              echo "pymtl3 @ $(git -C pymtl3_submodule rev-parse --short HEAD)"
+
+        # Inline of gem5's .github/actions/pyo3-env (submodules already present):
+        # python 3.12 + pymtl3 (pip-installed from pymtl3_submodule) + test deps.
+        - uses: actions/setup-python@v5
+          with:
+              python-version: '3.12'
+
+        - name: Install pymtl3 and the test dependencies
+          shell: bash
+          run: |
+              python -m pip install --upgrade pip
+              pip install ./pymtl3_submodule pytest ply pyelftools
+              python -c 'import pymtl3, pytest, ply, elftools; \
+                         print("pyo3 python deps OK:", pymtl3.__file__)'

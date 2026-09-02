@@ -1,0 +1,266 @@
+---
+# Run the pyo3 CL-model suites against a chosen ref of the (private) source
+# repo rain91508-cmd/gem5, and publish the aggregated report to THIS repo's
+# rolling `pyo3-ci-report` pre-release -- which is public, so the report is
+# readable without any GitHub auth.
+#
+# The gem5 tree sits at the workspace ROOT (the pyo3 runners/scripts resolve
+# pymtl3_submodule/ next to src/), so the shared checkout+setup is a composite
+# action in THIS repo, referenced REMOTELY (`...@main`): a local
+# `./.github/actions/...` would be looked up in $GITHUB_WORKSPACE, which is the
+# gem5 clone, not this repo. Bump the @ref if the action changes.
+#
+# Trigger: workflow_dispatch, gem5_ref default = pycpu (gem5's default branch).
+
+name: CI Tests
+
+on:
+    workflow_dispatch:
+        inputs:
+            gem5_ref:
+                description: >-
+                    Branch, tag, or commit SHA in rain91508-cmd/gem5 to test
+                required: false
+                default: pycpu
+                type: string
+
+concurrency:
+    group: ${{ github.workflow }}-${{ inputs.gem5_ref || 'pycpu' }}
+    cancel-in-progress: true
+
+jobs:
+    pyo3-riscv-tests-build:
+        name: pyo3 / build riscv-tests ELFs
+        runs-on: ubuntu-24.04
+        timeout-minutes: 60
+        steps:
+            - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@main
+              with:
+                  gem5_ref: ${{ inputs.gem5_ref || 'pycpu' }}
+                  key_pull_repo: ${{ secrets.KEY_PULL_REPO }}
+
+            - name: Build riscv-tests
+              working-directory: src/cpu/pyo3
+              env:
+                  GITHUB_API_TOKEN: ${{ secrets.KEY_PULL_REPO }}
+                  BUILD_MT: '0'     # mt tests are not part of the pyo3 suites
+                  SKIP_DUMP: '1'    # no disassembly needed
+              run: ./build_riscv_tests.sh
+
+            - name: Collect the ISA ELFs
+              run: |
+                  mkdir -p "$RUNNER_TEMP/isa"
+                  find src/cpu/pyo3/riscv-tests/isa -maxdepth 1 -type f \
+                       \( -name '*-p-*' -o -name '*-v-*' \) \
+                       ! -name '*.dump' ! -name '*.unstripped' ! -name '*.hex' \
+                       -exec cp -t "$RUNNER_TEMP/isa" {} +
+                  echo "collected $(ls -1 "$RUNNER_TEMP/isa" | wc -l) ELFs (expect 377: 204 -p- + 173 -v-)"
+
+            - uses: actions/upload-artifact@v4
+              with:
+                  name: pyo3-riscv-tests-isa
+                  path: ${{ runner.temp }}/isa
+                  retention-days: 7
+                  if-no-files-found: error
+
+    pyo3-riscv-tests-p:
+        name: pyo3 / riscv-tests -p- (machine mode)
+        runs-on: ubuntu-24.04
+        timeout-minutes: 120
+        needs: [pyo3-riscv-tests-build]
+        steps:
+            - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@main
+              with:
+                  gem5_ref: ${{ inputs.gem5_ref || 'pycpu' }}
+                  key_pull_repo: ${{ secrets.KEY_PULL_REPO }}
+
+            - uses: actions/download-artifact@v4
+              with:
+                  name: pyo3-riscv-tests-isa
+                  path: src/cpu/pyo3/riscv-tests/isa
+
+            # All 204 *-p-* ELFs: rv64ui/um/uc/ua/uf/ud/uz*, mi, si,
+            # ssvnapot, mzicbo and hypervisor/svadu.
+            - name: Run the -p- regression
+              working-directory: src/cpu/pyo3
+              env:
+                  PYO3_RESULTS_FILE: ${{ github.workspace }}/results/p-.txt
+              run: ./run_regression_status.sh
+
+            - name: Upload the -p- results
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: pyo3-results-p
+                  path: ${{ github.workspace }}/results
+                  retention-days: 14
+
+    pyo3-riscv-tests-v:
+        name: pyo3 / riscv-tests -v- (Sv39) shard ${{ matrix.shard }}/4
+        runs-on: ubuntu-24.04
+        timeout-minutes: 240
+        needs: [pyo3-riscv-tests-build]
+        strategy:
+            fail-fast: false
+            matrix:
+                shard: [1, 2, 3, 4]
+        steps:
+            - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@main
+              with:
+                  gem5_ref: ${{ inputs.gem5_ref || 'pycpu' }}
+                  key_pull_repo: ${{ secrets.KEY_PULL_REPO }}
+
+            - uses: actions/download-artifact@v4
+              with:
+                  name: pyo3-riscv-tests-isa
+                  path: src/cpu/pyo3/riscv-tests/isa
+
+            # Every 4th of the 173 *-v-* ELFs at the 200K-cycle cap.
+            - name: Run the -v- regression (this shard)
+              working-directory: src/cpu/pyo3
+              env:
+                  PYO3_SHARD: ${{ matrix.shard }}/4
+                  PYO3_RESULTS_FILE: ${{ github.workspace }}/results/v-${{ matrix.shard }}.txt
+              run: ./run_all_vv_80000.sh
+
+            - name: Upload the -v- results
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: pyo3-results-v-${{ matrix.shard }}
+                  path: ${{ github.workspace }}/results
+                  retention-days: 14
+
+    pyo3-block-tests:
+        name: pyo3 / block-level unit tests
+        runs-on: ubuntu-24.04
+        timeout-minutes: 120
+        needs: [pyo3-riscv-tests-build]
+        steps:
+            - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@main
+              with:
+                  gem5_ref: ${{ inputs.gem5_ref || 'pycpu' }}
+                  key_pull_repo: ${{ secrets.KEY_PULL_REPO }}
+
+            - uses: actions/download-artifact@v4
+              with:
+                  name: pyo3-riscv-tests-isa
+                  path: src/cpu/pyo3/riscv-tests/isa
+
+            - name: Run every o3-block-tests suite
+              working-directory: src/cpu/pyo3
+              env:
+                  PYTHONPATH: ${{ github.workspace }}/src/cpu/pyo3/pymtl3:${{ github.workspace }}/src/cpu/pyo3/pymtl3/pyisa/out
+              run: |
+                  mkdir -p "$GITHUB_WORKSPACE/results"
+                  rc=0
+                  for d in pymtl3/o3-block-tests/*/; do
+                      [ -f "$d/conftest.py" ] || continue
+                      n=$(basename "$d")
+                      echo "::group::$n"
+                      ( cd "$d" && python3 -m pytest -q -p no:pymtl3 -p no:hypothesis \
+                            --junit-xml="$GITHUB_WORKSPACE/results/block-$n.xml" ) || rc=1
+                      echo "::endgroup::"
+                  done
+                  exit $rc
+
+            - name: Upload the block-test results
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: pyo3-results-block
+                  path: ${{ github.workspace }}/results
+                  retention-days: 14
+
+    # -----------------------------------------------------------------------
+    # The report-and-gate job: aggregates every suite/shard result and publishes
+    # the report to THIS (pyo3-ci) repo's rolling `pyo3-ci-report` pre-release.
+    #
+    # The report HEADER names the tested gem5 commit (GITHUB_SHA / GITHUB_REF_NAME
+    # are overridden to the gem5 ref for make_ci_report.py), but the release tag
+    # must anchor on a commit that exists in THIS repo, so the publish step keeps
+    # the default GITHUB_SHA (pyo3-ci's own commit).
+    # -----------------------------------------------------------------------
+    ci-tests:
+        name: pyo3 / report and gate
+        runs-on: ubuntu-24.04
+        if: always()
+        permissions:
+            contents: write   # publish the pyo3-ci-report pre-release
+        needs:
+            - pyo3-riscv-tests-p
+            - pyo3-riscv-tests-v
+            - pyo3-block-tests
+        steps:
+            - id: setup
+              uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@main
+              with:
+                  gem5_ref: ${{ inputs.gem5_ref || 'pycpu' }}
+                  key_pull_repo: ${{ secrets.KEY_PULL_REPO }}
+
+            # One artifact per suite/shard, all landing in results/.
+            - name: Download every results artifact
+              continue-on-error: true
+              uses: actions/download-artifact@v4
+              with:
+                  pattern: pyo3-results-*
+                  path: ${{ github.workspace }}/results
+                  merge-multiple: true
+
+            # Report header names the TESTED gem5 commit. GITHUB_REPOSITORY and
+            # GITHUB_RUN_ID stay pyo3-ci, so the run-link points at this run.
+            - name: Build the aggregated report
+              if: always()
+              working-directory: src/cpu/pyo3
+              env:
+                  GITHUB_SHA: ${{ steps.setup.outputs.gem5_sha }}
+                  GITHUB_REF_NAME: ${{ inputs.gem5_ref || 'pycpu' }}
+              run: |
+                  python3 make_ci_report.py "$GITHUB_WORKSPACE/results" \
+                      --out-md "$GITHUB_WORKSPACE/pyo3-ci-report.md" \
+                      --out-md-brief "$GITHUB_WORKSPACE/report-brief.md" \
+                      --out-tsv "$GITHUB_WORKSPACE/pyo3-ci-results.tsv" \
+                      --out-perf-tsv "$GITHUB_WORKSPACE/pyo3-perf-counters.tsv" \
+                      --github-annotations
+
+            - name: Publish the report as the job summary
+              if: always()
+              run: cat "$GITHUB_WORKSPACE/report-brief.md" >> "$GITHUB_STEP_SUMMARY"
+
+            # Publish to THIS repo's pre-release (public). The default GITHUB_SHA
+            # (pyo3-ci's own commit) is the release --target.
+            - name: Publish the report to the pyo3-ci-report pre-release
+              if: always()
+              run: |
+                  if [ ! -s "$GITHUB_WORKSPACE/pyo3-ci-report.md" ] \
+                     || [ ! -s "$GITHUB_WORKSPACE/report-brief.md" ]; then
+                      echo "::warning::no report was built -- leaving the " \
+                           "pyo3-ci-release untouched rather than publishing " \
+                           "an empty one"
+                      exit 0
+                  fi
+                  bash src/cpu/pyo3/publish_ci_report.sh \
+                      "$GITHUB_WORKSPACE/report-brief.md" \
+                      "$GITHUB_WORKSPACE/pyo3-ci-report.md" \
+                      "$GITHUB_WORKSPACE/pyo3-ci-results.tsv" \
+                      "$GITHUB_WORKSPACE/pyo3-perf-counters.tsv"
+              env:
+                  GH_TOKEN: ${{ github.token }}
+
+            - name: Gate on the suite results
+              if: always()
+              run: |
+                  if [ ! -s "$GITHUB_WORKSPACE/pyo3-ci-results.tsv" ]; then
+                      echo "::error::no results.tsv -- the suites produced no " \
+                           "per-test results, so the run cannot be judged."
+                      exit 1
+                  fi
+                  bad=$(awk -F'\t' 'NR>1 && $2 != "PASS" {n++} END {print n+0}' \
+                      "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
+                  total=$(awk -F'\t' 'NR>1 {n++} END {print n+0}' \
+                      "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
+                  echo "non-passing: $bad of $total tests"
+                  if [ "$bad" -ne 0 ]; then
+                      echo "::error::$bad of $total pyo3 tests did not pass -- see the pyo3-ci-report release"
+                      exit 1
+                  fi
