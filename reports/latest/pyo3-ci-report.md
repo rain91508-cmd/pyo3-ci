@@ -2,38 +2,113 @@
 
 |  |  |
 |---|---|
-| **Result** | **PASS** |
-| Run | [rain91508-cmd/pyo3-ci#33665744201](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/33665744201) |
-| Commit | `2cda30347c` (main) |
+| **Result** | **FAIL** -- 39 of 2661 tests not passing |
+| Run | [rain91508-cmd/pyo3-ci#33938673207](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/33938673207) |
+| Commit | `cca059a3dc` (main) |
 | Triggered by | rain91508-cmd |
-| Generated | 2026-09-02 18:15 UTC |
+| Base seed | 1788574783, 1788574784, 1788574785, 1788574786, 1788574787, 1788574788, 1788574790, 1788574791, 1788574792 |
+| Generated | 2026-09-05 02:53 UTC |
 
 ## Suites
 
 | Suite | Shard | PASS | FAIL | TIMEOUT | ERROR | MISSING | Total | Status |
 |---|---|---|---|---|---|---|---|---|
-| block-BAC | none | 96 | 0 | 0 | 0 | 0 | 96 | PASS |
-| block-BPredUnit | none | 93 | 0 | 0 | 0 | 0 | 93 | PASS |
-| block-CSRFile | none | 29 | 0 | 0 | 0 | 0 | 29 | PASS |
-| block-Commit | none | 65 | 0 | 0 | 0 | 0 | 65 | PASS |
-| block-DTLBProbe | none | 29 | 0 | 0 | 0 | 0 | 29 | PASS |
-| block-Decode | none | 105 | 0 | 0 | 0 | 0 | 105 | PASS |
-| block-Dispatch | none | 47 | 0 | 0 | 0 | 0 | 47 | PASS |
-| block-FTQ | none | 130 | 0 | 0 | 0 | 0 | 130 | PASS |
-| block-FUPool | none | 51 | 0 | 0 | 0 | 0 | 51 | PASS |
-| block-Fetch | none | 186 | 0 | 0 | 0 | 0 | 186 | PASS |
-| block-FrontEnd | none | 72 | 0 | 0 | 0 | 0 | 72 | PASS |
-| block-ICache | none | 53 | 0 | 0 | 0 | 0 | 53 | PASS |
-| block-IEW | none | 112 | 0 | 0 | 0 | 0 | 112 | PASS |
-| block-IQ | none | 132 | 0 | 0 | 0 | 0 | 132 | PASS |
-| block-LQCore | none | 118 | 0 | 0 | 0 | 0 | 118 | PASS |
-| **all** |  | 1318 | 0 | 0 | 0 | 0 | 1318 | PASS |
+| block-BAC | none | 96 | 0 | 0+0 | 0 | 0 | 96 | PASS |
+| block-BPredUnit | none | 93 | 0 | 0+0 | 0 | 0 | 93 | PASS |
+| block-CSRFile | none | 29 | 0 | 0+0 | 0 | 0 | 29 | PASS |
+| block-Commit | none | 65 | 0 | 0+0 | 0 | 0 | 65 | PASS |
+| block-DTLBProbe | none | 29 | 0 | 0+0 | 0 | 0 | 29 | PASS |
+| block-Decode | none | 105 | 0 | 0+0 | 0 | 0 | 105 | PASS |
+| block-Dispatch | none | 47 | 0 | 0+0 | 0 | 0 | 47 | PASS |
+| block-FTQ | none | 130 | 0 | 0+0 | 0 | 0 | 130 | PASS |
+| block-FUPool | none | 51 | 0 | 0+0 | 0 | 0 | 51 | PASS |
+| block-Fetch | none | 186 | 0 | 0+0 | 0 | 0 | 186 | PASS |
+| block-FrontEnd | none | 72 | 0 | 0+0 | 0 | 0 | 72 | PASS |
+| block-ICache | none | 53 | 0 | 0+0 | 0 | 0 | 53 | PASS |
+| block-IEW | none | 112 | 0 | 0+0 | 0 | 0 | 112 | PASS |
+| block-IQ | none | 132 | 0 | 0+0 | 0 | 0 | 132 | PASS |
+| block-LQCore | none | 118 | 0 | 0+0 | 0 | 0 | 118 | PASS |
+| block-LSQParent | none | 265 | 0 | 0+0 | 0 | 0 | 265 | PASS |
+| block-O3Control | none | 45 | 0 | 0+0 | 0 | 0 | 45 | PASS |
+| block-PhysRegFile | none | 27 | 0 | 0+0 | 0 | 0 | 27 | PASS |
+| block-ROB | none | 59 | 0 | 0+0 | 0 | 0 | 59 | PASS |
+| block-ReadOperand | none | 48 | 0 | 0+0 | 0 | 0 | 48 | PASS |
+| block-ReadOperandInt | none | 14 | 0 | 0+0 | 0 | 0 | 14 | PASS |
+| block-ReadOperandMem | none | 6 | 0 | 0+0 | 0 | 0 | 6 | PASS |
+| block-Rename | none | 84 | 0 | 0+0 | 0 | 0 | 84 | PASS |
+| block-SQStore | none | 117 | 0 | 0+0 | 0 | 0 | 117 | PASS |
+| block-Scoreboard | none | 54 | 0 | 0+0 | 0 | 0 | 54 | PASS |
+| block-StorageManager | none | 28 | 0 | 0+0 | 0 | 0 | 28 | PASS |
+| block-StoreSet | none | 19 | 0 | 0+0 | 0 | 0 | 19 | PASS |
+| block-Testbench | none | 100 | 0 | 0+0 | 0 | 0 | 100 | PASS |
+| block-TlbiController | none | 11 | 0 | 0+0 | 0 | 0 | 11 | PASS |
+| block-WriteBack | none | 89 | 0 | 0+0 | 0 | 0 | 89 | PASS |
+| p- | none | 204 | 0 | 0+0 | 0 | 0 | 204 | PASS |
+| v- | 1/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
+| v- | 10/18 | 8 | 0 | 2+0 | 0 | 0 | 10 | FAIL |
+| v- | 11/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
+| v- | 12/18 | 7 | 0 | 2+0 | 0 | 0 | 9 | FAIL |
+| v- | 13/18 | 8 | 0 | 1+0 | 0 | 0 | 9 | FAIL |
+| v- | 14/18 | 7 | 0 | 2+0 | 0 | 0 | 9 | FAIL |
+| v- | 15/18 | 7 | 0 | 2+0 | 0 | 0 | 9 | FAIL |
+| v- | 16/18 | 6 | 0 | 3+0 | 0 | 0 | 9 | FAIL |
+| v- | 17/18 | 8 | 0 | 1+0 | 0 | 0 | 9 | FAIL |
+| v- | 18/18 | 5 | 0 | 4+0 | 0 | 0 | 9 | FAIL |
+| v- | 2/18 | 7 | 0 | 3+0 | 0 | 0 | 10 | FAIL |
+| v- | 3/18 | 7 | 0 | 3+0 | 0 | 0 | 10 | FAIL |
+| v- | 4/18 | 8 | 0 | 2+0 | 0 | 0 | 10 | FAIL |
+| v- | 5/18 | 7 | 0 | 3+0 | 0 | 0 | 10 | FAIL |
+| v- | 6/18 | 8 | 0 | 2+0 | 0 | 0 | 10 | FAIL |
+| v- | 7/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
+| v- | 8/18 | 7 | 0 | 3+0 | 0 | 0 | 10 | FAIL |
+| v- | 9/18 | 7 | 0 | 3+0 | 0 | 0 | 10 | FAIL |
+| **all** |  | 2622 | 0 | 39+0 | 0 | 0 | 2661 | FAIL |
 
 ## Failures
 
-None.
+| Test | Suite | Status | exit | cycles | wall | perm | detail |
+|---|---|---|---|---|---|---|---|
+| `rv64ud-v-fadd` | v- | TIMEOUT | - | - | 1045s | 740219908 | - |
+| `rv64ud-v-fcmp` | v- | TIMEOUT | - | - | 986s | 464513806 | - |
+| `rv64ud-v-fcvt` | v- | TIMEOUT | - | - | 965s | 585948955 | - |
+| `rv64ud-v-fdiv` | v- | TIMEOUT | - | - | 1048s | 144762498 | - |
+| `rv64ud-v-fmadd` | v- | TIMEOUT | - | - | 1176s | 109894127 | - |
+| `rv64ud-v-fmin` | v- | TIMEOUT | - | - | 1353s | 359027353 | - |
+| `rv64ud-v-move` | v- | TIMEOUT | - | - | 1257s | 419302548 | - |
+| `rv64uf-v-fadd` | v- | TIMEOUT | - | - | 1299s | 416394780 | - |
+| `rv64uf-v-fcmp` | v- | TIMEOUT | - | - | 1387s | 762562141 | - |
+| `rv64uf-v-fcvt` | v- | TIMEOUT | - | - | 1013s | 38509818 | - |
+| `rv64uf-v-fcvt_w` | v- | TIMEOUT | - | - | 733s | 460429591 | - |
+| `rv64uf-v-fdiv` | v- | TIMEOUT | - | - | 1266s | 814552345 | - |
+| `rv64uf-v-fmadd` | v- | TIMEOUT | - | - | 1275s | 26889183 | - |
+| `rv64uf-v-fmin` | v- | TIMEOUT | - | - | 1346s | 832332045 | - |
+| `rv64uf-v-recoding` | v- | TIMEOUT | - | - | 1203s | 563620550 | - |
+| `rv64ui-v-lbu` | v- | TIMEOUT | - | - | 1266s | 402762226 | - |
+| `rv64ui-v-ld` | v- | TIMEOUT | - | - | 1068s | 42254826 | - |
+| `rv64ui-v-ld_st` | v- | TIMEOUT | - | - | 1361s | 721666417 | - |
+| `rv64ui-v-lhu` | v- | TIMEOUT | - | - | 1022s | 316093026 | - |
+| `rv64ui-v-lw` | v- | TIMEOUT | - | - | 1179s | 465143078 | - |
+| `rv64ui-v-lwu` | v- | TIMEOUT | - | - | 1322s | 488839386 | - |
+| `rv64ui-v-ma_data` | v- | TIMEOUT | - | - | 1365s | 402987641 | - |
+| `rv64ui-v-sd` | v- | TIMEOUT | - | - | 1149s | 873982037 | - |
+| `rv64ui-v-sll` | v- | TIMEOUT | - | - | 1094s | 596058286 | - |
+| `rv64ui-v-sllw` | v- | TIMEOUT | - | - | 710s | 314407123 | - |
+| `rv64ui-v-sraw` | v- | TIMEOUT | - | - | 1142s | 348582311 | - |
+| `rv64ui-v-srl` | v- | TIMEOUT | - | - | 1380s | 352556965 | - |
+| `rv64ui-v-st_ld` | v- | TIMEOUT | - | - | 1301s | 444586386 | - |
+| `rv64uzbb-v-orn` | v- | TIMEOUT | - | - | 1250s | 247153967 | - |
+| `rv64uzbb-v-ror` | v- | TIMEOUT | - | - | 936s | 799792834 | - |
+| `rv64uzbkx-v-xperm4` | v- | TIMEOUT | - | - | 841s | 21683790 | - |
+| `rv64uzbs-v-bext` | v- | TIMEOUT | - | - | 954s | 79557485 | - |
+| `rv64uzbs-v-binv` | v- | TIMEOUT | - | - | 840s | 757799068 | - |
+| `rv64uzfh-v-fadd` | v- | TIMEOUT | - | - | 995s | 153226641 | - |
+| `rv64uzfh-v-fcmp` | v- | TIMEOUT | - | - | 1102s | 796807975 | - |
+| `rv64uzfh-v-fcvt_w` | v- | TIMEOUT | - | - | 607s | 650985465 | - |
+| `rv64uzfh-v-fdiv` | v- | TIMEOUT | - | - | 1017s | 746619019 | - |
+| `rv64uzfh-v-fmin` | v- | TIMEOUT | - | - | 927s | 756859819 | - |
+| `rv64uzfh-v-recoding` | v- | TIMEOUT | - | - | 947s | 569456295 | - |
 
-## All 1318 results
+## All 2661 results
 
 <details>
 <summary>Full per-test table</summary>
@@ -1358,5 +1433,1691 @@ None.
 | test_lq_core_cl_adr0033_l2_shift_reg.TestL2SpeculationShiftRegisterADR0033::test_lq_core_exposes_l2_shift_register_state | block-LQCore | PASS | - | 0 |
 | test_lq_core_cl_f33_shift_cancel_ordering.TestF33ShiftCancelOrdering::test_l1_shift_pop_silent_on_completion_cancel | block-LQCore | PASS | - | 0 |
 | test_lq_core_cl_f33_shift_cancel_ordering.TestF33ShiftCancelOrdering::test_l2_shift_pop_silent_on_completion_cancel | block-LQCore | PASS | - | 0 |
+| test_lsq_parent_cl.TestADR0017::test_store_set_violation_fires_on_violation_detection | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestADR0017::test_violation_signal_still_fires | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_fence_complete_marks_lq_fence_entry_completed | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_fence_complete_marks_sq_fence_entry_completed | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_fence_complete_unblocks_barred_load | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_full_fence_allocates_both_lq_and_sq_entries | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_insert_load_accepts_is_fence_load_kwarg | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_insert_store_accepts_is_fence_store_kwarg | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_is_load_barred_false_when_no_fence_entries | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_is_load_barred_scans_lq_fence_entries | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_is_store_barred_false_when_no_fence_entries | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_is_store_barred_scans_sq_fence_entries | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_lq_entry_has_is_fence_load_field | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_no_separate_barrier_sets_or_insert_fence | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_sq_entry_has_is_fence_store_field | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestAmoLqSqPair::test_amo_lq_forwards_from_different_seqnum_store | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestAmoLqSqPair::test_amo_lq_skips_own_sq_goes_to_dcache | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestAmoLqSqPair::test_is_atomic_defaults_false_on_lq_entry | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestAmoLqSqPair::test_is_atomic_field_set_on_lq_entry | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestAmoLqSqPair::test_normal_load_stalls_on_amo_sq | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestCommitLoads::test_commit_loads_callee_ifc_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestCommitLoads::test_commit_loads_pops_lq_head_entries | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestDependentLoadsIntegration::test_dependents_broadcast_wired_to_dependents_update | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestDependentLoadsIntegration::test_end_to_end_load_stalls_until_producer_executes | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestDependentLoadsIntegration::test_insert_load_no_producer_leaves_pending_producers_zero | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestDependentLoadsIntegration::test_insert_load_sets_dependents_bit_on_producer_sq_entry | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestDependentLoadsIntegration::test_insert_load_sets_pending_producers_when_producer_predicted | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestDependentLoadsIntegration::test_squash_clears_dependents_on_sq_entries | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestDependentLoadsIntegration::test_squash_clears_pending_producers_on_lq_entries | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestDrainStatus::test_drain_done_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestDrainStatus::test_drain_done_when_empty | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestDrainStatus::test_free_lq_entries_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestDrainStatus::test_free_lq_entries_when_empty | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestDrainStatus::test_free_sq_entries_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestDrainStatus::test_has_stores_to_wb_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestDrainStatus::test_ic_drain_callee_ifc_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration.TestSTA_STD_StoreDecomposition::test_execute_store_unified_removed | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration.TestSTA_STD_StoreDecomposition::test_forward_query_waiting_data_registers_dependency | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration.TestSTA_STD_StoreDecomposition::test_no_data_zero_forwarding_in_waiting_data | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration.TestSTA_STD_StoreDecomposition::test_sq_entry_has_data_valid_field | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration.TestSTA_STD_StoreDecomposition::test_sta_sets_fsm_to_waiting_data | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration.TestSTA_STD_StoreDecomposition::test_std_arrival_unstalls_dependent_load | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration.TestSTA_STD_StoreDecomposition::test_std_before_sta | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration.TestSTA_STD_StoreDecomposition::test_std_transitions_waiting_data_to_executed | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_atomic_amo_lq_sq_pair | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_cbo_as_store_via_parent | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_commit_loads_via_parent | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_data_prefetch_skip_cam | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_dcache_resp_fifo | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_dtlb_port_arbitration | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_fence_barrier_gating | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_fence_full_barrier_via_parent | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_ic_drain_via_parent | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_ignored_responses_counter | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_ll_sc_reservation_set_path | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_ll_sc_success | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_load_on_load_violation_tso_force_squash_via_parent | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_lsq_dep_check_shift | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_multi_thread_independent | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_multi_thread_smoke | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_non_spec_gating | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_predicated_false_fast_path | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_sc_failure_fast_complete | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_simple_load_completion | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_simple_store_completion | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_snoop_lr_clears_reservation_via_parent | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_snoop_reexec_via_parent | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_split_load_via_parent | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_split_store_non_forwardable_via_parent | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_split_store_via_parent | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_squash_and_replay | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_squashed_bypass | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_store_backpressure_retry | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_store_forwarding_to_load | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_storeset_prediction_full_cycle | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_strictly_ordered_internal_poll | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_tlbi_empty_immediate_sync | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_tlbi_full_flow | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_violation_ack_handshake_via_parent | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_violation_flow | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_vipt_speculative_l1_load_via_parent | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_zero_size_store_via_parent | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestExecuteLoad::test_exec_load_processed_after_tick | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestExecuteLoad::test_exec_load_sets_pending | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestExecuteLoadStoreRefined::test_combined_insert_then_execute_load_preserves_size_vaddr | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestExecuteLoadStoreRefined::test_combined_insert_then_execute_store_preserves_size_vaddr_data | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestExecuteLoadStoreRefined::test_execute_load_does_not_allocate | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestExecuteLoadStoreRefined::test_execute_load_preserves_dispatch_fields | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestExecuteLoadStoreRefined::test_execute_load_writes_vaddr_size_to_entry | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestExecuteLoadStoreRefined::test_execute_store_does_not_allocate | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestExecuteLoadStoreRefined::test_execute_store_writes_vaddr_size_data_to_entry | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestExecuteStore::test_exec_store_sets_pending | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestInsertLoadStore::test_insert_load_populates_dispatch_fields | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestInsertLoadStore::test_insert_load_returns_one_second | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestInsertLoadStore::test_insert_load_returns_zero_first | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestInsertLoadStore::test_insert_load_tid_partition | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestInsertLoadStore::test_insert_store_populates_dispatch_fields | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestInsertLoadStore::test_insert_store_returns_zero_first | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestInterfaces::test_external_callee_ports_exist | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestInterfaces::test_external_caller_ports_exist | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestInterfaces::test_stale_interfaces_removed | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestLLSCWiring::test_clear_reservation_callee_ifc_exists_on_sq_store | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestLLSCWiring::test_ll_sc_clear_reservation_wired_in_parent | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestMultiThread::test_construct_accepts_max_threads_param | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestMultiThread::test_default_max_threads_is_one_backward_compat | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestMultiThread::test_exec_load_tid0_allocates_in_partition0 | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestMultiThread::test_exec_load_tid1_allocates_in_partition1 | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestMultiThread::test_free_lq_entries_per_thread | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestMultiThread::test_free_sq_entries_per_thread | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestMultiThread::test_squash_tid0_does_not_invalidate_tid1 | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestMultiThread::test_state_lq_alloc_is_per_thread_array | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestMultiThread::test_state_sq_alloc_is_per_thread_array | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestMultiThread::test_subblocks_get_max_threads | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestN1IssueStoreWiring::test_check_inst_returns_3_tuple | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestN1IssueStoreWiring::test_check_inst_returns_ssid_after_violation_only | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestN1IssueStoreWiring::test_check_inst_returns_valid_after_store_dispatch | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestN1IssueStoreWiring::test_end_to_end_dependent_loads_setup_via_n1 | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestN1IssueStoreWiring::test_insert_store_stores_ssid_on_sq_entry | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestN1IssueStoreWiring::test_populate_lfst_fires_at_dispatch | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestN1IssueStoreWiring::test_populate_lfst_fires_for_non_spec_then_clear_lfst_at_translation | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestN1IssueStoreWiring::test_populate_lfst_fires_once_at_dispatch | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestN1IssueStoreWiring::test_sq_entry_has_ssid_field | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestN2DecodeInfoAtInsert::test_execute_load_no_longer_takes_size_or_is_lr | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestN2DecodeInfoAtInsert::test_execute_store_no_longer_takes_size | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestN2DecodeInfoAtInsert::test_insert_load_mem_size_defaults_to_zero | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestN2DecodeInfoAtInsert::test_insert_load_takes_mem_size_and_is_lr | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestN2DecodeInfoAtInsert::test_insert_store_is_sc_defaults_to_false | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestN2DecodeInfoAtInsert::test_insert_store_takes_mem_size_and_is_sc | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestN2DecodeInfoAtInsert::test_sc_fast_complete_path_via_parent | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestNonSpeculativeHandling::test_fence_complete_callee_ifc_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestNonSpeculativeHandling::test_insert_store_non_atomic_has_non_spec_false | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestNonSpeculativeHandling::test_is_load_barred_blocks_younger_loads | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestNonSpeculativeHandling::test_is_load_barred_false_when_no_barriers | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestNonSpeculativeHandling::test_is_store_barred_blocks_younger_stores | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestNonSpeculativeHandling::test_is_store_barred_false_when_no_barriers | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestNonSpeculativeHandling::test_load_execute_stalled_by_barrier | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestNonSpeculativeHandling::test_load_execute_unblocks_after_fence_complete | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestNonSpeculativeHandling::test_nonSpecInstReady_callee_ifc_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestNonSpeculativeHandling::test_nonSpecInstReady_clears_sq_non_spec | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestNonSpeculativeHandling::test_store_execute_stalled_by_barrier | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestNonSpeculativeHandling::test_store_execute_unblocks_after_fence_complete | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestParentDcacheResp::test_dcache_resp_lq_tag_forwards_to_lq_core | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestParentDcacheResp::test_dcache_resp_sq_frag0_tag_calls_store_complete | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestParentDcacheResp::test_dcache_resp_sq_frag1_tag_calls_store_complete_is_frag1 | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestParentDcacheResp::test_dcache_resp_sq_tag_reads_tid_from_sq_entry | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestParentDcacheResp::test_parent_dcache_resp_callee_ifc_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestPerPortExecuteArrays::test_execute_load_rdy_false_when_all_slots_full | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestPerPortExecuteArrays::test_execute_load_rdy_when_all_slots_free | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestPerPortExecuteArrays::test_existing_single_load_still_works | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestPerPortExecuteArrays::test_fence_barred_load_retries_next_cycle | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestPerPortExecuteArrays::test_first_free_slot_reused_after_tick | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestPerPortExecuteArrays::test_load_ports_capacity | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestPerPortExecuteArrays::test_load_slot_dict_fields | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestPerPortExecuteArrays::test_multiple_loads_accepted_per_cycle | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestPerPortExecuteArrays::test_multiple_stores_accepted_per_cycle | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestPerPortExecuteArrays::test_squashed_bypass_multiple_ports | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestReset::test_after_reset_alloc_zero | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestReset::test_after_reset_no_pending | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSplitAccess::test_split_field_exists_on_lq | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSplitAccess::test_split_field_exists_on_sq | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSplitFragmentCompletion::test_both_frags_complete_marks_eff_addr_valid | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSplitFragmentCompletion::test_frag0_translate_sets_frag0_valid_only | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSplitFragmentCompletion::test_frag1_then_frag0_also_completes | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSplitFragmentCompletion::test_frag1_translate_sets_frag1_valid_only | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSplitStore::test_non_split_store_has_none_split | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSplitStore::test_split_store_both_frags_complete | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSplitStore::test_split_store_crossing_page_boundary | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSplitStore::test_split_store_issues_two_dtlb_requests | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSplitUnaligned::test_non_split_load_has_none_split | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSplitUnaligned::test_non_split_load_issues_single_dtlb_request | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSplitUnaligned::test_split_field_exists_on_lq_entry | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSplitUnaligned::test_split_load_crossing_page_boundary | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSplitUnaligned::test_split_load_issues_two_dtlb_requests | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSquashHandling::test_ic_squash_callee_ifc_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSquashHandling::test_squash_complete_caller_ifc_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSquashHandling::test_squash_complete_pulses | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSquashHandling::test_squash_invalidates_lq_entries | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSquashedBypass::test_squashed_load_bypass | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSquashedBypass::test_squashed_load_does_not_set_eff_addr_valid | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSquashedBypass::test_squashed_load_entry_freed_by_squash_walk | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSquashedBypass::test_squashed_store_bypass | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSquashedBypass::test_squashed_store_does_not_set_canWB | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestStatusSignalsM2::test_ldstq_count_after_insert_load | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestStatusSignalsM2::test_ldstq_count_after_insert_store | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestStatusSignalsM2::test_ldstq_count_combined | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestStatusSignalsM2::test_ldstq_count_decreases_on_commit | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestStatusSignalsM2::test_ldstq_count_zero_after_reset | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestStatusSignalsM2::test_update_next_cycle_false_after_reset | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestStatusSignalsM2::test_update_next_cycle_false_when_no_store_popped | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestStatusSignalsM2::test_update_next_cycle_true_when_store_popped | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestStoreCommit::test_commit_stores_forwards_to_sq_store | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestStoreSetIntegration::test_insert_load_calls_check_inst | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestStoreSetIntegration::test_store_set_subblock_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestStoreSetIntegration::test_violation_trains_store_set | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSubBlocks::test_dtlb_probe_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSubBlocks::test_lq_core_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestSubBlocks::test_sq_store_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestTLBI::test_tlbi_inv_callee_ifc_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestTLBI::test_tlbi_sync_comp_caller_ifc_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestTLBISyncComp::test_tlbi_sync_comp_fires_after_tlbi_inv_resolves | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestTranslationFault::test_no_fault_load_proceeds_normally | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestTranslationFault::test_translation_fault_load_completes_with_fault | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestTranslationFault::test_translation_fault_load_no_dcache_req | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestTranslationFault::test_translation_fault_store_completes_with_fault | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestTwoStageStoreWriteback::test_commit_stores_sets_canwb | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestTwoStageStoreWriteback::test_parent_sq_commit_wired_to_commit_stores | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestTwoStageStoreWriteback::test_store_writeback_not_directly_called | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestTwoStageStoreWriteback::test_two_stage_pipeline_commit_then_writeback | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestVaddrPropagation::test_execute_load_passes_vaddr_to_lq_insert | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestVaddrPropagation::test_execute_store_passes_vaddr_to_sq_insert | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestViolationAckParent::test_violation_ack_exists_on_parent | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestViolationAckParent::test_violation_ack_forwards_to_lq_core | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestWiringIntegration::test_execute_load_activates_dtlb_probe_in_flight | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestWiringIntegration::test_execute_load_inserts_into_lq_via_wiring | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestWiringIntegration::test_execute_store_activates_dtlb_probe_in_flight | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestWiringIntegration::test_execute_store_inserts_into_sq_via_wiring | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestWiringIntegration::test_lsq_execute_resp_delivered_with_separate_args | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestWiringIntegration::test_store_set_violation_delivered_with_separate_args | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestWiringIntegration::test_violation_signal_aliased_to_lq_core | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl.TestWiringIntegration::test_violation_signal_delivered_with_separate_args | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033.TestExecuteLoadAcceptsClusterArgs::test_execute_load_accepts_cluster_id_kwarg | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033.TestExecuteLoadAcceptsClusterArgs::test_execute_load_defaults_cluster_args_to_zero | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033.TestExecuteLoadAcceptsClusterArgs::test_execute_load_writes_cluster_id_to_lq_entry | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033.TestFuRealCompletePort::test_fu_real_complete_caller_ifc_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033.TestFuRealCompletePort::test_fu_real_complete_is_callable | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033.TestNormalLDACompletionFiresFuRealComplete::test_normal_lda_fires_fu_real_complete_on_dcache_resp | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033.TestNormalLDACompletionFiresFuRealComplete::test_normal_lda_no_fu_real_complete_before_dcache_resp | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033.TestSquashedLDAFastPathQ13::test_squashed_lda_does_not_wait_for_dcache | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033.TestSquashedLDAFastPathQ13::test_squashed_lda_fires_fu_real_complete_immediately | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033.TestSquashedLDAFastPathQ13::test_squashed_lda_no_duplicate_fu_real_complete_at_completion | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033.TestTranslationFaultLDAFiresFuRealComplete::test_translation_fault_lda_fires_fu_real_complete | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_l1_hit_cancel_l2.TestLSQParentL1HitCancelsL2::test_l1_hit_does_not_push_to_l2_shift_register | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_l1_hit_cancel_l2.TestLSQParentL1HitCancelsL2::test_l1_miss_pushes_to_l2_shift_register | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_l1_miss_nack.TestLSQParentL1MissFiresNack::test_l1_hit_does_not_fire_fu_nack | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_l1_miss_nack.TestLSQParentL1MissFiresNack::test_l1_miss_fires_fu_nack | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_l1_miss_nack.TestLSQParentL1MissFiresNack::test_translation_fault_does_not_fire_fu_nack | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_l1_push.TestLSQParentExecuteLoadPushesToL1ShiftRegister::test_execute_load_pushes_cluster_id_and_iq_local_id | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_l1_push.TestLSQParentExecuteLoadPushesToL1ShiftRegister::test_predicated_execute_load_does_not_push | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_l1_push.TestLSQParentExecuteLoadPushesToL1ShiftRegister::test_squashed_execute_load_does_not_push | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_l1_push.TestLSQParentL1ShiftRegisterParamForwarding::test_lsq_parent_accepts_l1_hit_lat_kwarg | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_l1_push.TestLSQParentL1ShiftRegisterParamForwarding::test_lsq_parent_accepts_l2_hit_lat_kwarg | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_l1_push.TestLSQParentL1ShiftRegisterParamForwarding::test_lsq_parent_default_l1_hit_lat_matches_params | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_l1_push.TestLSQParentL1ShiftRegisterPopFires::test_pop_fires_fu_early_complete_with_pushed_payload | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_l2_push.TestLSQParentL2ShiftRegisterPopFires::test_pop_fires_fu_early_complete_with_pushed_payload | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_l2_push.TestLSQParentTranslateResultPushesL2::test_translate_result_pushes_to_l2_shift_register | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_l2_push.TestLSQParentTranslateResultPushesL2::test_translation_fault_does_not_push_to_l2 | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_primary.TestNormalLDACompletionFiresSbSetReg::test_normal_lda_fires_sb_setreg_on_dcache_resp | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_primary.TestNormalLDACompletionFiresSbSetReg::test_normal_lda_no_sb_setreg_before_dcache_resp | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_primary.TestSbSetRegInterface::test_sb_setreg_caller_ifc_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_primary.TestSbSetRegInterface::test_sb_setreg_is_callable | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_primary.TestSquashedLDAFastPathSuppressesSbSetReg::test_squashed_lda_does_not_fire_sb_setreg | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_primary.TestSquashedLDAFastPathSuppressesSbSetReg::test_squashed_lda_still_fires_fu_real_complete | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_primary.TestTranslationFaultLDAFiresSbSetReg::test_translation_fault_lda_fires_sb_setreg | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_speculation.TestSpeculationInterface::test_fu_early_complete_alias_shares_lq_core_object | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_speculation.TestSpeculationInterface::test_fu_early_complete_is_callable | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_speculation.TestSpeculationInterface::test_fu_early_complete_port_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_speculation.TestSpeculationInterface::test_fu_nack_alias_shares_lq_core_object | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_speculation.TestSpeculationInterface::test_fu_nack_is_callable | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_speculation.TestSpeculationInterface::test_fu_nack_port_exists | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL1::test_squash_clears_l1_shift_reg_slot_silent_pop | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL1::test_squash_fires_fu_early_complete_for_l1_pending | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL2::test_squash_clears_l2_shift_reg_slot_silent_pop | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL2::test_squash_fires_fu_early_complete_for_l2_pending | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckNegativeCases::test_squash_walks_only_matching_seqnum | block-LSQParent | PASS | - | 0 |
+| test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckNegativeCases::test_squash_with_empty_shift_regs_does_not_fire | block-LSQParent | PASS | - | 0 |
+| test_o3_control_cl.TestBackwardBusPropagation::test_backward_ctrl_in_forwards_to_commit | block-O3Control | PASS | - | 0 |
+| test_o3_control_cl.TestBackwardBusPropagation::test_rename_to_iew_accessible | block-O3Control | PASS | - | 0 |
+| test_o3_control_cl.TestBackwardBusPropagation::test_rob_empty_reaches_rename | block-O3Control | PASS | - | 0 |
+| test_o3_control_cl.TestBackwardBusPropagation::test_squash_reaches_rename | block-O3Control | PASS | - | 0 |
+| test_o3_control_cl.TestBackwardBusPropagation::test_squash_seqnum_reaches_rename | block-O3Control | PASS | - | 0 |
+| test_o3_control_cl.TestConstructionAndReset::test_commit_reset_running | block-O3Control | PASS | - | 0 |
+| test_o3_control_cl.TestConstructionAndReset::test_exported_interfaces_exist | block-O3Control | PASS | - | 0 |
+| test_o3_control_cl.TestConstructionAndReset::test_nested_sub_blocks_exist | block-O3Control | PASS | - | 0 |
+| test_o3_control_cl.TestConstructionAndReset::test_rename_reset_idle | block-O3Control | PASS | - | 0 |
+| test_o3_control_cl.TestConstructionAndReset::test_rob_reset_empty | block-O3Control | PASS | - | 0 |
+| test_o3_control_cl.TestConstructionAndReset::test_sub_blocks_exist | block-O3Control | PASS | - | 0 |
+| test_o3_control_cl.TestEndToEndRenameCommit::test_decode_from_forwards_to_rename | block-O3Control | PASS | - | 0 |
+| test_o3_control_cl.TestEndToEndRenameCommit::test_rob_commit_connection_exists | block-O3Control | PASS | - | 0 |
+| test_o3_control_cl.TestEndToEndRenameCommit::test_rob_insert_via_rename | block-O3Control | PASS | - | 0 |
+| test_o3_control_cl.TestSquashRecovery::test_fip_write_connection | block-O3Control | PASS | - | 0 |
+| test_o3_control_cl.TestSquashRecovery::test_iew_squash_sets_commit_rob_squashing | block-O3Control | PASS | - | 0 |
+| test_o3_control_cl.TestSquashRecovery::test_iew_squash_sets_commit_squash | block-O3Control | PASS | - | 0 |
+| test_o3_control_cl.TestSquashRecovery::test_squash_walk_bridge_initiated | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestBackwardBus::test_backward_ctrl_in_merges_to_output | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestBackwardBus::test_free_rob_entries_on_backward_bus | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestBackwardBus::test_rob_empty_on_backward_bus | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestCommitFlow::test_commit_frees_phys_reg | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestCommitFlow::test_commit_retires_instruction | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestCommitFlow::test_done_seqnum_on_backward_bus | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestFIPWrite::test_fip_write_connection_active | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestFIPWrite::test_fip_write_reaches_commit | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestFaultTrap::test_fault_sets_trap_pending | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestFaultTrap::test_trap_triggers_cpu_trap_call | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestNonSpeculative::test_non_spec_broadcasts_seqnum | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestNonSpeculative::test_non_spec_clears_can_commit | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestROBInsert::test_multi_inst_insert | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestROBInsert::test_rename_inserts_into_rob | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestRenamePipeline::test_multi_inst_rename_bundle | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestRenamePipeline::test_nop_renamed_to_iew_output | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestRenamePipeline::test_rename_advances_running_state | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestRenamePipeline::test_rename_to_iew_receives_output | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestSMT::test_two_thread_rename | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestSerializeBlock::test_block_signal_affects_rename | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestSerializeBlock::test_serialize_before_stall | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestSquashFlow::test_iew_squash_reaches_commit | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestSquashFlow::test_iew_squash_sets_bc_rename_squash | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestSquashFlow::test_squash_reaches_rename_via_backward_bus | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestSquashFlow::test_squash_walk_bridge_activated | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestSquashFlow::test_squash_with_instructions_in_flight | block-O3Control | PASS | - | 0 |
+| test_o3_control_e2e.TestWBUpdate::test_wb_sets_completed | block-O3Control | PASS | - | 0 |
+| test_phys_reg_file_cl.TestCCClassOmission::test_cc_class_omitted_when_zero | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestCCClassOmission::test_cc_class_present_when_nonzero | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestCCClassOmission::test_cc_read_returns_zero_when_omitted | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestDuplicateIndexAssertion::test_duplicate_index_different_classes_ok | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestDuplicateIndexAssertion::test_duplicate_index_same_class_raises | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestPerClassWritePortsParams::test_params_per_class_writeports | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestPerClassWritePortsParams::test_write_ports_match_constructed_methods | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestPhysRegFileInterfaceDataclasses::test_read_req_dataclass | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestPhysRegFileInterfaceDataclasses::test_read_resp_dataclass | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestPhysRegFileInterfaceDataclasses::test_read_resp_default_ready_asserted | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestPhysRegFileInterfaceDataclasses::test_write_port_dataclass_default | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestPhysRegFileInterfaceDataclasses::test_write_port_dataclass_set_fields | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestPhysRegIdAndClassEnum::test_physreg_id_class_index_roundtrip | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestPhysRegIdAndClassEnum::test_reg_class_enum_encoding | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestReadRegCombinational::test_read_each_class_returns_zero_after_reset | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestReadRegCombinational::test_read_reg_rdy_permanently_asserted | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestReadRegCombinational::test_read_returns_zero_after_reset | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestResetClearsPending::test_reset_clears_pending | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestResetClearsPending::test_reset_clears_pending_each_class | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestTiming::test_chained_writes_each_cycle | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestTiming::test_read_latency_zero_cycles | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestTiming::test_write_latency_one_cycle | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestWriteRegAndCommit::test_multi_port_write_same_cycle | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestWriteRegAndCommit::test_overwrite_via_two_writes | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestWriteRegAndCommit::test_per_class_isolation | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestWriteRegAndCommit::test_write_to_each_class | block-PhysRegFile | PASS | - | 0 |
+| test_phys_reg_file_cl.TestWriteRegAndCommit::test_write_visible_next_cycle_not_same_cycle | block-PhysRegFile | PASS | - | 0 |
+| test_rob_cl.TestClearCanCommit::test_clear_can_commit | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestClearCanCommit::test_clear_then_wb_reasserts | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestConstructionAndReset::test_max_entries_dynamic | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestConstructionAndReset::test_max_entries_partitioned | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestConstructionAndReset::test_reset_done_squashing_true | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestConstructionAndReset::test_reset_head_tail_count_zero | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestConstructionAndReset::test_reset_rob_status_idle | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestConstructionAndReset::test_reset_youngest_seqnum_zero | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestFSM::test_idle_to_running | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestFSM::test_running_to_squashing | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestFSM::test_squashing_to_running | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestFindBySeqNum::test_find_existing | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestFindBySeqNum::test_find_not_found | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestFreeEntryQuery::test_free_entries | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestFreeEntryQuery::test_is_empty | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestFreeEntryQuery::test_is_full | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestHeadRead::test_head_read_empty | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestHeadRead::test_head_read_returns_oldest | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestHeadRead::test_head_ready_reflects_can_commit | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestInsert::test_insert_ack_combinational | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestInsert::test_insert_updates_youngest_seqnum | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestInsert::test_insert_when_full | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestInsert::test_multi_slot_insert | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestInsert::test_single_insert | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestLayerSeparation::test_next_rob_entries_not_aliased_to_state_after_tick | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestLayerSeparation::test_next_rob_entries_outer_list_independent | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestRetire::test_retire_count_actual | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestRetire::test_retire_multiple | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestRetire::test_retire_single | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestRetire::test_retire_squashed_drains | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSMTArbitration::test_dynamic_multi_thread | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSMTArbitration::test_partitioned_capacity | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquash::test_squash_done_signal | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquash::test_squash_empty_fast_path | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquash::test_squash_marks_entries | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquash::test_squash_new_request_restarts | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquash::test_squash_no_head_tail_count_change | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquash::test_squash_updates_youngest_seqnum | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquash::test_thread_exiting_override | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquash::test_youngest_seqnum_squash_overrides_insert | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquashRecoveryWalk::test_cmt_fip_full_stall | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquashRecoveryWalk::test_walk_abort | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquashRecoveryWalk::test_walk_done_with_last_beat | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquashRecoveryWalk::test_walk_fields | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquashRecoveryWalk::test_walk_youngest_to_oldest | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_ckpt_metadata_save_restore | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_ckpt_restore_falls_back_to_head_ptr | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_ckpt_save_reset_to_zero | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_insert_stores_allocated_new | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_squash_walk_abort_superseding | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_squash_walk_cmt_fip_full_stalls_phase3_only | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_squash_walk_empty_rob_fast_path | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_squash_walk_phase2_replay | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_squash_walk_phase3_free | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_squash_walk_simultaneous | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestWBUpdate::test_wb_discarded_if_squashed | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestWBUpdate::test_wb_fault_stored | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestWBUpdate::test_wb_set_can_commit | block-ROB | PASS | - | 0 |
+| test_rob_cl.TestWBUpdate::test_wb_set_completed | block-ROB | PASS | - | 0 |
+| test_read_operand_cl.TestFromIQ::test_fromiq_rdy_false_when_pending | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestFromIQ::test_fromiq_rdy_when_empty | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestFromIQ::test_fromiq_stores_request | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestIcDrainHandling::test_ic_drain_port_exists | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestIcDrainHandling::test_ic_drain_reset_clears_state | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestIcDrainHandling::test_ic_drain_skips_slot_for_drained_thread | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestInterfaces::test_csr_read_port_exists | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestInterfaces::test_direct_complete_port_exists | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestInterfaces::test_fromiq_port_exists | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestInterfaces::test_fu_operand_port_exists | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestInterfaces::test_ic_drain_port_exists | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestInterfaces::test_rf_read_port_exists | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestInterfaces::test_ro_inst_issued_port_exists | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestLSQExecuteRespBundleADR0033::test_create_load_factory_accepts_cluster_id_iq_local_id | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestLSQExecuteRespBundleADR0033::test_lsq_execute_resp_has_cluster_id_field | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestLSQExecuteRespBundleADR0033::test_lsq_execute_resp_has_iq_local_id_field | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestLSQExecuteRespBundleADR0033::test_lsq_execute_resp_to_fu_complete_bundle_forwards_cluster_id | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestLSQExecuteRespBundleADR0033::test_lsq_execute_resp_to_fu_complete_bundle_forwards_iq_local_id | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestNoNeedFUShortCircuit::test_no_need_fu_calls_direct_complete | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestNoNeedFUShortCircuit::test_no_need_fu_calls_ro_inst_issued | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestNoNeedFUShortCircuit::test_no_need_fu_check_before_fault | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestNoNeedFUShortCircuit::test_no_need_fu_check_before_predicate_false | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestNoNeedFUShortCircuit::test_no_need_fu_skips_fupool | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestPreExecFaultShortCircuit::test_no_fault_proceeds_to_fupool | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestPreExecFaultShortCircuit::test_nonmem_fault_calls_direct_complete | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestPreExecFaultShortCircuit::test_nonmem_fault_calls_ro_inst_issued | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestPreExecFaultShortCircuit::test_nonmem_fault_skips_fupool | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestPredicateFalseShortCircuit::test_predicate_false_calls_direct_complete | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestPredicateFalseShortCircuit::test_predicate_false_calls_ro_inst_issued | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestPredicateFalseShortCircuit::test_predicate_false_skips_fupool | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestPredicateFalseShortCircuit::test_predicate_true_proceeds_to_fupool | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestProcessing::test_no_handoff_without_fromiq | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestProcessing::test_process_clears_state_after_tick | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestROInstIssuedProducer::test_ro_inst_issued_called_for_squashed | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestROInstIssuedProducer::test_ro_inst_issued_called_with_seqnum_and_tid | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestReset::test_after_reset_drain_state_cleared | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestReset::test_after_resetpending_fromiq_is_none | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestReset::test_after_resetstate_fromiq_is_none | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestRfReadWiring::test_rfread_called_for_each_source_operand | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestSquashedBypass::test_squashed_still_handed_off | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestWBInfoADR0033ClusterRouting::test_direct_complete_bundle_carries_cluster_id_iq_local_id | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestWBInfoADR0033ClusterRouting::test_read_operand_populates_cluster_id_default_when_absent | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestWBInfoADR0033ClusterRouting::test_read_operand_populates_cluster_id_from_inst | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestWBInfoADR0033ClusterRouting::test_read_operand_populates_iq_local_id_from_inst | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestWBInfoADR0033ClusterRouting::test_wbinfo_has_cluster_id_field | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestWBInfoADR0033ClusterRouting::test_wbinfo_has_iq_local_id_field | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestWBInfoExtraction::test_fu_operand_req_carries_wbinfo | block-ReadOperand | PASS | - | 0 |
+| test_read_operand_cl.TestWBInfoExtraction::test_wbinfo_dest_phys_reg_defaults_to_zero | block-ReadOperand | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestDirectComplete::test_direct_complete_called_for_fault | block-ReadOperandInt | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestHandoff::test_fu_operand_called_after_read | block-ReadOperandInt | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestHandoff::test_squashed_still_handed_off | block-ReadOperandInt | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestOperandRead::test_rf_read_called_for_sources | block-ReadOperandInt | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestReceiveIssue::test_fromiq_rdy_when_not_full | block-ReadOperandInt | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestReceiveIssue::test_fromiq_stores_request | block-ReadOperandInt | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestWBInfoConstruction::test_wbinfo_has_dest_phys_reg | block-ReadOperandInt | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryCalledPerSourceReg::test_bypass_query_called_for_each_source | block-ReadOperandInt | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryHitUsesBypassValue::test_bypass_query_hit_uses_bypass_value | block-ReadOperandInt | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryHitUsesBypassValue::test_bypass_query_miss_uses_rf_read_value | block-ReadOperandInt | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_caller_ifc_exists | block-ReadOperandInt | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_is_callable | block-ReadOperandInt | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryPrecedence::test_bypass_query_hit_suppresses_rf_read | block-ReadOperandInt | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryPrecedence::test_bypass_query_partial_hit_suppresses_only_hit_sources | block-ReadOperandInt | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTALDARouting::test_lda_calls_fu_operand | block-ReadOperandMem | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTALDARouting::test_none_uop_calls_fu_operand | block-ReadOperandMem | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTALDARouting::test_sta_calls_fu_operand | block-ReadOperandMem | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTDRouting::test_std_calls_lsq_execute_store_data | block-ReadOperandMem | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTDRouting::test_std_does_not_call_fu_operand | block-ReadOperandMem | PASS | - | 0 |
+| src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTDRouting::test_std_passes_inst_list_idx_zero | block-ReadOperandMem | PASS | - | 0 |
+| test_free_list_cl.TestAllocFreeSameCycle::test_alloc_does_not_see_same_cycle_free | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestAllocation::test_alloc_advances_head | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestAllocation::test_alloc_from_empty_class | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestAllocation::test_multi_slot_alloc_same_class | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestAllocation::test_per_class_isolation | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestAllocation::test_single_alloc | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestBugFixes::test_alloc_empty_class_returns_invalid | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestBugFixes::test_count_single_write_alloc_and_free_same_cycle | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestBugFixes::test_free_pushes_to_correct_class | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestCapacitySignals::test_empty_flag_after_draining_class | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestCapacitySignals::test_empty_flag_false_when_class_has_regs | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestCapacitySignals::test_empty_flag_when_class_empty | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestConstructionAndReset::test_reset_count_matches_phys_regs | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestConstructionAndReset::test_reset_head_tail | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestConstructionAndReset::test_reset_loads_all_phys_regs | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestReclamation::test_free_cc_class_is_noop | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestReclamation::test_free_then_alloc_fifo_order | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestReclamation::test_single_free | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestSameCycleMultiAlloc::test_alloc_more_than_available | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestSameCycleMultiAlloc::test_circular_buffer_wraparound | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestSameCycleMultiAlloc::test_circular_buffer_wrapping | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestSameCycleMultiAlloc::test_mixed_class_multi_alloc | block-Rename | PASS | - | 0 |
+| test_free_list_cl.TestSameCycleMultiAlloc::test_multiple_allocs_in_order | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestADR0005CheckpointSaveTrigger::test_cond_branch_high_confidence_skips_save | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestADR0005CheckpointSaveTrigger::test_cond_branch_triggers_checkpoint_save | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestADR0005CheckpointSaveTrigger::test_indirect_branch_triggers_checkpoint_save | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestADR0005CheckpointSaveTrigger::test_interval_counter_increments_on_rename | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestADR0005CheckpointState::test_branch_confidence_high_default_false | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestADR0005CheckpointState::test_ckpt_state_reset | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestADR0005ForwardReplay::test_allocated_new_false_skips_fip_write | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestADR0005ForwardReplay::test_phase3_walk_triggers_fip_write | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestADR0005SquashRecovery::test_squash_exits_on_both_walks_done | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestADR0005SquashRecovery::test_walk_done_flags_reset_on_squash | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestBlockUnblock::test_block_on_iq_full | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestBlockUnblock::test_block_on_rob_full | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestBlockUnblock::test_unblock_when_resources_available | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestCombinationalOccupancyReadback::test_comb_occupancy_readback_default_true | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestCombinationalOccupancyReadback::test_comb_occupancy_readback_false | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestConstructionAndReset::test_rename_map_initialized | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestConstructionAndReset::test_reset_empty_queues | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestConstructionAndReset::test_reset_no_block_signals | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestConstructionAndReset::test_reset_status_idle | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestFIPBackPressure::test_fip_back_pressure_stalls_walk | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestFIPBackPressure::test_fip_clear_on_new_squash | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestFIPBackPressure::test_fip_full_reset_false | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestFIPBackPressure::test_fip_full_set_on_walk | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestMultiInstructionRename::test_intra_bundle_dependency | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestMultiInstructionRename::test_two_instructions_same_cycle | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestNormalRename::test_instruction_with_source_reg | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestNormalRename::test_nop_instruction | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestNormalRename::test_single_instruction_rename | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestShadowCounters::test_cached_state_reset | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestShadowCounters::test_shadow_counters_reset_zero | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestSkidBuffer::test_blocked_instruction_goes_to_skid | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestSquashRecovery::test_squash_clears_queues | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestSquashRecovery::test_squash_seqnum_captured | block-Rename | PASS | - | 0 |
+| test_rename_cl.TestSquashRecovery::test_squash_sets_squashing_state | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestCanRename::test_can_rename_fails_when_empty | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestCanRename::test_can_rename_when_free_regs_available | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestCheckpointRestore::test_restore_done_pulse | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestCheckpointRestore::test_restore_returns_to_saved_state | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestCheckpointRestoreCAMLookup::test_checkpoint_restore_cam_lookup | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestCheckpointRestoreCAMLookup::test_checkpoint_restore_invalidates_younger | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestCheckpointRestoreCAMLookup::test_checkpoint_restore_no_match | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestCheckpointSave::test_save_captures_spec_map | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestCheckpointSaveMetadata::test_checkpoint_save_done_pulse | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestCheckpointSaveMetadata::test_checkpoint_save_stores_metadata | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestCircularNextFreeAllocation::test_circular_next_free_slot_allocation | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestCommitSetEntry::test_commit_updates_arch_map_only | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestCommitSetEntry::test_non_commit_updates_spec_only | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestCommitSetReqOldPhysReg::test_commit_set_req_returns_old_phys_reg | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestConstructionAndReset::test_arch_map_initialized | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestConstructionAndReset::test_spec_arch_map_match_after_reset | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestConstructionAndReset::test_spec_map_initialized | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestForwardReplayPhase2::test_forward_replay_phase2_set_entry | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestIntraBundleBypass::test_inst1_source_sees_inst0_dest_rename | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestMiscReg::test_misc_reg_identity_mapping | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestMiscReg::test_misc_reg_rename_returns_identity | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestPinnedWrites::test_pin_count_zero_allocates_normally | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestPinnedWrites::test_pin_counter_not_decremented_in_cl | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestPinnedWrites::test_pinned_register_reuses_mapping | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestRenameBundle::test_basic_lookup | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestRenameBundle::test_basic_rename | block-Rename | PASS | - | 0 |
+| test_rename_map_cl.TestSetEntry::test_set_entry_updates_spec_map_only | block-Rename | PASS | - | 0 |
+| test_sq_store_cl.TestADR0019Ports::test_dcache_store_pa_req_caller_ifc_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestADR0019Ports::test_dcache_store_pa_req_fires_on_writeback | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestADR0019Ports::test_dcache_store_write_removed | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestBarrierFence::test_is_release_flag_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestBitFieldTagScheme::test_cfg_tag_n_field_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestBitFieldTagScheme::test_dcache_store_pa_req_includes_tag | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestBitFieldTagScheme::test_dcache_store_pa_req_tag_value_idx0 | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestBitFieldTagScheme::test_dcache_store_pa_req_tag_value_idx1 | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestCBOType::test_cbo_clean_writeback | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestCBOType::test_cbo_excluded_from_forwarding | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestCBOType::test_cbo_flush_writeback | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestCBOType::test_cbo_no_violation_scan_on_translated | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestCBOType::test_cbo_participates_in_tso | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestCBOType::test_cbo_two_stage_writeback_path | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestCBOType::test_cbo_type_field_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestCBOType::test_cbo_zero_writeback | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestCBOType::test_dcache_store_write_carries_cbo_type | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestCBOType::test_insert_accepts_cbo_type | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestCBOType::test_normal_store_cbo_type_zero | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestCacheMaintenance::test_cache_maintenance_flag_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestDependentsBroadcast::test_broadcast_fires_even_without_dependents_bits | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestDependentsBroadcast::test_broadcast_fires_on_executed_fsm_with_dependents | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestDependentsBroadcast::test_broadcast_one_shot_does_not_refire | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestDependentsBroadcast::test_broadcast_passes_sq_idx_and_bitvector | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestDependentsBroadcast::test_cfg_lq_size_param_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestDependentsBroadcast::test_default_cfg_lq_size_is_32 | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestDependentsBroadcast::test_dependents_broadcast_caller_ifc_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestDependentsBroadcast::test_insert_clears_dependents_and_broadcast_flag | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestDependentsBroadcast::test_sq_entry_has_dependents_broadcast_flag | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestDependentsBroadcast::test_sq_entry_has_dependents_field | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestFenceOrdering::test_has_stores_to_wb_false_after_drain | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestFenceOrdering::test_has_stores_to_wb_false_when_empty | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestFenceOrdering::test_has_stores_to_wb_true_when_stores_pending | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestFenceOrdering::test_normal_store_not_blocked_by_sq_head | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestFenceOrdering::test_release_store_blocked_while_a_in_flight | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestFenceOrdering::test_release_store_fires_after_batch_pop | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestFenceOrdering::test_sc_store_fires_after_batch_pop | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestFenceOrdering::test_state_stores_to_wb_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestForwardQuery::test_forward_full_coverage_hit | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestForwardQuery::test_forward_no_match | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestForwardQuery::test_forward_partial_coverage | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestForwardingCAMMatrix::test_atomic_store_no_forward | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestForwardingCAMMatrix::test_zero_fill_forward | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestInsert::test_insert_adds_entry | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestInsert::test_insert_advances_tail | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestInterfaces::test_callee_ports_exist | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestInterfaces::test_caller_ports_exist | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestM4PrefetchZeroSizeSkip::test_is_data_prefetch_field_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestM4PrefetchZeroSizeSkip::test_normal_store_still_sends_to_dcache | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestM4PrefetchZeroSizeSkip::test_prefetch_does_not_set_storeInFlight | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestM4PrefetchZeroSizeSkip::test_prefetch_store_skips_dcache | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestM4PrefetchZeroSizeSkip::test_zero_size_store_skips_dcache | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestM5StoreBackpressure::test_blocked_store_retries_same_packet | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestM5StoreBackpressure::test_isStoreBlocked_resets | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestM5StoreBackpressure::test_store_blocked_when_dcache_not_ready | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestM5StoreBackpressure::test_store_unblocks_when_dcache_ready | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestMultiThreadInsert::test_construct_accepts_max_threads_param | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestMultiThreadInsert::test_default_max_threads_is_one_backward_compat | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestMultiThreadInsert::test_insert_both_threads_independent | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestMultiThreadInsert::test_insert_tid0_uses_partition0 | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestMultiThreadInsert::test_insert_tid1_uses_partition1 | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestNonSpecFlag::test_insert_defaults_non_spec_false | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestNonSpecFlag::test_insert_sets_non_spec_true | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestNonSpecFlag::test_sq_entry_has_non_spec_field | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestNonSpecFlag::test_up_once_store_translated_proceeds_when_non_spec_cleared | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestNonSpecFlag::test_up_once_store_translated_proceeds_when_non_spec_false | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestNonSpecFlag::test_up_once_store_translated_skipped_when_non_spec | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestPartialForwardStallSeqnum::test_forward_query_returns_6_tuple_on_partial | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestPartialForwardStallSeqnum::test_forward_query_returns_zero_seqnum_on_full_hit | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestPartialForwardStallSeqnum::test_forward_query_returns_zero_seqnum_on_no_match | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestPerFragmentViolationCheck::test_split_store_triggers_violation_check_twice | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestReset::test_after_reset_all_empty | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestReset::test_after_reset_fsm_idle | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestReset::test_after_reset_head_tail_zero | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSCLR::test_reservation_registers_exist | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSCLR::test_sc_failure_completes_without_write | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSCLR::test_set_reservation_method_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSQStoreC3TLBI::test_has_stale_method_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSQStoreC3TLBI::test_sq_entry_has_stale_translation_field | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSQStoreC3TLBI::test_sq_entry_has_vaddr_field | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSQStoreC3TLBI::test_stale_store_triggers_translate_req | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSQStoreC3TLBI::test_tlbi_inv_callee_ifc_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSQStoreC3TLBI::test_tlbi_inv_marks_inflight_store_stale | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSQStoreC3TLBI::test_translate_req_caller_ifc_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSQStoreClearReservation::test_clear_reservation_callee_ifc_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSQStoreClearReservation::test_clear_reservation_clears_state | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSQStoreClearReservation::test_clear_reservation_mismatched_addr_no_clear | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSetPhysAddr::test_set_phys_addr_sets_eff_addr_valid | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSplitStoreNonForwardable::test_split_store_skipped_by_forward_query | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSplitStoreWriteback::test_split_store_completion_requires_both_acks | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSplitStoreWriteback::test_split_store_issues_two_dcache_reqs | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSplitStoreWriteback::test_split_store_marks_committed_on_writeback | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestSplitStoreWriteback::test_split_store_sets_storeInFlight_on_writeback | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestStoreCompleteBatchPop::test_batch_pop_multiple_consecutive_completed | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestStoreCompleteBatchPop::test_batch_pop_respects_writeback_width | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestStoreCompleteBatchPop::test_batch_pop_single_completed_entry | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestStoreCompleteBatchPop::test_batch_pop_stops_at_non_completed | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestStoreCompleteBatchPop::test_retire_store_removed | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestStoreCompleteBatchPop::test_store_complete_batch_pop_in_up_clear_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestStoreCompleteNotify::test_store_complete_fires_notify_with_head_seqnum | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestStoreCompleteNotify::test_store_complete_notify_caller_ifc_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestStoreCompleteSignature::test_completed_not_set_at_send_time | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestStoreCompleteSignature::test_split_store_complete_requires_both_acks | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestStoreCompleteSignature::test_split_store_pending_flags_only_after_both_acks | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestStoreCompleteSignature::test_store_complete_accepts_sq_idx_and_is_frag1 | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestStoreCompleteSignature::test_store_complete_sets_completed | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestStoreCompleteSignature::test_store_complete_sets_pending_flags_only_on_completion | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestStoreTranslatedContinuation::test_translated_to_executed | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestTwoStageWriteback::test_canwb_set_by_commit_stores | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestTwoStageWriteback::test_storeInFlight_register_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestTwoStageWriteback::test_storeWBIt_iterator_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestTwoStageWriteback::test_storesToWB_counter_exists | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestWritebackEngine::test_canWB_store_sent_to_dcache_autonomously | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestWritebackEngine::test_non_canWB_store_not_sent | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestWritebackEngine::test_storeInFlight_blocks_second_store | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestWritebackEngine::test_store_complete_allows_next_store | block-SQStore | PASS | - | 0 |
+| test_sq_store_cl.TestWritebackEngine::test_store_complete_clears_storeInFlight | block-SQStore | PASS | - | 0 |
+| test_scoreboard_cl.TestDesignParams::test_misc_base_after_renameable | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestDesignParams::test_num_phys_regs_total | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestIntraGroupRAW::test_earlier_unset_makes_getReg_return_0_same_cycle | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestIsAlwaysReady::test_misc_reg_always_ready_after_unset | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestIsAlwaysReady::test_misc_reg_getReg_returns_1 | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestIsAlwaysReady::test_misc_reg_setReg_no_op | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestLifecycle::test_squash_recovery_reverses_busy_to_ready | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestLifecycle::test_unset_then_set_lifecycle | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestMethodExistence::test_getReg_methods_exist_for_all_slots | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestMethodExistence::test_setRegSquash_methods_exist_for_all_slots | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestMethodExistence::test_setReg_methods_exist_for_all_slots | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestMethodExistence::test_unsetReg_methods_exist_for_all_slots | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestMultiSlotPositional::test_each_squash_slot_writes_unique_pending_entry | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestMultiSlotPositional::test_each_unset_slot_writes_unique_pending_entry | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestMultiSlotPositional::test_each_wb_slot_writes_unique_pending_entry | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestMultipleReads::test_multiple_getReg_calls_same_cycle | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestNoWBBypass::test_getReg_does_not_see_wb_set_same_cycle | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestPendingSizing::test_pending_sq_set_sized_to_squash_width_x_max_dest_regs | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestPendingSizing::test_pending_unset_sized_to_max_rename_width_x_max_dest_regs | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestPendingSizing::test_pending_wb_set_sized_to_wb_width_x_max_dest_regs | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestReset::test_after_reset_all_bits_ready | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestReset::test_reset_clears_all_pending | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestSbResetValid::test_sb_reset_clears_all_pending_buffers | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestSbResetValid::test_sb_reset_clears_pending_after_commit | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestSbResetValid::test_sb_reset_is_callee_ifc_cl | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestSbResetValid::test_sb_reset_rdy_always_true | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestSbResetValid::test_sb_reset_sets_pending_flag | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestSbResetValid::test_sb_reset_valid_sets_all_bits_to_1 | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestSetReg::test_set_visible_next_cycle | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestSetRegSquashBypass::test_squash_set_same_cycle_getReg_bypass | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestUnsetReg::test_unset_visible_next_cycle_not_same_cycle | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestWritePortPriority::test_squash_overrides_unset | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl.TestWritePortPriority::test_unset_overrides_wb | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestGetProducer::test_get_producer_bypass_overrides_stale_state | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestGetProducer::test_get_producer_global_id_zero_is_valid_when_not_ready | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestGetProducer::test_get_producer_returns_committed_value_when_not_ready | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestGetProducer::test_get_producer_returns_ready_after_reset | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestGetProducer::test_get_producer_same_cycle_bypass | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestInterfaceExistence::test_get_producer_port_exists | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestInterfaceExistence::test_set_producer_port_exists | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestPendingSetProducerBuffer::test_pending_cleared_after_tick | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestPendingSetProducerBuffer::test_pending_set_producer_exists | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestPendingSetProducerBuffer::test_set_producer_buffers_to_pending | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestProducerIdInit::test_state_producer_id_all_zero_after_reset | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestProducerIdInit::test_state_producer_id_exists | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestResetClearsProducerId::test_sb_reset_clears_producer_id | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestResetClearsProducerId::test_sim_reset_clears_producer_id | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestSetProducer::test_set_producer_not_visible_same_cycle | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestSetProducer::test_set_producer_overwrites_previous | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestSetProducer::test_set_producer_visible_next_cycle | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestSetRegClearsProducerId::test_set_reg_clears_producer_id | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestSetRegClearsProducerId::test_wb_set_req_clears_producer_id | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestSetRegSquashClearsProducerId::test_set_reg_squash_clears_producer_id | block-Scoreboard | PASS | - | 0 |
+| test_scoreboard_cl_adr0033.TestUnsetRegPreservesProducerId::test_unset_reg_preserves_producer_id | block-Scoreboard | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerBasic::test_alloc_returns_index | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerBasic::test_alloc_until_full | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerBasic::test_get_by_index | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerBasic::test_get_oldest_returns_head | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerBasic::test_is_full_and_empty | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerBasic::test_release_head_fifo | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerInsertAfter::test_insert_after_combined_with_alloc | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerInsertAfter::test_insert_after_empty_list | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerInsertAfter::test_insert_after_head_as_new_head | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerInsertAfter::test_insert_after_mid_list | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerInsertAfter::test_insert_after_no_capacity | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerInsertAfter::test_insert_after_preserves_other_thread | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerInsertAfter::test_insert_after_reserves_but_does_not_write | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerInsertAfter::test_insert_after_tail | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerMultiThread::test_multi_thread_isolation | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerMultiThread::test_thread_independent_heads | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerMultiThread::test_thread_reset_isolated | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerPendingAllocs::test_alloc_prevents_double_reservation | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerPendingAllocs::test_alloc_reserves_but_does_not_write | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerPendingAllocs::test_is_full_accounts_for_reserved | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerPendingAllocs::test_reset_clears_pending | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerPowerOfTwoConstraint::test_non_power_of_two_raises | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerPowerOfTwoConstraint::test_power_of_two_ok | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerReset::test_reset_clears_all | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerReset::test_reset_tid_none | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerSquash::test_squash_to_bulk | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerSquash::test_squash_to_head_keeps_all | block-StorageManager | PASS | - | 0 |
+| test_storage_manager.TestStorageManagerSquash::test_squash_to_invalid_anchor_asserts | block-StorageManager | PASS | - | 0 |
+| test_store_set_cl.TestCheckInst::test_check_inst_no_prediction_after_reset | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestCheckInst::test_check_inst_no_prediction_after_training_only | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestCheckInst::test_check_inst_returns_producer_after_training | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestClearCounter::test_ssit_cleared_at_threshold | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestPopulateLfst::test_populate_lfst_accumulates_multiple | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestPopulateLfst::test_populate_lfst_callee_ifc_exists | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestPopulateLfst::test_populate_lfst_updates_lfst | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestReset::test_clearcounter_zero_after_reset | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestReset::test_lfst_all_invalid_after_reset | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestReset::test_ssit_all_invalid_after_reset | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestReset::test_storelist_empty_after_reset | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestSquash::test_squash_callee_ifc_exists | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestSquash::test_squash_invalidates_lfst_when_no_survivors | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestSquash::test_squash_invalidates_younger_stores | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestSquash::test_squash_noop_when_no_younger_stores | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestViolation::test_violation_callee_ifc_exists | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestViolation::test_violation_increments_clear_counter | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestViolation::test_violation_sets_ssit_entries | block-StoreSet | PASS | - | 0 |
+| test_store_set_cl.TestViolation::test_violation_two_distinct_storesets | block-StoreSet | PASS | - | 0 |
+| test_integration_run_elf.TestIntegrationCheckpointRestore::test_bne_not_taken_no_squash | block-Testbench | PASS | - | 0 |
+| test_integration_run_elf.TestIntegrationCheckpointRestore::test_double_beq_lifo_invalidation | block-Testbench | PASS | - | 0 |
+| test_integration_run_elf.TestIntegrationCheckpointRestore::test_jal_then_beq_uses_correct_checkpoint | block-Testbench | PASS | - | 0 |
+| test_integration_run_elf.TestIntegrationCheckpointRestore::test_jal_triggers_checkpoint_save | block-Testbench | PASS | - | 0 |
+| test_integration_run_elf.TestIntegrationCheckpointRestore::test_taken_beq_mispredict_restores_checkpoint | block-Testbench | PASS | - | 0 |
+| test_integration_run_elf.TestIntegrationDebug::test_debug_bare_minimum_exit | block-Testbench | PASS | - | 0 |
+| test_integration_run_elf.TestIntegrationDebug::test_debug_single_nop_then_exit | block-Testbench | PASS | - | 0 |
+| test_integration_run_elf.TestIntegrationRunElf::test_run_elf_exit_nonzero | block-Testbench | PASS | - | 0 |
+| test_integration_run_elf.TestIntegrationRunElf::test_run_elf_exit_zero | block-Testbench | PASS | - | 0 |
+| test_integration_run_elf.TestIntegrationRunElf::test_run_elf_nops_then_exit | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestConfigurableLatency::test_mem_latency_2_delays_dcache_load_by_2_cycles | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestConfigurableLatency::test_tlb_latency_1_default_delays_response_by_1_cycle | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestConfigurableLatency::test_tlb_latency_2_delays_response_by_2_cycles | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestConstruction::test_constructs_with_exit_addr | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestConstruction::test_exposes_core_sub_component | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestConstruction::test_exposes_elf_entry | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestConstruction::test_exposes_exit_code | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestConstruction::test_exposes_halted_flag | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestConstruction::test_exposes_pages_memory_dict | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestDCacheLoadResponder::test_load_req_4byte_size | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestDCacheLoadResponder::test_load_req_returns_data_after_tick | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestDCacheStoreResponder::test_store_req_writes_to_memory_after_tick | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestDCacheStoreResponder::test_store_to_exit_addr_captures_exit_code | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestDCacheStoreResponder::test_store_to_exit_addr_does_not_write_memory | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestDCacheStoreResponder::test_store_to_exit_addr_halts_testbench | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestDCacheStoreResponder::test_store_to_exit_addr_still_acks_store | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestELFLoading::test_load_elf_multiple_segments | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestELFLoading::test_load_elf_populates_memory_from_pt_load_segment | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestELFLoading::test_load_elf_sets_elf_entry | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestICacheFetchResponder::test_icache_req_fault_for_address_outside_loaded_range | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestICacheFetchResponder::test_icache_req_fault_on_unloaded_address | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestICacheFetchResponder::test_icache_req_no_fault_for_loaded_range | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestICacheFetchResponder::test_icache_req_returns_instruction_data_after_tick | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestIdentityTLB::test_dtlb_req_returns_identity_paddr_after_one_tick | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestIdentityTLB::test_dtlb_resp_uses_identity_translation | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestInitialPC::test_cfg_initial_pc_sets_bac_pc | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestInitialPC::test_cfg_initial_pc_sets_commit_state_pc | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestInitialPC::test_get_pc_returns_cfg_initial_pc | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestPagedSparseMemory::test_load_elf_segment_populates_memory | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestPagedSparseMemory::test_load_elf_segment_zero_fills_bss | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestPagedSparseMemory::test_load_segment_spans_multiple_pages | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestPagedSparseMemory::test_read_uninitialized_page_allocates_page | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestPagedSparseMemory::test_read_uninitialized_page_returns_zero | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestPagedSparseMemory::test_write_byte_boundary | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestPagedSparseMemory::test_write_does_not_corrupt_adjacent_bytes | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestPagedSparseMemory::test_write_then_read_returns_value | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestPagedSparseMemory::test_write_to_uninitialized_page_allocates_page | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestRunElfFactory::test_run_elf_raises_timeout_when_no_exit_store | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestRunElfFactory::test_run_elf_returns_exit_code_on_halt | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestVAProbeCoordinator::test_va_probe_miss_when_no_pa_arrives | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestVAProbeCoordinator::test_va_probe_odd_cacheline_misses | block-Testbench | PASS | - | 0 |
+| test_o3_core_bare_metal_tb_cl.TestVAProbeCoordinator::test_va_probe_resp_fires_2_cycles_after_req | block-Testbench | PASS | - | 0 |
+| test_riscv_tests_isa::test_riscv_tests_smoke_add | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate] | block-Testbench | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate] | block-Testbench | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND] | block-Testbench | PASS | - | 10 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate] | block-Testbench | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-auipc:add upper immediate to PC] | block-Testbench | PASS | - | 4 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal] | block-Testbench | PASS | - | 10 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned] | block-Testbench | PASS | - | 10 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence] | block-Testbench | PASS | - | 14 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link] | block-Testbench | PASS | - | 4 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jalr:jump and link register] | block-Testbench | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte] | block-Testbench | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned] | block-Testbench | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double] | block-Testbench | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half] | block-Testbench | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned] | block-Testbench | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lui:load upper immediate] | block-Testbench | PASS | - | 4 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word] | block-Testbench | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned] | block-Testbench | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR] | block-Testbench | PASS | - | 10 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate] | block-Testbench | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte] | block-Testbench | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double] | block-Testbench | PASS | - | 8 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical] | block-Testbench | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate] | block-Testbench | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate] | block-Testbench | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned] | block-Testbench | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srai:shift right arithmetic immediate] | block-Testbench | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sraw:shift right arithmetic word] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical] | block-Testbench | PASS | - | 10 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate] | block-Testbench | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word] | block-Testbench | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR] | block-Testbench | PASS | - | 10 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate] | block-Testbench | PASS | - | 6 |
+| test_tlbi_controller_cl.TestEdgeCases::test_second_tlbi_req_after_first_completes | block-TlbiController | PASS | - | 0 |
+| test_tlbi_controller_cl.TestEdgeCases::test_sync_comp_before_inv_sent_ignored_or_buffered | block-TlbiController | PASS | - | 0 |
+| test_tlbi_controller_cl.TestIntegrationWithLSQ::test_integration_controller_with_lsq | block-TlbiController | PASS | - | 0 |
+| test_tlbi_controller_cl.TestInvSent::test_inv_sent_after_in_flight | block-TlbiController | PASS | - | 0 |
+| test_tlbi_controller_cl.TestMultipleTids::test_multiple_tids_independent | block-TlbiController | PASS | - | 0 |
+| test_tlbi_controller_cl.TestTlbiComplete::test_no_spurious_complete_without_sync_comp | block-TlbiController | PASS | - | 0 |
+| test_tlbi_controller_cl.TestTlbiComplete::test_state_cleared_after_complete | block-TlbiController | PASS | - | 0 |
+| test_tlbi_controller_cl.TestTlbiComplete::test_tlbi_complete_after_sync_comp | block-TlbiController | PASS | - | 0 |
+| test_tlbi_controller_cl.TestTlbiReq::test_tlbi_req_committed_in_update_ff | block-TlbiController | PASS | - | 0 |
+| test_tlbi_controller_cl.TestTlbiReq::test_tlbi_req_does_not_fire_immediately | block-TlbiController | PASS | - | 0 |
+| test_tlbi_controller_cl.TestTlbiReq::test_tlbi_req_sets_pending | block-TlbiController | PASS | - | 0 |
+| test_write_back_cl.TestBranchForwarding::test_mispredict_calls_wb_mispredict | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestBranchForwarding::test_no_mispredict_no_call | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestBranchForwarding::test_squashed_mispredict_not_forwarded | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestCSRWrite::test_csr_write_called_when_csr_write_valid_true | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestCSRWrite::test_csr_write_skipped_when_csr_write_valid_false | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestCSRWrite::test_squashed_csr_write_skipped | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestCSRWrite::test_wb_csr_write_port_exists | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestDecrWbOutstanding::test_normal_completion_ignores_decr_wb_outstanding | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestDirectComplete::test_direct_complete_buffers_completion | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestDirectComplete::test_direct_complete_calls_rf_write | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestDirectComplete::test_direct_complete_decrements_counter | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestDirectComplete::test_direct_complete_marks_slot_processed | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestDirectComplete::test_direct_complete_port_exists | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestDirectComplete::test_direct_complete_squashed_skips_rf_write | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestFaultForwarding::test_fault_calls_wb_fault | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestFaultForwarding::test_no_fault_no_call | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestFuComplete::test_fu_complete_buffers_into_pending | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestFuComplete::test_multiple_completions_buffered | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestFuCompleteBundle::test_bundle_construct_with_wbinfo | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestFuCompleteBundle::test_bundle_has_branch_fields | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestFuCompleteBundle::test_bundle_has_fault_fields | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestFuCompleteBundle::test_bundle_has_squashed_field | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestFuCompleteBundle::test_bundle_has_wbinfo_field | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestFuCompleteBundle::test_bundle_no_trap_fields | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestFuCompleteBundle::test_bundle_wbinfo_defaults_to_empty | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestInFlightCounter::test_after_reset_counter_is_zero | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestInFlightCounter::test_after_reset_squash_boundary_is_zero | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestInFlightCounter::test_fu_complete_decrements_counter | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestInFlightCounter::test_ic_squash_updates_boundary | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestInFlightCounter::test_ro_inst_issued_increments_counter | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestIndividualParams::test_rf_write_called_with_two_individual_args | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestIndividualParams::test_wb_csr_write_called_with_three_individual_args | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestIndividualParams::test_wb_fault_called_with_three_individual_args | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestIndividualParams::test_wb_mispredict_called_with_four_individual_args | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestIndividualParams::test_wb_rob_update_called_with_single_wbtorobupdate_object | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestInterfaces::test_caller_ports_exist | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestInterfaces::test_fu_complete_callee_exists | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestLSQBackpressure::test_lsq_rdy_false_when_buffer_full | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestLSQBackpressure::test_lsq_rdy_recovers_after_process | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestLSQBackpressure::test_lsq_rdy_true_when_buffer_has_space | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestLSQBackpressure::test_lsq_rejected_when_rdy_false | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestLSQBackpressure::test_squashed_completion_skips_rf_write | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestLSQExecuteResp::test_lsq_execute_resp_callee_exists | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestLSQExecuteResp::test_lsq_load_completion_calls_rf_write | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestLSQExecuteResp::test_lsq_store_completion_no_rf_write | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestPendingWBQueue::test_fifo_order_preserved | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestPendingWBQueue::test_pop_time_squash_with_writeback_width | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestPendingWBQueue::test_writeback_width_does_not_drop_completions | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestPendingWBQueue::test_writeback_width_limits_processing_per_cycle | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestPerClassCrossbar::test_class_of_phys_reg_helper | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestPerClassCrossbar::test_float_class_dest_routes_to_float_port | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestPerClassCrossbar::test_int_class_dest_routes_to_int_port | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestPerClassCrossbar::test_int_dest_does_not_route_to_float_port | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestPerClassCrossbar::test_multi_dest_different_classes_route_to_different_ports | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestPerClassCrossbar::test_two_int_dests_use_two_int_ports | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestProcessing::test_invalid_slot_skipped | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestProcessing::test_process_clears_after_next_tick | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestProcessing::test_process_marks_processed | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestROBUpdate::test_fault_forwarded_in_rob_update | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestROBUpdate::test_normal_completion_calls_wb_rob_update | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestROBUpdate::test_squashed_completion_skips_rob_update | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestReset::test_after_reset_all_slots_empty | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestReset::test_after_reset_next_slot_zero | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestRfWriteSetReg::test_multi_dest_completion_calls_rf_write_per_dest | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestRfWriteSetReg::test_normal_completion_calls_rf_write_with_dest_phys_reg | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestRfWriteSetReg::test_normal_completion_does_not_fire_sb_setreg | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestRfWriteSetReg::test_squashed_completion_skips_rf_write | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestSquashAtCompletion::test_seqnum_above_boundary_skips_rf_write | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_cleared_after_all_inflight_drained | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_not_cleared_while_completion_in_buffer | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_not_cleared_while_inflight_remaining | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestSquashedBypass::test_squashed_marks_slot_processed | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestWBInfo::test_wbinfo_construct_with_values | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestWBInfo::test_wbinfo_dest_phys_reg_defaults_to_zero | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestWBInfo::test_wbinfo_has_csr_num_field | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestWBInfo::test_wbinfo_has_csr_write_valid_field | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestWBInfo::test_wbinfo_has_dest_phys_reg_field | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestWBInfo::test_wbinfo_has_flags_field | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestWritePortOverflowProtection::test_overflow_bypass_query_returns_hit_for_overflow_completion | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestWritePortOverflowProtection::test_overflow_does_not_crash | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl.TestWritePortOverflowProtection::test_overflow_drops_excess_rf_write | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_misses_for_squashed_completion | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_port_exists | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_returns_hit_for_matching_phys_reg | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_returns_hit_for_second_dest | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_returns_miss_for_unknown_phys_reg | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_returns_miss_when_buf_empty | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_normal_completion_does_not_fire_sb_setReg | block-WriteBack | PASS | - | 0 |
+| test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_sb_setReg_caller_ifc_removed | block-WriteBack | PASS | - | 0 |
+| hypervisor-p-2-stage_translation | p- | PASS | 1376 | 12 |
+| hypervisor-p-2-stage_translation_implicit_load_error | p- | PASS | 1635 | 14 |
+| hypervisor-p-2-stage_translation_implicit_load_error_hs | p- | PASS | 1827 | 15 |
+| hypervisor-svadu-p-2-stage_translation_implicit_store_error | p- | PASS | 1772 | 14 |
+| hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs | p- | PASS | 1942 | 14 |
+| rv64mi-p-breakpoint | p- | PASS | 3343 | 22 |
+| rv64mi-p-csr | p- | PASS | 3506 | 24 |
+| rv64mi-p-illegal | p- | PASS | 4639 | 30 |
+| rv64mi-p-instret_overflow | p- | PASS | 1258 | 10 |
+| rv64mi-p-ld-misaligned | p- | PASS | 1388 | 10 |
+| rv64mi-p-lh-misaligned | p- | PASS | 1102 | 9 |
+| rv64mi-p-lw-misaligned | p- | PASS | 1171 | 9 |
+| rv64mi-p-ma_addr | p- | PASS | 1540 | 12 |
+| rv64mi-p-ma_fetch | p- | PASS | 1946 | 14 |
+| rv64mi-p-mcsr | p- | PASS | 1339 | 11 |
+| rv64mi-p-pmpaddr | p- | PASS | 1187 | 10 |
+| rv64mi-p-sbreak | p- | PASS | 1312 | 9 |
+| rv64mi-p-scall | p- | PASS | 1259 | 10 |
+| rv64mi-p-sd-misaligned | p- | PASS | 1466 | 11 |
+| rv64mi-p-sh-misaligned | p- | PASS | 1123 | 9 |
+| rv64mi-p-sw-misaligned | p- | PASS | 1166 | 10 |
+| rv64mi-p-zicntr | p- | PASS | 1424 | 11 |
+| rv64mzicbo-p-zero | p- | PASS | 1160 | 9 |
+| rv64si-p-csr | p- | PASS | 2249 | 16 |
+| rv64si-p-dirty | p- | PASS | 2304 | 16 |
+| rv64si-p-icache-alias | p- | PASS | 2452 | 17 |
+| rv64si-p-ma_fetch | p- | PASS | 1339 | 10 |
+| rv64si-p-sbreak | p- | PASS | 1325 | 10 |
+| rv64si-p-scall | p- | PASS | 1445 | 11 |
+| rv64si-p-wfi | p- | PASS | 1173 | 9 |
+| rv64ssvnapot-p-napot | p- | PASS | 1658 | 13 |
+| rv64ua-p-amoadd_d | p- | PASS | 1079 | 9 |
+| rv64ua-p-amoadd_w | p- | PASS | 1122 | 9 |
+| rv64ua-p-amoand_d | p- | PASS | 1121 | 9 |
+| rv64ua-p-amoand_w | p- | PASS | 1117 | 9 |
+| rv64ua-p-amomax_d | p- | PASS | 1077 | 9 |
+| rv64ua-p-amomax_w | p- | PASS | 1102 | 8 |
+| rv64ua-p-amomaxu_d | p- | PASS | 1077 | 8 |
+| rv64ua-p-amomaxu_w | p- | PASS | 1102 | 9 |
+| rv64ua-p-amomin_d | p- | PASS | 1077 | 8 |
+| rv64ua-p-amomin_w | p- | PASS | 1100 | 9 |
+| rv64ua-p-amominu_d | p- | PASS | 1079 | 9 |
+| rv64ua-p-amominu_w | p- | PASS | 1100 | 8 |
+| rv64ua-p-amoor_d | p- | PASS | 1119 | 9 |
+| rv64ua-p-amoor_w | p- | PASS | 1117 | 9 |
+| rv64ua-p-amoswap_d | p- | PASS | 1121 | 9 |
+| rv64ua-p-amoswap_w | p- | PASS | 1117 | 9 |
+| rv64ua-p-amoxor_d | p- | PASS | 1127 | 9 |
+| rv64ua-p-amoxor_w | p- | PASS | 1131 | 9 |
+| rv64ua-p-lrsc | p- | PASS | 54426 | 364 |
+| rv64uc-p-rvc | p- | PASS | 1586 | 12 |
+| rv64ud-p-fadd | p- | PASS | 1911 | 14 |
+| rv64ud-p-fclass | p- | PASS | 1233 | 9 |
+| rv64ud-p-fcmp | p- | PASS | 2201 | 16 |
+| rv64ud-p-fcvt | p- | PASS | 1840 | 14 |
+| rv64ud-p-fcvt_w | p- | PASS | 3735 | 26 |
+| rv64ud-p-fdiv | p- | PASS | 1741 | 13 |
+| rv64ud-p-fmadd | p- | PASS | 2071 | 16 |
+| rv64ud-p-fmin | p- | PASS | 2545 | 19 |
+| rv64ud-p-ldst | p- | PASS | 1174 | 9 |
+| rv64ud-p-move | p- | PASS | 2696 | 19 |
+| rv64ud-p-recoding | p- | PASS | 1239 | 10 |
+| rv64ud-p-structural | p- | PASS | 2020 | 14 |
+| rv64uf-p-fadd | p- | PASS | 1911 | 14 |
+| rv64uf-p-fclass | p- | PASS | 1219 | 10 |
+| rv64uf-p-fcmp | p- | PASS | 2201 | 17 |
+| rv64uf-p-fcvt | p- | PASS | 1630 | 13 |
+| rv64uf-p-fcvt_w | p- | PASS | 3373 | 25 |
+| rv64uf-p-fdiv | p- | PASS | 1663 | 13 |
+| rv64uf-p-fmadd | p- | PASS | 2071 | 16 |
+| rv64uf-p-fmin | p- | PASS | 2543 | 19 |
+| rv64uf-p-ldst | p- | PASS | 1183 | 10 |
+| rv64uf-p-move | p- | PASS | 1819 | 14 |
+| rv64uf-p-recoding | p- | PASS | 1192 | 9 |
+| rv64ui-p-add | p- | PASS | 2453 | 17 |
+| rv64ui-p-addi | p- | PASS | 1630 | 13 |
+| rv64ui-p-addiw | p- | PASS | 1621 | 13 |
+| rv64ui-p-addw | p- | PASS | 2443 | 18 |
+| rv64ui-p-and | p- | PASS | 2613 | 19 |
+| rv64ui-p-andi | p- | PASS | 1609 | 13 |
+| rv64ui-p-auipc | p- | PASS | 1053 | 8 |
+| rv64ui-p-beq | p- | PASS | 2429 | 18 |
+| rv64ui-p-bge | p- | PASS | 2728 | 20 |
+| rv64ui-p-bgeu | p- | PASS | 2956 | 21 |
+| rv64ui-p-blt | p- | PASS | 2429 | 18 |
+| rv64ui-p-bltu | p- | PASS | 2643 | 20 |
+| rv64ui-p-bne | p- | PASS | 2484 | 19 |
+| rv64ui-p-fence_i | p- | PASS | 3998 | 29 |
+| rv64ui-p-jal | p- | PASS | 1076 | 10 |
+| rv64ui-p-jalr | p- | PASS | 1557 | 13 |
+| rv64ui-p-lb | p- | PASS | 1673 | 13 |
+| rv64ui-p-lbu | p- | PASS | 1671 | 14 |
+| rv64ui-p-ld | p- | PASS | 2066 | 16 |
+| rv64ui-p-ld_st | p- | PASS | 4485 | 33 |
+| rv64ui-p-lh | p- | PASS | 1713 | 13 |
+| rv64ui-p-lhu | p- | PASS | 1719 | 14 |
+| rv64ui-p-lui | p- | PASS | 1065 | 10 |
+| rv64ui-p-lw | p- | PASS | 1731 | 14 |
+| rv64ui-p-lwu | p- | PASS | 1799 | 14 |
+| rv64ui-p-ma_data | p- | PASS | 7766 | 52 |
+| rv64ui-p-or | p- | PASS | 2670 | 20 |
+| rv64ui-p-ori | p- | PASS | 1591 | 13 |
+| rv64ui-p-sb | p- | PASS | 2306 | 17 |
+| rv64ui-p-sd | p- | PASS | 2640 | 20 |
+| rv64ui-p-sh | p- | PASS | 2382 | 18 |
+| rv64ui-p-simple | p- | PASS | 1005 | 9 |
+| rv64ui-p-sll | p- | PASS | 2575 | 19 |
+| rv64ui-p-slli | p- | PASS | 1691 | 13 |
+| rv64ui-p-slliw | p- | PASS | 1685 | 13 |
+| rv64ui-p-sllw | p- | PASS | 2577 | 18 |
+| rv64ui-p-slt | p- | PASS | 2433 | 18 |
+| rv64ui-p-slti | p- | PASS | 1617 | 13 |
+| rv64ui-p-sltiu | p- | PASS | 1617 | 12 |
+| rv64ui-p-sltu | p- | PASS | 2469 | 19 |
+| rv64ui-p-sra | p- | PASS | 2526 | 19 |
+| rv64ui-p-srai | p- | PASS | 1656 | 13 |
+| rv64ui-p-sraiw | p- | PASS | 1757 | 13 |
+| rv64ui-p-sraw | p- | PASS | 2597 | 19 |
+| rv64ui-p-srl | p- | PASS | 2619 | 19 |
+| rv64ui-p-srli | p- | PASS | 1716 | 13 |
+| rv64ui-p-srliw | p- | PASS | 1703 | 12 |
+| rv64ui-p-srlw | p- | PASS | 2583 | 19 |
+| rv64ui-p-st_ld | p- | PASS | 1995 | 14 |
+| rv64ui-p-sub | p- | PASS | 2437 | 17 |
+| rv64ui-p-subw | p- | PASS | 2431 | 18 |
+| rv64ui-p-sw | p- | PASS | 2418 | 17 |
+| rv64ui-p-xor | p- | PASS | 2666 | 18 |
+| rv64ui-p-xori | p- | PASS | 1597 | 12 |
+| rv64um-p-div | p- | PASS | 1159 | 9 |
+| rv64um-p-divu | p- | PASS | 1167 | 10 |
+| rv64um-p-divuw | p- | PASS | 1149 | 10 |
+| rv64um-p-divw | p- | PASS | 1139 | 10 |
+| rv64um-p-mul | p- | PASS | 2461 | 18 |
+| rv64um-p-mulh | p- | PASS | 2473 | 17 |
+| rv64um-p-mulhsu | p- | PASS | 2471 | 18 |
+| rv64um-p-mulhu | p- | PASS | 2533 | 18 |
+| rv64um-p-mulw | p- | PASS | 2329 | 17 |
+| rv64um-p-rem | p- | PASS | 1131 | 9 |
+| rv64um-p-remu | p- | PASS | 1135 | 9 |
+| rv64um-p-remuw | p- | PASS | 1131 | 9 |
+| rv64um-p-remw | p- | PASS | 1139 | 10 |
+| rv64uzba-p-add_uw | p- | PASS | 2455 | 17 |
+| rv64uzba-p-sh1add | p- | PASS | 2461 | 17 |
+| rv64uzba-p-sh1add_uw | p- | PASS | 2469 | 17 |
+| rv64uzba-p-sh2add | p- | PASS | 2461 | 17 |
+| rv64uzba-p-sh2add_uw | p- | PASS | 2469 | 18 |
+| rv64uzba-p-sh3add | p- | PASS | 2463 | 18 |
+| rv64uzba-p-sh3add_uw | p- | PASS | 2471 | 17 |
+| rv64uzba-p-slli_uw | p- | PASS | 1719 | 13 |
+| rv64uzbb-p-andn | p- | PASS | 2655 | 19 |
+| rv64uzbb-p-clz | p- | PASS | 1499 | 12 |
+| rv64uzbb-p-clzw | p- | PASS | 1465 | 11 |
+| rv64uzbb-p-cpop | p- | PASS | 1497 | 11 |
+| rv64uzbb-p-cpopw | p- | PASS | 1465 | 11 |
+| rv64uzbb-p-ctz | p- | PASS | 1497 | 12 |
+| rv64uzbb-p-ctzw | p- | PASS | 1467 | 12 |
+| rv64uzbb-p-max | p- | PASS | 2441 | 17 |
+| rv64uzbb-p-maxu | p- | PASS | 2503 | 18 |
+| rv64uzbb-p-min | p- | PASS | 2433 | 17 |
+| rv64uzbb-p-minu | p- | PASS | 2481 | 17 |
+| rv64uzbb-p-orc_b | p- | PASS | 1539 | 12 |
+| rv64uzbb-p-orn | p- | PASS | 2673 | 19 |
+| rv64uzbb-p-rev8 | p- | PASS | 1574 | 12 |
+| rv64uzbb-p-rol | p- | PASS | 2583 | 19 |
+| rv64uzbb-p-rolw | p- | PASS | 2588 | 18 |
+| rv64uzbb-p-ror | p- | PASS | 2645 | 19 |
+| rv64uzbb-p-rori | p- | PASS | 1714 | 13 |
+| rv64uzbb-p-roriw | p- | PASS | 1627 | 12 |
+| rv64uzbb-p-rorw | p- | PASS | 2515 | 18 |
+| rv64uzbb-p-sext_b | p- | PASS | 1499 | 11 |
+| rv64uzbb-p-sext_h | p- | PASS | 1503 | 11 |
+| rv64uzbb-p-xnor | p- | PASS | 2671 | 19 |
+| rv64uzbb-p-zext_h | p- | PASS | 1509 | 12 |
+| rv64uzbc-p-clmul | p- | PASS | 2463 | 18 |
+| rv64uzbc-p-clmulh | p- | PASS | 2473 | 18 |
+| rv64uzbc-p-clmulr | p- | PASS | 2471 | 17 |
+| rv64uzbkb-p-brev8 | p- | PASS | 1537 | 11 |
+| rv64uzbkb-p-pack | p- | PASS | 2913 | 20 |
+| rv64uzbkb-p-packh | p- | PASS | 2585 | 19 |
+| rv64uzbkb-p-packw | p- | PASS | 2445 | 17 |
+| rv64uzbkx-p-xperm4 | p- | PASS | 2767 | 20 |
+| rv64uzbkx-p-xperm8 | p- | PASS | 3598 | 25 |
+| rv64uzbs-p-bclr | p- | PASS | 2796 | 20 |
+| rv64uzbs-p-bclri | p- | PASS | 1779 | 13 |
+| rv64uzbs-p-bext | p- | PASS | 2661 | 19 |
+| rv64uzbs-p-bexti | p- | PASS | 1713 | 13 |
+| rv64uzbs-p-binv | p- | PASS | 2633 | 19 |
+| rv64uzbs-p-binvi | p- | PASS | 1715 | 12 |
+| rv64uzbs-p-bset | p- | PASS | 2800 | 19 |
+| rv64uzbs-p-bseti | p- | PASS | 1793 | 13 |
+| rv64uzfh-p-fadd | p- | PASS | 1911 | 14 |
+| rv64uzfh-p-fclass | p- | PASS | 1218 | 9 |
+| rv64uzfh-p-fcmp | p- | PASS | 1553 | 12 |
+| rv64uzfh-p-fcvt | p- | PASS | 1803 | 13 |
+| rv64uzfh-p-fcvt_w | p- | PASS | 3375 | 24 |
+| rv64uzfh-p-fdiv | p- | PASS | 1665 | 13 |
+| rv64uzfh-p-fmadd | p- | PASS | 2071 | 15 |
+| rv64uzfh-p-fmin | p- | PASS | 2543 | 18 |
+| rv64uzfh-p-ldst | p- | PASS | 1194 | 9 |
+| rv64uzfh-p-move | p- | PASS | 1812 | 13 |
+| rv64uzfh-p-recoding | p- | PASS | 1192 | 10 |
+| rv64uziccid-p-ziccid | p- | PASS | 14069 | 62 |
+| rv64uzicond-p-czero_eqz | p- | PASS | 2389 | 13 |
+| rv64uzicond-p-czero_nez | p- | PASS | 2377 | 14 |
+| rv64ua-v-amoadd_d | v- | PASS | 52055 | 342 |
+| rv64ua-v-amoadd_w | v- | PASS | 51293 | 373 |
+| rv64ua-v-amoand_d | v- | PASS | 51490 | 336 |
+| rv64ua-v-amoand_w | v- | PASS | 51415 | 334 |
+| rv64ua-v-amomax_d | v- | PASS | 51799 | 334 |
+| rv64ua-v-amomax_w | v- | PASS | 50012 | 342 |
+| rv64ua-v-amomaxu_d | v- | PASS | 50119 | 202 |
+| rv64ua-v-amomaxu_w | v- | PASS | 50575 | 324 |
+| rv64ua-v-amomin_d | v- | PASS | 51799 | 338 |
+| rv64ua-v-amomin_w | v- | PASS | 51815 | 335 |
+| rv64ua-v-amominu_d | v- | PASS | 51647 | 309 |
+| rv64ua-v-amominu_w | v- | PASS | 50702 | 335 |
+| rv64ua-v-amoor_d | v- | PASS | 52139 | 293 |
+| rv64ua-v-amoor_w | v- | PASS | 52157 | 341 |
+| rv64ua-v-amoswap_d | v- | PASS | 51818 | 337 |
+| rv64ua-v-amoswap_w | v- | PASS | 52198 | 335 |
+| rv64ua-v-amoxor_d | v- | PASS | 51553 | 334 |
+| rv64ua-v-amoxor_w | v- | PASS | 51367 | 375 |
+| rv64ua-v-lrsc | v- | PASS | 113710 | 768 |
+| rv64uc-v-rvc | v- | PASS | 65689 | 478 |
+| rv64ud-v-fadd | v- | TIMEOUT | - | 1045 |
+| rv64ud-v-fclass | v- | PASS | 18059 | 123 |
+| rv64ud-v-fcmp | v- | TIMEOUT | - | 986 |
+| rv64ud-v-fcvt | v- | TIMEOUT | - | 965 |
+| rv64ud-v-fcvt_w | v- | PASS | 105201 | 634 |
+| rv64ud-v-fdiv | v- | TIMEOUT | - | 1048 |
+| rv64ud-v-fmadd | v- | TIMEOUT | - | 1176 |
+| rv64ud-v-fmin | v- | TIMEOUT | - | 1353 |
+| rv64ud-v-ldst | v- | PASS | 51405 | 327 |
+| rv64ud-v-move | v- | TIMEOUT | - | 1257 |
+| rv64ud-v-recoding | v- | PASS | 53995 | 340 |
+| rv64ud-v-structural | v- | PASS | 37408 | 155 |
+| rv64uf-v-fadd | v- | TIMEOUT | - | 1299 |
+| rv64uf-v-fclass | v- | PASS | 40203 | 257 |
+| rv64uf-v-fcmp | v- | TIMEOUT | - | 1387 |
+| rv64uf-v-fcvt | v- | TIMEOUT | - | 1013 |
+| rv64uf-v-fcvt_w | v- | TIMEOUT | - | 733 |
+| rv64uf-v-fdiv | v- | TIMEOUT | - | 1266 |
+| rv64uf-v-fmadd | v- | TIMEOUT | - | 1275 |
+| rv64uf-v-fmin | v- | TIMEOUT | - | 1346 |
+| rv64uf-v-ldst | v- | PASS | 51244 | 302 |
+| rv64uf-v-move | v- | PASS | 39886 | 263 |
+| rv64uf-v-recoding | v- | TIMEOUT | - | 1203 |
+| rv64ui-v-add | v- | PASS | 40916 | 271 |
+| rv64ui-v-addi | v- | PASS | 18569 | 80 |
+| rv64ui-v-addiw | v- | PASS | 18563 | 125 |
+| rv64ui-v-addw | v- | PASS | 41695 | 283 |
+| rv64ui-v-and | v- | PASS | 41398 | 281 |
+| rv64ui-v-andi | v- | PASS | 38410 | 256 |
+| rv64ui-v-auipc | v- | PASS | 38776 | 253 |
+| rv64ui-v-beq | v- | PASS | 41515 | 275 |
+| rv64ui-v-bge | v- | PASS | 41677 | 306 |
+| rv64ui-v-bgeu | v- | PASS | 41593 | 277 |
+| rv64ui-v-blt | v- | PASS | 41629 | 301 |
+| rv64ui-v-bltu | v- | PASS | 40988 | 267 |
+| rv64ui-v-bne | v- | PASS | 22206 | 149 |
+| rv64ui-v-fence_i | v- | PASS | 34632 | 227 |
+| rv64ui-v-jal | v- | PASS | 40790 | 265 |
+| rv64ui-v-jalr | v- | PASS | 40439 | 170 |
+| rv64ui-v-lb | v- | PASS | 73181 | 482 |
+| rv64ui-v-lbu | v- | TIMEOUT | - | 1266 |
+| rv64ui-v-ld | v- | TIMEOUT | - | 1068 |
+| rv64ui-v-ld_st | v- | TIMEOUT | - | 1361 |
+| rv64ui-v-lh | v- | PASS | 71064 | 471 |
+| rv64ui-v-lhu | v- | TIMEOUT | - | 1022 |
+| rv64ui-v-lui | v- | PASS | 40975 | 275 |
+| rv64ui-v-lw | v- | TIMEOUT | - | 1179 |
+| rv64ui-v-lwu | v- | TIMEOUT | - | 1322 |
+| rv64ui-v-ma_data | v- | TIMEOUT | - | 1365 |
+| rv64ui-v-or | v- | PASS | 41411 | 242 |
+| rv64ui-v-ori | v- | PASS | 41531 | 273 |
+| rv64ui-v-sb | v- | PASS | 51712 | 341 |
+| rv64ui-v-sd | v- | TIMEOUT | - | 1149 |
+| rv64ui-v-sh | v- | PASS | 51877 | 343 |
+| rv64ui-v-simple | v- | PASS | 40613 | 298 |
+| rv64ui-v-sll | v- | TIMEOUT | - | 1094 |
+| rv64ui-v-slli | v- | PASS | 41300 | 275 |
+| rv64ui-v-slliw | v- | PASS | 18625 | 124 |
+| rv64ui-v-sllw | v- | TIMEOUT | - | 710 |
+| rv64ui-v-slt | v- | PASS | 41612 | 273 |
+| rv64ui-v-slti | v- | PASS | 18553 | 140 |
+| rv64ui-v-sltiu | v- | PASS | 18553 | 140 |
+| rv64ui-v-sltu | v- | PASS | 41062 | 274 |
+| rv64ui-v-sra | v- | PASS | 41102 | 278 |
+| rv64ui-v-srai | v- | PASS | 40345 | 265 |
+| rv64ui-v-sraiw | v- | PASS | 41321 | 244 |
+| rv64ui-v-sraw | v- | TIMEOUT | - | 1142 |
+| rv64ui-v-srl | v- | TIMEOUT | - | 1380 |
+| rv64ui-v-srli | v- | PASS | 41648 | 281 |
+| rv64ui-v-srliw | v- | PASS | 38120 | 250 |
+| rv64ui-v-srlw | v- | PASS | 25186 | 157 |
+| rv64ui-v-st_ld | v- | TIMEOUT | - | 1301 |
+| rv64ui-v-sub | v- | PASS | 41762 | 276 |
+| rv64ui-v-subw | v- | PASS | 41639 | 256 |
+| rv64ui-v-sw | v- | PASS | 52150 | 341 |
+| rv64ui-v-xor | v- | PASS | 41444 | 273 |
+| rv64ui-v-xori | v- | PASS | 41533 | 274 |
+| rv64um-v-div | v- | PASS | 39511 | 258 |
+| rv64um-v-divu | v- | PASS | 40134 | 248 |
+| rv64um-v-divuw | v- | PASS | 39503 | 267 |
+| rv64um-v-divw | v- | PASS | 35883 | 246 |
+| rv64um-v-mul | v- | PASS | 41728 | 275 |
+| rv64um-v-mulh | v- | PASS | 41724 | 173 |
+| rv64um-v-mulhsu | v- | PASS | 41724 | 272 |
+| rv64um-v-mulhu | v- | PASS | 42972 | 291 |
+| rv64um-v-mulw | v- | PASS | 42344 | 244 |
+| rv64um-v-rem | v- | PASS | 40158 | 274 |
+| rv64um-v-remu | v- | PASS | 38694 | 253 |
+| rv64um-v-remuw | v- | PASS | 40122 | 264 |
+| rv64um-v-remw | v- | PASS | 35883 | 239 |
+| rv64uzba-v-add_uw | v- | PASS | 43046 | 276 |
+| rv64uzba-v-sh1add | v- | PASS | 43428 | 296 |
+| rv64uzba-v-sh1add_uw | v- | PASS | 42474 | 273 |
+| rv64uzba-v-sh2add | v- | PASS | 43428 | 255 |
+| rv64uzba-v-sh2add_uw | v- | PASS | 42484 | 279 |
+| rv64uzba-v-sh3add | v- | PASS | 43438 | 279 |
+| rv64uzba-v-sh3add_uw | v- | PASS | 42474 | 238 |
+| rv64uzba-v-slli_uw | v- | PASS | 42476 | 273 |
+| rv64uzbb-v-andn | v- | PASS | 26007 | 169 |
+| rv64uzbb-v-clz | v- | PASS | 37887 | 241 |
+| rv64uzbb-v-clzw | v- | PASS | 35762 | 236 |
+| rv64uzbb-v-cpop | v- | PASS | 20906 | 155 |
+| rv64uzbb-v-cpopw | v- | PASS | 35762 | 238 |
+| rv64uzbb-v-ctz | v- | PASS | 37536 | 265 |
+| rv64uzbb-v-ctzw | v- | PASS | 35753 | 232 |
+| rv64uzbb-v-max | v- | PASS | 41233 | 262 |
+| rv64uzbb-v-maxu | v- | PASS | 41564 | 263 |
+| rv64uzbb-v-min | v- | PASS | 40682 | 163 |
+| rv64uzbb-v-minu | v- | PASS | 41014 | 263 |
+| rv64uzbb-v-orc_b | v- | PASS | 40891 | 280 |
+| rv64uzbb-v-orn | v- | TIMEOUT | - | 1250 |
+| rv64uzbb-v-rev8 | v- | PASS | 41271 | 243 |
+| rv64uzbb-v-rol | v- | PASS | 50065 | 327 |
+| rv64uzbb-v-rolw | v- | PASS | 75239 | 490 |
+| rv64uzbb-v-ror | v- | TIMEOUT | - | 936 |
+| rv64uzbb-v-rori | v- | PASS | 42585 | 275 |
+| rv64uzbb-v-roriw | v- | PASS | 42595 | 277 |
+| rv64uzbb-v-rorw | v- | PASS | 41178 | 265 |
+| rv64uzbb-v-sext_b | v- | PASS | 37536 | 243 |
+| rv64uzbb-v-sext_h | v- | PASS | 39990 | 285 |
+| rv64uzbb-v-xnor | v- | PASS | 71569 | 461 |
+| rv64uzbb-v-zext_h | v- | PASS | 40094 | 282 |
+| rv64uzbc-v-clmul | v- | PASS | 41944 | 219 |
+| rv64uzbc-v-clmulh | v- | PASS | 42057 | 268 |
+| rv64uzbc-v-clmulr | v- | PASS | 42033 | 269 |
+| rv64uzbkb-v-brev8 | v- | PASS | 40951 | 164 |
+| rv64uzbkb-v-pack | v- | PASS | 72201 | 458 |
+| rv64uzbkb-v-packh | v- | PASS | 40458 | 276 |
+| rv64uzbkb-v-packw | v- | PASS | 41539 | 272 |
+| rv64uzbkx-v-xperm4 | v- | TIMEOUT | - | 841 |
+| rv64uzbkx-v-xperm8 | v- | PASS | 73703 | 417 |
+| rv64uzbs-v-bclr | v- | PASS | 70611 | 457 |
+| rv64uzbs-v-bclri | v- | PASS | 37919 | 217 |
+| rv64uzbs-v-bext | v- | TIMEOUT | - | 954 |
+| rv64uzbs-v-bexti | v- | PASS | 37254 | 241 |
+| rv64uzbs-v-binv | v- | TIMEOUT | - | 840 |
+| rv64uzbs-v-binvi | v- | PASS | 37856 | 229 |
+| rv64uzbs-v-bset | v- | PASS | 70216 | 497 |
+| rv64uzbs-v-bseti | v- | PASS | 15864 | 63 |
+| rv64uzfh-v-fadd | v- | TIMEOUT | - | 995 |
+| rv64uzfh-v-fclass | v- | PASS | 38866 | 200 |
+| rv64uzfh-v-fcmp | v- | TIMEOUT | - | 1102 |
+| rv64uzfh-v-fcvt | v- | PASS | 71015 | 300 |
+| rv64uzfh-v-fcvt_w | v- | TIMEOUT | - | 607 |
+| rv64uzfh-v-fdiv | v- | TIMEOUT | - | 1017 |
+| rv64uzfh-v-fmadd | v- | PASS | 72722 | 442 |
+| rv64uzfh-v-fmin | v- | TIMEOUT | - | 927 |
+| rv64uzfh-v-ldst | v- | PASS | 49973 | 289 |
+| rv64uzfh-v-move | v- | PASS | 18584 | 133 |
+| rv64uzfh-v-recoding | v- | TIMEOUT | - | 947 |
+| rv64uziccid-v-ziccid | v- | PASS | 156427 | 629 |
+| rv64uzicond-v-czero_eqz | v- | PASS | 18804 | 111 |
+| rv64uzicond-v-czero_nez | v- | PASS | 39460 | 243 |
 
 </details>
+
+## Performance counters
+
+| Test | Suite | Shard | cycles | cpred_predicted | cpred_mispred_squash | ras_predicted | ras_mispred | indirect_predicted | indirect_mispred | fetch_resteer_to_bac | load_committed | lr_committed | store_committed | sc_committed | store_violation_squash | all_squashes |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| `hypervisor-p-2-stage_translation` | p- | none | 1376 | 0 | 9 | 0 | 0 | 0 | 0 | 7 | 1 | 0 | 13 | 0 | 0 | 27 |
+| `hypervisor-p-2-stage_translation_implicit_load_error` | p- | none | 1635 | 0 | 5 | 0 | 0 | 0 | 0 | 13 | 0 | 0 | 3 | 0 | 0 | 35 |
+| `hypervisor-p-2-stage_translation_implicit_load_error_hs` | p- | none | 1827 | 0 | 6 | 0 | 0 | 0 | 0 | 11 | 0 | 0 | 3 | 0 | 0 | 38 |
+| `hypervisor-svadu-p-2-stage_translation_implicit_store_error` | p- | none | 1772 | 0 | 3 | 0 | 0 | 0 | 0 | 15 | 0 | 0 | 3 | 0 | 0 | 36 |
+| `hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs` | p- | none | 1942 | 0 | 3 | 0 | 0 | 0 | 0 | 7 | 0 | 0 | 3 | 0 | 0 | 40 |
+| `rv64mi-p-breakpoint` | p- | none | 3343 | 0 | 12 | 0 | 0 | 10 | 1 | 34 | 3 | 0 | 2 | 0 | 0 | 74 |
+| `rv64mi-p-csr` | p- | none | 3506 | 17 | 5 | 0 | 0 | 6 | 0 | 40 | 1 | 0 | 1 | 0 | 0 | 79 |
+| `rv64mi-p-illegal` | p- | none | 4639 | 244 | 4 | 0 | 0 | 12 | 0 | 40 | 0 | 0 | 1 | 0 | 0 | 119 |
+| `rv64mi-p-instret_overflow` | p- | none | 1258 | 0 | 3 | 0 | 0 | 0 | 0 | 8 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64mi-p-ld-misaligned` | p- | none | 1388 | 0 | 4 | 0 | 0 | 0 | 0 | 13 | 8 | 0 | 1 | 0 | 0 | 25 |
+| `rv64mi-p-lh-misaligned` | p- | none | 1102 | 0 | 3 | 0 | 0 | 0 | 0 | 11 | 2 | 0 | 1 | 0 | 0 | 25 |
+| `rv64mi-p-lw-misaligned` | p- | none | 1171 | 0 | 3 | 0 | 0 | 0 | 0 | 12 | 4 | 0 | 1 | 0 | 0 | 25 |
+| `rv64mi-p-ma_addr` | p- | none | 1540 | 0 | 11 | 0 | 0 | 0 | 0 | 20 | 59 | 0 | 12 | 0 | 0 | 25 |
+| `rv64mi-p-ma_fetch` | p- | none | 1946 | 0 | 4 | 0 | 0 | 0 | 0 | 9 | 0 | 0 | 1 | 0 | 0 | 53 |
+| `rv64mi-p-mcsr` | p- | none | 1339 | 0 | 2 | 0 | 0 | 0 | 0 | 10 | 0 | 0 | 1 | 0 | 0 | 32 |
+| `rv64mi-p-pmpaddr` | p- | none | 1187 | 0 | 2 | 0 | 0 | 0 | 0 | 15 | 0 | 0 | 1 | 0 | 0 | 28 |
+| `rv64mi-p-sbreak` | p- | none | 1312 | 19 | 3 | 0 | 0 | 2 | 0 | 5 | 0 | 0 | 1 | 0 | 0 | 31 |
+| `rv64mi-p-scall` | p- | none | 1259 | 0 | 2 | 0 | 0 | 0 | 0 | 5 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64mi-p-sd-misaligned` | p- | none | 1466 | 0 | 14 | 0 | 0 | 0 | 0 | 1 | 8 | 0 | 9 | 0 | 0 | 31 |
+| `rv64mi-p-sh-misaligned` | p- | none | 1123 | 0 | 5 | 0 | 0 | 0 | 0 | 3 | 2 | 0 | 3 | 0 | 0 | 27 |
+| `rv64mi-p-sw-misaligned` | p- | none | 1166 | 0 | 10 | 0 | 0 | 0 | 0 | 4 | 4 | 0 | 5 | 0 | 0 | 27 |
+| `rv64mi-p-zicntr` | p- | none | 1424 | 0 | 2 | 0 | 0 | 0 | 0 | 15 | 0 | 0 | 1 | 0 | 0 | 33 |
+| `rv64mzicbo-p-zero` | p- | none | 1160 | 0 | 8 | 0 | 0 | 0 | 0 | 8 | 8 | 0 | 2 | 0 | 0 | 24 |
+| `rv64si-p-csr` | p- | none | 2249 | 0 | 3 | 0 | 0 | 0 | 0 | 25 | 0 | 0 | 1 | 0 | 0 | 51 |
+| `rv64si-p-dirty` | p- | none | 2304 | 39 | 7 | 0 | 0 | 6 | 0 | 19 | 6 | 0 | 7 | 0 | 0 | 50 |
+| `rv64si-p-icache-alias` | p- | none | 2452 | 0 | 19 | 0 | 0 | 81 | 3 | 22 | 0 | 0 | 8 | 0 | 0 | 56 |
+| `rv64si-p-ma_fetch` | p- | none | 1339 | 0 | 4 | 0 | 0 | 0 | 0 | 6 | 0 | 0 | 1 | 0 | 0 | 36 |
+| `rv64si-p-sbreak` | p- | none | 1325 | 13 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 31 |
+| `rv64si-p-scall` | p- | none | 1445 | 13 | 3 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 34 |
+| `rv64si-p-wfi` | p- | none | 1173 | 0 | 3 | 0 | 0 | 0 | 0 | 5 | 0 | 0 | 1 | 0 | 0 | 28 |
+| `rv64ssvnapot-p-napot` | p- | none | 1658 | 3 | 3 | 0 | 0 | 2 | 0 | 13 | 0 | 0 | 7 | 0 | 0 | 34 |
+| `rv64ua-p-amoadd_d` | p- | none | 1079 | 0 | 5 | 0 | 0 | 0 | 0 | 10 | 2 | 0 | 2 | 0 | 0 | 24 |
+| `rv64ua-p-amoadd_w` | p- | none | 1122 | 0 | 4 | 0 | 0 | 0 | 0 | 9 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-amoand_d` | p- | none | 1121 | 0 | 5 | 0 | 0 | 0 | 0 | 10 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-amoand_w` | p- | none | 1117 | 0 | 5 | 0 | 0 | 0 | 0 | 9 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-amomax_d` | p- | none | 1077 | 0 | 4 | 0 | 0 | 0 | 0 | 8 | 2 | 0 | 3 | 0 | 0 | 24 |
+| `rv64ua-p-amomax_w` | p- | none | 1102 | 0 | 5 | 0 | 0 | 0 | 0 | 10 | 3 | 0 | 4 | 0 | 0 | 24 |
+| `rv64ua-p-amomaxu_d` | p- | none | 1077 | 0 | 4 | 0 | 0 | 0 | 0 | 8 | 2 | 0 | 3 | 0 | 0 | 24 |
+| `rv64ua-p-amomaxu_w` | p- | none | 1102 | 0 | 5 | 0 | 0 | 0 | 0 | 10 | 3 | 0 | 4 | 0 | 0 | 24 |
+| `rv64ua-p-amomin_d` | p- | none | 1077 | 0 | 4 | 0 | 0 | 0 | 0 | 8 | 2 | 0 | 3 | 0 | 0 | 24 |
+| `rv64ua-p-amomin_w` | p- | none | 1100 | 0 | 5 | 0 | 0 | 0 | 0 | 10 | 3 | 0 | 4 | 0 | 0 | 24 |
+| `rv64ua-p-amominu_d` | p- | none | 1079 | 0 | 4 | 0 | 0 | 0 | 0 | 8 | 2 | 0 | 3 | 0 | 0 | 24 |
+| `rv64ua-p-amominu_w` | p- | none | 1100 | 0 | 5 | 0 | 0 | 0 | 0 | 10 | 3 | 0 | 4 | 0 | 0 | 24 |
+| `rv64ua-p-amoor_d` | p- | none | 1119 | 0 | 5 | 0 | 0 | 0 | 0 | 10 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-amoor_w` | p- | none | 1117 | 0 | 5 | 0 | 0 | 0 | 0 | 10 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-amoswap_d` | p- | none | 1121 | 0 | 5 | 0 | 0 | 0 | 0 | 10 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-amoswap_w` | p- | none | 1117 | 0 | 5 | 0 | 0 | 0 | 0 | 9 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-amoxor_d` | p- | none | 1127 | 0 | 4 | 0 | 0 | 0 | 0 | 11 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-amoxor_w` | p- | none | 1131 | 0 | 5 | 0 | 0 | 0 | 0 | 10 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-lrsc` | p- | none | 54426 | 2117 | 858 | 0 | 0 | 0 | 0 | 806 | 4 | 1045 | 1 | 1048 | 36 | 881 |
+| `rv64uc-p-rvc` | p- | none | 1586 | 2 | 9 | 0 | 0 | 0 | 1 | 4 | 9 | 0 | 5 | 0 | 0 | 34 |
+| `rv64ud-p-fadd` | p- | none | 1911 | 0 | 14 | 0 | 0 | 0 | 0 | 17 | 40 | 0 | 1 | 0 | 0 | 36 |
+| `rv64ud-p-fclass` | p- | none | 1233 | 0 | 4 | 0 | 0 | 0 | 0 | 10 | 0 | 0 | 1 | 0 | 0 | 26 |
+| `rv64ud-p-fcmp` | p- | none | 2201 | 0 | 19 | 0 | 0 | 0 | 0 | 21 | 60 | 0 | 1 | 0 | 0 | 41 |
+| `rv64ud-p-fcvt` | p- | none | 1840 | 0 | 13 | 0 | 0 | 0 | 0 | 20 | 17 | 0 | 1 | 0 | 0 | 36 |
+| `rv64ud-p-fcvt_w` | p- | none | 3735 | 0 | 53 | 0 | 0 | 0 | 0 | 56 | 152 | 0 | 1 | 0 | 0 | 61 |
+| `rv64ud-p-fdiv` | p- | none | 1741 | 0 | 12 | 0 | 0 | 0 | 0 | 11 | 32 | 0 | 1 | 0 | 0 | 34 |
+| `rv64ud-p-fmadd` | p- | none | 2071 | 0 | 16 | 0 | 0 | 0 | 0 | 16 | 48 | 0 | 1 | 0 | 0 | 38 |
+| `rv64ud-p-fmin` | p- | none | 2545 | 0 | 22 | 0 | 0 | 0 | 0 | 23 | 72 | 0 | 1 | 0 | 0 | 44 |
+| `rv64ud-p-ldst` | p- | none | 1174 | 0 | 4 | 0 | 0 | 0 | 0 | 8 | 10 | 0 | 6 | 0 | 0 | 26 |
+| `rv64ud-p-move` | p- | none | 2696 | 0 | 22 | 0 | 0 | 0 | 0 | 14 | 0 | 0 | 1 | 0 | 0 | 26 |
+| `rv64ud-p-recoding` | p- | none | 1239 | 0 | 12 | 0 | 0 | 0 | 0 | 10 | 7 | 0 | 2 | 0 | 0 | 26 |
+| `rv64ud-p-structural` | p- | none | 2020 | 0 | 38 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 52 |
+| `rv64uf-p-fadd` | p- | none | 1911 | 0 | 14 | 0 | 0 | 0 | 0 | 17 | 40 | 0 | 1 | 0 | 0 | 36 |
+| `rv64uf-p-fclass` | p- | none | 1219 | 0 | 8 | 0 | 0 | 0 | 0 | 9 | 0 | 0 | 1 | 0 | 0 | 26 |
+| `rv64uf-p-fcmp` | p- | none | 2201 | 0 | 19 | 0 | 0 | 0 | 0 | 21 | 60 | 0 | 1 | 0 | 0 | 41 |
+| `rv64uf-p-fcvt` | p- | none | 1630 | 0 | 10 | 0 | 0 | 0 | 0 | 17 | 8 | 0 | 1 | 0 | 0 | 34 |
+| `rv64uf-p-fcvt_w` | p- | none | 3373 | 0 | 43 | 0 | 0 | 0 | 0 | 47 | 132 | 0 | 1 | 0 | 0 | 56 |
+| `rv64uf-p-fdiv` | p- | none | 1663 | 0 | 11 | 0 | 0 | 0 | 0 | 10 | 28 | 0 | 1 | 0 | 0 | 33 |
+| `rv64uf-p-fmadd` | p- | none | 2071 | 0 | 16 | 0 | 0 | 0 | 0 | 16 | 48 | 0 | 1 | 0 | 0 | 38 |
+| `rv64uf-p-fmin` | p- | none | 2543 | 0 | 22 | 0 | 0 | 0 | 0 | 23 | 72 | 0 | 1 | 0 | 0 | 44 |
+| `rv64uf-p-ldst` | p- | none | 1183 | 0 | 4 | 0 | 0 | 0 | 0 | 7 | 4 | 0 | 3 | 0 | 0 | 26 |
+| `rv64uf-p-move` | p- | none | 1819 | 0 | 11 | 0 | 0 | 0 | 0 | 17 | 0 | 0 | 1 | 0 | 0 | 34 |
+| `rv64uf-p-recoding` | p- | none | 1192 | 0 | 8 | 0 | 0 | 0 | 0 | 10 | 2 | 0 | 1 | 0 | 0 | 26 |
+| `rv64ui-p-add` | p- | none | 2453 | 1 | 44 | 0 | 0 | 0 | 0 | 35 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64ui-p-addi` | p- | none | 1630 | 0 | 16 | 0 | 0 | 0 | 0 | 17 | 0 | 0 | 1 | 0 | 0 | 31 |
+| `rv64ui-p-addiw` | p- | none | 1621 | 0 | 13 | 0 | 0 | 0 | 0 | 17 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-addw` | p- | none | 2443 | 1 | 58 | 0 | 0 | 0 | 0 | 30 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64ui-p-and` | p- | none | 2613 | 15 | 115 | 0 | 0 | 0 | 0 | 29 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-andi` | p- | none | 1609 | 2 | 25 | 0 | 0 | 0 | 0 | 15 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-auipc` | p- | none | 1053 | 0 | 5 | 0 | 0 | 0 | 0 | 3 | 0 | 0 | 1 | 0 | 0 | 25 |
+| `rv64ui-p-beq` | p- | none | 2429 | 0 | 20 | 0 | 0 | 0 | 0 | 28 | 0 | 0 | 1 | 0 | 0 | 51 |
+| `rv64ui-p-bge` | p- | none | 2728 | 0 | 20 | 0 | 0 | 0 | 0 | 26 | 0 | 0 | 1 | 0 | 0 | 60 |
+| `rv64ui-p-bgeu` | p- | none | 2956 | 11 | 33 | 0 | 0 | 0 | 0 | 31 | 0 | 0 | 1 | 0 | 0 | 60 |
+| `rv64ui-p-blt` | p- | none | 2429 | 0 | 20 | 0 | 0 | 0 | 0 | 28 | 0 | 0 | 1 | 0 | 0 | 51 |
+| `rv64ui-p-bltu` | p- | none | 2643 | 10 | 35 | 0 | 0 | 0 | 0 | 30 | 0 | 0 | 1 | 0 | 0 | 51 |
+| `rv64ui-p-bne` | p- | none | 2484 | 0 | 20 | 0 | 0 | 0 | 0 | 24 | 0 | 0 | 1 | 0 | 0 | 53 |
+| `rv64ui-p-fence_i` | p- | none | 3998 | 152 | 16 | 0 | 0 | 0 | 1 | 11 | 2 | 0 | 5 | 0 | 0 | 98 |
+| `rv64ui-p-jal` | p- | none | 1076 | 0 | 4 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 25 |
+| `rv64ui-p-jalr` | p- | none | 1557 | 3 | 9 | 0 | 0 | 3 | 1 | 7 | 0 | 0 | 1 | 0 | 0 | 37 |
+| `rv64ui-p-lb` | p- | none | 1673 | 4 | 24 | 0 | 0 | 0 | 0 | 14 | 24 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-lbu` | p- | none | 1671 | 4 | 24 | 0 | 0 | 0 | 0 | 14 | 24 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-ld` | p- | none | 2066 | 4 | 20 | 0 | 0 | 0 | 0 | 15 | 24 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-ld_st` | p- | none | 4485 | 0 | 93 | 0 | 0 | 0 | 0 | 10 | 277 | 0 | 278 | 0 | 0 | 137 |
+| `rv64ui-p-lh` | p- | none | 1713 | 5 | 35 | 0 | 0 | 0 | 0 | 15 | 24 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-lhu` | p- | none | 1719 | 5 | 19 | 0 | 0 | 0 | 0 | 16 | 24 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-lui` | p- | none | 1065 | 0 | 4 | 0 | 0 | 0 | 0 | 10 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64ui-p-lw` | p- | none | 1731 | 4 | 21 | 0 | 0 | 0 | 0 | 16 | 24 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-lwu` | p- | none | 1799 | 5 | 36 | 0 | 0 | 0 | 0 | 18 | 24 | 0 | 1 | 0 | 0 | 31 |
+| `rv64ui-p-ma_data` | p- | none | 7766 | 0 | 58 | 0 | 0 | 0 | 0 | 10 | 180 | 0 | 136 | 0 | 0 | 198 |
+| `rv64ui-p-or` | p- | none | 2670 | 14 | 109 | 0 | 0 | 0 | 0 | 28 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64ui-p-ori` | p- | none | 1591 | 1 | 34 | 0 | 0 | 0 | 0 | 13 | 0 | 0 | 1 | 0 | 0 | 31 |
+| `rv64ui-p-sb` | p- | none | 2306 | 9 | 53 | 0 | 0 | 0 | 0 | 19 | 34 | 0 | 36 | 0 | 1 | 42 |
+| `rv64ui-p-sd` | p- | none | 2640 | 8 | 68 | 0 | 0 | 0 | 0 | 15 | 34 | 0 | 35 | 0 | 1 | 43 |
+| `rv64ui-p-sh` | p- | none | 2382 | 9 | 61 | 0 | 0 | 0 | 0 | 14 | 34 | 0 | 36 | 0 | 1 | 41 |
+| `rv64ui-p-simple` | p- | none | 1005 | 0 | 3 | 0 | 0 | 0 | 0 | 4 | 0 | 0 | 1 | 0 | 0 | 23 |
+| `rv64ui-p-sll` | p- | none | 2575 | 1 | 51 | 0 | 0 | 0 | 0 | 33 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64ui-p-slli` | p- | none | 1691 | 0 | 18 | 0 | 0 | 0 | 0 | 17 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-slliw` | p- | none | 1685 | 0 | 16 | 0 | 0 | 0 | 0 | 17 | 0 | 0 | 1 | 0 | 0 | 31 |
+| `rv64ui-p-sllw` | p- | none | 2577 | 1 | 50 | 0 | 0 | 0 | 0 | 33 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-slt` | p- | none | 2433 | 1 | 44 | 0 | 0 | 0 | 0 | 32 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-slti` | p- | none | 1617 | 0 | 23 | 0 | 0 | 0 | 0 | 18 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-sltiu` | p- | none | 1617 | 0 | 23 | 0 | 0 | 0 | 0 | 18 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-sltu` | p- | none | 2469 | 1 | 55 | 0 | 0 | 0 | 0 | 31 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64ui-p-sra` | p- | none | 2526 | 1 | 61 | 0 | 0 | 0 | 0 | 30 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64ui-p-srai` | p- | none | 1656 | 1 | 18 | 0 | 0 | 0 | 0 | 16 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-sraiw` | p- | none | 1757 | 1 | 41 | 0 | 0 | 0 | 0 | 19 | 0 | 0 | 1 | 0 | 0 | 31 |
+| `rv64ui-p-sraw` | p- | none | 2597 | 1 | 46 | 0 | 0 | 0 | 0 | 33 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64ui-p-srl` | p- | none | 2619 | 8 | 67 | 0 | 0 | 0 | 0 | 29 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64ui-p-srli` | p- | none | 1716 | 2 | 35 | 0 | 0 | 0 | 0 | 15 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-srliw` | p- | none | 1703 | 1 | 24 | 0 | 0 | 0 | 0 | 16 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-srlw` | p- | none | 2583 | 1 | 51 | 0 | 0 | 0 | 0 | 30 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64ui-p-st_ld` | p- | none | 1995 | 0 | 29 | 0 | 0 | 0 | 0 | 12 | 70 | 0 | 71 | 0 | 0 | 24 |
+| `rv64ui-p-sub` | p- | none | 2437 | 1 | 57 | 0 | 0 | 0 | 0 | 33 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64ui-p-subw` | p- | none | 2431 | 1 | 50 | 0 | 0 | 0 | 0 | 34 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64ui-p-sw` | p- | none | 2418 | 9 | 57 | 0 | 0 | 0 | 0 | 10 | 34 | 0 | 35 | 0 | 1 | 42 |
+| `rv64ui-p-xor` | p- | none | 2666 | 14 | 90 | 0 | 0 | 0 | 0 | 33 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-xori` | p- | none | 1597 | 1 | 33 | 0 | 0 | 0 | 0 | 14 | 0 | 0 | 1 | 0 | 0 | 31 |
+| `rv64um-p-div` | p- | none | 1159 | 0 | 10 | 0 | 0 | 0 | 0 | 10 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64um-p-divu` | p- | none | 1167 | 0 | 4 | 0 | 0 | 0 | 0 | 9 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64um-p-divuw` | p- | none | 1149 | 0 | 4 | 0 | 0 | 0 | 0 | 8 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64um-p-divw` | p- | none | 1139 | 0 | 11 | 0 | 0 | 0 | 0 | 10 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64um-p-mul` | p- | none | 2461 | 1 | 46 | 0 | 0 | 0 | 0 | 27 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64um-p-mulh` | p- | none | 2473 | 12 | 67 | 0 | 0 | 0 | 0 | 32 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64um-p-mulhsu` | p- | none | 2471 | 12 | 67 | 0 | 0 | 0 | 0 | 32 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64um-p-mulhu` | p- | none | 2533 | 12 | 67 | 0 | 0 | 0 | 0 | 32 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64um-p-mulw` | p- | none | 2329 | 1 | 46 | 0 | 0 | 0 | 0 | 30 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64um-p-rem` | p- | none | 1131 | 0 | 4 | 0 | 0 | 0 | 0 | 9 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64um-p-remu` | p- | none | 1135 | 0 | 4 | 0 | 0 | 0 | 0 | 9 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64um-p-remuw` | p- | none | 1131 | 0 | 4 | 0 | 0 | 0 | 0 | 10 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64um-p-remw` | p- | none | 1139 | 0 | 11 | 0 | 0 | 0 | 0 | 10 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64uzba-p-add_uw` | p- | none | 2455 | 1 | 46 | 0 | 0 | 0 | 0 | 34 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzba-p-sh1add` | p- | none | 2461 | 1 | 52 | 0 | 0 | 0 | 0 | 32 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzba-p-sh1add_uw` | p- | none | 2469 | 1 | 56 | 0 | 0 | 0 | 0 | 29 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64uzba-p-sh2add` | p- | none | 2461 | 1 | 52 | 0 | 0 | 0 | 0 | 32 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzba-p-sh2add_uw` | p- | none | 2469 | 1 | 56 | 0 | 0 | 0 | 0 | 29 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64uzba-p-sh3add` | p- | none | 2463 | 1 | 52 | 0 | 0 | 0 | 0 | 32 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzba-p-sh3add_uw` | p- | none | 2471 | 1 | 56 | 0 | 0 | 0 | 0 | 29 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64uzba-p-slli_uw` | p- | none | 1719 | 0 | 39 | 0 | 0 | 0 | 0 | 15 | 0 | 0 | 1 | 0 | 0 | 31 |
+| `rv64uzbb-p-andn` | p- | none | 2655 | 12 | 92 | 0 | 0 | 0 | 0 | 31 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbb-p-clz` | p- | none | 1499 | 0 | 21 | 0 | 0 | 0 | 0 | 14 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-clzw` | p- | none | 1465 | 0 | 10 | 0 | 0 | 0 | 0 | 14 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-cpop` | p- | none | 1497 | 0 | 21 | 0 | 0 | 0 | 0 | 14 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-cpopw` | p- | none | 1465 | 0 | 10 | 0 | 0 | 0 | 0 | 14 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-ctz` | p- | none | 1497 | 0 | 21 | 0 | 0 | 0 | 0 | 14 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-ctzw` | p- | none | 1467 | 0 | 10 | 0 | 0 | 0 | 0 | 14 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-max` | p- | none | 2441 | 1 | 34 | 0 | 0 | 0 | 0 | 30 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbb-p-maxu` | p- | none | 2503 | 1 | 62 | 0 | 0 | 0 | 0 | 33 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbb-p-min` | p- | none | 2433 | 1 | 44 | 0 | 0 | 0 | 0 | 31 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbb-p-minu` | p- | none | 2481 | 1 | 63 | 0 | 0 | 0 | 0 | 32 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64uzbb-p-orc_b` | p- | none | 1539 | 0 | 27 | 0 | 0 | 0 | 0 | 16 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-orn` | p- | none | 2673 | 13 | 74 | 0 | 0 | 0 | 0 | 30 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64uzbb-p-rev8` | p- | none | 1574 | 0 | 19 | 0 | 0 | 0 | 0 | 14 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-rol` | p- | none | 2583 | 1 | 35 | 0 | 0 | 0 | 0 | 34 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbb-p-rolw` | p- | none | 2588 | 1 | 49 | 0 | 0 | 0 | 0 | 32 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64uzbb-p-ror` | p- | none | 2645 | 1 | 54 | 0 | 0 | 0 | 0 | 31 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64uzbb-p-rori` | p- | none | 1714 | 0 | 33 | 0 | 0 | 0 | 0 | 17 | 0 | 0 | 1 | 0 | 0 | 31 |
+| `rv64uzbb-p-roriw` | p- | none | 1627 | 0 | 15 | 0 | 0 | 0 | 0 | 17 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64uzbb-p-rorw` | p- | none | 2515 | 1 | 44 | 0 | 0 | 0 | 0 | 34 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64uzbb-p-sext_b` | p- | none | 1499 | 0 | 21 | 0 | 0 | 0 | 0 | 14 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-sext_h` | p- | none | 1503 | 0 | 9 | 0 | 0 | 0 | 0 | 15 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-xnor` | p- | none | 2671 | 13 | 68 | 0 | 0 | 0 | 0 | 30 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbb-p-zext_h` | p- | none | 1509 | 0 | 25 | 0 | 0 | 0 | 0 | 15 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbc-p-clmul` | p- | none | 2463 | 1 | 57 | 0 | 0 | 0 | 0 | 29 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbc-p-clmulh` | p- | none | 2473 | 1 | 59 | 0 | 0 | 0 | 0 | 27 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64uzbc-p-clmulr` | p- | none | 2471 | 1 | 32 | 0 | 0 | 0 | 0 | 26 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbkb-p-brev8` | p- | none | 1537 | 1 | 11 | 0 | 0 | 0 | 0 | 13 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbkb-p-pack` | p- | none | 2913 | 15 | 115 | 0 | 0 | 0 | 0 | 35 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64uzbkb-p-packh` | p- | none | 2585 | 11 | 67 | 0 | 0 | 0 | 0 | 31 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbkb-p-packw` | p- | none | 2445 | 8 | 54 | 0 | 0 | 0 | 0 | 33 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64uzbkx-p-xperm4` | p- | none | 2767 | 13 | 87 | 0 | 0 | 0 | 0 | 34 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64uzbkx-p-xperm8` | p- | none | 3598 | 10 | 138 | 0 | 0 | 0 | 0 | 49 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64uzbs-p-bclr` | p- | none | 2796 | 10 | 71 | 0 | 0 | 0 | 0 | 38 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbs-p-bclri` | p- | none | 1779 | 2 | 34 | 0 | 0 | 0 | 0 | 17 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64uzbs-p-bext` | p- | none | 2661 | 12 | 96 | 0 | 0 | 0 | 0 | 31 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64uzbs-p-bexti` | p- | none | 1713 | 2 | 28 | 0 | 0 | 0 | 0 | 16 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64uzbs-p-binv` | p- | none | 2633 | 1 | 59 | 0 | 0 | 0 | 0 | 34 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64uzbs-p-binvi` | p- | none | 1715 | 0 | 27 | 0 | 0 | 0 | 0 | 16 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64uzbs-p-bset` | p- | none | 2800 | 12 | 112 | 0 | 0 | 0 | 0 | 33 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbs-p-bseti` | p- | none | 1793 | 2 | 52 | 0 | 0 | 0 | 0 | 16 | 0 | 0 | 1 | 0 | 0 | 31 |
+| `rv64uzfh-p-fadd` | p- | none | 1911 | 0 | 14 | 0 | 0 | 0 | 0 | 17 | 40 | 0 | 1 | 0 | 0 | 36 |
+| `rv64uzfh-p-fclass` | p- | none | 1218 | 0 | 4 | 0 | 0 | 0 | 0 | 10 | 0 | 0 | 1 | 0 | 0 | 26 |
+| `rv64uzfh-p-fcmp` | p- | none | 1553 | 0 | 10 | 0 | 0 | 0 | 0 | 9 | 24 | 0 | 1 | 0 | 0 | 32 |
+| `rv64uzfh-p-fcvt` | p- | none | 1803 | 0 | 13 | 0 | 0 | 0 | 0 | 20 | 16 | 0 | 1 | 0 | 0 | 36 |
+| `rv64uzfh-p-fcvt_w` | p- | none | 3375 | 0 | 43 | 0 | 0 | 0 | 0 | 47 | 132 | 0 | 1 | 0 | 0 | 56 |
+| `rv64uzfh-p-fdiv` | p- | none | 1665 | 0 | 11 | 0 | 0 | 0 | 0 | 10 | 28 | 0 | 1 | 0 | 0 | 33 |
+| `rv64uzfh-p-fmadd` | p- | none | 2071 | 0 | 16 | 0 | 0 | 0 | 0 | 16 | 48 | 0 | 1 | 0 | 0 | 38 |
+| `rv64uzfh-p-fmin` | p- | none | 2543 | 0 | 22 | 0 | 0 | 0 | 0 | 23 | 72 | 0 | 1 | 0 | 0 | 44 |
+| `rv64uzfh-p-ldst` | p- | none | 1194 | 0 | 7 | 0 | 0 | 0 | 0 | 6 | 4 | 0 | 3 | 0 | 0 | 27 |
+| `rv64uzfh-p-move` | p- | none | 1812 | 0 | 10 | 0 | 0 | 0 | 0 | 17 | 0 | 0 | 1 | 0 | 0 | 34 |
+| `rv64uzfh-p-recoding` | p- | none | 1192 | 0 | 8 | 0 | 0 | 0 | 0 | 10 | 2 | 0 | 1 | 0 | 0 | 26 |
+| `rv64uziccid-p-ziccid` | p- | none | 14069 | 620 | 202 | 0 | 0 | 0 | 0 | 12 | 0 | 0 | 105 | 0 | 0 | 662 |
+| `rv64uzicond-p-czero_eqz` | p- | none | 2389 | 1 | 46 | 0 | 0 | 0 | 0 | 27 | 0 | 0 | 1 | 0 | 0 | 40 |
+| `rv64uzicond-p-czero_nez` | p- | none | 2377 | 1 | 37 | 0 | 0 | 0 | 0 | 29 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ua-v-amoadd_d` | v- | 15/18 | 52055 | 2924 | 624 | 0 | 0 | 848 | 7 | 599 | 2891 | 0 | 1987 | 0 | 0 | 1570 |
+| `rv64ua-v-amoadd_w` | v- | 16/18 | 51293 | 2834 | 646 | 0 | 0 | 820 | 7 | 600 | 2891 | 0 | 1987 | 0 | 1 | 1566 |
+| `rv64ua-v-amoand_d` | v- | 17/18 | 51490 | 2983 | 714 | 0 | 0 | 828 | 8 | 601 | 2895 | 0 | 1987 | 0 | 1 | 1594 |
+| `rv64ua-v-amoand_w` | v- | 18/18 | 51415 | 2795 | 858 | 0 | 0 | 822 | 11 | 602 | 2895 | 0 | 1987 | 0 | 1 | 1658 |
+| `rv64ua-v-amomax_d` | v- | 1/18 | 51799 | 2758 | 789 | 0 | 0 | 819 | 514 | 601 | 2889 | 0 | 1988 | 0 | 0 | 1634 |
+| `rv64ua-v-amomax_w` | v- | 4/18 | 50012 | 2661 | 800 | 0 | 0 | 780 | 11 | 560 | 2890 | 0 | 1989 | 0 | 0 | 1561 |
+| `rv64ua-v-amomaxu_d` | v- | 2/18 | 50119 | 2782 | 802 | 0 | 0 | 816 | 492 | 580 | 2889 | 0 | 1988 | 0 | 0 | 1597 |
+| `rv64ua-v-amomaxu_w` | v- | 3/18 | 50575 | 2820 | 715 | 0 | 0 | 691 | 14 | 583 | 2890 | 0 | 1989 | 0 | 0 | 1541 |
+| `rv64ua-v-amomin_d` | v- | 5/18 | 51799 | 2758 | 789 | 0 | 0 | 819 | 514 | 601 | 2889 | 0 | 1988 | 0 | 0 | 1634 |
+| `rv64ua-v-amomin_w` | v- | 8/18 | 51815 | 2818 | 874 | 0 | 0 | 829 | 524 | 628 | 2896 | 0 | 1989 | 0 | 0 | 1684 |
+| `rv64ua-v-amominu_d` | v- | 6/18 | 51647 | 2709 | 805 | 0 | 0 | 811 | 513 | 605 | 2891 | 0 | 1988 | 0 | 0 | 1632 |
+| `rv64ua-v-amominu_w` | v- | 7/18 | 50702 | 2799 | 710 | 0 | 0 | 815 | 523 | 628 | 2892 | 0 | 1989 | 0 | 0 | 1603 |
+| `rv64ua-v-amoor_d` | v- | 9/18 | 52139 | 3006 | 707 | 0 | 0 | 847 | 8 | 601 | 2889 | 0 | 1987 | 0 | 1 | 1608 |
+| `rv64ua-v-amoor_w` | v- | 10/18 | 52157 | 2930 | 754 | 0 | 0 | 856 | 9 | 593 | 2889 | 0 | 1987 | 0 | 1 | 1631 |
+| `rv64ua-v-amoswap_d` | v- | 11/18 | 51818 | 2929 | 827 | 0 | 0 | 832 | 5 | 604 | 2895 | 0 | 1987 | 0 | 1 | 1632 |
+| `rv64ua-v-amoswap_w` | v- | 12/18 | 52198 | 2984 | 815 | 0 | 0 | 833 | 8 | 601 | 2895 | 0 | 1987 | 0 | 1 | 1663 |
+| `rv64ua-v-amoxor_d` | v- | 13/18 | 51553 | 2713 | 813 | 0 | 0 | 812 | 7 | 600 | 2889 | 0 | 1987 | 0 | 1 | 1638 |
+| `rv64ua-v-amoxor_w` | v- | 14/18 | 51367 | 2737 | 803 | 0 | 0 | 830 | 11 | 600 | 2889 | 0 | 1987 | 0 | 1 | 1640 |
+| `rv64ua-v-lrsc` | v- | 15/18 | 113710 | 3698 | 862 | 0 | 0 | 814 | 12 | 1632 | 2891 | 1025 | 1986 | 1028 | 0 | 2666 |
+| `rv64uc-v-rvc` | v- | 14/18 | 65689 | 6100 | 529 | 0 | 0 | 988 | 517 | 588 | 4141 | 0 | 2601 | 0 | 0 | 1556 |
+| `rv64ud-v-fclass` | v- | 10/18 | 18059 | 1048 | 374 | 0 | 0 | 107 | 3 | 36 | 1726 | 0 | 822 | 0 | 0 | 335 |
+| `rv64ud-v-fcvt_w` | v- | 13/18 | 105201 | 11322 | 1917 | 0 | 0 | 4083 | 16 | 725 | 5136 | 0 | 2044 | 0 | 0 | 3811 |
+| `rv64ud-v-ldst` | v- | 17/18 | 51405 | 2767 | 736 | 0 | 0 | 823 | 6 | 606 | 2901 | 0 | 1991 | 0 | 0 | 1609 |
+| `rv64ud-v-recoding` | v- | 1/18 | 53995 | 3219 | 610 | 0 | 0 | 790 | 7 | 564 | 2908 | 0 | 1987 | 0 | 0 | 1604 |
+| `rv64ud-v-structural` | v- | 2/18 | 37408 | 2006 | 483 | 0 | 0 | 523 | 13 | 457 | 1726 | 0 | 822 | 0 | 0 | 1232 |
+| `rv64uf-v-fclass` | v- | 17/18 | 40203 | 3156 | 429 | 0 | 0 | 618 | 10 | 556 | 1726 | 0 | 822 | 0 | 0 | 1358 |
+| `rv64uf-v-ldst` | v- | 6/18 | 51244 | 2727 | 857 | 0 | 0 | 819 | 14 | 631 | 2903 | 0 | 1988 | 0 | 0 | 1647 |
+| `rv64uf-v-move` | v- | 7/18 | 39886 | 3216 | 174 | 0 | 0 | 605 | 10 | 562 | 1726 | 0 | 822 | 0 | 0 | 1248 |
+| `rv64ui-v-add` | v- | 1/18 | 40916 | 2074 | 477 | 0 | 0 | 594 | 10 | 571 | 1726 | 0 | 822 | 0 | 0 | 1369 |
+| `rv64ui-v-addi` | v- | 2/18 | 18569 | 1049 | 380 | 0 | 0 | 108 | 3 | 42 | 1726 | 0 | 822 | 0 | 0 | 340 |
+| `rv64ui-v-addiw` | v- | 3/18 | 18563 | 1049 | 382 | 0 | 0 | 108 | 3 | 41 | 1726 | 0 | 822 | 0 | 0 | 340 |
+| `rv64ui-v-addw` | v- | 4/18 | 41695 | 2192 | 509 | 0 | 0 | 643 | 14 | 582 | 1726 | 0 | 822 | 0 | 0 | 1405 |
+| `rv64ui-v-and` | v- | 7/18 | 41398 | 2147 | 579 | 0 | 0 | 613 | 10 | 574 | 1726 | 0 | 822 | 0 | 0 | 1374 |
+| `rv64ui-v-andi` | v- | 8/18 | 38410 | 2164 | 394 | 0 | 0 | 620 | 1 | 534 | 1726 | 0 | 822 | 0 | 0 | 1284 |
+| `rv64ui-v-auipc` | v- | 12/18 | 38776 | 2203 | 130 | 0 | 0 | 617 | 14 | 553 | 1726 | 0 | 822 | 0 | 0 | 1241 |
+| `rv64ui-v-beq` | v- | 13/18 | 41515 | 2206 | 470 | 0 | 0 | 620 | 2 | 552 | 1726 | 0 | 822 | 0 | 0 | 1354 |
+| `rv64ui-v-bge` | v- | 14/18 | 41677 | 3081 | 415 | 0 | 0 | 631 | 3 | 546 | 1726 | 0 | 822 | 0 | 0 | 1364 |
+| `rv64ui-v-bgeu` | v- | 15/18 | 41593 | 2181 | 477 | 0 | 0 | 585 | 1 | 554 | 1726 | 0 | 822 | 0 | 0 | 1359 |
+| `rv64ui-v-blt` | v- | 16/18 | 41629 | 2224 | 488 | 0 | 0 | 623 | 2 | 553 | 1726 | 0 | 822 | 0 | 0 | 1354 |
+| `rv64ui-v-bltu` | v- | 17/18 | 40988 | 2152 | 514 | 0 | 0 | 578 | 1 | 556 | 1726 | 0 | 822 | 0 | 0 | 1339 |
+| `rv64ui-v-bne` | v- | 18/18 | 22206 | 1290 | 522 | 0 | 0 | 211 | 7 | 81 | 1726 | 0 | 822 | 0 | 0 | 469 |
+| `rv64ui-v-fence_i` | v- | 17/18 | 34632 | 2148 | 514 | 0 | 0 | 622 | 17 | 327 | 2901 | 0 | 1990 | 0 | 0 | 794 |
+| `rv64ui-v-jal` | v- | 1/18 | 40790 | 3157 | 381 | 0 | 0 | 624 | 2 | 531 | 1726 | 0 | 822 | 0 | 0 | 1344 |
+| `rv64ui-v-jalr` | v- | 2/18 | 40439 | 2161 | 376 | 0 | 0 | 619 | 13 | 560 | 1726 | 0 | 822 | 0 | 0 | 1389 |
+| `rv64ui-v-lb` | v- | 3/18 | 73181 | 6782 | 1172 | 0 | 0 | 2391 | 5 | 605 | 3379 | 0 | 1433 | 0 | 0 | 2579 |
+| `rv64ui-v-lh` | v- | 5/18 | 71064 | 6549 | 654 | 0 | 0 | 2311 | 4 | 603 | 3379 | 0 | 1433 | 0 | 0 | 2513 |
+| `rv64ui-v-lui` | v- | 11/18 | 40975 | 2176 | 429 | 0 | 0 | 637 | 3 | 529 | 1726 | 0 | 822 | 0 | 0 | 1360 |
+| `rv64ui-v-or` | v- | 9/18 | 41411 | 2147 | 531 | 0 | 0 | 617 | 13 | 580 | 1726 | 0 | 822 | 0 | 0 | 1381 |
+| `rv64ui-v-ori` | v- | 10/18 | 41531 | 2194 | 378 | 0 | 0 | 646 | 3 | 538 | 1726 | 0 | 822 | 0 | 0 | 1371 |
+| `rv64ui-v-sb` | v- | 10/18 | 51712 | 2802 | 762 | 0 | 0 | 807 | 14 | 631 | 2921 | 0 | 2021 | 0 | 1 | 1614 |
+| `rv64ui-v-sh` | v- | 11/18 | 51877 | 2940 | 774 | 0 | 0 | 776 | 5 | 609 | 2921 | 0 | 2021 | 0 | 1 | 1601 |
+| `rv64ui-v-simple` | v- | 16/18 | 40613 | 2130 | 329 | 0 | 0 | 590 | 3 | 528 | 1726 | 0 | 822 | 0 | 0 | 1350 |
+| `rv64ui-v-slli` | v- | 18/18 | 41300 | 3155 | 355 | 0 | 0 | 623 | 3 | 539 | 1726 | 0 | 822 | 0 | 0 | 1338 |
+| `rv64ui-v-slliw` | v- | 1/18 | 18625 | 1048 | 382 | 0 | 0 | 108 | 3 | 41 | 1726 | 0 | 822 | 0 | 0 | 340 |
+| `rv64ui-v-slt` | v- | 13/18 | 41612 | 2106 | 412 | 0 | 0 | 612 | 4 | 553 | 1726 | 0 | 822 | 0 | 0 | 1348 |
+| `rv64ui-v-slti` | v- | 14/18 | 18553 | 1048 | 388 | 0 | 0 | 108 | 3 | 39 | 1726 | 0 | 822 | 0 | 0 | 340 |
+| `rv64ui-v-sltiu` | v- | 16/18 | 18553 | 1048 | 388 | 0 | 0 | 108 | 3 | 39 | 1726 | 0 | 822 | 0 | 0 | 340 |
+| `rv64ui-v-sltu` | v- | 15/18 | 41062 | 2065 | 452 | 0 | 0 | 606 | 10 | 580 | 1726 | 0 | 822 | 0 | 0 | 1371 |
+| `rv64ui-v-sra` | v- | 7/18 | 41102 | 2114 | 456 | 0 | 0 | 611 | 10 | 569 | 1726 | 0 | 822 | 0 | 0 | 1371 |
+| `rv64ui-v-srai` | v- | 8/18 | 40345 | 2121 | 436 | 0 | 0 | 606 | 13 | 566 | 1726 | 0 | 822 | 0 | 0 | 1368 |
+| `rv64ui-v-sraiw` | v- | 9/18 | 41321 | 2206 | 463 | 0 | 0 | 650 | 10 | 565 | 1726 | 0 | 822 | 0 | 0 | 1396 |
+| `rv64ui-v-srli` | v- | 4/18 | 41648 | 2194 | 421 | 0 | 0 | 645 | 3 | 539 | 1726 | 0 | 822 | 0 | 0 | 1371 |
+| `rv64ui-v-srliw` | v- | 5/18 | 38120 | 1968 | 432 | 0 | 0 | 556 | 5 | 472 | 1726 | 0 | 822 | 0 | 0 | 1210 |
+| `rv64ui-v-srlw` | v- | 6/18 | 25186 | 1640 | 824 | 0 | 0 | 163 | 12 | 108 | 2326 | 0 | 1425 | 0 | 0 | 533 |
+| `rv64ui-v-sub` | v- | 5/18 | 41762 | 3190 | 488 | 0 | 0 | 630 | 11 | 580 | 1726 | 0 | 822 | 0 | 0 | 1384 |
+| `rv64ui-v-subw` | v- | 6/18 | 41639 | 2101 | 436 | 0 | 0 | 614 | 4 | 553 | 1726 | 0 | 822 | 0 | 0 | 1350 |
+| `rv64ui-v-sw` | v- | 12/18 | 52150 | 3793 | 882 | 0 | 0 | 656 | 12 | 586 | 2921 | 0 | 2020 | 0 | 1 | 1613 |
+| `rv64ui-v-xor` | v- | 11/18 | 41444 | 2143 | 465 | 0 | 0 | 613 | 9 | 573 | 1726 | 0 | 822 | 0 | 0 | 1359 |
+| `rv64ui-v-xori` | v- | 12/18 | 41533 | 2193 | 422 | 0 | 0 | 645 | 3 | 541 | 1726 | 0 | 822 | 0 | 0 | 1371 |
+| `rv64um-v-div` | v- | 5/18 | 39511 | 2151 | 377 | 0 | 0 | 591 | 3 | 530 | 1726 | 0 | 822 | 0 | 0 | 1315 |
+| `rv64um-v-divu` | v- | 6/18 | 40134 | 3162 | 406 | 0 | 0 | 618 | 8 | 553 | 1726 | 0 | 822 | 0 | 0 | 1349 |
+| `rv64um-v-divuw` | v- | 11/18 | 39503 | 2149 | 436 | 0 | 0 | 591 | 3 | 533 | 1726 | 0 | 822 | 0 | 0 | 1315 |
+| `rv64um-v-divw` | v- | 10/18 | 35883 | 2134 | 489 | 0 | 0 | 662 | 291 | 388 | 1726 | 0 | 822 | 0 | 0 | 1164 |
+| `rv64um-v-mul` | v- | 1/18 | 41728 | 2101 | 442 | 0 | 0 | 609 | 3 | 555 | 1726 | 0 | 822 | 0 | 0 | 1347 |
+| `rv64um-v-mulh` | v- | 2/18 | 41724 | 2141 | 547 | 0 | 0 | 640 | 14 | 584 | 1726 | 0 | 822 | 0 | 0 | 1404 |
+| `rv64um-v-mulhsu` | v- | 3/18 | 41724 | 2141 | 547 | 0 | 0 | 640 | 14 | 584 | 1726 | 0 | 822 | 0 | 0 | 1404 |
+| `rv64um-v-mulhu` | v- | 4/18 | 42972 | 2245 | 431 | 0 | 0 | 667 | 3 | 554 | 1726 | 0 | 822 | 0 | 0 | 1400 |
+| `rv64um-v-mulw` | v- | 9/18 | 42344 | 2218 | 473 | 0 | 0 | 652 | 509 | 554 | 1726 | 0 | 822 | 0 | 0 | 1386 |
+| `rv64um-v-rem` | v- | 7/18 | 40158 | 3157 | 434 | 0 | 0 | 618 | 9 | 554 | 1726 | 0 | 822 | 0 | 0 | 1355 |
+| `rv64um-v-remu` | v- | 8/18 | 38694 | 2212 | 198 | 0 | 0 | 588 | 2 | 543 | 1726 | 0 | 822 | 0 | 0 | 1217 |
+| `rv64um-v-remuw` | v- | 13/18 | 40122 | 3165 | 406 | 0 | 0 | 618 | 8 | 553 | 1726 | 0 | 822 | 0 | 0 | 1351 |
+| `rv64um-v-remw` | v- | 12/18 | 35883 | 2134 | 489 | 0 | 0 | 662 | 291 | 388 | 1726 | 0 | 822 | 0 | 0 | 1164 |
+| `rv64uzba-v-add_uw` | v- | 3/18 | 43046 | 2179 | 327 | 0 | 0 | 633 | 12 | 508 | 1726 | 0 | 822 | 0 | 0 | 1384 |
+| `rv64uzba-v-sh1add` | v- | 4/18 | 43428 | 2370 | 304 | 0 | 0 | 617 | 511 | 554 | 1726 | 0 | 822 | 0 | 0 | 1388 |
+| `rv64uzba-v-sh1add_uw` | v- | 5/18 | 42474 | 2368 | 346 | 0 | 0 | 620 | 3 | 585 | 1726 | 0 | 822 | 0 | 0 | 1364 |
+| `rv64uzba-v-sh2add` | v- | 6/18 | 43428 | 2370 | 304 | 0 | 0 | 617 | 511 | 554 | 1726 | 0 | 822 | 0 | 0 | 1388 |
+| `rv64uzba-v-sh2add_uw` | v- | 7/18 | 42484 | 2371 | 341 | 0 | 0 | 620 | 3 | 585 | 1726 | 0 | 822 | 0 | 0 | 1364 |
+| `rv64uzba-v-sh3add` | v- | 8/18 | 43438 | 2373 | 299 | 0 | 0 | 617 | 511 | 554 | 1726 | 0 | 822 | 0 | 0 | 1388 |
+| `rv64uzba-v-sh3add_uw` | v- | 9/18 | 42474 | 2368 | 346 | 0 | 0 | 620 | 3 | 585 | 1726 | 0 | 822 | 0 | 0 | 1364 |
+| `rv64uzba-v-slli_uw` | v- | 10/18 | 42476 | 2398 | 229 | 0 | 0 | 633 | 2 | 537 | 1726 | 0 | 822 | 0 | 0 | 1382 |
+| `rv64uzbb-v-andn` | v- | 11/18 | 26007 | 1500 | 525 | 0 | 0 | 301 | 17 | 170 | 1726 | 0 | 822 | 0 | 0 | 629 |
+| `rv64uzbb-v-clz` | v- | 12/18 | 37887 | 2273 | 188 | 0 | 0 | 585 | 9 | 465 | 1726 | 0 | 822 | 0 | 0 | 1111 |
+| `rv64uzbb-v-clzw` | v- | 13/18 | 35762 | 1961 | 556 | 0 | 0 | 773 | 134 | 289 | 1726 | 0 | 822 | 0 | 0 | 1122 |
+| `rv64uzbb-v-cpop` | v- | 14/18 | 20906 | 1258 | 512 | 0 | 0 | 211 | 11 | 66 | 1726 | 0 | 822 | 0 | 0 | 441 |
+| `rv64uzbb-v-cpopw` | v- | 15/18 | 35762 | 1961 | 556 | 0 | 0 | 773 | 134 | 289 | 1726 | 0 | 822 | 0 | 0 | 1122 |
+| `rv64uzbb-v-ctz` | v- | 16/18 | 37536 | 2225 | 174 | 0 | 0 | 569 | 9 | 465 | 1726 | 0 | 822 | 0 | 0 | 1097 |
+| `rv64uzbb-v-ctzw` | v- | 17/18 | 35753 | 1961 | 556 | 0 | 0 | 773 | 134 | 288 | 1726 | 0 | 822 | 0 | 0 | 1122 |
+| `rv64uzbb-v-max` | v- | 18/18 | 41233 | 2198 | 171 | 0 | 0 | 618 | 4 | 547 | 1726 | 0 | 822 | 0 | 0 | 1247 |
+| `rv64uzbb-v-maxu` | v- | 1/18 | 41564 | 2286 | 166 | 0 | 0 | 649 | 4 | 549 | 1726 | 0 | 822 | 0 | 0 | 1253 |
+| `rv64uzbb-v-min` | v- | 2/18 | 40682 | 2144 | 170 | 0 | 0 | 607 | 4 | 554 | 1726 | 0 | 822 | 0 | 0 | 1228 |
+| `rv64uzbb-v-minu` | v- | 3/18 | 41014 | 2273 | 229 | 0 | 0 | 635 | 518 | 573 | 1726 | 0 | 822 | 0 | 0 | 1279 |
+| `rv64uzbb-v-orc_b` | v- | 4/18 | 40891 | 2405 | 216 | 0 | 0 | 670 | 1 | 543 | 1726 | 0 | 822 | 0 | 0 | 1275 |
+| `rv64uzbb-v-rev8` | v- | 6/18 | 41271 | 2160 | 405 | 0 | 0 | 627 | 2 | 531 | 1726 | 0 | 822 | 0 | 0 | 1354 |
+| `rv64uzbb-v-rol` | v- | 7/18 | 50065 | 5677 | 307 | 0 | 0 | 1783 | 8 | 97 | 3355 | 0 | 1433 | 0 | 0 | 1363 |
+| `rv64uzbb-v-rolw` | v- | 8/18 | 75239 | 6919 | 721 | 0 | 0 | 2306 | 4 | 562 | 3355 | 0 | 1433 | 0 | 0 | 2597 |
+| `rv64uzbb-v-rori` | v- | 10/18 | 42585 | 2802 | 481 | 0 | 0 | 722 | 499 | 532 | 1726 | 0 | 822 | 0 | 0 | 1406 |
+| `rv64uzbb-v-roriw` | v- | 11/18 | 42595 | 2229 | 408 | 0 | 0 | 714 | 10 | 520 | 1726 | 0 | 822 | 0 | 0 | 1401 |
+| `rv64uzbb-v-rorw` | v- | 12/18 | 41178 | 2145 | 444 | 0 | 0 | 614 | 13 | 572 | 1726 | 0 | 822 | 0 | 0 | 1370 |
+| `rv64uzbb-v-sext_b` | v- | 13/18 | 37536 | 2225 | 174 | 0 | 0 | 569 | 9 | 465 | 1726 | 0 | 822 | 0 | 0 | 1097 |
+| `rv64uzbb-v-sext_h` | v- | 14/18 | 39990 | 2227 | 120 | 0 | 0 | 618 | 4 | 524 | 1726 | 0 | 822 | 0 | 0 | 1222 |
+| `rv64uzbb-v-xnor` | v- | 15/18 | 71569 | 6747 | 427 | 0 | 0 | 2365 | 3 | 623 | 3355 | 0 | 1433 | 0 | 0 | 2441 |
+| `rv64uzbb-v-zext_h` | v- | 16/18 | 40094 | 2307 | 224 | 0 | 0 | 627 | 1 | 543 | 1726 | 0 | 822 | 0 | 0 | 1258 |
+| `rv64uzbc-v-clmul` | v- | 17/18 | 41944 | 2134 | 441 | 0 | 0 | 619 | 3 | 555 | 1726 | 0 | 822 | 0 | 0 | 1356 |
+| `rv64uzbc-v-clmulh` | v- | 18/18 | 42057 | 2140 | 440 | 0 | 0 | 622 | 3 | 553 | 1726 | 0 | 822 | 0 | 0 | 1360 |
+| `rv64uzbc-v-clmulr` | v- | 1/18 | 42033 | 2140 | 437 | 0 | 0 | 623 | 3 | 549 | 1726 | 0 | 822 | 0 | 0 | 1360 |
+| `rv64uzbkb-v-brev8` | v- | 2/18 | 40951 | 2201 | 412 | 0 | 0 | 667 | 12 | 573 | 1726 | 0 | 822 | 0 | 0 | 1399 |
+| `rv64uzbkb-v-pack` | v- | 3/18 | 72201 | 6654 | 346 | 0 | 0 | 2441 | 14 | 719 | 3355 | 0 | 1433 | 0 | 0 | 2463 |
+| `rv64uzbkb-v-packh` | v- | 4/18 | 40458 | 2111 | 278 | 0 | 0 | 583 | 12 | 590 | 1726 | 0 | 822 | 0 | 0 | 1266 |
+| `rv64uzbkb-v-packw` | v- | 5/18 | 41539 | 2164 | 483 | 0 | 0 | 633 | 13 | 587 | 1726 | 0 | 822 | 0 | 0 | 1379 |
+| `rv64uzbkx-v-xperm8` | v- | 7/18 | 73703 | 6740 | 1280 | 0 | 0 | 2338 | 11 | 648 | 3355 | 0 | 1433 | 0 | 0 | 2580 |
+| `rv64uzbs-v-bclr` | v- | 8/18 | 70611 | 6605 | 639 | 0 | 0 | 2459 | 2 | 703 | 3355 | 0 | 1433 | 0 | 0 | 2468 |
+| `rv64uzbs-v-bclri` | v- | 9/18 | 37919 | 2242 | 411 | 0 | 0 | 570 | 0 | 548 | 1726 | 0 | 822 | 0 | 0 | 1283 |
+| `rv64uzbs-v-bexti` | v- | 11/18 | 37254 | 2227 | 422 | 0 | 0 | 611 | 3 | 539 | 1726 | 0 | 822 | 0 | 0 | 1266 |
+| `rv64uzbs-v-binvi` | v- | 13/18 | 37856 | 2310 | 396 | 0 | 0 | 635 | 2 | 558 | 1726 | 0 | 822 | 0 | 0 | 1283 |
+| `rv64uzbs-v-bset` | v- | 14/18 | 70216 | 6761 | 689 | 0 | 0 | 2311 | 506 | 618 | 3355 | 0 | 1433 | 0 | 0 | 2504 |
+| `rv64uzbs-v-bseti` | v- | 15/18 | 15864 | 1272 | 249 | 0 | 0 | 130 | 0 | 65 | 1726 | 0 | 822 | 0 | 0 | 184 |
+| `rv64uzfh-v-fclass` | v- | 17/18 | 38866 | 2194 | 134 | 0 | 0 | 608 | 12 | 557 | 1726 | 0 | 822 | 0 | 0 | 1238 |
+| `rv64uzfh-v-fcvt` | v- | 1/18 | 71015 | 6569 | 634 | 0 | 0 | 2319 | 502 | 576 | 3371 | 0 | 1433 | 0 | 0 | 2497 |
+| `rv64uzfh-v-fmadd` | v- | 4/18 | 72722 | 6588 | 1058 | 0 | 0 | 2360 | 4 | 610 | 3403 | 0 | 1433 | 0 | 0 | 2542 |
+| `rv64uzfh-v-ldst` | v- | 6/18 | 49973 | 2930 | 576 | 0 | 0 | 664 | 16 | 590 | 2903 | 0 | 1988 | 0 | 0 | 1477 |
+| `rv64uzfh-v-move` | v- | 7/18 | 18584 | 1048 | 371 | 0 | 0 | 106 | 3 | 76 | 1726 | 0 | 822 | 0 | 0 | 344 |
+| `rv64uziccid-v-ziccid` | v- | 11/18 | 156427 | 13229 | 1668 | 0 | 0 | 2241 | 58 | 806 | 13081 | 0 | 11907 | 0 | 0 | 3125 |
+| `rv64uzicond-v-czero_eqz` | v- | 9/18 | 18804 | 1103 | 560 | 0 | 0 | 107 | 10 | 88 | 1726 | 0 | 822 | 0 | 0 | 370 |
+| `rv64uzicond-v-czero_nez` | v- | 10/18 | 39460 | 2116 | 549 | 0 | 0 | 612 | 10 | 489 | 1726 | 0 | 822 | 0 | 0 | 1194 |
