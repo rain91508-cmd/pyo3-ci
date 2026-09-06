@@ -1041,7 +1041,7 @@ src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EWbRobUpdateFullSignals
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EWbRobUpdateFullSignals::test_sb_setreg_fires_with_correct_phys_reg	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestIcSquashFanOut::test_bc_iew_squash_clears_pending_in_parent	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestIcSquashFanOut::test_bc_iew_squash_per_thread_isolation	PASS	block-IEW	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestIcSquashFanOut::test_bc_iew_squash_propagates_to_writeback_pending	PASS	block-IEW	none			1		
+src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestIcSquashFanOut::test_bc_iew_squash_propagates_to_writeback_pending	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestIcSquashFanOut::test_writeback_ic_squash_signature_is_tid_seqnum	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestInterSubBlockInterfaces::test_dispatch_to_iq_iq_dispatch_wire	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestInterSubBlockInterfaces::test_dispatch_to_lsq_insert_load_wire	PASS	block-IEW	none			0		
@@ -1580,9 +1580,9 @@ test_lsq_parent_cl_adr0033_speculation.TestSpeculationInterface::test_fu_nack_al
 test_lsq_parent_cl_adr0033_speculation.TestSpeculationInterface::test_fu_nack_is_callable	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl_adr0033_speculation.TestSpeculationInterface::test_fu_nack_port_exists	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL1::test_squash_clears_l1_shift_reg_slot_silent_pop	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL1::test_squash_fires_fu_early_complete_for_l1_pending	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL1::test_squash_does_not_fire_and_clears_l1_slot	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL2::test_squash_clears_l2_shift_reg_slot_silent_pop	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL2::test_squash_fires_fu_early_complete_for_l2_pending	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL2::test_squash_does_not_fire_and_clears_l2_slot	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckNegativeCases::test_squash_walks_only_matching_seqnum	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckNegativeCases::test_squash_with_empty_shift_regs_does_not_fire	PASS	block-LSQParent	none			0		
 test_o3_control_cl.TestBackwardBusPropagation::test_backward_ctrl_in_forwards_to_commit	PASS	block-O3Control	none			0		
@@ -1749,8 +1749,8 @@ test_read_operand_cl.TestPredicateFalseShortCircuit::test_predicate_false_skips_
 test_read_operand_cl.TestPredicateFalseShortCircuit::test_predicate_true_proceeds_to_fupool	PASS	block-ReadOperand	none			0		
 test_read_operand_cl.TestProcessing::test_no_handoff_without_fromiq	PASS	block-ReadOperand	none			0		
 test_read_operand_cl.TestProcessing::test_process_clears_state_after_tick	PASS	block-ReadOperand	none			0		
-test_read_operand_cl.TestROInstIssuedProducer::test_ro_inst_issued_called_for_squashed	FAIL	block-ReadOperand	none			0		assert (0,) == (99, 0)      At index 0 diff: 0 != 99   Right contains one more item: 0      Full diff:     (   -     99,         0,     ) self = <ReadOperand.test_read_operand_cl.TestROInstIssuedProducer object at 0x7fca8f225070>      def test_ro_inst_issued_called_for_squashed(self):         """Squashed instructions still signal ro_inst_issued."""         dut = make_read_operand()         calls =
-test_read_operand_cl.TestROInstIssuedProducer::test_ro_inst_issued_called_with_seqnum_and_tid	FAIL	block-ReadOperand	none			0		assert (1,) == (42, 1)      At index 0 diff: 1 != 42   Right contains one more item: 1      Full diff:     (   -     42,         1,     ) self = <ReadOperand.test_read_operand_cl.TestROInstIssuedProducer object at 0x7fca8f2253a0>      def test_ro_inst_issued_called_with_seqnum_and_tid(self):         dut = make_read_operand()         calls = []         dut.ro_inst_issued.method = lambda *args: call
+test_read_operand_cl.TestROInstIssuedProducer::test_ro_inst_issued_called_for_squashed	FAIL	block-ReadOperand	none			0		assert (0,) == (99, 0)      At index 0 diff: 0 != 99   Right contains one more item: 0      Full diff:     (   -     99,         0,     ) self = <ReadOperand.test_read_operand_cl.TestROInstIssuedProducer object at 0x7f938825cf20>      def test_ro_inst_issued_called_for_squashed(self):         """Squashed instructions still signal ro_inst_issued."""         dut = make_read_operand()         calls =
+test_read_operand_cl.TestROInstIssuedProducer::test_ro_inst_issued_called_with_seqnum_and_tid	FAIL	block-ReadOperand	none			0		assert (1,) == (42, 1)      At index 0 diff: 1 != 42   Right contains one more item: 1      Full diff:     (   -     42,         1,     ) self = <ReadOperand.test_read_operand_cl.TestROInstIssuedProducer object at 0x7f938825d460>      def test_ro_inst_issued_called_with_seqnum_and_tid(self):         dut = make_read_operand()         calls = []         dut.ro_inst_issued.method = lambda *args: call
 test_read_operand_cl.TestReset::test_after_reset_drain_state_cleared	PASS	block-ReadOperand	none			0		
 test_read_operand_cl.TestReset::test_after_resetpending_fromiq_is_none	PASS	block-ReadOperand	none			0		
 test_read_operand_cl.TestReset::test_after_resetstate_fromiq_is_none	PASS	block-ReadOperand	none			0		
@@ -1765,25 +1765,25 @@ test_read_operand_cl.TestWBInfoADR0033ClusterRouting::test_wbinfo_has_iq_local_i
 test_read_operand_cl.TestWBInfoExtraction::test_fu_operand_req_carries_wbinfo	PASS	block-ReadOperand	none			0		
 test_read_operand_cl.TestWBInfoExtraction::test_wbinfo_dest_phys_reg_defaults_to_zero	PASS	block-ReadOperand	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestDirectComplete::test_direct_complete_called_for_fault	PASS	block-ReadOperandInt	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestHandoff::test_fu_operand_called_after_read	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl.TestHandoff object at 0x7f0e108a0f20>      def test_fu_operand_called_after_read(self):         dut = make_read_operand_int()         fu_calls = []         dut.rf_read.method = lambda reg: 0         dut.fu_operand.method = lambda req: fu_calls.append(req)             
-src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestHandoff::test_squashed_still_handed_off	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl.TestHandoff object at 0x7f0e108a16d0>      def test_squashed_still_handed_off(self):         """squashed=True → still handoff to FUPool (bypass compute)."""         dut = make_read_operand_int()         fu_calls = []         dut.rf_read.method = lambda reg: 0         
-src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestOperandRead::test_rf_read_called_for_sources	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl.TestOperandRead object at 0x7f0e108a0aa0>      def test_rf_read_called_for_sources(self):         dut = make_read_operand_int()         rf_calls = []         dut.rf_read.method = lambda reg: rf_calls.append(reg)              inst = _make_inst(num_src=2)         req = 
+src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestHandoff::test_fu_operand_called_after_read	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl.TestHandoff object at 0x7f487109d070>      def test_fu_operand_called_after_read(self):         dut = make_read_operand_int()         fu_calls = []         dut.rf_read.method = lambda reg: 0         dut.fu_operand.method = lambda req: fu_calls.append(req)             
+src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestHandoff::test_squashed_still_handed_off	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl.TestHandoff object at 0x7f487109d6a0>      def test_squashed_still_handed_off(self):         """squashed=True → still handoff to FUPool (bypass compute)."""         dut = make_read_operand_int()         fu_calls = []         dut.rf_read.method = lambda reg: 0         
+src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestOperandRead::test_rf_read_called_for_sources	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl.TestOperandRead object at 0x7f487109c980>      def test_rf_read_called_for_sources(self):         dut = make_read_operand_int()         rf_calls = []         dut.rf_read.method = lambda reg: rf_calls.append(reg)              inst = _make_inst(num_src=2)         req = 
 src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestReceiveIssue::test_fromiq_rdy_when_not_full	PASS	block-ReadOperandInt	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestReceiveIssue::test_fromiq_stores_request	PASS	block-ReadOperandInt	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestWBInfoConstruction::test_wbinfo_has_dest_phys_reg	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl.TestWBInfoConstruction object at 0x7f0e108a1970>      def test_wbinfo_has_dest_phys_reg(self):         dut = make_read_operand_int()         fu_calls = []         dut.rf_read.method = lambda reg: 0         dut.fu_operand.method = lambda req: fu_calls.append(req)      
-src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryCalledPerSourceReg::test_bypass_query_called_for_each_source	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl_adr0033_primary.TestBypassQueryCalledPerSourceReg object at 0x7f0e108a0ec0>      def test_bypass_query_called_for_each_source(self):         """bypass_query is called once per source register."""         dut = make_read_operand_int()         bq_calls = []         dut.
-src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryHitUsesBypassValue::test_bypass_query_hit_uses_bypass_value	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl_adr0033_primary.TestBypassQueryHitUsesBypassValue object at 0x7f0e108a3110>      def test_bypass_query_hit_uses_bypass_value(self):         """bypass_query returns (True, 0xCAFE) → operand data is 0xCAFE,         NOT the rf_read value."""         dut = make_read_opera
-src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryHitUsesBypassValue::test_bypass_query_miss_uses_rf_read_value	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl_adr0033_primary.TestBypassQueryHitUsesBypassValue object at 0x7f0e108a33e0>      def test_bypass_query_miss_uses_rf_read_value(self):         """bypass_query returns (False, 0) → operand data is rf_read value."""         dut = make_read_operand_int()         dut.bypas
+src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl.TestWBInfoConstruction::test_wbinfo_has_dest_phys_reg	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl.TestWBInfoConstruction object at 0x7f487109dac0>      def test_wbinfo_has_dest_phys_reg(self):         dut = make_read_operand_int()         fu_calls = []         dut.rf_read.method = lambda reg: 0         dut.fu_operand.method = lambda req: fu_calls.append(req)      
+src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryCalledPerSourceReg::test_bypass_query_called_for_each_source	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl_adr0033_primary.TestBypassQueryCalledPerSourceReg object at 0x7f487109d5e0>      def test_bypass_query_called_for_each_source(self):         """bypass_query is called once per source register."""         dut = make_read_operand_int()         bq_calls = []         dut.
+src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryHitUsesBypassValue::test_bypass_query_hit_uses_bypass_value	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl_adr0033_primary.TestBypassQueryHitUsesBypassValue object at 0x7f487109f0b0>      def test_bypass_query_hit_uses_bypass_value(self):         """bypass_query returns (True, 0xCAFE) → operand data is 0xCAFE,         NOT the rf_read value."""         dut = make_read_opera
+src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryHitUsesBypassValue::test_bypass_query_miss_uses_rf_read_value	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl_adr0033_primary.TestBypassQueryHitUsesBypassValue object at 0x7f487109f3b0>      def test_bypass_query_miss_uses_rf_read_value(self):         """bypass_query returns (False, 0) → operand data is rf_read value."""         dut = make_read_operand_int()         dut.bypas
 src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_caller_ifc_exists	PASS	block-ReadOperandInt	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_is_callable	PASS	block-ReadOperandInt	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryPrecedence::test_bypass_query_hit_suppresses_rf_read	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl_adr0033_primary.TestBypassQueryPrecedence object at 0x7f0e108a3710>      def test_bypass_query_hit_suppresses_rf_read(self):         """bypass_query hit → rf_read is NOT called for that source reg.         (Avoids unnecessary PhysRegFile port contention.)"""         d
-src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryPrecedence::test_bypass_query_partial_hit_suppresses_only_hit_sources	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl_adr0033_primary.TestBypassQueryPrecedence object at 0x7f0e108a3a70>      def test_bypass_query_partial_hit_suppresses_only_hit_sources(self):         """bypass_query hit on src[0] but miss on src[1] → rf_read called         ONLY for src[1]."""         dut = make_read_
-src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTALDARouting::test_lda_calls_fu_operand	FAIL	block-ReadOperandMem	none			0		TypeError: make_read_operand_mem.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_mem_cl.TestSTALDARouting object at 0x7ff90fa9c740>      def test_lda_calls_fu_operand(self):         """IEW-1: LDA op must call fu_operand (AddressCalcFU)."""         dut = make_read_operand_mem()         fu_calls = []         dut.rf_read.method = lambda reg: 0x2000         
-src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTALDARouting::test_none_uop_calls_fu_operand	FAIL	block-ReadOperandMem	none			0		TypeError: make_read_operand_mem.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_mem_cl.TestSTALDARouting object at 0x7ff90fa9cd10>      def test_none_uop_calls_fu_operand(self):         """IEW-1: Non-mem uop (NONE) must call fu_operand."""         dut = make_read_operand_mem()         fu_calls = []         dut.rf_read.method = lambda reg: 0         dut.
-src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTALDARouting::test_sta_calls_fu_operand	FAIL	block-ReadOperandMem	none			0		TypeError: make_read_operand_mem.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_mem_cl.TestSTALDARouting object at 0x7ff90fa9c3b0>      def test_sta_calls_fu_operand(self):         """IEW-1: STA op must call fu_operand (AddressCalcFU)."""         dut = make_read_operand_mem()         fu_calls = []         dut.rf_read.method = lambda reg: 0x1000         
-src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTDRouting::test_std_calls_lsq_execute_store_data	FAIL	block-ReadOperandMem	none			0		TypeError: make_read_operand_mem.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_mem_cl.TestSTDRouting object at 0x7ff90fa9b650>      def test_std_calls_lsq_execute_store_data(self):         """IEW-1 RED: STD op must call cfg_lsq_execute_store_data."""         dut = make_read_operand_mem()         dut.rf_read.method = lambda reg: 0xDEAD              inst
-src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTDRouting::test_std_does_not_call_fu_operand	FAIL	block-ReadOperandMem	none			0		TypeError: make_read_operand_mem.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_mem_cl.TestSTDRouting object at 0x7ff90fa9bce0>      def test_std_does_not_call_fu_operand(self):         """IEW-1: STD op must NOT call fu_operand."""         dut = make_read_operand_mem()         fu_calls = []         dut.rf_read.method = lambda reg: 0x1234         dut.fu_
-src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTDRouting::test_std_passes_inst_list_idx_zero	FAIL	block-ReadOperandMem	none			0		TypeError: make_read_operand_mem.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_mem_cl.TestSTDRouting object at 0x7ff90fa9c0e0>      def test_std_passes_inst_list_idx_zero(self):         """IEW-1: STD passes inst_list_idx=0 (placeholder per ADR 0028)."""         dut = make_read_operand_mem()         dut.rf_read.method = lambda reg: 0              inst =
+src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryPrecedence::test_bypass_query_hit_suppresses_rf_read	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl_adr0033_primary.TestBypassQueryPrecedence object at 0x7f487109f680>      def test_bypass_query_hit_suppresses_rf_read(self):         """bypass_query hit → rf_read is NOT called for that source reg.         (Avoids unnecessary PhysRegFile port contention.)"""         d
+src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandInt.test_read_operand_int_cl_adr0033_primary.TestBypassQueryPrecedence::test_bypass_query_partial_hit_suppresses_only_hit_sources	FAIL	block-ReadOperandInt	none			0		TypeError: make_read_operand_int.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_int_cl_adr0033_primary.TestBypassQueryPrecedence object at 0x7f487109f9e0>      def test_bypass_query_partial_hit_suppresses_only_hit_sources(self):         """bypass_query hit on src[0] but miss on src[1] → rf_read called         ONLY for src[1]."""         dut = make_read_
+src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTALDARouting::test_lda_calls_fu_operand	FAIL	block-ReadOperandMem	none			0		TypeError: make_read_operand_mem.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_mem_cl.TestSTALDARouting object at 0x7fad79598a10>      def test_lda_calls_fu_operand(self):         """IEW-1: LDA op must call fu_operand (AddressCalcFU)."""         dut = make_read_operand_mem()         fu_calls = []         dut.rf_read.method = lambda reg: 0x2000         
+src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTALDARouting::test_none_uop_calls_fu_operand	FAIL	block-ReadOperandMem	none			0		TypeError: make_read_operand_mem.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_mem_cl.TestSTALDARouting object at 0x7fad79599010>      def test_none_uop_calls_fu_operand(self):         """IEW-1: Non-mem uop (NONE) must call fu_operand."""         dut = make_read_operand_mem()         fu_calls = []         dut.rf_read.method = lambda reg: 0         dut.
+src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTALDARouting::test_sta_calls_fu_operand	FAIL	block-ReadOperandMem	none			0		TypeError: make_read_operand_mem.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_mem_cl.TestSTALDARouting object at 0x7fad795986b0>      def test_sta_calls_fu_operand(self):         """IEW-1: STA op must call fu_operand (AddressCalcFU)."""         dut = make_read_operand_mem()         fu_calls = []         dut.rf_read.method = lambda reg: 0x1000         
+src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTDRouting::test_std_calls_lsq_execute_store_data	FAIL	block-ReadOperandMem	none			0		TypeError: make_read_operand_mem.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_mem_cl.TestSTDRouting object at 0x7fad7a4c9910>      def test_std_calls_lsq_execute_store_data(self):         """IEW-1 RED: STD op must call cfg_lsq_execute_store_data."""         dut = make_read_operand_mem()         dut.rf_read.method = lambda reg: 0xDEAD              inst
+src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTDRouting::test_std_does_not_call_fu_operand	FAIL	block-ReadOperandMem	none			0		TypeError: make_read_operand_mem.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_mem_cl.TestSTDRouting object at 0x7fad795987a0>      def test_std_does_not_call_fu_operand(self):         """IEW-1: STD op must NOT call fu_operand."""         dut = make_read_operand_mem()         fu_calls = []         dut.rf_read.method = lambda reg: 0x1234         dut.fu_
+src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTDRouting::test_std_passes_inst_list_idx_zero	FAIL	block-ReadOperandMem	none			0		TypeError: make_read_operand_mem.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_operand_mem_cl.TestSTDRouting object at 0x7fad7959a390>      def test_std_passes_inst_list_idx_zero(self):         """IEW-1: STD passes inst_list_idx=0 (placeholder per ADR 0028)."""         dut = make_read_operand_mem()         dut.rf_read.method = lambda reg: 0              inst =
 test_free_list_cl.TestAllocFreeSameCycle::test_alloc_does_not_see_same_cycle_free	PASS	block-Rename	none			0		
 test_free_list_cl.TestAllocation::test_alloc_advances_head	PASS	block-Rename	none			0		
 test_free_list_cl.TestAllocation::test_alloc_from_empty_class	PASS	block-Rename	none			0		
@@ -2138,54 +2138,54 @@ test_o3_core_bare_metal_tb_cl.TestRunElfFactory::test_run_elf_returns_exit_code_
 test_o3_core_bare_metal_tb_cl.TestVAProbeCoordinator::test_va_probe_miss_when_no_pa_arrives	PASS	block-Testbench	none			0		
 test_o3_core_bare_metal_tb_cl.TestVAProbeCoordinator::test_va_probe_odd_cacheline_misses	PASS	block-Testbench	none			0		
 test_o3_core_bare_metal_tb_cl.TestVAProbeCoordinator::test_va_probe_resp_fires_2_cycles_after_req	PASS	block-Testbench	none			0		
-test_riscv_tests_isa::test_riscv_tests_smoke_add	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition]	PASS	block-Testbench	none			11		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND]	PASS	block-Testbench	none			10		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-auipc:add upper immediate to PC]	PASS	block-Testbench	none			4		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal]	PASS	block-Testbench	none			11		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned]	PASS	block-Testbench	none			11		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned]	PASS	block-Testbench	none			10		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence]	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link]	PASS	block-Testbench	none			4		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jalr:jump and link register]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double]	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lui:load upper immediate]	PASS	block-Testbench	none			4		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			10		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double]	PASS	block-Testbench	none			10		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical]	PASS	block-Testbench	none			10		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word]	PASS	block-Testbench	none			10		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned]	PASS	block-Testbench	none			10		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic]	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srai:shift right arithmetic immediate]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sraw:shift right arithmetic word]	PASS	block-Testbench	none			10		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical]	PASS	block-Testbench	none			10		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word]	PASS	block-Testbench	none			10		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction]	PASS	block-Testbench	none			10		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR]	PASS	block-Testbench	none			10		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_riscv_tests_smoke_add	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-auipc:add upper immediate to PC]	PASS	block-Testbench	none			3		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link]	PASS	block-Testbench	none			3		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jalr:jump and link register]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lui:load upper immediate]	PASS	block-Testbench	none			2		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srai:shift right arithmetic immediate]	PASS	block-Testbench	none			3		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sraw:shift right arithmetic word]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word]	FAIL	block-Testbench	none			4		AssertionError: [MEMIQ_SINGLEFIRE] cyc=1398 idx=0 double fu_real_complete in one tick riscv_tests_elf_dir = '/home/runner/work/pyo3-ci/pyo3-ci/src/cpu/pyo3/pymtl3/../riscv-tests/isa' elf_name = 'rv64ui-p-sw'      @pytest.mark.riscv_tests     @pytest.mark.parametrize("elf_name", _ALL_PARAMS)     def test_rv64ui_p(riscv_tests_elf_dir, elf_name):         """Run a rv64ui-p-* ISA test and check tohost 
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate]	PASS	block-Testbench	none			3		
 test_tlbi_controller_cl.TestEdgeCases::test_second_tlbi_req_after_first_completes	PASS	block-TlbiController	none			0		
 test_tlbi_controller_cl.TestEdgeCases::test_sync_comp_before_inv_sent_ignored_or_buffered	PASS	block-TlbiController	none			0		
 test_tlbi_controller_cl.TestIntegrationWithLSQ::test_integration_controller_with_lsq	PASS	block-TlbiController	none			0		
@@ -2207,7 +2207,7 @@ test_write_back_cl.TestCSRWrite::test_wb_csr_write_port_exists	PASS	block-WriteB
 test_write_back_cl.TestDecrWbOutstanding::test_normal_completion_ignores_decr_wb_outstanding	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestDirectComplete::test_direct_complete_buffers_completion	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestDirectComplete::test_direct_complete_calls_rf_write	PASS	block-WriteBack	none			0		
-test_write_back_cl.TestDirectComplete::test_direct_complete_decrements_counter	FAIL	block-WriteBack	none			0		TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 'seqnum' self = <WriteBack.test_write_back_cl.TestDirectComplete object at 0x7ff60f472480>      def test_direct_complete_decrements_counter(self):         """direct_complete decrements state_in_flight_count[tid]."""         dut = make_write_back() >       dut.ro_inst_issued(seqnum=
+test_write_back_cl.TestDirectComplete::test_direct_complete_decrements_counter	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestDirectComplete::test_direct_complete_marks_slot_processed	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestDirectComplete::test_direct_complete_port_exists	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestDirectComplete::test_direct_complete_squashed_skips_rf_write	PASS	block-WriteBack	none			0		
@@ -2224,9 +2224,9 @@ test_write_back_cl.TestFuCompleteBundle::test_bundle_no_trap_fields	PASS	block-W
 test_write_back_cl.TestFuCompleteBundle::test_bundle_wbinfo_defaults_to_empty	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestInFlightCounter::test_after_reset_counter_is_zero	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestInFlightCounter::test_after_reset_squash_boundary_is_zero	PASS	block-WriteBack	none			0		
-test_write_back_cl.TestInFlightCounter::test_fu_complete_decrements_counter	FAIL	block-WriteBack	none			0		TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 'seqnum' self = <WriteBack.test_write_back_cl.TestInFlightCounter object at 0x7ff60f463380>      def test_fu_complete_decrements_counter(self):         """fu_complete decrements state_in_flight_count[tid].              Setup: issue 2 instructions (counter=2), then complete 1 (count
-test_write_back_cl.TestInFlightCounter::test_ic_squash_updates_boundary	FAIL	block-WriteBack	none			0		TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 'seqnum' self = <WriteBack.test_write_back_cl.TestInFlightCounter object at 0x7ff60f463e30>      def test_ic_squash_updates_boundary(self):         """ic_squash(tid, seqnum) updates state_squash_boundary[tid].              Per ADR 0025: squash boundary is a per-thread register upda
-test_write_back_cl.TestInFlightCounter::test_ro_inst_issued_increments_counter	FAIL	block-WriteBack	none			0		TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 'seqnum' self = <WriteBack.test_write_back_cl.TestInFlightCounter object at 0x7ff60f4636e0>      def test_ro_inst_issued_increments_counter(self):         """ro_inst_issued({seqnum, tid}) increments state_in_flight_count[tid].              Timing: CalleeIfcCL writes pending_issued[
+test_write_back_cl.TestInFlightCounter::test_fu_complete_decrements_counter	PASS	block-WriteBack	none			0		
+test_write_back_cl.TestInFlightCounter::test_ic_squash_updates_boundary	PASS	block-WriteBack	none			0		
+test_write_back_cl.TestInFlightCounter::test_ro_inst_issued_increments_counter	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestIndividualParams::test_rf_write_called_with_two_individual_args	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestIndividualParams::test_wb_csr_write_called_with_three_individual_args	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestIndividualParams::test_wb_fault_called_with_three_individual_args	PASS	block-WriteBack	none			0		
@@ -2243,7 +2243,7 @@ test_write_back_cl.TestLSQExecuteResp::test_lsq_execute_resp_callee_exists	PASS	
 test_write_back_cl.TestLSQExecuteResp::test_lsq_load_completion_calls_rf_write	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestLSQExecuteResp::test_lsq_store_completion_no_rf_write	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestPendingWBQueue::test_fifo_order_preserved	PASS	block-WriteBack	none			0		
-test_write_back_cl.TestPendingWBQueue::test_pop_time_squash_with_writeback_width	FAIL	block-WriteBack	none			0		TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 'seqnum' self = <WriteBack.test_write_back_cl.TestPendingWBQueue object at 0x7ff60f470740>      def test_pop_time_squash_with_writeback_width(self):         """ADR 0014 + ADR 0025: pop-time squash check works with bandwidth limiting.              ic_squash does NOT walk the queue. 
+test_write_back_cl.TestPendingWBQueue::test_pop_time_squash_with_writeback_width	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestPendingWBQueue::test_writeback_width_does_not_drop_completions	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestPendingWBQueue::test_writeback_width_limits_processing_per_cycle	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestPerClassCrossbar::test_class_of_phys_reg_helper	PASS	block-WriteBack	none			0		
@@ -2264,10 +2264,10 @@ test_write_back_cl.TestRfWriteSetReg::test_multi_dest_completion_calls_rf_write_
 test_write_back_cl.TestRfWriteSetReg::test_normal_completion_calls_rf_write_with_dest_phys_reg	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestRfWriteSetReg::test_normal_completion_does_not_fire_sb_setreg	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestRfWriteSetReg::test_squashed_completion_skips_rf_write	PASS	block-WriteBack	none			0		
-test_write_back_cl.TestSquashAtCompletion::test_seqnum_above_boundary_skips_rf_write	FAIL	block-WriteBack	none			0		TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 'seqnum' self = <WriteBack.test_write_back_cl.TestSquashAtCompletion object at 0x7ff60f465b20>      def test_seqnum_above_boundary_skips_rf_write(self):         """Completion with seqnum > boundary → skip rf_write (no wakeup per ADR 0033)."""         dut = make_write_back()        
-test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_cleared_after_all_inflight_drained	FAIL	block-WriteBack	none			0		TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 'seqnum' self = <WriteBack.test_write_back_cl.TestSquashBoundaryAutoClear object at 0x7ff60f461eb0>      def test_boundary_cleared_after_all_inflight_drained(self):         """WB-NEW-4 RED: boundary auto-clears when counter hits 0 and buffer empty.              Setup: issue 1 instr
-test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_not_cleared_while_completion_in_buffer	FAIL	block-WriteBack	none			0		TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 'seqnum' self = <WriteBack.test_write_back_cl.TestSquashBoundaryAutoClear object at 0x7ff60f460500>      def test_boundary_not_cleared_while_completion_in_buffer(self):         """WB-NEW-4: boundary preserved while unprocessed completion in buffer.              Even if counter == 0
-test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_not_cleared_while_inflight_remaining	FAIL	block-WriteBack	none			0		TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 'seqnum' self = <WriteBack.test_write_back_cl.TestSquashBoundaryAutoClear object at 0x7ff60f463140>      def test_boundary_not_cleared_while_inflight_remaining(self):         """WB-NEW-4: boundary preserved while in-flight instructions remain.              If state_in_flight_count 
+test_write_back_cl.TestSquashAtCompletion::test_seqnum_above_boundary_skips_rf_write	PASS	block-WriteBack	none			0		
+test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_cleared_after_all_inflight_drained	PASS	block-WriteBack	none			0		
+test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_not_cleared_while_completion_in_buffer	PASS	block-WriteBack	none			0		
+test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_not_cleared_while_inflight_remaining	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestSquashedBypass::test_squashed_marks_slot_processed	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestWBInfo::test_wbinfo_construct_with_values	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestWBInfo::test_wbinfo_dest_phys_reg_defaults_to_zero	PASS	block-WriteBack	none			0		
@@ -2286,380 +2286,380 @@ test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_r
 test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_returns_miss_when_buf_empty	PASS	block-WriteBack	none			0		
 test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_normal_completion_does_not_fire_sb_setReg	PASS	block-WriteBack	none			0		
 test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_sb_setReg_caller_ifc_removed	PASS	block-WriteBack	none			0		
-hypervisor-p-2-stage_translation	PASS	p-	none		1374	13	667318275	(13s) cyc=1374
-hypervisor-p-2-stage_translation_implicit_load_error	PASS	p-	none		1635	15	315025969	(15s) cyc=1635
-hypervisor-p-2-stage_translation_implicit_load_error_hs	PASS	p-	none		1827	16	939672697	(16s) cyc=1827
-hypervisor-svadu-p-2-stage_translation_implicit_store_error	PASS	p-	none		1772	16	310217877	(16s) cyc=1772
-hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs	PASS	p-	none		1940	15	395821872	(15s) cyc=1940
-rv64mi-p-breakpoint	PASS	p-	none		3329	23	69126253	(23s) cyc=3329
-rv64mi-p-csr	PASS	p-	none		3495	24	747530687	(24s) cyc=3495
-rv64mi-p-illegal	PASS	p-	none		4594	31	765980669	(31s) cyc=4594
-rv64mi-p-instret_overflow	PASS	p-	none		1258	10	547440760	(10s) cyc=1258
-rv64mi-p-ld-misaligned	PASS	p-	none		1386	11	633739813	(11s) cyc=1386
-rv64mi-p-lh-misaligned	PASS	p-	none		1102	9	810688659	(9s) cyc=1102
-rv64mi-p-lw-misaligned	PASS	p-	none		1171	10	362924433	(10s) cyc=1171
-rv64mi-p-ma_addr	PASS	p-	none		1540	13	403789324	(13s) cyc=1540
-rv64mi-p-ma_fetch	PASS	p-	none		1979	15	756310587	(15s) cyc=1979
-rv64mi-p-mcsr	PASS	p-	none		1339	11	987416980	(11s) cyc=1339
-rv64mi-p-pmpaddr	PASS	p-	none		1185	10	15166039	(10s) cyc=1185
-rv64mi-p-sbreak	PASS	p-	none		1312	10	371917970	(10s) cyc=1312
-rv64mi-p-scall	PASS	p-	none		1259	10	606210907	(10s) cyc=1259
-rv64mi-p-sd-misaligned	PASS	p-	none		1466	12	339561433	(12s) cyc=1466
-rv64mi-p-sh-misaligned	PASS	p-	none		1123	9	811282091	(9s) cyc=1123
-rv64mi-p-sw-misaligned	PASS	p-	none		1164	10	657037229	(10s) cyc=1164
-rv64mi-p-zicntr	PASS	p-	none		1424	11	729139617	(11s) cyc=1424
-rv64mzicbo-p-zero	PASS	p-	none		1158	10	835755633	(10s) cyc=1158
-rv64si-p-csr	PASS	p-	none		2249	16	725633244	(16s) cyc=2249
-rv64si-p-dirty	PASS	p-	none		2279	16	626409952	(16s) cyc=2279
-rv64si-p-icache-alias	PASS	p-	none		2450	18	930381352	(18s) cyc=2450
-rv64si-p-ma_fetch	PASS	p-	none		1339	11	758224057	(11s) cyc=1339
-rv64si-p-sbreak	PASS	p-	none		1325	10	165731399	(10s) cyc=1325
-rv64si-p-scall	PASS	p-	none		1443	11	176183872	(11s) cyc=1443
-rv64si-p-wfi	PASS	p-	none		1173	10	714542525	(10s) cyc=1173
-rv64ssvnapot-p-napot	PASS	p-	none		1658	13	409923587	(13s) cyc=1658
-rv64ua-p-amoadd_d	PASS	p-	none		1079	9	616249752	(9s) cyc=1079
-rv64ua-p-amoadd_w	PASS	p-	none		1120	10	253747402	(10s) cyc=1120
-rv64ua-p-amoand_d	PASS	p-	none		1121	9	111237528	(9s) cyc=1121
-rv64ua-p-amoand_w	PASS	p-	none		1117	10	548527839	(10s) cyc=1117
-rv64ua-p-amomax_d	PASS	p-	none		1077	9	400332805	(9s) cyc=1077
-rv64ua-p-amomax_w	PASS	p-	none		1100	9	898847813	(9s) cyc=1100
-rv64ua-p-amomaxu_d	PASS	p-	none		1077	9	845655551	(9s) cyc=1077
-rv64ua-p-amomaxu_w	PASS	p-	none		1100	9	411590321	(9s) cyc=1100
-rv64ua-p-amomin_d	PASS	p-	none		1077	9	240129013	(9s) cyc=1077
-rv64ua-p-amomin_w	PASS	p-	none		1100	9	730145468	(9s) cyc=1100
-rv64ua-p-amominu_d	PASS	p-	none		1077	9	175871786	(9s) cyc=1077
-rv64ua-p-amominu_w	PASS	p-	none		1100	9	525823864	(9s) cyc=1100
-rv64ua-p-amoor_d	PASS	p-	none		1117	9	739330801	(9s) cyc=1117
-rv64ua-p-amoor_w	PASS	p-	none		1117	10	231215025	(10s) cyc=1117
-rv64ua-p-amoswap_d	PASS	p-	none		1121	9	662842022	(9s) cyc=1121
-rv64ua-p-amoswap_w	PASS	p-	none		1117	10	11939821	(10s) cyc=1117
-rv64ua-p-amoxor_d	PASS	p-	none		1125	10	225695579	(10s) cyc=1125
-rv64ua-p-amoxor_w	PASS	p-	none		1129	9	710499618	(9s) cyc=1129
-rv64ua-p-lrsc	PASS	p-	none		18659	121	145951824	(121s) cyc=18659
-rv64uc-p-rvc	PASS	p-	none		1586	12	910948033	(12s) cyc=1586
-rv64ud-p-fadd	PASS	p-	none		1911	14	743972789	(14s) cyc=1911
-rv64ud-p-fclass	PASS	p-	none		1233	11	486604369	(11s) cyc=1233
-rv64ud-p-fcmp	PASS	p-	none		2201	17	176543985	(17s) cyc=2201
-rv64ud-p-fcvt	PASS	p-	none		1824	14	438504208	(14s) cyc=1824
-rv64ud-p-fcvt_w	PASS	p-	none		3735	28	753247421	(28s) cyc=3735
-rv64ud-p-fdiv	PASS	p-	none		1739	13	150535355	(13s) cyc=1739
-rv64ud-p-fmadd	PASS	p-	none		2071	16	346460255	(16s) cyc=2071
-rv64ud-p-fmin	PASS	p-	none		2543	20	113818061	(20s) cyc=2543
-rv64ud-p-ldst	PASS	p-	none		1172	10	798463327	(10s) cyc=1172
-rv64ud-p-move	PASS	p-	none		2696	20	469339084	(20s) cyc=2696
-rv64ud-p-recoding	PASS	p-	none		1239	10	17926935	(10s) cyc=1239
-rv64ud-p-structural	PASS	p-	none		2020	14	793891708	(14s) cyc=2020
-rv64uf-p-fadd	PASS	p-	none		1911	15	202892880	(15s) cyc=1911
-rv64uf-p-fclass	PASS	p-	none		1217	10	717127880	(10s) cyc=1217
-rv64uf-p-fcmp	PASS	p-	none		2201	17	700846108	(17s) cyc=2201
-rv64uf-p-fcvt	PASS	p-	none		1612	14	110261238	(14s) cyc=1612
-rv64uf-p-fcvt_w	PASS	p-	none		3373	25	445860452	(25s) cyc=3373
-rv64uf-p-fdiv	PASS	p-	none		1663	13	601063243	(13s) cyc=1663
-rv64uf-p-fmadd	PASS	p-	none		2071	16	428266904	(16s) cyc=2071
-rv64uf-p-fmin	PASS	p-	none		2543	19	802385720	(19s) cyc=2543
-rv64uf-p-ldst	PASS	p-	none		1183	10	52931231	(10s) cyc=1183
-rv64uf-p-move	PASS	p-	none		1798	14	715423041	(14s) cyc=1798
-rv64uf-p-recoding	PASS	p-	none		1192	10	882432700	(10s) cyc=1192
-rv64ui-p-add	PASS	p-	none		2453	18	906565721	(18s) cyc=2453
-rv64ui-p-addi	PASS	p-	none		1630	13	593164072	(13s) cyc=1630
-rv64ui-p-addiw	PASS	p-	none		1621	13	590794146	(13s) cyc=1621
-rv64ui-p-addw	PASS	p-	none		2443	19	592162903	(19s) cyc=2443
-rv64ui-p-and	PASS	p-	none		2613	20	719144295	(20s) cyc=2613
-rv64ui-p-andi	PASS	p-	none		1609	13	564474236	(13s) cyc=1609
-rv64ui-p-auipc	PASS	p-	none		1053	9	186589813	(9s) cyc=1053
-rv64ui-p-beq	PASS	p-	none		2427	18	273415390	(18s) cyc=2427
-rv64ui-p-bge	PASS	p-	none		2726	20	564814969	(20s) cyc=2726
-rv64ui-p-bgeu	PASS	p-	none		2956	21	24837825	(21s) cyc=2956
-rv64ui-p-blt	PASS	p-	none		2429	18	557203846	(18s) cyc=2429
-rv64ui-p-bltu	PASS	p-	none		2643	19	133573668	(19s) cyc=2643
-rv64ui-p-bne	PASS	p-	none		2482	19	344824796	(19s) cyc=2482
-rv64ui-p-fence_i	PASS	p-	none		2117	16	757105661	(16s) cyc=2117
-rv64ui-p-jal	PASS	p-	none		1074	9	122503413	(9s) cyc=1074
-rv64ui-p-jalr	PASS	p-	none		1557	12	336639912	(12s) cyc=1557
-rv64ui-p-lb	PASS	p-	none		1671	13	156556530	(13s) cyc=1671
-rv64ui-p-lbu	PASS	p-	none		1671	13	815208386	(13s) cyc=1671
-rv64ui-p-ld	PASS	p-	none		2066	16	804585034	(16s) cyc=2066
-rv64ui-p-ld_st	PASS	p-	none		4485	31	806857424	(31s) cyc=4485
-rv64ui-p-lh	PASS	p-	none		1711	13	731445830	(13s) cyc=1711
-rv64ui-p-lhu	PASS	p-	none		1717	13	1056913	(13s) cyc=1717
-rv64ui-p-lui	PASS	p-	none		1065	9	109575603	(9s) cyc=1065
-rv64ui-p-lw	PASS	p-	none		1731	14	226181642	(14s) cyc=1731
-rv64ui-p-lwu	PASS	p-	none		1797	14	694666477	(14s) cyc=1797
-rv64ui-p-ma_data	PASS	p-	none		7858	53	545228266	(53s) cyc=7858
-rv64ui-p-or	PASS	p-	none		2670	20	394052476	(20s) cyc=2670
-rv64ui-p-ori	PASS	p-	none		1591	13	528955843	(13s) cyc=1591
-rv64ui-p-sb	PASS	p-	none		2306	17	328746687	(17s) cyc=2306
-rv64ui-p-sd	PASS	p-	none		2640	20	102124296	(20s) cyc=2640
-rv64ui-p-sh	PASS	p-	none		2382	17	970839417	(17s) cyc=2382
-rv64ui-p-simple	PASS	p-	none		1003	9	926692683	(9s) cyc=1003
-rv64ui-p-sll	PASS	p-	none		2573	19	623312976	(19s) cyc=2573
-rv64ui-p-slli	PASS	p-	none		1691	13	157489157	(13s) cyc=1691
-rv64ui-p-slliw	PASS	p-	none		1685	14	920867822	(14s) cyc=1685
-rv64ui-p-sllw	PASS	p-	none		2577	19	318614871	(19s) cyc=2577
-rv64ui-p-slt	PASS	p-	none		2431	18	205318778	(18s) cyc=2431
-rv64ui-p-slti	PASS	p-	none		1617	13	900892116	(13s) cyc=1617
-rv64ui-p-sltiu	PASS	p-	none		1617	12	76170587	(12s) cyc=1617
-rv64ui-p-sltu	PASS	p-	none		2469	19	881514931	(19s) cyc=2469
-rv64ui-p-sra	PASS	p-	none		2523	20	779953347	(20s) cyc=2523
-rv64ui-p-srai	PASS	p-	none		1654	14	47418710	(14s) cyc=1654
-rv64ui-p-sraiw	PASS	p-	none		1755	14	313102530	(14s) cyc=1755
-rv64ui-p-sraw	PASS	p-	none		2595	20	137850946	(20s) cyc=2595
-rv64ui-p-srl	PASS	p-	none		2619	20	965920682	(20s) cyc=2619
-rv64ui-p-srli	PASS	p-	none		1716	14	916937982	(14s) cyc=1716
-rv64ui-p-srliw	PASS	p-	none		1703	14	811662707	(14s) cyc=1703
-rv64ui-p-srlw	PASS	p-	none		2583	20	266222241	(20s) cyc=2583
-rv64ui-p-st_ld	PASS	p-	none		1993	15	936190994	(15s) cyc=1993
-rv64ui-p-sub	PASS	p-	none		2437	18	538782857	(18s) cyc=2437
-rv64ui-p-subw	PASS	p-	none		2429	18	491940704	(18s) cyc=2429
-rv64ui-p-sw	PASS	p-	none		2416	18	590797135	(18s) cyc=2416
-rv64ui-p-xor	PASS	p-	none		2664	19	301323340	(19s) cyc=2664
-rv64ui-p-xori	PASS	p-	none		1595	13	403250343	(13s) cyc=1595
-rv64um-p-div	PASS	p-	none		1157	10	752142013	(10s) cyc=1157
-rv64um-p-divu	PASS	p-	none		1167	9	850525134	(9s) cyc=1167
-rv64um-p-divuw	PASS	p-	none		1147	10	678410094	(10s) cyc=1147
-rv64um-p-divw	PASS	p-	none		1139	10	537867204	(10s) cyc=1139
-rv64um-p-mul	PASS	p-	none		2461	19	664146262	(19s) cyc=2461
-rv64um-p-mulh	PASS	p-	none		2471	19	194955299	(19s) cyc=2471
-rv64um-p-mulhsu	PASS	p-	none		2471	18	858385336	(18s) cyc=2471
-rv64um-p-mulhu	PASS	p-	none		2531	19	120844785	(19s) cyc=2531
-rv64um-p-mulw	PASS	p-	none		2329	18	758473777	(18s) cyc=2329
-rv64um-p-rem	PASS	p-	none		1131	10	239021465	(10s) cyc=1131
-rv64um-p-remu	PASS	p-	none		1133	10	450749712	(10s) cyc=1133
-rv64um-p-remuw	PASS	p-	none		1129	10	120562576	(10s) cyc=1129
-rv64um-p-remw	PASS	p-	none		1139	10	769445154	(10s) cyc=1139
-rv64uzba-p-add_uw	PASS	p-	none		2455	19	547289255	(19s) cyc=2455
-rv64uzba-p-sh1add	PASS	p-	none		2461	18	571011030	(18s) cyc=2461
-rv64uzba-p-sh1add_uw	PASS	p-	none		2469	19	414306179	(19s) cyc=2469
-rv64uzba-p-sh2add	PASS	p-	none		2461	18	145710883	(18s) cyc=2461
-rv64uzba-p-sh2add_uw	PASS	p-	none		2469	18	167340206	(18s) cyc=2469
-rv64uzba-p-sh3add	PASS	p-	none		2461	19	954863790	(19s) cyc=2461
-rv64uzba-p-sh3add_uw	PASS	p-	none		2469	18	844610536	(18s) cyc=2469
-rv64uzba-p-slli_uw	PASS	p-	none		1719	14	503502707	(14s) cyc=1719
-rv64uzbb-p-andn	PASS	p-	none		2655	20	910643642	(20s) cyc=2655
-rv64uzbb-p-clz	PASS	p-	none		1497	12	120269305	(12s) cyc=1497
-rv64uzbb-p-clzw	PASS	p-	none		1465	12	667089086	(12s) cyc=1465
-rv64uzbb-p-cpop	PASS	p-	none		1497	12	366206844	(12s) cyc=1497
-rv64uzbb-p-cpopw	PASS	p-	none		1465	12	889447626	(12s) cyc=1465
-rv64uzbb-p-ctz	PASS	p-	none		1497	12	805984312	(12s) cyc=1497
-rv64uzbb-p-ctzw	PASS	p-	none		1467	12	560547095	(12s) cyc=1467
-rv64uzbb-p-max	PASS	p-	none		2441	19	696492052	(19s) cyc=2441
-rv64uzbb-p-maxu	PASS	p-	none		2503	19	514931352	(19s) cyc=2503
-rv64uzbb-p-min	PASS	p-	none		2433	18	576370821	(18s) cyc=2433
-rv64uzbb-p-minu	PASS	p-	none		2481	18	896738686	(18s) cyc=2481
-rv64uzbb-p-orc_b	PASS	p-	none		1539	12	68591069	(12s) cyc=1539
-rv64uzbb-p-orn	PASS	p-	none		2673	20	76799387	(20s) cyc=2673
-rv64uzbb-p-rev8	PASS	p-	none		1572	13	229186626	(13s) cyc=1572
-rv64uzbb-p-rol	PASS	p-	none		2583	20	718133215	(20s) cyc=2583
-rv64uzbb-p-rolw	PASS	p-	none		2585	21	658665032	(21s) cyc=2585
-rv64uzbb-p-ror	PASS	p-	none		2645	20	462995394	(20s) cyc=2645
-rv64uzbb-p-rori	PASS	p-	none		1712	14	130022037	(14s) cyc=1712
-rv64uzbb-p-roriw	PASS	p-	none		1625	13	287872328	(13s) cyc=1625
-rv64uzbb-p-rorw	PASS	p-	none		2513	19	51110647	(19s) cyc=2513
-rv64uzbb-p-sext_b	PASS	p-	none		1497	12	417545521	(12s) cyc=1497
-rv64uzbb-p-sext_h	PASS	p-	none		1503	12	40767500	(12s) cyc=1503
-rv64uzbb-p-xnor	PASS	p-	none		2671	20	977737963	(20s) cyc=2671
-rv64uzbb-p-zext_h	PASS	p-	none		1509	12	110625691	(12s) cyc=1509
-rv64uzbc-p-clmul	PASS	p-	none		2463	18	695439357	(18s) cyc=2463
-rv64uzbc-p-clmulh	PASS	p-	none		2473	19	10415301	(19s) cyc=2473
-rv64uzbc-p-clmulr	PASS	p-	none		2469	19	457846527	(19s) cyc=2469
-rv64uzbkb-p-brev8	PASS	p-	none		1537	13	64661357	(13s) cyc=1537
-rv64uzbkb-p-pack	PASS	p-	none		2913	22	671531984	(22s) cyc=2913
-rv64uzbkb-p-packh	PASS	p-	none		2583	19	534311039	(19s) cyc=2583
-rv64uzbkb-p-packw	PASS	p-	none		2443	18	423308373	(18s) cyc=2443
-rv64uzbkx-p-xperm4	PASS	p-	none		2767	20	907014074	(20s) cyc=2767
-rv64uzbkx-p-xperm8	PASS	p-	none		3598	26	612293340	(26s) cyc=3598
-rv64uzbs-p-bclr	PASS	p-	none		2796	20	463033733	(20s) cyc=2796
-rv64uzbs-p-bclri	PASS	p-	none		1779	14	618023313	(14s) cyc=1779
-rv64uzbs-p-bext	PASS	p-	none		2661	20	797163126	(20s) cyc=2661
-rv64uzbs-p-bexti	PASS	p-	none		1711	13	608458163	(13s) cyc=1711
-rv64uzbs-p-binv	PASS	p-	none		2631	19	406658449	(19s) cyc=2631
-rv64uzbs-p-binvi	PASS	p-	none		1715	13	882150118	(13s) cyc=1715
-rv64uzbs-p-bset	PASS	p-	none		2800	21	367438539	(21s) cyc=2800
-rv64uzbs-p-bseti	PASS	p-	none		1793	14	270390820	(14s) cyc=1793
-rv64uzfh-p-fadd	PASS	p-	none		1911	15	123220270	(15s) cyc=1911
-rv64uzfh-p-fclass	PASS	p-	none		1218	11	754399118	(11s) cyc=1218
-rv64uzfh-p-fcmp	PASS	p-	none		1553	12	618743161	(12s) cyc=1553
-rv64uzfh-p-fcvt	PASS	p-	none		1787	15	209561512	(15s) cyc=1787
-rv64uzfh-p-fcvt_w	PASS	p-	none		3373	25	485518690	(25s) cyc=3373
-rv64uzfh-p-fdiv	PASS	p-	none		1663	14	716591658	(14s) cyc=1663
-rv64uzfh-p-fmadd	PASS	p-	none		2071	17	442026706	(17s) cyc=2071
-rv64uzfh-p-fmin	PASS	p-	none		2543	19	535033453	(19s) cyc=2543
-rv64uzfh-p-ldst	PASS	p-	none		1194	10	292839663	(10s) cyc=1194
-rv64uzfh-p-move	PASS	p-	none		1793	14	622225476	(14s) cyc=1793
-rv64uzfh-p-recoding	PASS	p-	none		1192	10	9900178	(10s) cyc=1192
-rv64uziccid-p-ziccid	PASS	p-	none		7595	37	703194351	(37s) cyc=7595
-rv64uzicond-p-czero_eqz	PASS	p-	none		2389	16	810024815	(16s) cyc=2389
-rv64uzicond-p-czero_nez	PASS	p-	none		2377	11	714228613	(11s) cyc=2377
-rv64ua-v-amoadd_d	PASS	v-	15/18		29574	194	981165247	(194s) cyc=29574
-rv64ua-v-amoadd_w	PASS	v-	16/18		28797	191	583419927	(191s) cyc=28797
-rv64ua-v-amoand_d	PASS	v-	17/18		30526	203	911603286	(203s) cyc=30526
-rv64ua-v-amoand_w	PASS	v-	18/18		30055	198	353039321	(198s) cyc=30055
-rv64ua-v-amomax_d	PASS	v-	1/18		32221	214	601032014	(214s) cyc=32221
-rv64ua-v-amomax_w	PASS	v-	4/18		26347	170	95304138	(170s) cyc=26347
-rv64ua-v-amomaxu_d	PASS	v-	2/18		32221	220	122538248	(220s) cyc=32221
-rv64ua-v-amomaxu_w	PASS	v-	3/18		26347	108	687059369	(108s) cyc=26347
-rv64ua-v-amomin_d	PASS	v-	5/18		32221	163	766734444	(163s) cyc=32221
-rv64ua-v-amomin_w	PASS	v-	8/18		26453	172	253508018	(172s) cyc=26453
-rv64ua-v-amominu_d	PASS	v-	6/18		32174	162	449566148	(162s) cyc=32174
-rv64ua-v-amominu_w	PASS	v-	7/18		26394	136	789521670	(136s) cyc=26394
-rv64ua-v-amoor_d	PASS	v-	9/18		30379	195	708914875	(195s) cyc=30379
-rv64ua-v-amoor_w	PASS	v-	10/18		30379	202	129395323	(202s) cyc=30379
-rv64ua-v-amoswap_d	PASS	v-	11/18		30526	195	396830421	(195s) cyc=30526
-rv64ua-v-amoswap_w	PASS	v-	12/18		30055	194	741601693	(194s) cyc=30055
-rv64ua-v-amoxor_d	PASS	v-	13/18		28753	190	748058665	(190s) cyc=28753
-rv64ua-v-amoxor_w	PASS	v-	14/18		28763	126	242105589	(126s) cyc=28763
-rv64ua-v-lrsc	TIMEOUT	v-	15/18			778	680760106	
-rv64uc-v-rvc	PASS	v-	14/18		45662	199	688167553	(199s) cyc=45662
-rv64ud-v-fadd	PASS	v-	9/18		52051	312	116397616	(312s) cyc=52051
-rv64ud-v-fclass	PASS	v-	10/18		19715	134	26182318	(134s) cyc=19715
-rv64ud-v-fcmp	PASS	v-	11/18		52193	289	839691518	(289s) cyc=52193
-rv64ud-v-fcvt	PASS	v-	12/18		51250	271	965126679	(271s) cyc=51250
-rv64ud-v-fcvt_w	PASS	v-	13/18		88620	452	364731965	(452s) cyc=88620
-rv64ud-v-fdiv	TIMEOUT	v-	14/18			618	524940225	
-rv64ud-v-fmadd	PASS	v-	15/18		52176	333	522071950	(333s) cyc=52176
-rv64ud-v-fmin	PASS	v-	16/18		52683	304	739205080	(304s) cyc=52683
-rv64ud-v-ldst	PASS	v-	17/18		29091	181	996838402	(181s) cyc=29091
-rv64ud-v-move	PASS	v-	18/18		48643	315	798480272	(315s) cyc=48643
-rv64ud-v-recoding	PASS	v-	1/18		28543	190	677539927	(190s) cyc=28543
-rv64ud-v-structural	PASS	v-	2/18		18761	133	311928770	(133s) cyc=18761
-rv64uf-v-fadd	PASS	v-	16/18		52051	267	796572507	(267s) cyc=52051
-rv64uf-v-fclass	PASS	v-	17/18		15714	102	177453636	(102s) cyc=15714
-rv64uf-v-fcmp	PASS	v-	18/18		52193	344	141739858	(344s) cyc=52193
-rv64uf-v-fcvt	PASS	v-	1/18		57538	320	417687542	(320s) cyc=57538
-rv64uf-v-fcvt_w	PASS	v-	2/18		88252	594	845607333	(594s) cyc=88252
-rv64uf-v-fdiv	PASS	v-	3/18		53109	220	197730074	(220s) cyc=53109
-rv64uf-v-fmadd	PASS	v-	4/18		52176	317	407066910	(317s) cyc=52176
-rv64uf-v-fmin	PASS	v-	5/18		52683	262	203509738	(262s) cyc=52683
-rv64uf-v-ldst	PASS	v-	6/18		26498	132	623052614	(132s) cyc=26498
-rv64uf-v-move	PASS	v-	7/18		21183	113	411301367	(113s) cyc=21183
-rv64uf-v-recoding	PASS	v-	8/18		87606	558	942798274	(558s) cyc=87606
-rv64ui-v-add	PASS	v-	1/18		20643	147	87220606	(147s) cyc=20643
-rv64ui-v-addi	PASS	v-	2/18		17258	124	231381389	(124s) cyc=17258
-rv64ui-v-addiw	PASS	v-	3/18		18860	82	303166906	(82s) cyc=18860
-rv64ui-v-addw	PASS	v-	4/18		20284	138	260811673	(138s) cyc=20284
-rv64ui-v-and	PASS	v-	7/18		19969	106	171511267	(106s) cyc=19969
-rv64ui-v-andi	PASS	v-	8/18		18644	130	92141599	(130s) cyc=18644
-rv64ui-v-auipc	PASS	v-	12/18		17764	121	712066336	(121s) cyc=17764
-rv64ui-v-beq	PASS	v-	13/18		20317	138	363287954	(138s) cyc=20317
-rv64ui-v-bge	PASS	v-	14/18		18295	81	210597963	(81s) cyc=18295
-rv64ui-v-bgeu	PASS	v-	15/18		19918	135	655103231	(135s) cyc=19918
-rv64ui-v-blt	PASS	v-	16/18		21386	144	376467136	(144s) cyc=21386
-rv64ui-v-bltu	PASS	v-	17/18		20690	138	537828160	(138s) cyc=20690
-rv64ui-v-bne	PASS	v-	18/18		18329	124	325253317	(124s) cyc=18329
-rv64ui-v-fence_i	PASS	v-	17/18		28582	186	519103807	(186s) cyc=28582
-rv64ui-v-jal	PASS	v-	1/18		18050	128	770463784	(128s) cyc=18050
-rv64ui-v-jalr	PASS	v-	2/18		16358	116	543578930	(116s) cyc=16358
-rv64ui-v-lb	PASS	v-	3/18		59409	249	20584057	(249s) cyc=59409
-rv64ui-v-lbu	PASS	v-	4/18		53441	360	782939953	(360s) cyc=53441
-rv64ui-v-ld	PASS	v-	9/18		52137	348	418432541	(348s) cyc=52137
-rv64ui-v-ld_st	PASS	v-	14/18		117911	447	101844137	(447s) cyc=117911
-rv64ui-v-lh	PASS	v-	5/18		58078	311	710169634	(311s) cyc=58078
-rv64ui-v-lhu	PASS	v-	6/18		50599	261	698270759	(261s) cyc=50599
-rv64ui-v-lui	PASS	v-	11/18		19074	129	884800756	(129s) cyc=19074
-rv64ui-v-lw	PASS	v-	7/18		52524	280	844320802	(280s) cyc=52524
-rv64ui-v-lwu	PASS	v-	8/18		52849	353	868017110	(353s) cyc=52849
-rv64ui-v-ma_data	PASS	v-	18/18		106759	596	782165365	(596s) cyc=106759
-rv64ui-v-or	PASS	v-	9/18		20395	136	782202673	(136s) cyc=20395
-rv64ui-v-ori	PASS	v-	10/18		19641	138	436966671	(138s) cyc=19641
-rv64ui-v-sb	PASS	v-	10/18		30782	207	711127666	(207s) cyc=30782
-rv64ui-v-sd	TIMEOUT	v-	13/18			992	253159754	
-rv64ui-v-sh	PASS	v-	11/18		31020	205	339641648	(205s) cyc=31020
-rv64ui-v-simple	PASS	v-	16/18		19689	137	372172737	(137s) cyc=19689
-rv64ui-v-sll	TIMEOUT	v-	17/18			959	973236004	
-rv64ui-v-slli	PASS	v-	18/18		18430	121	499847522	(121s) cyc=18430
-rv64ui-v-slliw	PASS	v-	1/18		18440	133	898706227	(133s) cyc=18440
-rv64ui-v-sllw	TIMEOUT	v-	2/18			1122	699584865	
-rv64ui-v-slt	PASS	v-	13/18		20754	142	684927829	(142s) cyc=20754
-rv64ui-v-slti	PASS	v-	14/18		18896	84	212415603	(84s) cyc=18896
-rv64ui-v-sltiu	PASS	v-	16/18		18896	128	751105664	(128s) cyc=18896
-rv64ui-v-sltu	PASS	v-	15/18		20949	139	677473290	(139s) cyc=20949
-rv64ui-v-sra	PASS	v-	7/18		26110	135	814317876	(135s) cyc=26110
-rv64ui-v-srai	PASS	v-	8/18		21554	149	747375607	(149s) cyc=21554
-rv64ui-v-sraiw	PASS	v-	9/18		18019	118	592538129	(118s) cyc=18019
-rv64ui-v-sraw	PASS	v-	10/18		56226	389	731760047	(389s) cyc=56226
-rv64ui-v-srl	PASS	v-	3/18		51698	215	735734701	(215s) cyc=51698
-rv64ui-v-srli	PASS	v-	4/18		19979	136	621242144	(136s) cyc=19979
-rv64ui-v-srliw	PASS	v-	5/18		18158	100	101722103	(100s) cyc=18158
-rv64ui-v-srlw	PASS	v-	6/18		57873	301	862986575	(301s) cyc=57873
-rv64ui-v-st_ld	PASS	v-	15/18		62921	416	856764209	(416s) cyc=62921
-rv64ui-v-sub	PASS	v-	5/18		21609	117	229901548	(117s) cyc=21609
-rv64ui-v-subw	PASS	v-	6/18		20990	110	157894281	(110s) cyc=20990
-rv64ui-v-sw	PASS	v-	12/18		30229	201	614840472	(201s) cyc=30229
-rv64ui-v-xor	PASS	v-	11/18		21429	146	798653336	(146s) cyc=21429
-rv64ui-v-xori	PASS	v-	12/18		19911	134	131472039	(134s) cyc=19911
-rv64um-v-div	PASS	v-	5/18		17506	98	312549710	(98s) cyc=17506
-rv64um-v-divu	PASS	v-	6/18		19456	101	418236432	(101s) cyc=19456
-rv64um-v-divuw	PASS	v-	11/18		18507	127	153056429	(127s) cyc=18507
-rv64um-v-divw	PASS	v-	10/18		20206	139	738226667	(139s) cyc=20206
-rv64um-v-mul	PASS	v-	1/18		20057	142	437272240	(142s) cyc=20057
-rv64um-v-mulh	PASS	v-	2/18		18819	135	935937647	(135s) cyc=18819
-rv64um-v-mulhsu	PASS	v-	3/18		19211	84	357429427	(84s) cyc=19211
-rv64um-v-mulhu	PASS	v-	4/18		19728	135	696604044	(135s) cyc=19728
-rv64um-v-mulw	PASS	v-	9/18		19783	131	101832140	(131s) cyc=19783
-rv64um-v-rem	PASS	v-	7/18		17374	91	395707420	(91s) cyc=17374
-rv64um-v-remu	PASS	v-	8/18		17220	121	815554132	(121s) cyc=17220
-rv64um-v-remuw	PASS	v-	13/18		17366	119	706448964	(119s) cyc=17366
-rv64um-v-remw	PASS	v-	12/18		20206	134	504319995	(134s) cyc=20206
-rv64uzba-v-add_uw	PASS	v-	3/18		22783	93	89965497	(93s) cyc=22783
-rv64uzba-v-sh1add	PASS	v-	4/18		17697	116	168585243	(116s) cyc=17697
-rv64uzba-v-sh1add_uw	PASS	v-	5/18		16106	82	147428585	(82s) cyc=16106
-rv64uzba-v-sh2add	PASS	v-	6/18		17697	88	776905107	(88s) cyc=17697
-rv64uzba-v-sh2add_uw	PASS	v-	7/18		16106	87	895973443	(87s) cyc=16106
-rv64uzba-v-sh3add	PASS	v-	8/18		17697	120	550340769	(120s) cyc=17697
-rv64uzba-v-sh3add_uw	PASS	v-	9/18		16106	104	117337656	(104s) cyc=16106
-rv64uzba-v-slli_uw	PASS	v-	10/18		15351	108	540147247	(108s) cyc=15351
-rv64uzbb-v-andn	PASS	v-	11/18		17872	115	348336181	(115s) cyc=17872
-rv64uzbb-v-clz	PASS	v-	12/18		17558	115	770427558	(115s) cyc=17558
-rv64uzbb-v-clzw	PASS	v-	13/18		16880	115	997570753	(115s) cyc=16880
-rv64uzbb-v-cpop	PASS	v-	14/18		17558	74	635709097	(74s) cyc=17558
-rv64uzbb-v-cpopw	PASS	v-	15/18		16880	110	897211893	(110s) cyc=16880
-rv64uzbb-v-ctz	PASS	v-	16/18		17558	117	53748061	(117s) cyc=17558
-rv64uzbb-v-ctzw	PASS	v-	17/18		17528	113	825773080	(113s) cyc=17528
-rv64uzbb-v-max	PASS	v-	18/18		18935	127	867739933	(127s) cyc=18935
-rv64uzbb-v-maxu	PASS	v-	1/18		20072	136	882835233	(136s) cyc=20072
-rv64uzbb-v-min	PASS	v-	2/18		20699	138	402419904	(138s) cyc=20699
-rv64uzbb-v-minu	PASS	v-	3/18		20159	81	634528550	(81s) cyc=20159
-rv64uzbb-v-orc_b	PASS	v-	4/18		16645	109	678324588	(109s) cyc=16645
-rv64uzbb-v-orn	PASS	v-	5/18		49469	211	618331667	(211s) cyc=49469
-rv64uzbb-v-rev8	PASS	v-	6/18		17078	86	631659438	(86s) cyc=17078
-rv64uzbb-v-rol	PASS	v-	7/18		59747	203	10453577	(203s) cyc=59747
-rv64uzbb-v-rolw	PASS	v-	8/18		48959	317	461661538	(317s) cyc=48959
-rv64uzbb-v-ror	TIMEOUT	v-	9/18			888	175970542	
-rv64uzbb-v-rori	PASS	v-	10/18		17194	116	862095138	(116s) cyc=17194
-rv64uzbb-v-roriw	PASS	v-	11/18		19127	125	534140567	(125s) cyc=19127
-rv64uzbb-v-rorw	PASS	v-	12/18		19017	124	620292213	(124s) cyc=19017
-rv64uzbb-v-sext_b	PASS	v-	13/18		22463	143	787514095	(143s) cyc=22463
-rv64uzbb-v-sext_h	PASS	v-	14/18		20232	83	505158815	(83s) cyc=20232
-rv64uzbb-v-xnor	PASS	v-	15/18		50158	275	449365216	(275s) cyc=50158
-rv64uzbb-v-zext_h	PASS	v-	16/18		16773	109	633491979	(109s) cyc=16773
-rv64uzbc-v-clmul	PASS	v-	17/18		19192	124	134014652	(124s) cyc=19192
-rv64uzbc-v-clmulh	PASS	v-	18/18		18992	127	639676139	(127s) cyc=18992
-rv64uzbc-v-clmulr	PASS	v-	1/18		19676	134	997423491	(134s) cyc=19676
-rv64uzbkb-v-brev8	PASS	v-	2/18		40984	278	697759644	(278s) cyc=40984
-rv64uzbkb-v-pack	PASS	v-	3/18		51823	145	442833144	(145s) cyc=51823
-rv64uzbkb-v-packh	PASS	v-	4/18		17761	114	244324324	(114s) cyc=17761
-rv64uzbkb-v-packw	PASS	v-	5/18		19441	99	397560027	(99s) cyc=19441
-rv64uzbkx-v-xperm4	PASS	v-	6/18		54608	196	403861523	(196s) cyc=54608
-rv64uzbkx-v-xperm8	TIMEOUT	v-	7/18			690	205770357	
-rv64uzbs-v-bclr	PASS	v-	8/18		53628	359	89531432	(359s) cyc=53628
-rv64uzbs-v-bclri	PASS	v-	9/18		14751	94	205845190	(94s) cyc=14751
-rv64uzbs-v-bext	PASS	v-	10/18		49296	216	462735221	(216s) cyc=49296
-rv64uzbs-v-bexti	PASS	v-	11/18		16210	91	169980147	(91s) cyc=16210
-rv64uzbs-v-binv	PASS	v-	12/18		55558	251	136976785	(251s) cyc=55558
-rv64uzbs-v-binvi	PASS	v-	13/18		17250	102	884064153	(102s) cyc=17250
-rv64uzbs-v-bset	PASS	v-	14/18		47128	115	893877086	(115s) cyc=47128
-rv64uzbs-v-bseti	PASS	v-	15/18		14139	77	593867604	(77s) cyc=14139
-rv64uzfh-v-fadd	PASS	v-	16/18		52051	249	533404368	(249s) cyc=52051
-rv64uzfh-v-fclass	PASS	v-	17/18		16339	83	365686126	(83s) cyc=16339
-rv64uzfh-v-fcmp	PASS	v-	18/18		51545	202	175985692	(202s) cyc=51545
-rv64uzfh-v-fcvt	PASS	v-	1/18		54942	252	901804565	(252s) cyc=54942
-rv64uzfh-v-fcvt_w	PASS	v-	2/18		88252	471	36163200	(471s) cyc=88252
-rv64uzfh-v-fdiv	PASS	v-	3/18		53109	138	129796748	(138s) cyc=53109
-rv64uzfh-v-fmadd	PASS	v-	4/18		52176	198	407200360	(198s) cyc=52176
-rv64uzfh-v-fmin	PASS	v-	5/18		52683	178	128037512	(178s) cyc=52683
-rv64uzfh-v-ldst	PASS	v-	6/18		28281	103	724920123	(103s) cyc=28281
-rv64uzfh-v-move	PASS	v-	7/18		21185	107	920016546	(107s) cyc=21185
-rv64uzfh-v-recoding	PASS	v-	8/18		87606	439	948634019	(439s) cyc=87606
-rv64uziccid-v-ziccid	TIMEOUT	v-	11/18			765	333256481	
-rv64uzicond-v-czero_eqz	PASS	v-	9/18		28634	145	76426679	(145s) cyc=28634
-rv64uzicond-v-czero_nez	PASS	v-	10/18		21004	103	986430420	(103s) cyc=21004
+hypervisor-p-2-stage_translation	PASS	p-	none		1380	10	459622937	(10s) cyc=1380
+hypervisor-p-2-stage_translation_implicit_load_error	PASS	p-	none		1635	11	107330631	(11s) cyc=1635
+hypervisor-p-2-stage_translation_implicit_load_error_hs	PASS	p-	none		1827	12	731977359	(12s) cyc=1827
+hypervisor-svadu-p-2-stage_translation_implicit_store_error	PASS	p-	none		1772	12	102522539	(12s) cyc=1772
+hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs	PASS	p-	none		1940	11	188126534	(11s) cyc=1940
+rv64mi-p-breakpoint	PASS	p-	none		3329	18	861430922	(18s) cyc=3329
+rv64mi-p-csr	PASS	p-	none		3495	19	539835349	(19s) cyc=3495
+rv64mi-p-illegal	PASS	p-	none		4594	24	558285331	(24s) cyc=4594
+rv64mi-p-instret_overflow	PASS	p-	none		1258	7	339745422	(7s) cyc=1258
+rv64mi-p-ld-misaligned	PASS	p-	none		1386	8	426044475	(8s) cyc=1386
+rv64mi-p-lh-misaligned	PASS	p-	none		1102	7	602993321	(7s) cyc=1102
+rv64mi-p-lw-misaligned	PASS	p-	none		1171	7	155229095	(7s) cyc=1171
+rv64mi-p-ma_addr	PASS	p-	none		1540	9	196093986	(9s) cyc=1540
+rv64mi-p-ma_fetch	PASS	p-	none		1979	11	548615249	(11s) cyc=1979
+rv64mi-p-mcsr	PASS	p-	none		1339	8	779721642	(8s) cyc=1339
+rv64mi-p-pmpaddr	PASS	p-	none		1185	7	807470708	(7s) cyc=1185
+rv64mi-p-sbreak	PASS	p-	none		1312	8	164222632	(8s) cyc=1312
+rv64mi-p-scall	PASS	p-	none		1259	8	398515569	(8s) cyc=1259
+rv64mi-p-sd-misaligned	PASS	p-	none		1466	9	131866095	(9s) cyc=1466
+rv64mi-p-sh-misaligned	PASS	p-	none		1123	7	603586753	(7s) cyc=1123
+rv64mi-p-sw-misaligned	PASS	p-	none		1164	7	449341891	(7s) cyc=1164
+rv64mi-p-zicntr	PASS	p-	none		1424	8	521444279	(8s) cyc=1424
+rv64mzicbo-p-zero	PASS	p-	none		1158	7	628060295	(7s) cyc=1158
+rv64si-p-csr	PASS	p-	none		2249	13	517937906	(13s) cyc=2249
+rv64si-p-dirty	PASS	p-	none		2279	13	418714614	(13s) cyc=2279
+rv64si-p-icache-alias	PASS	p-	none		2450	14	722686014	(14s) cyc=2450
+rv64si-p-ma_fetch	PASS	p-	none		1339	8	550528719	(8s) cyc=1339
+rv64si-p-sbreak	PASS	p-	none		1325	8	958036068	(8s) cyc=1325
+rv64si-p-scall	PASS	p-	none		1443	9	968488541	(9s) cyc=1443
+rv64si-p-wfi	PASS	p-	none		1173	7	506847187	(7s) cyc=1173
+rv64ssvnapot-p-napot	PASS	p-	none		1658	10	202228249	(10s) cyc=1658
+rv64ua-p-amoadd_d	PASS	p-	none		1081	7	408554414	(7s) cyc=1081
+rv64ua-p-amoadd_w	PASS	p-	none		1120	7	46052064	(7s) cyc=1120
+rv64ua-p-amoand_d	PASS	p-	none		1121	7	903542197	(7s) cyc=1121
+rv64ua-p-amoand_w	PASS	p-	none		1117	7	340832501	(7s) cyc=1117
+rv64ua-p-amomax_d	PASS	p-	none		1077	7	192637467	(7s) cyc=1077
+rv64ua-p-amomax_w	PASS	p-	none		1100	7	691152475	(7s) cyc=1100
+rv64ua-p-amomaxu_d	PASS	p-	none		1077	7	637960213	(7s) cyc=1077
+rv64ua-p-amomaxu_w	PASS	p-	none		1100	7	203894983	(7s) cyc=1100
+rv64ua-p-amomin_d	PASS	p-	none		1077	7	32433675	(7s) cyc=1077
+rv64ua-p-amomin_w	PASS	p-	none		1100	7	522450130	(7s) cyc=1100
+rv64ua-p-amominu_d	PASS	p-	none		1077	6	968176455	(6s) cyc=1077
+rv64ua-p-amominu_w	PASS	p-	none		1100	7	318128526	(7s) cyc=1100
+rv64ua-p-amoor_d	PASS	p-	none		1117	7	531635463	(7s) cyc=1117
+rv64ua-p-amoor_w	PASS	p-	none		1117	7	23519687	(7s) cyc=1117
+rv64ua-p-amoswap_d	PASS	p-	none		1121	8	455146684	(8s) cyc=1121
+rv64ua-p-amoswap_w	PASS	p-	none		1117	7	804244490	(7s) cyc=1117
+rv64ua-p-amoxor_d	PASS	p-	none		1125	7	18000241	(7s) cyc=1125
+rv64ua-p-amoxor_w	PASS	p-	none		1129	8	502804280	(8s) cyc=1129
+rv64ua-p-lrsc	PASS	p-	none		18659	92	938256493	(92s) cyc=18659
+rv64uc-p-rvc	PASS	p-	none		1586	10	703252695	(10s) cyc=1586
+rv64ud-p-fadd	PASS	p-	none		1911	12	536277451	(12s) cyc=1911
+rv64ud-p-fclass	PASS	p-	none		1233	8	278909031	(8s) cyc=1233
+rv64ud-p-fcmp	PASS	p-	none		2201	13	968848654	(13s) cyc=2201
+rv64ud-p-fcvt	PASS	p-	none		1824	11	230808870	(11s) cyc=1824
+rv64ud-p-fcvt_w	PASS	p-	none		3735	21	545552083	(21s) cyc=3735
+rv64ud-p-fdiv	PASS	p-	none		1739	10	942840024	(10s) cyc=1739
+rv64ud-p-fmadd	PASS	p-	none		2071	12	138764917	(12s) cyc=2071
+rv64ud-p-fmin	PASS	p-	none		2543	15	906122730	(15s) cyc=2543
+rv64ud-p-ldst	PASS	p-	none		1172	7	590767989	(7s) cyc=1172
+rv64ud-p-move	PASS	p-	none		2696	15	261643746	(15s) cyc=2696
+rv64ud-p-recoding	PASS	p-	none		1245	8	810231604	(8s) cyc=1245
+rv64ud-p-structural	PASS	p-	none		2020	11	586196370	(11s) cyc=2020
+rv64uf-p-fadd	PASS	p-	none		1911	11	995197549	(11s) cyc=1911
+rv64uf-p-fclass	PASS	p-	none		1217	7	509432542	(7s) cyc=1217
+rv64uf-p-fcmp	PASS	p-	none		2201	13	493150770	(13s) cyc=2201
+rv64uf-p-fcvt	PASS	p-	none		1612	9	902565907	(9s) cyc=1612
+rv64uf-p-fcvt_w	PASS	p-	none		3373	18	238165114	(18s) cyc=3373
+rv64uf-p-fdiv	PASS	p-	none		1663	10	393367905	(10s) cyc=1663
+rv64uf-p-fmadd	PASS	p-	none		2071	12	220571566	(12s) cyc=2071
+rv64uf-p-fmin	PASS	p-	none		2543	14	594690382	(14s) cyc=2543
+rv64uf-p-ldst	PASS	p-	none		1183	8	845235900	(8s) cyc=1183
+rv64uf-p-move	PASS	p-	none		1798	10	507727703	(10s) cyc=1798
+rv64uf-p-recoding	PASS	p-	none		1198	7	674737362	(7s) cyc=1198
+rv64ui-p-add	PASS	p-	none		2453	14	698870383	(14s) cyc=2453
+rv64ui-p-addi	PASS	p-	none		1630	10	385468734	(10s) cyc=1630
+rv64ui-p-addiw	PASS	p-	none		1621	10	383098808	(10s) cyc=1621
+rv64ui-p-addw	PASS	p-	none		2443	14	384467565	(14s) cyc=2443
+rv64ui-p-and	PASS	p-	none		2613	14	511448957	(14s) cyc=2613
+rv64ui-p-andi	PASS	p-	none		1609	9	356778898	(9s) cyc=1609
+rv64ui-p-auipc	PASS	p-	none		1053	6	978894482	(6s) cyc=1053
+rv64ui-p-beq	PASS	p-	none		2427	13	65720052	(13s) cyc=2427
+rv64ui-p-bge	PASS	p-	none		2726	15	357119631	(15s) cyc=2726
+rv64ui-p-bgeu	PASS	p-	none		2956	16	817142494	(16s) cyc=2956
+rv64ui-p-blt	PASS	p-	none		2429	14	349508508	(14s) cyc=2429
+rv64ui-p-bltu	PASS	p-	none		2643	14	925878337	(14s) cyc=2643
+rv64ui-p-bne	PASS	p-	none		2482	14	137129458	(14s) cyc=2482
+rv64ui-p-fence_i	PASS	p-	none		2117	12	549410323	(12s) cyc=2117
+rv64ui-p-jal	PASS	p-	none		1074	6	914808082	(6s) cyc=1074
+rv64ui-p-jalr	PASS	p-	none		1557	10	128944574	(10s) cyc=1557
+rv64ui-p-lb	PASS	p-	none		1671	10	948861199	(10s) cyc=1671
+rv64ui-p-lbu	PASS	p-	none		1671	10	607513048	(10s) cyc=1671
+rv64ui-p-ld	PASS	p-	none		2066	11	596889696	(11s) cyc=2066
+rv64ui-p-ld_st	PASS	p-	none		4485	23	599162086	(23s) cyc=4485
+rv64ui-p-lh	PASS	p-	none		1711	10	523750492	(10s) cyc=1711
+rv64ui-p-lhu	PASS	p-	none		1717	10	793361582	(10s) cyc=1717
+rv64ui-p-lui	PASS	p-	none		1065	7	901880272	(7s) cyc=1065
+rv64ui-p-lw	PASS	p-	none		1731	10	18486304	(10s) cyc=1731
+rv64ui-p-lwu	PASS	p-	none		1797	10	486971139	(10s) cyc=1797
+rv64ui-p-ma_data	PASS	p-	none		7858	38	337532928	(38s) cyc=7858
+rv64ui-p-or	PASS	p-	none		2670	15	186357138	(15s) cyc=2670
+rv64ui-p-ori	PASS	p-	none		1591	9	321260505	(9s) cyc=1591
+rv64ui-p-sb	PASS	p-	none		2306	13	121051349	(13s) cyc=2306
+rv64ui-p-sd	PASS	p-	none		2640	14	894428965	(14s) cyc=2640
+rv64ui-p-sh	PASS	p-	none		2382	13	763144079	(13s) cyc=2382
+rv64ui-p-simple	PASS	p-	none		1003	6	718997345	(6s) cyc=1003
+rv64ui-p-sll	PASS	p-	none		2573	14	415617638	(14s) cyc=2573
+rv64ui-p-slli	PASS	p-	none		1691	10	949793826	(10s) cyc=1691
+rv64ui-p-slliw	PASS	p-	none		1685	9	713172484	(9s) cyc=1685
+rv64ui-p-sllw	PASS	p-	none		2577	14	110919533	(14s) cyc=2577
+rv64ui-p-slt	PASS	p-	none		2431	13	997623447	(13s) cyc=2431
+rv64ui-p-slti	PASS	p-	none		1617	10	693196778	(10s) cyc=1617
+rv64ui-p-sltiu	PASS	p-	none		1617	10	868475256	(10s) cyc=1617
+rv64ui-p-sltu	PASS	p-	none		2469	13	673819593	(13s) cyc=2469
+rv64ui-p-sra	PASS	p-	none		2523	13	572258009	(13s) cyc=2523
+rv64ui-p-srai	PASS	p-	none		1654	9	839723379	(9s) cyc=1654
+rv64ui-p-sraiw	PASS	p-	none		1755	10	105407192	(10s) cyc=1755
+rv64ui-p-sraw	PASS	p-	none		2595	14	930155615	(14s) cyc=2595
+rv64ui-p-srl	PASS	p-	none		2619	14	758225344	(14s) cyc=2619
+rv64ui-p-srli	PASS	p-	none		1716	10	709242644	(10s) cyc=1716
+rv64ui-p-srliw	PASS	p-	none		1703	10	603967369	(10s) cyc=1703
+rv64ui-p-srlw	PASS	p-	none		2583	14	58526903	(14s) cyc=2583
+rv64ui-p-st_ld	PASS	p-	none		1993	11	728495656	(11s) cyc=1993
+rv64ui-p-sub	PASS	p-	none		2437	14	331087519	(14s) cyc=2437
+rv64ui-p-subw	PASS	p-	none		2429	14	284245366	(14s) cyc=2429
+rv64ui-p-sw	PASS	p-	none		2416	13	383101797	(13s) cyc=2416
+rv64ui-p-xor	PASS	p-	none		2664	15	93628002	(15s) cyc=2664
+rv64ui-p-xori	PASS	p-	none		1595	9	195555005	(9s) cyc=1595
+rv64um-p-div	PASS	p-	none		1157	7	544446675	(7s) cyc=1157
+rv64um-p-divu	PASS	p-	none		1167	7	642829796	(7s) cyc=1167
+rv64um-p-divuw	PASS	p-	none		1147	7	470714756	(7s) cyc=1147
+rv64um-p-divw	PASS	p-	none		1139	7	330171866	(7s) cyc=1139
+rv64um-p-mul	PASS	p-	none		2461	13	456450924	(13s) cyc=2461
+rv64um-p-mulh	PASS	p-	none		2471	13	987259968	(13s) cyc=2471
+rv64um-p-mulhsu	PASS	p-	none		2471	13	650689998	(13s) cyc=2471
+rv64um-p-mulhu	PASS	p-	none		2531	14	913149454	(14s) cyc=2531
+rv64um-p-mulw	PASS	p-	none		2329	13	550778439	(13s) cyc=2329
+rv64um-p-rem	PASS	p-	none		1131	7	31326127	(7s) cyc=1131
+rv64um-p-remu	PASS	p-	none		1133	7	243054374	(7s) cyc=1133
+rv64um-p-remuw	PASS	p-	none		1129	7	912867245	(7s) cyc=1129
+rv64um-p-remw	PASS	p-	none		1139	7	561749816	(7s) cyc=1139
+rv64uzba-p-add_uw	PASS	p-	none		2455	14	339593917	(14s) cyc=2455
+rv64uzba-p-sh1add	PASS	p-	none		2461	14	363315692	(14s) cyc=2461
+rv64uzba-p-sh1add_uw	PASS	p-	none		2469	13	206610841	(13s) cyc=2469
+rv64uzba-p-sh2add	PASS	p-	none		2461	14	938015552	(14s) cyc=2461
+rv64uzba-p-sh2add_uw	PASS	p-	none		2469	13	959644875	(13s) cyc=2469
+rv64uzba-p-sh3add	PASS	p-	none		2461	13	747168452	(13s) cyc=2461
+rv64uzba-p-sh3add_uw	PASS	p-	none		2469	14	636915198	(14s) cyc=2469
+rv64uzba-p-slli_uw	PASS	p-	none		1719	10	295807369	(10s) cyc=1719
+rv64uzbb-p-andn	PASS	p-	none		2655	14	702948304	(14s) cyc=2655
+rv64uzbb-p-clz	PASS	p-	none		1497	9	912573974	(9s) cyc=1497
+rv64uzbb-p-clzw	PASS	p-	none		1465	9	459393748	(9s) cyc=1465
+rv64uzbb-p-cpop	PASS	p-	none		1497	8	158511506	(8s) cyc=1497
+rv64uzbb-p-cpopw	PASS	p-	none		1465	9	681752288	(9s) cyc=1465
+rv64uzbb-p-ctz	PASS	p-	none		1497	8	598288974	(8s) cyc=1497
+rv64uzbb-p-ctzw	PASS	p-	none		1467	9	352851757	(9s) cyc=1467
+rv64uzbb-p-max	PASS	p-	none		2441	13	488796714	(13s) cyc=2441
+rv64uzbb-p-maxu	PASS	p-	none		2503	13	307236014	(13s) cyc=2503
+rv64uzbb-p-min	PASS	p-	none		2433	14	368675483	(14s) cyc=2433
+rv64uzbb-p-minu	PASS	p-	none		2481	14	689043348	(14s) cyc=2481
+rv64uzbb-p-orc_b	PASS	p-	none		1539	9	860895738	(9s) cyc=1539
+rv64uzbb-p-orn	PASS	p-	none		2673	15	869104056	(15s) cyc=2673
+rv64uzbb-p-rev8	PASS	p-	none		1572	9	21491288	(9s) cyc=1572
+rv64uzbb-p-rol	PASS	p-	none		2583	14	510437877	(14s) cyc=2583
+rv64uzbb-p-rolw	PASS	p-	none		2585	14	450969694	(14s) cyc=2585
+rv64uzbb-p-ror	PASS	p-	none		2645	14	255300056	(14s) cyc=2645
+rv64uzbb-p-rori	PASS	p-	none		1712	10	922326706	(10s) cyc=1712
+rv64uzbb-p-roriw	PASS	p-	none		1625	9	80176990	(9s) cyc=1625
+rv64uzbb-p-rorw	PASS	p-	none		2513	14	843415316	(14s) cyc=2513
+rv64uzbb-p-sext_b	PASS	p-	none		1497	8	209850183	(8s) cyc=1497
+rv64uzbb-p-sext_h	PASS	p-	none		1503	9	833072169	(9s) cyc=1503
+rv64uzbb-p-xnor	PASS	p-	none		2671	15	770042625	(15s) cyc=2671
+rv64uzbb-p-zext_h	PASS	p-	none		1509	9	902930360	(9s) cyc=1509
+rv64uzbc-p-clmul	PASS	p-	none		2463	14	487744019	(14s) cyc=2463
+rv64uzbc-p-clmulh	PASS	p-	none		2473	14	802719970	(14s) cyc=2473
+rv64uzbc-p-clmulr	PASS	p-	none		2469	13	250151189	(13s) cyc=2469
+rv64uzbkb-p-brev8	PASS	p-	none		1537	9	856966026	(9s) cyc=1537
+rv64uzbkb-p-pack	PASS	p-	none		2913	16	463836646	(16s) cyc=2913
+rv64uzbkb-p-packh	PASS	p-	none		2583	14	326615701	(14s) cyc=2583
+rv64uzbkb-p-packw	PASS	p-	none		2443	13	215613035	(13s) cyc=2443
+rv64uzbkx-p-xperm4	PASS	p-	none		2767	16	699318736	(16s) cyc=2767
+rv64uzbkx-p-xperm8	PASS	p-	none		3598	19	404598002	(19s) cyc=3598
+rv64uzbs-p-bclr	PASS	p-	none		2796	15	255338395	(15s) cyc=2796
+rv64uzbs-p-bclri	PASS	p-	none		1779	10	410327975	(10s) cyc=1779
+rv64uzbs-p-bext	PASS	p-	none		2661	14	589467788	(14s) cyc=2661
+rv64uzbs-p-bexti	PASS	p-	none		1711	10	400762825	(10s) cyc=1711
+rv64uzbs-p-binv	PASS	p-	none		2631	14	198963111	(14s) cyc=2631
+rv64uzbs-p-binvi	PASS	p-	none		1715	10	674454780	(10s) cyc=1715
+rv64uzbs-p-bset	PASS	p-	none		2800	15	159743201	(15s) cyc=2800
+rv64uzbs-p-bseti	PASS	p-	none		1793	10	62695482	(10s) cyc=1793
+rv64uzfh-p-fadd	PASS	p-	none		1911	11	915524939	(11s) cyc=1911
+rv64uzfh-p-fclass	PASS	p-	none		1218	8	546703780	(8s) cyc=1218
+rv64uzfh-p-fcmp	PASS	p-	none		1553	9	411047823	(9s) cyc=1553
+rv64uzfh-p-fcvt	PASS	p-	none		1787	11	1866174	(11s) cyc=1787
+rv64uzfh-p-fcvt_w	PASS	p-	none		3373	18	277823352	(18s) cyc=3373
+rv64uzfh-p-fdiv	PASS	p-	none		1663	9	508896320	(9s) cyc=1663
+rv64uzfh-p-fmadd	PASS	p-	none		2071	11	234331368	(11s) cyc=2071
+rv64uzfh-p-fmin	PASS	p-	none		2543	14	327338115	(14s) cyc=2543
+rv64uzfh-p-ldst	PASS	p-	none		1194	8	85144325	(8s) cyc=1194
+rv64uzfh-p-move	PASS	p-	none		1793	10	414530138	(10s) cyc=1793
+rv64uzfh-p-recoding	PASS	p-	none		1198	7	802204847	(7s) cyc=1198
+rv64uziccid-p-ziccid	PASS	p-	none		7595	26	495499013	(26s) cyc=7595
+rv64uzicond-p-czero_eqz	PASS	p-	none		2389	11	602329477	(11s) cyc=2389
+rv64uzicond-p-czero_nez	PASS	p-	none		2377	8	506533275	(8s) cyc=2377
+rv64ua-v-amoadd_d	ERROR	v-	15/18			124	743469819	exit=None cycles=-1 status=ERROR
+rv64ua-v-amoadd_w	ERROR	v-	16/18			68	371724577	exit=None cycles=-1 status=ERROR
+rv64ua-v-amoand_d	ERROR	v-	17/18			123	704907951	exit=None cycles=-1 status=ERROR
+rv64ua-v-amoand_w	ERROR	v-	18/18			123	144343980	exit=None cycles=-1 status=ERROR
+rv64ua-v-amomax_d	ERROR	v-	1/18			121	390336667	exit=None cycles=-1 status=ERROR
+rv64ua-v-amomax_w	ERROR	v-	4/18			118	884608798	exit=None cycles=-1 status=ERROR
+rv64ua-v-amomaxu_d	ERROR	v-	2/18			118	902842881	exit=None cycles=-1 status=ERROR
+rv64ua-v-amomaxu_w	ERROR	v-	3/18			127	473364013	exit=None cycles=-1 status=ERROR
+rv64ua-v-amomin_d	ERROR	v-	5/18			121	561039112	exit=None cycles=-1 status=ERROR
+rv64ua-v-amomin_w	ERROR	v-	8/18			119	46812683	exit=None cycles=-1 status=ERROR
+rv64ua-v-amominu_d	ERROR	v-	6/18			116	237870798	exit=None cycles=-1 status=ERROR
+rv64ua-v-amominu_w	ERROR	v-	7/18			116	580826329	exit=None cycles=-1 status=ERROR
+rv64ua-v-amoor_d	ERROR	v-	9/18			117	500219534	exit=None cycles=-1 status=ERROR
+rv64ua-v-amoor_w	ERROR	v-	10/18			64	922699995	exit=None cycles=-1 status=ERROR
+rv64ua-v-amoswap_d	ERROR	v-	11/18			118	184135068	exit=None cycles=-1 status=ERROR
+rv64ua-v-amoswap_w	ERROR	v-	12/18			76	534906358	exit=None cycles=-1 status=ERROR
+rv64ua-v-amoxor_d	ERROR	v-	13/18			128	538363321	exit=None cycles=-1 status=ERROR
+rv64ua-v-amoxor_w	ERROR	v-	14/18			120	31410242	exit=None cycles=-1 status=ERROR
+rv64ua-v-lrsc	ERROR	v-	15/18			224	443064678	exit=None cycles=-1 status=ERROR
+rv64uc-v-rvc	PASS	v-	14/18		39622	259	477472206	(259s) cyc=39622
+rv64ud-v-fadd	PASS	v-	9/18		54740	308	907702282	(308s) cyc=54740
+rv64ud-v-fclass	PASS	v-	10/18		19374	68	819486990	(68s) cyc=19374
+rv64ud-v-fcmp	TIMEOUT	v-	11/18			938	626996165	
+rv64ud-v-fcvt	TIMEOUT	v-	12/18			551	758431344	
+rv64ud-v-fcvt_w	TIMEOUT	v-	13/18			989	155036621	
+rv64ud-v-fdiv	PASS	v-	14/18		50427	303	314244878	(303s) cyc=50427
+rv64ud-v-fmadd	TIMEOUT	v-	15/18			958	284376522	
+rv64ud-v-fmin	PASS	v-	16/18		55372	202	527509730	(202s) cyc=55372
+rv64ud-v-ldst	PASS	v-	17/18		29075	192	790143067	(192s) cyc=29075
+rv64ud-v-move	PASS	v-	18/18		48685	317	589784931	(317s) cyc=48685
+rv64ud-v-recoding	PASS	v-	1/18		28840	191	466844580	(191s) cyc=28840
+rv64ud-v-structural	PASS	v-	2/18		24119	161	92233396	(161s) cyc=24119
+rv64uf-v-fadd	PASS	v-	16/18		54740	199	584877157	(199s) cyc=54740
+rv64uf-v-fclass	PASS	v-	17/18		13542	89	970758308	(89s) cyc=13542
+rv64uf-v-fcmp	TIMEOUT	v-	18/18			983	933044524	
+rv64uf-v-fcvt	PASS	v-	1/18		54942	318	206992195	(318s) cyc=54942
+rv64uf-v-fcvt_w	PASS	v-	2/18		89720	466	625911959	(466s) cyc=89720
+rv64uf-v-fdiv	PASS	v-	3/18		53108	381	984034725	(381s) cyc=53108
+rv64uf-v-fmadd	TIMEOUT	v-	4/18			947	196371563	
+rv64uf-v-fmin	PASS	v-	5/18		55372	393	997814413	(393s) cyc=55372
+rv64uf-v-ldst	PASS	v-	6/18		37450	240	411357264	(240s) cyc=37450
+rv64uf-v-move	PASS	v-	7/18		27718	182	202606026	(182s) cyc=27718
+rv64uf-v-recoding	PASS	v-	8/18		87604	523	736102939	(523s) cyc=87604
+rv64ui-v-add	PASS	v-	1/18		19062	141	876525266	(141s) cyc=19062
+rv64ui-v-addi	PASS	v-	2/18		21305	144	11686015	(144s) cyc=21305
+rv64ui-v-addiw	PASS	v-	3/18		21459	159	89471550	(159s) cyc=21459
+rv64ui-v-addw	PASS	v-	4/18		20758	140	50116326	(140s) cyc=20758
+rv64ui-v-and	PASS	v-	7/18		19901	134	962815933	(134s) cyc=19901
+rv64ui-v-andi	PASS	v-	8/18		17848	123	885446271	(123s) cyc=17848
+rv64ui-v-auipc	PASS	v-	12/18		17814	80	505371001	(80s) cyc=17814
+rv64ui-v-beq	PASS	v-	13/18		21165	154	153592610	(154s) cyc=21165
+rv64ui-v-bge	PASS	v-	14/18		20149	140	999902623	(140s) cyc=20149
+rv64ui-v-bgeu	PASS	v-	15/18		18994	141	417407803	(141s) cyc=18994
+rv64ui-v-blt	PASS	v-	16/18		21167	81	164771786	(81s) cyc=21167
+rv64ui-v-bltu	PASS	v-	17/18		18949	131	331132825	(131s) cyc=18949
+rv64ui-v-bne	PASS	v-	18/18		18185	127	116557976	(127s) cyc=18185
+rv64ui-v-fence_i	PASS	v-	17/18		28641	187	312408472	(187s) cyc=28641
+rv64ui-v-jal	PASS	v-	1/18		19743	146	559768437	(146s) cyc=19743
+rv64ui-v-jalr	PASS	v-	2/18		17240	117	323883556	(117s) cyc=17240
+rv64ui-v-lb	PASS	v-	3/18		51166	364	806888708	(364s) cyc=51166
+rv64ui-v-lbu	PASS	v-	4/18		51166	349	572244606	(349s) cyc=51166
+rv64ui-v-ld	PASS	v-	9/18		52981	356	209737200	(356s) cyc=52981
+rv64ui-v-ld_st	PASS	v-	14/18		93248	549	891148797	(549s) cyc=93248
+rv64ui-v-lh	PASS	v-	5/18		49366	333	504474302	(333s) cyc=49366
+rv64ui-v-lhu	PASS	v-	6/18		55526	376	486575409	(376s) cyc=55526
+rv64ui-v-lui	PASS	v-	11/18		20843	139	672105403	(139s) cyc=20843
+rv64ui-v-lw	PASS	v-	7/18		52523	346	635625461	(346s) cyc=52523
+rv64ui-v-lwu	PASS	v-	8/18		52201	355	661321775	(355s) cyc=52201
+rv64ui-v-ma_data	TIMEOUT	v-	18/18			1284	573470024	
+rv64ui-v-or	PASS	v-	9/18		19333	134	573507332	(134s) cyc=19333
+rv64ui-v-ori	PASS	v-	10/18		21137	82	230271336	(82s) cyc=21137
+rv64ui-v-sb	PASS	v-	10/18		32069	119	504432331	(119s) cyc=32069
+rv64ui-v-sd	PASS	v-	13/18		61511	428	43464410	(428s) cyc=61511
+rv64ui-v-sh	PASS	v-	11/18		32736	216	126946295	(216s) cyc=32736
+rv64ui-v-simple	PASS	v-	16/18		17761	69	160477387	(69s) cyc=17761
+rv64ui-v-sll	TIMEOUT	v-	17/18			966	766540669	
+rv64ui-v-slli	PASS	v-	18/18		20874	149	291152181	(149s) cyc=20874
+rv64ui-v-slliw	PASS	v-	1/18		19858	146	688010880	(146s) cyc=19858
+rv64ui-v-sllw	PASS	v-	2/18		50889	333	479889491	(333s) cyc=50889
+rv64ui-v-slt	PASS	v-	13/18		20786	152	475232485	(152s) cyc=20786
+rv64ui-v-slti	PASS	v-	14/18		18296	126	1720256	(126s) cyc=18296
+rv64ui-v-sltiu	PASS	v-	16/18		18296	71	539410314	(71s) cyc=18296
+rv64ui-v-sltu	PASS	v-	15/18		21342	155	439777862	(155s) cyc=21342
+rv64ui-v-sra	PASS	v-	7/18		26064	172	605622535	(172s) cyc=26064
+rv64ui-v-srai	PASS	v-	8/18		20670	143	540680272	(143s) cyc=20670
+rv64ui-v-sraiw	PASS	v-	9/18		18213	126	383842788	(126s) cyc=18213
+rv64ui-v-sraw	PASS	v-	10/18		59559	226	525064712	(226s) cyc=59559
+rv64ui-v-srl	PASS	v-	3/18		55984	409	522039345	(409s) cyc=55984
+rv64ui-v-srli	PASS	v-	4/18		19619	134	410546797	(134s) cyc=19619
+rv64ui-v-srliw	PASS	v-	5/18		19347	135	896026778	(135s) cyc=19347
+rv64ui-v-srlw	PASS	v-	6/18		58141	393	651291225	(393s) cyc=58141
+rv64ui-v-st_ld	PASS	v-	15/18		70074	472	619068781	(472s) cyc=70074
+rv64ui-v-sub	PASS	v-	5/18		21291	146	24206216	(146s) cyc=21291
+rv64ui-v-subw	PASS	v-	6/18		20232	136	946198938	(136s) cyc=20232
+rv64ui-v-sw	PASS	v-	12/18		30231	131	408145137	(131s) cyc=30231
+rv64ui-v-xor	PASS	v-	11/18		20088	135	585957983	(135s) cyc=20088
+rv64ui-v-xori	PASS	v-	12/18		19491	88	924776711	(88s) cyc=19491
+rv64um-v-div	PASS	v-	5/18		16958	119	106854378	(119s) cyc=16958
+rv64um-v-divu	PASS	v-	6/18		19410	132	206541082	(132s) cyc=19410
+rv64um-v-divuw	PASS	v-	11/18		17583	120	940361083	(120s) cyc=17583
+rv64um-v-divw	PASS	v-	10/18		17784	68	531531332	(68s) cyc=17784
+rv64um-v-mul	PASS	v-	1/18		20070	146	226576893	(146s) cyc=20070
+rv64um-v-mulh	PASS	v-	2/18		18773	128	716242273	(128s) cyc=18773
+rv64um-v-mulhsu	PASS	v-	3/18		18773	137	143734071	(137s) cyc=18773
+rv64um-v-mulhu	PASS	v-	4/18		22392	152	485908697	(152s) cyc=22392
+rv64um-v-mulw	PASS	v-	9/18		19673	138	893136806	(138s) cyc=19673
+rv64um-v-rem	PASS	v-	7/18		18560	126	187012079	(126s) cyc=18560
+rv64um-v-remu	PASS	v-	8/18		17470	122	608858797	(122s) cyc=17470
+rv64um-v-remuw	PASS	v-	13/18		18552	137	496753620	(137s) cyc=18552
+rv64um-v-remw	PASS	v-	12/18		19430	87	297624660	(87s) cyc=19430
+rv64uzba-v-add_uw	PASS	v-	3/18		18590	131	876270148	(131s) cyc=18590
+rv64uzba-v-sh1add	PASS	v-	4/18		17786	118	957889903	(118s) cyc=17786
+rv64uzba-v-sh1add_uw	PASS	v-	5/18		16194	115	941733260	(115s) cyc=16194
+rv64uzba-v-sh2add	PASS	v-	6/18		17786	117	565209757	(117s) cyc=17786
+rv64uzba-v-sh2add_uw	PASS	v-	7/18		16194	108	687278102	(108s) cyc=16194
+rv64uzba-v-sh3add	PASS	v-	8/18		17786	120	343645434	(120s) cyc=17786
+rv64uzba-v-sh3add_uw	PASS	v-	9/18		16194	108	908642322	(108s) cyc=16194
+rv64uzba-v-slli_uw	PASS	v-	10/18		36635	126	333451912	(126s) cyc=36635
+rv64uzbb-v-andn	PASS	v-	11/18		17913	120	135640828	(120s) cyc=17913
+rv64uzbb-v-clz	PASS	v-	12/18		19791	84	563732223	(84s) cyc=19791
+rv64uzbb-v-clzw	PASS	v-	13/18		19257	144	787875409	(144s) cyc=19257
+rv64uzbb-v-cpop	PASS	v-	14/18		19791	129	425013750	(129s) cyc=19791
+rv64uzbb-v-cpopw	PASS	v-	15/18		19257	134	659516465	(134s) cyc=19257
+rv64uzbb-v-ctz	PASS	v-	16/18		19791	72	842052718	(72s) cyc=19791
+rv64uzbb-v-ctzw	PASS	v-	17/18		18059	124	619077745	(124s) cyc=18059
+rv64uzbb-v-max	PASS	v-	18/18		18935	129	659044592	(129s) cyc=18935
+rv64uzbb-v-maxu	PASS	v-	1/18		19222	135	672139886	(135s) cyc=19222
+rv64uzbb-v-min	PASS	v-	2/18		20699	135	182724530	(135s) cyc=20699
+rv64uzbb-v-minu	PASS	v-	3/18		20159	144	420833194	(144s) cyc=20159
+rv64uzbb-v-orc_b	PASS	v-	4/18		17248	114	467629241	(114s) cyc=17248
+rv64uzbb-v-orn	TIMEOUT	v-	5/18			921	412636335	
+rv64uzbb-v-rev8	PASS	v-	6/18		17366	118	419964088	(118s) cyc=17366
+rv64uzbb-v-rol	PASS	v-	7/18		98251	458	801758243	(458s) cyc=98251
+rv64uzbb-v-rolw	PASS	v-	8/18		46307	298	254966203	(298s) cyc=46307
+rv64uzbb-v-ror	TIMEOUT	v-	9/18			895	967275208	
+rv64uzbb-v-rori	PASS	v-	10/18		19155	69	655399803	(69s) cyc=19155
+rv64uzbb-v-roriw	PASS	v-	11/18		20154	133	321445214	(133s) cyc=20154
+rv64uzbb-v-rorw	PASS	v-	12/18		21018	89	413596878	(89s) cyc=21018
+rv64uzbb-v-sext_b	PASS	v-	13/18		19791	143	577818751	(143s) cyc=19791
+rv64uzbb-v-sext_h	PASS	v-	14/18		19169	126	294463468	(126s) cyc=19169
+rv64uzbb-v-xnor	PASS	v-	15/18		49687	258	211669788	(258s) cyc=49687
+rv64uzbb-v-zext_h	PASS	v-	16/18		16549	60	421796629	(60s) cyc=16549
+rv64uzbc-v-clmul	PASS	v-	17/18		19192	133	927319324	(133s) cyc=19192
+rv64uzbc-v-clmulh	PASS	v-	18/18		18992	132	430980798	(132s) cyc=18992
+rv64uzbc-v-clmulr	PASS	v-	1/18		19676	127	786728144	(127s) cyc=19676
+rv64uzbkb-v-brev8	PASS	v-	2/18		17988	96	478064270	(96s) cyc=17988
+rv64uzbkb-v-pack	PASS	v-	3/18		193024	855	229137788	(855s) cyc=193024
+rv64uzbkb-v-packh	PASS	v-	4/18		17763	119	33628977	(119s) cyc=17763
+rv64uzbkb-v-packw	PASS	v-	5/18		20118	138	191864695	(138s) cyc=20118
+rv64uzbkx-v-xperm4	PASS	v-	6/18		53592	225	192166173	(225s) cyc=53592
+rv64uzbkx-v-xperm8	TIMEOUT	v-	7/18			875	997075023	
+rv64uzbs-v-bclr	PASS	v-	8/18		47408	293	882836104	(293s) cyc=47408
+rv64uzbs-v-bclri	PASS	v-	9/18		14749	98	997149856	(98s) cyc=14749
+rv64uzbs-v-bext	PASS	v-	10/18		50142	139	256039886	(139s) cyc=50142
+rv64uzbs-v-bexti	PASS	v-	11/18		16150	108	957284801	(108s) cyc=16150
+rv64uzbs-v-binv	PASS	v-	12/18		53014	161	930281457	(161s) cyc=53014
+rv64uzbs-v-binvi	PASS	v-	13/18		19209	134	674368809	(134s) cyc=19209
+rv64uzbs-v-bset	PASS	v-	14/18		47125	206	683181739	(206s) cyc=47125
+rv64uzbs-v-bseti	PASS	v-	15/18		17391	114	356172176	(114s) cyc=17391
+rv64uzfh-v-fadd	PASS	v-	16/18		54740	126	321709018	(126s) cyc=54740
+rv64uzfh-v-fclass	PASS	v-	17/18		16739	80	158990791	(80s) cyc=16739
+rv64uzfh-v-fcmp	TIMEOUT	v-	18/18			1119	967290358	
+rv64uzfh-v-fcvt	PASS	v-	1/18		49899	215	691109218	(215s) cyc=49899
+rv64uzfh-v-fcvt_w	PASS	v-	2/18		89720	377	816467833	(377s) cyc=89720
+rv64uzfh-v-fdiv	PASS	v-	3/18		53108	271	916101399	(271s) cyc=53108
+rv64uzfh-v-fmadd	TIMEOUT	v-	4/18			874	196505013	
+rv64uzfh-v-fmin	PASS	v-	5/18		55372	307	922342187	(307s) cyc=55372
+rv64uzfh-v-ldst	PASS	v-	6/18		28281	153	513224773	(153s) cyc=28281
+rv64uzfh-v-move	PASS	v-	7/18		27720	122	711321205	(122s) cyc=27720
+rv64uzfh-v-recoding	PASS	v-	8/18		87604	426	741938684	(426s) cyc=87604
+rv64uziccid-v-ziccid	PASS	v-	11/18		149014	599	120561128	(599s) cyc=149014
+rv64uzicond-v-czero_eqz	PASS	v-	9/18		19870	116	867731345	(116s) cyc=19870
+rv64uzicond-v-czero_nez	PASS	v-	10/18		20262	61	779735085	(61s) cyc=20262

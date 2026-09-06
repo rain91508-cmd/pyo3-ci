@@ -2,12 +2,12 @@
 
 |  |  |
 |---|---|
-| **Result** | **FAIL** -- 34 of 2664 tests not passing |
-| Run | [rain91508-cmd/pyo3-ci#33985164392](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/33985164392) |
-| Commit | `c897d389fe` (main) |
+| **Result** | **FAIL** -- 50 of 2664 tests not passing |
+| Run | [rain91508-cmd/pyo3-ci#34065818096](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/34065818096) |
+| Commit | `33b12449fa` (main) |
 | Triggered by | rain91508-cmd |
-| Base seed | 1788634163, 1788634164, 1788634165, 1788634166, 1788634167, 1788634168, 1788634169, 1788634177, 1788634196 |
-| Generated | 2026-09-05 19:08 UTC |
+| Base seed | 1788735953, 1788735954, 1788735955, 1788735956, 1788735957, 1788735958, 1788735959 |
+| Generated | 2026-09-06 23:31 UTC |
 
 ## Suites
 
@@ -40,29 +40,29 @@
 | block-Scoreboard | none | 54 | 0 | 0+0 | 0 | 0 | 54 | PASS |
 | block-StorageManager | none | 28 | 0 | 0+0 | 0 | 0 | 28 | PASS |
 | block-StoreSet | none | 19 | 0 | 0+0 | 0 | 0 | 19 | PASS |
-| block-Testbench | none | 100 | 0 | 0+0 | 0 | 0 | 100 | PASS |
+| block-Testbench | none | 99 | 1 | 0+0 | 0 | 0 | 100 | FAIL |
 | block-TlbiController | none | 11 | 0 | 0+0 | 0 | 0 | 11 | PASS |
-| block-WriteBack | none | 80 | 9 | 0+0 | 0 | 0 | 89 | FAIL |
+| block-WriteBack | none | 89 | 0 | 0+0 | 0 | 0 | 89 | PASS |
 | p- | none | 204 | 0 | 0+0 | 0 | 0 | 204 | PASS |
-| v- | 1/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
-| v- | 10/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
-| v- | 11/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
-| v- | 12/18 | 9 | 0 | 0+0 | 0 | 0 | 9 | PASS |
-| v- | 13/18 | 8 | 0 | 1+0 | 0 | 0 | 9 | FAIL |
-| v- | 14/18 | 8 | 0 | 1+0 | 0 | 0 | 9 | FAIL |
-| v- | 15/18 | 8 | 0 | 1+0 | 0 | 0 | 9 | FAIL |
-| v- | 16/18 | 9 | 0 | 0+0 | 0 | 0 | 9 | PASS |
-| v- | 17/18 | 8 | 0 | 1+0 | 0 | 0 | 9 | FAIL |
-| v- | 18/18 | 9 | 0 | 0+0 | 0 | 0 | 9 | PASS |
-| v- | 2/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
-| v- | 3/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
-| v- | 4/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
-| v- | 5/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
-| v- | 6/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
-| v- | 7/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
-| v- | 8/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
-| v- | 9/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
-| **all** |  | 2630 | 26 | 8+0 | 0 | 0 | 2664 | FAIL |
+| v- | 1/18 | 9 | 0 | 0+0 | 1 | 0 | 10 | FAIL |
+| v- | 10/18 | 9 | 0 | 0+0 | 1 | 0 | 10 | FAIL |
+| v- | 11/18 | 8 | 0 | 1+0 | 1 | 0 | 10 | FAIL |
+| v- | 12/18 | 7 | 0 | 1+0 | 1 | 0 | 9 | FAIL |
+| v- | 13/18 | 7 | 0 | 1+0 | 1 | 0 | 9 | FAIL |
+| v- | 14/18 | 8 | 0 | 0+0 | 1 | 0 | 9 | FAIL |
+| v- | 15/18 | 6 | 0 | 1+0 | 2 | 0 | 9 | FAIL |
+| v- | 16/18 | 8 | 0 | 0+0 | 1 | 0 | 9 | FAIL |
+| v- | 17/18 | 7 | 0 | 1+0 | 1 | 0 | 9 | FAIL |
+| v- | 18/18 | 5 | 0 | 3+0 | 1 | 0 | 9 | FAIL |
+| v- | 2/18 | 9 | 0 | 0+0 | 1 | 0 | 10 | FAIL |
+| v- | 3/18 | 9 | 0 | 0+0 | 1 | 0 | 10 | FAIL |
+| v- | 4/18 | 7 | 0 | 2+0 | 1 | 0 | 10 | FAIL |
+| v- | 5/18 | 8 | 0 | 1+0 | 1 | 0 | 10 | FAIL |
+| v- | 6/18 | 9 | 0 | 0+0 | 1 | 0 | 10 | FAIL |
+| v- | 7/18 | 8 | 0 | 1+0 | 1 | 0 | 10 | FAIL |
+| v- | 8/18 | 9 | 0 | 0+0 | 1 | 0 | 10 | FAIL |
+| v- | 9/18 | 8 | 0 | 1+0 | 1 | 0 | 10 | FAIL |
+| **all** |  | 2614 | 18 | 13+0 | 19 | 0 | 2664 | FAIL |
 
 ## Failures
 
@@ -85,22 +85,38 @@
 | `src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTDRouting::test_std_calls_lsq_execute_store_data` | block-ReadOperandMem | FAIL | - | - | 0s | - | TypeError: make_read_operand_mem.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_ope... |
 | `src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTDRouting::test_std_does_not_call_fu_operand` | block-ReadOperandMem | FAIL | - | - | 0s | - | TypeError: make_read_operand_mem.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_ope... |
 | `src.cpu.pyo3.pymtl3.o3-block-tests.ReadOperandMem.test_read_operand_mem_cl.TestSTDRouting::test_std_passes_inst_list_idx_zero` | block-ReadOperandMem | FAIL | - | - | 0s | - | TypeError: make_read_operand_mem.<locals>.<lambda>() missing 1 required positional argument: 'tid' self = <test_read_ope... |
-| `test_write_back_cl.TestDirectComplete::test_direct_complete_decrements_counter` | block-WriteBack | FAIL | - | - | 0s | - | TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 's... |
-| `test_write_back_cl.TestInFlightCounter::test_fu_complete_decrements_counter` | block-WriteBack | FAIL | - | - | 0s | - | TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 's... |
-| `test_write_back_cl.TestInFlightCounter::test_ic_squash_updates_boundary` | block-WriteBack | FAIL | - | - | 0s | - | TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 's... |
-| `test_write_back_cl.TestInFlightCounter::test_ro_inst_issued_increments_counter` | block-WriteBack | FAIL | - | - | 0s | - | TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 's... |
-| `test_write_back_cl.TestPendingWBQueue::test_pop_time_squash_with_writeback_width` | block-WriteBack | FAIL | - | - | 0s | - | TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 's... |
-| `test_write_back_cl.TestSquashAtCompletion::test_seqnum_above_boundary_skips_rf_write` | block-WriteBack | FAIL | - | - | 0s | - | TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 's... |
-| `test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_cleared_after_all_inflight_drained` | block-WriteBack | FAIL | - | - | 0s | - | TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 's... |
-| `test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_not_cleared_while_completion_in_buffer` | block-WriteBack | FAIL | - | - | 0s | - | TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 's... |
-| `test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_not_cleared_while_inflight_remaining` | block-WriteBack | FAIL | - | - | 0s | - | TypeError: WriteBackCL.construct.<locals>._make_ro_issued_method.<locals>.method() got an unexpected keyword argument 's... |
-| `rv64ua-v-lrsc` | v- | TIMEOUT | - | - | 778s | 680760106 | - |
-| `rv64ud-v-fdiv` | v- | TIMEOUT | - | - | 618s | 524940225 | - |
-| `rv64ui-v-sd` | v- | TIMEOUT | - | - | 992s | 253159754 | - |
-| `rv64ui-v-sll` | v- | TIMEOUT | - | - | 959s | 973236004 | - |
-| `rv64ui-v-sllw` | v- | TIMEOUT | - | - | 1122s | 699584865 | - |
-| `rv64uzbb-v-ror` | v- | TIMEOUT | - | - | 888s | 175970542 | - |
-| `rv64uzbkx-v-xperm8` | v- | TIMEOUT | - | - | 690s | 205770357 | - |
-| `rv64uziccid-v-ziccid` | v- | TIMEOUT | - | - | 765s | 333256481 | - |
+| `test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word]` | block-Testbench | FAIL | - | - | 4s | - | AssertionError: [MEMIQ_SINGLEFIRE] cyc=1398 idx=0 double fu_real_complete in one tick riscv_tests_elf_dir = '/home/runne... |
+| `rv64ua-v-amoadd_d` | v- | ERROR | - | - | 124s | 743469819 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-amoadd_w` | v- | ERROR | - | - | 68s | 371724577 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-amoand_d` | v- | ERROR | - | - | 123s | 704907951 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-amoand_w` | v- | ERROR | - | - | 123s | 144343980 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-amomax_d` | v- | ERROR | - | - | 121s | 390336667 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-amomax_w` | v- | ERROR | - | - | 118s | 884608798 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-amomaxu_d` | v- | ERROR | - | - | 118s | 902842881 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-amomaxu_w` | v- | ERROR | - | - | 127s | 473364013 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-amomin_d` | v- | ERROR | - | - | 121s | 561039112 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-amomin_w` | v- | ERROR | - | - | 119s | 46812683 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-amominu_d` | v- | ERROR | - | - | 116s | 237870798 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-amominu_w` | v- | ERROR | - | - | 116s | 580826329 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-amoor_d` | v- | ERROR | - | - | 117s | 500219534 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-amoor_w` | v- | ERROR | - | - | 64s | 922699995 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-amoswap_d` | v- | ERROR | - | - | 118s | 184135068 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-amoswap_w` | v- | ERROR | - | - | 76s | 534906358 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-amoxor_d` | v- | ERROR | - | - | 128s | 538363321 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-amoxor_w` | v- | ERROR | - | - | 120s | 31410242 | exit=None cycles=-1 status=ERROR |
+| `rv64ua-v-lrsc` | v- | ERROR | - | - | 224s | 443064678 | exit=None cycles=-1 status=ERROR |
+| `rv64ud-v-fcmp` | v- | TIMEOUT | - | - | 938s | 626996165 | - |
+| `rv64ud-v-fcvt` | v- | TIMEOUT | - | - | 551s | 758431344 | - |
+| `rv64ud-v-fcvt_w` | v- | TIMEOUT | - | - | 989s | 155036621 | - |
+| `rv64ud-v-fmadd` | v- | TIMEOUT | - | - | 958s | 284376522 | - |
+| `rv64uf-v-fcmp` | v- | TIMEOUT | - | - | 983s | 933044524 | - |
+| `rv64uf-v-fmadd` | v- | TIMEOUT | - | - | 947s | 196371563 | - |
+| `rv64ui-v-ma_data` | v- | TIMEOUT | - | - | 1284s | 573470024 | - |
+| `rv64ui-v-sll` | v- | TIMEOUT | - | - | 966s | 766540669 | - |
+| `rv64uzbb-v-orn` | v- | TIMEOUT | - | - | 921s | 412636335 | - |
+| `rv64uzbb-v-ror` | v- | TIMEOUT | - | - | 895s | 967275208 | - |
+| `rv64uzbkx-v-xperm8` | v- | TIMEOUT | - | - | 875s | 997075023 | - |
+| `rv64uzfh-v-fcmp` | v- | TIMEOUT | - | - | 1119s | 967290358 | - |
+| `rv64uzfh-v-fmadd` | v- | TIMEOUT | - | - | 874s | 196505013 | - |
 
 _Full 2664-test table: see the `pyo3-ci-report.md` asset._
