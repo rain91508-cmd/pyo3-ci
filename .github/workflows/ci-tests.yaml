@@ -219,9 +219,18 @@ jobs:
             - name: Build the aggregated report
               if: always()
               working-directory: src/cpu/pyo3
+              # GITHUB_SHA / GITHUB_REF_NAME are RESERVED env vars -- GitHub
+              # re-asserts its own values after a step env: block, so the old
+              # override below never reached the script and the report always
+              # named THIS repo's commit (e.g. 8be72d0 (main)), not the tested
+              # gem5 commit. The authoritative source is now the
+              # `# gem5_sha=` / `# gem5_ref=` headers the runner scripts stamp
+              # into each result file (they run inside the gem5 checkout).
+              # PYO3_GEM5_SHA / PYO3_GEM5_REF (non-reserved) are passed as a
+              # fallback for result files that carry no header (pytest JUnit).
               env:
-                  GITHUB_SHA: ${{ steps.setup.outputs.gem5_sha }}
-                  GITHUB_REF_NAME: ${{ inputs.gem5_ref || 'pycpu' }}
+                  PYO3_GEM5_SHA: ${{ steps.setup.outputs.gem5_sha }}
+                  PYO3_GEM5_REF: ${{ inputs.gem5_ref || 'pycpu' }}
               run: |
                   python3 make_ci_report.py "$GITHUB_WORKSPACE/results" \
                       --out-md "$GITHUB_WORKSPACE/pyo3-ci-report.md" \
