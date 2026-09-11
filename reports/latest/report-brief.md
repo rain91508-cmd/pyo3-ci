@@ -3,11 +3,11 @@
 |  |  |
 |---|---|
 | **Result** | **FAIL** -- 39 of 2672 tests not passing |
-| Run | [rain91508-cmd/pyo3-ci#34555515584](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/34555515584) |
-| Commit | `460efd022e` (pycpu) |
+| Run | [rain91508-cmd/pyo3-ci#34630348846](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/34630348846) |
+| Commit | `d20ec150e1` (pycpu) |
 | Triggered by | rain91508-cmd |
-| Base seed | 1789094518, 1789094519, 1789094520, 1789094521, 1789094522, 1789094523, 1789094524, 1789094525, 1789094526, 1789094527, 1789094552 |
-| Generated | 2026-09-11 03:18 UTC |
+| Base seed | 1789149399, 1789149400, 1789149401, 1789149404, 1789149406, 1789149407, 1789149413, 1789149415, 1789149417, 1789149418, 1789149420, 1789149421 |
+| Generated | 2026-09-11 18:13 UTC |
 
 ## Suites
 
@@ -43,16 +43,16 @@
 | block-Testbench | none | 108 | 0 | 0+0 | 0 | 0 | 108 | PASS |
 | block-TlbiController | none | 11 | 0 | 0+0 | 0 | 0 | 11 | PASS |
 | block-WriteBack | none | 89 | 0 | 0+0 | 0 | 0 | 89 | PASS |
-| p- | none | 201 | 0 | 3+0 | 0 | 0 | 204 | FAIL |
+| p- | none | 202 | 0 | 2+0 | 0 | 0 | 204 | FAIL |
 | v- | 1/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 10/18 | 8 | 0 | 2+0 | 0 | 0 | 10 | FAIL |
 | v- | 11/18 | 8 | 0 | 2+0 | 0 | 0 | 10 | FAIL |
 | v- | 12/18 | 8 | 0 | 1+0 | 0 | 0 | 9 | FAIL |
 | v- | 13/18 | 9 | 0 | 0+0 | 0 | 0 | 9 | PASS |
 | v- | 14/18 | 8 | 0 | 1+0 | 0 | 0 | 9 | FAIL |
-| v- | 15/18 | 9 | 0 | 0+0 | 0 | 0 | 9 | PASS |
+| v- | 15/18 | 8 | 0 | 1+0 | 0 | 0 | 9 | FAIL |
 | v- | 16/18 | 9 | 0 | 0+0 | 0 | 0 | 9 | PASS |
-| v- | 17/18 | 8 | 0 | 1+0 | 0 | 0 | 9 | FAIL |
+| v- | 17/18 | 9 | 0 | 0+0 | 0 | 0 | 9 | PASS |
 | v- | 18/18 | 9 | 0 | 0+0 | 0 | 0 | 9 | PASS |
 | v- | 2/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 3/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
@@ -60,7 +60,7 @@
 | v- | 5/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
 | v- | 6/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 7/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
-| v- | 8/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
+| v- | 8/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
 | v- | 9/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
 | **all** |  | 2633 | 25 | 14+0 | 0 | 0 | 2672 | FAIL |
 
@@ -72,7 +72,7 @@
 | `test_bac_cl.TestGenerateFetchTargets::test_btb_hit_with_taken_prediction` | block-BAC | FAIL | - | - | 0s | - | assert 4100 == 4096  +  where 4100 = FTQHeadEntry(ft_bb_idx=5, start_pc=4096, end_pc=4100, pred_target=8192, is_branch=T... |
 | `test_bac_cl.TestRound3MediumGaps::test_update_pc_forwards_is_uncond` | block-BAC | FAIL | - | - | 0s | - | AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BAC.test_bac_cl.TestRound3MediumG... |
 | `test_bpred_unit_cl.TestBPUSquashTo::test_squash_to_removes_entries_from_anchor` | block-BPredUnit | FAIL | - | - | 0s | - | AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.Test... |
-| `test_bpred_unit_cl.TestDrainComplete::test_drain_complete_true_after_commit` | block-BPredUnit | FAIL | - | - | 0s | - | assert False is True  +  where False = <o3.bpred_unit_cl._DrainCompleteResp object at 0x7fc30cf62e00>.complete  +    whe... |
+| `test_bpred_unit_cl.TestDrainComplete::test_drain_complete_true_after_commit` | block-BPredUnit | FAIL | - | - | 0s | - | assert False is True  +  where False = <o3.bpred_unit_cl._DrainCompleteResp object at 0x7f8dd0611270>.complete  +    whe... |
 | `test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_allocates_entry_after_anchor` | block-BPredUnit | FAIL | - | - | 0s | - | AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.Test... |
 | `test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_clones_cpred_checkpoint` | block-BPredUnit | FAIL | - | - | 0s | - | AssertionError: Placeholder should have valid condBbIdx assert -1 >= 0  +  where -1 = {'valid': True, 'type': <BranchTyp... |
 | `test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_commit_time_corrective_squash` | block-BPredUnit | FAIL | - | - | 0s | - | assert 3 == 2  +  where 3 = _count_entries(s.hist_buf)  +    where s.hist_buf = s.hist_buf self = <BPredUnit.test_bpred_... |
@@ -93,19 +93,19 @@
 | `test_frontend_cl.TestEndToEndBTBMissAndTraining::test_btb_miss_placeholder_detection` | block-FrontEnd | FAIL | - | - | 0s | - | AssertionError: Expected PlaceholderOnly squash call, got 0 calls: types=[] assert 0 > 0  +  where 0 = len([]) self = <F... |
 | `test_frontend_cl.TestEndToEndBTBMissAndTraining::test_btb_miss_then_training_flow` | block-FrontEnd | FAIL | - | - | 0s | - | AssertionError: PlaceholderOnly squash should have occurred assert 0 > 0  +  where 0 = len([]) self = <FrontEnd.test_fro... |
 | `test_frontend_cl.TestEndToEndBTBMissAndTraining::test_prediction_switch_not_taken_to_taken` | block-FrontEnd | FAIL | - | - | 0s | - | AssertionError: PlaceholderOnly squash required for training test assert 0 > 0  +  where 0 = len([]) self = <FrontEnd.te... |
-| `rv64mi-p-illegal` | p- | TIMEOUT | - | - | 108s | 124358513 | - |
-| `rv64si-p-scall` | p- | TIMEOUT | - | - | 107s | 534561723 | - |
-| `rv64ua-p-lrsc` | p- | TIMEOUT | - | - | 391s | 504329675 | - |
-| `rv64ui-v-fence_i` | v- | TIMEOUT | - | - | 965s | 908481751 | - |
-| `rv64ui-v-sb` | v- | TIMEOUT | - | - | 876s | 70505513 | - |
-| `rv64ui-v-sh` | v- | TIMEOUT | - | - | 1051s | 698019499 | - |
-| `rv64ui-v-sw` | v- | TIMEOUT | - | - | 1023s | 973218323 | - |
-| `rv64uzbb-v-orn` | v- | TIMEOUT | - | - | 634s | 981709533 | - |
-| `rv64uzbb-v-rol` | v- | TIMEOUT | - | - | 706s | 367831425 | - |
-| `rv64uzbb-v-ror` | v- | TIMEOUT | - | - | 645s | 538348405 | - |
-| `rv64uzbkb-v-pack` | v- | TIMEOUT | - | - | 684s | 794210974 | - |
-| `rv64uzbs-v-bext` | v- | TIMEOUT | - | - | 602s | 822113075 | - |
-| `rv64uzbs-v-bset` | v- | TIMEOUT | - | - | 666s | 249254921 | - |
-| `rv64uziccid-v-ziccid` | v- | TIMEOUT | - | - | 1205s | 691634332 | - |
+| `rv64mi-p-illegal` | p- | TIMEOUT | - | - | 108s | 6522774 | - |
+| `rv64si-p-scall` | p- | TIMEOUT | - | - | 106s | 416725984 | - |
+| `rv64uc-v-rvc` | v- | TIMEOUT | - | - | 817s | 938709695 | - |
+| `rv64ui-v-sb` | v- | TIMEOUT | - | - | 784s | 961669808 | - |
+| `rv64ui-v-sh` | v- | TIMEOUT | - | - | 614s | 595183805 | - |
+| `rv64uzbb-v-orn` | v- | TIMEOUT | - | - | 578s | 855873770 | - |
+| `rv64uzbb-v-rol` | v- | TIMEOUT | - | - | 713s | 249995686 | - |
+| `rv64uzbb-v-rolw` | v- | TIMEOUT | - | - | 478s | 699203641 | - |
+| `rv64uzbb-v-ror` | v- | TIMEOUT | - | - | 669s | 411512639 | - |
+| `rv64uzbb-v-xnor` | v- | TIMEOUT | - | - | 401s | 675907286 | - |
+| `rv64uzbkb-v-pack` | v- | TIMEOUT | - | - | 626s | 681375250 | - |
+| `rv64uzbs-v-bext` | v- | TIMEOUT | - | - | 647s | 713277363 | - |
+| `rv64uzbs-v-binv` | v- | TIMEOUT | - | - | 629s | 387518927 | - |
+| `rv64uziccid-v-ziccid` | v- | TIMEOUT | - | - | 679s | 588798638 | - |
 
 _Full 2672-test table: see the `pyo3-ci-report.md` asset._
