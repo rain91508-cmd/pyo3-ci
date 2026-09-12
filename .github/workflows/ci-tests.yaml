@@ -23,6 +23,26 @@ on:
                 required: false
                 default: pycpu
                 type: string
+            enable_cosim:
+                description: >-
+                    Also run the strict-lockstep Spike co-simulation (ADR 0013)
+                    INSIDE the existing o3-core riscv-tests jobs (same ELFs,
+                    same shards -- no extra jobs). Adds a libriscv+binding
+                    build per runner. REPORT-ONLY: a cosim mismatch is a
+                    finding + ::warning, it NEVER gates.
+                required: false
+                default: 'false'
+                type: choice
+                options:
+                    - 'false'
+                    - 'true'
+            cosim_max_cycles:
+                description: >-
+                    (cosim) per-test cycle cap; lrsc/fence_i/ma_data and -v-
+                    overrides live in run_cosim_all.sh
+                required: false
+                default: '20000'
+                type: string
 
 concurrency:
     group: ${{ github.workflow }}-${{ inputs.gem5_ref || 'pycpu' }}
@@ -34,7 +54,7 @@ jobs:
         runs-on: ubuntu-24.04
         timeout-minutes: 60
         steps:
-            - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@main
+            - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@cosim-ci
               with:
                   gem5_ref: ${{ inputs.gem5_ref || 'pycpu' }}
                   key_pull_repo: ${{ secrets.KEY_PULL_REPO }}
@@ -69,13 +89,14 @@ jobs:
     pyo3-riscv-tests-p:
         name: pyo3 / riscv-tests -p- (machine mode)
         runs-on: ubuntu-24.04
-        timeout-minutes: 120
+        timeout-minutes: ${{ inputs.enable_cosim == 'true' && 360 || 120 }}
         needs: [pyo3-riscv-tests-build]
         steps:
-            - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@main
+            - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@cosim-ci
               with:
                   gem5_ref: ${{ inputs.gem5_ref || 'pycpu' }}
                   key_pull_repo: ${{ secrets.KEY_PULL_REPO }}
+                  build_spike: ${{ inputs.enable_cosim }}
 
             - uses: actions/download-artifact@v4
               with:
@@ -91,6 +112,19 @@ jobs:
                   PYO3_RESULTS_FILE: ${{ github.workspace }}/results/p-.txt
               run: ./run_regression_status.sh
 
+            # Co-sim the SAME *-p-* ELFs in this job (no extra runner). Runs
+            # after the functional pass so a green functional suite is always
+            # reported even if the cosim pass is cut off by the job cap.
+            # Report-only: suite=cosim-p rows are excluded by the Gate step.
+            - name: Co-sim the -p- tests (report-only, ADR 0013)
+              if: ${{ inputs.enable_cosim == 'true' }}
+              working-directory: src/cpu/pyo3
+              env:
+                  COSIM_MAX_JOBS: '4'
+                  PYO3_SUITE_NAME: cosim-p
+                  PYO3_RESULTS_FILE: ${{ github.workspace }}/results/cosim-p.txt
+              run: ./run_cosim_all.sh -p 600 ${{ inputs.cosim_max_cycles || '20000' }}
+
             - name: Upload the -p- results
               if: always()
               uses: actions/upload-artifact@v4
@@ -102,7 +136,7 @@ jobs:
     pyo3-riscv-tests-v:
         name: pyo3 / riscv-tests -v- (Sv39) shard ${{ matrix.shard }}/18
         runs-on: ubuntu-24.04
-        timeout-minutes: 240
+        timeout-minutes: ${{ inputs.enable_cosim == 'true' && 480 || 240 }}
         needs: [pyo3-riscv-tests-build]
         strategy:
             fail-fast: false
@@ -111,10 +145,11 @@ jobs:
             matrix:
                 shard: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
         steps:
-            - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@main
+            - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@cosim-ci
               with:
                   gem5_ref: ${{ inputs.gem5_ref || 'pycpu' }}
                   key_pull_repo: ${{ secrets.KEY_PULL_REPO }}
+                  build_spike: ${{ inputs.enable_cosim }}
 
             - uses: actions/download-artifact@v4
               with:
@@ -130,6 +165,19 @@ jobs:
                   PYO3_RESULTS_FILE: ${{ github.workspace }}/results/v-${{ matrix.shard }}.txt
               run: ./run_all_vv_80000.sh
 
+            # Co-sim THIS SHARD's *-v-* ELFs (same split as the functional run:
+            # run_cosim_all.sh honours PYO3_SHARD). Report-only (suite=cosim-v).
+            - name: Co-sim the -v- tests (report-only, ADR 0013)
+              if: ${{ inputs.enable_cosim == 'true' }}
+              working-directory: src/cpu/pyo3
+              env:
+                  PYO3_SHARD: ${{ matrix.shard }}/18
+                  COSIM_MAX_JOBS: '4'
+                  COSIM_TEST_TIMEOUT: '1500'
+                  PYO3_SUITE_NAME: cosim-v
+                  PYO3_RESULTS_FILE: ${{ github.workspace }}/results/cosim-v-${{ matrix.shard }}.txt
+              run: ./run_cosim_all.sh -v 1500 ${{ inputs.cosim_max_cycles || '20000' }}
+
             - name: Upload the -v- results
               if: always()
               uses: actions/upload-artifact@v4
@@ -144,7 +192,7 @@ jobs:
         timeout-minutes: 120
         needs: [pyo3-riscv-tests-build]
         steps:
-            - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@main
+            - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@cosim-ci
               with:
                   gem5_ref: ${{ inputs.gem5_ref || 'pycpu' }}
                   key_pull_repo: ${{ secrets.KEY_PULL_REPO }}
@@ -200,7 +248,7 @@ jobs:
             - pyo3-block-tests
         steps:
             - id: setup
-              uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@main
+              uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@cosim-ci
               with:
                   gem5_ref: ${{ inputs.gem5_ref || 'pycpu' }}
                   key_pull_repo: ${{ secrets.KEY_PULL_REPO }}
@@ -300,10 +348,20 @@ jobs:
                            "per-test results, so the run cannot be judged."
                       exit 1
                   fi
-                  bad=$(awk -F'\t' 'NR>1 && $2 != "PASS" {n++} END {print n+0}' \
+                  # The co-sim suites (cosim-*, ADR 0013 D22) are report-only
+                  # BY DECISION: a lens, not a gate. Exclude them from the
+                  # pass/fail count and surface their findings as a warning.
+                  bad=$(awk -F'\t' 'NR>1 && $2 != "PASS" && $3 !~ /^cosim/ {n++} END {print n+0}' \
                       "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
-                  total=$(awk -F'\t' 'NR>1 {n++} END {print n+0}' \
+                  total=$(awk -F'\t' 'NR>1 && $3 !~ /^cosim/ {n++} END {print n+0}' \
                       "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
+                  nc=$(awk -F'\t' 'NR>1 && $3 ~ /^cosim/ {n++} END {print n+0}' \
+                      "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
+                  ncb=$(awk -F'\t' 'NR>1 && $3 ~ /^cosim/ && $2 != "PASS" {n++} END {print n+0}' \
+                      "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
+                  if [ "${nc:-0}" -gt 0 ]; then
+                      echo "::warning title=pyo3 co-sim (report-only)::$ncb of $nc co-sim tests did not reach GREEN -- see the cosim-* rows in the report; this does NOT gate"
+                  fi
                   echo "non-passing: $bad of $total tests"
                   if [ "$bad" -ne 0 ]; then
                       echo "::error::$bad of $total pyo3 tests did not pass -- see the pyo3-ci-report release"
