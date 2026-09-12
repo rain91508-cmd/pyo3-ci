@@ -2,19 +2,19 @@
 
 |  |  |
 |---|---|
-| **Result** | **FAIL** -- 39 of 2672 tests not passing |
-| Run | [rain91508-cmd/pyo3-ci#34630348846](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/34630348846) |
-| Commit | `d20ec150e1` (pycpu) |
+| **Result** | **FAIL** -- 41 of 2672 tests not passing |
+| Run | [rain91508-cmd/pyo3-ci#34720346903](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/34720346903) |
+| Commit | `5b1a6c9882` (pycpu) |
 | Triggered by | rain91508-cmd |
-| Base seed | 1789149399, 1789149400, 1789149401, 1789149404, 1789149406, 1789149407, 1789149413, 1789149415, 1789149417, 1789149418, 1789149420, 1789149421 |
-| Generated | 2026-09-11 18:13 UTC |
+| Base seed | 1789248997, 1789248998, 1789248999, 1789249000, 1789249001, 1789249003, 1789249004, 1789249005 |
+| Generated | 2026-09-12 21:50 UTC |
 
 ## Suites
 
 | Suite | Shard | PASS | FAIL | TIMEOUT | ERROR | MISSING | Total | Status |
 |---|---|---|---|---|---|---|---|---|
 | block-BAC | none | 93 | 3 | 0+0 | 0 | 0 | 96 | FAIL |
-| block-BPredUnit | none | 83 | 13 | 0+0 | 0 | 0 | 96 | FAIL |
+| block-BPredUnit | none | 82 | 14 | 0+0 | 0 | 0 | 96 | FAIL |
 | block-CSRFile | none | 29 | 0 | 0+0 | 0 | 0 | 29 | PASS |
 | block-Commit | none | 65 | 0 | 0+0 | 0 | 0 | 65 | PASS |
 | block-DTLBProbe | none | 29 | 0 | 0+0 | 0 | 0 | 29 | PASS |
@@ -40,29 +40,29 @@
 | block-Scoreboard | none | 54 | 0 | 0+0 | 0 | 0 | 54 | PASS |
 | block-StorageManager | none | 28 | 0 | 0+0 | 0 | 0 | 28 | PASS |
 | block-StoreSet | none | 19 | 0 | 0+0 | 0 | 0 | 19 | PASS |
-| block-Testbench | none | 108 | 0 | 0+0 | 0 | 0 | 108 | PASS |
+| block-Testbench | none | 107 | 1 | 0+0 | 0 | 0 | 108 | FAIL |
 | block-TlbiController | none | 11 | 0 | 0+0 | 0 | 0 | 11 | PASS |
 | block-WriteBack | none | 89 | 0 | 0+0 | 0 | 0 | 89 | PASS |
-| p- | none | 202 | 0 | 2+0 | 0 | 0 | 204 | FAIL |
+| p- | none | 203 | 0 | 1+0 | 0 | 0 | 204 | FAIL |
 | v- | 1/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
-| v- | 10/18 | 8 | 0 | 2+0 | 0 | 0 | 10 | FAIL |
-| v- | 11/18 | 8 | 0 | 2+0 | 0 | 0 | 10 | FAIL |
-| v- | 12/18 | 8 | 0 | 1+0 | 0 | 0 | 9 | FAIL |
-| v- | 13/18 | 9 | 0 | 0+0 | 0 | 0 | 9 | PASS |
-| v- | 14/18 | 8 | 0 | 1+0 | 0 | 0 | 9 | FAIL |
-| v- | 15/18 | 8 | 0 | 1+0 | 0 | 0 | 9 | FAIL |
-| v- | 16/18 | 9 | 0 | 0+0 | 0 | 0 | 9 | PASS |
-| v- | 17/18 | 9 | 0 | 0+0 | 0 | 0 | 9 | PASS |
+| v- | 10/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
+| v- | 11/18 | 8 | 0 | 1+0 | 1 | 0 | 10 | FAIL |
+| v- | 12/18 | 8 | 0 | 0+0 | 1 | 0 | 9 | FAIL |
+| v- | 13/18 | 6 | 0 | 0+0 | 3 | 0 | 9 | FAIL |
+| v- | 14/18 | 7 | 0 | 0+0 | 2 | 0 | 9 | FAIL |
+| v- | 15/18 | 8 | 0 | 0+0 | 1 | 0 | 9 | FAIL |
+| v- | 16/18 | 7 | 0 | 0+0 | 2 | 0 | 9 | FAIL |
+| v- | 17/18 | 8 | 0 | 0+0 | 1 | 0 | 9 | FAIL |
 | v- | 18/18 | 9 | 0 | 0+0 | 0 | 0 | 9 | PASS |
 | v- | 2/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
-| v- | 3/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
-| v- | 4/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
-| v- | 5/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
+| v- | 3/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
+| v- | 4/18 | 9 | 0 | 0+0 | 1 | 0 | 10 | FAIL |
+| v- | 5/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 6/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
-| v- | 7/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
-| v- | 8/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
-| v- | 9/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
-| **all** |  | 2633 | 25 | 14+0 | 0 | 0 | 2672 | FAIL |
+| v- | 7/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
+| v- | 8/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
+| v- | 9/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
+| **all** |  | 2631 | 27 | 2+0 | 12 | 0 | 2672 | FAIL |
 
 ## Failures
 
@@ -72,9 +72,10 @@
 | `test_bac_cl.TestGenerateFetchTargets::test_btb_hit_with_taken_prediction` | block-BAC | FAIL | - | - | 0s | - | assert 4100 == 4096  +  where 4100 = FTQHeadEntry(ft_bb_idx=5, start_pc=4096, end_pc=4100, pred_target=8192, is_branch=T... |
 | `test_bac_cl.TestRound3MediumGaps::test_update_pc_forwards_is_uncond` | block-BAC | FAIL | - | - | 0s | - | AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BAC.test_bac_cl.TestRound3MediumG... |
 | `test_bpred_unit_cl.TestBPUSquashTo::test_squash_to_removes_entries_from_anchor` | block-BPredUnit | FAIL | - | - | 0s | - | AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.Test... |
-| `test_bpred_unit_cl.TestDrainComplete::test_drain_complete_true_after_commit` | block-BPredUnit | FAIL | - | - | 0s | - | assert False is True  +  where False = <o3.bpred_unit_cl._DrainCompleteResp object at 0x7f8dd0611270>.complete  +    whe... |
+| `test_bpred_unit_cl.TestDrainComplete::test_drain_complete_true_after_commit` | block-BPredUnit | FAIL | - | - | 0s | - | assert False is True  +  where False = <o3.bpred_unit_cl._DrainCompleteResp object at 0x7f887480a2f0>.complete  +    whe... |
+| `test_bpred_unit_cl.TestHistFullBackPressure::test_predict_does_not_modify_cpred_when_full` | block-BPredUnit | FAIL | - | - | 0s | - | UnboundLocalError: cannot access local variable '_own_ck' where it is not associated with a value self = <BPredUnit.test... |
+| `test_bpred_unit_cl.TestHistFullBackPressure::test_predict_does_not_modify_ras_when_full` | block-BPredUnit | FAIL | - | - | 0s | - | UnboundLocalError: cannot access local variable '_own_ck' where it is not associated with a value self = <BPredUnit.test... |
 | `test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_allocates_entry_after_anchor` | block-BPredUnit | FAIL | - | - | 0s | - | AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.Test... |
-| `test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_clones_cpred_checkpoint` | block-BPredUnit | FAIL | - | - | 0s | - | AssertionError: Placeholder should have valid condBbIdx assert -1 >= 0  +  where -1 = {'valid': True, 'type': <BranchTyp... |
 | `test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_commit_time_corrective_squash` | block-BPredUnit | FAIL | - | - | 0s | - | assert 3 == 2  +  where 3 = _count_entries(s.hist_buf)  +    where s.hist_buf = s.hist_buf self = <BPredUnit.test_bpred_... |
 | `test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_no_squash_to` | block-BPredUnit | FAIL | - | - | 0s | - | AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.Test... |
 | `test_bpred_unit_cl.TestRAS::test_predict_return_pops_ras` | block-BPredUnit | FAIL | - | - | 0s | - | AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.Test... |
@@ -82,8 +83,8 @@
 | `test_bpred_unit_cl.TestSquash::test_simple_squash_removes_younger_entries` | block-BPredUnit | FAIL | - | - | 0s | - | AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.Test... |
 | `test_bpred_unit_cl.TestTargetPriority::test_ras_overrides_btb_target` | block-BPredUnit | FAIL | - | - | 0s | - | AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.Test... |
 | `test_bpred_unit_cl.TestUpdate::test_update_commits_oldest_entries` | block-BPredUnit | FAIL | - | - | 0s | - | AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.Test... |
-| `test_bpu_update_train_cl.TestBPUTrainPipeline::test_combined_training_pipeline` | block-BPredUnit | FAIL | - | - | 0s | - | AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpu_update_train_c... |
-| `test_bpu_update_train_cl.TestBPUTrainPipeline::test_combined_training_pipeline_commit_mode` | block-BPredUnit | FAIL | - | - | 0s | - | AssertionError: cycle 13: should be not-taken assert True is False  +  where True = BPUPredictResp(bpu_predict_resp_vali... |
+| `test_bpu_update_train_cl.TestBPUTrainPipeline::test_combined_training_pipeline` | block-BPredUnit | FAIL | - | - | 0s | - | AssertionError: cycle 13: should be not-taken assert True is False  +  where True = BPUPredictResp(bpu_predict_resp_vali... |
+| `test_bpu_update_train_cl.TestBPUTrainPipeline::test_combined_training_pipeline_commit_mode` | block-BPredUnit | FAIL | - | - | 0s | - | AssertionError: cycle 2: should be not-taken assert True is False  +  where True = BPUPredictResp(bpu_predict_resp_valid... |
 | `test_per_thread_fetch_cl.TestPredictedBranch::test_pt290_predicted_branch_stops_fetch` | block-Fetch | FAIL | - | - | 0s | - | assert 0 == 1  +  where 0 = PerThreadFetchTickResp(pt_new_fetch_status=11, pt_new_pc=4096, pt_new_fetch_offset=0, pt_new... |
 | `test_per_thread_fetch_cl.TestPredictedBranch::test_pt291_predicted_branch_cleared_after` | block-Fetch | FAIL | - | - | 0s | - | assert True is False  +  where True = s._pending_predicted_branch self = <Fetch.test_per_thread_fetch_cl.TestPredictedBr... |
 | `test_per_thread_fetch_cl.TestSquashHandling::test_pt206_interrupt_pending_blocks_fetch` | block-Fetch | FAIL | - | - | 0s | - | assert 11 == <FetchStatus.TrapPending: 5>  +  where 11 = PerThreadFetchTickResp(pt_new_fetch_status=11, pt_new_pc=4096, ... |
@@ -93,20 +94,21 @@
 | `test_frontend_cl.TestEndToEndBTBMissAndTraining::test_btb_miss_placeholder_detection` | block-FrontEnd | FAIL | - | - | 0s | - | AssertionError: Expected PlaceholderOnly squash call, got 0 calls: types=[] assert 0 > 0  +  where 0 = len([]) self = <F... |
 | `test_frontend_cl.TestEndToEndBTBMissAndTraining::test_btb_miss_then_training_flow` | block-FrontEnd | FAIL | - | - | 0s | - | AssertionError: PlaceholderOnly squash should have occurred assert 0 > 0  +  where 0 = len([]) self = <FrontEnd.test_fro... |
 | `test_frontend_cl.TestEndToEndBTBMissAndTraining::test_prediction_switch_not_taken_to_taken` | block-FrontEnd | FAIL | - | - | 0s | - | AssertionError: PlaceholderOnly squash required for training test assert 0 > 0  +  where 0 = len([]) self = <FrontEnd.te... |
-| `rv64mi-p-illegal` | p- | TIMEOUT | - | - | 108s | 6522774 | - |
-| `rv64si-p-scall` | p- | TIMEOUT | - | - | 106s | 416725984 | - |
-| `rv64uc-v-rvc` | v- | TIMEOUT | - | - | 817s | 938709695 | - |
-| `rv64ui-v-sb` | v- | TIMEOUT | - | - | 784s | 961669808 | - |
-| `rv64ui-v-sh` | v- | TIMEOUT | - | - | 614s | 595183805 | - |
-| `rv64uzbb-v-orn` | v- | TIMEOUT | - | - | 578s | 855873770 | - |
-| `rv64uzbb-v-rol` | v- | TIMEOUT | - | - | 713s | 249995686 | - |
-| `rv64uzbb-v-rolw` | v- | TIMEOUT | - | - | 478s | 699203641 | - |
-| `rv64uzbb-v-ror` | v- | TIMEOUT | - | - | 669s | 411512639 | - |
-| `rv64uzbb-v-xnor` | v- | TIMEOUT | - | - | 401s | 675907286 | - |
-| `rv64uzbkb-v-pack` | v- | TIMEOUT | - | - | 626s | 681375250 | - |
-| `rv64uzbs-v-bext` | v- | TIMEOUT | - | - | 647s | 713277363 | - |
-| `rv64uzbs-v-binv` | v- | TIMEOUT | - | - | 629s | 387518927 | - |
-| `rv64uziccid-v-ziccid` | v- | TIMEOUT | - | - | 679s | 588798638 | - |
+| `test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]` | block-Testbench | FAIL | - | - | 8s | - | AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) riscv_tests_elf_dir = '/home/runner/work/... |
+| `rv64mi-p-illegal` | p- | TIMEOUT | - | - | 108s | 599820860 | - |
+| `rv64ui-v-slt` | v- | ERROR | - | - | 50s | 520768026 | exit=None cycles=-1 status=ERROR |
+| `rv64uzbb-v-clz` | v- | ERROR | - | - | 9s | 611267770 | exit=None cycles=-1 status=ERROR |
+| `rv64uzbb-v-clzw` | v- | ERROR | - | - | 5s | 833410950 | exit=None cycles=-1 status=ERROR |
+| `rv64uzbb-v-cpop` | v- | ERROR | - | - | 8s | 467549282 | exit=None cycles=-1 status=ERROR |
+| `rv64uzbb-v-cpopw` | v- | ERROR | - | - | 10s | 702051997 | exit=None cycles=-1 status=ERROR |
+| `rv64uzbb-v-ctz` | v- | ERROR | - | - | 9s | 888588262 | exit=None cycles=-1 status=ERROR |
+| `rv64uzbb-v-ctzw` | v- | ERROR | - | - | 9s | 664613286 | exit=None cycles=-1 status=ERROR |
+| `rv64uzbb-v-orc_b` | v- | ERROR | - | - | 7s | 513164782 | exit=None cycles=-1 status=ERROR |
+| `rv64uzbb-v-roriw` | v- | ERROR | - | - | 5s | 373980776 | exit=None cycles=-1 status=ERROR |
+| `rv64uzbb-v-sext_b` | v- | ERROR | - | - | 5s | 623354292 | exit=None cycles=-1 status=ERROR |
+| `rv64uzbb-v-sext_h` | v- | ERROR | - | - | 8s | 336999000 | exit=None cycles=-1 status=ERROR |
+| `rv64uzbb-v-zext_h` | v- | ERROR | - | - | 9s | 468332173 | exit=None cycles=-1 status=ERROR |
+| `rv64uziccid-v-ziccid` | v- | TIMEOUT | - | - | 584s | 173096690 | - |
 
 ## All 2672 results
 
@@ -237,11 +239,11 @@
 | test_bpred_unit_cl.TestDrainComplete::test_drain_complete_true_after_commit | block-BPredUnit | FAIL | - | 0 |
 | test_bpred_unit_cl.TestDrainComplete::test_drain_complete_true_when_empty | block-BPredUnit | PASS | - | 0 |
 | test_bpred_unit_cl.TestDrainComplete::test_drain_complete_with_ipred_checks_ipred_ckpt | block-BPredUnit | PASS | - | 0 |
-| test_bpred_unit_cl.TestHistFullBackPressure::test_predict_does_not_modify_cpred_when_full | block-BPredUnit | PASS | - | 0 |
-| test_bpred_unit_cl.TestHistFullBackPressure::test_predict_does_not_modify_ras_when_full | block-BPredUnit | PASS | - | 0 |
+| test_bpred_unit_cl.TestHistFullBackPressure::test_predict_does_not_modify_cpred_when_full | block-BPredUnit | FAIL | - | 0 |
+| test_bpred_unit_cl.TestHistFullBackPressure::test_predict_does_not_modify_ras_when_full | block-BPredUnit | FAIL | - | 0 |
 | test_bpred_unit_cl.TestHistFullBackPressure::test_predict_returns_hist_full_when_buffer_full | block-BPredUnit | PASS | - | 0 |
 | test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_allocates_entry_after_anchor | block-BPredUnit | FAIL | - | 0 |
-| test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_clones_cpred_checkpoint | block-BPredUnit | FAIL | - | 0 |
+| test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_clones_cpred_checkpoint | block-BPredUnit | PASS | - | 0 |
 | test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_commit_time_corrective_squash | block-BPredUnit | FAIL | - | 0 |
 | test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_no_squash_to | block-BPredUnit | FAIL | - | 0 |
 | test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_updates_btb | block-BPredUnit | PASS | - | 0 |
@@ -2264,52 +2266,52 @@
 | test_o3_core_bare_metal_tb_cl.TestVAProbeCoordinator::test_va_probe_resp_fires_2_cycles_after_req | block-Testbench | PASS | - | 0 |
 | test_riscv_tests_isa::test_riscv_tests_smoke_add | block-Testbench | PASS | - | 9 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition] | block-Testbench | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate] | block-Testbench | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate] | block-Testbench | PASS | - | 6 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate] | block-Testbench | PASS | - | 6 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word] | block-Testbench | PASS | - | 7 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND] | block-Testbench | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND] | block-Testbench | PASS | - | 10 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate] | block-Testbench | PASS | - | 6 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-auipc:add upper immediate to PC] | block-Testbench | PASS | - | 4 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal] | block-Testbench | PASS | - | 7 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal] | block-Testbench | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned] | block-Testbench | PASS | - | 10 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than] | block-Testbench | PASS | - | 8 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal] | block-Testbench | PASS | - | 8 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal] | block-Testbench | PASS | - | 10 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than] | block-Testbench | PASS | - | 10 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned] | block-Testbench | PASS | - | 8 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal] | block-Testbench | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence] | block-Testbench | PASS | - | 16 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link] | block-Testbench | PASS | - | 4 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence] | block-Testbench | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link] | block-Testbench | PASS | - | 3 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jalr:jump and link register] | block-Testbench | PASS | - | 5 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte] | block-Testbench | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte] | block-Testbench | PASS | - | 6 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned] | block-Testbench | PASS | - | 6 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double] | block-Testbench | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double] | block-Testbench | PASS | - | 7 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half] | block-Testbench | PASS | - | 6 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned] | block-Testbench | PASS | - | 6 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lui:load upper immediate] | block-Testbench | PASS | - | 4 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word] | block-Testbench | PASS | - | 6 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned] | block-Testbench | PASS | - | 7 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR] | block-Testbench | PASS | - | 10 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate] | block-Testbench | PASS | - | 5 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte] | block-Testbench | PASS | - | 7 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double] | block-Testbench | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half] | block-Testbench | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical] | block-Testbench | PASS | - | 7 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate] | block-Testbench | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned] | block-Testbench | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR] | block-Testbench | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate] | block-Testbench | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte] | block-Testbench | PASS | - | 8 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double] | block-Testbench | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half] | block-Testbench | FAIL | - | 8 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate] | block-Testbench | PASS | - | 5 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word] | block-Testbench | PASS | - | 9 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than] | block-Testbench | PASS | - | 9 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate] | block-Testbench | PASS | - | 6 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned] | block-Testbench | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned] | block-Testbench | PASS | - | 5 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned] | block-Testbench | PASS | - | 9 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic] | block-Testbench | PASS | - | 9 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srai:shift right arithmetic immediate] | block-Testbench | PASS | - | 6 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sraw:shift right arithmetic word] | block-Testbench | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical] | block-Testbench | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate] | block-Testbench | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical] | block-Testbench | PASS | - | 10 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate] | block-Testbench | PASS | - | 6 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word] | block-Testbench | PASS | - | 9 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction] | block-Testbench | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word] | block-Testbench | PASS | - | 7 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word] | block-Testbench | PASS | - | 9 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word] | block-Testbench | PASS | - | 7 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR] | block-Testbench | PASS | - | 10 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate] | block-Testbench | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate] | block-Testbench | PASS | - | 6 |
 | test_tlbi_controller_cl.TestEdgeCases::test_second_tlbi_req_after_first_completes | block-TlbiController | PASS | - | 0 |
 | test_tlbi_controller_cl.TestEdgeCases::test_sync_comp_before_inv_sent_ignored_or_buffered | block-TlbiController | PASS | - | 0 |
 | test_tlbi_controller_cl.TestIntegrationWithLSQ::test_integration_controller_with_lsq | block-TlbiController | PASS | - | 0 |
@@ -2411,114 +2413,114 @@
 | test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_normal_completion_does_not_fire_sb_setReg | block-WriteBack | PASS | - | 0 |
 | test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_sb_setReg_caller_ifc_removed | block-WriteBack | PASS | - | 0 |
 | hypervisor-p-2-stage_translation | p- | PASS | 1374 | 13 |
-| hypervisor-p-2-stage_translation_implicit_load_error | p- | PASS | 1652 | 15 |
-| hypervisor-p-2-stage_translation_implicit_load_error_hs | p- | PASS | 1827 | 15 |
+| hypervisor-p-2-stage_translation_implicit_load_error | p- | PASS | 1652 | 14 |
+| hypervisor-p-2-stage_translation_implicit_load_error_hs | p- | PASS | 1827 | 16 |
 | hypervisor-svadu-p-2-stage_translation_implicit_store_error | p- | PASS | 1768 | 15 |
-| hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs | p- | PASS | 1940 | 14 |
-| rv64mi-p-breakpoint | p- | PASS | 3329 | 22 |
-| rv64mi-p-csr | p- | PASS | 3437 | 23 |
+| hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs | p- | PASS | 1945 | 14 |
+| rv64mi-p-breakpoint | p- | PASS | 3343 | 23 |
+| rv64mi-p-csr | p- | PASS | 3467 | 24 |
 | rv64mi-p-illegal | p- | TIMEOUT | - | 108 |
-| rv64mi-p-instret_overflow | p- | PASS | 1252 | 9 |
+| rv64mi-p-instret_overflow | p- | PASS | 1252 | 10 |
 | rv64mi-p-ld-misaligned | p- | PASS | 1386 | 11 |
 | rv64mi-p-lh-misaligned | p- | PASS | 1102 | 9 |
-| rv64mi-p-lw-misaligned | p- | PASS | 1171 | 10 |
+| rv64mi-p-lw-misaligned | p- | PASS | 1171 | 9 |
 | rv64mi-p-ma_addr | p- | PASS | 1538 | 12 |
-| rv64mi-p-ma_fetch | p- | PASS | 1948 | 14 |
-| rv64mi-p-mcsr | p- | PASS | 1339 | 10 |
+| rv64mi-p-ma_fetch | p- | PASS | 1950 | 14 |
+| rv64mi-p-mcsr | p- | PASS | 1342 | 11 |
 | rv64mi-p-pmpaddr | p- | PASS | 1185 | 9 |
 | rv64mi-p-sbreak | p- | PASS | 1315 | 10 |
 | rv64mi-p-scall | p- | PASS | 1261 | 10 |
 | rv64mi-p-sd-misaligned | p- | PASS | 1436 | 11 |
 | rv64mi-p-sh-misaligned | p- | PASS | 1109 | 9 |
 | rv64mi-p-sw-misaligned | p- | PASS | 1150 | 9 |
-| rv64mi-p-zicntr | p- | PASS | 1417 | 11 |
-| rv64mzicbo-p-zero | p- | PASS | 1158 | 9 |
-| rv64si-p-csr | p- | PASS | 2248 | 16 |
-| rv64si-p-dirty | p- | PASS | 2249 | 16 |
-| rv64si-p-icache-alias | p- | PASS | 2368 | 16 |
-| rv64si-p-ma_fetch | p- | PASS | 1382 | 10 |
+| rv64mi-p-zicntr | p- | PASS | 1439 | 11 |
+| rv64mzicbo-p-zero | p- | PASS | 1160 | 10 |
+| rv64si-p-csr | p- | PASS | 2277 | 16 |
+| rv64si-p-dirty | p- | PASS | 2274 | 16 |
+| rv64si-p-icache-alias | p- | PASS | 2372 | 17 |
+| rv64si-p-ma_fetch | p- | PASS | 1382 | 11 |
 | rv64si-p-sbreak | p- | PASS | 1325 | 10 |
-| rv64si-p-scall | p- | TIMEOUT | - | 106 |
+| rv64si-p-scall | p- | PASS | 1443 | 11 |
 | rv64si-p-wfi | p- | PASS | 1173 | 9 |
 | rv64ssvnapot-p-napot | p- | PASS | 1658 | 13 |
-| rv64ua-p-amoadd_d | p- | PASS | 1081 | 9 |
+| rv64ua-p-amoadd_d | p- | PASS | 1081 | 8 |
 | rv64ua-p-amoadd_w | p- | PASS | 1120 | 9 |
 | rv64ua-p-amoand_d | p- | PASS | 1121 | 9 |
 | rv64ua-p-amoand_w | p- | PASS | 1117 | 9 |
 | rv64ua-p-amomax_d | p- | PASS | 1077 | 9 |
 | rv64ua-p-amomax_w | p- | PASS | 1100 | 9 |
-| rv64ua-p-amomaxu_d | p- | PASS | 1077 | 9 |
-| rv64ua-p-amomaxu_w | p- | PASS | 1100 | 8 |
+| rv64ua-p-amomaxu_d | p- | PASS | 1077 | 8 |
+| rv64ua-p-amomaxu_w | p- | PASS | 1100 | 9 |
 | rv64ua-p-amomin_d | p- | PASS | 1077 | 8 |
 | rv64ua-p-amomin_w | p- | PASS | 1100 | 9 |
-| rv64ua-p-amominu_d | p- | PASS | 1077 | 8 |
+| rv64ua-p-amominu_d | p- | PASS | 1077 | 9 |
 | rv64ua-p-amominu_w | p- | PASS | 1100 | 9 |
-| rv64ua-p-amoor_d | p- | PASS | 1117 | 9 |
+| rv64ua-p-amoor_d | p- | PASS | 1117 | 10 |
 | rv64ua-p-amoor_w | p- | PASS | 1117 | 9 |
 | rv64ua-p-amoswap_d | p- | PASS | 1121 | 9 |
-| rv64ua-p-amoswap_w | p- | PASS | 1117 | 8 |
+| rv64ua-p-amoswap_w | p- | PASS | 1117 | 9 |
 | rv64ua-p-amoxor_d | p- | PASS | 1125 | 9 |
 | rv64ua-p-amoxor_w | p- | PASS | 1129 | 9 |
-| rv64ua-p-lrsc | p- | PASS | 28037 | 173 |
-| rv64uc-p-rvc | p- | PASS | 1589 | 11 |
+| rv64ua-p-lrsc | p- | PASS | 19229 | 120 |
+| rv64uc-p-rvc | p- | PASS | 1589 | 12 |
 | rv64ud-p-fadd | p- | PASS | 1912 | 14 |
 | rv64ud-p-fclass | p- | PASS | 1233 | 10 |
-| rv64ud-p-fcmp | p- | PASS | 2202 | 15 |
-| rv64ud-p-fcvt | p- | PASS | 1824 | 14 |
-| rv64ud-p-fcvt_w | p- | PASS | 3736 | 26 |
-| rv64ud-p-fdiv | p- | PASS | 1740 | 12 |
-| rv64ud-p-fmadd | p- | PASS | 2072 | 14 |
+| rv64ud-p-fcmp | p- | PASS | 2232 | 16 |
+| rv64ud-p-fcvt | p- | PASS | 1840 | 14 |
+| rv64ud-p-fcvt_w | p- | PASS | 3802 | 27 |
+| rv64ud-p-fdiv | p- | PASS | 1740 | 14 |
+| rv64ud-p-fmadd | p- | PASS | 2072 | 16 |
 | rv64ud-p-fmin | p- | PASS | 2544 | 18 |
 | rv64ud-p-ldst | p- | PASS | 1172 | 10 |
 | rv64ud-p-move | p- | PASS | 2696 | 19 |
 | rv64ud-p-recoding | p- | PASS | 1245 | 10 |
 | rv64ud-p-structural | p- | PASS | 2027 | 15 |
-| rv64uf-p-fadd | p- | PASS | 1912 | 14 |
+| rv64uf-p-fadd | p- | PASS | 1912 | 15 |
 | rv64uf-p-fclass | p- | PASS | 1217 | 10 |
-| rv64uf-p-fcmp | p- | PASS | 2202 | 16 |
-| rv64uf-p-fcvt | p- | PASS | 1611 | 12 |
-| rv64uf-p-fcvt_w | p- | PASS | 3374 | 24 |
-| rv64uf-p-fdiv | p- | PASS | 1664 | 12 |
-| rv64uf-p-fmadd | p- | PASS | 2072 | 15 |
+| rv64uf-p-fcmp | p- | PASS | 2232 | 16 |
+| rv64uf-p-fcvt | p- | PASS | 1629 | 13 |
+| rv64uf-p-fcvt_w | p- | PASS | 3430 | 24 |
+| rv64uf-p-fdiv | p- | PASS | 1664 | 13 |
+| rv64uf-p-fmadd | p- | PASS | 2035 | 16 |
 | rv64uf-p-fmin | p- | PASS | 2544 | 18 |
-| rv64uf-p-ldst | p- | PASS | 1184 | 9 |
-| rv64uf-p-move | p- | PASS | 1798 | 14 |
+| rv64uf-p-ldst | p- | PASS | 1184 | 10 |
+| rv64uf-p-move | p- | PASS | 1817 | 13 |
 | rv64uf-p-recoding | p- | PASS | 1198 | 9 |
-| rv64ui-p-add | p- | PASS | 2453 | 17 |
-| rv64ui-p-addi | p- | PASS | 1630 | 13 |
+| rv64ui-p-add | p- | PASS | 2453 | 18 |
+| rv64ui-p-addi | p- | PASS | 1630 | 12 |
 | rv64ui-p-addiw | p- | PASS | 1621 | 13 |
-| rv64ui-p-addw | p- | PASS | 2443 | 17 |
-| rv64ui-p-and | p- | PASS | 2613 | 18 |
+| rv64ui-p-addw | p- | PASS | 2443 | 18 |
+| rv64ui-p-and | p- | PASS | 2613 | 19 |
 | rv64ui-p-andi | p- | PASS | 1609 | 12 |
 | rv64ui-p-auipc | p- | PASS | 1053 | 9 |
 | rv64ui-p-beq | p- | PASS | 2427 | 17 |
 | rv64ui-p-bge | p- | PASS | 2726 | 19 |
 | rv64ui-p-bgeu | p- | PASS | 2956 | 20 |
-| rv64ui-p-blt | p- | PASS | 2429 | 18 |
+| rv64ui-p-blt | p- | PASS | 2429 | 17 |
 | rv64ui-p-bltu | p- | PASS | 2643 | 19 |
 | rv64ui-p-bne | p- | PASS | 2482 | 18 |
-| rv64ui-p-fence_i | p- | PASS | 4320 | 28 |
-| rv64ui-p-jal | p- | PASS | 1049 | 8 |
-| rv64ui-p-jalr | p- | PASS | 1557 | 11 |
+| rv64ui-p-fence_i | p- | PASS | 2030 | 15 |
+| rv64ui-p-jal | p- | PASS | 1049 | 9 |
+| rv64ui-p-jalr | p- | PASS | 1557 | 12 |
 | rv64ui-p-lb | p- | PASS | 1671 | 13 |
 | rv64ui-p-lbu | p- | PASS | 1671 | 12 |
-| rv64ui-p-ld | p- | PASS | 2066 | 15 |
+| rv64ui-p-ld | p- | PASS | 2066 | 16 |
 | rv64ui-p-ld_st | p- | PASS | 4478 | 29 |
-| rv64ui-p-lh | p- | PASS | 1711 | 13 |
+| rv64ui-p-lh | p- | PASS | 1711 | 12 |
 | rv64ui-p-lhu | p- | PASS | 1717 | 13 |
-| rv64ui-p-lui | p- | PASS | 1065 | 9 |
+| rv64ui-p-lui | p- | PASS | 1065 | 8 |
 | rv64ui-p-lw | p- | PASS | 1731 | 13 |
-| rv64ui-p-lwu | p- | PASS | 1797 | 13 |
-| rv64ui-p-ma_data | p- | PASS | 7851 | 49 |
+| rv64ui-p-lwu | p- | PASS | 1797 | 14 |
+| rv64ui-p-ma_data | p- | PASS | 7851 | 51 |
 | rv64ui-p-or | p- | PASS | 2670 | 19 |
 | rv64ui-p-ori | p- | PASS | 1591 | 12 |
-| rv64ui-p-sb | p- | PASS | 2292 | 17 |
+| rv64ui-p-sb | p- | PASS | 2292 | 16 |
 | rv64ui-p-sd | p- | PASS | 2616 | 19 |
 | rv64ui-p-sh | p- | PASS | 2362 | 17 |
 | rv64ui-p-simple | p- | PASS | 1003 | 8 |
-| rv64ui-p-sll | p- | PASS | 2573 | 18 |
-| rv64ui-p-slli | p- | PASS | 1691 | 12 |
-| rv64ui-p-slliw | p- | PASS | 1685 | 13 |
+| rv64ui-p-sll | p- | PASS | 2573 | 19 |
+| rv64ui-p-slli | p- | PASS | 1691 | 13 |
+| rv64ui-p-slliw | p- | PASS | 1685 | 12 |
 | rv64ui-p-sllw | p- | PASS | 2577 | 18 |
 | rv64ui-p-slt | p- | PASS | 2431 | 17 |
 | rv64ui-p-slti | p- | PASS | 1617 | 12 |
@@ -2528,265 +2530,265 @@
 | rv64ui-p-srai | p- | PASS | 1654 | 12 |
 | rv64ui-p-sraiw | p- | PASS | 1755 | 13 |
 | rv64ui-p-sraw | p- | PASS | 2595 | 18 |
-| rv64ui-p-srl | p- | PASS | 2619 | 19 |
-| rv64ui-p-srli | p- | PASS | 1715 | 13 |
+| rv64ui-p-srl | p- | PASS | 2619 | 18 |
+| rv64ui-p-srli | p- | PASS | 1715 | 12 |
 | rv64ui-p-srliw | p- | PASS | 1703 | 13 |
 | rv64ui-p-srlw | p- | PASS | 2583 | 18 |
 | rv64ui-p-st_ld | p- | PASS | 1993 | 15 |
 | rv64ui-p-sub | p- | PASS | 2437 | 17 |
 | rv64ui-p-subw | p- | PASS | 2429 | 18 |
-| rv64ui-p-sw | p- | PASS | 2382 | 17 |
+| rv64ui-p-sw | p- | PASS | 2382 | 16 |
 | rv64ui-p-xor | p- | PASS | 2664 | 19 |
-| rv64ui-p-xori | p- | PASS | 1595 | 13 |
+| rv64ui-p-xori | p- | PASS | 1595 | 12 |
 | rv64um-p-div | p- | PASS | 1157 | 9 |
-| rv64um-p-divu | p- | PASS | 1167 | 9 |
+| rv64um-p-divu | p- | PASS | 1167 | 10 |
 | rv64um-p-divuw | p- | PASS | 1147 | 9 |
-| rv64um-p-divw | p- | PASS | 1139 | 9 |
+| rv64um-p-divw | p- | PASS | 1139 | 10 |
 | rv64um-p-mul | p- | PASS | 2465 | 18 |
 | rv64um-p-mulh | p- | PASS | 2471 | 18 |
 | rv64um-p-mulhsu | p- | PASS | 2471 | 18 |
-| rv64um-p-mulhu | p- | PASS | 2531 | 19 |
-| rv64um-p-mulw | p- | PASS | 2330 | 17 |
+| rv64um-p-mulhu | p- | PASS | 2531 | 18 |
+| rv64um-p-mulw | p- | PASS | 2330 | 16 |
 | rv64um-p-rem | p- | PASS | 1131 | 9 |
-| rv64um-p-remu | p- | PASS | 1133 | 10 |
+| rv64um-p-remu | p- | PASS | 1133 | 9 |
 | rv64um-p-remuw | p- | PASS | 1129 | 9 |
-| rv64um-p-remw | p- | PASS | 1139 | 10 |
-| rv64uzba-p-add_uw | p- | PASS | 2455 | 18 |
+| rv64um-p-remw | p- | PASS | 1139 | 9 |
+| rv64uzba-p-add_uw | p- | PASS | 2455 | 17 |
 | rv64uzba-p-sh1add | p- | PASS | 2461 | 18 |
 | rv64uzba-p-sh1add_uw | p- | PASS | 2469 | 18 |
 | rv64uzba-p-sh2add | p- | PASS | 2461 | 18 |
-| rv64uzba-p-sh2add_uw | p- | PASS | 2469 | 17 |
-| rv64uzba-p-sh3add | p- | PASS | 2461 | 17 |
-| rv64uzba-p-sh3add_uw | p- | PASS | 2469 | 17 |
-| rv64uzba-p-slli_uw | p- | PASS | 1719 | 12 |
-| rv64uzbb-p-andn | p- | PASS | 2655 | 19 |
+| rv64uzba-p-sh2add_uw | p- | PASS | 2469 | 19 |
+| rv64uzba-p-sh3add | p- | PASS | 2461 | 19 |
+| rv64uzba-p-sh3add_uw | p- | PASS | 2469 | 19 |
+| rv64uzba-p-slli_uw | p- | PASS | 1719 | 13 |
+| rv64uzbb-p-andn | p- | PASS | 2655 | 20 |
 | rv64uzbb-p-clz | p- | PASS | 1497 | 12 |
-| rv64uzbb-p-clzw | p- | PASS | 1465 | 11 |
+| rv64uzbb-p-clzw | p- | PASS | 1465 | 13 |
 | rv64uzbb-p-cpop | p- | PASS | 1497 | 12 |
 | rv64uzbb-p-cpopw | p- | PASS | 1465 | 12 |
-| rv64uzbb-p-ctz | p- | PASS | 1497 | 11 |
-| rv64uzbb-p-ctzw | p- | PASS | 1467 | 11 |
-| rv64uzbb-p-max | p- | PASS | 2441 | 17 |
-| rv64uzbb-p-maxu | p- | PASS | 2503 | 17 |
-| rv64uzbb-p-min | p- | PASS | 2433 | 17 |
-| rv64uzbb-p-minu | p- | PASS | 2482 | 18 |
-| rv64uzbb-p-orc_b | p- | PASS | 1539 | 11 |
-| rv64uzbb-p-orn | p- | PASS | 2673 | 19 |
-| rv64uzbb-p-rev8 | p- | PASS | 1572 | 12 |
-| rv64uzbb-p-rol | p- | PASS | 2584 | 18 |
+| rv64uzbb-p-ctz | p- | PASS | 1497 | 12 |
+| rv64uzbb-p-ctzw | p- | PASS | 1467 | 12 |
+| rv64uzbb-p-max | p- | PASS | 2441 | 18 |
+| rv64uzbb-p-maxu | p- | PASS | 2503 | 18 |
+| rv64uzbb-p-min | p- | PASS | 2433 | 18 |
+| rv64uzbb-p-minu | p- | PASS | 2482 | 19 |
+| rv64uzbb-p-orc_b | p- | PASS | 1539 | 12 |
+| rv64uzbb-p-orn | p- | PASS | 2673 | 20 |
+| rv64uzbb-p-rev8 | p- | PASS | 1572 | 13 |
+| rv64uzbb-p-rol | p- | PASS | 2584 | 19 |
 | rv64uzbb-p-rolw | p- | PASS | 2586 | 19 |
-| rv64uzbb-p-ror | p- | PASS | 2645 | 19 |
+| rv64uzbb-p-ror | p- | PASS | 2645 | 20 |
 | rv64uzbb-p-rori | p- | PASS | 1712 | 13 |
-| rv64uzbb-p-roriw | p- | PASS | 1625 | 12 |
-| rv64uzbb-p-rorw | p- | PASS | 2513 | 18 |
-| rv64uzbb-p-sext_b | p- | PASS | 1497 | 11 |
-| rv64uzbb-p-sext_h | p- | PASS | 1503 | 11 |
-| rv64uzbb-p-xnor | p- | PASS | 2671 | 19 |
-| rv64uzbb-p-zext_h | p- | PASS | 1509 | 11 |
-| rv64uzbc-p-clmul | p- | PASS | 2467 | 17 |
+| rv64uzbb-p-roriw | p- | PASS | 1625 | 13 |
+| rv64uzbb-p-rorw | p- | PASS | 2513 | 19 |
+| rv64uzbb-p-sext_b | p- | PASS | 1497 | 12 |
+| rv64uzbb-p-sext_h | p- | PASS | 1503 | 12 |
+| rv64uzbb-p-xnor | p- | PASS | 2671 | 20 |
+| rv64uzbb-p-zext_h | p- | PASS | 1509 | 12 |
+| rv64uzbc-p-clmul | p- | PASS | 2467 | 18 |
 | rv64uzbc-p-clmulh | p- | PASS | 2478 | 18 |
 | rv64uzbc-p-clmulr | p- | PASS | 2473 | 18 |
 | rv64uzbkb-p-brev8 | p- | PASS | 1537 | 12 |
-| rv64uzbkb-p-pack | p- | PASS | 2913 | 20 |
-| rv64uzbkb-p-packh | p- | PASS | 2583 | 18 |
-| rv64uzbkb-p-packw | p- | PASS | 2443 | 17 |
-| rv64uzbkx-p-xperm4 | p- | PASS | 2769 | 19 |
-| rv64uzbkx-p-xperm8 | p- | PASS | 3598 | 24 |
+| rv64uzbkb-p-pack | p- | PASS | 2913 | 22 |
+| rv64uzbkb-p-packh | p- | PASS | 2583 | 19 |
+| rv64uzbkb-p-packw | p- | PASS | 2443 | 19 |
+| rv64uzbkx-p-xperm4 | p- | PASS | 2769 | 21 |
+| rv64uzbkx-p-xperm8 | p- | PASS | 3598 | 26 |
 | rv64uzbs-p-bclr | p- | PASS | 2796 | 20 |
-| rv64uzbs-p-bclri | p- | PASS | 1779 | 13 |
-| rv64uzbs-p-bext | p- | PASS | 2661 | 19 |
+| rv64uzbs-p-bclri | p- | PASS | 1779 | 14 |
+| rv64uzbs-p-bext | p- | PASS | 2661 | 20 |
 | rv64uzbs-p-bexti | p- | PASS | 1711 | 13 |
-| rv64uzbs-p-binv | p- | PASS | 2631 | 19 |
-| rv64uzbs-p-binvi | p- | PASS | 1715 | 13 |
+| rv64uzbs-p-binv | p- | PASS | 2631 | 20 |
+| rv64uzbs-p-binvi | p- | PASS | 1715 | 14 |
 | rv64uzbs-p-bset | p- | PASS | 2800 | 20 |
 | rv64uzbs-p-bseti | p- | PASS | 1793 | 14 |
 | rv64uzfh-p-fadd | p- | PASS | 1912 | 14 |
-| rv64uzfh-p-fclass | p- | PASS | 1218 | 10 |
-| rv64uzfh-p-fcmp | p- | PASS | 1554 | 11 |
-| rv64uzfh-p-fcvt | p- | PASS | 1786 | 14 |
-| rv64uzfh-p-fcvt_w | p- | PASS | 3374 | 24 |
+| rv64uzfh-p-fclass | p- | PASS | 1218 | 9 |
+| rv64uzfh-p-fcmp | p- | PASS | 1566 | 12 |
+| rv64uzfh-p-fcvt | p- | PASS | 1802 | 14 |
+| rv64uzfh-p-fcvt_w | p- | PASS | 3430 | 25 |
 | rv64uzfh-p-fdiv | p- | PASS | 1664 | 13 |
-| rv64uzfh-p-fmadd | p- | PASS | 2072 | 15 |
-| rv64uzfh-p-fmin | p- | PASS | 2544 | 18 |
+| rv64uzfh-p-fmadd | p- | PASS | 2072 | 16 |
+| rv64uzfh-p-fmin | p- | PASS | 2544 | 19 |
 | rv64uzfh-p-ldst | p- | PASS | 1196 | 10 |
-| rv64uzfh-p-move | p- | PASS | 1793 | 13 |
-| rv64uzfh-p-recoding | p- | PASS | 1198 | 9 |
-| rv64uziccid-p-ziccid | p- | PASS | 8038 | 33 |
-| rv64uzicond-p-czero_eqz | p- | PASS | 2389 | 17 |
-| rv64uzicond-p-czero_nez | p- | PASS | 2377 | 16 |
-| rv64ua-v-amoadd_d | v- | PASS | 30584 | 129 |
-| rv64ua-v-amoadd_w | v- | PASS | 31173 | 166 |
-| rv64ua-v-amoand_d | v- | PASS | 31308 | 208 |
-| rv64ua-v-amoand_w | v- | PASS | 30709 | 201 |
-| rv64ua-v-amomax_d | v- | PASS | 30538 | 214 |
-| rv64ua-v-amomax_w | v- | PASS | 29893 | 168 |
-| rv64ua-v-amomaxu_d | v- | PASS | 30538 | 197 |
-| rv64ua-v-amomaxu_w | v- | PASS | 29893 | 203 |
-| rv64ua-v-amomin_d | v- | PASS | 30538 | 168 |
-| rv64ua-v-amomin_w | v- | PASS | 30706 | 148 |
-| rv64ua-v-amominu_d | v- | PASS | 31011 | 202 |
-| rv64ua-v-amominu_w | v- | PASS | 30013 | 213 |
-| rv64ua-v-amoor_d | v- | PASS | 30566 | 209 |
-| rv64ua-v-amoor_w | v- | PASS | 30566 | 195 |
-| rv64ua-v-amoswap_d | v- | PASS | 31308 | 164 |
-| rv64ua-v-amoswap_w | v- | PASS | 30709 | 196 |
-| rv64ua-v-amoxor_d | v- | PASS | 30235 | 195 |
-| rv64ua-v-amoxor_w | v- | PASS | 30446 | 195 |
-| rv64ua-v-lrsc | v- | PASS | 46890 | 174 |
-| rv64uc-v-rvc | v- | TIMEOUT | - | 817 |
-| rv64ud-v-fadd | v- | PASS | 35452 | 244 |
-| rv64ud-v-fclass | v- | PASS | 19795 | 129 |
-| rv64ud-v-fcmp | v- | PASS | 35675 | 189 |
-| rv64ud-v-fcvt | v- | PASS | 35286 | 215 |
-| rv64ud-v-fcvt_w | v- | PASS | 44801 | 250 |
-| rv64ud-v-fdiv | v- | PASS | 34598 | 224 |
-| rv64ud-v-fmadd | v- | PASS | 35248 | 144 |
-| rv64ud-v-fmin | v- | PASS | 36084 | 176 |
-| rv64ud-v-ldst | v- | PASS | 29386 | 170 |
-| rv64ud-v-move | v- | PASS | 36190 | 232 |
-| rv64ud-v-recoding | v- | PASS | 29741 | 209 |
-| rv64ud-v-structural | v- | PASS | 20035 | 131 |
-| rv64uf-v-fadd | v- | PASS | 35452 | 181 |
-| rv64uf-v-fclass | v- | PASS | 19779 | 128 |
-| rv64uf-v-fcmp | v- | PASS | 35675 | 227 |
-| rv64uf-v-fcvt | v- | PASS | 34901 | 230 |
-| rv64uf-v-fcvt_w | v- | PASS | 48527 | 297 |
-| rv64uf-v-fdiv | v- | PASS | 34582 | 238 |
-| rv64uf-v-fmadd | v- | PASS | 35248 | 199 |
-| rv64uf-v-fmin | v- | PASS | 36084 | 201 |
-| rv64uf-v-ldst | v- | PASS | 30558 | 201 |
-| rv64uf-v-move | v- | PASS | 20378 | 147 |
-| rv64uf-v-recoding | v- | PASS | 34032 | 165 |
-| rv64ui-v-add | v- | PASS | 20526 | 148 |
-| rv64ui-v-addi | v- | PASS | 20319 | 136 |
-| rv64ui-v-addiw | v- | PASS | 20296 | 141 |
-| rv64ui-v-addw | v- | PASS | 21045 | 125 |
-| rv64ui-v-and | v- | PASS | 20874 | 158 |
-| rv64ui-v-andi | v- | PASS | 20212 | 103 |
-| rv64ui-v-auipc | v- | PASS | 19678 | 134 |
-| rv64ui-v-beq | v- | PASS | 20435 | 139 |
-| rv64ui-v-bge | v- | PASS | 21307 | 146 |
-| rv64ui-v-bgeu | v- | PASS | 20978 | 91 |
-| rv64ui-v-blt | v- | PASS | 20456 | 111 |
-| rv64ui-v-bltu | v- | PASS | 20664 | 137 |
-| rv64ui-v-bne | v- | PASS | 20498 | 136 |
-| rv64ui-v-fence_i | v- | PASS | 32944 | 218 |
-| rv64ui-v-jal | v- | PASS | 19125 | 139 |
-| rv64ui-v-jalr | v- | PASS | 19493 | 129 |
-| rv64ui-v-lb | v- | PASS | 34595 | 240 |
-| rv64ui-v-lbu | v- | PASS | 34595 | 200 |
-| rv64ui-v-ld | v- | PASS | 35180 | 257 |
-| rv64ui-v-ld_st | v- | PASS | 60712 | 400 |
-| rv64ui-v-lh | v- | PASS | 34424 | 192 |
-| rv64ui-v-lhu | v- | PASS | 34642 | 235 |
-| rv64ui-v-lui | v- | PASS | 19676 | 106 |
-| rv64ui-v-lw | v- | PASS | 34726 | 255 |
-| rv64ui-v-lwu | v- | PASS | 34012 | 169 |
-| rv64ui-v-ma_data | v- | PASS | 62013 | 398 |
-| rv64ui-v-or | v- | PASS | 20969 | 152 |
-| rv64ui-v-ori | v- | PASS | 20178 | 138 |
-| rv64ui-v-sb | v- | TIMEOUT | - | 784 |
-| rv64ui-v-sd | v- | PASS | 44896 | 293 |
-| rv64ui-v-sh | v- | TIMEOUT | - | 614 |
-| rv64ui-v-simple | v- | PASS | 19059 | 105 |
-| rv64ui-v-sll | v- | PASS | 35619 | 237 |
-| rv64ui-v-slli | v- | PASS | 20348 | 134 |
-| rv64ui-v-slliw | v- | PASS | 20358 | 148 |
-| rv64ui-v-sllw | v- | PASS | 34740 | 229 |
-| rv64ui-v-slt | v- | PASS | 21048 | 142 |
-| rv64ui-v-slti | v- | PASS | 20220 | 141 |
-| rv64ui-v-sltiu | v- | PASS | 20235 | 112 |
-| rv64ui-v-sltu | v- | PASS | 20508 | 90 |
-| rv64ui-v-sra | v- | PASS | 21135 | 156 |
-| rv64ui-v-srai | v- | PASS | 19701 | 99 |
-| rv64ui-v-sraiw | v- | PASS | 20437 | 150 |
-| rv64ui-v-sraw | v- | PASS | 34876 | 230 |
-| rv64ui-v-srl | v- | PASS | 36117 | 253 |
-| rv64ui-v-srli | v- | PASS | 20287 | 120 |
-| rv64ui-v-srliw | v- | PASS | 20332 | 115 |
-| rv64ui-v-srlw | v- | PASS | 35065 | 240 |
-| rv64ui-v-st_ld | v- | PASS | 45682 | 191 |
-| rv64ui-v-sub | v- | PASS | 21039 | 121 |
-| rv64ui-v-subw | v- | PASS | 21031 | 144 |
-| rv64ui-v-sw | v- | PASS | 31570 | 212 |
-| rv64ui-v-xor | v- | PASS | 20968 | 114 |
-| rv64ui-v-xori | v- | PASS | 20171 | 136 |
-| rv64um-v-div | v- | PASS | 19770 | 114 |
-| rv64um-v-divu | v- | PASS | 19748 | 135 |
-| rv64um-v-divuw | v- | PASS | 19732 | 107 |
-| rv64um-v-divw | v- | PASS | 19753 | 133 |
-| rv64um-v-mul | v- | PASS | 20538 | 150 |
-| rv64um-v-mulh | v- | PASS | 20550 | 137 |
-| rv64um-v-mulhsu | v- | PASS | 20550 | 145 |
-| rv64um-v-mulhu | v- | PASS | 20610 | 120 |
-| rv64um-v-mulw | v- | PASS | 20931 | 153 |
-| rv64um-v-rem | v- | PASS | 19751 | 149 |
-| rv64um-v-remu | v- | PASS | 19755 | 100 |
-| rv64um-v-remuw | v- | PASS | 19708 | 133 |
-| rv64um-v-remw | v- | PASS | 19753 | 135 |
-| rv64uzba-v-add_uw | v- | PASS | 20418 | 140 |
-| rv64uzba-v-sh1add | v- | PASS | 20374 | 117 |
-| rv64uzba-v-sh1add_uw | v- | PASS | 20383 | 120 |
-| rv64uzba-v-sh2add | v- | PASS | 20374 | 134 |
-| rv64uzba-v-sh2add_uw | v- | PASS | 20383 | 147 |
-| rv64uzba-v-sh3add | v- | PASS | 20374 | 101 |
-| rv64uzba-v-sh3add_uw | v- | PASS | 20383 | 145 |
-| rv64uzba-v-slli_uw | v- | PASS | 19695 | 127 |
-| rv64uzbb-v-andn | v- | PASS | 20664 | 110 |
-| rv64uzbb-v-clz | v- | PASS | 20147 | 132 |
-| rv64uzbb-v-clzw | v- | PASS | 20119 | 133 |
-| rv64uzbb-v-cpop | v- | PASS | 20147 | 133 |
-| rv64uzbb-v-cpopw | v- | PASS | 20119 | 82 |
-| rv64uzbb-v-ctz | v- | PASS | 20147 | 105 |
-| rv64uzbb-v-ctzw | v- | PASS | 19563 | 126 |
-| rv64uzbb-v-max | v- | PASS | 20445 | 132 |
-| rv64uzbb-v-maxu | v- | PASS | 20534 | 147 |
-| rv64uzbb-v-min | v- | PASS | 20439 | 138 |
-| rv64uzbb-v-minu | v- | PASS | 21041 | 139 |
-| rv64uzbb-v-orc_b | v- | PASS | 20187 | 115 |
-| rv64uzbb-v-orn | v- | TIMEOUT | - | 578 |
-| rv64uzbb-v-rev8 | v- | PASS | 20146 | 134 |
-| rv64uzbb-v-rol | v- | TIMEOUT | - | 713 |
-| rv64uzbb-v-rolw | v- | TIMEOUT | - | 478 |
-| rv64uzbb-v-ror | v- | TIMEOUT | - | 669 |
-| rv64uzbb-v-rori | v- | PASS | 19721 | 126 |
-| rv64uzbb-v-roriw | v- | PASS | 19701 | 100 |
-| rv64uzbb-v-rorw | v- | PASS | 20549 | 133 |
-| rv64uzbb-v-sext_b | v- | PASS | 20147 | 122 |
-| rv64uzbb-v-sext_h | v- | PASS | 19598 | 118 |
-| rv64uzbb-v-xnor | v- | TIMEOUT | - | 401 |
-| rv64uzbb-v-zext_h | v- | PASS | 19606 | 102 |
-| rv64uzbc-v-clmul | v- | PASS | 21099 | 137 |
-| rv64uzbc-v-clmulh | v- | PASS | 20550 | 96 |
-| rv64uzbc-v-clmulr | v- | PASS | 20546 | 117 |
-| rv64uzbkb-v-brev8 | v- | PASS | 19580 | 132 |
-| rv64uzbkb-v-pack | v- | TIMEOUT | - | 626 |
-| rv64uzbkb-v-packh | v- | PASS | 21230 | 101 |
-| rv64uzbkb-v-packw | v- | PASS | 20512 | 99 |
-| rv64uzbkx-v-xperm4 | v- | PASS | 35558 | 146 |
-| rv64uzbkx-v-xperm8 | v- | PASS | 35696 | 170 |
-| rv64uzbs-v-bclr | v- | PASS | 34317 | 164 |
-| rv64uzbs-v-bclri | v- | PASS | 20362 | 139 |
-| rv64uzbs-v-bext | v- | TIMEOUT | - | 647 |
-| rv64uzbs-v-bexti | v- | PASS | 18605 | 94 |
-| rv64uzbs-v-binv | v- | TIMEOUT | - | 629 |
-| rv64uzbs-v-binvi | v- | PASS | 19830 | 114 |
-| rv64uzbs-v-bset | v- | PASS | 34153 | 167 |
-| rv64uzbs-v-bseti | v- | PASS | 19818 | 67 |
-| rv64uzfh-v-fadd | v- | PASS | 35452 | 136 |
-| rv64uzfh-v-fclass | v- | PASS | 19779 | 117 |
-| rv64uzfh-v-fcmp | v- | PASS | 34040 | 144 |
-| rv64uzfh-v-fcvt | v- | PASS | 35269 | 155 |
-| rv64uzfh-v-fcvt_w | v- | PASS | 48527 | 205 |
-| rv64uzfh-v-fdiv | v- | PASS | 34582 | 143 |
-| rv64uzfh-v-fmadd | v- | PASS | 35248 | 128 |
-| rv64uzfh-v-fmin | v- | PASS | 36084 | 141 |
-| rv64uzfh-v-ldst | v- | PASS | 29646 | 124 |
-| rv64uzfh-v-move | v- | PASS | 20332 | 145 |
-| rv64uzfh-v-recoding | v- | PASS | 34032 | 146 |
-| rv64uziccid-v-ziccid | v- | TIMEOUT | - | 679 |
-| rv64uzicond-v-czero_eqz | v- | PASS | 20422 | 112 |
-| rv64uzicond-v-czero_nez | v- | PASS | 20424 | 102 |
+| rv64uzfh-p-move | p- | PASS | 1812 | 14 |
+| rv64uzfh-p-recoding | p- | PASS | 1198 | 10 |
+| rv64uziccid-p-ziccid | p- | PASS | 8240 | 37 |
+| rv64uzicond-p-czero_eqz | p- | PASS | 2389 | 11 |
+| rv64uzicond-p-czero_nez | p- | PASS | 2377 | 14 |
+| rv64ua-v-amoadd_d | v- | PASS | 28360 | 215 |
+| rv64ua-v-amoadd_w | v- | PASS | 28349 | 186 |
+| rv64ua-v-amoand_d | v- | PASS | 27836 | 184 |
+| rv64ua-v-amoand_w | v- | PASS | 27836 | 196 |
+| rv64ua-v-amomax_d | v- | PASS | 28223 | 187 |
+| rv64ua-v-amomax_w | v- | PASS | 28360 | 137 |
+| rv64ua-v-amomaxu_d | v- | PASS | 28223 | 187 |
+| rv64ua-v-amomaxu_w | v- | PASS | 28360 | 137 |
+| rv64ua-v-amomin_d | v- | PASS | 28223 | 197 |
+| rv64ua-v-amomin_w | v- | PASS | 28487 | 188 |
+| rv64ua-v-amominu_d | v- | PASS | 28380 | 191 |
+| rv64ua-v-amominu_w | v- | PASS | 28369 | 187 |
+| rv64ua-v-amoor_d | v- | PASS | 28276 | 183 |
+| rv64ua-v-amoor_w | v- | PASS | 28276 | 182 |
+| rv64ua-v-amoswap_d | v- | PASS | 28539 | 117 |
+| rv64ua-v-amoswap_w | v- | PASS | 28385 | 163 |
+| rv64ua-v-amoxor_d | v- | PASS | 28333 | 94 |
+| rv64ua-v-amoxor_w | v- | PASS | 28365 | 164 |
+| rv64ua-v-lrsc | v- | PASS | 46275 | 266 |
+| rv64uc-v-rvc | v- | PASS | 37465 | 219 |
+| rv64ud-v-fadd | v- | PASS | 27787 | 185 |
+| rv64ud-v-fclass | v- | PASS | 17769 | 118 |
+| rv64ud-v-fcmp | v- | PASS | 28100 | 119 |
+| rv64ud-v-fcvt | v- | PASS | 27434 | 173 |
+| rv64ud-v-fcvt_w | v- | PASS | 38653 | 107 |
+| rv64ud-v-fdiv | v- | PASS | 27615 | 163 |
+| rv64ud-v-fmadd | v- | PASS | 27949 | 204 |
+| rv64ud-v-fmin | v- | PASS | 28419 | 135 |
+| rv64ud-v-ldst | v- | PASS | 28263 | 138 |
+| rv64ud-v-move | v- | PASS | 28511 | 198 |
+| rv64ud-v-recoding | v- | PASS | 27790 | 187 |
+| rv64ud-v-structural | v- | PASS | 18543 | 131 |
+| rv64uf-v-fadd | v- | PASS | 27787 | 164 |
+| rv64uf-v-fclass | v- | PASS | 17753 | 118 |
+| rv64uf-v-fcmp | v- | PASS | 28100 | 192 |
+| rv64uf-v-fcvt | v- | PASS | 27216 | 184 |
+| rv64uf-v-fcvt_w | v- | PASS | 38304 | 256 |
+| rv64uf-v-fdiv | v- | PASS | 27536 | 136 |
+| rv64uf-v-fmadd | v- | PASS | 27949 | 138 |
+| rv64uf-v-fmin | v- | PASS | 28419 | 201 |
+| rv64uf-v-ldst | v- | PASS | 28407 | 191 |
+| rv64uf-v-move | v- | PASS | 18400 | 125 |
+| rv64uf-v-recoding | v- | PASS | 26855 | 181 |
+| rv64ui-v-add | v- | PASS | 19222 | 133 |
+| rv64ui-v-addi | v- | PASS | 18412 | 126 |
+| rv64ui-v-addiw | v- | PASS | 18339 | 92 |
+| rv64ui-v-addw | v- | PASS | 19183 | 97 |
+| rv64ui-v-and | v- | PASS | 19255 | 133 |
+| rv64ui-v-andi | v- | PASS | 18277 | 123 |
+| rv64ui-v-auipc | v- | PASS | 17683 | 120 |
+| rv64ui-v-beq | v- | PASS | 18929 | 67 |
+| rv64ui-v-bge | v- | PASS | 19133 | 115 |
+| rv64ui-v-bgeu | v- | PASS | 19385 | 148 |
+| rv64ui-v-blt | v- | PASS | 18932 | 124 |
+| rv64ui-v-bltu | v- | PASS | 19125 | 129 |
+| rv64ui-v-bne | v- | PASS | 18861 | 136 |
+| rv64ui-v-fence_i | v- | PASS | 29504 | 196 |
+| rv64ui-v-jal | v- | PASS | 17683 | 123 |
+| rv64ui-v-jalr | v- | PASS | 18225 | 126 |
+| rv64ui-v-lb | v- | PASS | 27482 | 136 |
+| rv64ui-v-lbu | v- | PASS | 27482 | 138 |
+| rv64ui-v-ld | v- | PASS | 27847 | 188 |
+| rv64ui-v-ld_st | v- | PASS | 49420 | 283 |
+| rv64ui-v-lh | v- | PASS | 27506 | 198 |
+| rv64ui-v-lhu | v- | PASS | 27586 | 187 |
+| rv64ui-v-lui | v- | PASS | 17713 | 76 |
+| rv64ui-v-lw | v- | PASS | 27414 | 186 |
+| rv64ui-v-lwu | v- | PASS | 27423 | 183 |
+| rv64ui-v-ma_data | v- | PASS | 51138 | 348 |
+| rv64ui-v-or | v- | PASS | 19480 | 132 |
+| rv64ui-v-ori | v- | PASS | 18316 | 124 |
+| rv64ui-v-sb | v- | PASS | 28733 | 188 |
+| rv64ui-v-sd | v- | PASS | 38675 | 132 |
+| rv64ui-v-sh | v- | PASS | 28439 | 119 |
+| rv64ui-v-simple | v- | PASS | 17598 | 116 |
+| rv64ui-v-sll | v- | PASS | 28441 | 193 |
+| rv64ui-v-slli | v- | PASS | 18421 | 134 |
+| rv64ui-v-slliw | v- | PASS | 18468 | 128 |
+| rv64ui-v-sllw | v- | PASS | 28692 | 192 |
+| rv64ui-v-slt | v- | ERROR | - | 50 |
+| rv64ui-v-slti | v- | PASS | 18358 | 111 |
+| rv64ui-v-sltiu | v- | PASS | 18358 | 123 |
+| rv64ui-v-sltu | v- | PASS | 19206 | 147 |
+| rv64ui-v-sra | v- | PASS | 19173 | 133 |
+| rv64ui-v-srai | v- | PASS | 18234 | 122 |
+| rv64ui-v-sraiw | v- | PASS | 18547 | 127 |
+| rv64ui-v-sraw | v- | PASS | 28610 | 192 |
+| rv64ui-v-srl | v- | PASS | 28647 | 141 |
+| rv64ui-v-srli | v- | PASS | 18283 | 92 |
+| rv64ui-v-srliw | v- | PASS | 18485 | 138 |
+| rv64ui-v-srlw | v- | PASS | 28690 | 191 |
+| rv64ui-v-st_ld | v- | PASS | 38139 | 282 |
+| rv64ui-v-sub | v- | PASS | 19132 | 142 |
+| rv64ui-v-subw | v- | PASS | 19169 | 129 |
+| rv64ui-v-sw | v- | PASS | 29100 | 190 |
+| rv64ui-v-xor | v- | PASS | 19425 | 81 |
+| rv64ui-v-xori | v- | PASS | 18149 | 122 |
+| rv64um-v-div | v- | PASS | 17908 | 133 |
+| rv64um-v-divu | v- | PASS | 17866 | 123 |
+| rv64um-v-divuw | v- | PASS | 17850 | 76 |
+| rv64um-v-divw | v- | PASS | 17892 | 120 |
+| rv64um-v-mul | v- | PASS | 19155 | 133 |
+| rv64um-v-mulh | v- | PASS | 19246 | 135 |
+| rv64um-v-mulhsu | v- | PASS | 19246 | 96 |
+| rv64um-v-mulhu | v- | PASS | 19306 | 98 |
+| rv64um-v-mulw | v- | PASS | 19119 | 130 |
+| rv64um-v-rem | v- | PASS | 17889 | 126 |
+| rv64um-v-remu | v- | PASS | 17893 | 121 |
+| rv64um-v-remuw | v- | PASS | 17784 | 62 |
+| rv64um-v-remw | v- | PASS | 17794 | 120 |
+| rv64uzba-v-add_uw | v- | PASS | 18997 | 94 |
+| rv64uzba-v-sh1add | v- | PASS | 19005 | 94 |
+| rv64uzba-v-sh1add_uw | v- | PASS | 19012 | 137 |
+| rv64uzba-v-sh2add | v- | PASS | 19005 | 132 |
+| rv64uzba-v-sh2add_uw | v- | PASS | 19012 | 129 |
+| rv64uzba-v-sh3add | v- | PASS | 19005 | 126 |
+| rv64uzba-v-sh3add_uw | v- | PASS | 19012 | 130 |
+| rv64uzba-v-slli_uw | v- | PASS | 18371 | 121 |
+| rv64uzbb-v-andn | v- | PASS | 19068 | 81 |
+| rv64uzbb-v-clz | v- | ERROR | - | 9 |
+| rv64uzbb-v-clzw | v- | ERROR | - | 5 |
+| rv64uzbb-v-cpop | v- | ERROR | - | 8 |
+| rv64uzbb-v-cpopw | v- | ERROR | - | 10 |
+| rv64uzbb-v-ctz | v- | ERROR | - | 9 |
+| rv64uzbb-v-ctzw | v- | ERROR | - | 9 |
+| rv64uzbb-v-max | v- | PASS | 19030 | 131 |
+| rv64uzbb-v-maxu | v- | PASS | 19087 | 133 |
+| rv64uzbb-v-min | v- | PASS | 19023 | 130 |
+| rv64uzbb-v-minu | v- | PASS | 19066 | 94 |
+| rv64uzbb-v-orc_b | v- | ERROR | - | 7 |
+| rv64uzbb-v-orn | v- | PASS | 28248 | 199 |
+| rv64uzbb-v-rev8 | v- | PASS | 18256 | 128 |
+| rv64uzbb-v-rol | v- | PASS | 28314 | 187 |
+| rv64uzbb-v-rolw | v- | PASS | 28454 | 179 |
+| rv64uzbb-v-ror | v- | PASS | 28217 | 178 |
+| rv64uzbb-v-rori | v- | PASS | 18372 | 119 |
+| rv64uzbb-v-roriw | v- | ERROR | - | 5 |
+| rv64uzbb-v-rorw | v- | PASS | 19102 | 126 |
+| rv64uzbb-v-sext_b | v- | ERROR | - | 5 |
+| rv64uzbb-v-sext_h | v- | ERROR | - | 8 |
+| rv64uzbb-v-xnor | v- | PASS | 28183 | 194 |
+| rv64uzbb-v-zext_h | v- | ERROR | - | 9 |
+| rv64uzbc-v-clmul | v- | PASS | 19208 | 128 |
+| rv64uzbc-v-clmulh | v- | PASS | 19167 | 80 |
+| rv64uzbc-v-clmulr | v- | PASS | 19164 | 97 |
+| rv64uzbkb-v-brev8 | v- | PASS | 18249 | 120 |
+| rv64uzbkb-v-pack | v- | PASS | 28656 | 82 |
+| rv64uzbkb-v-packh | v- | PASS | 19281 | 90 |
+| rv64uzbkb-v-packw | v- | PASS | 19087 | 128 |
+| rv64uzbkx-v-xperm4 | v- | PASS | 28703 | 110 |
+| rv64uzbkx-v-xperm8 | v- | PASS | 29557 | 136 |
+| rv64uzbs-v-bclr | v- | PASS | 28336 | 159 |
+| rv64uzbs-v-bclri | v- | PASS | 18522 | 114 |
+| rv64uzbs-v-bext | v- | PASS | 28531 | 136 |
+| rv64uzbs-v-bexti | v- | PASS | 18363 | 75 |
+| rv64uzbs-v-binv | v- | PASS | 28132 | 145 |
+| rv64uzbs-v-binvi | v- | PASS | 18348 | 63 |
+| rv64uzbs-v-bset | v- | PASS | 28653 | 113 |
+| rv64uzbs-v-bseti | v- | PASS | 18586 | 133 |
+| rv64uzfh-v-fadd | v- | PASS | 27787 | 153 |
+| rv64uzfh-v-fclass | v- | PASS | 17753 | 121 |
+| rv64uzfh-v-fcmp | v- | PASS | 27435 | 122 |
+| rv64uzfh-v-fcvt | v- | PASS | 27377 | 108 |
+| rv64uzfh-v-fcvt_w | v- | PASS | 38304 | 148 |
+| rv64uzfh-v-fdiv | v- | PASS | 27536 | 80 |
+| rv64uzfh-v-fmadd | v- | PASS | 27949 | 97 |
+| rv64uzfh-v-fmin | v- | PASS | 28419 | 119 |
+| rv64uzfh-v-ldst | v- | PASS | 28545 | 107 |
+| rv64uzfh-v-move | v- | PASS | 18395 | 119 |
+| rv64uzfh-v-recoding | v- | PASS | 26853 | 120 |
+| rv64uziccid-v-ziccid | v- | TIMEOUT | - | 584 |
+| rv64uzicond-v-czero_eqz | v- | PASS | 19129 | 78 |
+| rv64uzicond-v-czero_nez | v- | PASS | 19004 | 76 |
 
 </details>
 
@@ -2794,366 +2796,366 @@
 
 | Test | Suite | Shard | cycles | cpred_predicted | cpred_mispred_squash | cpred_btb_miss_redirect | ras_predicted | ras_mispred | indirect_predicted | indirect_mispred | fetch_resteer_to_bac | load_committed | lr_committed | store_committed | sc_committed | store_violation_squash | all_squashes |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| `hypervisor-p-2-stage_translation` | p- | none | 1374 | 0 | 2 | 7 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 13 | 0 | 0 | 27 |
-| `hypervisor-p-2-stage_translation_implicit_load_error` | p- | none | 1652 | 0 | 1 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 34 |
-| `hypervisor-p-2-stage_translation_implicit_load_error_hs` | p- | none | 1827 | 0 | 1 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 38 |
-| `hypervisor-svadu-p-2-stage_translation_implicit_store_error` | p- | none | 1768 | 0 | 1 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 36 |
-| `hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs` | p- | none | 1940 | 0 | 1 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 40 |
-| `rv64mi-p-breakpoint` | p- | none | 3329 | 0 | 3 | 9 | 0 | 0 | 10 | 0 | 1 | 3 | 0 | 2 | 0 | 0 | 74 |
-| `rv64mi-p-csr` | p- | none | 3437 | 16 | 1 | 10 | 0 | 0 | 6 | 0 | 1 | 1 | 0 | 1 | 0 | 0 | 77 |
-| `rv64mi-p-instret_overflow` | p- | none | 1252 | 0 | 0 | 9 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64mi-p-ld-misaligned` | p- | none | 1386 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 8 | 0 | 1 | 0 | 0 | 25 |
-| `rv64mi-p-lh-misaligned` | p- | none | 1102 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 1 | 0 | 0 | 25 |
-| `rv64mi-p-lw-misaligned` | p- | none | 1171 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 4 | 0 | 1 | 0 | 0 | 25 |
-| `rv64mi-p-ma_addr` | p- | none | 1538 | 0 | 2 | 9 | 0 | 0 | 0 | 0 | 1 | 59 | 0 | 12 | 0 | 0 | 25 |
-| `rv64mi-p-ma_fetch` | p- | none | 1948 | 0 | 0 | 29 | 0 | 0 | 0 | 0 | 9 | 0 | 0 | 1 | 0 | 0 | 48 |
-| `rv64mi-p-mcsr` | p- | none | 1339 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 32 |
-| `rv64mi-p-pmpaddr` | p- | none | 1185 | 0 | 0 | 10 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 28 |
-| `rv64mi-p-sbreak` | p- | none | 1315 | 27 | 0 | 11 | 0 | 0 | 2 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 31 |
-| `rv64mi-p-scall` | p- | none | 1261 | 0 | 1 | 10 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64mi-p-sd-misaligned` | p- | none | 1436 | 0 | 2 | 16 | 0 | 0 | 0 | 0 | 1 | 8 | 0 | 9 | 0 | 0 | 26 |
-| `rv64mi-p-sh-misaligned` | p- | none | 1109 | 0 | 1 | 10 | 0 | 0 | 0 | 0 | 2 | 2 | 0 | 3 | 0 | 0 | 25 |
-| `rv64mi-p-sw-misaligned` | p- | none | 1150 | 0 | 1 | 12 | 0 | 0 | 0 | 0 | 3 | 4 | 0 | 5 | 0 | 0 | 25 |
-| `rv64mi-p-zicntr` | p- | none | 1417 | 0 | 1 | 9 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 33 |
-| `rv64mzicbo-p-zero` | p- | none | 1158 | 0 | 1 | 8 | 0 | 0 | 0 | 0 | 1 | 8 | 0 | 2 | 0 | 0 | 24 |
-| `rv64si-p-csr` | p- | none | 2248 | 0 | 2 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 51 |
-| `rv64si-p-dirty` | p- | none | 2249 | 37 | 2 | 12 | 0 | 0 | 6 | 0 | 1 | 6 | 0 | 5 | 0 | 0 | 49 |
-| `rv64si-p-icache-alias` | p- | none | 2368 | 0 | 2 | 9 | 0 | 0 | 82 | 0 | 1 | 0 | 0 | 7 | 0 | 0 | 53 |
-| `rv64si-p-ma_fetch` | p- | none | 1382 | 0 | 0 | 28 | 0 | 0 | 0 | 0 | 4 | 0 | 0 | 1 | 0 | 0 | 33 |
-| `rv64si-p-sbreak` | p- | none | 1325 | 15 | 0 | 9 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 31 |
-| `rv64si-p-wfi` | p- | none | 1173 | 0 | 2 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 28 |
-| `rv64ssvnapot-p-napot` | p- | none | 1658 | 3 | 2 | 9 | 0 | 0 | 2 | 0 | 1 | 0 | 0 | 7 | 0 | 0 | 34 |
-| `rv64ua-p-amoadd_d` | p- | none | 1081 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 0 | 24 |
-| `rv64ua-p-amoadd_w` | p- | none | 1120 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
-| `rv64ua-p-amoand_d` | p- | none | 1121 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
-| `rv64ua-p-amoand_w` | p- | none | 1117 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
-| `rv64ua-p-amomax_d` | p- | none | 1077 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 3 | 0 | 0 | 24 |
-| `rv64ua-p-amomax_w` | p- | none | 1100 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 3 | 0 | 4 | 0 | 0 | 24 |
-| `rv64ua-p-amomaxu_d` | p- | none | 1077 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 3 | 0 | 0 | 24 |
-| `rv64ua-p-amomaxu_w` | p- | none | 1100 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 3 | 0 | 4 | 0 | 0 | 24 |
-| `rv64ua-p-amomin_d` | p- | none | 1077 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 3 | 0 | 0 | 24 |
-| `rv64ua-p-amomin_w` | p- | none | 1100 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 3 | 0 | 4 | 0 | 0 | 24 |
-| `rv64ua-p-amominu_d` | p- | none | 1077 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 3 | 0 | 0 | 24 |
-| `rv64ua-p-amominu_w` | p- | none | 1100 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 3 | 0 | 4 | 0 | 0 | 24 |
-| `rv64ua-p-amoor_d` | p- | none | 1117 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
-| `rv64ua-p-amoor_w` | p- | none | 1117 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
-| `rv64ua-p-amoswap_d` | p- | none | 1121 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
-| `rv64ua-p-amoswap_w` | p- | none | 1117 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
-| `rv64ua-p-amoxor_d` | p- | none | 1125 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
-| `rv64ua-p-amoxor_w` | p- | none | 1129 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
-| `rv64ua-p-lrsc` | p- | none | 28037 | 2947 | 73 | 74 | 0 | 0 | 0 | 0 | 1 | 4 | 1082 | 1 | 1085 | 107 | 384 |
-| `rv64uc-p-rvc` | p- | none | 1589 | 1 | 3 | 30 | 0 | 0 | 0 | 0 | 7 | 9 | 0 | 5 | 0 | 0 | 34 |
-| `rv64ud-p-fadd` | p- | none | 1912 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 40 | 0 | 1 | 0 | 0 | 36 |
-| `rv64ud-p-fclass` | p- | none | 1233 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 26 |
-| `rv64ud-p-fcmp` | p- | none | 2202 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 60 | 0 | 1 | 0 | 0 | 41 |
-| `rv64ud-p-fcvt` | p- | none | 1824 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 17 | 0 | 1 | 0 | 0 | 36 |
-| `rv64ud-p-fcvt_w` | p- | none | 3736 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 152 | 0 | 1 | 0 | 0 | 60 |
-| `rv64ud-p-fdiv` | p- | none | 1740 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 32 | 0 | 1 | 0 | 0 | 34 |
-| `rv64ud-p-fmadd` | p- | none | 2072 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 48 | 0 | 1 | 0 | 0 | 38 |
-| `rv64ud-p-fmin` | p- | none | 2544 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 72 | 0 | 1 | 0 | 0 | 44 |
-| `rv64ud-p-ldst` | p- | none | 1172 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 10 | 0 | 6 | 0 | 0 | 26 |
-| `rv64ud-p-move` | p- | none | 2696 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 26 |
-| `rv64ud-p-recoding` | p- | none | 1245 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 7 | 0 | 2 | 0 | 0 | 26 |
-| `rv64ud-p-structural` | p- | none | 2027 | 0 | 16 | 49 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 46 |
-| `rv64uf-p-fadd` | p- | none | 1912 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 40 | 0 | 1 | 0 | 0 | 36 |
-| `rv64uf-p-fclass` | p- | none | 1217 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 26 |
-| `rv64uf-p-fcmp` | p- | none | 2202 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 60 | 0 | 1 | 0 | 0 | 41 |
-| `rv64uf-p-fcvt` | p- | none | 1611 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 8 | 0 | 1 | 0 | 0 | 34 |
-| `rv64uf-p-fcvt_w` | p- | none | 3374 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 132 | 0 | 1 | 0 | 0 | 55 |
-| `rv64uf-p-fdiv` | p- | none | 1664 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 28 | 0 | 1 | 0 | 0 | 33 |
-| `rv64uf-p-fmadd` | p- | none | 2072 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 48 | 0 | 1 | 0 | 0 | 38 |
-| `rv64uf-p-fmin` | p- | none | 2544 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 72 | 0 | 1 | 0 | 0 | 44 |
-| `rv64uf-p-ldst` | p- | none | 1184 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 4 | 0 | 3 | 0 | 0 | 26 |
-| `rv64uf-p-move` | p- | none | 1798 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 34 |
-| `rv64uf-p-recoding` | p- | none | 1198 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 1 | 0 | 0 | 26 |
-| `rv64ui-p-add` | p- | none | 2453 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64ui-p-addi` | p- | none | 1630 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-addiw` | p- | none | 1621 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-addw` | p- | none | 2443 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64ui-p-and` | p- | none | 2613 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64ui-p-andi` | p- | none | 1609 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-auipc` | p- | none | 1053 | 0 | 1 | 10 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
-| `rv64ui-p-beq` | p- | none | 2427 | 15 | 11 | 34 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 50 |
-| `rv64ui-p-bge` | p- | none | 2726 | 18 | 14 | 43 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 59 |
-| `rv64ui-p-bgeu` | p- | none | 2956 | 18 | 14 | 43 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 59 |
-| `rv64ui-p-blt` | p- | none | 2429 | 15 | 11 | 34 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 50 |
-| `rv64ui-p-bltu` | p- | none | 2643 | 15 | 11 | 34 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 50 |
-| `rv64ui-p-bne` | p- | none | 2482 | 16 | 11 | 36 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 52 |
-| `rv64ui-p-fence_i` | p- | none | 4320 | 99 | 41 | 51 | 0 | 0 | 0 | 3 | 1 | 2 | 0 | 5 | 0 | 0 | 107 |
-| `rv64ui-p-jal` | p- | none | 1049 | 0 | 1 | 10 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
-| `rv64ui-p-jalr` | p- | none | 1557 | 3 | 4 | 22 | 0 | 0 | 3 | 4 | 1 | 0 | 0 | 1 | 0 | 0 | 37 |
-| `rv64ui-p-lb` | p- | none | 1671 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 24 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-lbu` | p- | none | 1671 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 24 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-ld` | p- | none | 2066 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 24 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-ld_st` | p- | none | 4478 | 0 | 22 | 177 | 0 | 0 | 0 | 0 | 1 | 277 | 0 | 278 | 0 | 0 | 137 |
-| `rv64ui-p-lh` | p- | none | 1711 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 24 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-lhu` | p- | none | 1717 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 24 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-lui` | p- | none | 1065 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
-| `rv64ui-p-lw` | p- | none | 1731 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 24 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-lwu` | p- | none | 1797 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 24 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-ma_data` | p- | none | 7851 | 0 | 3 | 261 | 0 | 0 | 0 | 0 | 1 | 180 | 0 | 136 | 0 | 0 | 197 |
-| `rv64ui-p-or` | p- | none | 2670 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64ui-p-ori` | p- | none | 1591 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-sb` | p- | none | 2292 | 12 | 2 | 28 | 0 | 0 | 0 | 0 | 1 | 34 | 0 | 36 | 0 | 1 | 38 |
-| `rv64ui-p-sd` | p- | none | 2616 | 12 | 2 | 28 | 0 | 0 | 0 | 0 | 1 | 34 | 0 | 35 | 0 | 1 | 38 |
-| `rv64ui-p-sh` | p- | none | 2362 | 12 | 2 | 28 | 0 | 0 | 0 | 0 | 1 | 34 | 0 | 36 | 0 | 1 | 38 |
-| `rv64ui-p-simple` | p- | none | 1003 | 0 | 2 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 23 |
-| `rv64ui-p-sll` | p- | none | 2573 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64ui-p-slli` | p- | none | 1691 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-slliw` | p- | none | 1685 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-sllw` | p- | none | 2577 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64ui-p-slt` | p- | none | 2431 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64ui-p-slti` | p- | none | 1617 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-sltiu` | p- | none | 1617 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-sltu` | p- | none | 2469 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64ui-p-sra` | p- | none | 2524 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64ui-p-srai` | p- | none | 1654 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-sraiw` | p- | none | 1755 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-sraw` | p- | none | 2595 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64ui-p-srl` | p- | none | 2619 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64ui-p-srli` | p- | none | 1715 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-srliw` | p- | none | 1703 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64ui-p-srlw` | p- | none | 2583 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64ui-p-st_ld` | p- | none | 1993 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 70 | 0 | 71 | 0 | 0 | 24 |
-| `rv64ui-p-sub` | p- | none | 2437 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64ui-p-subw` | p- | none | 2429 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64ui-p-sw` | p- | none | 2382 | 12 | 2 | 28 | 0 | 0 | 0 | 0 | 2 | 34 | 0 | 35 | 0 | 1 | 38 |
-| `rv64ui-p-xor` | p- | none | 2664 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64ui-p-xori` | p- | none | 1595 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64um-p-div` | p- | none | 1157 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
-| `rv64um-p-divu` | p- | none | 1167 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
-| `rv64um-p-divuw` | p- | none | 1147 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
-| `rv64um-p-divw` | p- | none | 1139 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
-| `rv64um-p-mul` | p- | none | 2465 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64um-p-mulh` | p- | none | 2471 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64um-p-mulhsu` | p- | none | 2471 | 15 | 5 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64um-p-mulhu` | p- | none | 2531 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64um-p-mulw` | p- | none | 2330 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64um-p-rem` | p- | none | 1131 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
-| `rv64um-p-remu` | p- | none | 1133 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
-| `rv64um-p-remuw` | p- | none | 1129 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
-| `rv64um-p-remw` | p- | none | 1139 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
-| `rv64uzba-p-add_uw` | p- | none | 2455 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzba-p-sh1add` | p- | none | 2461 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzba-p-sh1add_uw` | p- | none | 2469 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzba-p-sh2add` | p- | none | 2461 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzba-p-sh2add_uw` | p- | none | 2469 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzba-p-sh3add` | p- | none | 2461 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzba-p-sh3add_uw` | p- | none | 2469 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzba-p-slli_uw` | p- | none | 1719 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64uzbb-p-andn` | p- | none | 2655 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbb-p-clz` | p- | none | 1497 | 3 | 3 | 11 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
-| `rv64uzbb-p-clzw` | p- | none | 1465 | 3 | 3 | 11 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
-| `rv64uzbb-p-cpop` | p- | none | 1497 | 3 | 3 | 11 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
-| `rv64uzbb-p-cpopw` | p- | none | 1465 | 3 | 3 | 11 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
-| `rv64uzbb-p-ctz` | p- | none | 1497 | 3 | 3 | 11 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
-| `rv64uzbb-p-ctzw` | p- | none | 1467 | 3 | 3 | 11 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
-| `rv64uzbb-p-max` | p- | none | 2441 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbb-p-maxu` | p- | none | 2503 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbb-p-min` | p- | none | 2433 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbb-p-minu` | p- | none | 2482 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbb-p-orc_b` | p- | none | 1539 | 3 | 3 | 11 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
-| `rv64uzbb-p-orn` | p- | none | 2673 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbb-p-rev8` | p- | none | 1572 | 3 | 3 | 11 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
-| `rv64uzbb-p-rol` | p- | none | 2584 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbb-p-rolw` | p- | none | 2586 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbb-p-ror` | p- | none | 2645 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbb-p-rori` | p- | none | 1712 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64uzbb-p-roriw` | p- | none | 1625 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64uzbb-p-rorw` | p- | none | 2513 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbb-p-sext_b` | p- | none | 1497 | 3 | 3 | 11 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
-| `rv64uzbb-p-sext_h` | p- | none | 1503 | 3 | 3 | 11 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
-| `rv64uzbb-p-xnor` | p- | none | 2671 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbb-p-zext_h` | p- | none | 1509 | 3 | 3 | 11 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
-| `rv64uzbc-p-clmul` | p- | none | 2467 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbc-p-clmulh` | p- | none | 2478 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbc-p-clmulr` | p- | none | 2473 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbkb-p-brev8` | p- | none | 1537 | 3 | 3 | 11 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
-| `rv64uzbkb-p-pack` | p- | none | 2913 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbkb-p-packh` | p- | none | 2583 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbkb-p-packw` | p- | none | 2443 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbkx-p-xperm4` | p- | none | 2769 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbkx-p-xperm8` | p- | none | 3598 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbs-p-bclr` | p- | none | 2796 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbs-p-bclri` | p- | none | 1779 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64uzbs-p-bext` | p- | none | 2661 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbs-p-bexti` | p- | none | 1711 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64uzbs-p-binv` | p- | none | 2631 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbs-p-binvi` | p- | none | 1715 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64uzbs-p-bset` | p- | none | 2800 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzbs-p-bseti` | p- | none | 1793 | 6 | 3 | 14 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
-| `rv64uzfh-p-fadd` | p- | none | 1912 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 40 | 0 | 1 | 0 | 0 | 36 |
-| `rv64uzfh-p-fclass` | p- | none | 1218 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 26 |
-| `rv64uzfh-p-fcmp` | p- | none | 1554 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 24 | 0 | 1 | 0 | 0 | 32 |
-| `rv64uzfh-p-fcvt` | p- | none | 1786 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 16 | 0 | 1 | 0 | 0 | 36 |
-| `rv64uzfh-p-fcvt_w` | p- | none | 3374 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 132 | 0 | 1 | 0 | 0 | 55 |
-| `rv64uzfh-p-fdiv` | p- | none | 1664 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 28 | 0 | 1 | 0 | 0 | 33 |
-| `rv64uzfh-p-fmadd` | p- | none | 2072 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 48 | 0 | 1 | 0 | 0 | 38 |
-| `rv64uzfh-p-fmin` | p- | none | 2544 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 72 | 0 | 1 | 0 | 0 | 44 |
-| `rv64uzfh-p-ldst` | p- | none | 1196 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 4 | 0 | 3 | 0 | 0 | 26 |
-| `rv64uzfh-p-move` | p- | none | 1793 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 34 |
-| `rv64uzfh-p-recoding` | p- | none | 1198 | 0 | 3 | 8 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 1 | 0 | 0 | 26 |
-| `rv64uziccid-p-ziccid` | p- | none | 8038 | 550 | 34 | 489 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 105 | 0 | 0 | 473 |
-| `rv64uzicond-p-czero_eqz` | p- | none | 2389 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64uzicond-p-czero_nez` | p- | none | 2377 | 15 | 3 | 23 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
-| `rv64ua-v-amoadd_d` | v- | 15/18 | 30584 | 1765 | 256 | 464 | 0 | 0 | 298 | 3 | 1 | 2891 | 0 | 1987 | 0 | 0 | 645 |
-| `rv64ua-v-amoadd_w` | v- | 16/18 | 31173 | 1784 | 259 | 465 | 0 | 0 | 307 | 3 | 1 | 2891 | 0 | 1987 | 0 | 1 | 659 |
-| `rv64ua-v-amoand_d` | v- | 17/18 | 31308 | 1793 | 256 | 463 | 0 | 0 | 313 | 3 | 1 | 2895 | 0 | 1987 | 0 | 1 | 658 |
-| `rv64ua-v-amoand_w` | v- | 18/18 | 30709 | 1775 | 254 | 462 | 0 | 0 | 308 | 3 | 1 | 2895 | 0 | 1987 | 0 | 1 | 645 |
-| `rv64ua-v-amomax_d` | v- | 1/18 | 30538 | 1767 | 255 | 463 | 0 | 0 | 305 | 4 | 1 | 2889 | 0 | 1988 | 0 | 0 | 643 |
-| `rv64ua-v-amomax_w` | v- | 4/18 | 29893 | 1754 | 255 | 462 | 0 | 0 | 292 | 4 | 1 | 2890 | 0 | 1989 | 0 | 0 | 628 |
-| `rv64ua-v-amomaxu_d` | v- | 2/18 | 30538 | 1767 | 255 | 463 | 0 | 0 | 305 | 4 | 1 | 2889 | 0 | 1988 | 0 | 0 | 643 |
-| `rv64ua-v-amomaxu_w` | v- | 3/18 | 29893 | 1754 | 255 | 462 | 0 | 0 | 292 | 4 | 1 | 2890 | 0 | 1989 | 0 | 0 | 628 |
-| `rv64ua-v-amomin_d` | v- | 5/18 | 30538 | 1767 | 255 | 463 | 0 | 0 | 305 | 4 | 1 | 2889 | 0 | 1988 | 0 | 0 | 643 |
-| `rv64ua-v-amomin_w` | v- | 8/18 | 30706 | 1773 | 254 | 465 | 0 | 0 | 302 | 3 | 1 | 2896 | 0 | 1989 | 0 | 0 | 648 |
-| `rv64ua-v-amominu_d` | v- | 6/18 | 31011 | 1770 | 259 | 462 | 0 | 0 | 307 | 3 | 1 | 2891 | 0 | 1988 | 0 | 0 | 653 |
-| `rv64ua-v-amominu_w` | v- | 7/18 | 30013 | 1749 | 258 | 462 | 0 | 0 | 290 | 3 | 1 | 2892 | 0 | 1989 | 0 | 0 | 631 |
-| `rv64ua-v-amoor_d` | v- | 9/18 | 30566 | 1767 | 255 | 463 | 0 | 0 | 305 | 4 | 1 | 2889 | 0 | 1987 | 0 | 1 | 644 |
-| `rv64ua-v-amoor_w` | v- | 10/18 | 30566 | 1767 | 255 | 463 | 0 | 0 | 305 | 4 | 1 | 2889 | 0 | 1987 | 0 | 1 | 644 |
-| `rv64ua-v-amoswap_d` | v- | 11/18 | 31308 | 1793 | 256 | 463 | 0 | 0 | 313 | 3 | 1 | 2895 | 0 | 1987 | 0 | 1 | 658 |
-| `rv64ua-v-amoswap_w` | v- | 12/18 | 30709 | 1775 | 254 | 462 | 0 | 0 | 308 | 3 | 1 | 2895 | 0 | 1987 | 0 | 1 | 645 |
-| `rv64ua-v-amoxor_d` | v- | 13/18 | 30235 | 1767 | 260 | 461 | 0 | 0 | 296 | 4 | 1 | 2889 | 0 | 1987 | 0 | 1 | 637 |
-| `rv64ua-v-amoxor_w` | v- | 14/18 | 30446 | 1770 | 257 | 461 | 0 | 0 | 300 | 4 | 1 | 2889 | 0 | 1987 | 0 | 1 | 642 |
-| `rv64ua-v-lrsc` | v- | 15/18 | 46890 | 3731 | 256 | 461 | 0 | 0 | 297 | 3 | 1 | 2891 | 1025 | 1986 | 1028 | 70 | 726 |
-| `rv64ud-v-fadd` | v- | 9/18 | 35452 | 2752 | 250 | 425 | 0 | 0 | 412 | 3 | 1 | 3395 | 0 | 1433 | 0 | 0 | 659 |
-| `rv64ud-v-fclass` | v- | 10/18 | 19795 | 1202 | 124 | 261 | 0 | 0 | 121 | 1 | 1 | 1726 | 0 | 822 | 0 | 0 | 362 |
-| `rv64ud-v-fcmp` | v- | 11/18 | 35675 | 2787 | 252 | 422 | 0 | 0 | 409 | 3 | 1 | 3415 | 0 | 1433 | 0 | 0 | 663 |
-| `rv64ud-v-fcvt` | v- | 12/18 | 35286 | 2736 | 252 | 424 | 0 | 0 | 410 | 3 | 1 | 3372 | 0 | 1433 | 0 | 0 | 657 |
-| `rv64ud-v-fcvt_w` | v- | 13/18 | 44801 | 4050 | 376 | 562 | 0 | 0 | 551 | 3 | 1 | 5136 | 0 | 2044 | 0 | 0 | 809 |
-| `rv64ud-v-fdiv` | v- | 14/18 | 34598 | 2718 | 251 | 425 | 0 | 0 | 396 | 3 | 1 | 3387 | 0 | 1433 | 0 | 0 | 642 |
-| `rv64ud-v-fmadd` | v- | 15/18 | 35248 | 2751 | 250 | 422 | 0 | 0 | 403 | 3 | 1 | 3403 | 0 | 1433 | 0 | 0 | 653 |
-| `rv64ud-v-fmin` | v- | 16/18 | 36084 | 2752 | 250 | 425 | 0 | 0 | 412 | 3 | 1 | 3427 | 0 | 1433 | 0 | 0 | 667 |
-| `rv64ud-v-ldst` | v- | 17/18 | 29386 | 1833 | 249 | 403 | 0 | 0 | 289 | 3 | 1 | 2901 | 0 | 1991 | 0 | 0 | 532 |
-| `rv64ud-v-move` | v- | 18/18 | 36190 | 2736 | 250 | 424 | 0 | 0 | 410 | 3 | 1 | 3355 | 0 | 1433 | 0 | 0 | 647 |
-| `rv64ud-v-recoding` | v- | 1/18 | 29741 | 1853 | 249 | 402 | 0 | 0 | 295 | 1 | 1 | 2908 | 0 | 1987 | 0 | 0 | 537 |
-| `rv64ud-v-structural` | v- | 2/18 | 20035 | 1249 | 135 | 317 | 0 | 0 | 121 | 1 | 2 | 1726 | 0 | 822 | 0 | 0 | 384 |
-| `rv64uf-v-fadd` | v- | 16/18 | 35452 | 2752 | 250 | 425 | 0 | 0 | 412 | 3 | 1 | 3395 | 0 | 1433 | 0 | 0 | 659 |
-| `rv64uf-v-fclass` | v- | 17/18 | 19779 | 1202 | 125 | 261 | 0 | 0 | 121 | 1 | 1 | 1726 | 0 | 822 | 0 | 0 | 362 |
-| `rv64uf-v-fcmp` | v- | 18/18 | 35675 | 2787 | 252 | 422 | 0 | 0 | 409 | 3 | 1 | 3415 | 0 | 1433 | 0 | 0 | 663 |
-| `rv64uf-v-fcvt` | v- | 1/18 | 34901 | 2749 | 253 | 421 | 0 | 0 | 404 | 3 | 1 | 3363 | 0 | 1433 | 0 | 0 | 652 |
-| `rv64uf-v-fcvt_w` | v- | 2/18 | 48527 | 4147 | 371 | 571 | 0 | 0 | 628 | 3 | 1 | 5116 | 0 | 2044 | 0 | 0 | 892 |
-| `rv64uf-v-fdiv` | v- | 3/18 | 34582 | 2764 | 249 | 424 | 0 | 0 | 397 | 3 | 1 | 3383 | 0 | 1433 | 0 | 0 | 643 |
-| `rv64uf-v-fmadd` | v- | 4/18 | 35248 | 2751 | 250 | 422 | 0 | 0 | 403 | 3 | 1 | 3403 | 0 | 1433 | 0 | 0 | 653 |
-| `rv64uf-v-fmin` | v- | 5/18 | 36084 | 2752 | 250 | 425 | 0 | 0 | 412 | 3 | 1 | 3427 | 0 | 1433 | 0 | 0 | 667 |
-| `rv64uf-v-ldst` | v- | 6/18 | 30558 | 1778 | 254 | 460 | 0 | 0 | 296 | 2 | 1 | 2903 | 0 | 1988 | 0 | 0 | 640 |
-| `rv64uf-v-move` | v- | 7/18 | 20378 | 1202 | 128 | 263 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 370 |
-| `rv64uf-v-recoding` | v- | 8/18 | 34032 | 2740 | 249 | 423 | 0 | 0 | 395 | 1 | 1 | 3357 | 0 | 1433 | 0 | 0 | 634 |
-| `rv64ui-v-add` | v- | 1/18 | 20526 | 1213 | 127 | 278 | 0 | 0 | 103 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64ui-v-addi` | v- | 2/18 | 20319 | 1206 | 124 | 267 | 0 | 0 | 121 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 367 |
-| `rv64ui-v-addiw` | v- | 3/18 | 20296 | 1208 | 125 | 267 | 0 | 0 | 121 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 367 |
-| `rv64ui-v-addw` | v- | 4/18 | 21045 | 1217 | 127 | 277 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 376 |
-| `rv64ui-v-and` | v- | 7/18 | 20874 | 1215 | 130 | 283 | 0 | 0 | 109 | 1 | 1 | 1726 | 0 | 822 | 0 | 0 | 367 |
-| `rv64ui-v-andi` | v- | 8/18 | 20212 | 1206 | 126 | 267 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 366 |
-| `rv64ui-v-auipc` | v- | 12/18 | 19678 | 1201 | 127 | 270 | 0 | 0 | 133 | 1 | 1 | 1726 | 0 | 822 | 0 | 0 | 361 |
-| `rv64ui-v-beq` | v- | 13/18 | 20435 | 1210 | 139 | 290 | 0 | 0 | 109 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 375 |
-| `rv64ui-v-bge` | v- | 14/18 | 21307 | 1199 | 130 | 301 | 0 | 0 | 136 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 396 |
-| `rv64ui-v-bgeu` | v- | 15/18 | 20978 | 1213 | 146 | 303 | 0 | 0 | 102 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 386 |
-| `rv64ui-v-blt` | v- | 16/18 | 20456 | 1208 | 138 | 290 | 0 | 0 | 109 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 375 |
-| `rv64ui-v-bltu` | v- | 17/18 | 20664 | 1210 | 142 | 293 | 0 | 0 | 102 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 377 |
-| `rv64ui-v-bne` | v- | 18/18 | 20498 | 1211 | 141 | 294 | 0 | 0 | 102 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 379 |
-| `rv64ui-v-fence_i` | v- | 17/18 | 32944 | 1761 | 244 | 478 | 0 | 0 | 331 | 5 | 1 | 2901 | 0 | 1990 | 0 | 0 | 695 |
-| `rv64ui-v-jal` | v- | 1/18 | 19125 | 1214 | 125 | 272 | 0 | 0 | 115 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 349 |
-| `rv64ui-v-jalr` | v- | 2/18 | 19493 | 1198 | 132 | 281 | 0 | 0 | 105 | 6 | 1 | 1726 | 0 | 822 | 0 | 0 | 364 |
-| `rv64ui-v-lb` | v- | 3/18 | 34595 | 2724 | 253 | 432 | 0 | 0 | 397 | 3 | 1 | 3379 | 0 | 1433 | 0 | 0 | 639 |
-| `rv64ui-v-lbu` | v- | 4/18 | 34595 | 2724 | 253 | 432 | 0 | 0 | 397 | 3 | 1 | 3379 | 0 | 1433 | 0 | 0 | 639 |
-| `rv64ui-v-ld` | v- | 9/18 | 35180 | 2720 | 253 | 424 | 0 | 0 | 399 | 3 | 1 | 3379 | 0 | 1433 | 0 | 0 | 643 |
-| `rv64ui-v-ld_st` | v- | 14/18 | 60712 | 5005 | 434 | 908 | 0 | 0 | 582 | 5 | 1 | 6422 | 0 | 3485 | 0 | 0 | 1248 |
-| `rv64ui-v-lh` | v- | 5/18 | 34424 | 2726 | 251 | 431 | 0 | 0 | 392 | 3 | 1 | 3379 | 0 | 1433 | 0 | 0 | 635 |
-| `rv64ui-v-lhu` | v- | 6/18 | 34642 | 2724 | 251 | 432 | 0 | 0 | 397 | 3 | 1 | 3379 | 0 | 1433 | 0 | 0 | 639 |
-| `rv64ui-v-lui` | v- | 11/18 | 19676 | 1202 | 127 | 263 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 361 |
-| `rv64ui-v-lw` | v- | 7/18 | 34726 | 2755 | 245 | 430 | 0 | 0 | 397 | 1 | 1 | 3379 | 0 | 1433 | 0 | 0 | 641 |
-| `rv64ui-v-lwu` | v- | 8/18 | 34012 | 2731 | 247 | 427 | 0 | 0 | 388 | 1 | 1 | 3379 | 0 | 1433 | 0 | 0 | 624 |
-| `rv64ui-v-ma_data` | v- | 18/18 | 62013 | 4769 | 556 | 1035 | 0 | 0 | 519 | 5 | 1 | 6327 | 0 | 3343 | 0 | 0 | 1301 |
-| `rv64ui-v-or` | v- | 9/18 | 20969 | 1214 | 129 | 280 | 0 | 0 | 109 | 1 | 1 | 1726 | 0 | 822 | 0 | 0 | 367 |
-| `rv64ui-v-ori` | v- | 10/18 | 20178 | 1208 | 127 | 268 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 367 |
-| `rv64ui-v-sd` | v- | 13/18 | 44896 | 3382 | 316 | 669 | 0 | 0 | 255 | 6 | 5 | 4550 | 0 | 2631 | 0 | 1 | 886 |
-| `rv64ui-v-simple` | v- | 16/18 | 19059 | 1195 | 126 | 262 | 0 | 0 | 109 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 348 |
-| `rv64ui-v-sll` | v- | 17/18 | 35619 | 2793 | 248 | 440 | 0 | 0 | 277 | 4 | 1 | 3355 | 0 | 1433 | 0 | 0 | 648 |
-| `rv64ui-v-slli` | v- | 18/18 | 20348 | 1208 | 125 | 267 | 0 | 0 | 121 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 367 |
-| `rv64ui-v-slliw` | v- | 1/18 | 20358 | 1208 | 125 | 267 | 0 | 0 | 121 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 367 |
-| `rv64ui-v-sllw` | v- | 2/18 | 34740 | 2872 | 184 | 412 | 0 | 0 | 251 | 4 | 1 | 3355 | 0 | 1433 | 0 | 0 | 618 |
-| `rv64ui-v-slt` | v- | 13/18 | 21048 | 1217 | 126 | 278 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 376 |
-| `rv64ui-v-slti` | v- | 14/18 | 20220 | 1177 | 125 | 268 | 0 | 0 | 120 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64ui-v-sltiu` | v- | 16/18 | 20235 | 1175 | 124 | 268 | 0 | 0 | 120 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64ui-v-sltu` | v- | 15/18 | 20508 | 1212 | 127 | 279 | 0 | 0 | 109 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 364 |
-| `rv64ui-v-sra` | v- | 7/18 | 21135 | 1217 | 127 | 277 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 376 |
-| `rv64ui-v-srai` | v- | 8/18 | 19701 | 1201 | 125 | 271 | 0 | 0 | 109 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 355 |
-| `rv64ui-v-sraiw` | v- | 9/18 | 20437 | 1208 | 124 | 267 | 0 | 0 | 121 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 367 |
-| `rv64ui-v-sraw` | v- | 10/18 | 34876 | 2867 | 181 | 420 | 0 | 0 | 260 | 3 | 1 | 3355 | 0 | 1433 | 0 | 0 | 622 |
-| `rv64ui-v-srl` | v- | 3/18 | 36117 | 2903 | 185 | 426 | 0 | 0 | 276 | 3 | 1 | 3355 | 0 | 1433 | 0 | 0 | 647 |
-| `rv64ui-v-srli` | v- | 4/18 | 20287 | 1208 | 125 | 267 | 0 | 0 | 121 | 1 | 1 | 1726 | 0 | 822 | 0 | 0 | 367 |
-| `rv64ui-v-srliw` | v- | 5/18 | 20332 | 1208 | 124 | 267 | 0 | 0 | 120 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 366 |
-| `rv64ui-v-srlw` | v- | 6/18 | 35065 | 2877 | 184 | 416 | 0 | 0 | 260 | 4 | 1 | 3355 | 0 | 1433 | 0 | 0 | 625 |
-| `rv64ui-v-st_ld` | v- | 15/18 | 45682 | 3447 | 312 | 603 | 0 | 0 | 439 | 3 | 1 | 4586 | 0 | 2667 | 0 | 0 | 901 |
-| `rv64ui-v-sub` | v- | 5/18 | 21039 | 1217 | 127 | 277 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 376 |
-| `rv64ui-v-subw` | v- | 6/18 | 21031 | 1217 | 127 | 277 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 376 |
-| `rv64ui-v-sw` | v- | 12/18 | 31570 | 1753 | 258 | 542 | 0 | 0 | 147 | 3 | 6 | 2921 | 0 | 2020 | 0 | 1 | 656 |
-| `rv64ui-v-xor` | v- | 11/18 | 20968 | 1214 | 129 | 280 | 0 | 0 | 109 | 1 | 1 | 1726 | 0 | 822 | 0 | 0 | 367 |
-| `rv64ui-v-xori` | v- | 12/18 | 20171 | 1208 | 127 | 268 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 367 |
-| `rv64um-v-div` | v- | 5/18 | 19770 | 1202 | 126 | 263 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 361 |
-| `rv64um-v-divu` | v- | 6/18 | 19748 | 1200 | 125 | 263 | 0 | 0 | 120 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 360 |
-| `rv64um-v-divuw` | v- | 11/18 | 19732 | 1200 | 125 | 264 | 0 | 0 | 120 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 360 |
-| `rv64um-v-divw` | v- | 10/18 | 19753 | 1202 | 126 | 263 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 361 |
-| `rv64um-v-mul` | v- | 1/18 | 20538 | 1212 | 129 | 278 | 0 | 0 | 109 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 363 |
-| `rv64um-v-mulh` | v- | 2/18 | 20550 | 1213 | 127 | 278 | 0 | 0 | 103 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64um-v-mulhsu` | v- | 3/18 | 20550 | 1213 | 127 | 278 | 0 | 0 | 103 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64um-v-mulhu` | v- | 4/18 | 20610 | 1213 | 127 | 278 | 0 | 0 | 103 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64um-v-mulw` | v- | 9/18 | 20931 | 1217 | 127 | 277 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 376 |
-| `rv64um-v-rem` | v- | 7/18 | 19751 | 1202 | 126 | 264 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 361 |
-| `rv64um-v-remu` | v- | 8/18 | 19755 | 1202 | 126 | 263 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 361 |
-| `rv64um-v-remuw` | v- | 13/18 | 19708 | 1199 | 127 | 263 | 0 | 0 | 120 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 360 |
-| `rv64um-v-remw` | v- | 12/18 | 19753 | 1202 | 126 | 263 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 361 |
-| `rv64uzba-v-add_uw` | v- | 3/18 | 20418 | 1254 | 85 | 259 | 0 | 0 | 121 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 355 |
-| `rv64uzba-v-sh1add` | v- | 4/18 | 20374 | 1220 | 82 | 257 | 0 | 0 | 118 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 354 |
-| `rv64uzba-v-sh1add_uw` | v- | 5/18 | 20383 | 1220 | 82 | 257 | 0 | 0 | 118 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 354 |
-| `rv64uzba-v-sh2add` | v- | 6/18 | 20374 | 1220 | 82 | 257 | 0 | 0 | 118 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 354 |
-| `rv64uzba-v-sh2add_uw` | v- | 7/18 | 20383 | 1220 | 82 | 257 | 0 | 0 | 118 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 354 |
-| `rv64uzba-v-sh3add` | v- | 8/18 | 20374 | 1220 | 82 | 257 | 0 | 0 | 118 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 354 |
-| `rv64uzba-v-sh3add_uw` | v- | 9/18 | 20383 | 1220 | 82 | 257 | 0 | 0 | 118 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 354 |
-| `rv64uzba-v-slli_uw` | v- | 10/18 | 19695 | 1212 | 80 | 247 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 342 |
-| `rv64uzbb-v-andn` | v- | 11/18 | 20664 | 1217 | 128 | 277 | 0 | 0 | 113 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64uzbb-v-clz` | v- | 12/18 | 20147 | 1214 | 125 | 264 | 0 | 0 | 132 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64uzbb-v-clzw` | v- | 13/18 | 20119 | 1214 | 125 | 264 | 0 | 0 | 132 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64uzbb-v-cpop` | v- | 14/18 | 20147 | 1214 | 125 | 264 | 0 | 0 | 132 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64uzbb-v-cpopw` | v- | 15/18 | 20119 | 1214 | 125 | 264 | 0 | 0 | 132 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64uzbb-v-ctz` | v- | 16/18 | 20147 | 1214 | 125 | 264 | 0 | 0 | 132 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64uzbb-v-ctzw` | v- | 17/18 | 19563 | 1215 | 125 | 264 | 0 | 0 | 120 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 353 |
-| `rv64uzbb-v-max` | v- | 18/18 | 20445 | 1219 | 126 | 275 | 0 | 0 | 112 | 1 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64uzbb-v-maxu` | v- | 1/18 | 20534 | 1215 | 127 | 274 | 0 | 0 | 127 | 1 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64uzbb-v-min` | v- | 2/18 | 20439 | 1217 | 126 | 274 | 0 | 0 | 112 | 1 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64uzbb-v-minu` | v- | 3/18 | 21041 | 1230 | 126 | 274 | 0 | 0 | 135 | 1 | 1 | 1726 | 0 | 822 | 0 | 0 | 377 |
-| `rv64uzbb-v-orc_b` | v- | 4/18 | 20187 | 1216 | 125 | 264 | 0 | 0 | 132 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64uzbb-v-rev8` | v- | 6/18 | 20146 | 1214 | 127 | 265 | 0 | 0 | 132 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64uzbb-v-rori` | v- | 10/18 | 19721 | 1211 | 128 | 268 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 356 |
-| `rv64uzbb-v-roriw` | v- | 11/18 | 19701 | 1218 | 126 | 267 | 0 | 0 | 120 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 356 |
-| `rv64uzbb-v-rorw` | v- | 12/18 | 20549 | 1213 | 127 | 275 | 0 | 0 | 119 | 1 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64uzbb-v-sext_b` | v- | 13/18 | 20147 | 1214 | 125 | 264 | 0 | 0 | 132 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 365 |
-| `rv64uzbb-v-sext_h` | v- | 14/18 | 19598 | 1215 | 125 | 264 | 0 | 0 | 120 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 353 |
-| `rv64uzbb-v-zext_h` | v- | 16/18 | 19606 | 1205 | 125 | 264 | 0 | 0 | 112 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 353 |
-| `rv64uzbc-v-clmul` | v- | 17/18 | 21099 | 1217 | 129 | 276 | 0 | 0 | 121 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 375 |
-| `rv64uzbc-v-clmulh` | v- | 18/18 | 20550 | 1212 | 129 | 277 | 0 | 0 | 109 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 363 |
-| `rv64uzbc-v-clmulr` | v- | 1/18 | 20546 | 1212 | 129 | 278 | 0 | 0 | 109 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 363 |
-| `rv64uzbkb-v-brev8` | v- | 2/18 | 19580 | 1224 | 125 | 265 | 0 | 0 | 124 | 2 | 0 | 1726 | 0 | 822 | 0 | 0 | 354 |
-| `rv64uzbkb-v-packh` | v- | 4/18 | 21230 | 1236 | 128 | 280 | 0 | 0 | 128 | 4 | 0 | 1726 | 0 | 822 | 0 | 0 | 378 |
-| `rv64uzbkb-v-packw` | v- | 5/18 | 20512 | 1237 | 126 | 278 | 0 | 0 | 123 | 2 | 0 | 1726 | 0 | 822 | 0 | 0 | 366 |
-| `rv64uzbkx-v-xperm4` | v- | 6/18 | 35558 | 2899 | 193 | 427 | 0 | 0 | 256 | 1 | 1 | 3355 | 0 | 1433 | 0 | 0 | 634 |
-| `rv64uzbkx-v-xperm8` | v- | 7/18 | 35696 | 2880 | 181 | 419 | 0 | 0 | 253 | 3 | 1 | 3355 | 0 | 1433 | 0 | 0 | 618 |
-| `rv64uzbs-v-bclr` | v- | 8/18 | 34317 | 2603 | 221 | 419 | 0 | 0 | 411 | 3 | 0 | 3355 | 0 | 1433 | 0 | 0 | 610 |
-| `rv64uzbs-v-bclri` | v- | 9/18 | 20362 | 1231 | 127 | 268 | 0 | 0 | 141 | 1 | 0 | 1726 | 0 | 822 | 0 | 0 | 366 |
-| `rv64uzbs-v-bexti` | v- | 11/18 | 18605 | 1145 | 129 | 268 | 0 | 0 | 115 | 1 | 0 | 1726 | 0 | 822 | 0 | 0 | 329 |
-| `rv64uzbs-v-binvi` | v- | 13/18 | 19830 | 1221 | 128 | 269 | 0 | 0 | 127 | 2 | 0 | 1726 | 0 | 822 | 0 | 0 | 355 |
-| `rv64uzbs-v-bset` | v- | 14/18 | 34153 | 3042 | 171 | 404 | 0 | 0 | 305 | 3 | 0 | 3355 | 0 | 1433 | 0 | 0 | 601 |
-| `rv64uzbs-v-bseti` | v- | 15/18 | 19818 | 1218 | 128 | 268 | 0 | 0 | 127 | 1 | 0 | 1726 | 0 | 822 | 0 | 0 | 354 |
-| `rv64uzfh-v-fadd` | v- | 16/18 | 35452 | 2752 | 250 | 425 | 0 | 0 | 412 | 3 | 1 | 3395 | 0 | 1433 | 0 | 0 | 659 |
-| `rv64uzfh-v-fclass` | v- | 17/18 | 19779 | 1202 | 125 | 261 | 0 | 0 | 121 | 1 | 1 | 1726 | 0 | 822 | 0 | 0 | 362 |
-| `rv64uzfh-v-fcmp` | v- | 18/18 | 34040 | 2716 | 251 | 423 | 0 | 0 | 389 | 3 | 1 | 3379 | 0 | 1433 | 0 | 0 | 632 |
-| `rv64uzfh-v-fcvt` | v- | 1/18 | 35269 | 2737 | 253 | 424 | 0 | 0 | 411 | 3 | 1 | 3371 | 0 | 1433 | 0 | 0 | 658 |
-| `rv64uzfh-v-fcvt_w` | v- | 2/18 | 48527 | 4147 | 371 | 571 | 0 | 0 | 628 | 3 | 1 | 5116 | 0 | 2044 | 0 | 0 | 892 |
-| `rv64uzfh-v-fdiv` | v- | 3/18 | 34582 | 2764 | 249 | 424 | 0 | 0 | 397 | 3 | 1 | 3383 | 0 | 1433 | 0 | 0 | 643 |
-| `rv64uzfh-v-fmadd` | v- | 4/18 | 35248 | 2751 | 250 | 422 | 0 | 0 | 403 | 3 | 1 | 3403 | 0 | 1433 | 0 | 0 | 653 |
-| `rv64uzfh-v-fmin` | v- | 5/18 | 36084 | 2752 | 250 | 425 | 0 | 0 | 412 | 3 | 1 | 3427 | 0 | 1433 | 0 | 0 | 667 |
-| `rv64uzfh-v-ldst` | v- | 6/18 | 29646 | 1836 | 250 | 406 | 0 | 0 | 295 | 3 | 1 | 2903 | 0 | 1988 | 0 | 0 | 538 |
-| `rv64uzfh-v-move` | v- | 7/18 | 20332 | 1199 | 129 | 263 | 0 | 0 | 120 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 369 |
-| `rv64uzfh-v-recoding` | v- | 8/18 | 34032 | 2740 | 249 | 423 | 0 | 0 | 395 | 1 | 1 | 3357 | 0 | 1433 | 0 | 0 | 634 |
-| `rv64uzicond-v-czero_eqz` | v- | 9/18 | 20422 | 1210 | 127 | 277 | 0 | 0 | 110 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 364 |
-| `rv64uzicond-v-czero_nez` | v- | 10/18 | 20424 | 1210 | 127 | 277 | 0 | 0 | 110 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 364 |
+| `hypervisor-p-2-stage_translation` | p- | none | 1374 | 0 | 2 | 6 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 13 | 0 | 0 | 27 |
+| `hypervisor-p-2-stage_translation_implicit_load_error` | p- | none | 1652 | 0 | 2 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 34 |
+| `hypervisor-p-2-stage_translation_implicit_load_error_hs` | p- | none | 1827 | 0 | 2 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 38 |
+| `hypervisor-svadu-p-2-stage_translation_implicit_store_error` | p- | none | 1768 | 0 | 2 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 36 |
+| `hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs` | p- | none | 1945 | 0 | 2 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 3 | 0 | 0 | 40 |
+| `rv64mi-p-breakpoint` | p- | none | 3343 | 0 | 2 | 8 | 0 | 0 | 10 | 1 | 1 | 3 | 0 | 2 | 0 | 0 | 74 |
+| `rv64mi-p-csr` | p- | none | 3467 | 16 | 1 | 9 | 0 | 0 | 6 | 1 | 1 | 1 | 0 | 1 | 0 | 0 | 77 |
+| `rv64mi-p-instret_overflow` | p- | none | 1252 | 0 | 0 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64mi-p-ld-misaligned` | p- | none | 1386 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 8 | 0 | 1 | 0 | 0 | 25 |
+| `rv64mi-p-lh-misaligned` | p- | none | 1102 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 1 | 0 | 0 | 25 |
+| `rv64mi-p-lw-misaligned` | p- | none | 1171 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 4 | 0 | 1 | 0 | 0 | 25 |
+| `rv64mi-p-ma_addr` | p- | none | 1538 | 0 | 2 | 8 | 0 | 0 | 0 | 0 | 1 | 59 | 0 | 12 | 0 | 0 | 25 |
+| `rv64mi-p-ma_fetch` | p- | none | 1950 | 0 | 1 | 26 | 0 | 0 | 0 | 0 | 9 | 0 | 0 | 1 | 0 | 0 | 48 |
+| `rv64mi-p-mcsr` | p- | none | 1342 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 32 |
+| `rv64mi-p-pmpaddr` | p- | none | 1185 | 0 | 0 | 9 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 28 |
+| `rv64mi-p-sbreak` | p- | none | 1315 | 27 | 0 | 10 | 0 | 0 | 2 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 31 |
+| `rv64mi-p-scall` | p- | none | 1261 | 0 | 0 | 9 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64mi-p-sd-misaligned` | p- | none | 1436 | 0 | 3 | 16 | 0 | 0 | 0 | 0 | 1 | 8 | 0 | 9 | 0 | 0 | 26 |
+| `rv64mi-p-sh-misaligned` | p- | none | 1109 | 0 | 2 | 9 | 0 | 0 | 0 | 0 | 2 | 2 | 0 | 3 | 0 | 0 | 25 |
+| `rv64mi-p-sw-misaligned` | p- | none | 1150 | 0 | 2 | 11 | 0 | 0 | 0 | 0 | 3 | 4 | 0 | 5 | 0 | 0 | 25 |
+| `rv64mi-p-zicntr` | p- | none | 1439 | 0 | 0 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 33 |
+| `rv64mzicbo-p-zero` | p- | none | 1160 | 0 | 2 | 7 | 0 | 0 | 0 | 0 | 1 | 8 | 0 | 2 | 0 | 0 | 24 |
+| `rv64si-p-csr` | p- | none | 2277 | 0 | 2 | 6 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 51 |
+| `rv64si-p-dirty` | p- | none | 2274 | 46 | 1 | 11 | 0 | 0 | 6 | 1 | 1 | 6 | 0 | 5 | 0 | 0 | 49 |
+| `rv64si-p-icache-alias` | p- | none | 2372 | 0 | 3 | 8 | 0 | 0 | 82 | 4 | 1 | 0 | 0 | 7 | 0 | 0 | 53 |
+| `rv64si-p-ma_fetch` | p- | none | 1382 | 0 | 1 | 23 | 0 | 0 | 0 | 0 | 4 | 0 | 0 | 1 | 0 | 0 | 33 |
+| `rv64si-p-sbreak` | p- | none | 1325 | 15 | 0 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 31 |
+| `rv64si-p-scall` | p- | none | 1443 | 13 | 0 | 8 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 34 |
+| `rv64si-p-wfi` | p- | none | 1173 | 0 | 2 | 6 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 28 |
+| `rv64ssvnapot-p-napot` | p- | none | 1658 | 3 | 2 | 8 | 0 | 0 | 2 | 0 | 1 | 0 | 0 | 7 | 0 | 0 | 34 |
+| `rv64ua-p-amoadd_d` | p- | none | 1081 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 0 | 24 |
+| `rv64ua-p-amoadd_w` | p- | none | 1120 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-amoand_d` | p- | none | 1121 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-amoand_w` | p- | none | 1117 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-amomax_d` | p- | none | 1077 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 3 | 0 | 0 | 24 |
+| `rv64ua-p-amomax_w` | p- | none | 1100 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 3 | 0 | 4 | 0 | 0 | 24 |
+| `rv64ua-p-amomaxu_d` | p- | none | 1077 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 3 | 0 | 0 | 24 |
+| `rv64ua-p-amomaxu_w` | p- | none | 1100 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 3 | 0 | 4 | 0 | 0 | 24 |
+| `rv64ua-p-amomin_d` | p- | none | 1077 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 3 | 0 | 0 | 24 |
+| `rv64ua-p-amomin_w` | p- | none | 1100 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 3 | 0 | 4 | 0 | 0 | 24 |
+| `rv64ua-p-amominu_d` | p- | none | 1077 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 3 | 0 | 0 | 24 |
+| `rv64ua-p-amominu_w` | p- | none | 1100 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 3 | 0 | 4 | 0 | 0 | 24 |
+| `rv64ua-p-amoor_d` | p- | none | 1117 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-amoor_w` | p- | none | 1117 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-amoswap_d` | p- | none | 1121 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-amoswap_w` | p- | none | 1117 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-amoxor_d` | p- | none | 1125 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-amoxor_w` | p- | none | 1129 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 2 | 0 | 1 | 25 |
+| `rv64ua-p-lrsc` | p- | none | 19229 | 2203 | 12 | 9 | 0 | 0 | 0 | 0 | 1 | 4 | 1025 | 1 | 1028 | 74 | 108 |
+| `rv64uc-p-rvc` | p- | none | 1589 | 1 | 4 | 28 | 0 | 0 | 0 | 1 | 7 | 9 | 0 | 5 | 0 | 0 | 34 |
+| `rv64ud-p-fadd` | p- | none | 1912 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 40 | 0 | 1 | 0 | 0 | 36 |
+| `rv64ud-p-fclass` | p- | none | 1233 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 26 |
+| `rv64ud-p-fcmp` | p- | none | 2232 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 60 | 0 | 1 | 0 | 0 | 41 |
+| `rv64ud-p-fcvt` | p- | none | 1840 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 17 | 0 | 1 | 0 | 0 | 36 |
+| `rv64ud-p-fcvt_w` | p- | none | 3802 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 152 | 0 | 1 | 0 | 0 | 60 |
+| `rv64ud-p-fdiv` | p- | none | 1740 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 32 | 0 | 1 | 0 | 0 | 34 |
+| `rv64ud-p-fmadd` | p- | none | 2072 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 48 | 0 | 1 | 0 | 0 | 38 |
+| `rv64ud-p-fmin` | p- | none | 2544 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 72 | 0 | 1 | 0 | 0 | 44 |
+| `rv64ud-p-ldst` | p- | none | 1172 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 10 | 0 | 6 | 0 | 0 | 26 |
+| `rv64ud-p-move` | p- | none | 2696 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 26 |
+| `rv64ud-p-recoding` | p- | none | 1245 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 7 | 0 | 2 | 0 | 0 | 26 |
+| `rv64ud-p-structural` | p- | none | 2027 | 0 | 17 | 48 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 46 |
+| `rv64uf-p-fadd` | p- | none | 1912 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 40 | 0 | 1 | 0 | 0 | 36 |
+| `rv64uf-p-fclass` | p- | none | 1217 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 26 |
+| `rv64uf-p-fcmp` | p- | none | 2232 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 60 | 0 | 1 | 0 | 0 | 41 |
+| `rv64uf-p-fcvt` | p- | none | 1629 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 8 | 0 | 1 | 0 | 0 | 34 |
+| `rv64uf-p-fcvt_w` | p- | none | 3430 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 132 | 0 | 1 | 0 | 0 | 55 |
+| `rv64uf-p-fdiv` | p- | none | 1664 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 28 | 0 | 1 | 0 | 0 | 33 |
+| `rv64uf-p-fmadd` | p- | none | 2035 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 48 | 0 | 1 | 0 | 0 | 38 |
+| `rv64uf-p-fmin` | p- | none | 2544 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 72 | 0 | 1 | 0 | 0 | 44 |
+| `rv64uf-p-ldst` | p- | none | 1184 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 4 | 0 | 3 | 0 | 0 | 26 |
+| `rv64uf-p-move` | p- | none | 1817 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 34 |
+| `rv64uf-p-recoding` | p- | none | 1198 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 1 | 0 | 0 | 26 |
+| `rv64ui-p-add` | p- | none | 2453 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-addi` | p- | none | 1630 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-addiw` | p- | none | 1621 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-addw` | p- | none | 2443 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-and` | p- | none | 2613 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-andi` | p- | none | 1609 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-auipc` | p- | none | 1053 | 0 | 2 | 9 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64ui-p-beq` | p- | none | 2427 | 15 | 28 | 33 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 50 |
+| `rv64ui-p-bge` | p- | none | 2726 | 18 | 37 | 42 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 59 |
+| `rv64ui-p-bgeu` | p- | none | 2956 | 18 | 37 | 42 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 59 |
+| `rv64ui-p-blt` | p- | none | 2429 | 15 | 28 | 33 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 50 |
+| `rv64ui-p-bltu` | p- | none | 2643 | 15 | 28 | 33 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 50 |
+| `rv64ui-p-bne` | p- | none | 2482 | 16 | 30 | 35 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 52 |
+| `rv64ui-p-fence_i` | p- | none | 2030 | 161 | 10 | 12 | 0 | 0 | 0 | 1 | 1 | 2 | 0 | 5 | 0 | 0 | 38 |
+| `rv64ui-p-jal` | p- | none | 1049 | 0 | 1 | 9 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64ui-p-jalr` | p- | none | 1557 | 3 | 5 | 21 | 0 | 0 | 3 | 3 | 1 | 0 | 0 | 1 | 0 | 0 | 37 |
+| `rv64ui-p-lb` | p- | none | 1671 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 24 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-lbu` | p- | none | 1671 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 24 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-ld` | p- | none | 2066 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 24 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-ld_st` | p- | none | 4478 | 0 | 22 | 157 | 0 | 0 | 0 | 0 | 1 | 277 | 0 | 278 | 0 | 0 | 137 |
+| `rv64ui-p-lh` | p- | none | 1711 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 24 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-lhu` | p- | none | 1717 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 24 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-lui` | p- | none | 1065 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64ui-p-lw` | p- | none | 1731 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 24 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-lwu` | p- | none | 1797 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 24 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-ma_data` | p- | none | 7851 | 0 | 3 | 211 | 0 | 0 | 0 | 0 | 1 | 180 | 0 | 136 | 0 | 0 | 197 |
+| `rv64ui-p-or` | p- | none | 2670 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-ori` | p- | none | 1591 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-sb` | p- | none | 2292 | 12 | 14 | 27 | 0 | 0 | 0 | 0 | 1 | 34 | 0 | 36 | 0 | 1 | 38 |
+| `rv64ui-p-sd` | p- | none | 2616 | 12 | 14 | 27 | 0 | 0 | 0 | 0 | 1 | 34 | 0 | 35 | 0 | 1 | 38 |
+| `rv64ui-p-sh` | p- | none | 2362 | 12 | 14 | 27 | 0 | 0 | 0 | 0 | 1 | 34 | 0 | 36 | 0 | 1 | 38 |
+| `rv64ui-p-simple` | p- | none | 1003 | 0 | 2 | 6 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 23 |
+| `rv64ui-p-sll` | p- | none | 2573 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-slli` | p- | none | 1691 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-slliw` | p- | none | 1685 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-sllw` | p- | none | 2577 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-slt` | p- | none | 2431 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-slti` | p- | none | 1617 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-sltiu` | p- | none | 1617 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-sltu` | p- | none | 2469 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-sra` | p- | none | 2524 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-srai` | p- | none | 1654 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-sraiw` | p- | none | 1755 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-sraw` | p- | none | 2595 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-srl` | p- | none | 2619 | 15 | 18 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-srli` | p- | none | 1715 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-srliw` | p- | none | 1703 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64ui-p-srlw` | p- | none | 2583 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-st_ld` | p- | none | 1993 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 70 | 0 | 71 | 0 | 0 | 24 |
+| `rv64ui-p-sub` | p- | none | 2437 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-subw` | p- | none | 2429 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-sw` | p- | none | 2382 | 12 | 15 | 27 | 0 | 0 | 0 | 0 | 2 | 34 | 0 | 35 | 0 | 1 | 38 |
+| `rv64ui-p-xor` | p- | none | 2664 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ui-p-xori` | p- | none | 1595 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64um-p-div` | p- | none | 1157 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64um-p-divu` | p- | none | 1167 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64um-p-divuw` | p- | none | 1147 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64um-p-divw` | p- | none | 1139 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64um-p-mul` | p- | none | 2465 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64um-p-mulh` | p- | none | 2471 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64um-p-mulhsu` | p- | none | 2471 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64um-p-mulhu` | p- | none | 2531 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64um-p-mulw` | p- | none | 2330 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64um-p-rem` | p- | none | 1131 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64um-p-remu` | p- | none | 1133 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64um-p-remuw` | p- | none | 1129 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64um-p-remw` | p- | none | 1139 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 24 |
+| `rv64uzba-p-add_uw` | p- | none | 2455 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzba-p-sh1add` | p- | none | 2461 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzba-p-sh1add_uw` | p- | none | 2469 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzba-p-sh2add` | p- | none | 2461 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzba-p-sh2add_uw` | p- | none | 2469 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzba-p-sh3add` | p- | none | 2461 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzba-p-sh3add_uw` | p- | none | 2469 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzba-p-slli_uw` | p- | none | 1719 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64uzbb-p-andn` | p- | none | 2655 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbb-p-clz` | p- | none | 1497 | 3 | 7 | 10 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-clzw` | p- | none | 1465 | 3 | 7 | 10 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-cpop` | p- | none | 1497 | 3 | 7 | 10 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-cpopw` | p- | none | 1465 | 3 | 7 | 10 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-ctz` | p- | none | 1497 | 3 | 7 | 10 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-ctzw` | p- | none | 1467 | 3 | 7 | 10 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-max` | p- | none | 2441 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbb-p-maxu` | p- | none | 2503 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbb-p-min` | p- | none | 2433 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbb-p-minu` | p- | none | 2482 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbb-p-orc_b` | p- | none | 1539 | 3 | 7 | 10 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-orn` | p- | none | 2673 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbb-p-rev8` | p- | none | 1572 | 3 | 7 | 10 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-rol` | p- | none | 2584 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbb-p-rolw` | p- | none | 2586 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbb-p-ror` | p- | none | 2645 | 15 | 18 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbb-p-rori` | p- | none | 1712 | 6 | 8 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64uzbb-p-roriw` | p- | none | 1625 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64uzbb-p-rorw` | p- | none | 2513 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbb-p-sext_b` | p- | none | 1497 | 3 | 7 | 10 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-sext_h` | p- | none | 1503 | 3 | 7 | 10 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbb-p-xnor` | p- | none | 2671 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbb-p-zext_h` | p- | none | 1509 | 3 | 7 | 10 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbc-p-clmul` | p- | none | 2467 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbc-p-clmulh` | p- | none | 2478 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbc-p-clmulr` | p- | none | 2473 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbkb-p-brev8` | p- | none | 1537 | 3 | 7 | 10 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 27 |
+| `rv64uzbkb-p-pack` | p- | none | 2913 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbkb-p-packh` | p- | none | 2583 | 15 | 18 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbkb-p-packw` | p- | none | 2443 | 15 | 18 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbkx-p-xperm4` | p- | none | 2769 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbkx-p-xperm8` | p- | none | 3598 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbs-p-bclr` | p- | none | 2796 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbs-p-bclri` | p- | none | 1779 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64uzbs-p-bext` | p- | none | 2661 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbs-p-bexti` | p- | none | 1711 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64uzbs-p-binv` | p- | none | 2631 | 15 | 18 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbs-p-binvi` | p- | none | 1715 | 6 | 8 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64uzbs-p-bset` | p- | none | 2800 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzbs-p-bseti` | p- | none | 1793 | 6 | 9 | 13 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 30 |
+| `rv64uzfh-p-fadd` | p- | none | 1912 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 40 | 0 | 1 | 0 | 0 | 36 |
+| `rv64uzfh-p-fclass` | p- | none | 1218 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 26 |
+| `rv64uzfh-p-fcmp` | p- | none | 1566 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 24 | 0 | 1 | 0 | 0 | 32 |
+| `rv64uzfh-p-fcvt` | p- | none | 1802 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 16 | 0 | 1 | 0 | 0 | 36 |
+| `rv64uzfh-p-fcvt_w` | p- | none | 3430 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 132 | 0 | 1 | 0 | 0 | 55 |
+| `rv64uzfh-p-fdiv` | p- | none | 1664 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 28 | 0 | 1 | 0 | 0 | 33 |
+| `rv64uzfh-p-fmadd` | p- | none | 2072 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 48 | 0 | 1 | 0 | 0 | 38 |
+| `rv64uzfh-p-fmin` | p- | none | 2544 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 72 | 0 | 1 | 0 | 0 | 44 |
+| `rv64uzfh-p-ldst` | p- | none | 1196 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 4 | 0 | 3 | 0 | 0 | 26 |
+| `rv64uzfh-p-move` | p- | none | 1812 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 34 |
+| `rv64uzfh-p-recoding` | p- | none | 1198 | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 1 | 0 | 0 | 26 |
+| `rv64uziccid-p-ziccid` | p- | none | 8240 | 678 | 68 | 398 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 105 | 0 | 0 | 470 |
+| `rv64uzicond-p-czero_eqz` | p- | none | 2389 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64uzicond-p-czero_nez` | p- | none | 2377 | 15 | 19 | 22 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 39 |
+| `rv64ua-v-amoadd_d` | v- | 15/18 | 28360 | 1578 | 377 | 308 | 0 | 0 | 219 | 7 | 1 | 2891 | 0 | 1987 | 0 | 0 | 493 |
+| `rv64ua-v-amoadd_w` | v- | 16/18 | 28349 | 1570 | 369 | 299 | 0 | 0 | 217 | 7 | 1 | 2891 | 0 | 1987 | 0 | 1 | 484 |
+| `rv64ua-v-amoand_d` | v- | 17/18 | 27836 | 1675 | 292 | 277 | 0 | 0 | 217 | 7 | 1 | 2895 | 0 | 1987 | 0 | 1 | 410 |
+| `rv64ua-v-amoand_w` | v- | 18/18 | 27836 | 1675 | 292 | 277 | 0 | 0 | 217 | 7 | 1 | 2895 | 0 | 1987 | 0 | 1 | 410 |
+| `rv64ua-v-amomax_d` | v- | 1/18 | 28223 | 1574 | 353 | 293 | 0 | 0 | 220 | 6 | 1 | 2889 | 0 | 1988 | 0 | 0 | 469 |
+| `rv64ua-v-amomax_w` | v- | 4/18 | 28360 | 1589 | 370 | 300 | 0 | 0 | 220 | 5 | 1 | 2890 | 0 | 1989 | 0 | 0 | 486 |
+| `rv64ua-v-amomaxu_d` | v- | 2/18 | 28223 | 1574 | 353 | 293 | 0 | 0 | 220 | 6 | 1 | 2889 | 0 | 1988 | 0 | 0 | 469 |
+| `rv64ua-v-amomaxu_w` | v- | 3/18 | 28360 | 1589 | 370 | 300 | 0 | 0 | 220 | 5 | 1 | 2890 | 0 | 1989 | 0 | 0 | 486 |
+| `rv64ua-v-amomin_d` | v- | 5/18 | 28223 | 1574 | 353 | 293 | 0 | 0 | 220 | 6 | 1 | 2889 | 0 | 1988 | 0 | 0 | 469 |
+| `rv64ua-v-amomin_w` | v- | 8/18 | 28487 | 1589 | 369 | 301 | 0 | 0 | 223 | 4 | 1 | 2896 | 0 | 1989 | 0 | 0 | 485 |
+| `rv64ua-v-amominu_d` | v- | 6/18 | 28380 | 1592 | 365 | 299 | 0 | 0 | 222 | 5 | 1 | 2891 | 0 | 1988 | 0 | 0 | 481 |
+| `rv64ua-v-amominu_w` | v- | 7/18 | 28369 | 1585 | 366 | 300 | 0 | 0 | 221 | 4 | 1 | 2892 | 0 | 1989 | 0 | 0 | 482 |
+| `rv64ua-v-amoor_d` | v- | 9/18 | 28276 | 1581 | 359 | 295 | 0 | 0 | 221 | 6 | 1 | 2889 | 0 | 1987 | 0 | 1 | 476 |
+| `rv64ua-v-amoor_w` | v- | 10/18 | 28276 | 1581 | 359 | 295 | 0 | 0 | 221 | 6 | 1 | 2889 | 0 | 1987 | 0 | 1 | 476 |
+| `rv64ua-v-amoswap_d` | v- | 11/18 | 28539 | 1593 | 372 | 300 | 0 | 0 | 223 | 5 | 1 | 2895 | 0 | 1987 | 0 | 1 | 489 |
+| `rv64ua-v-amoswap_w` | v- | 12/18 | 28385 | 1581 | 357 | 294 | 0 | 0 | 223 | 5 | 1 | 2895 | 0 | 1987 | 0 | 1 | 474 |
+| `rv64ua-v-amoxor_d` | v- | 13/18 | 28333 | 1576 | 365 | 298 | 0 | 0 | 220 | 7 | 1 | 2889 | 0 | 1987 | 0 | 1 | 482 |
+| `rv64ua-v-amoxor_w` | v- | 14/18 | 28365 | 1582 | 366 | 300 | 0 | 0 | 220 | 5 | 1 | 2889 | 0 | 1987 | 0 | 1 | 483 |
+| `rv64ua-v-lrsc` | v- | 15/18 | 46275 | 3711 | 367 | 300 | 0 | 0 | 211 | 5 | 1 | 2891 | 1025 | 1986 | 1028 | 75 | 559 |
+| `rv64uc-v-rvc` | v- | 14/18 | 37465 | 2869 | 411 | 335 | 0 | 0 | 428 | 11 | 10 | 4535 | 0 | 2601 | 0 | 0 | 561 |
+| `rv64ud-v-fadd` | v- | 9/18 | 27787 | 2429 | 291 | 268 | 0 | 0 | 210 | 5 | 1 | 3395 | 0 | 1433 | 0 | 0 | 410 |
+| `rv64ud-v-fclass` | v- | 10/18 | 17769 | 1095 | 197 | 188 | 0 | 0 | 93 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 271 |
+| `rv64ud-v-fcmp` | v- | 11/18 | 28100 | 2429 | 291 | 268 | 0 | 0 | 210 | 5 | 1 | 3415 | 0 | 1433 | 0 | 0 | 415 |
+| `rv64ud-v-fcvt` | v- | 12/18 | 27434 | 2412 | 277 | 257 | 0 | 0 | 207 | 5 | 1 | 3372 | 0 | 1433 | 0 | 0 | 391 |
+| `rv64ud-v-fcvt_w` | v- | 13/18 | 38653 | 3749 | 367 | 339 | 0 | 0 | 323 | 8 | 1 | 5136 | 0 | 2044 | 0 | 0 | 543 |
+| `rv64ud-v-fdiv` | v- | 14/18 | 27615 | 2429 | 291 | 268 | 0 | 0 | 210 | 5 | 1 | 3387 | 0 | 1433 | 0 | 0 | 408 |
+| `rv64ud-v-fmadd` | v- | 15/18 | 27949 | 2429 | 291 | 268 | 0 | 0 | 210 | 5 | 1 | 3403 | 0 | 1433 | 0 | 0 | 412 |
+| `rv64ud-v-fmin` | v- | 16/18 | 28419 | 2429 | 291 | 268 | 0 | 0 | 210 | 5 | 1 | 3427 | 0 | 1433 | 0 | 0 | 418 |
+| `rv64ud-v-ldst` | v- | 17/18 | 28263 | 1580 | 369 | 309 | 0 | 0 | 217 | 4 | 1 | 2901 | 0 | 1991 | 0 | 0 | 488 |
+| `rv64ud-v-move` | v- | 18/18 | 28511 | 2411 | 279 | 260 | 0 | 0 | 207 | 6 | 1 | 3355 | 0 | 1433 | 0 | 0 | 386 |
+| `rv64ud-v-recoding` | v- | 1/18 | 27790 | 1659 | 281 | 267 | 0 | 0 | 221 | 6 | 1 | 2908 | 0 | 1987 | 0 | 0 | 399 |
+| `rv64ud-v-structural` | v- | 2/18 | 18543 | 1094 | 215 | 251 | 0 | 0 | 89 | 6 | 2 | 1726 | 0 | 822 | 0 | 0 | 294 |
+| `rv64uf-v-fadd` | v- | 16/18 | 27787 | 2433 | 293 | 268 | 0 | 0 | 211 | 5 | 1 | 3395 | 0 | 1433 | 0 | 0 | 410 |
+| `rv64uf-v-fclass` | v- | 17/18 | 17753 | 1095 | 198 | 188 | 0 | 0 | 93 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 271 |
+| `rv64uf-v-fcmp` | v- | 18/18 | 28100 | 2429 | 291 | 268 | 0 | 0 | 210 | 5 | 1 | 3415 | 0 | 1433 | 0 | 0 | 415 |
+| `rv64uf-v-fcvt` | v- | 1/18 | 27216 | 2412 | 277 | 256 | 0 | 0 | 207 | 5 | 1 | 3363 | 0 | 1433 | 0 | 0 | 389 |
+| `rv64uf-v-fcvt_w` | v- | 2/18 | 38304 | 3749 | 366 | 339 | 0 | 0 | 323 | 8 | 1 | 5116 | 0 | 2044 | 0 | 0 | 538 |
+| `rv64uf-v-fdiv` | v- | 3/18 | 27536 | 2429 | 291 | 268 | 0 | 0 | 210 | 5 | 1 | 3383 | 0 | 1433 | 0 | 0 | 407 |
+| `rv64uf-v-fmadd` | v- | 4/18 | 27949 | 2429 | 291 | 268 | 0 | 0 | 210 | 5 | 1 | 3403 | 0 | 1433 | 0 | 0 | 412 |
+| `rv64uf-v-fmin` | v- | 5/18 | 28419 | 2429 | 291 | 268 | 0 | 0 | 210 | 5 | 1 | 3427 | 0 | 1433 | 0 | 0 | 418 |
+| `rv64uf-v-ldst` | v- | 6/18 | 28407 | 1600 | 367 | 307 | 0 | 0 | 222 | 5 | 1 | 2903 | 0 | 1988 | 0 | 0 | 487 |
+| `rv64uf-v-move` | v- | 7/18 | 18400 | 1063 | 195 | 187 | 0 | 0 | 93 | 5 | 1 | 1726 | 0 | 822 | 0 | 0 | 276 |
+| `rv64uf-v-recoding` | v- | 8/18 | 26855 | 2415 | 278 | 260 | 0 | 0 | 208 | 6 | 1 | 3357 | 0 | 1433 | 0 | 0 | 384 |
+| `rv64ui-v-add` | v- | 1/18 | 19222 | 1125 | 219 | 213 | 0 | 0 | 87 | 4 | 1 | 1726 | 0 | 822 | 0 | 0 | 294 |
+| `rv64ui-v-addi` | v- | 2/18 | 18412 | 1084 | 214 | 205 | 0 | 0 | 94 | 6 | 1 | 1726 | 0 | 822 | 0 | 0 | 284 |
+| `rv64ui-v-addiw` | v- | 3/18 | 18339 | 1113 | 212 | 203 | 0 | 0 | 92 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 285 |
+| `rv64ui-v-addw` | v- | 4/18 | 19183 | 1116 | 220 | 212 | 0 | 0 | 93 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 293 |
+| `rv64ui-v-and` | v- | 7/18 | 19255 | 1113 | 209 | 204 | 0 | 0 | 93 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 281 |
+| `rv64ui-v-andi` | v- | 8/18 | 18277 | 1108 | 201 | 192 | 0 | 0 | 94 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 273 |
+| `rv64ui-v-auipc` | v- | 12/18 | 17683 | 1097 | 198 | 196 | 0 | 0 | 105 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 270 |
+| `rv64ui-v-beq` | v- | 13/18 | 18929 | 1108 | 199 | 209 | 0 | 0 | 92 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 291 |
+| `rv64ui-v-bge` | v- | 14/18 | 19133 | 1110 | 206 | 222 | 0 | 0 | 107 | 4 | 1 | 1726 | 0 | 822 | 0 | 0 | 299 |
+| `rv64ui-v-bgeu` | v- | 15/18 | 19385 | 1115 | 202 | 222 | 0 | 0 | 85 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 300 |
+| `rv64ui-v-blt` | v- | 16/18 | 18932 | 1108 | 199 | 209 | 0 | 0 | 92 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 291 |
+| `rv64ui-v-bltu` | v- | 17/18 | 19125 | 1121 | 212 | 222 | 0 | 0 | 85 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 301 |
+| `rv64ui-v-bne` | v- | 18/18 | 18861 | 1117 | 202 | 213 | 0 | 0 | 85 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 292 |
+| `rv64ui-v-fence_i` | v- | 17/18 | 29504 | 1645 | 398 | 311 | 0 | 0 | 295 | 8 | 1 | 2901 | 0 | 1990 | 0 | 0 | 517 |
+| `rv64ui-v-jal` | v- | 1/18 | 17683 | 1098 | 194 | 195 | 0 | 0 | 93 | 5 | 1 | 1726 | 0 | 822 | 0 | 0 | 268 |
+| `rv64ui-v-jalr` | v- | 2/18 | 18225 | 1112 | 207 | 217 | 0 | 0 | 89 | 4 | 1 | 1726 | 0 | 822 | 0 | 0 | 295 |
+| `rv64ui-v-lb` | v- | 3/18 | 27482 | 2426 | 282 | 262 | 0 | 0 | 212 | 5 | 1 | 3379 | 0 | 1433 | 0 | 0 | 390 |
+| `rv64ui-v-lbu` | v- | 4/18 | 27482 | 2426 | 282 | 262 | 0 | 0 | 212 | 5 | 1 | 3379 | 0 | 1433 | 0 | 0 | 390 |
+| `rv64ui-v-ld` | v- | 9/18 | 27847 | 2410 | 282 | 260 | 0 | 0 | 207 | 5 | 1 | 3379 | 0 | 1433 | 0 | 0 | 384 |
+| `rv64ui-v-ld_st` | v- | 14/18 | 49420 | 4410 | 496 | 545 | 0 | 0 | 301 | 10 | 1 | 6422 | 0 | 3485 | 0 | 0 | 773 |
+| `rv64ui-v-lh` | v- | 5/18 | 27506 | 2417 | 285 | 263 | 0 | 0 | 212 | 5 | 1 | 3379 | 0 | 1433 | 0 | 0 | 390 |
+| `rv64ui-v-lhu` | v- | 6/18 | 27586 | 2435 | 292 | 273 | 0 | 0 | 212 | 5 | 1 | 3379 | 0 | 1433 | 0 | 0 | 400 |
+| `rv64ui-v-lui` | v- | 11/18 | 17713 | 1098 | 194 | 187 | 0 | 0 | 93 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 267 |
+| `rv64ui-v-lw` | v- | 7/18 | 27414 | 2427 | 291 | 272 | 0 | 0 | 208 | 5 | 1 | 3379 | 0 | 1433 | 0 | 0 | 394 |
+| `rv64ui-v-lwu` | v- | 8/18 | 27423 | 2418 | 281 | 261 | 0 | 0 | 208 | 5 | 1 | 3379 | 0 | 1433 | 0 | 0 | 384 |
+| `rv64ui-v-ma_data` | v- | 18/18 | 51138 | 4316 | 441 | 595 | 0 | 0 | 295 | 12 | 1 | 6327 | 0 | 3343 | 0 | 0 | 750 |
+| `rv64ui-v-or` | v- | 9/18 | 19480 | 1128 | 219 | 210 | 0 | 0 | 94 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 293 |
+| `rv64ui-v-ori` | v- | 10/18 | 18316 | 1117 | 210 | 203 | 0 | 0 | 94 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 284 |
+| `rv64ui-v-sb` | v- | 10/18 | 28733 | 1658 | 320 | 285 | 0 | 0 | 230 | 7 | 3 | 2921 | 0 | 2021 | 0 | 1 | 438 |
+| `rv64ui-v-sd` | v- | 13/18 | 38675 | 3101 | 416 | 399 | 0 | 0 | 146 | 17 | 5 | 4550 | 0 | 2631 | 0 | 1 | 581 |
+| `rv64ui-v-sh` | v- | 11/18 | 28439 | 1897 | 244 | 263 | 0 | 0 | 125 | 6 | 2 | 2921 | 0 | 2021 | 0 | 1 | 369 |
+| `rv64ui-v-simple` | v- | 16/18 | 17598 | 1061 | 194 | 186 | 0 | 0 | 93 | 6 | 1 | 1726 | 0 | 822 | 0 | 0 | 266 |
+| `rv64ui-v-sll` | v- | 17/18 | 28441 | 2415 | 291 | 271 | 0 | 0 | 141 | 5 | 1 | 3355 | 0 | 1433 | 0 | 0 | 394 |
+| `rv64ui-v-slli` | v- | 18/18 | 18421 | 1085 | 213 | 205 | 0 | 0 | 94 | 6 | 1 | 1726 | 0 | 822 | 0 | 0 | 283 |
+| `rv64ui-v-slliw` | v- | 1/18 | 18468 | 1084 | 214 | 205 | 0 | 0 | 94 | 6 | 1 | 1726 | 0 | 822 | 0 | 0 | 284 |
+| `rv64ui-v-sllw` | v- | 2/18 | 28692 | 2582 | 325 | 286 | 0 | 0 | 140 | 5 | 1 | 3355 | 0 | 1433 | 0 | 0 | 428 |
+| `rv64ui-v-slti` | v- | 14/18 | 18358 | 1085 | 213 | 205 | 0 | 0 | 94 | 6 | 1 | 1726 | 0 | 822 | 0 | 0 | 283 |
+| `rv64ui-v-sltiu` | v- | 16/18 | 18358 | 1085 | 213 | 205 | 0 | 0 | 94 | 6 | 1 | 1726 | 0 | 822 | 0 | 0 | 283 |
+| `rv64ui-v-sltu` | v- | 15/18 | 19206 | 1122 | 219 | 214 | 0 | 0 | 93 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 293 |
+| `rv64ui-v-sra` | v- | 7/18 | 19173 | 1084 | 217 | 211 | 0 | 0 | 93 | 5 | 1 | 1726 | 0 | 822 | 0 | 0 | 289 |
+| `rv64ui-v-srai` | v- | 8/18 | 18234 | 1104 | 200 | 193 | 0 | 0 | 93 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 273 |
+| `rv64ui-v-sraiw` | v- | 9/18 | 18547 | 1084 | 214 | 205 | 0 | 0 | 94 | 6 | 1 | 1726 | 0 | 822 | 0 | 0 | 284 |
+| `rv64ui-v-sraw` | v- | 10/18 | 28610 | 2584 | 318 | 283 | 0 | 0 | 140 | 8 | 1 | 3355 | 0 | 1433 | 0 | 0 | 423 |
+| `rv64ui-v-srl` | v- | 3/18 | 28647 | 2573 | 309 | 276 | 0 | 0 | 141 | 5 | 1 | 3355 | 0 | 1433 | 0 | 0 | 414 |
+| `rv64ui-v-srli` | v- | 4/18 | 18283 | 1115 | 210 | 202 | 0 | 0 | 92 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 282 |
+| `rv64ui-v-srliw` | v- | 5/18 | 18485 | 1078 | 214 | 205 | 0 | 0 | 94 | 6 | 1 | 1726 | 0 | 822 | 0 | 0 | 284 |
+| `rv64ui-v-srlw` | v- | 6/18 | 28690 | 2582 | 319 | 285 | 0 | 0 | 141 | 5 | 1 | 3355 | 0 | 1433 | 0 | 0 | 423 |
+| `rv64ui-v-st_ld` | v- | 15/18 | 38139 | 3035 | 467 | 381 | 0 | 0 | 248 | 8 | 1 | 4586 | 0 | 2667 | 0 | 0 | 619 |
+| `rv64ui-v-sub` | v- | 5/18 | 19132 | 1085 | 217 | 211 | 0 | 0 | 93 | 5 | 1 | 1726 | 0 | 822 | 0 | 0 | 290 |
+| `rv64ui-v-subw` | v- | 6/18 | 19169 | 1116 | 220 | 212 | 0 | 0 | 93 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 293 |
+| `rv64ui-v-sw` | v- | 12/18 | 29100 | 1615 | 315 | 327 | 0 | 0 | 122 | 6 | 6 | 2921 | 0 | 2020 | 0 | 1 | 444 |
+| `rv64ui-v-xor` | v- | 11/18 | 19425 | 1130 | 218 | 210 | 0 | 0 | 95 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 292 |
+| `rv64ui-v-xori` | v- | 12/18 | 18149 | 1107 | 199 | 189 | 0 | 0 | 94 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 272 |
+| `rv64um-v-div` | v- | 5/18 | 17908 | 1107 | 203 | 198 | 0 | 0 | 93 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 278 |
+| `rv64um-v-divu` | v- | 6/18 | 17866 | 1099 | 195 | 187 | 0 | 0 | 93 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 269 |
+| `rv64um-v-divuw` | v- | 11/18 | 17850 | 1102 | 195 | 188 | 0 | 0 | 94 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 269 |
+| `rv64um-v-divw` | v- | 10/18 | 17892 | 1107 | 203 | 198 | 0 | 0 | 93 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 278 |
+| `rv64um-v-mul` | v- | 1/18 | 19155 | 1120 | 206 | 201 | 0 | 0 | 94 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 279 |
+| `rv64um-v-mulh` | v- | 2/18 | 19246 | 1122 | 220 | 213 | 0 | 0 | 86 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 294 |
+| `rv64um-v-mulhsu` | v- | 3/18 | 19246 | 1122 | 220 | 213 | 0 | 0 | 86 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 294 |
+| `rv64um-v-mulhu` | v- | 4/18 | 19306 | 1126 | 219 | 213 | 0 | 0 | 87 | 4 | 1 | 1726 | 0 | 822 | 0 | 0 | 294 |
+| `rv64um-v-mulw` | v- | 9/18 | 19119 | 1124 | 220 | 212 | 0 | 0 | 94 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 294 |
+| `rv64um-v-rem` | v- | 7/18 | 17889 | 1107 | 203 | 199 | 0 | 0 | 93 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 278 |
+| `rv64um-v-remu` | v- | 8/18 | 17893 | 1107 | 203 | 198 | 0 | 0 | 93 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 278 |
+| `rv64um-v-remuw` | v- | 13/18 | 17784 | 1096 | 201 | 197 | 0 | 0 | 93 | 5 | 1 | 1726 | 0 | 822 | 0 | 0 | 274 |
+| `rv64um-v-remw` | v- | 12/18 | 17794 | 1095 | 201 | 197 | 0 | 0 | 93 | 5 | 1 | 1726 | 0 | 822 | 0 | 0 | 274 |
+| `rv64uzba-v-add_uw` | v- | 3/18 | 18997 | 1134 | 206 | 198 | 0 | 0 | 106 | 4 | 1 | 1726 | 0 | 822 | 0 | 0 | 280 |
+| `rv64uzba-v-sh1add` | v- | 4/18 | 19005 | 1131 | 206 | 198 | 0 | 0 | 106 | 4 | 1 | 1726 | 0 | 822 | 0 | 0 | 280 |
+| `rv64uzba-v-sh1add_uw` | v- | 5/18 | 19012 | 1130 | 206 | 199 | 0 | 0 | 105 | 4 | 1 | 1726 | 0 | 822 | 0 | 0 | 280 |
+| `rv64uzba-v-sh2add` | v- | 6/18 | 19005 | 1131 | 206 | 198 | 0 | 0 | 106 | 4 | 1 | 1726 | 0 | 822 | 0 | 0 | 280 |
+| `rv64uzba-v-sh2add_uw` | v- | 7/18 | 19012 | 1130 | 206 | 199 | 0 | 0 | 105 | 4 | 1 | 1726 | 0 | 822 | 0 | 0 | 280 |
+| `rv64uzba-v-sh3add` | v- | 8/18 | 19005 | 1131 | 206 | 198 | 0 | 0 | 106 | 4 | 1 | 1726 | 0 | 822 | 0 | 0 | 280 |
+| `rv64uzba-v-sh3add_uw` | v- | 9/18 | 19012 | 1130 | 206 | 199 | 0 | 0 | 105 | 4 | 1 | 1726 | 0 | 822 | 0 | 0 | 280 |
+| `rv64uzba-v-slli_uw` | v- | 10/18 | 18371 | 1114 | 199 | 191 | 0 | 0 | 106 | 5 | 1 | 1726 | 0 | 822 | 0 | 0 | 272 |
+| `rv64uzbb-v-andn` | v- | 11/18 | 19068 | 1109 | 207 | 198 | 0 | 0 | 97 | 4 | 1 | 1726 | 0 | 822 | 0 | 0 | 279 |
+| `rv64uzbb-v-max` | v- | 18/18 | 19030 | 1123 | 211 | 201 | 0 | 0 | 97 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 285 |
+| `rv64uzbb-v-maxu` | v- | 1/18 | 19087 | 1124 | 211 | 200 | 0 | 0 | 105 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 285 |
+| `rv64uzbb-v-min` | v- | 2/18 | 19023 | 1122 | 211 | 200 | 0 | 0 | 97 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 285 |
+| `rv64uzbb-v-minu` | v- | 3/18 | 19066 | 1122 | 211 | 200 | 0 | 0 | 106 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 285 |
+| `rv64uzbb-v-orn` | v- | 5/18 | 28248 | 2363 | 300 | 269 | 0 | 0 | 246 | 4 | 1 | 3355 | 0 | 1433 | 0 | 0 | 400 |
+| `rv64uzbb-v-rev8` | v- | 6/18 | 18256 | 1111 | 198 | 189 | 0 | 0 | 106 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 276 |
+| `rv64uzbb-v-rol` | v- | 7/18 | 28314 | 2394 | 311 | 277 | 0 | 0 | 261 | 3 | 1 | 3355 | 0 | 1433 | 0 | 0 | 414 |
+| `rv64uzbb-v-rolw` | v- | 8/18 | 28454 | 2599 | 313 | 273 | 0 | 0 | 154 | 5 | 1 | 3355 | 0 | 1433 | 0 | 0 | 419 |
+| `rv64uzbb-v-ror` | v- | 9/18 | 28217 | 2450 | 289 | 266 | 0 | 0 | 234 | 5 | 1 | 3355 | 0 | 1433 | 0 | 0 | 393 |
+| `rv64uzbb-v-rori` | v- | 10/18 | 18372 | 1114 | 201 | 192 | 0 | 0 | 106 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 279 |
+| `rv64uzbb-v-rorw` | v- | 12/18 | 19102 | 1122 | 211 | 201 | 0 | 0 | 97 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 285 |
+| `rv64uzbb-v-xnor` | v- | 15/18 | 28183 | 2367 | 279 | 253 | 0 | 0 | 234 | 3 | 1 | 3355 | 0 | 1433 | 0 | 0 | 380 |
+| `rv64uzbc-v-clmul` | v- | 17/18 | 19208 | 1116 | 208 | 199 | 0 | 0 | 94 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 280 |
+| `rv64uzbc-v-clmulh` | v- | 18/18 | 19167 | 1116 | 207 | 200 | 0 | 0 | 94 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 279 |
+| `rv64uzbc-v-clmulr` | v- | 1/18 | 19164 | 1120 | 206 | 201 | 0 | 0 | 94 | 3 | 1 | 1726 | 0 | 822 | 0 | 0 | 279 |
+| `rv64uzbkb-v-brev8` | v- | 2/18 | 18249 | 1137 | 209 | 201 | 0 | 0 | 112 | 3 | 0 | 1726 | 0 | 822 | 0 | 0 | 287 |
+| `rv64uzbkb-v-pack` | v- | 3/18 | 28656 | 2383 | 312 | 279 | 0 | 0 | 260 | 4 | 0 | 3355 | 0 | 1433 | 0 | 0 | 411 |
+| `rv64uzbkb-v-packh` | v- | 4/18 | 19281 | 1123 | 212 | 202 | 0 | 0 | 101 | 3 | 0 | 1726 | 0 | 822 | 0 | 0 | 285 |
+| `rv64uzbkb-v-packw` | v- | 5/18 | 19087 | 1141 | 215 | 212 | 0 | 0 | 109 | 3 | 0 | 1726 | 0 | 822 | 0 | 0 | 293 |
+| `rv64uzbkx-v-xperm4` | v- | 6/18 | 28703 | 2574 | 314 | 276 | 0 | 0 | 140 | 8 | 1 | 3355 | 0 | 1433 | 0 | 0 | 419 |
+| `rv64uzbkx-v-xperm8` | v- | 7/18 | 29557 | 2582 | 317 | 274 | 0 | 0 | 140 | 5 | 1 | 3355 | 0 | 1433 | 0 | 0 | 419 |
+| `rv64uzbs-v-bclr` | v- | 8/18 | 28336 | 2397 | 294 | 265 | 0 | 0 | 248 | 6 | 0 | 3355 | 0 | 1433 | 0 | 0 | 393 |
+| `rv64uzbs-v-bclri` | v- | 9/18 | 18522 | 1131 | 214 | 204 | 0 | 0 | 113 | 5 | 0 | 1726 | 0 | 822 | 0 | 0 | 286 |
+| `rv64uzbs-v-bext` | v- | 10/18 | 28531 | 2631 | 317 | 278 | 0 | 0 | 165 | 4 | 0 | 3355 | 0 | 1433 | 0 | 0 | 417 |
+| `rv64uzbs-v-bexti` | v- | 11/18 | 18363 | 1115 | 202 | 192 | 0 | 0 | 110 | 3 | 0 | 1726 | 0 | 822 | 0 | 0 | 272 |
+| `rv64uzbs-v-binv` | v- | 12/18 | 28132 | 2380 | 316 | 284 | 0 | 0 | 283 | 4 | 0 | 3355 | 0 | 1433 | 0 | 0 | 416 |
+| `rv64uzbs-v-binvi` | v- | 13/18 | 18348 | 1097 | 205 | 193 | 0 | 0 | 113 | 4 | 0 | 1726 | 0 | 822 | 0 | 0 | 275 |
+| `rv64uzbs-v-bset` | v- | 14/18 | 28653 | 2641 | 311 | 279 | 0 | 0 | 167 | 6 | 0 | 3355 | 0 | 1433 | 0 | 0 | 410 |
+| `rv64uzbs-v-bseti` | v- | 15/18 | 18586 | 1132 | 215 | 204 | 0 | 0 | 113 | 5 | 0 | 1726 | 0 | 822 | 0 | 0 | 287 |
+| `rv64uzfh-v-fadd` | v- | 16/18 | 27787 | 2429 | 291 | 268 | 0 | 0 | 210 | 5 | 1 | 3395 | 0 | 1433 | 0 | 0 | 410 |
+| `rv64uzfh-v-fclass` | v- | 17/18 | 17753 | 1095 | 198 | 188 | 0 | 0 | 93 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 271 |
+| `rv64uzfh-v-fcmp` | v- | 18/18 | 27435 | 2429 | 291 | 268 | 0 | 0 | 210 | 5 | 1 | 3379 | 0 | 1433 | 0 | 0 | 406 |
+| `rv64uzfh-v-fcvt` | v- | 1/18 | 27377 | 2412 | 277 | 257 | 0 | 0 | 207 | 5 | 1 | 3371 | 0 | 1433 | 0 | 0 | 391 |
+| `rv64uzfh-v-fcvt_w` | v- | 2/18 | 38304 | 3749 | 366 | 339 | 0 | 0 | 323 | 8 | 1 | 5116 | 0 | 2044 | 0 | 0 | 538 |
+| `rv64uzfh-v-fdiv` | v- | 3/18 | 27536 | 2429 | 291 | 268 | 0 | 0 | 210 | 5 | 1 | 3383 | 0 | 1433 | 0 | 0 | 407 |
+| `rv64uzfh-v-fmadd` | v- | 4/18 | 27949 | 2429 | 291 | 268 | 0 | 0 | 210 | 5 | 1 | 3403 | 0 | 1433 | 0 | 0 | 412 |
+| `rv64uzfh-v-fmin` | v- | 5/18 | 28419 | 2429 | 291 | 268 | 0 | 0 | 210 | 5 | 1 | 3427 | 0 | 1433 | 0 | 0 | 418 |
+| `rv64uzfh-v-ldst` | v- | 6/18 | 28545 | 1598 | 377 | 313 | 0 | 0 | 225 | 6 | 1 | 2903 | 0 | 1988 | 0 | 0 | 499 |
+| `rv64uzfh-v-move` | v- | 7/18 | 18395 | 1063 | 195 | 187 | 0 | 0 | 93 | 5 | 1 | 1726 | 0 | 822 | 0 | 0 | 276 |
+| `rv64uzfh-v-recoding` | v- | 8/18 | 26853 | 2413 | 277 | 260 | 0 | 0 | 207 | 6 | 1 | 3357 | 0 | 1433 | 0 | 0 | 383 |
+| `rv64uzicond-v-czero_eqz` | v- | 9/18 | 19129 | 1122 | 223 | 214 | 0 | 0 | 93 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 296 |
+| `rv64uzicond-v-czero_nez` | v- | 10/18 | 19004 | 1112 | 213 | 203 | 0 | 0 | 95 | 2 | 1 | 1726 | 0 | 822 | 0 | 0 | 285 |
