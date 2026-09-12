@@ -9,7 +9,11 @@
 # pymtl3_submodule, whose ssh-pinned URL is rewritten to PAT-https for the
 # fetch), then installs python 3.12 + pymtl3 + the test deps.
 #
-# riscv-isa-sim is deliberately not fetched (CI never uses it).
+# riscv-isa-sim is only fetched+built when build_spike=true (the co-sim job,
+# ADR 0013). In that case it is cloned from the PUBLIC fork
+# rain91508-cmd/riscv-isa-sim at the pinned cosim branch -- CI never goes
+# through the gem5 gitlink for it, which keeps this flow independent of the
+# submodule-URL decision.
 #
 # Outputs:
 #   gem5_sha   full SHA of the checked-out gem5 commit
@@ -24,6 +28,20 @@ inputs:
     key_pull_repo:
         description: PAT with read access to rain91508-cmd/gem5
         required: true
+    build_spike:
+        description: >-
+            true = also clone the Spike cosim fork, build libriscv and the
+            pyspike_cosim binding (co-sim job only; adds ~10-15 min)
+        required: false
+        default: 'false'
+    spike_repo:
+        description: Spike fork (public) used by the cosim
+        required: false
+        default: rain91508-cmd/riscv-isa-sim
+    spike_ref:
+        description: Branch/SHA in the Spike fork (cosim branch, ADR 0013 D5)
+        required: false
+        default: cosim-pycpu
 
 outputs:
     gem5_sha:
@@ -52,7 +70,7 @@ runs:
               echo "gem5 @ ${GEM5_REF}: $(git rev-parse --short HEAD)"
               # pymtl3_submodule is ssh-pinned; rewrite ssh->PAT-https for this
               # fetch only. riscv-tests is public (nested `env` is fetched by
-              # --recursive). riscv-isa-sim is left unfetched (CI never uses it).
+              # --recursive). riscv-isa-sim stays unfetched unless build_spike.
               git -c "url.https://x-access-token:${KEY_PULL_REPO}@github.com/.insteadOf=git@github.com:" \
                   submodule update --init --recursive --depth 1 -- \
                       src/cpu/pyo3/riscv-tests pymtl3_submodule
@@ -61,6 +79,40 @@ runs:
               test -f src/cpu/pyo3/riscv-tests/env/p/riscv_test.h || {
                   echo "::error::riscv-tests env missing after checkout"; exit 1; }
               echo "pymtl3 @ $(git -C pymtl3_submodule rev-parse --short HEAD)"
+
+        # ------------------------------------------------------------------
+        # Co-sim only (ADR 0013): the forked Spike + the pyspike_cosim binding.
+        # Deps (dtc, boost) come from apt; libriscv.so is what the binding
+        # links (spike's default build is shared+static). The binding build is
+        # deliberately outside spike's autotools (D21: a normal make never
+        # touches it). ~10-15 min on a 4-core runner.
+        # ------------------------------------------------------------------
+        - name: Build Spike cosim fork + pyspike_cosim binding
+          if: ${{ inputs.build_spike == 'true' }}
+          shell: bash
+          env:
+              SPIKE_REPO: ${{ inputs.spike_repo }}
+              SPIKE_REF: ${{ inputs.spike_ref }}
+          run: |
+              set -euo pipefail
+              sudo apt-get update -q
+              sudo apt-get install -y --no-install-recommends \
+                  dtc libboost-dev libboost-regex-dev python3-dev
+              cd src/cpu/pyo3
+              # The submodule path exists but is empty (not fetched); clone
+              # the public fork's cosim branch into it.
+              rmdir riscv-isa-sim 2>/dev/null || true
+              git clone --depth 1 --branch "${SPIKE_REF}" \
+                  "https://github.com/${SPIKE_REPO}.git" riscv-isa-sim
+              echo "spike @ $(git -C riscv-isa-sim rev-parse --short HEAD)"
+              mkdir -p spike-build && cd spike-build
+              ../riscv-isa-sim/configure \
+                  --prefix="$PWD/../spike-install" >/dev/null
+              make -j"$(nproc)"
+              cd ../riscv-isa-sim/pycosim
+              BOOST_INC=/usr/include ./build.sh
+              python3 -c 'import sys; sys.path.insert(0, "."); \
+                  import pyspike_cosim; print("pyspike_cosim import OK")'
 
         # Inline of gem5's .github/actions/pyo3-env (submodules already present):
         # python 3.12 + pymtl3 (pip-installed from pymtl3_submodule) + test deps.
