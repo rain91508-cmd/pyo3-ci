@@ -17,11 +17,11 @@ test_bac_cl.TestBPUSMTAndValidation::test_bpu_hist_buf_global_allocation	PASS	bl
 test_bac_cl.TestBPUSMTAndValidation::test_bpu_squash_checks_valid	PASS	block-BAC	none			0		
 test_bac_cl.TestBPUSMTAndValidation::test_bpu_update_checks_valid	PASS	block-BAC	none			0		
 test_bac_cl.TestBPUSMTAndValidation::test_ftq_entry_has_bpu_history_valid	PASS	block-BAC	none			0		
-test_bac_cl.TestBPUSMTAndValidation::test_squash_to_uses_bpu_history_valid	PASS	block-BAC	none			0		
-test_bac_cl.TestBPUSquashTo::test_squash_to_calls_bpu_squash_to	PASS	block-BAC	none			0		
-test_bac_cl.TestBPUSquashTo::test_squash_to_clears_bpred_hist	PASS	block-BAC	none			0		
+test_bac_cl.TestBPUSMTAndValidation::test_squash_to_uses_bpu_history_valid	FAIL	block-BAC	none			0		AssertionError: Expected 1 squash_to call for bpu_history_valid=True entry, got 0 assert 0 == 1  +  where 0 = len([]) self = <BAC.test_bac_cl.TestBPUSMTAndValidation object at 0x7f873bec93a0>      def test_squash_to_uses_bpu_history_valid(self):         """FTQ-FIELDS: squashBpuHistories uses bpu_history_valid flag.              Insert an entry with bpu_history_valid=True.         The squash should
+test_bac_cl.TestBPUSquashTo::test_squash_to_calls_bpu_squash_to	FAIL	block-BAC	none			0		assert 0 == 1  +  where 0 = len([]) self = <BAC.test_bac_cl.TestBPUSquashTo object at 0x7f873becabd0>      def test_squash_to_calls_bpu_squash_to(self):         """_squash_bpu_histories calls bpu_squash_to with oldest anchor.              Spec reference: Section 2.7.1 — uses get_oldest_bpu_anchor to find         the oldest entry, then calls bpu_squash_to with that anchor.         """         bac =
+test_bac_cl.TestBPUSquashTo::test_squash_to_clears_bpred_hist	FAIL	block-BAC	none			0		assert 0 == 1  +  where 0 = len([]) self = <BAC.test_bac_cl.TestBPUSquashTo object at 0x7f873bec9ee0>      def test_squash_to_clears_bpred_hist(self):         """After _squash_bpu_histories, bpu_squash_to is called with the oldest anchor."""         bac = make_bac()         call_log = []              def mock_squash_to(req):             call_log.append(req)              bac.bpu_squash_to.method = 
 test_bac_cl.TestBPUSquashTo::test_squash_to_empty_ftq	PASS	block-BAC	none			0		
-test_bac_cl.TestBPUSquashTo::test_squash_to_skips_zero_hist	PASS	block-BAC	none			0		
+test_bac_cl.TestBPUSquashTo::test_squash_to_skips_zero_hist	FAIL	block-BAC	none			0		assert 0 == 1  +  where 0 = len([]) self = <BAC.test_bac_cl.TestBPUSquashTo object at 0x7f873beca420>      def test_squash_to_skips_zero_hist(self):         """Entries with bpred_hist=0 (bpu_history_valid=False) are skipped by get_oldest_bpu_anchor."""         bac = make_bac()         call_log = []              def mock_squash_to(req):             call_log.append(req.bpu_squash_bb_idx)            
 test_bac_cl.TestBacResteer::test_resteer_basic	PASS	block-BAC	none			0		
 test_bac_cl.TestBacResteer::test_resteer_clear_states	PASS	block-BAC	none			0		
 test_bac_cl.TestBacResteer::test_resteer_invalidate_ftq	PASS	block-BAC	none			0		
@@ -47,8 +47,8 @@ test_bac_cl.TestDoPredictForPredecode::test_do_predict_for_predecode_not_taken	P
 test_bac_cl.TestDoPredictForPredecode::test_do_predict_for_predecode_taken	PASS	block-BAC	none			0		
 test_bac_cl.TestDoPredictForPredecode::test_update_pre_decode_calls_predict_for_no_entry	PASS	block-BAC	none			0		
 test_bac_cl.TestDoPredictForPredecode::test_update_pre_decode_calls_predict_for_non_exit	PASS	block-BAC	none			0		
-test_bac_cl.TestGenerateFetchTargets::test_btb_hit_with_not_taken_prediction	FAIL	block-BAC	none			0		assert 4104 == 4100  +  where 4104 = FTQHeadEntry(ft_bb_idx=3, start_pc=4096, end_pc=4104, pred_target=4104, is_branch=True, branch_taken=False, bpu_history_valid=True).end_pc self = <BAC.test_bac_cl.TestGenerateFetchTargets object at 0x7fdef7663bc0>      def test_btb_hit_with_not_taken_prediction(self):         """BTB hit + not-taken prediction -> FT ends at branch, PC advances."""         from o
-test_bac_cl.TestGenerateFetchTargets::test_btb_hit_with_taken_prediction	FAIL	block-BAC	none			0		assert 4100 == 4096  +  where 4100 = FTQHeadEntry(ft_bb_idx=5, start_pc=4096, end_pc=4100, pred_target=8192, is_branch=True, branch_taken=True, bpu_history_valid=True).end_pc self = <BAC.test_bac_cl.TestGenerateFetchTargets object at 0x7fdef766c320>      def test_btb_hit_with_taken_prediction(self):         """BTB hit + taken prediction -> FT ends at branch, PC redirected."""         from o3.inter
+test_bac_cl.TestGenerateFetchTargets::test_btb_hit_with_not_taken_prediction	FAIL	block-BAC	none			0		assert 4104 == 4100  +  where 4104 = FTQHeadEntry(ft_bb_idx=3, start_pc=4096, end_pc=4104, pred_target=4104, is_branch=True, branch_taken=False, bpu_history_valid=True).end_pc self = <BAC.test_bac_cl.TestGenerateFetchTargets object at 0x7f873becb8c0>      def test_btb_hit_with_not_taken_prediction(self):         """BTB hit + not-taken prediction -> FT ends at branch, PC advances."""         from o
+test_bac_cl.TestGenerateFetchTargets::test_btb_hit_with_taken_prediction	FAIL	block-BAC	none			0		assert 4100 == 4096  +  where 4100 = FTQHeadEntry(ft_bb_idx=5, start_pc=4096, end_pc=4100, pred_target=8192, is_branch=True, branch_taken=True, bpu_history_valid=True).end_pc self = <BAC.test_bac_cl.TestGenerateFetchTargets object at 0x7f873bed4410>      def test_btb_hit_with_taken_prediction(self):         """BTB hit + taken prediction -> FT ends at branch, PC redirected."""         from o3.inter
 test_bac_cl.TestGenerateFetchTargets::test_ftq_full_stops_generation	PASS	block-BAC	none			0		
 test_bac_cl.TestGenerateFetchTargets::test_max_ft_per_cycle_limit	PASS	block-BAC	none			0		
 test_bac_cl.TestGenerateFetchTargets::test_max_taken_pred_per_cycle_limit	PASS	block-BAC	none			0		
@@ -67,9 +67,9 @@ test_bac_cl.TestRound3MediumGaps::test_resteer_ack_visible_after_tick	PASS	block
 test_bac_cl.TestRound3MediumGaps::test_update_pc_flags_default_false_for_conditional	PASS	block-BAC	none			0		
 test_bac_cl.TestRound3MediumGaps::test_update_pc_forwards_is_call	PASS	block-BAC	none			0		
 test_bac_cl.TestRound3MediumGaps::test_update_pc_forwards_is_return	PASS	block-BAC	none			0		
-test_bac_cl.TestRound3MediumGaps::test_update_pc_forwards_is_uncond	FAIL	block-BAC	none			0		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BAC.test_bac_cl.TestRound3MediumGaps object at 0x7fdef765c7a0>      def test_update_pc_forwards_is_uncond(self):         """GAP-5: updatePC forwards is_uncond to UpdatePreDecodeReq.              When branch_type=DirectUncond, updatepd_is_uncond must be True.         Also verifies IndirectUncond sets is_uncond=Tr
-test_bac_cl.TestSpecCrossCheckGaps::test_squash_to_passes_tid	PASS	block-BAC	none			0		
-test_bac_cl.TestSpecCrossCheckGaps::test_squash_to_passes_tid_nonzero	PASS	block-BAC	none			0		
+test_bac_cl.TestRound3MediumGaps::test_update_pc_forwards_is_uncond	FAIL	block-BAC	none			0		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BAC.test_bac_cl.TestRound3MediumGaps object at 0x7f873bec4890>      def test_update_pc_forwards_is_uncond(self):         """GAP-5: updatePC forwards is_uncond to UpdatePreDecodeReq.              When branch_type=DirectUncond, updatepd_is_uncond must be True.         Also verifies IndirectUncond sets is_uncond=Tr
+test_bac_cl.TestSpecCrossCheckGaps::test_squash_to_passes_tid	FAIL	block-BAC	none			0		assert 0 == 1  +  where 0 = len([]) self = <BAC.test_bac_cl.TestSpecCrossCheckGaps object at 0x7f873bed76b0>      def test_squash_to_passes_tid(self):         """GAP-2: _squash_bpu_histories must pass tid to bpu_squash_to.              Spec reference: Section 2.7.1 — bpu_squash_to requires tid         to correctly identify which thread's history to squash.         """         bac = make_bac()     
+test_bac_cl.TestSpecCrossCheckGaps::test_squash_to_passes_tid_nonzero	FAIL	block-BAC	none			0		assert 0 == 1  +  where 0 = len([]) self = <BAC.test_bac_cl.TestSpecCrossCheckGaps object at 0x7f873bed42c0>      def test_squash_to_passes_tid_nonzero(self):         """GAP-2: _squash_bpu_histories passes correct tid for thread != 0."""         bac = make_bac(cfg_num_threads=2)         call_log = []              def mock_squash_to(req):             call_log.append(req)              bac.bpu_squash
 test_bac_cl.TestSpecCrossCheckGaps::test_status_change_on_ftq_full_in_generation	PASS	block-BAC	none			0		
 test_bac_cl.TestSpecCrossCheckGaps::test_update_bac_status_called_from_tick	PASS	block-BAC	none			0		
 test_bac_cl.TestSpecCrossCheckGaps::test_update_bac_status_not_called_when_no_change	PASS	block-BAC	none			0		
@@ -77,7 +77,7 @@ test_bac_cl.TestSpecCrossCheckMisc::test_clear_states_requires_committed_pc	PASS
 test_bac_cl.TestSpecCrossCheckMisc::test_deactivate_thread_ifc_exists	PASS	block-BAC	none			0		
 test_bac_cl.TestSpecCrossCheckMisc::test_deactivate_thread_uses_reset_state	PASS	block-BAC	none			0		
 test_bac_cl.TestSpecCrossCheckMisc::test_param_validation_fetch_target_width	PASS	block-BAC	none			0		
-test_bac_cl.TestSquashHandling::test_squash_bpu_histories	PASS	block-BAC	none			0		
+test_bac_cl.TestSquashHandling::test_squash_bpu_histories	FAIL	block-BAC	none			0		assert 0 == 1  +  where 0 = len([]) self = <BAC.test_bac_cl.TestSquashHandling object at 0x7f873bed6090>      def test_squash_bpu_histories(self):         """squashBpuHistories calls bpu_squash_to with oldest FTQ anchor."""         bac = make_bac()         call_log = []              def mock_squash_to(req):             call_log.append(req)              bac.bpu_squash_to.method = mock_squash_to    
 test_bac_cl.TestSquashHandling::test_squash_flushes_ftq	PASS	block-BAC	none			0		
 test_bac_cl.TestSquashHandling::test_squashing_one_cycle_transient	PASS	block-BAC	none			0		
 test_bac_cl.TestTickBehavior::test_status_change_flag	PASS	block-BAC	none			0		
@@ -110,7 +110,7 @@ test_bpred_unit_cl.TestBPU2CyclePipeline::test_2cycle_response_not_immediate	PAS
 test_bpred_unit_cl.TestBPU2CyclePipeline::test_2cycle_response_valid_after_tick	PASS	block-BPredUnit	none			0		
 test_bpred_unit_cl.TestBPUPerfCounters::test_perf_branches_increments_on_predict	PASS	block-BPredUnit	none			0		
 test_bpred_unit_cl.TestBPUPerfCounters::test_perf_mispredicts_increments_on_mispredict_commit	PASS	block-BPredUnit	none			0		
-test_bpred_unit_cl.TestBPUSquashTo::test_squash_to_removes_entries_from_anchor	FAIL	block-BPredUnit	none			0		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.TestBPUSquashTo object at 0x7f88752dab10>      def test_squash_to_removes_entries_from_anchor(self):         """squash_to keeps the anchor entry and frees all younger entries."""         bpu = make_bpu()         # Predict two branches         resp1 = bpu.predict_req(             BPUP
+test_bpred_unit_cl.TestBPUSquashTo::test_squash_to_removes_entries_from_anchor	FAIL	block-BPredUnit	none			0		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.TestBPUSquashTo object at 0x7efca0fbea50>      def test_squash_to_removes_entries_from_anchor(self):         """squash_to keeps the anchor entry and frees all younger entries."""         bpu = make_bpu()         # Predict two branches         resp1 = bpu.predict_req(             BPUP
 test_bpred_unit_cl.TestBTBUpdateAtSquash::test_corrective_squash_no_btb_update_when_flag_false	PASS	block-BPredUnit	none			0		
 test_bpred_unit_cl.TestBTBUpdateAtSquash::test_corrective_squash_no_btb_update_when_not_taken	PASS	block-BPredUnit	none			0		
 test_bpred_unit_cl.TestBTBUpdateAtSquash::test_corrective_squash_updates_btb_when_updateBTBAtSquash	PASS	block-BPredUnit	none			0		
@@ -118,27 +118,27 @@ test_bpred_unit_cl.TestBasicPrediction::test_predict_btb_hit_returns_taken	PASS	
 test_bpred_unit_cl.TestBasicPrediction::test_predict_btb_miss_returns_not_taken	PASS	block-BPredUnit	none			0		
 test_bpred_unit_cl.TestDrainComplete::test_drain_complete_false_when_cpred_ckpt_not_empty	PASS	block-BPredUnit	none			0		
 test_bpred_unit_cl.TestDrainComplete::test_drain_complete_false_when_history_not_empty	PASS	block-BPredUnit	none			0		
-test_bpred_unit_cl.TestDrainComplete::test_drain_complete_true_after_commit	FAIL	block-BPredUnit	none			0		assert False is True  +  where False = <o3.bpred_unit_cl._DrainCompleteResp object at 0x7f887480a2f0>.complete  +    where <o3.bpred_unit_cl._DrainCompleteResp object at 0x7f887480a2f0> = s.drain_complete_req(None)  +      where s.drain_complete_req = s.drain_complete_req self = <BPredUnit.test_bpred_unit_cl.TestDrainComplete object at 0x7f8875219490>      def test_drain_complete_true_after_commit
+test_bpred_unit_cl.TestDrainComplete::test_drain_complete_true_after_commit	FAIL	block-BPredUnit	none			0		assert False is True  +  where False = <o3.bpred_unit_cl._DrainCompleteResp object at 0x7efca02b79a0>.complete  +    where <o3.bpred_unit_cl._DrainCompleteResp object at 0x7efca02b79a0> = s.drain_complete_req(None)  +      where s.drain_complete_req = s.drain_complete_req self = <BPredUnit.test_bpred_unit_cl.TestDrainComplete object at 0x7efca0ef5490>      def test_drain_complete_true_after_commit
 test_bpred_unit_cl.TestDrainComplete::test_drain_complete_true_when_empty	PASS	block-BPredUnit	none			0		
 test_bpred_unit_cl.TestDrainComplete::test_drain_complete_with_ipred_checks_ipred_ckpt	PASS	block-BPredUnit	none			0		
-test_bpred_unit_cl.TestHistFullBackPressure::test_predict_does_not_modify_cpred_when_full	FAIL	block-BPredUnit	none			0		UnboundLocalError: cannot access local variable '_own_ck' where it is not associated with a value self = <BPredUnit.test_bpred_unit_cl.TestHistFullBackPressure object at 0x7f8875218170>      def test_predict_does_not_modify_cpred_when_full(self):         """Prediction on full buffer does not modify cpred state.              When the history buffer is full, the conditional predictor         should 
-test_bpred_unit_cl.TestHistFullBackPressure::test_predict_does_not_modify_ras_when_full	FAIL	block-BPredUnit	none			0		UnboundLocalError: cannot access local variable '_own_ck' where it is not associated with a value self = <BPredUnit.test_bpred_unit_cl.TestHistFullBackPressure object at 0x7f8875219910>      def test_predict_does_not_modify_ras_when_full(self):         """Prediction on full buffer does not modify RAS state.              When the history buffer is full, the RAS should not be         modified (no pu
+test_bpred_unit_cl.TestHistFullBackPressure::test_predict_does_not_modify_cpred_when_full	PASS	block-BPredUnit	none			0		
+test_bpred_unit_cl.TestHistFullBackPressure::test_predict_does_not_modify_ras_when_full	PASS	block-BPredUnit	none			0		
 test_bpred_unit_cl.TestHistFullBackPressure::test_predict_returns_hist_full_when_buffer_full	PASS	block-BPredUnit	none			0		
-test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_allocates_entry_after_anchor	FAIL	block-BPredUnit	none			0		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.TestPlaceholderAllocation object at 0x7f88752db410>      def test_placeholder_allocates_entry_after_anchor(self):         """Type=2 squash inserts a placeholder entry after the anchor.              Predict two branches (anchor + younger), then issue type=2 squash         with bb_idx=
+test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_allocates_entry_after_anchor	FAIL	block-BPredUnit	none			0		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.TestPlaceholderAllocation object at 0x7efca0fbf350>      def test_placeholder_allocates_entry_after_anchor(self):         """Type=2 squash inserts a placeholder entry after the anchor.              Predict two branches (anchor + younger), then issue type=2 squash         with bb_idx=
 test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_clones_cpred_checkpoint	PASS	block-BPredUnit	none			0		
-test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_commit_time_corrective_squash	FAIL	block-BPredUnit	none			0		assert 3 == 2  +  where 3 = _count_entries(s.hist_buf)  +    where s.hist_buf = s.hist_buf self = <BPredUnit.test_bpred_unit_cl.TestPlaceholderAllocation object at 0x7f8875218770>      def test_placeholder_commit_time_corrective_squash(self):         """After placeholder allocation, commit-time type=1 corrective squash works.              The placeholder entry has valid condBbIdx from cloning, so 
-test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_no_squash_to	FAIL	block-BPredUnit	none			0		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.TestPlaceholderAllocation object at 0x7f8875219e50>      def test_placeholder_no_squash_to(self):         """Type=2 squash does NOT squash younger entries.              Unlike type=0/1, type=2 should not remove any existing entries.         All entries should remain intact after plac
+test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_commit_time_corrective_squash	FAIL	block-BPredUnit	none			0		assert 3 == 2  +  where 3 = _count_entries(s.hist_buf)  +    where s.hist_buf = s.hist_buf self = <BPredUnit.test_bpred_unit_cl.TestPlaceholderAllocation object at 0x7efca0ef45c0>      def test_placeholder_commit_time_corrective_squash(self):         """After placeholder allocation, commit-time type=1 corrective squash works.              The placeholder entry has valid condBbIdx from cloning, so 
+test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_no_squash_to	FAIL	block-BPredUnit	none			0		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.TestPlaceholderAllocation object at 0x7efca0ef77d0>      def test_placeholder_no_squash_to(self):         """Type=2 squash does NOT squash younger entries.              Unlike type=0/1, type=2 should not remove any existing entries.         All entries should remain intact after plac
 test_bpred_unit_cl.TestPlaceholderAllocation::test_placeholder_updates_btb	PASS	block-BPredUnit	none			0		
 test_bpred_unit_cl.TestRAS::test_predict_call_pushes_ras	PASS	block-BPredUnit	none			0		
-test_bpred_unit_cl.TestRAS::test_predict_return_pops_ras	FAIL	block-BPredUnit	none			0		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.TestRAS object at 0x7f8875218200>      def test_predict_return_pops_ras(self):         """Return pops RAS, targetProvider=RAS.              When the BTB identifies a return instruction, the predictor should         pop the RAS. The target should come from the RAS (targetProvider=RAS)
-test_bpred_unit_cl.TestSkipBTBUpdateNoRequiresBTBHit::test_btb_update_skip_logic	FAIL	block-BPredUnit	none			0		AssertionError: call should add BTB entry assert 2 == (0 + 1)  +  where 2 = <function TestSkipBTBUpdateNoRequiresBTBHit.test_btb_update_skip_logic.<locals>.btb_entry_count at 0x7f88746587c0>() self = <BPredUnit.test_bpred_unit_cl.TestSkipBTBUpdateNoRequiresBTBHit object at 0x7f88752d9f70>      def test_btb_update_skip_logic(self):         """Test BTB update skip logic: call → updated, return → ski
+test_bpred_unit_cl.TestRAS::test_predict_return_pops_ras	FAIL	block-BPredUnit	none			0		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.TestRAS object at 0x7efca0ef4140>      def test_predict_return_pops_ras(self):         """Return pops RAS, targetProvider=RAS.              When the BTB identifies a return instruction, the predictor should         pop the RAS. The target should come from the RAS (targetProvider=RAS)
+test_bpred_unit_cl.TestSkipBTBUpdateNoRequiresBTBHit::test_btb_update_skip_logic	FAIL	block-BPredUnit	none			0		AssertionError: call should add BTB entry assert 2 == (0 + 1)  +  where 2 = <function TestSkipBTBUpdateNoRequiresBTBHit.test_btb_update_skip_logic.<locals>.btb_entry_count at 0x7efca05b2340>() self = <BPredUnit.test_bpred_unit_cl.TestSkipBTBUpdateNoRequiresBTBHit object at 0x7efca0fbe030>      def test_btb_update_skip_logic(self):         """Test BTB update skip logic: call → updated, return → ski
 test_bpred_unit_cl.TestSquash::test_corrective_squash_corrects_mispredict	PASS	block-BPredUnit	none			0		
-test_bpred_unit_cl.TestSquash::test_simple_squash_removes_younger_entries	FAIL	block-BPredUnit	none			0		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.TestSquash object at 0x7f8875218c20>      def test_simple_squash_removes_younger_entries(self):         """Simple squash keeps the anchor entry and frees all younger entries.              Predict two branches, then squash to the first entry's bb_idx.         The first entry (anchor) 
+test_bpred_unit_cl.TestSquash::test_simple_squash_removes_younger_entries	FAIL	block-BPredUnit	none			0		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.TestSquash object at 0x7efca0ef4b60>      def test_simple_squash_removes_younger_entries(self):         """Simple squash keeps the anchor entry and frees all younger entries.              Predict two branches, then squash to the first entry's bb_idx.         The first entry (anchor) 
 test_bpred_unit_cl.TestTargetPriority::test_no_target_forces_not_taken	PASS	block-BPredUnit	none			0		
-test_bpred_unit_cl.TestTargetPriority::test_ras_overrides_btb_target	FAIL	block-BPredUnit	none			0		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.TestTargetPriority object at 0x7f8875218560>      def test_ras_overrides_btb_target(self):         """Return overrides BTB target with RAS target.              When a return instruction is predicted, the RAS target should         override the BTB target. targetProvider should be RAS.
-test_bpred_unit_cl.TestUpdate::test_update_commits_oldest_entries	FAIL	block-BPredUnit	none			0		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.TestUpdate object at 0x7f88752192b0>      def test_update_commits_oldest_entries(self):         """Update commits entries from head up to bb_idx boundary.              Predict two branches, then update with bb_idx of the first         entry. The walk commits entries from head up to a
-test_bpu_update_train_cl.TestBPUTrainPipeline::test_combined_training_pipeline	FAIL	block-BPredUnit	none			0		AssertionError: cycle 13: should be not-taken assert True is False  +  where True = BPUPredictResp(bpu_predict_resp_valid=True, bpu_predict_taken=True, bpu_predict_target=4096, bpu_predict_bb_idx=0, bpu_hist_full=False, bpu_predict_req_ready=True).bpu_predict_taken self = <BPredUnit.test_bpu_update_train_cl.TestBPUTrainPipeline object at 0x7f887521b7d0>      def test_combined_training_pipeline(sel
-test_bpu_update_train_cl.TestBPUTrainPipeline::test_combined_training_pipeline_commit_mode	FAIL	block-BPredUnit	none			0		AssertionError: cycle 2: should be not-taken assert True is False  +  where True = BPUPredictResp(bpu_predict_resp_valid=True, bpu_predict_taken=True, bpu_predict_target=4096, bpu_predict_bb_idx=0, bpu_hist_full=False, bpu_predict_req_ready=True).bpu_predict_taken self = <BPredUnit.test_bpu_update_train_cl.TestBPUTrainPipeline object at 0x7f8875218830>      def test_combined_training_pipeline_comm
+test_bpred_unit_cl.TestTargetPriority::test_ras_overrides_btb_target	FAIL	block-BPredUnit	none			0		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.TestTargetPriority object at 0x7efca0ef44d0>      def test_ras_overrides_btb_target(self):         """Return overrides BTB target with RAS target.              When a return instruction is predicted, the RAS target should         override the BTB target. targetProvider should be RAS.
+test_bpred_unit_cl.TestUpdate::test_update_commits_oldest_entries	FAIL	block-BPredUnit	none			0		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) self = <BPredUnit.test_bpred_unit_cl.TestUpdate object at 0x7efca0ef5250>      def test_update_commits_oldest_entries(self):         """Update commits entries from head up to bb_idx boundary.              Predict two branches, then update with bb_idx of the first         entry. The walk commits entries from head up to a
+test_bpu_update_train_cl.TestBPUTrainPipeline::test_combined_training_pipeline	FAIL	block-BPredUnit	none			0		AssertionError: cycle 13: should be not-taken assert True is False  +  where True = BPUPredictResp(bpu_predict_resp_valid=True, bpu_predict_taken=True, bpu_predict_target=4096, bpu_predict_bb_idx=0, bpu_hist_full=False, bpu_predict_req_ready=True).bpu_predict_taken self = <BPredUnit.test_bpu_update_train_cl.TestBPUTrainPipeline object at 0x7efca0ef40e0>      def test_combined_training_pipeline(sel
+test_bpu_update_train_cl.TestBPUTrainPipeline::test_combined_training_pipeline_commit_mode	FAIL	block-BPredUnit	none			0		AssertionError: cycle 2: should be not-taken assert True is False  +  where True = BPUPredictResp(bpu_predict_resp_valid=True, bpu_predict_taken=True, bpu_predict_target=4096, bpu_predict_bb_idx=0, bpu_hist_full=False, bpu_predict_req_ready=True).bpu_predict_taken self = <BPredUnit.test_bpu_update_train_cl.TestBPUTrainPipeline object at 0x7efca0ef4b90>      def test_combined_training_pipeline_comm
 test_btb_cl.TestBTBAccess::test_access_different_pc_misses	PASS	block-BPredUnit	none			0		
 test_btb_cl.TestBTBAccess::test_access_hit_after_install	PASS	block-BPredUnit	none			0		
 test_btb_cl.TestBTBAccess::test_access_miss_returns_no_hit	PASS	block-BPredUnit	none			0		
@@ -810,8 +810,8 @@ test_per_thread_fetch_cl.TestLatchState::test_pt123_latch_buffer_valid	PASS	bloc
 test_per_thread_fetch_cl.TestNoGoodAddrAndQuiesce::test_pt280_no_good_addr_no_fetch	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestNoGoodAddrAndQuiesce::test_pt281_quiesce_pending_no_fetch	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestNoGoodAddrAndQuiesce::test_pt282_no_good_addr_exits_on_squash	PASS	block-Fetch	none			0		
-test_per_thread_fetch_cl.TestPredictedBranch::test_pt290_predicted_branch_stops_fetch	FAIL	block-Fetch	none			0		assert 0 == 1  +  where 0 = PerThreadFetchTickResp(pt_new_fetch_status=11, pt_new_pc=4096, pt_new_fetch_offset=0, pt_new_fetch_buffer_valid=True, ..., pt_ftq_clear_head_history=False, pt_ftq_peek_advance=False, pt_dyninsts=[], pt_status_change=True, pt_activity=False).pt_new_num_inst self = <Fetch.test_per_thread_fetch_cl.TestPredictedBranch object at 0x7f1070c186e0>      def test_pt290_predicted_
-test_per_thread_fetch_cl.TestPredictedBranch::test_pt291_predicted_branch_cleared_after	FAIL	block-Fetch	none			0		assert True is False  +  where True = s._pending_predicted_branch self = <Fetch.test_per_thread_fetch_cl.TestPredictedBranch object at 0x7f1070c18260>      def test_pt291_predicted_branch_cleared_after(self):         """PT-291: After predicted branch stops fetch, _pending_predicted_branch is False."""         pt = make_per_thread_fetch(cfg_fetch_width=8)         pt._pending_status = FetchStatus.Ru
+test_per_thread_fetch_cl.TestPredictedBranch::test_pt290_predicted_branch_stops_fetch	FAIL	block-Fetch	none			0		assert 0 == 1  +  where 0 = PerThreadFetchTickResp(pt_new_fetch_status=11, pt_new_pc=4096, pt_new_fetch_offset=0, pt_new_fetch_buffer_valid=True, ..., pt_ftq_clear_head_history=False, pt_ftq_peek_advance=False, pt_dyninsts=[], pt_status_change=True, pt_activity=False).pt_new_num_inst self = <Fetch.test_per_thread_fetch_cl.TestPredictedBranch object at 0x7f21751a5b80>      def test_pt290_predicted_
+test_per_thread_fetch_cl.TestPredictedBranch::test_pt291_predicted_branch_cleared_after	FAIL	block-Fetch	none			0		assert True is False  +  where True = s._pending_predicted_branch self = <Fetch.test_per_thread_fetch_cl.TestPredictedBranch object at 0x7f21751a5220>      def test_pt291_predicted_branch_cleared_after(self):         """PT-291: After predicted branch stops fetch, _pending_predicted_branch is False."""         pt = make_per_thread_fetch(cfg_fetch_width=8)         pt._pending_status = FetchStatus.Ru
 test_per_thread_fetch_cl.TestResetClearStates::test_pt20_reset_stage	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestResetClearStates::test_pt21_clear_states	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestResetClearStates::test_pt22_clear_states_preserves_status	PASS	block-Fetch	none			0		
@@ -827,7 +827,7 @@ test_per_thread_fetch_cl.TestSquashHandling::test_pt207_interrupt_with_delayed_c
 test_per_thread_fetch_cl.TestSquashHandling::test_pt210_squashing_to_ftq_wait	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestSquashHandling::test_pt212_squashing_delayed_commit_cleared	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestTickBasic::test_pt100_tick_idle_no_op	PASS	block-Fetch	none			0		
-test_per_thread_fetch_cl.TestTickBasic::test_pt102_tick_running_with_valid_buffer	FAIL	block-Fetch	none			0		assert 0 > 0  +  where 0 = PerThreadFetchTickResp(pt_new_fetch_status=11, pt_new_pc=4096, pt_new_fetch_offset=0, pt_new_fetch_buffer_valid=True, ..., pt_ftq_clear_head_history=False, pt_ftq_peek_advance=False, pt_dyninsts=[], pt_status_change=True, pt_activity=False).pt_new_num_inst self = <Fetch.test_per_thread_fetch_cl.TestTickBasic object at 0x7f1070c1b800>      def test_pt102_tick_running_with
+test_per_thread_fetch_cl.TestTickBasic::test_pt102_tick_running_with_valid_buffer	FAIL	block-Fetch	none			0		assert 0 > 0  +  where 0 = PerThreadFetchTickResp(pt_new_fetch_status=11, pt_new_pc=4096, pt_new_fetch_offset=0, pt_new_fetch_buffer_valid=True, ..., pt_ftq_clear_head_history=False, pt_ftq_peek_advance=False, pt_dyninsts=[], pt_status_change=True, pt_activity=False).pt_new_num_inst self = <Fetch.test_per_thread_fetch_cl.TestTickBasic object at 0x7f21751a7590>      def test_pt102_tick_running_with
 test_per_thread_fetch_cl.TestTickBasic::test_pt103_tick_icache_access_complete	FAIL	block-Fetch	none			0		assert 11 == <FetchStatus.Running: 0>  +  where 11 = PerThreadFetchTickResp(pt_new_fetch_status=11, pt_new_pc=4096, pt_new_fetch_offset=0, pt_new_fetch_buffer_valid=False,..., pt_ftq_clear_head_history=False, pt_ftq_peek_advance=False, pt_dyninsts=[], pt_status_change=True, pt_activity=False).pt_new_fetch_status  +  and   <FetchStatus.Running: 0> = FetchStatus.Running self = <Fetch.test_per_thread
 test_per_thread_fetch_cl.TestTickBasic::test_pt104_tick_squashing_no_fetch	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestTickBasic::test_pt106_tick_drain_stall_blocks	PASS	block-Fetch	none			0		
@@ -846,7 +846,7 @@ test_frontend_cl.TestBACResteerFlow::test_resteer_ack_deferred_one_cycle	PASS	bl
 test_frontend_cl.TestBACResteerFlow::test_resteer_basic	PASS	block-FrontEnd	none			0		
 test_frontend_cl.TestBACResteerFlow::test_resteer_ignored_while_squashing	PASS	block-FrontEnd	none			0		
 test_frontend_cl.TestBACResteerFlow::test_resteer_protocol_timing	PASS	block-FrontEnd	none			0		
-test_frontend_cl.TestBPUSquashInPlaceholder::test_bpu_placeholder_squash_issued	FAIL	block-FrontEnd	none			0		AssertionError: PlaceholderOnly squash should have occurred assert 0 > 0  +  where 0 = len([]) self = <FrontEnd.test_frontend_cl.TestBPUSquashInPlaceholder object at 0x7fc9f8b0c7d0>      def test_bpu_placeholder_squash_issued(self):         """After decode BTB miss, BAC issues PlaceholderOnly squash."""         fe = make_frontend()              # Intercept bpu_squash_req to verify PlaceholderOnly 
+test_frontend_cl.TestBPUSquashInPlaceholder::test_bpu_placeholder_squash_issued	FAIL	block-FrontEnd	none			0		AssertionError: PlaceholderOnly squash should have occurred assert 0 > 0  +  where 0 = len([]) self = <FrontEnd.test_frontend_cl.TestBPUSquashInPlaceholder object at 0x7f7f334091c0>      def test_bpu_placeholder_squash_issued(self):         """After decode BTB miss, BAC issues PlaceholderOnly squash."""         fe = make_frontend()              # Intercept bpu_squash_req to verify PlaceholderOnly 
 test_frontend_cl.TestConstructionAndReset::test_bac_initial_pc_zero	PASS	block-FrontEnd	none			0		
 test_frontend_cl.TestConstructionAndReset::test_bac_initial_state_idle	PASS	block-FrontEnd	none			0		
 test_frontend_cl.TestConstructionAndReset::test_decode_initial_preload_count_zero	PASS	block-FrontEnd	none			0		
@@ -864,9 +864,9 @@ test_frontend_cl.TestDecodeFlow::test_backward_ctrl_forwarded_to_decode	PASS	blo
 test_frontend_cl.TestDecodeFlow::test_decode_drain_sel_wired	PASS	block-FrontEnd	none			0		
 test_frontend_cl.TestDecodeFlow::test_decode_initial_preload_empty	PASS	block-FrontEnd	none			0		
 test_frontend_cl.TestDecodeFlow::test_decode_to_rename_interface_exists	PASS	block-FrontEnd	none			0		
-test_frontend_cl.TestEndToEndBTBMissAndTraining::test_btb_miss_placeholder_detection	FAIL	block-FrontEnd	none			0		AssertionError: Expected PlaceholderOnly squash call, got 0 calls: types=[] assert 0 > 0  +  where 0 = len([]) self = <FrontEnd.test_frontend_cl.TestEndToEndBTBMissAndTraining object at 0x7fc9f8992e40>      def test_btb_miss_placeholder_detection(self):         """BTB miss detected by Decode → PlaceholderOnly squash.              With empty BTB, BAC generates non-branch FTQ entries (ftq_is_branch=
-test_frontend_cl.TestEndToEndBTBMissAndTraining::test_btb_miss_then_training_flow	FAIL	block-FrontEnd	none			0		AssertionError: PlaceholderOnly squash should have occurred assert 0 > 0  +  where 0 = len([]) self = <FrontEnd.test_frontend_cl.TestEndToEndBTBMissAndTraining object at 0x7fc9f8b0ebd0>      def test_btb_miss_then_training_flow(self):         """After BTB miss placeholder, training via bc_commit_bb_idx triggers BPU update.              Flow:           1. Same BTB miss setup → PlaceholderOnly squas
-test_frontend_cl.TestEndToEndBTBMissAndTraining::test_prediction_switch_not_taken_to_taken	FAIL	block-FrontEnd	none			0		AssertionError: PlaceholderOnly squash required for training test assert 0 > 0  +  where 0 = len([]) self = <FrontEnd.test_frontend_cl.TestEndToEndBTBMissAndTraining object at 0x7fc9f8b0e150>      def test_prediction_switch_not_taken_to_taken(self):         """BPU update with branch_taken=True trains predictor after placeholder.              After a BTB miss PlaceholderOnly, the BPU has a placehol
+test_frontend_cl.TestEndToEndBTBMissAndTraining::test_btb_miss_placeholder_detection	FAIL	block-FrontEnd	none			0		AssertionError: Expected PlaceholderOnly squash call, got 0 calls: types=[] assert 0 > 0  +  where 0 = len([]) self = <FrontEnd.test_frontend_cl.TestEndToEndBTBMissAndTraining object at 0x7f7f334c7200>      def test_btb_miss_placeholder_detection(self):         """BTB miss detected by Decode → PlaceholderOnly squash.              With empty BTB, BAC generates non-branch FTQ entries (ftq_is_branch=
+test_frontend_cl.TestEndToEndBTBMissAndTraining::test_btb_miss_then_training_flow	FAIL	block-FrontEnd	none			0		AssertionError: PlaceholderOnly squash should have occurred assert 0 > 0  +  where 0 = len([]) self = <FrontEnd.test_frontend_cl.TestEndToEndBTBMissAndTraining object at 0x7f7f3340aa50>      def test_btb_miss_then_training_flow(self):         """After BTB miss placeholder, training via bc_commit_bb_idx triggers BPU update.              Flow:           1. Same BTB miss setup → PlaceholderOnly squas
+test_frontend_cl.TestEndToEndBTBMissAndTraining::test_prediction_switch_not_taken_to_taken	FAIL	block-FrontEnd	none			0		AssertionError: PlaceholderOnly squash required for training test assert 0 > 0  +  where 0 = len([]) self = <FrontEnd.test_frontend_cl.TestEndToEndBTBMissAndTraining object at 0x7f7f33409ca0>      def test_prediction_switch_not_taken_to_taken(self):         """BPU update with branch_taken=True trains predictor after placeholder.              After a BTB miss PlaceholderOnly, the BPU has a placehol
 test_frontend_cl.TestFTQToFetchDataPath::test_ftq_head_cleared_after_squash	PASS	block-FrontEnd	none			0		
 test_frontend_cl.TestFTQToFetchDataPath::test_ftq_head_committed_to_fetch_after_tick	PASS	block-FrontEnd	none			0		
 test_frontend_cl.TestFTQToFetchDataPath::test_ftq_is_full_back_pressure	PASS	block-FrontEnd	none			0		
@@ -2148,52 +2148,52 @@ test_o3_core_bare_metal_tb_cl.TestVAProbeCoordinator::test_va_probe_odd_cachelin
 test_o3_core_bare_metal_tb_cl.TestVAProbeCoordinator::test_va_probe_resp_fires_2_cycles_after_req	PASS	block-Testbench	none			0		
 test_riscv_tests_isa::test_riscv_tests_smoke_add	PASS	block-Testbench	none			9		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate]	PASS	block-Testbench	none			5		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND]	PASS	block-Testbench	none			10		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word]	FAIL	block-Testbench	none			4		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) riscv_tests_elf_dir = '/home/runner/work/pyo3-ci/pyo3-ci/src/cpu/pyo3/pymtl3/../riscv-tests/isa' elf_name = 'rv64ui-p-addw'      @pytest.mark.riscv_tests     @pytest.mark.parametrize("elf_name", _ALL_PARAMS)     def test_rv64ui_p(riscv_tests_elf_dir, elf_name):         """Run a rv64ui-p-* ISA test and check tohost == 1 
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND]	PASS	block-Testbench	none			9		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate]	PASS	block-Testbench	none			6		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-auipc:add upper immediate to PC]	PASS	block-Testbench	none			4		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal]	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal]	PASS	block-Testbench	none			10		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than]	PASS	block-Testbench	none			10		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned]	PASS	block-Testbench	none			11		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned]	PASS	block-Testbench	none			10		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal]	PASS	block-Testbench	none			9		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link]	PASS	block-Testbench	none			3		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link]	PASS	block-Testbench	none			4		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jalr:jump and link register]	PASS	block-Testbench	none			5		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double]	PASS	block-Testbench	none			8		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half]	PASS	block-Testbench	none			6		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned]	PASS	block-Testbench	none			6		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lui:load upper immediate]	PASS	block-Testbench	none			4		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			10		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate]	PASS	block-Testbench	none			6		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte]	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]	FAIL	block-Testbench	none			8		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) riscv_tests_elf_dir = '/home/runner/work/pyo3-ci/pyo3-ci/src/cpu/pyo3/pymtl3/../riscv-tests/isa' elf_name = 'rv64ui-p-sh'      @pytest.mark.riscv_tests     @pytest.mark.parametrize("elf_name", _ALL_PARAMS)     def test_rv64ui_p(riscv_tests_elf_dir, elf_name):         """Run a rv64ui-p-* ISA test and check tohost == 1 (P
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double]	PASS	block-Testbench	none			10		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]	PASS	block-Testbench	none			9		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate]	PASS	block-Testbench	none			6		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than]	PASS	block-Testbench	none			7		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned]	FAIL	block-Testbench	none			4		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) riscv_tests_elf_dir = '/home/runner/work/pyo3-ci/pyo3-ci/src/cpu/pyo3/pymtl3/../riscv-tests/isa' elf_name = 'rv64ui-p-sltiu'      @pytest.mark.riscv_tests     @pytest.mark.parametrize("elf_name", _ALL_PARAMS)     def test_rv64ui_p(riscv_tests_elf_dir, elf_name):         """Run a rv64ui-p-* ISA test and check tohost == 1
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned]	PASS	block-Testbench	none			9		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srai:shift right arithmetic immediate]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srai:shift right arithmetic immediate]	FAIL	block-Testbench	none			4		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) riscv_tests_elf_dir = '/home/runner/work/pyo3-ci/pyo3-ci/src/cpu/pyo3/pymtl3/../riscv-tests/isa' elf_name = 'rv64ui-p-srai'      @pytest.mark.riscv_tests     @pytest.mark.parametrize("elf_name", _ALL_PARAMS)     def test_rv64ui_p(riscv_tests_elf_dir, elf_name):         """Run a rv64ui-p-* ISA test and check tohost == 1 
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sraw:shift right arithmetic word]	PASS	block-Testbench	none			9		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical]	PASS	block-Testbench	none			10		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate]	PASS	block-Testbench	none			6		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction]	FAIL	block-Testbench	none			4		AssertionError: StorageManager: alloc buffer full (cfg_max_allocs_per_cycle=2) riscv_tests_elf_dir = '/home/runner/work/pyo3-ci/pyo3-ci/src/cpu/pyo3/pymtl3/../riscv-tests/isa' elf_name = 'rv64ui-p-sub'      @pytest.mark.riscv_tests     @pytest.mark.parametrize("elf_name", _ALL_PARAMS)     def test_rv64ui_p(riscv_tests_elf_dir, elf_name):         """Run a rv64ui-p-* ISA test and check tohost == 1 (
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR]	PASS	block-Testbench	none			10		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate]	PASS	block-Testbench	none			5		
 test_tlbi_controller_cl.TestEdgeCases::test_second_tlbi_req_after_first_completes	PASS	block-TlbiController	none			0		
 test_tlbi_controller_cl.TestEdgeCases::test_sync_comp_before_inv_sent_ignored_or_buffered	PASS	block-TlbiController	none			0		
 test_tlbi_controller_cl.TestIntegrationWithLSQ::test_integration_controller_with_lsq	PASS	block-TlbiController	none			0		
@@ -2294,380 +2294,380 @@ test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_r
 test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_returns_miss_when_buf_empty	PASS	block-WriteBack	none			0		
 test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_normal_completion_does_not_fire_sb_setReg	PASS	block-WriteBack	none			0		
 test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_sb_setReg_caller_ifc_removed	PASS	block-WriteBack	none			0		
-hypervisor-p-2-stage_translation	PASS	p-	none		1374	13	501158466	(13s) cyc=1374
-hypervisor-p-2-stage_translation_implicit_load_error	PASS	p-	none		1652	14	148866160	(14s) cyc=1652
-hypervisor-p-2-stage_translation_implicit_load_error_hs	PASS	p-	none		1827	16	773512888	(16s) cyc=1827
-hypervisor-svadu-p-2-stage_translation_implicit_store_error	PASS	p-	none		1768	15	144058068	(15s) cyc=1768
-hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs	PASS	p-	none		1945	14	229662063	(14s) cyc=1945
-rv64mi-p-breakpoint	PASS	p-	none		3343	23	902966451	(23s) cyc=3343
-rv64mi-p-csr	PASS	p-	none		3467	24	581370878	(24s) cyc=3467
-rv64mi-p-illegal	TIMEOUT	p-	none			108	599820860	
-rv64mi-p-instret_overflow	PASS	p-	none		1252	10	381280951	(10s) cyc=1252
-rv64mi-p-ld-misaligned	PASS	p-	none		1386	11	467580004	(11s) cyc=1386
-rv64mi-p-lh-misaligned	PASS	p-	none		1102	9	644528850	(9s) cyc=1102
-rv64mi-p-lw-misaligned	PASS	p-	none		1171	9	196764624	(9s) cyc=1171
-rv64mi-p-ma_addr	PASS	p-	none		1538	12	237629515	(12s) cyc=1538
-rv64mi-p-ma_fetch	PASS	p-	none		1950	14	590150778	(14s) cyc=1950
-rv64mi-p-mcsr	PASS	p-	none		1342	11	821257171	(11s) cyc=1342
-rv64mi-p-pmpaddr	PASS	p-	none		1185	9	849006237	(9s) cyc=1185
-rv64mi-p-sbreak	PASS	p-	none		1315	10	205758161	(10s) cyc=1315
-rv64mi-p-scall	PASS	p-	none		1261	10	440051098	(10s) cyc=1261
-rv64mi-p-sd-misaligned	PASS	p-	none		1436	11	173401624	(11s) cyc=1436
-rv64mi-p-sh-misaligned	PASS	p-	none		1109	9	645122282	(9s) cyc=1109
-rv64mi-p-sw-misaligned	PASS	p-	none		1150	9	490877420	(9s) cyc=1150
-rv64mi-p-zicntr	PASS	p-	none		1439	11	562979808	(11s) cyc=1439
-rv64mzicbo-p-zero	PASS	p-	none		1160	10	669595824	(10s) cyc=1160
-rv64si-p-csr	PASS	p-	none		2277	16	559473435	(16s) cyc=2277
-rv64si-p-dirty	PASS	p-	none		2274	16	460250143	(16s) cyc=2274
-rv64si-p-icache-alias	PASS	p-	none		2372	17	764221543	(17s) cyc=2372
-rv64si-p-ma_fetch	PASS	p-	none		1382	11	592064248	(11s) cyc=1382
-rv64si-p-sbreak	PASS	p-	none		1325	10	999571597	(10s) cyc=1325
-rv64si-p-scall	PASS	p-	none		1443	11	10024063	(11s) cyc=1443
-rv64si-p-wfi	PASS	p-	none		1173	9	548382716	(9s) cyc=1173
-rv64ssvnapot-p-napot	PASS	p-	none		1658	13	243763778	(13s) cyc=1658
-rv64ua-p-amoadd_d	PASS	p-	none		1081	8	450089943	(8s) cyc=1081
-rv64ua-p-amoadd_w	PASS	p-	none		1120	9	87587593	(9s) cyc=1120
-rv64ua-p-amoand_d	PASS	p-	none		1121	9	945077726	(9s) cyc=1121
-rv64ua-p-amoand_w	PASS	p-	none		1117	9	382368030	(9s) cyc=1117
-rv64ua-p-amomax_d	PASS	p-	none		1077	9	234172996	(9s) cyc=1077
-rv64ua-p-amomax_w	PASS	p-	none		1100	9	732688004	(9s) cyc=1100
-rv64ua-p-amomaxu_d	PASS	p-	none		1077	8	679495742	(8s) cyc=1077
-rv64ua-p-amomaxu_w	PASS	p-	none		1100	9	245430512	(9s) cyc=1100
-rv64ua-p-amomin_d	PASS	p-	none		1077	8	73969204	(8s) cyc=1077
-rv64ua-p-amomin_w	PASS	p-	none		1100	9	563985659	(9s) cyc=1100
-rv64ua-p-amominu_d	PASS	p-	none		1077	9	9711977	(9s) cyc=1077
-rv64ua-p-amominu_w	PASS	p-	none		1100	9	359664055	(9s) cyc=1100
-rv64ua-p-amoor_d	PASS	p-	none		1117	10	573170992	(10s) cyc=1117
-rv64ua-p-amoor_w	PASS	p-	none		1117	9	65055216	(9s) cyc=1117
-rv64ua-p-amoswap_d	PASS	p-	none		1121	9	496682213	(9s) cyc=1121
-rv64ua-p-amoswap_w	PASS	p-	none		1117	9	845780019	(9s) cyc=1117
-rv64ua-p-amoxor_d	PASS	p-	none		1125	9	59535770	(9s) cyc=1125
-rv64ua-p-amoxor_w	PASS	p-	none		1129	9	544339809	(9s) cyc=1129
-rv64ua-p-lrsc	PASS	p-	none		19229	120	979792022	(120s) cyc=19229
-rv64uc-p-rvc	PASS	p-	none		1589	12	744788224	(12s) cyc=1589
-rv64ud-p-fadd	PASS	p-	none		1912	14	577812980	(14s) cyc=1912
-rv64ud-p-fclass	PASS	p-	none		1233	10	320444560	(10s) cyc=1233
-rv64ud-p-fcmp	PASS	p-	none		2232	16	10384176	(16s) cyc=2232
-rv64ud-p-fcvt	PASS	p-	none		1840	14	272344399	(14s) cyc=1840
-rv64ud-p-fcvt_w	PASS	p-	none		3802	27	587087612	(27s) cyc=3802
-rv64ud-p-fdiv	PASS	p-	none		1740	14	984375553	(14s) cyc=1740
-rv64ud-p-fmadd	PASS	p-	none		2072	16	180300446	(16s) cyc=2072
-rv64ud-p-fmin	PASS	p-	none		2544	18	947658259	(18s) cyc=2544
-rv64ud-p-ldst	PASS	p-	none		1172	10	632303518	(10s) cyc=1172
-rv64ud-p-move	PASS	p-	none		2696	19	303179275	(19s) cyc=2696
-rv64ud-p-recoding	PASS	p-	none		1245	10	851767133	(10s) cyc=1245
-rv64ud-p-structural	PASS	p-	none		2027	15	627731899	(15s) cyc=2027
-rv64uf-p-fadd	PASS	p-	none		1912	15	36733071	(15s) cyc=1912
-rv64uf-p-fclass	PASS	p-	none		1217	10	550968071	(10s) cyc=1217
-rv64uf-p-fcmp	PASS	p-	none		2232	16	534686299	(16s) cyc=2232
-rv64uf-p-fcvt	PASS	p-	none		1629	13	944101436	(13s) cyc=1629
-rv64uf-p-fcvt_w	PASS	p-	none		3430	24	279700643	(24s) cyc=3430
-rv64uf-p-fdiv	PASS	p-	none		1664	13	434903434	(13s) cyc=1664
-rv64uf-p-fmadd	PASS	p-	none		2035	16	262107095	(16s) cyc=2035
-rv64uf-p-fmin	PASS	p-	none		2544	18	636225911	(18s) cyc=2544
-rv64uf-p-ldst	PASS	p-	none		1184	10	886771429	(10s) cyc=1184
-rv64uf-p-move	PASS	p-	none		1817	13	549263232	(13s) cyc=1817
-rv64uf-p-recoding	PASS	p-	none		1198	9	716272891	(9s) cyc=1198
-rv64ui-p-add	PASS	p-	none		2453	18	740405912	(18s) cyc=2453
-rv64ui-p-addi	PASS	p-	none		1630	12	427004263	(12s) cyc=1630
-rv64ui-p-addiw	PASS	p-	none		1621	13	424634337	(13s) cyc=1621
-rv64ui-p-addw	PASS	p-	none		2443	18	426003094	(18s) cyc=2443
-rv64ui-p-and	PASS	p-	none		2613	19	552984486	(19s) cyc=2613
-rv64ui-p-andi	PASS	p-	none		1609	12	398314427	(12s) cyc=1609
-rv64ui-p-auipc	PASS	p-	none		1053	9	20430004	(9s) cyc=1053
-rv64ui-p-beq	PASS	p-	none		2427	17	107255581	(17s) cyc=2427
-rv64ui-p-bge	PASS	p-	none		2726	19	398655160	(19s) cyc=2726
-rv64ui-p-bgeu	PASS	p-	none		2956	20	858678023	(20s) cyc=2956
-rv64ui-p-blt	PASS	p-	none		2429	17	391044037	(17s) cyc=2429
-rv64ui-p-bltu	PASS	p-	none		2643	19	967413866	(19s) cyc=2643
-rv64ui-p-bne	PASS	p-	none		2482	18	178664987	(18s) cyc=2482
-rv64ui-p-fence_i	PASS	p-	none		2030	15	590945852	(15s) cyc=2030
-rv64ui-p-jal	PASS	p-	none		1049	9	956343611	(9s) cyc=1049
-rv64ui-p-jalr	PASS	p-	none		1557	12	170480103	(12s) cyc=1557
-rv64ui-p-lb	PASS	p-	none		1671	13	990396728	(13s) cyc=1671
-rv64ui-p-lbu	PASS	p-	none		1671	12	649048577	(12s) cyc=1671
-rv64ui-p-ld	PASS	p-	none		2066	16	638425225	(16s) cyc=2066
-rv64ui-p-ld_st	PASS	p-	none		4478	29	640697615	(29s) cyc=4478
-rv64ui-p-lh	PASS	p-	none		1711	12	565286021	(12s) cyc=1711
-rv64ui-p-lhu	PASS	p-	none		1717	13	834897111	(13s) cyc=1717
-rv64ui-p-lui	PASS	p-	none		1065	8	943415801	(8s) cyc=1065
-rv64ui-p-lw	PASS	p-	none		1731	13	60021833	(13s) cyc=1731
-rv64ui-p-lwu	PASS	p-	none		1797	14	528506668	(14s) cyc=1797
-rv64ui-p-ma_data	PASS	p-	none		7851	51	379068457	(51s) cyc=7851
-rv64ui-p-or	PASS	p-	none		2670	19	227892667	(19s) cyc=2670
-rv64ui-p-ori	PASS	p-	none		1591	12	362796034	(12s) cyc=1591
-rv64ui-p-sb	PASS	p-	none		2292	16	162586878	(16s) cyc=2292
-rv64ui-p-sd	PASS	p-	none		2616	19	935964494	(19s) cyc=2616
-rv64ui-p-sh	PASS	p-	none		2362	17	804679608	(17s) cyc=2362
-rv64ui-p-simple	PASS	p-	none		1003	8	760532874	(8s) cyc=1003
-rv64ui-p-sll	PASS	p-	none		2573	19	457153167	(19s) cyc=2573
-rv64ui-p-slli	PASS	p-	none		1691	13	991329355	(13s) cyc=1691
-rv64ui-p-slliw	PASS	p-	none		1685	12	754708013	(12s) cyc=1685
-rv64ui-p-sllw	PASS	p-	none		2577	18	152455062	(18s) cyc=2577
-rv64ui-p-slt	PASS	p-	none		2431	17	39158969	(17s) cyc=2431
-rv64ui-p-slti	PASS	p-	none		1617	12	734732307	(12s) cyc=1617
-rv64ui-p-sltiu	PASS	p-	none		1617	12	910010785	(12s) cyc=1617
-rv64ui-p-sltu	PASS	p-	none		2469	17	715355122	(17s) cyc=2469
-rv64ui-p-sra	PASS	p-	none		2524	18	613793538	(18s) cyc=2524
-rv64ui-p-srai	PASS	p-	none		1654	12	881258908	(12s) cyc=1654
-rv64ui-p-sraiw	PASS	p-	none		1755	13	146942721	(13s) cyc=1755
-rv64ui-p-sraw	PASS	p-	none		2595	18	971691144	(18s) cyc=2595
-rv64ui-p-srl	PASS	p-	none		2619	18	799760873	(18s) cyc=2619
-rv64ui-p-srli	PASS	p-	none		1715	12	750778173	(12s) cyc=1715
-rv64ui-p-srliw	PASS	p-	none		1703	13	645502898	(13s) cyc=1703
-rv64ui-p-srlw	PASS	p-	none		2583	18	100062432	(18s) cyc=2583
-rv64ui-p-st_ld	PASS	p-	none		1993	15	770031185	(15s) cyc=1993
-rv64ui-p-sub	PASS	p-	none		2437	17	372623048	(17s) cyc=2437
-rv64ui-p-subw	PASS	p-	none		2429	18	325780895	(18s) cyc=2429
-rv64ui-p-sw	PASS	p-	none		2382	16	424637326	(16s) cyc=2382
-rv64ui-p-xor	PASS	p-	none		2664	19	135163531	(19s) cyc=2664
-rv64ui-p-xori	PASS	p-	none		1595	12	237090534	(12s) cyc=1595
-rv64um-p-div	PASS	p-	none		1157	9	585982204	(9s) cyc=1157
-rv64um-p-divu	PASS	p-	none		1167	10	684365325	(10s) cyc=1167
-rv64um-p-divuw	PASS	p-	none		1147	9	512250285	(9s) cyc=1147
-rv64um-p-divw	PASS	p-	none		1139	10	371707395	(10s) cyc=1139
-rv64um-p-mul	PASS	p-	none		2465	18	497986453	(18s) cyc=2465
-rv64um-p-mulh	PASS	p-	none		2471	18	28795490	(18s) cyc=2471
-rv64um-p-mulhsu	PASS	p-	none		2471	18	692225527	(18s) cyc=2471
-rv64um-p-mulhu	PASS	p-	none		2531	18	954684983	(18s) cyc=2531
-rv64um-p-mulw	PASS	p-	none		2330	16	592313968	(16s) cyc=2330
-rv64um-p-rem	PASS	p-	none		1131	9	72861656	(9s) cyc=1131
-rv64um-p-remu	PASS	p-	none		1133	9	284589903	(9s) cyc=1133
-rv64um-p-remuw	PASS	p-	none		1129	9	954402774	(9s) cyc=1129
-rv64um-p-remw	PASS	p-	none		1139	9	603285345	(9s) cyc=1139
-rv64uzba-p-add_uw	PASS	p-	none		2455	17	381129446	(17s) cyc=2455
-rv64uzba-p-sh1add	PASS	p-	none		2461	18	404851221	(18s) cyc=2461
-rv64uzba-p-sh1add_uw	PASS	p-	none		2469	18	248146370	(18s) cyc=2469
-rv64uzba-p-sh2add	PASS	p-	none		2461	18	979551081	(18s) cyc=2461
-rv64uzba-p-sh2add_uw	PASS	p-	none		2469	19	1180397	(19s) cyc=2469
-rv64uzba-p-sh3add	PASS	p-	none		2461	19	788703981	(19s) cyc=2461
-rv64uzba-p-sh3add_uw	PASS	p-	none		2469	19	678450727	(19s) cyc=2469
-rv64uzba-p-slli_uw	PASS	p-	none		1719	13	337342898	(13s) cyc=1719
-rv64uzbb-p-andn	PASS	p-	none		2655	20	744483833	(20s) cyc=2655
-rv64uzbb-p-clz	PASS	p-	none		1497	12	954109503	(12s) cyc=1497
-rv64uzbb-p-clzw	PASS	p-	none		1465	13	500929277	(13s) cyc=1465
-rv64uzbb-p-cpop	PASS	p-	none		1497	12	200047035	(12s) cyc=1497
-rv64uzbb-p-cpopw	PASS	p-	none		1465	12	723287817	(12s) cyc=1465
-rv64uzbb-p-ctz	PASS	p-	none		1497	12	639824503	(12s) cyc=1497
-rv64uzbb-p-ctzw	PASS	p-	none		1467	12	394387286	(12s) cyc=1467
-rv64uzbb-p-max	PASS	p-	none		2441	18	530332243	(18s) cyc=2441
-rv64uzbb-p-maxu	PASS	p-	none		2503	18	348771543	(18s) cyc=2503
-rv64uzbb-p-min	PASS	p-	none		2433	18	410211012	(18s) cyc=2433
-rv64uzbb-p-minu	PASS	p-	none		2482	19	730578877	(19s) cyc=2482
-rv64uzbb-p-orc_b	PASS	p-	none		1539	12	902431267	(12s) cyc=1539
-rv64uzbb-p-orn	PASS	p-	none		2673	20	910639585	(20s) cyc=2673
-rv64uzbb-p-rev8	PASS	p-	none		1572	13	63026817	(13s) cyc=1572
-rv64uzbb-p-rol	PASS	p-	none		2584	19	551973406	(19s) cyc=2584
-rv64uzbb-p-rolw	PASS	p-	none		2586	19	492505223	(19s) cyc=2586
-rv64uzbb-p-ror	PASS	p-	none		2645	20	296835585	(20s) cyc=2645
-rv64uzbb-p-rori	PASS	p-	none		1712	13	963862235	(13s) cyc=1712
-rv64uzbb-p-roriw	PASS	p-	none		1625	13	121712519	(13s) cyc=1625
-rv64uzbb-p-rorw	PASS	p-	none		2513	19	884950845	(19s) cyc=2513
-rv64uzbb-p-sext_b	PASS	p-	none		1497	12	251385712	(12s) cyc=1497
-rv64uzbb-p-sext_h	PASS	p-	none		1503	12	874607698	(12s) cyc=1503
-rv64uzbb-p-xnor	PASS	p-	none		2671	20	811578154	(20s) cyc=2671
-rv64uzbb-p-zext_h	PASS	p-	none		1509	12	944465889	(12s) cyc=1509
-rv64uzbc-p-clmul	PASS	p-	none		2467	18	529279548	(18s) cyc=2467
-rv64uzbc-p-clmulh	PASS	p-	none		2478	18	844255499	(18s) cyc=2478
-rv64uzbc-p-clmulr	PASS	p-	none		2473	18	291686718	(18s) cyc=2473
-rv64uzbkb-p-brev8	PASS	p-	none		1537	12	898501555	(12s) cyc=1537
-rv64uzbkb-p-pack	PASS	p-	none		2913	22	505372175	(22s) cyc=2913
-rv64uzbkb-p-packh	PASS	p-	none		2583	19	368151230	(19s) cyc=2583
-rv64uzbkb-p-packw	PASS	p-	none		2443	19	257148564	(19s) cyc=2443
-rv64uzbkx-p-xperm4	PASS	p-	none		2769	21	740854265	(21s) cyc=2769
-rv64uzbkx-p-xperm8	PASS	p-	none		3598	26	446133531	(26s) cyc=3598
-rv64uzbs-p-bclr	PASS	p-	none		2796	20	296873924	(20s) cyc=2796
-rv64uzbs-p-bclri	PASS	p-	none		1779	14	451863504	(14s) cyc=1779
-rv64uzbs-p-bext	PASS	p-	none		2661	20	631003317	(20s) cyc=2661
-rv64uzbs-p-bexti	PASS	p-	none		1711	13	442298354	(13s) cyc=1711
-rv64uzbs-p-binv	PASS	p-	none		2631	20	240498640	(20s) cyc=2631
-rv64uzbs-p-binvi	PASS	p-	none		1715	14	715990309	(14s) cyc=1715
-rv64uzbs-p-bset	PASS	p-	none		2800	20	201278730	(20s) cyc=2800
-rv64uzbs-p-bseti	PASS	p-	none		1793	14	104231011	(14s) cyc=1793
-rv64uzfh-p-fadd	PASS	p-	none		1912	14	957060468	(14s) cyc=1912
-rv64uzfh-p-fclass	PASS	p-	none		1218	9	588239309	(9s) cyc=1218
-rv64uzfh-p-fcmp	PASS	p-	none		1566	12	452583352	(12s) cyc=1566
-rv64uzfh-p-fcvt	PASS	p-	none		1802	14	43401703	(14s) cyc=1802
-rv64uzfh-p-fcvt_w	PASS	p-	none		3430	25	319358881	(25s) cyc=3430
-rv64uzfh-p-fdiv	PASS	p-	none		1664	13	550431849	(13s) cyc=1664
-rv64uzfh-p-fmadd	PASS	p-	none		2072	16	275866897	(16s) cyc=2072
-rv64uzfh-p-fmin	PASS	p-	none		2544	19	368873644	(19s) cyc=2544
-rv64uzfh-p-ldst	PASS	p-	none		1196	10	126679854	(10s) cyc=1196
-rv64uzfh-p-move	PASS	p-	none		1812	14	456065667	(14s) cyc=1812
-rv64uzfh-p-recoding	PASS	p-	none		1198	10	843740376	(10s) cyc=1198
-rv64uziccid-p-ziccid	PASS	p-	none		8240	37	537034542	(37s) cyc=8240
-rv64uzicond-p-czero_eqz	PASS	p-	none		2389	11	643865006	(11s) cyc=2389
-rv64uzicond-p-czero_nez	PASS	p-	none		2377	14	548068804	(14s) cyc=2377
-rv64ua-v-amoadd_d	PASS	v-	15/18		28360	215	786005351	(215s) cyc=28360
-rv64ua-v-amoadd_w	PASS	v-	16/18		28349	186	418260121	(186s) cyc=28349
-rv64ua-v-amoand_d	PASS	v-	17/18		27836	184	750443492	(184s) cyc=27836
-rv64ua-v-amoand_w	PASS	v-	18/18		27836	196	188879518	(196s) cyc=27836
-rv64ua-v-amomax_d	PASS	v-	1/18		28223	187	434872205	(187s) cyc=28223
-rv64ua-v-amomax_w	PASS	v-	4/18		28360	137	930144339	(137s) cyc=28360
-rv64ua-v-amomaxu_d	PASS	v-	2/18		28223	187	948378422	(187s) cyc=28223
-rv64ua-v-amomaxu_w	PASS	v-	3/18		28360	137	518899554	(137s) cyc=28360
-rv64ua-v-amomin_d	PASS	v-	5/18		28223	197	606574653	(197s) cyc=28223
-rv64ua-v-amomin_w	PASS	v-	8/18		28487	188	89348215	(188s) cyc=28487
-rv64ua-v-amominu_d	PASS	v-	6/18		28380	191	288406354	(191s) cyc=28380
-rv64ua-v-amominu_w	PASS	v-	7/18		28369	187	629361879	(187s) cyc=28369
-rv64ua-v-amoor_d	PASS	v-	9/18		28276	183	549755087	(183s) cyc=28276
-rv64ua-v-amoor_w	PASS	v-	10/18		28276	182	965235527	(182s) cyc=28276
-rv64ua-v-amoswap_d	PASS	v-	11/18		28539	117	236670630	(117s) cyc=28539
-rv64ua-v-amoswap_w	PASS	v-	12/18		28385	163	582441905	(163s) cyc=28385
-rv64ua-v-amoxor_d	PASS	v-	13/18		28333	94	583898862	(94s) cyc=28333
-rv64ua-v-amoxor_w	PASS	v-	14/18		28365	164	73945774	(164s) cyc=28365
-rv64ua-v-lrsc	PASS	v-	15/18		46275	266	485600210	(266s) cyc=46275
-rv64uc-v-rvc	PASS	v-	14/18		37465	219	520007738	(219s) cyc=37465
-rv64ud-v-fadd	PASS	v-	9/18		27787	185	957237835	(185s) cyc=27787
-rv64ud-v-fclass	PASS	v-	10/18		17769	118	862022522	(118s) cyc=17769
-rv64ud-v-fcmp	PASS	v-	11/18		28100	119	679531727	(119s) cyc=28100
-rv64ud-v-fcvt	PASS	v-	12/18		27434	173	805966891	(173s) cyc=27434
-rv64ud-v-fcvt_w	PASS	v-	13/18		38653	107	200572162	(107s) cyc=38653
-rv64ud-v-fdiv	PASS	v-	14/18		27615	163	356780410	(163s) cyc=27615
-rv64ud-v-fmadd	PASS	v-	15/18		27949	204	326912054	(204s) cyc=27949
-rv64ud-v-fmin	PASS	v-	16/18		28419	135	574045274	(135s) cyc=28419
-rv64ud-v-ldst	PASS	v-	17/18		28263	138	835678608	(138s) cyc=28263
-rv64ud-v-move	PASS	v-	18/18		28511	198	634320469	(198s) cyc=28511
-rv64ud-v-recoding	PASS	v-	1/18		27790	187	511380118	(187s) cyc=27790
-rv64ud-v-structural	PASS	v-	2/18		18543	131	137768937	(131s) cyc=18543
-rv64uf-v-fadd	PASS	v-	16/18		27787	164	631412701	(164s) cyc=27787
-rv64uf-v-fclass	PASS	v-	17/18		17753	118	16293842	(118s) cyc=17753
-rv64uf-v-fcmp	PASS	v-	18/18		28100	192	977580062	(192s) cyc=28100
-rv64uf-v-fcvt	PASS	v-	1/18		27216	184	251527733	(184s) cyc=27216
-rv64uf-v-fcvt_w	PASS	v-	2/18		38304	256	671447500	(256s) cyc=38304
-rv64uf-v-fdiv	PASS	v-	3/18		27536	136	29570259	(136s) cyc=27536
-rv64uf-v-fmadd	PASS	v-	4/18		27949	138	241907104	(138s) cyc=27949
-rv64uf-v-fmin	PASS	v-	5/18		28419	201	43349947	(201s) cyc=28419
-rv64uf-v-ldst	PASS	v-	6/18		28407	191	461892820	(191s) cyc=28407
-rv64uf-v-move	PASS	v-	7/18		18400	125	251141576	(125s) cyc=18400
-rv64uf-v-recoding	PASS	v-	8/18		26855	181	778638471	(181s) cyc=26855
-rv64ui-v-add	PASS	v-	1/18		19222	133	921060804	(133s) cyc=19222
-rv64ui-v-addi	PASS	v-	2/18		18412	126	57221556	(126s) cyc=18412
-rv64ui-v-addiw	PASS	v-	3/18		18339	92	135007091	(92s) cyc=18339
-rv64ui-v-addw	PASS	v-	4/18		19183	97	95651867	(97s) cyc=19183
-rv64ui-v-and	PASS	v-	7/18		19255	133	11351476	(133s) cyc=19255
-rv64ui-v-andi	PASS	v-	8/18		18277	123	927981803	(123s) cyc=18277
-rv64ui-v-auipc	PASS	v-	12/18		17683	120	552906548	(120s) cyc=17683
-rv64ui-v-beq	PASS	v-	13/18		18929	67	199128151	(67s) cyc=18929
-rv64ui-v-bge	PASS	v-	14/18		19133	115	42438148	(115s) cyc=19133
-rv64ui-v-bgeu	PASS	v-	15/18		19385	148	459943335	(148s) cyc=19385
-rv64ui-v-blt	PASS	v-	16/18		18932	124	211307330	(124s) cyc=18932
-rv64ui-v-bltu	PASS	v-	17/18		19125	129	376668366	(129s) cyc=19125
-rv64ui-v-bne	PASS	v-	18/18		18861	136	161093514	(136s) cyc=18861
-rv64ui-v-fence_i	PASS	v-	17/18		29504	196	357944013	(196s) cyc=29504
-rv64ui-v-jal	PASS	v-	1/18		17683	123	604303975	(123s) cyc=17683
-rv64ui-v-jalr	PASS	v-	2/18		18225	126	369419097	(126s) cyc=18225
-rv64ui-v-lb	PASS	v-	3/18		27482	136	852424249	(136s) cyc=27482
-rv64ui-v-lbu	PASS	v-	4/18		27482	138	617780147	(138s) cyc=27482
-rv64ui-v-ld	PASS	v-	9/18		27847	188	259272753	(188s) cyc=27847
-rv64ui-v-ld_st	PASS	v-	14/18		49420	283	933684329	(283s) cyc=49420
-rv64ui-v-lh	PASS	v-	5/18		27506	198	550009843	(198s) cyc=27506
-rv64ui-v-lhu	PASS	v-	6/18		27586	187	537110965	(187s) cyc=27586
-rv64ui-v-lui	PASS	v-	11/18		17713	76	724640965	(76s) cyc=17713
-rv64ui-v-lw	PASS	v-	7/18		27414	186	684161011	(186s) cyc=27414
-rv64ui-v-lwu	PASS	v-	8/18		27423	183	703857307	(183s) cyc=27423
-rv64ui-v-ma_data	PASS	v-	18/18		51138	348	618005562	(348s) cyc=51138
-rv64ui-v-or	PASS	v-	9/18		19480	132	623042885	(132s) cyc=19480
-rv64ui-v-ori	PASS	v-	10/18		18316	124	272806868	(124s) cyc=18316
-rv64ui-v-sb	PASS	v-	10/18		28733	188	546967863	(188s) cyc=28733
-rv64ui-v-sd	PASS	v-	13/18		38675	132	88999951	(132s) cyc=38675
-rv64ui-v-sh	PASS	v-	11/18		28439	119	179481857	(119s) cyc=28439
-rv64ui-v-simple	PASS	v-	16/18		17598	116	207012931	(116s) cyc=17598
-rv64ui-v-sll	PASS	v-	17/18		28441	193	812076210	(193s) cyc=28441
-rv64ui-v-slli	PASS	v-	18/18		18421	134	335687719	(134s) cyc=18421
-rv64ui-v-slliw	PASS	v-	1/18		18468	128	732546418	(128s) cyc=18468
-rv64ui-v-sllw	PASS	v-	2/18		28692	192	525425032	(192s) cyc=28692
-rv64ui-v-slt	ERROR	v-	13/18			50	520768026	exit=None cycles=-1 status=ERROR
-rv64ui-v-slti	PASS	v-	14/18		18358	111	44255788	(111s) cyc=18358
-rv64ui-v-sltiu	PASS	v-	16/18		18358	123	585945858	(123s) cyc=18358
-rv64ui-v-sltu	PASS	v-	15/18		19206	147	482313394	(147s) cyc=19206
-rv64ui-v-sra	PASS	v-	7/18		19173	133	654158085	(133s) cyc=19173
-rv64ui-v-srai	PASS	v-	8/18		18234	122	583215804	(122s) cyc=18234
-rv64ui-v-sraiw	PASS	v-	9/18		18547	127	433378341	(127s) cyc=18547
-rv64ui-v-sraw	PASS	v-	10/18		28610	192	567600244	(192s) cyc=28610
-rv64ui-v-srl	PASS	v-	3/18		28647	141	567574886	(141s) cyc=28647
-rv64ui-v-srli	PASS	v-	4/18		18283	92	456082338	(92s) cyc=18283
-rv64ui-v-srliw	PASS	v-	5/18		18485	138	941562319	(138s) cyc=18485
-rv64ui-v-srlw	PASS	v-	6/18		28690	191	701826781	(191s) cyc=28690
-rv64ui-v-st_ld	PASS	v-	15/18		38139	282	661604313	(282s) cyc=38139
-rv64ui-v-sub	PASS	v-	5/18		19132	142	69741757	(142s) cyc=19132
-rv64ui-v-subw	PASS	v-	6/18		19169	129	996734494	(129s) cyc=19169
-rv64ui-v-sw	PASS	v-	12/18		29100	190	455680684	(190s) cyc=29100
-rv64ui-v-xor	PASS	v-	11/18		19425	81	638493545	(81s) cyc=19425
-rv64ui-v-xori	PASS	v-	12/18		18149	122	972312258	(122s) cyc=18149
-rv64um-v-div	PASS	v-	5/18		17908	133	152389919	(133s) cyc=17908
-rv64um-v-divu	PASS	v-	6/18		17866	123	257076638	(123s) cyc=17866
-rv64um-v-divuw	PASS	v-	11/18		17850	76	992896645	(76s) cyc=17850
-rv64um-v-divw	PASS	v-	10/18		17892	120	574066864	(120s) cyc=17892
-rv64um-v-mul	PASS	v-	1/18		19155	133	271112431	(133s) cyc=19155
-rv64um-v-mulh	PASS	v-	2/18		19246	135	761777814	(135s) cyc=19246
-rv64um-v-mulhsu	PASS	v-	3/18		19246	96	189269612	(96s) cyc=19246
-rv64um-v-mulhu	PASS	v-	4/18		19306	98	531444238	(98s) cyc=19306
-rv64um-v-mulw	PASS	v-	9/18		19119	130	942672359	(130s) cyc=19119
-rv64um-v-rem	PASS	v-	7/18		17889	126	235547629	(126s) cyc=17889
-rv64um-v-remu	PASS	v-	8/18		17893	121	651394329	(121s) cyc=17893
-rv64um-v-remuw	PASS	v-	13/18		17784	62	542289161	(62s) cyc=17784
-rv64um-v-remw	PASS	v-	12/18		17794	120	345160207	(120s) cyc=17794
-rv64uzba-v-add_uw	PASS	v-	3/18		18997	94	921805689	(94s) cyc=18997
-rv64uzba-v-sh1add	PASS	v-	4/18		19005	94	3425437	(94s) cyc=19005
-rv64uzba-v-sh1add_uw	PASS	v-	5/18		19012	137	987268801	(137s) cyc=19012
-rv64uzba-v-sh2add	PASS	v-	6/18		19005	132	615745313	(132s) cyc=19005
-rv64uzba-v-sh2add_uw	PASS	v-	7/18		19012	129	735813652	(129s) cyc=19012
-rv64uzba-v-sh3add	PASS	v-	8/18		19005	126	386180966	(126s) cyc=19005
-rv64uzba-v-sh3add_uw	PASS	v-	9/18		19012	130	958177875	(130s) cyc=19012
-rv64uzba-v-slli_uw	PASS	v-	10/18		18371	121	375987444	(121s) cyc=18371
-rv64uzbb-v-andn	PASS	v-	11/18		19068	81	188176390	(81s) cyc=19068
-rv64uzbb-v-clz	ERROR	v-	12/18			9	611267770	exit=None cycles=-1 status=ERROR
-rv64uzbb-v-clzw	ERROR	v-	13/18			5	833410950	exit=None cycles=-1 status=ERROR
-rv64uzbb-v-cpop	ERROR	v-	14/18			8	467549282	exit=None cycles=-1 status=ERROR
-rv64uzbb-v-cpopw	ERROR	v-	15/18			10	702051997	exit=None cycles=-1 status=ERROR
-rv64uzbb-v-ctz	ERROR	v-	16/18			9	888588262	exit=None cycles=-1 status=ERROR
-rv64uzbb-v-ctzw	ERROR	v-	17/18			9	664613286	exit=None cycles=-1 status=ERROR
-rv64uzbb-v-max	PASS	v-	18/18		19030	131	703580130	(131s) cyc=19030
-rv64uzbb-v-maxu	PASS	v-	1/18		19087	133	716675424	(133s) cyc=19087
-rv64uzbb-v-min	PASS	v-	2/18		19023	130	228260071	(130s) cyc=19023
-rv64uzbb-v-minu	PASS	v-	3/18		19066	94	466368735	(94s) cyc=19066
-rv64uzbb-v-orc_b	ERROR	v-	4/18			7	513164782	exit=None cycles=-1 status=ERROR
-rv64uzbb-v-orn	PASS	v-	5/18		28248	199	458171876	(199s) cyc=28248
-rv64uzbb-v-rev8	PASS	v-	6/18		18256	128	470499644	(128s) cyc=18256
-rv64uzbb-v-rol	PASS	v-	7/18		28314	187	850293793	(187s) cyc=28314
-rv64uzbb-v-rolw	PASS	v-	8/18		28454	179	297501735	(179s) cyc=28454
-rv64uzbb-v-ror	PASS	v-	9/18		28217	178	16810754	(178s) cyc=28217
-rv64uzbb-v-rori	PASS	v-	10/18		18372	119	697935335	(119s) cyc=18372
-rv64uzbb-v-roriw	ERROR	v-	11/18			5	373980776	exit=None cycles=-1 status=ERROR
-rv64uzbb-v-rorw	PASS	v-	12/18		19102	126	461132425	(126s) cyc=19102
-rv64uzbb-v-sext_b	ERROR	v-	13/18			5	623354292	exit=None cycles=-1 status=ERROR
-rv64uzbb-v-sext_h	ERROR	v-	14/18			8	336999000	exit=None cycles=-1 status=ERROR
-rv64uzbb-v-xnor	PASS	v-	15/18		28183	194	254205320	(194s) cyc=28183
-rv64uzbb-v-zext_h	ERROR	v-	16/18			9	468332173	exit=None cycles=-1 status=ERROR
-rv64uzbc-v-clmul	PASS	v-	17/18		19208	128	972854865	(128s) cyc=19208
-rv64uzbc-v-clmulh	PASS	v-	18/18		19167	80	475516336	(80s) cyc=19167
-rv64uzbc-v-clmulr	PASS	v-	1/18		19164	97	831263682	(97s) cyc=19164
-rv64uzbkb-v-brev8	PASS	v-	2/18		18249	120	523599811	(120s) cyc=18249
-rv64uzbkb-v-pack	PASS	v-	3/18		28656	82	274673329	(82s) cyc=28656
-rv64uzbkb-v-packh	PASS	v-	4/18		19281	90	79164518	(90s) cyc=19281
-rv64uzbkb-v-packw	PASS	v-	5/18		19087	128	237400236	(128s) cyc=19087
-rv64uzbkx-v-xperm4	PASS	v-	6/18		28703	110	242701729	(110s) cyc=28703
-rv64uzbkx-v-xperm8	PASS	v-	7/18		29557	136	45610566	(136s) cyc=29557
-rv64uzbs-v-bclr	PASS	v-	8/18		28336	159	925371636	(159s) cyc=28336
-rv64uzbs-v-bclri	PASS	v-	9/18		18522	114	46685402	(114s) cyc=18522
-rv64uzbs-v-bext	PASS	v-	10/18		28531	136	298575418	(136s) cyc=28531
-rv64uzbs-v-bexti	PASS	v-	11/18		18363	75	9820356	(75s) cyc=18363
-rv64uzbs-v-binv	PASS	v-	12/18		28132	145	977817004	(145s) cyc=28132
-rv64uzbs-v-binvi	PASS	v-	13/18		18348	63	719904350	(63s) cyc=18348
-rv64uzbs-v-bset	PASS	v-	14/18		28653	113	725717271	(113s) cyc=28653
-rv64uzbs-v-bseti	PASS	v-	15/18		18586	133	398707708	(133s) cyc=18586
-rv64uzfh-v-fadd	PASS	v-	16/18		27787	153	368244562	(153s) cyc=27787
-rv64uzfh-v-fclass	PASS	v-	17/18		17753	121	204526332	(121s) cyc=17753
-rv64uzfh-v-fcmp	PASS	v-	18/18		27435	122	11825889	(122s) cyc=27435
-rv64uzfh-v-fcvt	PASS	v-	1/18		27377	108	735644756	(108s) cyc=27377
-rv64uzfh-v-fcvt_w	PASS	v-	2/18		38304	148	862003374	(148s) cyc=38304
-rv64uzfh-v-fdiv	PASS	v-	3/18		27536	80	961636940	(80s) cyc=27536
-rv64uzfh-v-fmadd	PASS	v-	4/18		27949	97	242040554	(97s) cyc=27949
-rv64uzfh-v-fmin	PASS	v-	5/18		28419	119	967877728	(119s) cyc=28419
-rv64uzfh-v-ldst	PASS	v-	6/18		28545	107	563760329	(107s) cyc=28545
-rv64uzfh-v-move	PASS	v-	7/18		18395	119	759856755	(119s) cyc=18395
-rv64uzfh-v-recoding	PASS	v-	8/18		26853	120	784474216	(120s) cyc=26853
-rv64uziccid-v-ziccid	TIMEOUT	v-	11/18			584	173096690	
-rv64uzicond-v-czero_eqz	PASS	v-	9/18		19129	78	917266898	(78s) cyc=19129
-rv64uzicond-v-czero_nez	PASS	v-	10/18		19004	76	822270617	(76s) cyc=19004
+hypervisor-p-2-stage_translation	PASS	p-	none		1380	13	171489699	(13s) cyc=1380
+hypervisor-p-2-stage_translation_implicit_load_error	PASS	p-	none		1652	15	819197400	(15s) cyc=1652
+hypervisor-p-2-stage_translation_implicit_load_error_hs	PASS	p-	none		1827	16	443844121	(16s) cyc=1827
+hypervisor-svadu-p-2-stage_translation_implicit_store_error	PASS	p-	none		1768	15	814389308	(15s) cyc=1768
+hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs	PASS	p-	none		1940	15	899993303	(15s) cyc=1940
+rv64mi-p-breakpoint	PASS	p-	none		3329	22	573297684	(22s) cyc=3329
+rv64mi-p-csr	PASS	p-	none		3428	24	251702111	(24s) cyc=3428
+rv64mi-p-illegal	PASS	p-	none		4343	29	270152093	(29s) cyc=4343
+rv64mi-p-instret_overflow	PASS	p-	none		1258	10	51612184	(10s) cyc=1258
+rv64mi-p-ld-misaligned	PASS	p-	none		1386	11	137911237	(11s) cyc=1386
+rv64mi-p-lh-misaligned	PASS	p-	none		1102	9	314860083	(9s) cyc=1102
+rv64mi-p-lw-misaligned	PASS	p-	none		1171	9	867095864	(9s) cyc=1171
+rv64mi-p-ma_addr	PASS	p-	none		1538	12	907960755	(12s) cyc=1538
+rv64mi-p-ma_fetch	PASS	p-	none		1948	14	260482011	(14s) cyc=1948
+rv64mi-p-mcsr	PASS	p-	none		1339	11	491588404	(11s) cyc=1339
+rv64mi-p-pmpaddr	PASS	p-	none		1185	10	519337470	(10s) cyc=1185
+rv64mi-p-sbreak	PASS	p-	none		1315	10	876089401	(10s) cyc=1315
+rv64mi-p-scall	PASS	p-	none		1261	10	110382331	(10s) cyc=1261
+rv64mi-p-sd-misaligned	PASS	p-	none		1436	11	843732864	(11s) cyc=1436
+rv64mi-p-sh-misaligned	PASS	p-	none		1109	10	315453515	(10s) cyc=1109
+rv64mi-p-sw-misaligned	PASS	p-	none		1150	9	161208653	(9s) cyc=1150
+rv64mi-p-zicntr	PASS	p-	none		1425	11	233311041	(11s) cyc=1425
+rv64mzicbo-p-zero	PASS	p-	none		1158	9	339927057	(9s) cyc=1158
+rv64si-p-csr	PASS	p-	none		2248	16	229804668	(16s) cyc=2248
+rv64si-p-dirty	PASS	p-	none		2251	17	130581376	(17s) cyc=2251
+rv64si-p-icache-alias	PASS	p-	none		2368	17	434552776	(17s) cyc=2368
+rv64si-p-ma_fetch	PASS	p-	none		1382	11	262395481	(11s) cyc=1382
+rv64si-p-sbreak	PASS	p-	none		1325	10	669902830	(10s) cyc=1325
+rv64si-p-scall	PASS	p-	none		1443	11	680355303	(11s) cyc=1443
+rv64si-p-wfi	PASS	p-	none		1173	9	218713949	(9s) cyc=1173
+rv64ssvnapot-p-napot	PASS	p-	none		1658	14	914095018	(14s) cyc=1658
+rv64ua-p-amoadd_d	PASS	p-	none		1081	9	120421176	(9s) cyc=1081
+rv64ua-p-amoadd_w	PASS	p-	none		1120	9	757918833	(9s) cyc=1120
+rv64ua-p-amoand_d	PASS	p-	none		1121	9	615408959	(9s) cyc=1121
+rv64ua-p-amoand_w	PASS	p-	none		1117	9	52699263	(9s) cyc=1117
+rv64ua-p-amomax_d	PASS	p-	none		1077	9	904504236	(9s) cyc=1077
+rv64ua-p-amomax_w	PASS	p-	none		1100	9	403019237	(9s) cyc=1100
+rv64ua-p-amomaxu_d	PASS	p-	none		1077	9	349826975	(9s) cyc=1077
+rv64ua-p-amomaxu_w	PASS	p-	none		1100	9	915761752	(9s) cyc=1100
+rv64ua-p-amomin_d	PASS	p-	none		1077	8	744300444	(8s) cyc=1077
+rv64ua-p-amomin_w	PASS	p-	none		1100	9	234316892	(9s) cyc=1100
+rv64ua-p-amominu_d	PASS	p-	none		1077	9	680043217	(9s) cyc=1077
+rv64ua-p-amominu_w	PASS	p-	none		1100	9	29995288	(9s) cyc=1100
+rv64ua-p-amoor_d	PASS	p-	none		1117	9	243502225	(9s) cyc=1117
+rv64ua-p-amoor_w	PASS	p-	none		1117	9	735386456	(9s) cyc=1117
+rv64ua-p-amoswap_d	PASS	p-	none		1121	9	167013446	(9s) cyc=1121
+rv64ua-p-amoswap_w	PASS	p-	none		1117	9	516111252	(9s) cyc=1117
+rv64ua-p-amoxor_d	PASS	p-	none		1125	10	729867010	(10s) cyc=1125
+rv64ua-p-amoxor_w	PASS	p-	none		1129	10	214671042	(10s) cyc=1129
+rv64ua-p-lrsc	PASS	p-	none		17171	111	650123255	(111s) cyc=17171
+rv64uc-p-rvc	PASS	p-	none		1589	12	415119457	(12s) cyc=1589
+rv64ud-p-fadd	PASS	p-	none		1912	14	248144213	(14s) cyc=1912
+rv64ud-p-fclass	PASS	p-	none		1233	10	990775800	(10s) cyc=1233
+rv64ud-p-fcmp	PASS	p-	none		2202	17	680715416	(17s) cyc=2202
+rv64ud-p-fcvt	PASS	p-	none		1824	14	942675639	(14s) cyc=1824
+rv64ud-p-fcvt_w	PASS	p-	none		3736	28	257418845	(28s) cyc=3736
+rv64ud-p-fdiv	PASS	p-	none		1740	14	654706786	(14s) cyc=1740
+rv64ud-p-fmadd	PASS	p-	none		2072	16	850631686	(16s) cyc=2072
+rv64ud-p-fmin	PASS	p-	none		2544	19	617989492	(19s) cyc=2544
+rv64ud-p-ldst	PASS	p-	none		1172	10	302634751	(10s) cyc=1172
+rv64ud-p-move	PASS	p-	none		2696	20	973510515	(20s) cyc=2696
+rv64ud-p-recoding	PASS	p-	none		1245	10	522098366	(10s) cyc=1245
+rv64ud-p-structural	PASS	p-	none		2027	15	298063132	(15s) cyc=2027
+rv64uf-p-fadd	PASS	p-	none		1912	15	707064311	(15s) cyc=1912
+rv64uf-p-fclass	PASS	p-	none		1217	10	221299304	(10s) cyc=1217
+rv64uf-p-fcmp	PASS	p-	none		2202	17	205017532	(17s) cyc=2202
+rv64uf-p-fcvt	PASS	p-	none		1611	14	614432669	(14s) cyc=1611
+rv64uf-p-fcvt_w	PASS	p-	none		3374	26	950031883	(26s) cyc=3374
+rv64uf-p-fdiv	PASS	p-	none		1664	13	105234667	(13s) cyc=1664
+rv64uf-p-fmadd	PASS	p-	none		2072	16	932438335	(16s) cyc=2072
+rv64uf-p-fmin	PASS	p-	none		2544	19	306557144	(19s) cyc=2544
+rv64uf-p-ldst	PASS	p-	none		1184	10	557102662	(10s) cyc=1184
+rv64uf-p-move	PASS	p-	none		1798	14	219594465	(14s) cyc=1798
+rv64uf-p-recoding	PASS	p-	none		1198	10	386604124	(10s) cyc=1198
+rv64ui-p-add	PASS	p-	none		2453	18	410737145	(18s) cyc=2453
+rv64ui-p-addi	PASS	p-	none		1630	13	97335496	(13s) cyc=1630
+rv64ui-p-addiw	PASS	p-	none		1621	13	94965570	(13s) cyc=1621
+rv64ui-p-addw	PASS	p-	none		2443	18	96334327	(18s) cyc=2443
+rv64ui-p-and	PASS	p-	none		2613	19	223315719	(19s) cyc=2613
+rv64ui-p-andi	PASS	p-	none		1609	12	68645660	(12s) cyc=1609
+rv64ui-p-auipc	PASS	p-	none		1053	9	690761244	(9s) cyc=1053
+rv64ui-p-beq	PASS	p-	none		2427	18	777586821	(18s) cyc=2427
+rv64ui-p-bge	PASS	p-	none		2726	19	68986393	(19s) cyc=2726
+rv64ui-p-bgeu	PASS	p-	none		2956	21	529009256	(21s) cyc=2956
+rv64ui-p-blt	PASS	p-	none		2429	17	61375270	(17s) cyc=2429
+rv64ui-p-bltu	PASS	p-	none		2643	18	637745099	(18s) cyc=2643
+rv64ui-p-bne	PASS	p-	none		2482	18	848996227	(18s) cyc=2482
+rv64ui-p-fence_i	PASS	p-	none		2022	15	261277085	(15s) cyc=2022
+rv64ui-p-jal	PASS	p-	none		1049	9	626674844	(9s) cyc=1049
+rv64ui-p-jalr	PASS	p-	none		1557	12	840811343	(12s) cyc=1557
+rv64ui-p-lb	PASS	p-	none		1671	13	660727961	(13s) cyc=1671
+rv64ui-p-lbu	PASS	p-	none		1671	13	319379810	(13s) cyc=1671
+rv64ui-p-ld	PASS	p-	none		2066	15	308756458	(15s) cyc=2066
+rv64ui-p-ld_st	PASS	p-	none		4478	30	311028848	(30s) cyc=4478
+rv64ui-p-lh	PASS	p-	none		1711	13	235617254	(13s) cyc=1711
+rv64ui-p-lhu	PASS	p-	none		1717	13	505228344	(13s) cyc=1717
+rv64ui-p-lui	PASS	p-	none		1065	9	613747034	(9s) cyc=1065
+rv64ui-p-lw	PASS	p-	none		1731	13	730353073	(13s) cyc=1731
+rv64ui-p-lwu	PASS	p-	none		1797	13	198837901	(13s) cyc=1797
+rv64ui-p-ma_data	PASS	p-	none		7851	51	49399690	(51s) cyc=7851
+rv64ui-p-or	PASS	p-	none		2670	20	898223907	(20s) cyc=2670
+rv64ui-p-ori	PASS	p-	none		1591	12	33127267	(12s) cyc=1591
+rv64ui-p-sb	PASS	p-	none		2292	17	832918118	(17s) cyc=2292
+rv64ui-p-sd	PASS	p-	none		2616	19	606295727	(19s) cyc=2616
+rv64ui-p-sh	PASS	p-	none		2362	17	475010841	(17s) cyc=2362
+rv64ui-p-simple	PASS	p-	none		1003	8	430864107	(8s) cyc=1003
+rv64ui-p-sll	PASS	p-	none		2573	19	127484400	(19s) cyc=2573
+rv64ui-p-slli	PASS	p-	none		1691	13	661660588	(13s) cyc=1691
+rv64ui-p-slliw	PASS	p-	none		1685	13	425039246	(13s) cyc=1685
+rv64ui-p-sllw	PASS	p-	none		2577	19	822786302	(19s) cyc=2577
+rv64ui-p-slt	PASS	p-	none		2431	17	709490209	(17s) cyc=2431
+rv64ui-p-slti	PASS	p-	none		1617	12	405063540	(12s) cyc=1617
+rv64ui-p-sltiu	PASS	p-	none		1617	12	580342018	(12s) cyc=1617
+rv64ui-p-sltu	PASS	p-	none		2469	18	385686355	(18s) cyc=2469
+rv64ui-p-sra	PASS	p-	none		2524	19	284124771	(19s) cyc=2524
+rv64ui-p-srai	PASS	p-	none		1654	13	551590141	(13s) cyc=1654
+rv64ui-p-sraiw	PASS	p-	none		1755	14	817273961	(14s) cyc=1755
+rv64ui-p-sraw	PASS	p-	none		2595	19	642022377	(19s) cyc=2595
+rv64ui-p-srl	PASS	p-	none		2619	20	470092106	(20s) cyc=2619
+rv64ui-p-srli	PASS	p-	none		1715	14	421109406	(14s) cyc=1715
+rv64ui-p-srliw	PASS	p-	none		1703	13	315834131	(13s) cyc=1703
+rv64ui-p-srlw	PASS	p-	none		2583	20	770393672	(20s) cyc=2583
+rv64ui-p-st_ld	PASS	p-	none		1993	17	440362418	(17s) cyc=1993
+rv64ui-p-sub	PASS	p-	none		2437	20	42954281	(20s) cyc=2437
+rv64ui-p-subw	PASS	p-	none		2429	20	996112135	(20s) cyc=2429
+rv64ui-p-sw	PASS	p-	none		2382	20	94968559	(20s) cyc=2382
+rv64ui-p-xor	PASS	p-	none		2664	22	805494771	(22s) cyc=2664
+rv64ui-p-xori	PASS	p-	none		1595	13	907421774	(13s) cyc=1595
+rv64um-p-div	PASS	p-	none		1157	10	256313437	(10s) cyc=1157
+rv64um-p-divu	PASS	p-	none		1167	11	354696558	(11s) cyc=1167
+rv64um-p-divuw	PASS	p-	none		1147	11	182581518	(11s) cyc=1147
+rv64um-p-divw	PASS	p-	none		1139	10	42038628	(10s) cyc=1139
+rv64um-p-mul	PASS	p-	none		2465	20	168317686	(20s) cyc=2465
+rv64um-p-mulh	PASS	p-	none		2471	20	699126730	(20s) cyc=2471
+rv64um-p-mulhsu	PASS	p-	none		2471	20	362556760	(20s) cyc=2471
+rv64um-p-mulhu	PASS	p-	none		2531	20	625016216	(20s) cyc=2531
+rv64um-p-mulw	PASS	p-	none		2330	18	262645201	(18s) cyc=2330
+rv64um-p-rem	PASS	p-	none		1131	10	743192896	(10s) cyc=1131
+rv64um-p-remu	PASS	p-	none		1133	10	954921143	(10s) cyc=1133
+rv64um-p-remuw	PASS	p-	none		1129	10	624734007	(10s) cyc=1129
+rv64um-p-remw	PASS	p-	none		1139	10	273616578	(10s) cyc=1139
+rv64uzba-p-add_uw	PASS	p-	none		2455	20	51460679	(20s) cyc=2455
+rv64uzba-p-sh1add	PASS	p-	none		2461	20	75182454	(20s) cyc=2461
+rv64uzba-p-sh1add_uw	PASS	p-	none		2469	21	918477610	(21s) cyc=2469
+rv64uzba-p-sh2add	PASS	p-	none		2461	20	649882314	(20s) cyc=2461
+rv64uzba-p-sh2add_uw	PASS	p-	none		2469	20	671511637	(20s) cyc=2469
+rv64uzba-p-sh3add	PASS	p-	none		2461	19	459035214	(19s) cyc=2461
+rv64uzba-p-sh3add_uw	PASS	p-	none		2469	19	348781960	(19s) cyc=2469
+rv64uzba-p-slli_uw	PASS	p-	none		1719	14	7674131	(14s) cyc=1719
+rv64uzbb-p-andn	PASS	p-	none		2655	20	414815066	(20s) cyc=2655
+rv64uzbb-p-clz	PASS	p-	none		1497	13	624440736	(13s) cyc=1497
+rv64uzbb-p-clzw	PASS	p-	none		1465	12	171260510	(12s) cyc=1465
+rv64uzbb-p-cpop	PASS	p-	none		1497	12	870378275	(12s) cyc=1497
+rv64uzbb-p-cpopw	PASS	p-	none		1465	12	393619050	(12s) cyc=1465
+rv64uzbb-p-ctz	PASS	p-	none		1497	12	310155736	(12s) cyc=1497
+rv64uzbb-p-ctzw	PASS	p-	none		1467	12	64718519	(12s) cyc=1467
+rv64uzbb-p-max	PASS	p-	none		2441	18	200663476	(18s) cyc=2441
+rv64uzbb-p-maxu	PASS	p-	none		2503	18	19102776	(18s) cyc=2503
+rv64uzbb-p-min	PASS	p-	none		2433	18	80542245	(18s) cyc=2433
+rv64uzbb-p-minu	PASS	p-	none		2482	19	400910110	(19s) cyc=2482
+rv64uzbb-p-orc_b	PASS	p-	none		1539	12	572762500	(12s) cyc=1539
+rv64uzbb-p-orn	PASS	p-	none		2673	19	580970818	(19s) cyc=2673
+rv64uzbb-p-rev8	PASS	p-	none		1572	12	733358057	(12s) cyc=1572
+rv64uzbb-p-rol	PASS	p-	none		2584	18	222304639	(18s) cyc=2584
+rv64uzbb-p-rolw	PASS	p-	none		2586	19	162836456	(19s) cyc=2586
+rv64uzbb-p-ror	PASS	p-	none		2645	19	967166825	(19s) cyc=2645
+rv64uzbb-p-rori	PASS	p-	none		1712	13	634193468	(13s) cyc=1712
+rv64uzbb-p-roriw	PASS	p-	none		1625	12	792043759	(12s) cyc=1625
+rv64uzbb-p-rorw	PASS	p-	none		2513	18	555282078	(18s) cyc=2513
+rv64uzbb-p-sext_b	PASS	p-	none		1497	11	921716952	(11s) cyc=1497
+rv64uzbb-p-sext_h	PASS	p-	none		1503	12	544938931	(12s) cyc=1503
+rv64uzbb-p-xnor	PASS	p-	none		2671	20	481909387	(20s) cyc=2671
+rv64uzbb-p-zext_h	PASS	p-	none		1509	12	614797122	(12s) cyc=1509
+rv64uzbc-p-clmul	PASS	p-	none		2467	19	199610781	(19s) cyc=2467
+rv64uzbc-p-clmulh	PASS	p-	none		2478	18	514586732	(18s) cyc=2478
+rv64uzbc-p-clmulr	PASS	p-	none		2473	18	962017958	(18s) cyc=2473
+rv64uzbkb-p-brev8	PASS	p-	none		1537	12	568832788	(12s) cyc=1537
+rv64uzbkb-p-pack	PASS	p-	none		2913	21	175703408	(21s) cyc=2913
+rv64uzbkb-p-packh	PASS	p-	none		2583	19	38482463	(19s) cyc=2583
+rv64uzbkb-p-packw	PASS	p-	none		2443	18	927479804	(18s) cyc=2443
+rv64uzbkx-p-xperm4	PASS	p-	none		2769	20	411185498	(20s) cyc=2769
+rv64uzbkx-p-xperm8	PASS	p-	none		3598	26	116464764	(26s) cyc=3598
+rv64uzbs-p-bclr	PASS	p-	none		2796	20	967205164	(20s) cyc=2796
+rv64uzbs-p-bclri	PASS	p-	none		1779	14	122194737	(14s) cyc=1779
+rv64uzbs-p-bext	PASS	p-	none		2661	20	301334550	(20s) cyc=2661
+rv64uzbs-p-bexti	PASS	p-	none		1711	14	112629587	(14s) cyc=1711
+rv64uzbs-p-binv	PASS	p-	none		2631	19	910829880	(19s) cyc=2631
+rv64uzbs-p-binvi	PASS	p-	none		1715	13	386321542	(13s) cyc=1715
+rv64uzbs-p-bset	PASS	p-	none		2800	20	871609970	(20s) cyc=2800
+rv64uzbs-p-bseti	PASS	p-	none		1793	14	774562251	(14s) cyc=1793
+rv64uzfh-p-fadd	PASS	p-	none		1912	15	627391701	(15s) cyc=1912
+rv64uzfh-p-fclass	PASS	p-	none		1218	10	258570542	(10s) cyc=1218
+rv64uzfh-p-fcmp	PASS	p-	none		1554	12	122914585	(12s) cyc=1554
+rv64uzfh-p-fcvt	PASS	p-	none		1786	14	713732943	(14s) cyc=1786
+rv64uzfh-p-fcvt_w	PASS	p-	none		3374	24	989690121	(24s) cyc=3374
+rv64uzfh-p-fdiv	PASS	p-	none		1664	12	220763082	(12s) cyc=1664
+rv64uzfh-p-fmadd	PASS	p-	none		2072	15	946198137	(15s) cyc=2072
+rv64uzfh-p-fmin	PASS	p-	none		2544	19	39204877	(19s) cyc=2544
+rv64uzfh-p-ldst	PASS	p-	none		1196	11	797011094	(11s) cyc=1196
+rv64uzfh-p-move	PASS	p-	none		1793	15	126396900	(15s) cyc=1793
+rv64uzfh-p-recoding	PASS	p-	none		1198	11	514071609	(11s) cyc=1198
+rv64uziccid-p-ziccid	PASS	p-	none		8066	37	207365775	(37s) cyc=8066
+rv64uzicond-p-czero_eqz	PASS	p-	none		2389	14	314196239	(14s) cyc=2389
+rv64uzicond-p-czero_nez	PASS	p-	none		2377	14	218400037	(14s) cyc=2377
+rv64ua-v-amoadd_d	PASS	v-	15/18		28490	147	458336590	(147s) cyc=28490
+rv64ua-v-amoadd_w	PASS	v-	16/18		28584	200	119591447	(200s) cyc=28584
+rv64ua-v-amoand_d	PASS	v-	17/18		28458	192	418774719	(192s) cyc=28458
+rv64ua-v-amoand_w	PASS	v-	18/18		28363	187	858210755	(187s) cyc=28363
+rv64ua-v-amomax_d	PASS	v-	1/18		28591	195	139203540	(195s) cyc=28591
+rv64ua-v-amomax_w	PASS	v-	4/18		28590	188	600475572	(188s) cyc=28590
+rv64ua-v-amomaxu_d	PASS	v-	2/18		28591	185	614709643	(185s) cyc=28591
+rv64ua-v-amomaxu_w	PASS	v-	3/18		28590	186	192230796	(186s) cyc=28590
+rv64ua-v-amomin_d	PASS	v-	5/18		28591	186	278905892	(186s) cyc=28591
+rv64ua-v-amomin_w	PASS	v-	8/18		28647	204	762679464	(204s) cyc=28647
+rv64ua-v-amominu_d	PASS	v-	6/18		28549	204	958737594	(204s) cyc=28549
+rv64ua-v-amominu_w	PASS	v-	7/18		28606	183	333693214	(183s) cyc=28606
+rv64ua-v-amoor_d	PASS	v-	9/18		28553	192	214086302	(192s) cyc=28553
+rv64ua-v-amoor_w	PASS	v-	10/18		28553	153	634566757	(153s) cyc=28553
+rv64ua-v-amoswap_d	PASS	v-	11/18		28544	162	909001876	(162s) cyc=28544
+rv64ua-v-amoswap_w	PASS	v-	12/18		28363	197	247773123	(197s) cyc=28363
+rv64ua-v-amoxor_d	PASS	v-	13/18		28615	186	261230116	(186s) cyc=28615
+rv64ua-v-amoxor_w	PASS	v-	14/18		28473	185	743277011	(185s) cyc=28473
+rv64ua-v-lrsc	PASS	v-	15/18		44457	190	157931449	(190s) cyc=44457
+rv64uc-v-rvc	PASS	v-	14/18		38076	250	189338968	(250s) cyc=38076
+rv64ud-v-fadd	PASS	v-	9/18		27548	181	621569050	(181s) cyc=27548
+rv64ud-v-fclass	PASS	v-	10/18		17890	104	531353752	(104s) cyc=17890
+rv64ud-v-fcmp	PASS	v-	11/18		27830	160	351862966	(160s) cyc=27830
+rv64ud-v-fcvt	PASS	v-	12/18		27669	197	471298109	(197s) cyc=27669
+rv64ud-v-fcvt_w	PASS	v-	13/18		38352	239	877903423	(239s) cyc=38352
+rv64ud-v-fdiv	PASS	v-	14/18		27375	182	26111640	(182s) cyc=27375
+rv64ud-v-fmadd	PASS	v-	15/18		27711	143	999243300	(143s) cyc=27711
+rv64ud-v-fmin	PASS	v-	16/18		28180	200	275376600	(200s) cyc=28180
+rv64ud-v-ldst	PASS	v-	17/18		27595	161	504009835	(161s) cyc=27595
+rv64ud-v-move	PASS	v-	18/18		28574	188	303651699	(188s) cyc=28574
+rv64ud-v-recoding	PASS	v-	1/18		27405	190	215711453	(190s) cyc=27405
+rv64ud-v-structural	PASS	v-	2/18		17893	120	804100165	(120s) cyc=17893
+rv64uf-v-fadd	PASS	v-	16/18		27548	193	332744027	(193s) cyc=27548
+rv64uf-v-fclass	PASS	v-	17/18		17874	121	684625076	(121s) cyc=17874
+rv64uf-v-fcmp	PASS	v-	18/18		27830	181	646911292	(181s) cyc=27830
+rv64uf-v-fcvt	PASS	v-	1/18		27448	192	955859075	(192s) cyc=27448
+rv64uf-v-fcvt_w	PASS	v-	2/18		38014	227	337778721	(227s) cyc=38014
+rv64uf-v-fdiv	PASS	v-	3/18		27297	180	702901508	(180s) cyc=27297
+rv64uf-v-fmadd	PASS	v-	4/18		27711	184	912238344	(184s) cyc=27711
+rv64uf-v-fmin	PASS	v-	5/18		28180	187	715681193	(187s) cyc=28180
+rv64uf-v-ldst	PASS	v-	6/18		28451	197	132224053	(197s) cyc=28451
+rv64uf-v-move	PASS	v-	7/18		18449	122	955472918	(122s) cyc=18449
+rv64uf-v-recoding	PASS	v-	8/18		26956	195	451969713	(195s) cyc=26956
+rv64ui-v-add	PASS	v-	1/18		19198	139	625392139	(139s) cyc=19198
+rv64ui-v-addi	PASS	v-	2/18		18386	126	723552784	(126s) cyc=18386
+rv64ui-v-addiw	PASS	v-	3/18		18380	126	808338340	(126s) cyc=18380
+rv64ui-v-addw	PASS	v-	4/18		19159	137	765983107	(137s) cyc=19159
+rv64ui-v-and	PASS	v-	7/18		18810	125	715682818	(125s) cyc=18810
+rv64ui-v-andi	PASS	v-	8/18		18215	137	601313045	(137s) cyc=18215
+rv64ui-v-auipc	PASS	v-	12/18		17739	139	218237766	(139s) cyc=17739
+rv64ui-v-beq	PASS	v-	13/18		19088	131	876459412	(131s) cyc=19088
+rv64ui-v-bge	PASS	v-	14/18		19370	131	711769385	(131s) cyc=19370
+rv64ui-v-bgeu	PASS	v-	15/18		18980	99	132274574	(99s) cyc=18980
+rv64ui-v-blt	PASS	v-	16/18		19091	138	912638663	(138s) cyc=19091
+rv64ui-v-bltu	PASS	v-	17/18		18683	131	44999593	(131s) cyc=18683
+rv64ui-v-bne	PASS	v-	18/18		19177	127	830424751	(127s) cyc=19177
+rv64ui-v-fence_i	PASS	v-	17/18		28930	197	26275240	(197s) cyc=28930
+rv64ui-v-jal	PASS	v-	1/18		17763	128	308635310	(128s) cyc=17763
+rv64ui-v-jalr	PASS	v-	2/18		18100	125	35750318	(125s) cyc=18100
+rv64ui-v-lb	PASS	v-	3/18		27540	186	525755491	(186s) cyc=27540
+rv64ui-v-lbu	PASS	v-	4/18		27540	188	288111380	(188s) cyc=27540
+rv64ui-v-ld	PASS	v-	9/18		28061	190	923603975	(190s) cyc=28061
+rv64ui-v-ld_st	PASS	v-	14/18		49466	323	603015559	(323s) cyc=49466
+rv64ui-v-lh	PASS	v-	5/18		27627	190	222341082	(190s) cyc=27627
+rv64ui-v-lhu	PASS	v-	6/18		27561	200	207442198	(200s) cyc=27561
+rv64ui-v-lui	PASS	v-	11/18		17187	105	396972204	(105s) cyc=17187
+rv64ui-v-lw	PASS	v-	7/18		27536	180	388492346	(180s) cyc=27536
+rv64ui-v-lwu	PASS	v-	8/18		27598	201	377188549	(201s) cyc=27598
+rv64ui-v-ma_data	PASS	v-	18/18		50418	326	287336792	(326s) cyc=50418
+rv64ui-v-or	PASS	v-	9/18		19478	134	287374100	(134s) cyc=19478
+rv64ui-v-ori	PASS	v-	10/18		18292	103	942138105	(103s) cyc=18292
+rv64ui-v-sb	PASS	v-	10/18		28958	160	216299093	(160s) cyc=28958
+rv64ui-v-sd	PASS	v-	13/18		38345	255	766331212	(255s) cyc=38345
+rv64ui-v-sh	PASS	v-	11/18		28728	168	851813103	(168s) cyc=28728
+rv64ui-v-simple	PASS	v-	16/18		17646	126	908344264	(126s) cyc=17646
+rv64ui-v-sll	PASS	v-	17/18		28437	197	480407437	(197s) cyc=28437
+rv64ui-v-slli	PASS	v-	18/18		18433	124	5018949	(124s) cyc=18433
+rv64ui-v-slliw	PASS	v-	1/18		18442	133	436877753	(133s) cyc=18442
+rv64ui-v-sllw	PASS	v-	2/18		28620	192	191756253	(192s) cyc=28620
+rv64ui-v-slt	PASS	v-	13/18		18991	129	198099280	(129s) cyc=18991
+rv64ui-v-slti	PASS	v-	14/18		18370	125	713587025	(125s) cyc=18370
+rv64ui-v-sltiu	PASS	v-	16/18		18370	133	287277184	(133s) cyc=18370
+rv64ui-v-sltu	PASS	v-	15/18		19182	101	154644633	(101s) cyc=19182
+rv64ui-v-sra	PASS	v-	7/18		19246	128	358489420	(128s) cyc=19246
+rv64ui-v-srai	PASS	v-	8/18		18361	137	256547046	(137s) cyc=18361
+rv64ui-v-sraiw	PASS	v-	9/18		18521	127	97709556	(127s) cyc=18521
+rv64ui-v-sraw	PASS	v-	10/18		28665	157	236931474	(157s) cyc=28665
+rv64ui-v-srl	PASS	v-	3/18		28612	196	240906128	(196s) cyc=28612
+rv64ui-v-srli	PASS	v-	4/18		18399	129	126413571	(129s) cyc=18399
+rv64ui-v-srliw	PASS	v-	5/18		18458	126	613893558	(126s) cyc=18458
+rv64ui-v-srlw	PASS	v-	6/18		28678	207	372158014	(207s) cyc=28678
+rv64ui-v-st_ld	PASS	v-	15/18		38129	195	333935552	(195s) cyc=38129
+rv64ui-v-sub	PASS	v-	5/18		19205	130	742073003	(130s) cyc=19205
+rv64ui-v-subw	PASS	v-	6/18		19145	141	667065727	(141s) cyc=19145
+rv64ui-v-sw	PASS	v-	12/18		27245	200	121011902	(200s) cyc=27245
+rv64ui-v-xor	PASS	v-	11/18		19423	120	310824784	(120s) cyc=19423
+rv64ui-v-xori	PASS	v-	12/18		18445	143	637643476	(143s) cyc=18445
+rv64um-v-div	PASS	v-	5/18		17884	123	824721165	(123s) cyc=17884
+rv64um-v-divu	PASS	v-	6/18		17798	132	927407878	(132s) cyc=17798
+rv64um-v-divuw	PASS	v-	11/18		17257	106	665227884	(106s) cyc=17257
+rv64um-v-divw	PASS	v-	10/18		17868	101	243398094	(101s) cyc=17868
+rv64um-v-mul	PASS	v-	1/18		19380	140	975443773	(140s) cyc=19380
+rv64um-v-mulh	PASS	v-	2/18		19066	131	428109035	(131s) cyc=19066
+rv64um-v-mulhsu	PASS	v-	3/18		19222	133	862600861	(133s) cyc=19222
+rv64um-v-mulhu	PASS	v-	4/18		19282	135	201775471	(135s) cyc=19282
+rv64um-v-mulw	PASS	v-	9/18		19095	130	607003574	(130s) cyc=19095
+rv64um-v-rem	PASS	v-	7/18		17252	117	939878971	(117s) cyc=17252
+rv64um-v-remu	PASS	v-	8/18		17869	133	324725571	(133s) cyc=17869
+rv64um-v-remuw	PASS	v-	13/18		17857	124	219620415	(124s) cyc=17857
+rv64um-v-remw	PASS	v-	12/18		17868	137	10491425	(137s) cyc=17868
+rv64uzba-v-add_uw	PASS	v-	3/18		19086	127	595136931	(127s) cyc=19086
+rv64uzba-v-sh1add	PASS	v-	4/18		19092	133	673756677	(133s) cyc=19092
+rv64uzba-v-sh1add_uw	PASS	v-	5/18		19100	133	659600040	(133s) cyc=19100
+rv64uzba-v-sh2add	PASS	v-	6/18		19092	135	286076546	(135s) cyc=19092
+rv64uzba-v-sh2add_uw	PASS	v-	7/18		19100	127	440144987	(127s) cyc=19100
+rv64uzba-v-sh3add	PASS	v-	8/18		19092	148	59512208	(148s) cyc=19092
+rv64uzba-v-sh3add_uw	PASS	v-	9/18		19100	128	622509090	(128s) cyc=19100
+rv64uzba-v-slli_uw	PASS	v-	10/18		18358	105	45318674	(105s) cyc=18358
+rv64uzbb-v-andn	PASS	v-	11/18		19320	116	860507636	(116s) cyc=19320
+rv64uzbb-v-clz	PASS	v-	12/18		18129	132	276598988	(132s) cyc=18129
+rv64uzbb-v-clzw	PASS	v-	13/18		18101	122	510742204	(122s) cyc=18101
+rv64uzbb-v-cpop	PASS	v-	14/18		18129	119	136880512	(119s) cyc=18129
+rv64uzbb-v-cpopw	PASS	v-	15/18		18101	93	374383236	(93s) cyc=18101
+rv64uzbb-v-ctz	PASS	v-	16/18		18129	136	589919588	(136s) cyc=18129
+rv64uzbb-v-ctzw	PASS	v-	17/18		18101	128	332944513	(128s) cyc=18101
+rv64uzbb-v-max	PASS	v-	18/18		19090	131	372911360	(131s) cyc=19090
+rv64uzbb-v-maxu	PASS	v-	1/18		19146	135	421006759	(135s) cyc=19146
+rv64uzbb-v-min	PASS	v-	2/18		19081	126	894591299	(126s) cyc=19081
+rv64uzbb-v-minu	PASS	v-	3/18		19125	127	139699977	(127s) cyc=19125
+rv64uzbb-v-orc_b	PASS	v-	4/18		18171	129	183496015	(129s) cyc=18171
+rv64uzbb-v-orn	PASS	v-	5/18		28270	192	130503115	(192s) cyc=28270
+rv64uzbb-v-rev8	PASS	v-	6/18		18194	130	140830877	(130s) cyc=18194
+rv64uzbb-v-rol	PASS	v-	7/18		28241	183	554625128	(183s) cyc=28241
+rv64uzbb-v-rolw	PASS	v-	8/18		28402	198	970832984	(198s) cyc=28402
+rv64uzbb-v-ror	PASS	v-	9/18		28224	158	681141976	(158s) cyc=28224
+rv64uzbb-v-rori	PASS	v-	10/18		18310	103	367266565	(103s) cyc=18310
+rv64uzbb-v-roriw	PASS	v-	11/18		18241	111	46312015	(111s) cyc=18241
+rv64uzbb-v-rorw	PASS	v-	12/18		19161	139	126463643	(139s) cyc=19161
+rv64uzbb-v-sext_b	PASS	v-	13/18		18129	111	300685546	(111s) cyc=18129
+rv64uzbb-v-sext_h	PASS	v-	14/18		18138	94	6330230	(94s) cyc=18138
+rv64uzbb-v-xnor	PASS	v-	15/18		28378	124	926536566	(124s) cyc=28378
+rv64uzbb-v-zext_h	PASS	v-	16/18		18144	125	169663499	(125s) cyc=18144
+rv64uzbc-v-clmul	PASS	v-	17/18		19433	130	641186092	(130s) cyc=19433
+rv64uzbc-v-clmulh	PASS	v-	18/18		19392	85	144847566	(85s) cyc=19392
+rv64uzbc-v-clmulr	PASS	v-	1/18		19388	101	535595017	(101s) cyc=19388
+rv64uzbkb-v-brev8	PASS	v-	2/18		18128	112	189931032	(112s) cyc=18128
+rv64uzbkb-v-pack	PASS	v-	3/18		28627	113	948004578	(113s) cyc=28627
+rv64uzbkb-v-packh	PASS	v-	4/18		19313	95	749495758	(95s) cyc=19313
+rv64uzbkb-v-packw	PASS	v-	5/18		19087	125	909731482	(125s) cyc=19087
+rv64uzbkx-v-xperm4	PASS	v-	6/18		28934	117	913032969	(117s) cyc=28934
+rv64uzbkx-v-xperm8	PASS	v-	7/18		29589	135	749941908	(135s) cyc=29589
+rv64uzbs-v-bclr	PASS	v-	8/18		28314	147	598702878	(147s) cyc=28314
+rv64uzbs-v-bclri	ERROR	v-	9/18			39	711016624	exit=None cycles=-1 status=ERROR
+rv64uzbs-v-bext	PASS	v-	10/18		28838	116	967906655	(116s) cyc=28838
+rv64uzbs-v-bexti	PASS	v-	11/18		18350	80	682151602	(80s) cyc=18350
+rv64uzbs-v-binv	PASS	v-	12/18		28404	139	643148222	(139s) cyc=28404
+rv64uzbs-v-binvi	PASS	v-	13/18		18488	96	397235604	(96s) cyc=18488
+rv64uzbs-v-bset	PASS	v-	14/18		28807	116	395048501	(116s) cyc=28807
+rv64uzbs-v-bseti	PASS	v-	15/18		18476	78	71038947	(78s) cyc=18476
+rv64uzfh-v-fadd	PASS	v-	16/18		27548	133	69575888	(133s) cyc=27548
+rv64uzfh-v-fclass	PASS	v-	17/18		17874	103	872857566	(103s) cyc=17874
+rv64uzfh-v-fcmp	PASS	v-	18/18		27182	107	681157126	(107s) cyc=27182
+rv64uzfh-v-fcvt	PASS	v-	1/18		27612	109	439976091	(109s) cyc=27612
+rv64uzfh-v-fcvt_w	PASS	v-	2/18		38014	164	528334595	(164s) cyc=38014
+rv64uzfh-v-fdiv	PASS	v-	3/18		27297	110	634968182	(110s) cyc=27297
+rv64uzfh-v-fmadd	PASS	v-	4/18		27711	108	912371794	(108s) cyc=27711
+rv64uzfh-v-fmin	PASS	v-	5/18		28180	109	640208967	(109s) cyc=28180
+rv64uzfh-v-ldst	PASS	v-	6/18		28317	114	234091562	(114s) cyc=28317
+rv64uzfh-v-move	PASS	v-	7/18		18442	115	464188090	(115s) cyc=18442
+rv64uzfh-v-recoding	PASS	v-	8/18		26956	131	457805458	(131s) cyc=26956
+rv64uziccid-v-ziccid	PASS	v-	11/18		177275	592	845427936	(592s) cyc=177275
+rv64uzicond-v-czero_eqz	PASS	v-	9/18		19173	80	581598113	(80s) cyc=19173
+rv64uzicond-v-czero_nez	PASS	v-	10/18		19105	65	491601847	(65s) cyc=19105
