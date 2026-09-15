@@ -2,19 +2,19 @@
 
 |  |  |
 |---|---|
-| **Result** | **FAIL** -- 3 of 2672 tests not passing |
-| Run | [rain91508-cmd/pyo3-ci#34919755955](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/34919755955) |
-| Commit | `6d98dbae71` (pycpu) |
+| **Result** | **PASS** |
+| Run | [rain91508-cmd/pyo3-ci#35019161426](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/35019161426) |
+| Commit | `453e2b4b33` (pycpu) |
 | Triggered by | rain91508-cmd |
-| Base seed | 1789437976, 1789437977, 1789437978, 1789437979, 1789437980, 1789437981, 1789437985 |
-| Generated | 2026-09-15 02:22 UTC |
+| Base seed | 1789503818, 1789503819, 1789503820, 1789503821, 1789503822, 1789503823, 1789503824, 1789503825, 1789503826, 1789503828, 1789503829 |
+| Generated | 2026-09-15 20:41 UTC |
 
 ## Suites
 
 | Suite | Shard | PASS | FAIL | TIMEOUT | ERROR | MISSING | Total | Status |
 |---|---|---|---|---|---|---|---|---|
 | block-BAC | none | 96 | 0 | 0+0 | 0 | 0 | 96 | PASS |
-| block-BPredUnit | none | 94 | 2 | 0+0 | 0 | 0 | 96 | FAIL |
+| block-BPredUnit | none | 96 | 0 | 0+0 | 0 | 0 | 96 | PASS |
 | block-CSRFile | none | 29 | 0 | 0+0 | 0 | 0 | 29 | PASS |
 | block-Commit | none | 65 | 0 | 0+0 | 0 | 0 | 65 | PASS |
 | block-DTLBProbe | none | 29 | 0 | 0+0 | 0 | 0 | 29 | PASS |
@@ -55,21 +55,17 @@
 | v- | 17/18 | 9 | 0 | 0+0 | 0 | 0 | 9 | PASS |
 | v- | 18/18 | 9 | 0 | 0+0 | 0 | 0 | 9 | PASS |
 | v- | 2/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
-| v- | 3/18 | 9 | 0 | 1+0 | 0 | 0 | 10 | FAIL |
+| v- | 3/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 4/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 5/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 6/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 7/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 8/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 9/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
-| **all** |  | 2669 | 2 | 1+0 | 0 | 0 | 2672 | FAIL |
+| **all** |  | 2672 | 0 | 0+0 | 0 | 0 | 2672 | PASS |
 
 ## Failures
 
-| Test | Suite | Status | exit | cycles | wall | perm | detail |
-|---|---|---|---|---|---|---|---|
-| `test_bpu_update_train_cl.TestBPUTrainPipeline::test_combined_training_pipeline` | block-BPredUnit | FAIL | - | - | 0s | - | AssertionError: cycle 12: should be not-taken assert True is False  +  where True = BPUPredictResp(bpu_predict_resp_vali... |
-| `test_bpu_update_train_cl.TestBPUTrainPipeline::test_combined_training_pipeline_commit_mode` | block-BPredUnit | FAIL | - | - | 0s | - | AssertionError: cycle 2: should be not-taken assert True is False  +  where True = BPUPredictResp(bpu_predict_resp_valid... |
-| `rv64ui-v-lb` | v- | TIMEOUT | - | - | 633s | 832989866 | - |
+None.
 
 _Full 2672-test table: see the `pyo3-ci-report.md` asset._
