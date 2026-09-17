@@ -137,6 +137,9 @@ test_bpred_unit_cl.TestSquash::test_simple_squash_removes_younger_entries	PASS	b
 test_bpred_unit_cl.TestTargetPriority::test_no_target_forces_not_taken	PASS	block-BPredUnit	none			0		
 test_bpred_unit_cl.TestTargetPriority::test_ras_overrides_btb_target	PASS	block-BPredUnit	none			0		
 test_bpred_unit_cl.TestUpdate::test_update_commits_oldest_entries	PASS	block-BPredUnit	none			0		
+test_bpu_fixc_newrow_ghr_cl::test_fixc_new_row_checkpoint_after_corrective_squash	PASS	block-BPredUnit	none			0		
+test_bpu_fixc_sametick_cl::test_a_second_arm_after_retirement_is_applied_fresh	PASS	block-BPredUnit	none			0		
+test_bpu_fixc_sametick_cl::test_handoff_slot_retires_on_consume	PASS	block-BPredUnit	none			0		
 test_bpu_update_train_cl.TestBPUTrainPipeline::test_combined_training_pipeline	PASS	block-BPredUnit	none			0		
 test_bpu_update_train_cl.TestBPUTrainPipeline::test_combined_training_pipeline_commit_mode	PASS	block-BPredUnit	none			0		
 test_btb_cl.TestBTBAccess::test_access_different_pc_misses	PASS	block-BPredUnit	none			0		
@@ -1041,7 +1044,7 @@ src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EWbRobUpdateFullSignals
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EWbRobUpdateFullSignals::test_sb_setreg_fires_with_correct_phys_reg	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestIcSquashFanOut::test_bc_iew_squash_clears_pending_in_parent	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestIcSquashFanOut::test_bc_iew_squash_per_thread_isolation	PASS	block-IEW	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestIcSquashFanOut::test_bc_iew_squash_propagates_to_writeback_pending	PASS	block-IEW	none			1		
+src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestIcSquashFanOut::test_bc_iew_squash_propagates_to_writeback_pending	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestIcSquashFanOut::test_writeback_ic_squash_signature_is_tid_seqnum	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestInterSubBlockInterfaces::test_dispatch_to_iq_iq_dispatch_wire	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestInterSubBlockInterfaces::test_dispatch_to_lsq_insert_load_wire	PASS	block-IEW	none			0		
@@ -2146,54 +2149,54 @@ test_o3_core_bare_metal_tb_cl.TestRunElfFactory::test_run_elf_returns_exit_code_
 test_o3_core_bare_metal_tb_cl.TestVAProbeCoordinator::test_va_probe_miss_when_no_pa_arrives	PASS	block-Testbench	none			0		
 test_o3_core_bare_metal_tb_cl.TestVAProbeCoordinator::test_va_probe_odd_cacheline_misses	PASS	block-Testbench	none			0		
 test_o3_core_bare_metal_tb_cl.TestVAProbeCoordinator::test_va_probe_resp_fires_2_cycles_after_req	PASS	block-Testbench	none			0		
-test_riscv_tests_isa::test_riscv_tests_smoke_add	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_riscv_tests_smoke_add	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate]	PASS	block-Testbench	none			5		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-auipc:add upper immediate to PC]	PASS	block-Testbench	none			4		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-auipc:add upper immediate to PC]	PASS	block-Testbench	none			3		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal]	PASS	block-Testbench	none			7		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal]	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned]	PASS	block-Testbench	none			11		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than]	PASS	block-Testbench	none			7		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned]	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link]	PASS	block-Testbench	none			3		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jalr:jump and link register]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned]	PASS	block-Testbench	none			4		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half]	PASS	block-Testbench	none			5		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lui:load upper immediate]	PASS	block-Testbench	none			4		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			10		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lui:load upper immediate]	PASS	block-Testbench	none			3		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			8		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte]	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double]	PASS	block-Testbench	none			10		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srai:shift right arithmetic immediate]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sraw:shift right arithmetic word]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srai:shift right arithmetic immediate]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sraw:shift right arithmetic word]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate]	PASS	block-Testbench	none			5		
 test_tlbi_controller_cl.TestEdgeCases::test_second_tlbi_req_after_first_completes	PASS	block-TlbiController	none			0		
 test_tlbi_controller_cl.TestEdgeCases::test_sync_comp_before_inv_sent_ignored_or_buffered	PASS	block-TlbiController	none			0		
 test_tlbi_controller_cl.TestIntegrationWithLSQ::test_integration_controller_with_lsq	PASS	block-TlbiController	none			0		
@@ -2294,380 +2297,380 @@ test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_r
 test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_returns_miss_when_buf_empty	PASS	block-WriteBack	none			0		
 test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_normal_completion_does_not_fire_sb_setReg	PASS	block-WriteBack	none			0		
 test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_sb_setReg_caller_ifc_removed	PASS	block-WriteBack	none			0		
-hypervisor-p-2-stage_translation	PASS	p-	none		1374	10	326921156	(10s) cyc=1374
-hypervisor-p-2-stage_translation_implicit_load_error	PASS	p-	none		1656	11	974628857	(11s) cyc=1656
-hypervisor-p-2-stage_translation_implicit_load_error_hs	PASS	p-	none		1827	12	599275578	(12s) cyc=1827
-hypervisor-svadu-p-2-stage_translation_implicit_store_error	PASS	p-	none		1773	11	969820765	(11s) cyc=1773
-hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs	PASS	p-	none		1940	11	55424753	(11s) cyc=1940
-rv64mi-p-breakpoint	PASS	p-	none		3329	18	728729141	(18s) cyc=3329
-rv64mi-p-csr	PASS	p-	none		3437	19	407133568	(19s) cyc=3437
-rv64mi-p-illegal	PASS	p-	none		4376	22	425583550	(22s) cyc=4376
-rv64mi-p-instret_overflow	PASS	p-	none		1258	7	207043641	(7s) cyc=1258
-rv64mi-p-ld-misaligned	PASS	p-	none		1386	9	293342694	(9s) cyc=1386
-rv64mi-p-lh-misaligned	PASS	p-	none		1102	7	470291540	(7s) cyc=1102
-rv64mi-p-lw-misaligned	PASS	p-	none		1171	7	22527314	(7s) cyc=1171
-rv64mi-p-ma_addr	PASS	p-	none		1538	10	63392205	(10s) cyc=1538
-rv64mi-p-ma_fetch	PASS	p-	none		1948	11	415913468	(11s) cyc=1948
-rv64mi-p-mcsr	PASS	p-	none		1339	8	647019861	(8s) cyc=1339
-rv64mi-p-pmpaddr	PASS	p-	none		1185	8	674768927	(8s) cyc=1185
-rv64mi-p-sbreak	PASS	p-	none		1315	8	31520851	(8s) cyc=1315
-rv64mi-p-scall	PASS	p-	none		1261	7	265813788	(7s) cyc=1261
-rv64mi-p-sd-misaligned	PASS	p-	none		1436	8	999164321	(8s) cyc=1436
-rv64mi-p-sh-misaligned	PASS	p-	none		1109	7	470884972	(7s) cyc=1109
-rv64mi-p-sw-misaligned	PASS	p-	none		1150	7	316640110	(7s) cyc=1150
-rv64mi-p-zicntr	PASS	p-	none		1425	9	388742498	(9s) cyc=1425
-rv64mzicbo-p-zero	PASS	p-	none		1158	8	495358514	(8s) cyc=1158
-rv64si-p-csr	PASS	p-	none		2248	12	385236125	(12s) cyc=2248
-rv64si-p-dirty	PASS	p-	none		2249	12	286012833	(12s) cyc=2249
-rv64si-p-icache-alias	PASS	p-	none		2368	13	589984233	(13s) cyc=2368
-rv64si-p-ma_fetch	PASS	p-	none		1382	9	417826938	(9s) cyc=1382
-rv64si-p-sbreak	PASS	p-	none		1325	8	825334287	(8s) cyc=1325
-rv64si-p-scall	PASS	p-	none		1443	8	835786760	(8s) cyc=1443
-rv64si-p-wfi	PASS	p-	none		1173	8	374145406	(8s) cyc=1173
-rv64ssvnapot-p-napot	PASS	p-	none		1658	10	69526468	(10s) cyc=1658
-rv64ua-p-amoadd_d	PASS	p-	none		1081	7	275852633	(7s) cyc=1081
-rv64ua-p-amoadd_w	PASS	p-	none		1120	8	913350290	(8s) cyc=1120
-rv64ua-p-amoand_d	PASS	p-	none		1121	7	770840416	(7s) cyc=1121
-rv64ua-p-amoand_w	PASS	p-	none		1117	7	208130720	(7s) cyc=1117
-rv64ua-p-amomax_d	PASS	p-	none		1077	7	59935686	(7s) cyc=1077
-rv64ua-p-amomax_w	PASS	p-	none		1100	7	558450694	(7s) cyc=1100
-rv64ua-p-amomaxu_d	PASS	p-	none		1077	7	505258432	(7s) cyc=1077
-rv64ua-p-amomaxu_w	PASS	p-	none		1100	7	71193202	(7s) cyc=1100
-rv64ua-p-amomin_d	PASS	p-	none		1077	7	899731901	(7s) cyc=1077
-rv64ua-p-amomin_w	PASS	p-	none		1100	6	389748349	(6s) cyc=1100
-rv64ua-p-amominu_d	PASS	p-	none		1077	7	835474674	(7s) cyc=1077
-rv64ua-p-amominu_w	PASS	p-	none		1100	7	185426745	(7s) cyc=1100
-rv64ua-p-amoor_d	PASS	p-	none		1117	7	398933682	(7s) cyc=1117
-rv64ua-p-amoor_w	PASS	p-	none		1117	7	890817913	(7s) cyc=1117
-rv64ua-p-amoswap_d	PASS	p-	none		1121	7	322444903	(7s) cyc=1121
-rv64ua-p-amoswap_w	PASS	p-	none		1117	7	671542709	(7s) cyc=1117
-rv64ua-p-amoxor_d	PASS	p-	none		1125	7	885298467	(7s) cyc=1125
-rv64ua-p-amoxor_w	PASS	p-	none		1129	7	370102499	(7s) cyc=1129
-rv64ua-p-lrsc	PASS	p-	none		17171	85	805554712	(85s) cyc=17171
-rv64uc-p-rvc	PASS	p-	none		1589	9	570550914	(9s) cyc=1589
-rv64ud-p-fadd	PASS	p-	none		1912	11	403575670	(11s) cyc=1912
-rv64ud-p-fclass	PASS	p-	none		1233	8	146207250	(8s) cyc=1233
-rv64ud-p-fcmp	PASS	p-	none		2202	13	836146873	(13s) cyc=2202
-rv64ud-p-fcvt	PASS	p-	none		1824	11	98107089	(11s) cyc=1824
-rv64ud-p-fcvt_w	PASS	p-	none		3736	20	412850302	(20s) cyc=3736
-rv64ud-p-fdiv	PASS	p-	none		1740	10	810138243	(10s) cyc=1740
-rv64ud-p-fmadd	PASS	p-	none		2072	11	6063136	(11s) cyc=2072
-rv64ud-p-fmin	PASS	p-	none		2544	14	773420949	(14s) cyc=2544
-rv64ud-p-ldst	PASS	p-	none		1172	7	458066208	(7s) cyc=1172
-rv64ud-p-move	PASS	p-	none		2696	15	128941965	(15s) cyc=2696
-rv64ud-p-recoding	PASS	p-	none		1245	8	677529823	(8s) cyc=1245
-rv64ud-p-structural	PASS	p-	none		2027	11	453494589	(11s) cyc=2027
-rv64uf-p-fadd	PASS	p-	none		1912	11	862495768	(11s) cyc=1912
-rv64uf-p-fclass	PASS	p-	none		1217	8	376730761	(8s) cyc=1217
-rv64uf-p-fcmp	PASS	p-	none		2202	12	360448989	(12s) cyc=2202
-rv64uf-p-fcvt	PASS	p-	none		1611	10	769864126	(10s) cyc=1611
-rv64uf-p-fcvt_w	PASS	p-	none		3374	18	105463333	(18s) cyc=3374
-rv64uf-p-fdiv	PASS	p-	none		1664	10	260666124	(10s) cyc=1664
-rv64uf-p-fmadd	PASS	p-	none		2072	12	87869785	(12s) cyc=2072
-rv64uf-p-fmin	PASS	p-	none		2544	14	461988601	(14s) cyc=2544
-rv64uf-p-ldst	PASS	p-	none		1184	8	712534119	(8s) cyc=1184
-rv64uf-p-move	PASS	p-	none		1798	11	375025922	(11s) cyc=1798
-rv64uf-p-recoding	PASS	p-	none		1198	7	542035581	(7s) cyc=1198
-rv64ui-p-add	PASS	p-	none		2453	13	566168602	(13s) cyc=2453
-rv64ui-p-addi	PASS	p-	none		1630	10	252766953	(10s) cyc=1630
-rv64ui-p-addiw	PASS	p-	none		1621	9	250397027	(9s) cyc=1621
-rv64ui-p-addw	PASS	p-	none		2443	13	251765784	(13s) cyc=2443
-rv64ui-p-and	PASS	p-	none		2613	15	378747176	(15s) cyc=2613
-rv64ui-p-andi	PASS	p-	none		1609	9	224077117	(9s) cyc=1609
-rv64ui-p-auipc	PASS	p-	none		1053	7	846192701	(7s) cyc=1053
-rv64ui-p-beq	PASS	p-	none		2427	14	933018278	(14s) cyc=2427
-rv64ui-p-bge	PASS	p-	none		2726	15	224417850	(15s) cyc=2726
-rv64ui-p-bgeu	PASS	p-	none		2956	16	684440713	(16s) cyc=2956
-rv64ui-p-blt	PASS	p-	none		2429	14	216806727	(14s) cyc=2429
-rv64ui-p-bltu	PASS	p-	none		2643	14	793176556	(14s) cyc=2643
-rv64ui-p-bne	PASS	p-	none		2482	14	4427677	(14s) cyc=2482
-rv64ui-p-fence_i	PASS	p-	none		2022	12	416708542	(12s) cyc=2022
-rv64ui-p-jal	PASS	p-	none		1049	6	782106301	(6s) cyc=1049
-rv64ui-p-jalr	PASS	p-	none		1557	10	996242800	(10s) cyc=1557
-rv64ui-p-lb	PASS	p-	none		1671	10	816159418	(10s) cyc=1671
-rv64ui-p-lbu	PASS	p-	none		1671	10	474811267	(10s) cyc=1671
-rv64ui-p-ld	PASS	p-	none		2066	12	464187915	(12s) cyc=2066
-rv64ui-p-ld_st	PASS	p-	none		4478	25	466460305	(25s) cyc=4478
-rv64ui-p-lh	PASS	p-	none		1711	11	391048711	(11s) cyc=1711
-rv64ui-p-lhu	PASS	p-	none		1717	11	660659801	(11s) cyc=1717
-rv64ui-p-lui	PASS	p-	none		1065	7	769178491	(7s) cyc=1065
-rv64ui-p-lw	PASS	p-	none		1731	11	885784530	(11s) cyc=1731
-rv64ui-p-lwu	PASS	p-	none		1797	12	354269358	(12s) cyc=1797
-rv64ui-p-ma_data	PASS	p-	none		7851	43	204831147	(43s) cyc=7851
-rv64ui-p-or	PASS	p-	none		2670	16	53655357	(16s) cyc=2670
-rv64ui-p-ori	PASS	p-	none		1591	10	188558724	(10s) cyc=1591
-rv64ui-p-sb	PASS	p-	none		2292	15	988349575	(15s) cyc=2292
-rv64ui-p-sd	PASS	p-	none		2616	16	761727184	(16s) cyc=2616
-rv64ui-p-sh	PASS	p-	none		2362	15	630442298	(15s) cyc=2362
-rv64ui-p-simple	PASS	p-	none		1003	7	586295564	(7s) cyc=1003
-rv64ui-p-sll	PASS	p-	none		2573	15	282915857	(15s) cyc=2573
-rv64ui-p-slli	PASS	p-	none		1691	11	817092045	(11s) cyc=1691
-rv64ui-p-slliw	PASS	p-	none		1685	11	580470703	(11s) cyc=1685
-rv64ui-p-sllw	PASS	p-	none		2577	15	978217759	(15s) cyc=2577
-rv64ui-p-slt	PASS	p-	none		2431	15	864921666	(15s) cyc=2431
-rv64ui-p-slti	PASS	p-	none		1617	11	560494997	(11s) cyc=1617
-rv64ui-p-sltiu	PASS	p-	none		1617	10	735773475	(10s) cyc=1617
-rv64ui-p-sltu	PASS	p-	none		2469	15	541117812	(15s) cyc=2469
-rv64ui-p-sra	PASS	p-	none		2524	15	439556228	(15s) cyc=2524
-rv64ui-p-srai	PASS	p-	none		1654	11	707021598	(11s) cyc=1654
-rv64ui-p-sraiw	PASS	p-	none		1755	11	972705418	(11s) cyc=1755
-rv64ui-p-sraw	PASS	p-	none		2595	15	797453834	(15s) cyc=2595
-rv64ui-p-srl	PASS	p-	none		2619	16	625523563	(16s) cyc=2619
-rv64ui-p-srli	PASS	p-	none		1715	11	576540863	(11s) cyc=1715
-rv64ui-p-srliw	PASS	p-	none		1703	11	471265588	(11s) cyc=1703
-rv64ui-p-srlw	PASS	p-	none		2583	14	925825129	(14s) cyc=2583
-rv64ui-p-st_ld	PASS	p-	none		1993	12	595793875	(12s) cyc=1993
-rv64ui-p-sub	PASS	p-	none		2437	14	198385738	(14s) cyc=2437
-rv64ui-p-subw	PASS	p-	none		2429	14	151543585	(14s) cyc=2429
-rv64ui-p-sw	PASS	p-	none		2382	13	250400016	(13s) cyc=2382
-rv64ui-p-xor	PASS	p-	none		2664	15	960926228	(15s) cyc=2664
-rv64ui-p-xori	PASS	p-	none		1595	10	62853224	(10s) cyc=1595
-rv64um-p-div	PASS	p-	none		1157	7	411744894	(7s) cyc=1157
-rv64um-p-divu	PASS	p-	none		1167	8	510128015	(8s) cyc=1167
-rv64um-p-divuw	PASS	p-	none		1147	7	338012975	(7s) cyc=1147
-rv64um-p-divw	PASS	p-	none		1139	7	197470085	(7s) cyc=1139
-rv64um-p-mul	PASS	p-	none		2465	14	323749143	(14s) cyc=2465
-rv64um-p-mulh	PASS	p-	none		2471	14	854558187	(14s) cyc=2471
-rv64um-p-mulhsu	PASS	p-	none		2471	14	517988217	(14s) cyc=2471
-rv64um-p-mulhu	PASS	p-	none		2531	14	780447673	(14s) cyc=2531
-rv64um-p-mulw	PASS	p-	none		2330	13	418076658	(13s) cyc=2330
-rv64um-p-rem	PASS	p-	none		1131	7	898624353	(7s) cyc=1131
-rv64um-p-remu	PASS	p-	none		1133	7	110352593	(7s) cyc=1133
-rv64um-p-remuw	PASS	p-	none		1129	8	780165464	(8s) cyc=1129
-rv64um-p-remw	PASS	p-	none		1139	8	429048035	(8s) cyc=1139
-rv64uzba-p-add_uw	PASS	p-	none		2455	14	206892136	(14s) cyc=2455
-rv64uzba-p-sh1add	PASS	p-	none		2461	13	230613911	(13s) cyc=2461
-rv64uzba-p-sh1add_uw	PASS	p-	none		2469	14	73909060	(14s) cyc=2469
-rv64uzba-p-sh2add	PASS	p-	none		2461	14	805313771	(14s) cyc=2461
-rv64uzba-p-sh2add_uw	PASS	p-	none		2469	15	826943094	(15s) cyc=2469
-rv64uzba-p-sh3add	PASS	p-	none		2461	15	614466671	(15s) cyc=2461
-rv64uzba-p-sh3add_uw	PASS	p-	none		2469	14	504213417	(14s) cyc=2469
-rv64uzba-p-slli_uw	PASS	p-	none		1719	10	163105588	(10s) cyc=1719
-rv64uzbb-p-andn	PASS	p-	none		2655	16	570246523	(16s) cyc=2655
-rv64uzbb-p-clz	PASS	p-	none		1497	10	779872193	(10s) cyc=1497
-rv64uzbb-p-clzw	PASS	p-	none		1465	10	326691967	(10s) cyc=1465
-rv64uzbb-p-cpop	PASS	p-	none		1497	10	25809725	(10s) cyc=1497
-rv64uzbb-p-cpopw	PASS	p-	none		1465	9	549050507	(9s) cyc=1465
-rv64uzbb-p-ctz	PASS	p-	none		1497	10	465587193	(10s) cyc=1497
-rv64uzbb-p-ctzw	PASS	p-	none		1467	10	220149976	(10s) cyc=1467
-rv64uzbb-p-max	PASS	p-	none		2441	14	356094933	(14s) cyc=2441
-rv64uzbb-p-maxu	PASS	p-	none		2503	14	174534233	(14s) cyc=2503
-rv64uzbb-p-min	PASS	p-	none		2433	13	235973702	(13s) cyc=2433
-rv64uzbb-p-minu	PASS	p-	none		2482	13	556341567	(13s) cyc=2482
-rv64uzbb-p-orc_b	PASS	p-	none		1539	9	728193957	(9s) cyc=1539
-rv64uzbb-p-orn	PASS	p-	none		2673	15	736402275	(15s) cyc=2673
-rv64uzbb-p-rev8	PASS	p-	none		1572	9	888789514	(9s) cyc=1572
-rv64uzbb-p-rol	PASS	p-	none		2584	15	377736096	(15s) cyc=2584
-rv64uzbb-p-rolw	PASS	p-	none		2586	14	318267913	(14s) cyc=2586
-rv64uzbb-p-ror	PASS	p-	none		2645	15	122598275	(15s) cyc=2645
-rv64uzbb-p-rori	PASS	p-	none		1712	10	789624925	(10s) cyc=1712
-rv64uzbb-p-roriw	PASS	p-	none		1625	9	947475216	(9s) cyc=1625
-rv64uzbb-p-rorw	PASS	p-	none		2513	13	710713535	(13s) cyc=2513
-rv64uzbb-p-sext_b	PASS	p-	none		1497	9	77148402	(9s) cyc=1497
-rv64uzbb-p-sext_h	PASS	p-	none		1503	9	700370388	(9s) cyc=1503
-rv64uzbb-p-xnor	PASS	p-	none		2671	15	637340844	(15s) cyc=2671
-rv64uzbb-p-zext_h	PASS	p-	none		1509	9	770228579	(9s) cyc=1509
-rv64uzbc-p-clmul	PASS	p-	none		2467	13	355042238	(13s) cyc=2467
-rv64uzbc-p-clmulh	PASS	p-	none		2478	14	670018189	(14s) cyc=2478
-rv64uzbc-p-clmulr	PASS	p-	none		2473	13	117449408	(13s) cyc=2473
-rv64uzbkb-p-brev8	PASS	p-	none		1537	9	724264245	(9s) cyc=1537
-rv64uzbkb-p-pack	PASS	p-	none		2913	16	331134865	(16s) cyc=2913
-rv64uzbkb-p-packh	PASS	p-	none		2583	14	193913920	(14s) cyc=2583
-rv64uzbkb-p-packw	PASS	p-	none		2443	14	82911254	(14s) cyc=2443
-rv64uzbkx-p-xperm4	PASS	p-	none		2769	15	566616955	(15s) cyc=2769
-rv64uzbkx-p-xperm8	PASS	p-	none		3598	19	271896221	(19s) cyc=3598
-rv64uzbs-p-bclr	PASS	p-	none		2796	16	122636614	(16s) cyc=2796
-rv64uzbs-p-bclri	PASS	p-	none		1779	10	277626194	(10s) cyc=1779
-rv64uzbs-p-bext	PASS	p-	none		2661	15	456766007	(15s) cyc=2661
-rv64uzbs-p-bexti	PASS	p-	none		1711	10	268061044	(10s) cyc=1711
-rv64uzbs-p-binv	PASS	p-	none		2631	14	66261330	(14s) cyc=2631
-rv64uzbs-p-binvi	PASS	p-	none		1715	10	541752999	(10s) cyc=1715
-rv64uzbs-p-bset	PASS	p-	none		2800	16	27041420	(16s) cyc=2800
-rv64uzbs-p-bseti	PASS	p-	none		1793	11	929993708	(11s) cyc=1793
-rv64uzfh-p-fadd	PASS	p-	none		1912	12	782823158	(12s) cyc=1912
-rv64uzfh-p-fclass	PASS	p-	none		1218	8	414001999	(8s) cyc=1218
-rv64uzfh-p-fcmp	PASS	p-	none		1554	9	278346042	(9s) cyc=1554
-rv64uzfh-p-fcvt	PASS	p-	none		1786	10	869164400	(10s) cyc=1786
-rv64uzfh-p-fcvt_w	PASS	p-	none		3374	19	145121571	(19s) cyc=3374
-rv64uzfh-p-fdiv	PASS	p-	none		1664	9	376194539	(9s) cyc=1664
-rv64uzfh-p-fmadd	PASS	p-	none		2072	12	101629587	(12s) cyc=2072
-rv64uzfh-p-fmin	PASS	p-	none		2544	15	194636334	(15s) cyc=2544
-rv64uzfh-p-ldst	PASS	p-	none		1196	8	952442551	(8s) cyc=1196
-rv64uzfh-p-move	PASS	p-	none		1793	11	281828357	(11s) cyc=1793
-rv64uzfh-p-recoding	PASS	p-	none		1198	7	669503066	(7s) cyc=1198
-rv64uziccid-p-ziccid	PASS	p-	none		8104	28	362797232	(28s) cyc=8104
-rv64uzicond-p-czero_eqz	PASS	p-	none		2389	11	469627696	(11s) cyc=2389
-rv64uzicond-p-czero_nez	PASS	p-	none		2377	12	373831494	(12s) cyc=2377
-rv64ua-v-amoadd_d	PASS	v-	15/18		28144	152	615768053	(152s) cyc=28144
-rv64ua-v-amoadd_w	PASS	v-	16/18		28301	118	249022826	(118s) cyc=28301
-rv64ua-v-amoand_d	PASS	v-	17/18		28137	187	568206158	(187s) cyc=28137
-rv64ua-v-amoand_w	PASS	v-	18/18		28051	148	13642205	(148s) cyc=28051
-rv64ua-v-amomax_d	PASS	v-	1/18		28267	186	258634889	(186s) cyc=28267
-rv64ua-v-amomax_w	PASS	v-	4/18		28242	187	756907032	(187s) cyc=28242
-rv64ua-v-amomaxu_d	PASS	v-	2/18		28267	197	772141106	(197s) cyc=28267
-rv64ua-v-amomaxu_w	PASS	v-	3/18		28242	183	340662232	(183s) cyc=28242
-rv64ua-v-amomin_d	PASS	v-	5/18		28267	187	431337340	(187s) cyc=28267
-rv64ua-v-amomin_w	PASS	v-	8/18		28361	210	910110897	(210s) cyc=28361
-rv64ua-v-amominu_d	PASS	v-	6/18		28172	151	104169014	(151s) cyc=28172
-rv64ua-v-amominu_w	PASS	v-	7/18		28271	140	448124548	(140s) cyc=28271
-rv64ua-v-amoor_d	PASS	v-	9/18		28611	143	367517753	(143s) cyc=28611
-rv64ua-v-amoor_w	PASS	v-	10/18		28611	187	787998208	(187s) cyc=28611
-rv64ua-v-amoswap_d	PASS	v-	11/18		28137	184	56433302	(184s) cyc=28137
-rv64ua-v-amoswap_w	PASS	v-	12/18		28137	181	399204568	(181s) cyc=28137
-rv64ua-v-amoxor_d	PASS	v-	13/18		28345	182	411661558	(182s) cyc=28345
-rv64ua-v-amoxor_w	PASS	v-	14/18		28318	163	898708468	(163s) cyc=28318
-rv64ua-v-lrsc	PASS	v-	15/18		44712	216	315362912	(216s) cyc=44712
-rv64uc-v-rvc	PASS	v-	14/18		37999	214	344770425	(214s) cyc=37999
-rv64ud-v-fadd	PASS	v-	9/18		27874	147	775000501	(147s) cyc=27874
-rv64ud-v-fclass	PASS	v-	10/18		17962	121	684785203	(121s) cyc=17962
-rv64ud-v-fcmp	PASS	v-	11/18		28156	186	499294399	(186s) cyc=28156
-rv64ud-v-fcvt	PASS	v-	12/18		27721	182	622729554	(182s) cyc=27721
-rv64ud-v-fcvt_w	PASS	v-	13/18		38662	245	28334858	(245s) cyc=38662
-rv64ud-v-fdiv	PASS	v-	14/18		27701	157	181543097	(157s) cyc=27701
-rv64ud-v-fmadd	PASS	v-	15/18		28035	150	156674756	(150s) cyc=28035
-rv64ud-v-fmin	PASS	v-	16/18		28506	119	404807979	(119s) cyc=28506
-rv64ud-v-ldst	PASS	v-	17/18		28181	161	653441274	(161s) cyc=28181
-rv64ud-v-move	PASS	v-	18/18		28514	157	459083156	(157s) cyc=28514
-rv64ud-v-recoding	PASS	v-	1/18		28497	190	335142802	(190s) cyc=28497
-rv64ud-v-structural	PASS	v-	2/18		18709	128	961531628	(128s) cyc=18709
-rv64uf-v-fadd	PASS	v-	16/18		27874	116	462175406	(116s) cyc=27874
-rv64uf-v-fclass	PASS	v-	17/18		17413	115	834056515	(115s) cyc=17413
-rv64uf-v-fcmp	PASS	v-	18/18		28156	147	802342749	(147s) cyc=28156
-rv64uf-v-fcvt	PASS	v-	1/18		27499	182	75290417	(182s) cyc=27499
-rv64uf-v-fcvt_w	PASS	v-	2/18		38324	252	495210184	(252s) cyc=38324
-rv64uf-v-fdiv	PASS	v-	3/18		27625	190	851332944	(190s) cyc=27625
-rv64uf-v-fmadd	PASS	v-	4/18		28035	179	68669797	(179s) cyc=28035
-rv64uf-v-fmin	PASS	v-	5/18		28506	188	868112641	(188s) cyc=28506
-rv64uf-v-ldst	PASS	v-	6/18		28501	151	277655480	(151s) cyc=28501
-rv64uf-v-move	PASS	v-	7/18		18663	95	69904245	(95s) cyc=18663
-rv64uf-v-recoding	PASS	v-	8/18		26948	205	599401146	(205s) cyc=26948
-rv64ui-v-add	PASS	v-	1/18		19407	136	744823488	(136s) cyc=19407
-rv64ui-v-addi	PASS	v-	2/18		18467	125	880984247	(125s) cyc=18467
-rv64ui-v-addiw	PASS	v-	3/18		18504	130	956769776	(130s) cyc=18504
-rv64ui-v-addw	PASS	v-	4/18		18887	129	922414567	(129s) cyc=18887
-rv64ui-v-and	PASS	v-	7/18		19506	105	830114152	(105s) cyc=19506
-rv64ui-v-andi	PASS	v-	8/18		17944	134	748744478	(134s) cyc=17944
-rv64ui-v-auipc	PASS	v-	12/18		17711	122	369669211	(122s) cyc=17711
-rv64ui-v-beq	PASS	v-	13/18		18746	128	26890847	(128s) cyc=18746
-rv64ui-v-bge	PASS	v-	14/18		19458	113	867200842	(113s) cyc=19458
-rv64ui-v-bgeu	PASS	v-	15/18		19645	106	289706037	(106s) cyc=19645
-rv64ui-v-blt	PASS	v-	16/18		18748	79	42070035	(79s) cyc=18748
-rv64ui-v-bltu	PASS	v-	17/18		18768	127	194431032	(127s) cyc=18768
-rv64ui-v-bne	PASS	v-	18/18		18666	100	985856208	(100s) cyc=18666
-rv64ui-v-fence_i	PASS	v-	17/18		29684	198	175706679	(198s) cyc=29684
-rv64ui-v-jal	PASS	v-	1/18		17474	122	428066659	(122s) cyc=17474
-rv64ui-v-jalr	PASS	v-	2/18		18374	125	193181781	(125s) cyc=18374
-rv64ui-v-lb	PASS	v-	3/18		27631	189	674186927	(189s) cyc=27631
-rv64ui-v-lbu	PASS	v-	4/18		27660	185	444542840	(185s) cyc=27660
-rv64ui-v-ld	PASS	v-	9/18		27308	144	77035419	(144s) cyc=27308
-rv64ui-v-ld_st	PASS	v-	14/18		48951	274	758447016	(274s) cyc=48951
-rv64ui-v-lh	PASS	v-	5/18		27597	188	374772530	(188s) cyc=27597
-rv64ui-v-lhu	PASS	v-	6/18		27659	151	352873625	(151s) cyc=27659
-rv64ui-v-lui	PASS	v-	11/18		17896	127	544403637	(127s) cyc=17896
-rv64ui-v-lw	PASS	v-	7/18		27596	143	502923680	(143s) cyc=27596
-rv64ui-v-lwu	PASS	v-	8/18		27586	203	524619982	(203s) cyc=27586
-rv64ui-v-ma_data	PASS	v-	18/18		51567	262	442768249	(262s) cyc=51567
-rv64ui-v-or	PASS	v-	9/18		19682	105	440805551	(105s) cyc=19682
-rv64ui-v-ori	PASS	v-	10/18		17968	127	95569549	(127s) cyc=17968
-rv64ui-v-sb	PASS	v-	10/18		29183	201	369730544	(201s) cyc=29183
-rv64ui-v-sd	PASS	v-	13/18		39236	259	916762654	(259s) cyc=39236
-rv64ui-v-sh	PASS	v-	11/18		29444	201	999244536	(201s) cyc=29444
-rv64ui-v-simple	PASS	v-	16/18		17274	74	37775636	(74s) cyc=17274
-rv64ui-v-sll	PASS	v-	17/18		28576	191	629838876	(191s) cyc=28576
-rv64ui-v-slli	PASS	v-	18/18		18556	100	160450406	(100s) cyc=18556
-rv64ui-v-slliw	PASS	v-	1/18		18523	129	556309102	(129s) cyc=18523
-rv64ui-v-sllw	PASS	v-	2/18		28718	193	349187716	(193s) cyc=28718
-rv64ui-v-slt	PASS	v-	13/18		19265	131	348530722	(131s) cyc=19265
-rv64ui-v-slti	PASS	v-	14/18		18528	109	869018482	(109s) cyc=18528
-rv64ui-v-sltiu	PASS	v-	16/18		18494	78	416708563	(78s) cyc=18494
-rv64ui-v-sltu	PASS	v-	15/18		19392	106	312076096	(106s) cyc=19392
-rv64ui-v-sra	PASS	v-	7/18		18922	100	472920754	(100s) cyc=18922
-rv64ui-v-srai	PASS	v-	8/18		17765	130	403978479	(130s) cyc=17765
-rv64ui-v-sraiw	PASS	v-	9/18		18726	100	251141007	(100s) cyc=18726
-rv64ui-v-sraw	PASS	v-	10/18		28846	202	390362925	(202s) cyc=28846
-rv64ui-v-srl	PASS	v-	3/18		28871	200	389337564	(200s) cyc=28871
-rv64ui-v-srli	PASS	v-	4/18		18426	124	282845031	(124s) cyc=18426
-rv64ui-v-srliw	PASS	v-	5/18		18583	132	766325006	(132s) cyc=18583
-rv64ui-v-srlw	PASS	v-	6/18		28804	157	517589441	(157s) cyc=28804
-rv64ui-v-st_ld	PASS	v-	15/18		38298	205	491367015	(205s) cyc=38298
-rv64ui-v-sub	PASS	v-	5/18		18933	130	894504451	(130s) cyc=18933
-rv64ui-v-subw	PASS	v-	6/18		19265	106	812497154	(106s) cyc=19265
-rv64ui-v-sw	PASS	v-	12/18		28528	190	272443347	(190s) cyc=28528
-rv64ui-v-xor	PASS	v-	11/18		19537	137	458256217	(137s) cyc=19537
-rv64ui-v-xori	PASS	v-	12/18		17782	125	789074921	(125s) cyc=17782
-rv64um-v-div	PASS	v-	5/18		18057	125	977152613	(125s) cyc=18057
-rv64um-v-divu	PASS	v-	6/18		18022	99	72839298	(99s) cyc=18022
-rv64um-v-divuw	PASS	v-	11/18		18129	128	812659317	(128s) cyc=18129
-rv64um-v-divw	PASS	v-	10/18		18039	128	396829545	(128s) cyc=18039
-rv64um-v-mul	PASS	v-	1/18		19333	134	94875115	(134s) cyc=19333
-rv64um-v-mulh	PASS	v-	2/18		19429	132	585540498	(132s) cyc=19429
-rv64um-v-mulhsu	PASS	v-	3/18		19429	138	11032290	(138s) cyc=19429
-rv64um-v-mulhu	PASS	v-	4/18		19439	132	358206931	(132s) cyc=19439
-rv64um-v-mulw	PASS	v-	9/18		18670	99	760435025	(99s) cyc=18670
-rv64um-v-rem	PASS	v-	7/18		18022	97	54310298	(97s) cyc=18022
-rv64um-v-remu	PASS	v-	8/18		18026	134	472157004	(134s) cyc=18026
-rv64um-v-remuw	PASS	v-	13/18		18029	124	370051857	(124s) cyc=18029
-rv64um-v-remw	PASS	v-	12/18		18024	123	161922870	(123s) cyc=18024
-rv64uzba-v-add_uw	PASS	v-	3/18		19222	128	743568367	(128s) cyc=19222
-rv64uzba-v-sh1add	PASS	v-	4/18		19229	126	830188137	(126s) cyc=19229
-rv64uzba-v-sh1add_uw	PASS	v-	5/18		19238	129	812031488	(129s) cyc=19238
-rv64uzba-v-sh2add	PASS	v-	6/18		19229	104	431507973	(104s) cyc=19229
-rv64uzba-v-sh2add_uw	PASS	v-	7/18		19238	98	554576321	(98s) cyc=19238
-rv64uzba-v-sh3add	PASS	v-	8/18		19229	150	206943641	(150s) cyc=19229
-rv64uzba-v-sh3add_uw	PASS	v-	9/18		19238	100	775940541	(100s) cyc=19238
-rv64uzba-v-slli_uw	PASS	v-	10/18		18538	124	198750125	(124s) cyc=18538
-rv64uzbb-v-andn	PASS	v-	11/18		18947	127	7939062	(127s) cyc=18947
-rv64uzbb-v-clz	PASS	v-	12/18		18448	122	428030433	(122s) cyc=18448
-rv64uzbb-v-clzw	PASS	v-	13/18		17937	119	661173646	(119s) cyc=17937
-rv64uzbb-v-cpop	PASS	v-	14/18		18448	85	292311969	(85s) cyc=18448
-rv64uzbb-v-cpopw	PASS	v-	15/18		17937	96	531814699	(96s) cyc=17937
-rv64uzbb-v-ctz	PASS	v-	16/18		18448	81	719350967	(81s) cyc=18448
-rv64uzbb-v-ctzw	PASS	v-	17/18		18420	127	482375952	(127s) cyc=18420
-rv64uzbb-v-max	PASS	v-	18/18		19065	101	528342817	(101s) cyc=19065
-rv64uzbb-v-maxu	PASS	v-	1/18		18589	127	540438108	(127s) cyc=18589
-rv64uzbb-v-min	PASS	v-	2/18		19057	134	52022755	(134s) cyc=19057
-rv64uzbb-v-minu	PASS	v-	3/18		19153	128	288131413	(128s) cyc=19153
-rv64uzbb-v-orc_b	PASS	v-	4/18		18490	126	339927475	(126s) cyc=18490
-rv64uzbb-v-orn	PASS	v-	5/18		28496	183	282934563	(183s) cyc=28496
-rv64uzbb-v-rev8	PASS	v-	6/18		18416	96	286262304	(96s) cyc=18416
-rv64uzbb-v-rol	PASS	v-	7/18		28526	125	669056462	(125s) cyc=28526
-rv64uzbb-v-rolw	PASS	v-	8/18		28391	185	118264410	(185s) cyc=28391
-rv64uzbb-v-ror	PASS	v-	9/18		28425	128	834573427	(128s) cyc=28425
-rv64uzbb-v-rori	PASS	v-	10/18		18533	127	520698016	(127s) cyc=18533
-rv64uzbb-v-roriw	PASS	v-	11/18		18560	123	193743448	(123s) cyc=18560
-rv64uzbb-v-rorw	PASS	v-	12/18		19137	121	277895088	(121s) cyc=19137
-rv64uzbb-v-sext_b	PASS	v-	13/18		18448	114	451116988	(114s) cyc=18448
-rv64uzbb-v-sext_h	PASS	v-	14/18		18457	73	161761687	(73s) cyc=18457
-rv64uzbb-v-xnor	PASS	v-	15/18		28588	114	83968022	(114s) cyc=28588
-rv64uzbb-v-zext_h	PASS	v-	16/18		18463	80	299094878	(80s) cyc=18463
-rv64uzbc-v-clmul	PASS	v-	17/18		18904	126	790617531	(126s) cyc=18904
-rv64uzbc-v-clmulh	PASS	v-	18/18		19306	66	300279023	(66s) cyc=19306
-rv64uzbc-v-clmulr	PASS	v-	1/18		19340	101	655026366	(101s) cyc=19340
-rv64uzbkb-v-brev8	PASS	v-	2/18		18343	109	347362495	(109s) cyc=18343
-rv64uzbkb-v-pack	PASS	v-	3/18		28736	114	96436007	(114s) cyc=28736
-rv64uzbkb-v-packh	PASS	v-	4/18		18902	95	905927218	(95s) cyc=18902
-rv64uzbkb-v-packw	PASS	v-	5/18		19372	120	62162923	(120s) cyc=19372
-rv64uzbkx-v-xperm4	PASS	v-	6/18		28907	97	58464389	(97s) cyc=28907
-rv64uzbkx-v-xperm8	PASS	v-	7/18		29746	117	864373242	(117s) cyc=29746
-rv64uzbs-v-bclr	PASS	v-	8/18		28818	171	746134311	(171s) cyc=28818
-rv64uzbs-v-bclri	PASS	v-	9/18		18637	82	864448075	(82s) cyc=18637
-rv64uzbs-v-bext	PASS	v-	10/18		28696	144	121338099	(144s) cyc=28696
-rv64uzbs-v-bexti	PASS	v-	11/18		18515	95	829583035	(95s) cyc=18515
-rv64uzbs-v-binv	PASS	v-	12/18		28615	134	794579667	(134s) cyc=28615
-rv64uzbs-v-binvi	PASS	v-	13/18		18421	92	547667046	(92s) cyc=18421
-rv64uzbs-v-bset	PASS	v-	14/18		28846	105	550479958	(105s) cyc=28846
-rv64uzbs-v-bseti	PASS	v-	15/18		18651	79	228470410	(79s) cyc=18651
-rv64uzfh-v-fadd	PASS	v-	16/18		27874	83	199007267	(83s) cyc=27874
-rv64uzfh-v-fclass	PASS	v-	17/18		17413	100	22288998	(100s) cyc=17413
-rv64uzfh-v-fcmp	PASS	v-	18/18		27508	89	836588583	(89s) cyc=27508
-rv64uzfh-v-fcvt	PASS	v-	1/18		27625	109	559407440	(109s) cyc=27625
-rv64uzfh-v-fcvt_w	PASS	v-	2/18		38324	167	685766058	(167s) cyc=38324
-rv64uzfh-v-fdiv	PASS	v-	3/18		27625	110	783399618	(110s) cyc=27625
-rv64uzfh-v-fmadd	PASS	v-	4/18		28035	107	68803247	(107s) cyc=28035
-rv64uzfh-v-fmin	PASS	v-	5/18		28506	117	792640415	(117s) cyc=28506
-rv64uzfh-v-ldst	PASS	v-	6/18		28622	91	379522989	(91s) cyc=28622
-rv64uzfh-v-move	PASS	v-	7/18		18656	83	578619424	(83s) cyc=18656
-rv64uzfh-v-recoding	PASS	v-	8/18		26948	138	605236891	(138s) cyc=26948
-rv64uziccid-v-ziccid	PASS	v-	11/18		173754	707	992859369	(707s) cyc=173754
-rv64uzicond-v-czero_eqz	PASS	v-	9/18		19230	73	735029564	(73s) cyc=19230
-rv64uzicond-v-czero_nez	PASS	v-	10/18		19098	82	645033298	(82s) cyc=19098
+hypervisor-p-2-stage_translation	PASS	p-	none		1374	13	125246787	(13s) cyc=1374
+hypervisor-p-2-stage_translation_implicit_load_error	PASS	p-	none		1656	15	772954488	(15s) cyc=1656
+hypervisor-p-2-stage_translation_implicit_load_error_hs	PASS	p-	none		1827	16	397601209	(16s) cyc=1827
+hypervisor-svadu-p-2-stage_translation_implicit_store_error	PASS	p-	none		1773	16	768146396	(16s) cyc=1773
+hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs	PASS	p-	none		1940	15	853750391	(15s) cyc=1940
+rv64mi-p-breakpoint	PASS	p-	none		3329	23	527054772	(23s) cyc=3329
+rv64mi-p-csr	PASS	p-	none		3437	24	205459199	(24s) cyc=3437
+rv64mi-p-illegal	PASS	p-	none		4376	30	223909181	(30s) cyc=4376
+rv64mi-p-instret_overflow	PASS	p-	none		1258	10	5369272	(10s) cyc=1258
+rv64mi-p-ld-misaligned	PASS	p-	none		1386	11	91668325	(11s) cyc=1386
+rv64mi-p-lh-misaligned	PASS	p-	none		1102	10	268617171	(10s) cyc=1102
+rv64mi-p-lw-misaligned	PASS	p-	none		1171	10	820852952	(10s) cyc=1171
+rv64mi-p-ma_addr	PASS	p-	none		1538	12	861717843	(12s) cyc=1538
+rv64mi-p-ma_fetch	PASS	p-	none		1948	14	214239099	(14s) cyc=1948
+rv64mi-p-mcsr	PASS	p-	none		1339	11	445345492	(11s) cyc=1339
+rv64mi-p-pmpaddr	PASS	p-	none		1185	10	473094558	(10s) cyc=1185
+rv64mi-p-sbreak	PASS	p-	none		1315	11	829846489	(11s) cyc=1315
+rv64mi-p-scall	PASS	p-	none		1261	10	64139419	(10s) cyc=1261
+rv64mi-p-sd-misaligned	PASS	p-	none		1436	11	797489952	(11s) cyc=1436
+rv64mi-p-sh-misaligned	PASS	p-	none		1109	10	269210603	(10s) cyc=1109
+rv64mi-p-sw-misaligned	PASS	p-	none		1150	9	114965741	(9s) cyc=1150
+rv64mi-p-zicntr	PASS	p-	none		1425	11	187068129	(11s) cyc=1425
+rv64mzicbo-p-zero	PASS	p-	none		1158	10	293684145	(10s) cyc=1158
+rv64si-p-csr	PASS	p-	none		2248	16	183561756	(16s) cyc=2248
+rv64si-p-dirty	PASS	p-	none		2249	17	84338464	(17s) cyc=2249
+rv64si-p-icache-alias	PASS	p-	none		2368	18	388309864	(18s) cyc=2368
+rv64si-p-ma_fetch	PASS	p-	none		1382	12	216152569	(12s) cyc=1382
+rv64si-p-sbreak	PASS	p-	none		1325	11	623659918	(11s) cyc=1325
+rv64si-p-scall	PASS	p-	none		1443	11	634112391	(11s) cyc=1443
+rv64si-p-wfi	PASS	p-	none		1173	10	172471037	(10s) cyc=1173
+rv64ssvnapot-p-napot	PASS	p-	none		1658	14	867852106	(14s) cyc=1658
+rv64ua-p-amoadd_d	PASS	p-	none		1081	9	74178264	(9s) cyc=1081
+rv64ua-p-amoadd_w	PASS	p-	none		1120	10	711675921	(10s) cyc=1120
+rv64ua-p-amoand_d	PASS	p-	none		1121	10	569166047	(10s) cyc=1121
+rv64ua-p-amoand_w	PASS	p-	none		1117	9	6456351	(9s) cyc=1117
+rv64ua-p-amomax_d	PASS	p-	none		1077	9	858261324	(9s) cyc=1077
+rv64ua-p-amomax_w	PASS	p-	none		1100	9	356776325	(9s) cyc=1100
+rv64ua-p-amomaxu_d	PASS	p-	none		1077	9	303584063	(9s) cyc=1077
+rv64ua-p-amomaxu_w	PASS	p-	none		1100	9	869518840	(9s) cyc=1100
+rv64ua-p-amomin_d	PASS	p-	none		1077	10	698057532	(10s) cyc=1077
+rv64ua-p-amomin_w	PASS	p-	none		1100	10	188073980	(10s) cyc=1100
+rv64ua-p-amominu_d	PASS	p-	none		1077	10	633800305	(10s) cyc=1077
+rv64ua-p-amominu_w	PASS	p-	none		1100	10	983752383	(10s) cyc=1100
+rv64ua-p-amoor_d	PASS	p-	none		1117	9	197259313	(9s) cyc=1117
+rv64ua-p-amoor_w	PASS	p-	none		1117	9	689143544	(9s) cyc=1117
+rv64ua-p-amoswap_d	PASS	p-	none		1121	9	120770534	(9s) cyc=1121
+rv64ua-p-amoswap_w	PASS	p-	none		1117	10	469868340	(10s) cyc=1117
+rv64ua-p-amoxor_d	PASS	p-	none		1125	10	683624098	(10s) cyc=1125
+rv64ua-p-amoxor_w	PASS	p-	none		1129	10	168428130	(10s) cyc=1129
+rv64ua-p-lrsc	PASS	p-	none		17171	108	603880343	(108s) cyc=17171
+rv64uc-p-rvc	PASS	p-	none		1589	12	368876545	(12s) cyc=1589
+rv64ud-p-fadd	PASS	p-	none		1912	14	201901301	(14s) cyc=1912
+rv64ud-p-fclass	PASS	p-	none		1233	10	944532888	(10s) cyc=1233
+rv64ud-p-fcmp	PASS	p-	none		2202	16	634472504	(16s) cyc=2202
+rv64ud-p-fcvt	PASS	p-	none		1824	13	896432727	(13s) cyc=1824
+rv64ud-p-fcvt_w	PASS	p-	none		3736	27	211175933	(27s) cyc=3736
+rv64ud-p-fdiv	PASS	p-	none		1740	13	608463874	(13s) cyc=1740
+rv64ud-p-fmadd	PASS	p-	none		2072	16	804388774	(16s) cyc=2072
+rv64ud-p-fmin	PASS	p-	none		2544	19	571746580	(19s) cyc=2544
+rv64ud-p-ldst	PASS	p-	none		1172	10	256391839	(10s) cyc=1172
+rv64ud-p-move	PASS	p-	none		2696	19	927267603	(19s) cyc=2696
+rv64ud-p-recoding	PASS	p-	none		1245	10	475855454	(10s) cyc=1245
+rv64ud-p-structural	PASS	p-	none		2027	15	251820220	(15s) cyc=2027
+rv64uf-p-fadd	PASS	p-	none		1912	14	660821399	(14s) cyc=1912
+rv64uf-p-fclass	PASS	p-	none		1217	10	175056392	(10s) cyc=1217
+rv64uf-p-fcmp	PASS	p-	none		2202	16	158774620	(16s) cyc=2202
+rv64uf-p-fcvt	PASS	p-	none		1611	12	568189757	(12s) cyc=1611
+rv64uf-p-fcvt_w	PASS	p-	none		3374	24	903788971	(24s) cyc=3374
+rv64uf-p-fdiv	PASS	p-	none		1664	13	58991755	(13s) cyc=1664
+rv64uf-p-fmadd	PASS	p-	none		2072	16	886195423	(16s) cyc=2072
+rv64uf-p-fmin	PASS	p-	none		2544	19	260314232	(19s) cyc=2544
+rv64uf-p-ldst	PASS	p-	none		1184	10	510859750	(10s) cyc=1184
+rv64uf-p-move	PASS	p-	none		1798	14	173351553	(14s) cyc=1798
+rv64uf-p-recoding	PASS	p-	none		1198	10	340361212	(10s) cyc=1198
+rv64ui-p-add	PASS	p-	none		2453	17	364494233	(17s) cyc=2453
+rv64ui-p-addi	PASS	p-	none		1630	13	51092584	(13s) cyc=1630
+rv64ui-p-addiw	PASS	p-	none		1621	12	48722658	(12s) cyc=1621
+rv64ui-p-addw	PASS	p-	none		2443	17	50091415	(17s) cyc=2443
+rv64ui-p-and	PASS	p-	none		2613	18	177072807	(18s) cyc=2613
+rv64ui-p-andi	PASS	p-	none		1609	12	22402748	(12s) cyc=1609
+rv64ui-p-auipc	PASS	p-	none		1053	9	644518332	(9s) cyc=1053
+rv64ui-p-beq	PASS	p-	none		2427	18	731343909	(18s) cyc=2427
+rv64ui-p-bge	PASS	p-	none		2726	19	22743481	(19s) cyc=2726
+rv64ui-p-bgeu	PASS	p-	none		2956	21	482766344	(21s) cyc=2956
+rv64ui-p-blt	PASS	p-	none		2429	18	15132358	(18s) cyc=2429
+rv64ui-p-bltu	PASS	p-	none		2643	20	591502187	(20s) cyc=2643
+rv64ui-p-bne	PASS	p-	none		2482	19	802753315	(19s) cyc=2482
+rv64ui-p-fence_i	PASS	p-	none		2022	15	215034173	(15s) cyc=2022
+rv64ui-p-jal	PASS	p-	none		1049	9	580431932	(9s) cyc=1049
+rv64ui-p-jalr	PASS	p-	none		1557	12	794568431	(12s) cyc=1557
+rv64ui-p-lb	PASS	p-	none		1671	14	614485049	(14s) cyc=1671
+rv64ui-p-lbu	PASS	p-	none		1671	13	273136898	(13s) cyc=1671
+rv64ui-p-ld	PASS	p-	none		2066	16	262513546	(16s) cyc=2066
+rv64ui-p-ld_st	PASS	p-	none		4478	30	264785936	(30s) cyc=4478
+rv64ui-p-lh	PASS	p-	none		1711	13	189374342	(13s) cyc=1711
+rv64ui-p-lhu	PASS	p-	none		1717	13	458985432	(13s) cyc=1717
+rv64ui-p-lui	PASS	p-	none		1065	9	567504122	(9s) cyc=1065
+rv64ui-p-lw	PASS	p-	none		1731	13	684110161	(13s) cyc=1731
+rv64ui-p-lwu	PASS	p-	none		1797	14	152594989	(14s) cyc=1797
+rv64ui-p-ma_data	PASS	p-	none		7851	52	3156778	(52s) cyc=7851
+rv64ui-p-or	PASS	p-	none		2670	20	851980995	(20s) cyc=2670
+rv64ui-p-ori	PASS	p-	none		1591	13	986884362	(13s) cyc=1591
+rv64ui-p-sb	PASS	p-	none		2292	17	786675206	(17s) cyc=2292
+rv64ui-p-sd	PASS	p-	none		2616	20	560052815	(20s) cyc=2616
+rv64ui-p-sh	PASS	p-	none		2362	18	428767929	(18s) cyc=2362
+rv64ui-p-simple	PASS	p-	none		1003	9	384621195	(9s) cyc=1003
+rv64ui-p-sll	PASS	p-	none		2573	19	81241488	(19s) cyc=2573
+rv64ui-p-slli	PASS	p-	none		1691	13	615417676	(13s) cyc=1691
+rv64ui-p-slliw	PASS	p-	none		1685	13	378796334	(13s) cyc=1685
+rv64ui-p-sllw	PASS	p-	none		2577	19	776543390	(19s) cyc=2577
+rv64ui-p-slt	PASS	p-	none		2431	18	663247297	(18s) cyc=2431
+rv64ui-p-slti	PASS	p-	none		1617	13	358820628	(13s) cyc=1617
+rv64ui-p-sltiu	PASS	p-	none		1617	13	534099106	(13s) cyc=1617
+rv64ui-p-sltu	PASS	p-	none		2469	19	339443443	(19s) cyc=2469
+rv64ui-p-sra	PASS	p-	none		2524	19	237881859	(19s) cyc=2524
+rv64ui-p-srai	PASS	p-	none		1654	13	505347229	(13s) cyc=1654
+rv64ui-p-sraiw	PASS	p-	none		1755	14	771031049	(14s) cyc=1755
+rv64ui-p-sraw	PASS	p-	none		2595	18	595779465	(18s) cyc=2595
+rv64ui-p-srl	PASS	p-	none		2619	19	423849194	(19s) cyc=2619
+rv64ui-p-srli	PASS	p-	none		1715	13	374866494	(13s) cyc=1715
+rv64ui-p-srliw	PASS	p-	none		1703	13	269591219	(13s) cyc=1703
+rv64ui-p-srlw	PASS	p-	none		2583	18	724150760	(18s) cyc=2583
+rv64ui-p-st_ld	PASS	p-	none		1993	15	394119506	(15s) cyc=1993
+rv64ui-p-sub	PASS	p-	none		2437	18	996711376	(18s) cyc=2437
+rv64ui-p-subw	PASS	p-	none		2429	17	949869223	(17s) cyc=2429
+rv64ui-p-sw	PASS	p-	none		2382	17	48725647	(17s) cyc=2382
+rv64ui-p-xor	PASS	p-	none		2664	20	759251859	(20s) cyc=2664
+rv64ui-p-xori	PASS	p-	none		1595	13	861178862	(13s) cyc=1595
+rv64um-p-div	PASS	p-	none		1157	10	210070525	(10s) cyc=1157
+rv64um-p-divu	PASS	p-	none		1167	10	308453646	(10s) cyc=1167
+rv64um-p-divuw	PASS	p-	none		1147	10	136338606	(10s) cyc=1147
+rv64um-p-divw	PASS	p-	none		1139	9	995795723	(9s) cyc=1139
+rv64um-p-mul	PASS	p-	none		2465	18	122074774	(18s) cyc=2465
+rv64um-p-mulh	PASS	p-	none		2471	19	652883818	(19s) cyc=2471
+rv64um-p-mulhsu	PASS	p-	none		2471	19	316313848	(19s) cyc=2471
+rv64um-p-mulhu	PASS	p-	none		2531	19	578773304	(19s) cyc=2531
+rv64um-p-mulw	PASS	p-	none		2330	21	216402289	(21s) cyc=2330
+rv64um-p-rem	PASS	p-	none		1131	9	696949984	(9s) cyc=1131
+rv64um-p-remu	PASS	p-	none		1133	10	908678231	(10s) cyc=1133
+rv64um-p-remuw	PASS	p-	none		1129	10	578491095	(10s) cyc=1129
+rv64um-p-remw	PASS	p-	none		1139	10	227373666	(10s) cyc=1139
+rv64uzba-p-add_uw	PASS	p-	none		2455	17	5217767	(17s) cyc=2455
+rv64uzba-p-sh1add	PASS	p-	none		2461	18	28939542	(18s) cyc=2461
+rv64uzba-p-sh1add_uw	PASS	p-	none		2469	18	872234698	(18s) cyc=2469
+rv64uzba-p-sh2add	PASS	p-	none		2461	18	603639402	(18s) cyc=2461
+rv64uzba-p-sh2add_uw	PASS	p-	none		2469	18	625268725	(18s) cyc=2469
+rv64uzba-p-sh3add	PASS	p-	none		2461	18	412792302	(18s) cyc=2461
+rv64uzba-p-sh3add_uw	PASS	p-	none		2469	18	302539048	(18s) cyc=2469
+rv64uzba-p-slli_uw	PASS	p-	none		1719	13	961431226	(13s) cyc=1719
+rv64uzbb-p-andn	PASS	p-	none		2655	19	368572154	(19s) cyc=2655
+rv64uzbb-p-clz	PASS	p-	none		1497	12	578197824	(12s) cyc=1497
+rv64uzbb-p-clzw	PASS	p-	none		1465	11	125017598	(11s) cyc=1465
+rv64uzbb-p-cpop	PASS	p-	none		1497	11	824135363	(11s) cyc=1497
+rv64uzbb-p-cpopw	PASS	p-	none		1465	11	347376138	(11s) cyc=1465
+rv64uzbb-p-ctz	PASS	p-	none		1497	12	263912824	(12s) cyc=1497
+rv64uzbb-p-ctzw	PASS	p-	none		1467	12	18475607	(12s) cyc=1467
+rv64uzbb-p-max	PASS	p-	none		2441	17	154420564	(17s) cyc=2441
+rv64uzbb-p-maxu	PASS	p-	none		2503	18	972859871	(18s) cyc=2503
+rv64uzbb-p-min	PASS	p-	none		2433	17	34299333	(17s) cyc=2433
+rv64uzbb-p-minu	PASS	p-	none		2482	17	354667198	(17s) cyc=2482
+rv64uzbb-p-orc_b	PASS	p-	none		1539	12	526519588	(12s) cyc=1539
+rv64uzbb-p-orn	PASS	p-	none		2673	19	534727906	(19s) cyc=2673
+rv64uzbb-p-rev8	PASS	p-	none		1572	12	687115145	(12s) cyc=1572
+rv64uzbb-p-rol	PASS	p-	none		2584	19	176061727	(19s) cyc=2584
+rv64uzbb-p-rolw	PASS	p-	none		2586	18	116593544	(18s) cyc=2586
+rv64uzbb-p-ror	PASS	p-	none		2645	19	920923913	(19s) cyc=2645
+rv64uzbb-p-rori	PASS	p-	none		1712	13	587950556	(13s) cyc=1712
+rv64uzbb-p-roriw	PASS	p-	none		1625	13	745800847	(13s) cyc=1625
+rv64uzbb-p-rorw	PASS	p-	none		2513	19	509039166	(19s) cyc=2513
+rv64uzbb-p-sext_b	PASS	p-	none		1497	12	875474040	(12s) cyc=1497
+rv64uzbb-p-sext_h	PASS	p-	none		1503	12	498696019	(12s) cyc=1503
+rv64uzbb-p-xnor	PASS	p-	none		2671	18	435666475	(18s) cyc=2671
+rv64uzbb-p-zext_h	PASS	p-	none		1509	11	568554210	(11s) cyc=1509
+rv64uzbc-p-clmul	PASS	p-	none		2467	17	153367869	(17s) cyc=2467
+rv64uzbc-p-clmulh	PASS	p-	none		2478	17	468343820	(17s) cyc=2478
+rv64uzbc-p-clmulr	PASS	p-	none		2473	18	915775046	(18s) cyc=2473
+rv64uzbkb-p-brev8	PASS	p-	none		1537	11	522589876	(11s) cyc=1537
+rv64uzbkb-p-pack	PASS	p-	none		2913	21	129460496	(21s) cyc=2913
+rv64uzbkb-p-packh	PASS	p-	none		2583	19	992239558	(19s) cyc=2583
+rv64uzbkb-p-packw	PASS	p-	none		2443	18	881236892	(18s) cyc=2443
+rv64uzbkx-p-xperm4	PASS	p-	none		2769	20	364942586	(20s) cyc=2769
+rv64uzbkx-p-xperm8	PASS	p-	none		3598	25	70221852	(25s) cyc=3598
+rv64uzbs-p-bclr	PASS	p-	none		2796	20	920962252	(20s) cyc=2796
+rv64uzbs-p-bclri	PASS	p-	none		1779	13	75951825	(13s) cyc=1779
+rv64uzbs-p-bext	PASS	p-	none		2661	20	255091638	(20s) cyc=2661
+rv64uzbs-p-bexti	PASS	p-	none		1711	14	66386675	(14s) cyc=1711
+rv64uzbs-p-binv	PASS	p-	none		2631	21	864586968	(21s) cyc=2631
+rv64uzbs-p-binvi	PASS	p-	none		1715	15	340078630	(15s) cyc=1715
+rv64uzbs-p-bset	PASS	p-	none		2800	21	825367058	(21s) cyc=2800
+rv64uzbs-p-bseti	PASS	p-	none		1793	15	728319339	(15s) cyc=1793
+rv64uzfh-p-fadd	PASS	p-	none		1912	14	581148789	(14s) cyc=1912
+rv64uzfh-p-fclass	PASS	p-	none		1218	10	212327630	(10s) cyc=1218
+rv64uzfh-p-fcmp	PASS	p-	none		1554	12	76671673	(12s) cyc=1554
+rv64uzfh-p-fcvt	PASS	p-	none		1786	14	667490031	(14s) cyc=1786
+rv64uzfh-p-fcvt_w	PASS	p-	none		3374	25	943447209	(25s) cyc=3374
+rv64uzfh-p-fdiv	PASS	p-	none		1664	13	174520170	(13s) cyc=1664
+rv64uzfh-p-fmadd	PASS	p-	none		2072	16	899955225	(16s) cyc=2072
+rv64uzfh-p-fmin	PASS	p-	none		2544	19	992961972	(19s) cyc=2544
+rv64uzfh-p-ldst	PASS	p-	none		1196	10	750768182	(10s) cyc=1196
+rv64uzfh-p-move	PASS	p-	none		1793	14	80153988	(14s) cyc=1793
+rv64uzfh-p-recoding	PASS	p-	none		1198	10	467828697	(10s) cyc=1198
+rv64uziccid-p-ziccid	PASS	p-	none		8104	42	161122863	(42s) cyc=8104
+rv64uzicond-p-czero_eqz	PASS	p-	none		2389	12	267953327	(12s) cyc=2389
+rv64uzicond-p-czero_nez	PASS	p-	none		2377	15	172157125	(15s) cyc=2377
+rv64ua-v-amoadd_d	PASS	v-	15/18		28144	187	407093663	(187s) cyc=28144
+rv64ua-v-amoadd_w	PASS	v-	16/18		28038	154	42348442	(154s) cyc=28038
+rv64ua-v-amoand_d	PASS	v-	17/18		28137	144	365531786	(144s) cyc=28137
+rv64ua-v-amoand_w	PASS	v-	18/18		28051	141	809967837	(141s) cyc=28051
+rv64ua-v-amomax_d	PASS	v-	1/18		28267	194	51960505	(194s) cyc=28267
+rv64ua-v-amomax_w	PASS	v-	4/18		28242	198	553232657	(198s) cyc=28242
+rv64ua-v-amomaxu_d	PASS	v-	2/18		28267	182	565466722	(182s) cyc=28267
+rv64ua-v-amomaxu_w	PASS	v-	3/18		28242	200	137987860	(200s) cyc=28242
+rv64ua-v-amomin_d	PASS	v-	5/18		28267	111	222662950	(111s) cyc=28267
+rv64ua-v-amomin_w	PASS	v-	8/18		28361	193	709436531	(193s) cyc=28361
+rv64ua-v-amominu_d	PASS	v-	6/18		28172	181	905494661	(181s) cyc=28172
+rv64ua-v-amominu_w	PASS	v-	7/18		28271	191	245450176	(191s) cyc=28271
+rv64ua-v-amoor_d	PASS	v-	9/18		28611	190	164843381	(190s) cyc=28611
+rv64ua-v-amoor_w	PASS	v-	10/18		28611	184	585323836	(184s) cyc=28611
+rv64ua-v-amoswap_d	PASS	v-	11/18		28137	184	849758925	(184s) cyc=28137
+rv64ua-v-amoswap_w	PASS	v-	12/18		28137	179	200530208	(179s) cyc=28137
+rv64ua-v-amoxor_d	PASS	v-	13/18		28345	118	211987195	(118s) cyc=28345
+rv64ua-v-amoxor_w	PASS	v-	14/18		28318	139	693034087	(139s) cyc=28318
+rv64ua-v-lrsc	PASS	v-	15/18		44712	275	106688522	(275s) cyc=44712
+rv64uc-v-rvc	PASS	v-	14/18		37999	187	139096044	(187s) cyc=37999
+rv64ud-v-fadd	PASS	v-	9/18		27874	189	572326129	(189s) cyc=27874
+rv64ud-v-fclass	PASS	v-	10/18		17962	126	482110831	(126s) cyc=17962
+rv64ud-v-fcmp	PASS	v-	11/18		28156	189	292620015	(189s) cyc=28156
+rv64ud-v-fcvt	PASS	v-	12/18		27721	179	424055194	(179s) cyc=27721
+rv64ud-v-fcvt_w	PASS	v-	13/18		38662	155	828660502	(155s) cyc=38662
+rv64ud-v-fdiv	PASS	v-	14/18		27701	136	975868723	(136s) cyc=27701
+rv64ud-v-fmadd	PASS	v-	15/18		28035	182	948000373	(182s) cyc=28035
+rv64ud-v-fmin	PASS	v-	16/18		28506	149	198133595	(149s) cyc=28506
+rv64ud-v-ldst	PASS	v-	17/18		28181	123	450766902	(123s) cyc=28181
+rv64ud-v-move	PASS	v-	18/18		28514	144	255408781	(144s) cyc=28514
+rv64ud-v-recoding	PASS	v-	1/18		28497	196	128468418	(196s) cyc=28497
+rv64ud-v-structural	PASS	v-	2/18		18709	126	754857244	(126s) cyc=18709
+rv64uf-v-fadd	PASS	v-	16/18		27874	152	255501022	(152s) cyc=27874
+rv64uf-v-fclass	PASS	v-	17/18		17413	89	631382143	(89s) cyc=17413
+rv64uf-v-fcmp	PASS	v-	18/18		28156	140	598668374	(140s) cyc=28156
+rv64uf-v-fcvt	PASS	v-	1/18		27499	191	868616040	(191s) cyc=27499
+rv64uf-v-fcvt_w	PASS	v-	2/18		38324	241	288535800	(241s) cyc=38324
+rv64uf-v-fdiv	PASS	v-	3/18		27625	197	648658572	(197s) cyc=27625
+rv64uf-v-fmadd	PASS	v-	4/18		28035	197	864995429	(197s) cyc=28035
+rv64uf-v-fmin	PASS	v-	5/18		28506	115	659438251	(115s) cyc=28506
+rv64uf-v-ldst	PASS	v-	6/18		28501	182	78981120	(182s) cyc=28501
+rv64uf-v-move	PASS	v-	7/18		18663	128	867229880	(128s) cyc=18663
+rv64uf-v-recoding	PASS	v-	8/18		26948	194	398726780	(194s) cyc=26948
+rv64ui-v-add	PASS	v-	1/18		19355	139	538149104	(139s) cyc=19355
+rv64ui-v-addi	PASS	v-	2/18		18467	125	674309863	(125s) cyc=18467
+rv64ui-v-addiw	PASS	v-	3/18		18504	138	754095404	(138s) cyc=18504
+rv64ui-v-addw	PASS	v-	4/18		18887	139	718740192	(139s) cyc=18887
+rv64ui-v-and	PASS	v-	7/18		19506	131	627439780	(131s) cyc=19506
+rv64ui-v-andi	PASS	v-	8/18		17944	129	548070112	(129s) cyc=17944
+rv64ui-v-auipc	PASS	v-	12/18		17711	119	170994851	(119s) cyc=17711
+rv64ui-v-beq	PASS	v-	13/18		19187	84	827216491	(84s) cyc=19187
+rv64ui-v-bge	PASS	v-	14/18		19597	98	661526461	(98s) cyc=19597
+rv64ui-v-bgeu	PASS	v-	15/18		19045	127	81031647	(127s) cyc=19045
+rv64ui-v-blt	PASS	v-	16/18		18748	104	835395658	(104s) cyc=18748
+rv64ui-v-bltu	PASS	v-	17/18		18768	97	991756667	(97s) cyc=18768
+rv64ui-v-bne	PASS	v-	18/18		18666	97	782181833	(97s) cyc=18666
+rv64ui-v-fence_i	PASS	v-	17/18		29196	149	973032314	(149s) cyc=29196
+rv64ui-v-jal	PASS	v-	1/18		17384	128	221392275	(128s) cyc=17384
+rv64ui-v-jalr	PASS	v-	2/18		18374	123	986507404	(123s) cyc=18374
+rv64ui-v-lb	PASS	v-	3/18		27660	203	471512555	(203s) cyc=27660
+rv64ui-v-lbu	PASS	v-	4/18		27660	202	240868465	(202s) cyc=27660
+rv64ui-v-ld	PASS	v-	9/18		27308	185	874361054	(185s) cyc=27308
+rv64ui-v-ld_st	PASS	v-	14/18		48836	239	552772635	(239s) cyc=48836
+rv64ui-v-lh	PASS	v-	5/18		27597	114	166098140	(114s) cyc=27597
+rv64ui-v-lhu	PASS	v-	6/18		27753	183	154199265	(183s) cyc=27753
+rv64ui-v-lui	PASS	v-	11/18		17896	126	337729253	(126s) cyc=17896
+rv64ui-v-lw	PASS	v-	7/18		27729	184	300249308	(184s) cyc=27729
+rv64ui-v-lwu	PASS	v-	8/18		27586	196	323945616	(196s) cyc=27586
+rv64ui-v-ma_data	PASS	v-	18/18		51617	251	239093874	(251s) cyc=51617
+rv64ui-v-or	PASS	v-	9/18		19682	137	238131179	(137s) cyc=19682
+rv64ui-v-ori	PASS	v-	10/18		17947	124	892895184	(124s) cyc=17947
+rv64ui-v-sb	PASS	v-	10/18		29354	196	167056172	(196s) cyc=29354
+rv64ui-v-sd	PASS	v-	13/18		39258	166	717088291	(166s) cyc=39258
+rv64ui-v-sh	PASS	v-	11/18		28541	195	792570152	(195s) cyc=28541
+rv64ui-v-simple	PASS	v-	16/18		17274	96	831101259	(96s) cyc=17274
+rv64ui-v-sll	PASS	v-	17/18		28673	148	427164504	(148s) cyc=28673
+rv64ui-v-slli	PASS	v-	18/18		18556	97	956776038	(97s) cyc=18556
+rv64ui-v-slliw	PASS	v-	1/18		18523	137	349634718	(137s) cyc=18523
+rv64ui-v-sllw	PASS	v-	2/18		28718	190	142513332	(190s) cyc=28718
+rv64ui-v-slt	PASS	v-	13/18		19317	85	148856359	(85s) cyc=19317
+rv64ui-v-slti	PASS	v-	14/18		18528	94	663344101	(94s) cyc=18528
+rv64ui-v-sltiu	PASS	v-	16/18		18528	102	210034179	(102s) cyc=18528
+rv64ui-v-sltu	PASS	v-	15/18		19392	130	103401706	(130s) cyc=19392
+rv64ui-v-sra	PASS	v-	7/18		18870	128	270246382	(128s) cyc=18870
+rv64ui-v-srai	PASS	v-	8/18		17765	130	203304113	(130s) cyc=17765
+rv64ui-v-sraiw	PASS	v-	9/18		18726	131	48466635	(131s) cyc=18726
+rv64ui-v-sraw	PASS	v-	10/18		28846	194	187688553	(194s) cyc=28846
+rv64ui-v-srl	PASS	v-	3/18		28871	212	186663192	(212s) cyc=28871
+rv64ui-v-srli	PASS	v-	4/18		18553	136	79170656	(136s) cyc=18553
+rv64ui-v-srliw	PASS	v-	5/18		18616	79	557650616	(79s) cyc=18616
+rv64ui-v-srlw	PASS	v-	6/18		28804	190	318915081	(190s) cyc=28804
+rv64ui-v-st_ld	PASS	v-	15/18		38298	248	282692625	(248s) cyc=38298
+rv64ui-v-sub	PASS	v-	5/18		18933	79	685830061	(79s) cyc=18933
+rv64ui-v-subw	PASS	v-	6/18		19265	130	613822794	(130s) cyc=19265
+rv64ui-v-sw	PASS	v-	12/18		28940	190	73768987	(190s) cyc=28940
+rv64ui-v-xor	PASS	v-	11/18		19537	139	251581833	(139s) cyc=19537
+rv64ui-v-xori	PASS	v-	12/18		17782	120	590400561	(120s) cyc=17782
+rv64um-v-div	PASS	v-	5/18		18041	76	768478223	(76s) cyc=18041
+rv64um-v-divu	PASS	v-	6/18		18145	124	874164945	(124s) cyc=18145
+rv64um-v-divuw	PASS	v-	11/18		18129	130	605984933	(130s) cyc=18129
+rv64um-v-divw	PASS	v-	10/18		18024	124	194155173	(124s) cyc=18024
+rv64um-v-mul	PASS	v-	1/18		19333	141	888200738	(141s) cyc=19333
+rv64um-v-mulh	PASS	v-	2/18		19429	129	378866114	(129s) cyc=19429
+rv64um-v-mulhsu	PASS	v-	3/18		19431	147	808357925	(147s) cyc=19431
+rv64um-v-mulhu	PASS	v-	4/18		19439	143	154532556	(143s) cyc=19439
+rv64um-v-mulw	PASS	v-	9/18		18670	132	557760653	(132s) cyc=18670
+rv64um-v-rem	PASS	v-	7/18		18038	122	851635933	(122s) cyc=18038
+rv64um-v-remu	PASS	v-	8/18		18041	127	271482638	(127s) cyc=18041
+rv64um-v-remuw	PASS	v-	13/18		18014	78	170377494	(78s) cyc=18014
+rv64um-v-remw	PASS	v-	12/18		18024	122	963248517	(122s) cyc=18024
+rv64uzba-v-add_uw	PASS	v-	3/18		19222	140	540893995	(140s) cyc=19222
+rv64uzba-v-sh1add	PASS	v-	4/18		19229	140	626513762	(140s) cyc=19229
+rv64uzba-v-sh1add_uw	PASS	v-	5/18		19238	80	603357098	(80s) cyc=19238
+rv64uzba-v-sh2add	PASS	v-	6/18		19229	130	232833613	(130s) cyc=19229
+rv64uzba-v-sh2add_uw	PASS	v-	7/18		19238	126	351901949	(126s) cyc=19238
+rv64uzba-v-sh3add	PASS	v-	8/18		19229	135	6269275	(135s) cyc=19229
+rv64uzba-v-sh3add_uw	PASS	v-	9/18		19238	133	573266169	(133s) cyc=19238
+rv64uzba-v-slli_uw	PASS	v-	10/18		18538	121	996075760	(121s) cyc=18538
+rv64uzbb-v-andn	PASS	v-	11/18		18947	130	801264685	(130s) cyc=18947
+rv64uzbb-v-clz	PASS	v-	12/18		18448	121	229356073	(121s) cyc=18448
+rv64uzbb-v-clzw	PASS	v-	13/18		17937	77	461499283	(77s) cyc=17937
+rv64uzbb-v-cpop	PASS	v-	14/18		18448	75	86637588	(75s) cyc=18448
+rv64uzbb-v-cpopw	PASS	v-	15/18		17937	118	323140309	(118s) cyc=17937
+rv64uzbb-v-ctz	PASS	v-	16/18		18448	103	512676583	(103s) cyc=18448
+rv64uzbb-v-ctzw	PASS	v-	17/18		18420	94	279701580	(94s) cyc=18420
+rv64uzbb-v-max	PASS	v-	18/18		19065	96	324668442	(96s) cyc=19065
+rv64uzbb-v-maxu	PASS	v-	1/18		18589	133	333763724	(133s) cyc=18589
+rv64uzbb-v-min	PASS	v-	2/18		19057	128	845348378	(128s) cyc=19057
+rv64uzbb-v-minu	PASS	v-	3/18		19153	143	85457041	(143s) cyc=19153
+rv64uzbb-v-orc_b	PASS	v-	4/18		18490	132	136253100	(132s) cyc=18490
+rv64uzbb-v-orn	PASS	v-	5/18		28496	114	74260173	(114s) cyc=28496
+rv64uzbb-v-rev8	PASS	v-	6/18		18416	124	87587944	(124s) cyc=18416
+rv64uzbb-v-rol	PASS	v-	7/18		28526	180	466382090	(180s) cyc=28526
+rv64uzbb-v-rolw	PASS	v-	8/18		28391	170	917590051	(170s) cyc=28391
+rv64uzbb-v-ror	PASS	v-	9/18		28425	188	631899055	(188s) cyc=28425
+rv64uzbb-v-rori	PASS	v-	10/18		18533	121	318023644	(121s) cyc=18533
+rv64uzbb-v-roriw	PASS	v-	11/18		18560	125	987069071	(125s) cyc=18560
+rv64uzbb-v-rorw	PASS	v-	12/18		19137	120	79220728	(120s) cyc=19137
+rv64uzbb-v-sext_b	PASS	v-	13/18		18448	71	251442625	(71s) cyc=18448
+rv64uzbb-v-sext_h	PASS	v-	14/18		18457	65	956087313	(65s) cyc=18457
+rv64uzbb-v-xnor	PASS	v-	15/18		28588	160	875293639	(160s) cyc=28588
+rv64uzbb-v-zext_h	PASS	v-	16/18		18463	97	92420494	(97s) cyc=18463
+rv64uzbc-v-clmul	PASS	v-	17/18		18904	95	587943159	(95s) cyc=18904
+rv64uzbc-v-clmulh	PASS	v-	18/18		19306	59	96604648	(59s) cyc=19306
+rv64uzbc-v-clmulr	PASS	v-	1/18		19340	102	448351982	(102s) cyc=19340
+rv64uzbkb-v-brev8	PASS	v-	2/18		18343	116	140688111	(116s) cyc=18343
+rv64uzbkb-v-pack	PASS	v-	3/18		28736	109	893761642	(109s) cyc=28736
+rv64uzbkb-v-packh	PASS	v-	4/18		18902	99	702252843	(99s) cyc=18902
+rv64uzbkb-v-packw	PASS	v-	5/18		19372	75	853488540	(75s) cyc=19372
+rv64uzbkx-v-xperm4	PASS	v-	6/18		28907	114	859790036	(114s) cyc=28907
+rv64uzbkx-v-xperm8	PASS	v-	7/18		29746	141	661698870	(141s) cyc=29746
+rv64uzbs-v-bclr	PASS	v-	8/18		28818	154	545459945	(154s) cyc=28818
+rv64uzbs-v-bclri	PASS	v-	9/18		18637	95	661773703	(95s) cyc=18637
+rv64uzbs-v-bext	PASS	v-	10/18		28696	138	918663734	(138s) cyc=28696
+rv64uzbs-v-bexti	PASS	v-	11/18		18515	93	622908651	(93s) cyc=18515
+rv64uzbs-v-binv	PASS	v-	12/18		28615	133	595905307	(133s) cyc=28615
+rv64uzbs-v-binvi	PASS	v-	13/18		18421	59	347992683	(59s) cyc=18421
+rv64uzbs-v-bset	PASS	v-	14/18		28846	93	344805577	(93s) cyc=28846
+rv64uzbs-v-bseti	PASS	v-	15/18		18651	76	19796020	(76s) cyc=18651
+rv64uzfh-v-fadd	PASS	v-	16/18		27874	102	992332890	(102s) cyc=27874
+rv64uzfh-v-fclass	PASS	v-	17/18		17413	76	819614633	(76s) cyc=17413
+rv64uzfh-v-fcmp	PASS	v-	18/18		27508	83	632914208	(83s) cyc=27508
+rv64uzfh-v-fcvt	PASS	v-	1/18		27625	114	352733056	(114s) cyc=27625
+rv64uzfh-v-fcvt_w	PASS	v-	2/18		38324	160	479091674	(160s) cyc=38324
+rv64uzfh-v-fdiv	PASS	v-	3/18		27625	113	580725246	(113s) cyc=27625
+rv64uzfh-v-fmadd	PASS	v-	4/18		28035	113	865128879	(113s) cyc=28035
+rv64uzfh-v-fmin	PASS	v-	5/18		28506	72	583966025	(72s) cyc=28506
+rv64uzfh-v-ldst	PASS	v-	6/18		28622	111	180848629	(111s) cyc=28622
+rv64uzfh-v-move	PASS	v-	7/18		18656	116	375945052	(116s) cyc=18656
+rv64uzfh-v-recoding	PASS	v-	8/18		26948	126	404562525	(126s) cyc=26948
+rv64uziccid-v-ziccid	PASS	v-	11/18		173754	655	786184985	(655s) cyc=173754
+rv64uzicond-v-czero_eqz	PASS	v-	9/18		19230	93	532355192	(93s) cyc=19230
+rv64uzicond-v-czero_nez	PASS	v-	10/18		19098	79	442358926	(79s) cyc=19098
