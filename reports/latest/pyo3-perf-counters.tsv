@@ -1,378 +1,375 @@
-test	suite	shard	cycles	cpred_predicted	cpred_mispred_squash	cpred_btb_miss_redirect	ras_predicted	ras_mispred	indirect_predicted	indirect_mispred	fetch_resteer_to_bac	load_committed	lr_committed	store_committed	sc_committed	store_violation_squash	all_squashes
-hypervisor-p-2-stage_translation	p-	none	1380	0	2	6	0	0	0	0	1	1	0	13	0	0	27
-hypervisor-p-2-stage_translation_implicit_load_error	p-	none	1656	0	2	7	0	0	0	0	1	0	0	3	0	0	34
-hypervisor-p-2-stage_translation_implicit_load_error_hs	p-	none	1827	0	2	7	0	0	0	0	1	0	0	3	0	0	38
-hypervisor-svadu-p-2-stage_translation_implicit_store_error	p-	none	1768	0	2	7	0	0	0	0	1	0	0	3	0	0	36
-hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs	p-	none	1940	0	2	7	0	0	0	0	1	0	0	3	0	0	40
-rv64mi-p-breakpoint	p-	none	3329	0	3	8	0	0	10	1	1	3	0	2	0	0	74
-rv64mi-p-csr	p-	none	3437	16	2	9	0	0	6	1	1	1	0	1	0	0	77
-rv64mi-p-illegal	p-	none	4376	254	2	31	0	0	12	1	2	0	0	1	0	0	111
-rv64mi-p-instret_overflow	p-	none	1258	0	0	8	0	0	0	0	1	0	0	1	0	0	30
-rv64mi-p-ld-misaligned	p-	none	1386	0	3	7	0	0	0	0	1	8	0	1	0	0	25
-rv64mi-p-lh-misaligned	p-	none	1102	0	3	7	0	0	0	0	1	2	0	1	0	0	25
-rv64mi-p-lw-misaligned	p-	none	1171	0	3	7	0	0	0	0	1	4	0	1	0	0	25
-rv64mi-p-ma_addr	p-	none	1538	0	2	8	0	0	0	0	1	59	0	12	0	0	25
-rv64mi-p-ma_fetch	p-	none	1948	0	1	26	0	0	0	0	9	0	0	1	0	0	48
-rv64mi-p-mcsr	p-	none	1339	0	3	7	0	0	0	0	1	0	0	1	0	0	32
-rv64mi-p-pmpaddr	p-	none	1185	0	0	9	0	0	0	0	1	0	0	1	0	0	28
-rv64mi-p-sbreak	p-	none	1315	27	1	10	0	0	2	0	1	0	0	1	0	0	31
-rv64mi-p-scall	p-	none	1261	0	1	9	0	0	0	0	1	0	0	1	0	0	30
-rv64mi-p-sd-misaligned	p-	none	1436	0	3	16	0	0	0	0	1	8	0	9	0	0	26
-rv64mi-p-sh-misaligned	p-	none	1109	0	4	9	0	0	0	0	2	2	0	3	0	0	25
-rv64mi-p-sw-misaligned	p-	none	1150	0	3	11	0	0	0	0	3	4	0	5	0	0	25
-rv64mi-p-zicntr	p-	none	1425	0	1	8	0	0	0	0	1	0	0	1	0	0	33
-rv64mzicbo-p-zero	p-	none	1158	0	2	7	0	0	0	0	1	8	0	2	0	0	24
-rv64si-p-csr	p-	none	2248	0	2	6	0	0	0	0	1	0	0	1	0	0	51
-rv64si-p-dirty	p-	none	2249	45	1	11	0	0	6	1	1	6	0	5	0	0	49
-rv64si-p-icache-alias	p-	none	2368	0	2	8	0	0	82	4	1	0	0	7	0	0	53
-rv64si-p-ma_fetch	p-	none	1382	0	1	23	0	0	0	0	4	0	0	1	0	0	33
-rv64si-p-sbreak	p-	none	1325	15	0	8	0	0	0	0	1	0	0	1	0	0	31
-rv64si-p-scall	p-	none	1443	13	0	8	0	0	0	0	1	0	0	1	0	0	34
-rv64si-p-wfi	p-	none	1173	0	2	6	0	0	0	0	1	0	0	1	0	0	28
-rv64ssvnapot-p-napot	p-	none	1658	3	2	8	0	0	2	0	1	0	0	7	0	0	34
-rv64ua-p-amoadd_d	p-	none	1081	0	3	7	0	0	0	0	1	2	0	2	0	0	24
-rv64ua-p-amoadd_w	p-	none	1120	0	3	7	0	0	0	0	1	2	0	2	0	1	25
-rv64ua-p-amoand_d	p-	none	1121	0	3	7	0	0	0	0	1	2	0	2	0	1	25
-rv64ua-p-amoand_w	p-	none	1117	0	3	7	0	0	0	0	1	2	0	2	0	1	25
-rv64ua-p-amomax_d	p-	none	1077	0	3	7	0	0	0	0	1	2	0	3	0	0	24
-rv64ua-p-amomax_w	p-	none	1100	0	3	7	0	0	0	0	1	3	0	4	0	0	24
-rv64ua-p-amomaxu_d	p-	none	1077	0	3	7	0	0	0	0	1	2	0	3	0	0	24
-rv64ua-p-amomaxu_w	p-	none	1100	0	3	7	0	0	0	0	1	3	0	4	0	0	24
-rv64ua-p-amomin_d	p-	none	1077	0	3	7	0	0	0	0	1	2	0	3	0	0	24
-rv64ua-p-amomin_w	p-	none	1100	0	3	7	0	0	0	0	1	3	0	4	0	0	24
-rv64ua-p-amominu_d	p-	none	1077	0	3	7	0	0	0	0	1	2	0	3	0	0	24
-rv64ua-p-amominu_w	p-	none	1100	0	3	7	0	0	0	0	1	3	0	4	0	0	24
-rv64ua-p-amoor_d	p-	none	1117	0	3	7	0	0	0	0	1	2	0	2	0	1	25
-rv64ua-p-amoor_w	p-	none	1117	0	3	7	0	0	0	0	1	2	0	2	0	1	25
-rv64ua-p-amoswap_d	p-	none	1121	0	3	7	0	0	0	0	1	2	0	2	0	1	25
-rv64ua-p-amoswap_w	p-	none	1117	0	3	7	0	0	0	0	1	2	0	2	0	1	25
-rv64ua-p-amoxor_d	p-	none	1125	0	3	7	0	0	0	0	1	2	0	2	0	1	25
-rv64ua-p-amoxor_w	p-	none	1129	0	3	7	0	0	0	0	1	2	0	2	0	1	25
-rv64ua-p-lrsc	p-	none	17171	2020	10	9	0	0	0	0	1	4	1025	1	1028	71	105
-rv64uc-p-rvc	p-	none	1589	1	6	28	0	0	0	1	7	9	0	5	0	0	34
-rv64ud-p-fadd	p-	none	1912	0	3	7	0	0	0	0	1	40	0	1	0	0	36
-rv64ud-p-fclass	p-	none	1233	0	3	7	0	0	0	0	1	0	0	1	0	0	26
-rv64ud-p-fcmp	p-	none	2202	0	3	7	0	0	0	0	1	60	0	1	0	0	41
-rv64ud-p-fcvt	p-	none	1824	0	3	7	0	0	0	0	1	17	0	1	0	0	36
-rv64ud-p-fcvt_w	p-	none	3736	0	3	7	0	0	0	0	1	152	0	1	0	0	60
-rv64ud-p-fdiv	p-	none	1740	0	3	7	0	0	0	0	1	32	0	1	0	0	34
-rv64ud-p-fmadd	p-	none	2072	0	3	7	0	0	0	0	1	48	0	1	0	0	38
-rv64ud-p-fmin	p-	none	2544	0	3	7	0	0	0	0	1	72	0	1	0	0	44
-rv64ud-p-ldst	p-	none	1172	0	3	7	0	0	0	0	1	10	0	6	0	0	26
-rv64ud-p-move	p-	none	2696	0	3	7	0	0	0	0	1	0	0	1	0	0	26
-rv64ud-p-recoding	p-	none	1245	0	3	7	0	0	0	0	1	7	0	2	0	0	26
-rv64ud-p-structural	p-	none	2027	0	16	48	0	0	0	0	2	0	0	1	0	0	46
-rv64uf-p-fadd	p-	none	1912	0	3	7	0	0	0	0	1	40	0	1	0	0	36
-rv64uf-p-fclass	p-	none	1217	0	3	7	0	0	0	0	1	0	0	1	0	0	26
-rv64uf-p-fcmp	p-	none	2202	0	3	7	0	0	0	0	1	60	0	1	0	0	41
-rv64uf-p-fcvt	p-	none	1611	0	3	7	0	0	0	0	1	8	0	1	0	0	34
-rv64uf-p-fcvt_w	p-	none	3374	0	3	7	0	0	0	0	1	132	0	1	0	0	55
-rv64uf-p-fdiv	p-	none	1664	0	3	7	0	0	0	0	1	28	0	1	0	0	33
-rv64uf-p-fmadd	p-	none	2072	0	3	7	0	0	0	0	1	48	0	1	0	0	38
-rv64uf-p-fmin	p-	none	2544	0	3	7	0	0	0	0	1	72	0	1	0	0	44
-rv64uf-p-ldst	p-	none	1184	0	3	7	0	0	0	0	1	4	0	3	0	0	26
-rv64uf-p-move	p-	none	1798	0	3	7	0	0	0	0	1	0	0	1	0	0	34
-rv64uf-p-recoding	p-	none	1198	0	3	7	0	0	0	0	1	2	0	1	0	0	26
-rv64ui-p-add	p-	none	2453	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64ui-p-addi	p-	none	1630	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64ui-p-addiw	p-	none	1621	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64ui-p-addw	p-	none	2443	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64ui-p-and	p-	none	2613	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64ui-p-andi	p-	none	1609	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64ui-p-auipc	p-	none	1053	0	3	9	0	0	0	0	1	0	0	1	0	0	24
-rv64ui-p-beq	p-	none	2427	15	28	33	0	0	0	0	1	0	0	1	0	0	50
-rv64ui-p-bge	p-	none	2726	18	37	42	0	0	0	0	1	0	0	1	0	0	59
-rv64ui-p-bgeu	p-	none	2956	18	37	42	0	0	0	0	1	0	0	1	0	0	59
-rv64ui-p-blt	p-	none	2429	15	28	33	0	0	0	0	1	0	0	1	0	0	50
-rv64ui-p-bltu	p-	none	2643	15	28	33	0	0	0	0	1	0	0	1	0	0	50
-rv64ui-p-bne	p-	none	2482	16	30	35	0	0	0	0	1	0	0	1	0	0	52
-rv64ui-p-fence_i	p-	none	2022	162	10	12	0	0	0	1	1	2	0	5	0	0	38
-rv64ui-p-jal	p-	none	1049	0	2	9	0	0	0	0	1	0	0	1	0	0	24
-rv64ui-p-jalr	p-	none	1557	3	8	21	0	0	3	4	1	0	0	1	0	0	37
-rv64ui-p-lb	p-	none	1671	6	9	13	0	0	0	0	1	24	0	1	0	0	30
-rv64ui-p-lbu	p-	none	1671	6	9	13	0	0	0	0	1	24	0	1	0	0	30
-rv64ui-p-ld	p-	none	2066	6	9	13	0	0	0	0	1	24	0	1	0	0	30
-rv64ui-p-ld_st	p-	none	4478	0	24	157	0	0	0	0	1	277	0	278	0	0	137
-rv64ui-p-lh	p-	none	1711	6	9	13	0	0	0	0	1	24	0	1	0	0	30
-rv64ui-p-lhu	p-	none	1717	6	9	13	0	0	0	0	1	24	0	1	0	0	30
-rv64ui-p-lui	p-	none	1065	0	3	7	0	0	0	0	1	0	0	1	0	0	24
-rv64ui-p-lw	p-	none	1731	6	9	13	0	0	0	0	1	24	0	1	0	0	30
-rv64ui-p-lwu	p-	none	1797	6	9	13	0	0	0	0	1	24	0	1	0	0	30
-rv64ui-p-ma_data	p-	none	7851	0	3	211	0	0	0	0	1	180	0	136	0	0	197
-rv64ui-p-or	p-	none	2670	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64ui-p-ori	p-	none	1591	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64ui-p-sb	p-	none	2292	12	14	27	0	0	0	0	1	34	0	36	0	1	38
-rv64ui-p-sd	p-	none	2616	12	15	27	0	0	0	0	1	34	0	35	0	1	38
-rv64ui-p-sh	p-	none	2362	12	14	27	0	0	0	0	1	34	0	36	0	1	38
-rv64ui-p-simple	p-	none	1003	0	2	6	0	0	0	0	1	0	0	1	0	0	23
-rv64ui-p-sll	p-	none	2573	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64ui-p-slli	p-	none	1691	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64ui-p-slliw	p-	none	1685	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64ui-p-sllw	p-	none	2577	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64ui-p-slt	p-	none	2431	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64ui-p-slti	p-	none	1617	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64ui-p-sltiu	p-	none	1617	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64ui-p-sltu	p-	none	2469	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64ui-p-sra	p-	none	2524	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64ui-p-srai	p-	none	1654	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64ui-p-sraiw	p-	none	1755	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64ui-p-sraw	p-	none	2595	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64ui-p-srl	p-	none	2619	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64ui-p-srli	p-	none	1715	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64ui-p-srliw	p-	none	1703	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64ui-p-srlw	p-	none	2583	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64ui-p-st_ld	p-	none	1993	0	3	7	0	0	0	0	1	70	0	71	0	0	24
-rv64ui-p-sub	p-	none	2437	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64ui-p-subw	p-	none	2429	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64ui-p-sw	p-	none	2382	12	14	27	0	0	0	0	2	34	0	35	0	1	38
-rv64ui-p-xor	p-	none	2664	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64ui-p-xori	p-	none	1595	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64um-p-div	p-	none	1157	0	3	7	0	0	0	0	1	0	0	1	0	0	24
-rv64um-p-divu	p-	none	1167	0	3	7	0	0	0	0	1	0	0	1	0	0	24
-rv64um-p-divuw	p-	none	1147	0	3	7	0	0	0	0	1	0	0	1	0	0	24
-rv64um-p-divw	p-	none	1139	0	3	7	0	0	0	0	1	0	0	1	0	0	24
-rv64um-p-mul	p-	none	2465	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64um-p-mulh	p-	none	2471	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64um-p-mulhsu	p-	none	2471	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64um-p-mulhu	p-	none	2531	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64um-p-mulw	p-	none	2330	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64um-p-rem	p-	none	1131	0	3	7	0	0	0	0	1	0	0	1	0	0	24
-rv64um-p-remu	p-	none	1133	0	3	7	0	0	0	0	1	0	0	1	0	0	24
-rv64um-p-remuw	p-	none	1129	0	3	7	0	0	0	0	1	0	0	1	0	0	24
-rv64um-p-remw	p-	none	1139	0	3	7	0	0	0	0	1	0	0	1	0	0	24
-rv64uzba-p-add_uw	p-	none	2455	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzba-p-sh1add	p-	none	2461	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzba-p-sh1add_uw	p-	none	2469	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzba-p-sh2add	p-	none	2461	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzba-p-sh2add_uw	p-	none	2469	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzba-p-sh3add	p-	none	2461	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzba-p-sh3add_uw	p-	none	2469	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzba-p-slli_uw	p-	none	1719	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64uzbb-p-andn	p-	none	2655	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbb-p-clz	p-	none	1497	3	6	10	0	0	0	0	1	0	0	1	0	0	27
-rv64uzbb-p-clzw	p-	none	1465	3	6	10	0	0	0	0	1	0	0	1	0	0	27
-rv64uzbb-p-cpop	p-	none	1497	3	6	10	0	0	0	0	1	0	0	1	0	0	27
-rv64uzbb-p-cpopw	p-	none	1465	3	6	10	0	0	0	0	1	0	0	1	0	0	27
-rv64uzbb-p-ctz	p-	none	1497	3	6	10	0	0	0	0	1	0	0	1	0	0	27
-rv64uzbb-p-ctzw	p-	none	1467	3	6	10	0	0	0	0	1	0	0	1	0	0	27
-rv64uzbb-p-max	p-	none	2441	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbb-p-maxu	p-	none	2503	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbb-p-min	p-	none	2433	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbb-p-minu	p-	none	2482	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbb-p-orc_b	p-	none	1539	3	6	10	0	0	0	0	1	0	0	1	0	0	27
-rv64uzbb-p-orn	p-	none	2673	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbb-p-rev8	p-	none	1572	3	6	10	0	0	0	0	1	0	0	1	0	0	27
-rv64uzbb-p-rol	p-	none	2584	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbb-p-rolw	p-	none	2586	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbb-p-ror	p-	none	2645	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbb-p-rori	p-	none	1712	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64uzbb-p-roriw	p-	none	1625	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64uzbb-p-rorw	p-	none	2513	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbb-p-sext_b	p-	none	1497	3	6	10	0	0	0	0	1	0	0	1	0	0	27
-rv64uzbb-p-sext_h	p-	none	1503	3	6	10	0	0	0	0	1	0	0	1	0	0	27
-rv64uzbb-p-xnor	p-	none	2671	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbb-p-zext_h	p-	none	1509	3	6	10	0	0	0	0	1	0	0	1	0	0	27
-rv64uzbc-p-clmul	p-	none	2467	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbc-p-clmulh	p-	none	2478	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbc-p-clmulr	p-	none	2473	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbkb-p-brev8	p-	none	1537	3	6	10	0	0	0	0	1	0	0	1	0	0	27
-rv64uzbkb-p-pack	p-	none	2913	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbkb-p-packh	p-	none	2583	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbkb-p-packw	p-	none	2443	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbkx-p-xperm4	p-	none	2769	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbkx-p-xperm8	p-	none	3598	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbs-p-bclr	p-	none	2796	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbs-p-bclri	p-	none	1779	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64uzbs-p-bext	p-	none	2661	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbs-p-bexti	p-	none	1711	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64uzbs-p-binv	p-	none	2631	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbs-p-binvi	p-	none	1715	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64uzbs-p-bset	p-	none	2800	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzbs-p-bseti	p-	none	1793	6	9	13	0	0	0	0	1	0	0	1	0	0	30
-rv64uzfh-p-fadd	p-	none	1912	0	3	7	0	0	0	0	1	40	0	1	0	0	36
-rv64uzfh-p-fclass	p-	none	1218	0	3	7	0	0	0	0	1	0	0	1	0	0	26
-rv64uzfh-p-fcmp	p-	none	1554	0	3	7	0	0	0	0	1	24	0	1	0	0	32
-rv64uzfh-p-fcvt	p-	none	1786	0	3	7	0	0	0	0	1	16	0	1	0	0	36
-rv64uzfh-p-fcvt_w	p-	none	3374	0	3	7	0	0	0	0	1	132	0	1	0	0	55
-rv64uzfh-p-fdiv	p-	none	1664	0	3	7	0	0	0	0	1	28	0	1	0	0	33
-rv64uzfh-p-fmadd	p-	none	2072	0	3	7	0	0	0	0	1	48	0	1	0	0	38
-rv64uzfh-p-fmin	p-	none	2544	0	3	7	0	0	0	0	1	72	0	1	0	0	44
-rv64uzfh-p-ldst	p-	none	1196	0	3	7	0	0	0	0	1	4	0	3	0	0	26
-rv64uzfh-p-move	p-	none	1793	0	3	7	0	0	0	0	1	0	0	1	0	0	34
-rv64uzfh-p-recoding	p-	none	1198	0	3	7	0	0	0	0	1	2	0	1	0	0	26
-rv64uziccid-p-ziccid	p-	none	8104	551	159	531	0	0	0	0	1	0	0	105	0	0	474
-rv64uzicond-p-czero_eqz	p-	none	2389	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64uzicond-p-czero_nez	p-	none	2377	15	18	22	0	0	0	0	1	0	0	1	0	0	39
-rv64ua-v-amoadd_d	v-	15/18	28144	1601	363	304	0	0	211	9	1	2891	0	1987	0	0	482
-rv64ua-v-amoadd_w	v-	16/18	28301	1616	370	309	0	0	212	9	1	2891	0	1987	0	1	492
-rv64ua-v-amoand_d	v-	17/18	28137	1711	300	276	0	0	218	9	1	2895	0	1987	0	1	420
-rv64ua-v-amoand_w	v-	18/18	28137	1711	300	276	0	0	218	9	1	2895	0	1987	0	1	420
-rv64ua-v-amomax_d	v-	1/18	28267	1630	381	314	0	0	213	9	1	2889	0	1988	0	0	500
-rv64ua-v-amomax_w	v-	4/18	28242	1612	375	310	0	0	211	9	1	2890	0	1989	0	0	494
-rv64ua-v-amomaxu_d	v-	2/18	28267	1630	381	314	0	0	213	9	1	2889	0	1988	0	0	500
-rv64ua-v-amomaxu_w	v-	3/18	28242	1612	375	310	0	0	211	9	1	2890	0	1989	0	0	494
-rv64ua-v-amomin_d	v-	5/18	28267	1630	381	314	0	0	213	9	1	2889	0	1988	0	0	500
-rv64ua-v-amomin_w	v-	8/18	28361	1621	376	310	0	0	214	10	1	2896	0	1989	0	0	495
-rv64ua-v-amominu_d	v-	6/18	28172	1602	377	311	0	0	209	10	1	2891	0	1988	0	0	496
-rv64ua-v-amominu_w	v-	7/18	28271	1617	378	311	0	0	212	10	1	2892	0	1989	0	0	498
-rv64ua-v-amoor_d	v-	9/18	28611	1594	383	308	0	0	214	9	1	2889	0	1987	0	1	503
-rv64ua-v-amoor_w	v-	10/18	28611	1594	383	308	0	0	214	9	1	2889	0	1987	0	1	503
-rv64ua-v-amoswap_d	v-	11/18	28137	1711	300	276	0	0	218	9	1	2895	0	1987	0	1	420
-rv64ua-v-amoswap_w	v-	12/18	28137	1711	300	276	0	0	218	9	1	2895	0	1987	0	1	420
-rv64ua-v-amoxor_d	v-	13/18	28345	1632	378	314	0	0	213	9	1	2889	0	1987	0	1	500
-rv64ua-v-amoxor_w	v-	14/18	28318	1620	376	313	0	0	212	9	1	2889	0	1987	0	1	498
-rv64ua-v-lrsc	v-	15/18	44712	3543	385	307	0	0	208	9	1	2891	1025	1986	1028	71	575
-rv64uc-v-rvc	v-	14/18	37999	2804	486	407	0	0	430	7	10	4535	0	2601	0	0	637
-rv64ud-v-fadd	v-	9/18	27874	2440	288	268	0	0	205	8	1	3395	0	1433	0	0	409
-rv64ud-v-fclass	v-	10/18	17962	1128	208	197	0	0	93	4	1	1726	0	822	0	0	284
-rv64ud-v-fcmp	v-	11/18	28156	2440	288	268	0	0	205	8	1	3415	0	1433	0	0	414
-rv64ud-v-fcvt	v-	12/18	27721	2438	290	268	0	0	205	8	1	3372	0	1433	0	0	410
-rv64ud-v-fcvt_w	v-	13/18	38662	3750	363	340	0	0	314	12	1	5136	0	2044	0	0	542
-rv64ud-v-fdiv	v-	14/18	27701	2440	288	268	0	0	205	8	1	3387	0	1433	0	0	407
-rv64ud-v-fmadd	v-	15/18	28035	2440	288	268	0	0	205	8	1	3403	0	1433	0	0	411
-rv64ud-v-fmin	v-	16/18	28506	2440	288	268	0	0	205	8	1	3427	0	1433	0	0	417
-rv64ud-v-ldst	v-	17/18	28181	1579	365	306	0	0	213	9	1	2901	0	1991	0	0	487
-rv64ud-v-move	v-	18/18	28514	2446	292	266	0	0	202	8	1	3355	0	1433	0	0	401
-rv64ud-v-recoding	v-	1/18	28497	1604	369	306	0	0	218	9	1	2908	0	1987	0	0	491
-rv64ud-v-structural	v-	2/18	18709	1127	221	250	0	0	88	5	2	1726	0	822	0	0	304
-rv64uf-v-fadd	v-	16/18	27874	2440	288	268	0	0	205	8	1	3395	0	1433	0	0	409
-rv64uf-v-fclass	v-	17/18	17413	1111	196	197	0	0	86	4	1	1726	0	822	0	0	272
-rv64uf-v-fcmp	v-	18/18	28156	2440	288	268	0	0	205	8	1	3415	0	1433	0	0	414
-rv64uf-v-fcvt	v-	1/18	27499	2440	290	267	0	0	206	8	1	3363	0	1433	0	0	408
-rv64uf-v-fcvt_w	v-	2/18	38324	3750	363	340	0	0	314	12	1	5116	0	2044	0	0	537
-rv64uf-v-fdiv	v-	3/18	27625	2440	288	268	0	0	205	8	1	3383	0	1433	0	0	406
-rv64uf-v-fmadd	v-	4/18	28035	2440	288	268	0	0	205	8	1	3403	0	1433	0	0	411
-rv64uf-v-fmin	v-	5/18	28506	2440	288	268	0	0	205	8	1	3427	0	1433	0	0	417
-rv64uf-v-ldst	v-	6/18	28501	1596	377	308	0	0	215	9	1	2903	0	1988	0	0	496
-rv64uf-v-move	v-	7/18	18663	1114	212	195	0	0	94	4	1	1726	0	822	0	0	296
-rv64uf-v-recoding	v-	8/18	26948	2434	284	266	0	0	204	8	1	3357	0	1433	0	0	394
-rv64ui-v-add	v-	1/18	19407	1130	224	215	0	0	84	5	1	1726	0	822	0	0	300
-rv64ui-v-addi	v-	2/18	18467	1119	217	202	0	0	90	4	1	1726	0	822	0	0	291
-rv64ui-v-addiw	v-	3/18	18504	1120	218	202	0	0	91	4	1	1726	0	822	0	0	292
-rv64ui-v-addw	v-	4/18	18887	1117	212	214	0	0	85	4	1	1726	0	822	0	0	288
-rv64ui-v-and	v-	7/18	19506	1130	228	212	0	0	94	3	1	1726	0	822	0	0	301
-rv64ui-v-andi	v-	8/18	17968	1108	208	202	0	0	88	3	1	1726	0	822	0	0	282
-rv64ui-v-auipc	v-	12/18	17309	1115	198	201	0	0	96	5	1	1726	0	822	0	0	272
-rv64ui-v-beq	v-	13/18	18746	1119	212	224	0	0	85	4	1	1726	0	822	0	0	301
-rv64ui-v-bge	v-	14/18	19597	1151	244	233	0	0	108	5	1	1726	0	822	0	0	320
-rv64ui-v-bgeu	v-	15/18	19645	1137	225	237	0	0	83	5	1	1726	0	822	0	0	320
-rv64ui-v-blt	v-	16/18	18748	1119	212	224	0	0	85	4	1	1726	0	822	0	0	301
-rv64ui-v-bltu	v-	17/18	18768	1119	206	229	0	0	70	4	1	1726	0	822	0	0	295
-rv64ui-v-bne	v-	18/18	18666	1119	213	228	0	0	77	5	1	1726	0	822	0	0	302
-rv64ui-v-fence_i	v-	17/18	29196	1663	406	321	0	0	275	6	1	2901	0	1990	0	0	527
-rv64ui-v-jal	v-	1/18	17474	1104	197	208	0	0	85	3	1	1726	0	822	0	0	274
-rv64ui-v-jalr	v-	2/18	18374	1135	224	217	0	0	89	11	1	1726	0	822	0	0	307
-rv64ui-v-lb	v-	3/18	27660	2449	302	278	0	0	207	10	1	3379	0	1433	0	0	409
-rv64ui-v-lbu	v-	4/18	27631	2438	293	272	0	0	207	7	1	3379	0	1433	0	0	402
-rv64ui-v-ld	v-	9/18	28199	2440	301	277	0	0	208	8	1	3379	0	1433	0	0	406
-rv64ui-v-ld_st	v-	14/18	48951	4362	455	513	0	0	299	15	1	6422	0	3485	0	0	695
-rv64ui-v-lh	v-	5/18	27597	2432	287	269	0	0	207	7	1	3379	0	1433	0	0	396
-rv64ui-v-lhu	v-	6/18	27659	2439	295	273	0	0	205	10	1	3379	0	1433	0	0	402
-rv64ui-v-lui	v-	11/18	17896	1131	208	194	0	0	91	4	1	1726	0	822	0	0	282
-rv64ui-v-lw	v-	7/18	27596	2451	293	273	0	0	206	8	1	3379	0	1433	0	0	402
-rv64ui-v-lwu	v-	8/18	27749	2463	292	274	0	0	205	8	1	3379	0	1433	0	0	401
-rv64ui-v-ma_data	v-	18/18	51617	4307	516	671	0	0	290	16	1	6327	0	3343	0	0	831
-rv64ui-v-or	v-	9/18	19682	1134	229	213	0	0	91	5	1	1726	0	822	0	0	300
-rv64ui-v-ori	v-	10/18	17947	1108	208	203	0	0	88	4	1	1726	0	822	0	0	283
-rv64ui-v-sb	v-	10/18	29183	1581	383	346	0	0	210	10	3	2921	0	2021	0	1	503
-rv64ui-v-sd	v-	13/18	39236	3069	491	457	0	0	150	14	5	4550	0	2631	0	1	655
-rv64ui-v-sh	v-	11/18	28541	1768	315	283	0	0	124	10	2	2921	0	2021	0	1	439
-rv64ui-v-simple	v-	16/18	17337	1101	195	195	0	0	86	4	1	1726	0	822	0	0	271
-rv64ui-v-sll	v-	17/18	28576	2444	306	282	0	0	141	7	1	3355	0	1433	0	0	411
-rv64ui-v-slli	v-	18/18	18556	1120	218	202	0	0	91	4	1	1726	0	822	0	0	292
-rv64ui-v-slliw	v-	1/18	18523	1119	217	202	0	0	90	4	1	1726	0	822	0	0	291
-rv64ui-v-sllw	v-	2/18	28718	2596	333	277	0	0	140	6	1	3355	0	1433	0	0	437
-rv64ui-v-slt	v-	13/18	19317	1132	223	215	0	0	90	4	1	1726	0	822	0	0	298
-rv64ui-v-slti	v-	14/18	18494	1120	218	202	0	0	91	4	1	1726	0	822	0	0	292
-rv64ui-v-sltiu	v-	16/18	18494	1120	218	202	0	0	91	4	1	1726	0	822	0	0	292
-rv64ui-v-sltu	v-	15/18	19392	1130	229	212	0	0	94	4	1	1726	0	822	0	0	303
-rv64ui-v-sra	v-	7/18	18870	1115	215	210	0	0	88	4	1	1726	0	822	0	0	290
-rv64ui-v-srai	v-	8/18	17765	1093	195	197	0	0	84	4	1	1726	0	822	0	0	269
-rv64ui-v-sraiw	v-	9/18	18645	1120	218	202	0	0	91	4	1	1726	0	822	0	0	292
-rv64ui-v-sraw	v-	10/18	28906	2624	335	275	0	0	136	7	1	3355	0	1433	0	0	443
-rv64ui-v-srl	v-	3/18	28871	2617	341	275	0	0	138	6	1	3355	0	1433	0	0	446
-rv64ui-v-srli	v-	4/18	18426	1133	216	201	0	0	92	4	1	1726	0	822	0	0	291
-rv64ui-v-srliw	v-	5/18	18616	1119	217	204	0	0	91	4	1	1726	0	822	0	0	291
-rv64ui-v-srlw	v-	6/18	28868	2619	333	279	0	0	126	7	1	3355	0	1433	0	0	443
-rv64ui-v-st_ld	v-	15/18	38298	3034	475	379	0	0	259	11	1	4586	0	2667	0	0	625
-rv64ui-v-sub	v-	5/18	18881	1117	217	210	0	0	88	4	1	1726	0	822	0	0	292
-rv64ui-v-subw	v-	6/18	19265	1129	226	210	0	0	93	4	1	1726	0	822	0	0	301
-rv64ui-v-sw	v-	12/18	28940	1585	365	388	0	0	108	10	6	2921	0	2020	0	1	493
-rv64ui-v-xor	v-	11/18	19537	1131	226	213	0	0	91	5	1	1726	0	822	0	0	297
-rv64ui-v-xori	v-	12/18	17782	1103	205	200	0	0	84	4	1	1726	0	822	0	0	279
-rv64um-v-div	v-	5/18	18057	1115	207	200	0	0	90	4	1	1726	0	822	0	0	283
-rv64um-v-divu	v-	6/18	18022	1116	209	198	0	0	90	4	1	1726	0	822	0	0	285
-rv64um-v-divuw	v-	11/18	18006	1116	209	199	0	0	90	4	1	1726	0	822	0	0	285
-rv64um-v-divw	v-	10/18	18039	1115	207	200	0	0	90	4	1	1726	0	822	0	0	283
-rv64um-v-mul	v-	1/18	19332	1137	224	213	0	0	90	3	1	1726	0	822	0	0	296
-rv64um-v-mulh	v-	2/18	19431	1130	224	215	0	0	84	5	1	1726	0	822	0	0	300
-rv64um-v-mulhsu	v-	3/18	19431	1130	224	215	0	0	84	5	1	1726	0	822	0	0	300
-rv64um-v-mulhu	v-	4/18	19439	1129	228	211	0	0	87	5	1	1726	0	822	0	0	303
-rv64um-v-mulw	v-	9/18	18670	1115	215	210	0	0	88	4	1	1726	0	822	0	0	290
-rv64um-v-rem	v-	7/18	18022	1114	212	197	0	0	94	4	1	1726	0	822	0	0	287
-rv64um-v-remu	v-	8/18	18041	1115	207	200	0	0	90	4	1	1726	0	822	0	0	283
-rv64um-v-remuw	v-	13/18	18029	1115	207	200	0	0	90	4	1	1726	0	822	0	0	283
-rv64um-v-remw	v-	12/18	18039	1115	207	200	0	0	90	4	1	1726	0	822	0	0	283
-rv64uzba-v-add_uw	v-	3/18	19222	1147	225	207	0	0	106	4	1	1726	0	822	0	0	300
-rv64uzba-v-sh1add	v-	4/18	19229	1144	224	207	0	0	106	4	1	1726	0	822	0	0	300
-rv64uzba-v-sh1add_uw	v-	5/18	19238	1143	224	208	0	0	105	4	1	1726	0	822	0	0	300
-rv64uzba-v-sh2add	v-	6/18	19229	1144	224	207	0	0	106	4	1	1726	0	822	0	0	300
-rv64uzba-v-sh2add_uw	v-	7/18	19238	1143	224	208	0	0	105	4	1	1726	0	822	0	0	300
-rv64uzba-v-sh3add	v-	8/18	19229	1144	224	207	0	0	106	4	1	1726	0	822	0	0	300
-rv64uzba-v-sh3add_uw	v-	9/18	19238	1143	224	208	0	0	105	4	1	1726	0	822	0	0	300
-rv64uzba-v-slli_uw	v-	10/18	18538	1137	216	200	0	0	106	4	1	1726	0	822	0	0	291
-rv64uzbb-v-andn	v-	11/18	18947	1123	219	212	0	0	90	6	1	1726	0	822	0	0	291
-rv64uzbb-v-clz	v-	12/18	18448	1125	218	201	0	0	105	4	1	1726	0	822	0	0	293
-rv64uzbb-v-clzw	v-	13/18	17937	1109	205	201	0	0	99	4	1	1726	0	822	0	0	282
-rv64uzbb-v-cpop	v-	14/18	18448	1125	218	201	0	0	105	4	1	1726	0	822	0	0	293
-rv64uzbb-v-cpopw	v-	15/18	17937	1109	205	201	0	0	99	4	1	1726	0	822	0	0	282
-rv64uzbb-v-ctz	v-	16/18	18448	1125	218	201	0	0	105	4	1	1726	0	822	0	0	293
-rv64uzbb-v-ctzw	v-	17/18	18420	1133	218	201	0	0	105	4	1	1726	0	822	0	0	293
-rv64uzbb-v-max	v-	18/18	19065	1146	224	208	0	0	94	5	1	1726	0	822	0	0	299
-rv64uzbb-v-maxu	v-	1/18	18589	1143	212	207	0	0	96	5	1	1726	0	822	0	0	287
-rv64uzbb-v-min	v-	2/18	19057	1146	224	208	0	0	94	5	1	1726	0	822	0	0	299
-rv64uzbb-v-minu	v-	3/18	19153	1155	225	207	0	0	102	5	1	1726	0	822	0	0	300
-rv64uzbb-v-orc_b	v-	4/18	18490	1125	218	201	0	0	105	4	1	1726	0	822	0	0	293
-rv64uzbb-v-orn	v-	5/18	28496	2384	329	290	0	0	263	5	1	3355	0	1433	0	0	432
-rv64uzbb-v-rev8	v-	6/18	18416	1121	214	199	0	0	102	4	1	1726	0	822	0	0	288
-rv64uzbb-v-rol	v-	7/18	28526	2418	336	283	0	0	267	6	1	3355	0	1433	0	0	438
-rv64uzbb-v-rolw	v-	8/18	28391	2631	330	270	0	0	154	7	1	3355	0	1433	0	0	435
-rv64uzbb-v-ror	v-	9/18	28425	2487	313	287	0	0	242	7	1	3355	0	1433	0	0	419
-rv64uzbb-v-rori	v-	10/18	18533	1124	217	202	0	0	102	4	1	1726	0	822	0	0	291
-rv64uzbb-v-roriw	v-	11/18	18560	1136	221	204	0	0	105	4	1	1726	0	822	0	0	296
-rv64uzbb-v-rorw	v-	12/18	19137	1149	225	209	0	0	100	5	1	1726	0	822	0	0	299
-rv64uzbb-v-sext_b	v-	13/18	18448	1125	218	201	0	0	105	4	1	1726	0	822	0	0	293
-rv64uzbb-v-sext_h	v-	14/18	18457	1133	218	201	0	0	105	4	1	1726	0	822	0	0	293
-rv64uzbb-v-xnor	v-	15/18	28588	2383	323	285	0	0	269	4	1	3355	0	1433	0	0	428
-rv64uzbb-v-zext_h	v-	16/18	18463	1123	217	201	0	0	97	4	1	1726	0	822	0	0	293
-rv64uzbc-v-clmul	v-	17/18	18904	1121	215	211	0	0	85	3	1	1726	0	822	0	0	290
-rv64uzbc-v-clmulh	v-	18/18	19306	1133	225	212	0	0	90	3	1	1726	0	822	0	0	299
-rv64uzbc-v-clmulr	v-	1/18	19340	1133	226	213	0	0	91	3	1	1726	0	822	0	0	300
-rv64uzbkb-v-brev8	v-	2/18	18343	1140	213	198	0	0	108	4	0	1726	0	822	0	0	288
-rv64uzbkb-v-pack	v-	3/18	28736	2420	313	278	0	0	246	7	0	3355	0	1433	0	0	413
-rv64uzbkb-v-packh	v-	4/18	18902	1140	214	211	0	0	92	3	0	1726	0	822	0	0	288
-rv64uzbkb-v-packw	v-	5/18	19372	1157	228	214	0	0	107	4	0	1726	0	822	0	0	305
-rv64uzbkx-v-xperm4	v-	6/18	28907	2585	332	280	0	0	139	6	1	3355	0	1433	0	0	436
-rv64uzbkx-v-xperm8	v-	7/18	29746	2609	339	275	0	0	136	9	1	3355	0	1433	0	0	440
-rv64uzbs-v-bclr	v-	8/18	28818	2400	329	287	0	0	269	4	0	3355	0	1433	0	0	431
-rv64uzbs-v-bclri	v-	9/18	18637	1110	215	201	0	0	114	2	0	1726	0	822	0	0	290
-rv64uzbs-v-bext	v-	10/18	28696	2677	324	276	0	0	165	6	0	3355	0	1433	0	0	430
-rv64uzbs-v-bexti	v-	11/18	18515	1127	210	199	0	0	107	4	0	1726	0	822	0	0	284
-rv64uzbs-v-binv	v-	12/18	28615	2399	334	290	0	0	285	5	0	3355	0	1433	0	0	436
-rv64uzbs-v-binvi	v-	13/18	18421	1129	216	200	0	0	110	5	0	1726	0	822	0	0	289
-rv64uzbs-v-bset	v-	14/18	28846	2652	318	273	0	0	171	5	0	3355	0	1433	0	0	421
-rv64uzbs-v-bseti	v-	15/18	18651	1110	215	201	0	0	114	2	0	1726	0	822	0	0	290
-rv64uzfh-v-fadd	v-	16/18	27874	2440	288	268	0	0	205	8	1	3395	0	1433	0	0	409
-rv64uzfh-v-fclass	v-	17/18	17413	1111	196	197	0	0	86	4	1	1726	0	822	0	0	272
-rv64uzfh-v-fcmp	v-	18/18	27508	2440	288	268	0	0	205	8	1	3379	0	1433	0	0	405
-rv64uzfh-v-fcvt	v-	1/18	27625	2438	289	268	0	0	204	8	1	3371	0	1433	0	0	409
-rv64uzfh-v-fcvt_w	v-	2/18	38324	3750	363	340	0	0	314	12	1	5116	0	2044	0	0	537
-rv64uzfh-v-fdiv	v-	3/18	27625	2440	288	268	0	0	205	8	1	3383	0	1433	0	0	406
-rv64uzfh-v-fmadd	v-	4/18	28035	2440	288	268	0	0	205	8	1	3403	0	1433	0	0	411
-rv64uzfh-v-fmin	v-	5/18	28506	2440	288	268	0	0	205	8	1	3427	0	1433	0	0	417
-rv64uzfh-v-ldst	v-	6/18	28622	1611	383	314	0	0	216	9	1	2903	0	1988	0	0	506
-rv64uzfh-v-move	v-	7/18	18656	1114	212	195	0	0	94	4	1	1726	0	822	0	0	296
-rv64uzfh-v-recoding	v-	8/18	26948	2434	284	266	0	0	204	8	1	3357	0	1433	0	0	394
-rv64uziccid-v-ziccid	v-	11/18	173754	23734	983	1184	0	0	1663	15	1	29013	0	11907	0	0	1908
-rv64uzicond-v-czero_eqz	v-	9/18	19230	1130	229	209	0	0	92	4	1	1726	0	822	0	0	302
-rv64uzicond-v-czero_nez	v-	10/18	19098	1138	223	207	0	0	91	4	1	1726	0	822	0	0	296
+test	suite	shard	cycles	predicted_ft	multimember_ft	k_cnt_nonzero	mispred_squash	btb_window_hit	alloc_total	rel_commit	rel_squash	i1_violation	release_accounting_mismatch	assertion_a_violation	fetch_resteer_to_bac	load_committed	lr_committed	store_committed	sc_committed	store_violation_squash	all_squashes
+hypervisor-p-2-stage_translation	p-	none	1374	600	0	0	7	57	56	27	19	0	0	0	2	1	0	13	0	0	27
+hypervisor-p-2-stage_translation_implicit_load_error	p-	none	1656	714	0	0	8	82	88	34	44	0	0	0	2	0	0	3	0	0	34
+hypervisor-p-2-stage_translation_implicit_load_error_hs	p-	none	1831	802	0	0	8	85	96	38	48	0	0	0	2	0	0	3	0	0	38
+hypervisor-svadu-p-2-stage_translation_implicit_store_error	p-	none	1777	777	0	0	8	86	92	36	46	0	0	0	2	0	0	3	0	0	36
+hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs	p-	none	1944	839	0	0	8	89	100	40	50	0	0	0	2	0	0	3	0	0	40
+rv64mi-p-breakpoint	p-	none	3480	1668	10	0	13	324	368	78	266	0	0	0	12	3	0	2	0	0	78
+rv64mi-p-csr	p-	none	3535	1674	6	0	14	253	311	80	207	0	0	0	8	1	0	1	0	0	79
+rv64mi-p-illegal	p-	none	4575	2556	102	3	44	1301	1322	130	1168	0	0	0	20	0	0	1	0	0	117
+rv64mi-p-instret_overflow	p-	none	1258	747	0	0	9	342	341	30	287	0	0	0	3	0	0	1	0	0	30
+rv64mi-p-ld-misaligned	p-	none	1386	603	0	0	8	66	87	25	38	0	0	0	2	8	0	1	0	0	25
+rv64mi-p-lh-misaligned	p-	none	1102	516	0	0	8	66	87	25	38	0	0	0	2	2	0	1	0	0	25
+rv64mi-p-lw-misaligned	p-	none	1171	544	0	0	8	66	87	25	38	0	0	0	2	4	0	1	0	0	25
+rv64mi-p-ma_addr	p-	none	1540	663	0	0	9	111	124	25	75	0	0	0	3	59	0	12	0	0	25
+rv64mi-p-ma_fetch	p-	none	1939	1079	27	0	31	358	341	52	265	0	0	0	17	0	0	1	0	0	48
+rv64mi-p-mcsr	p-	none	1342	610	0	0	8	56	60	32	18	0	0	0	2	0	0	1	0	0	32
+rv64mi-p-pmpaddr	p-	none	1185	626	0	0	10	224	246	28	194	0	0	0	3	0	0	1	0	0	28
+rv64mi-p-sbreak	p-	none	1312	716	2	0	11	302	301	32	245	0	0	0	6	0	0	1	0	0	31
+rv64mi-p-scall	p-	none	1259	658	0	0	10	223	223	30	169	0	0	0	4	0	0	1	0	0	30
+rv64mi-p-sd-misaligned	p-	none	1436	690	0	0	17	168	146	33	89	0	0	0	8	8	0	9	0	0	26
+rv64mi-p-sh-misaligned	p-	none	1109	550	0	0	10	128	130	27	79	0	0	0	3	2	0	3	0	0	25
+rv64mi-p-sw-misaligned	p-	none	1150	587	0	0	12	209	171	29	118	0	0	0	4	4	0	5	0	0	25
+rv64mi-p-zicntr	p-	none	1439	715	0	0	9	281	288	33	231	0	0	0	3	0	0	1	0	0	33
+rv64mzicbo-p-zero	p-	none	1160	534	0	0	8	76	73	25	38	0	0	0	2	8	0	2	0	0	24
+rv64si-p-csr	p-	none	2277	1042	0	0	7	56	79	51	18	0	0	0	2	0	0	1	0	0	51
+rv64si-p-dirty	p-	none	2337	1139	6	0	15	335	358	53	281	0	1	0	9	6	0	7	0	0	51
+rv64si-p-icache-alias	p-	none	2385	1303	12	0	15	391	397	60	314	0	-1	0	25	0	0	7	0	0	56
+rv64si-p-ma_fetch	p-	none	1374	752	1	0	29	278	261	37	214	0	0	0	10	0	0	1	0	0	34
+rv64si-p-sbreak	p-	none	1325	690	0	0	9	258	236	32	194	0	0	0	4	0	0	1	0	0	31
+rv64si-p-scall	p-	none	1443	760	0	0	9	281	245	35	200	0	0	0	4	0	0	1	0	0	34
+rv64si-p-wfi	p-	none	1173	543	0	0	7	56	56	28	18	0	0	0	2	0	0	1	0	0	28
+rv64ssvnapot-p-napot	p-	none	1658	763	2	0	9	120	144	35	86	0	0	0	4	0	0	7	0	0	34
+rv64ua-p-amoadd_d	p-	none	1081	484	0	0	8	54	51	24	17	0	0	0	2	2	0	2	0	0	24
+rv64ua-p-amoadd_w	p-	none	1120	502	0	0	8	54	52	25	17	0	0	0	2	2	0	2	0	1	25
+rv64ua-p-amoand_d	p-	none	1121	501	0	0	8	54	52	25	17	0	0	0	2	2	0	2	0	1	25
+rv64ua-p-amoand_w	p-	none	1117	499	0	0	8	54	52	25	17	0	0	0	2	2	0	2	0	1	25
+rv64ua-p-amomax_d	p-	none	1077	483	0	0	8	54	51	24	17	0	0	0	2	2	0	3	0	0	24
+rv64ua-p-amomax_w	p-	none	1100	496	0	0	8	54	51	24	17	0	0	0	2	3	0	4	0	0	24
+rv64ua-p-amomaxu_d	p-	none	1077	483	0	0	8	54	51	24	17	0	0	0	2	2	0	3	0	0	24
+rv64ua-p-amomaxu_w	p-	none	1100	496	0	0	8	54	51	24	17	0	0	0	2	3	0	4	0	0	24
+rv64ua-p-amomin_d	p-	none	1077	483	0	0	8	54	51	24	17	0	0	0	2	2	0	3	0	0	24
+rv64ua-p-amomin_w	p-	none	1100	496	0	0	8	54	51	24	17	0	0	0	2	3	0	4	0	0	24
+rv64ua-p-amominu_d	p-	none	1077	483	0	0	8	54	51	24	17	0	0	0	2	2	0	3	0	0	24
+rv64ua-p-amominu_w	p-	none	1100	496	0	0	8	54	51	24	17	0	0	0	2	3	0	4	0	0	24
+rv64ua-p-amoor_d	p-	none	1117	500	0	0	8	54	52	25	17	0	0	0	2	2	0	2	0	1	25
+rv64ua-p-amoor_w	p-	none	1117	500	0	0	8	54	52	25	17	0	0	0	2	2	0	2	0	1	25
+rv64ua-p-amoswap_d	p-	none	1121	501	0	0	8	54	52	25	17	0	0	0	2	2	0	2	0	1	25
+rv64ua-p-amoswap_w	p-	none	1117	499	0	0	8	54	52	25	17	0	0	0	2	2	0	2	0	1	25
+rv64ua-p-amoxor_d	p-	none	1125	502	0	0	8	54	52	25	17	0	0	0	2	2	0	2	0	1	25
+rv64ua-p-amoxor_w	p-	none	1129	503	0	0	8	54	52	25	17	0	0	0	2	2	0	2	0	1	25
+rv64uc-p-rvc	p-	none	1586	719	2	0	35	89	101	37	54	0	0	0	14	9	0	5	0	0	34
+rv64ud-p-fadd	p-	none	1913	816	0	0	8	54	63	36	17	0	0	0	2	40	0	1	0	0	36
+rv64ud-p-fclass	p-	none	1233	561	0	0	8	54	53	26	17	0	0	0	2	0	0	1	0	0	26
+rv64ud-p-fcmp	p-	none	2231	951	0	0	8	54	68	41	17	0	0	0	2	60	0	1	0	0	41
+rv64ud-p-fcvt	p-	none	1841	800	0	0	8	54	63	36	17	0	0	0	2	17	0	1	0	0	36
+rv64ud-p-fcvt_w	p-	none	3801	1594	0	0	8	54	87	60	17	0	0	0	2	152	0	1	0	0	60
+rv64ud-p-fdiv	p-	none	1739	752	0	0	8	54	61	34	17	0	0	0	2	32	0	1	0	0	34
+rv64ud-p-fmadd	p-	none	2070	881	0	0	8	54	65	38	17	0	0	0	2	48	0	1	0	0	38
+rv64ud-p-fmin	p-	none	2541	1059	0	0	8	54	71	44	17	0	0	0	2	72	0	1	0	0	44
+rv64ud-p-ldst	p-	none	1172	540	0	0	8	55	54	26	18	0	0	0	2	10	0	6	0	0	26
+rv64ud-p-move	p-	none	2696	901	0	0	8	54	53	26	17	0	0	0	2	0	0	1	0	0	26
+rv64ud-p-recoding	p-	none	1245	556	0	0	8	54	53	26	17	0	0	0	2	7	0	2	0	0	26
+rv64ud-p-structural	p-	none	2030	988	0	0	49	113	141	47	84	0	0	0	2	0	0	1	0	0	46
+rv64uf-p-fadd	p-	none	1913	816	0	0	8	54	63	36	17	0	0	0	2	40	0	1	0	0	36
+rv64uf-p-fclass	p-	none	1217	558	0	0	8	54	53	26	17	0	0	0	2	0	0	1	0	0	26
+rv64uf-p-fcmp	p-	none	2231	951	0	0	8	54	68	41	17	0	0	0	2	60	0	1	0	0	41
+rv64uf-p-fcvt	p-	none	1630	720	0	0	8	54	61	34	17	0	0	0	2	8	0	1	0	0	34
+rv64uf-p-fcvt_w	p-	none	3428	1444	0	0	8	54	82	55	17	0	0	0	2	132	0	1	0	0	55
+rv64uf-p-fdiv	p-	none	1663	727	0	0	8	54	60	33	17	0	0	0	2	28	0	1	0	0	33
+rv64uf-p-fmadd	p-	none	2070	881	0	0	8	54	65	38	17	0	0	0	2	48	0	1	0	0	38
+rv64uf-p-fmin	p-	none	2541	1059	0	0	8	54	71	44	17	0	0	0	2	72	0	1	0	0	44
+rv64uf-p-ldst	p-	none	1183	525	0	0	8	54	53	26	17	0	0	0	2	4	0	3	0	0	26
+rv64uf-p-move	p-	none	1817	783	0	0	8	54	61	34	17	0	0	0	2	0	0	1	0	0	34
+rv64uf-p-recoding	p-	none	1198	539	0	0	8	54	53	26	17	0	0	0	2	2	0	1	0	0	26
+rv64ui-p-add	p-	none	2453	992	0	0	23	73	79	52	17	0	0	0	2	0	0	1	0	0	39
+rv64ui-p-addi	p-	none	1630	690	0	0	14	60	61	34	17	0	0	0	2	0	0	1	0	0	30
+rv64ui-p-addiw	p-	none	1621	687	0	0	14	57	60	33	17	0	0	0	2	0	0	1	0	0	30
+rv64ui-p-addw	p-	none	2443	990	0	0	23	73	79	52	17	0	0	0	2	0	0	1	0	0	39
+rv64ui-p-and	p-	none	2613	1067	0	0	23	69	81	54	17	0	0	0	2	0	0	1	0	0	39
+rv64ui-p-andi	p-	none	1609	681	0	0	14	58	61	34	17	0	0	0	2	0	0	1	0	0	30
+rv64ui-p-auipc	p-	none	1053	515	0	0	10	132	91	26	55	0	0	0	4	0	0	1	0	0	24
+rv64ui-p-beq	p-	none	2427	1070	0	0	34	71	85	58	17	0	0	0	2	0	0	1	0	0	50
+rv64ui-p-bge	p-	none	2726	1220	0	0	43	74	94	67	17	0	0	0	2	0	0	1	0	0	59
+rv64ui-p-bgeu	p-	none	2956	1286	0	0	43	80	98	71	17	0	0	0	2	0	0	1	0	0	59
+rv64ui-p-blt	p-	none	2429	1070	0	0	34	71	85	58	17	0	0	0	2	0	0	1	0	0	50
+rv64ui-p-bltu	p-	none	2643	1130	0	1	34	78	90	61	19	0	0	0	2	0	0	1	0	0	50
+rv64ui-p-bne	p-	none	2482	1097	0	1	36	79	91	63	18	0	0	0	2	0	0	1	0	0	52
+rv64ui-p-fence_i	p-	none	2097	890	0	0	22	431	195	130	55	0	0	0	2	2	0	5	0	0	40
+rv64ui-p-jal	p-	none	1049	490	0	0	10	92	91	26	55	0	0	0	2	0	0	1	0	0	24
+rv64ui-p-jalr	p-	none	1550	746	9	1	26	109	117	38	69	0	0	0	2	0	0	1	0	0	40
+rv64ui-p-lb	p-	none	1671	700	0	0	14	62	62	35	17	0	0	0	2	24	0	1	0	0	30
+rv64ui-p-lbu	p-	none	1671	700	0	0	14	62	62	35	17	0	0	0	2	24	0	1	0	0	30
+rv64ui-p-ld	p-	none	2066	798	0	0	14	63	63	36	17	0	0	0	2	24	0	1	0	0	30
+rv64ui-p-ld_st	p-	none	4467	2195	0	0	178	124	240	81	149	0	0	0	2	277	0	278	0	0	137
+rv64ui-p-lh	p-	none	1711	712	0	0	14	62	63	36	17	0	0	0	2	24	0	1	0	0	30
+rv64ui-p-lhu	p-	none	1717	708	0	0	14	63	63	36	17	0	0	0	2	24	0	1	0	0	30
+rv64ui-p-lui	p-	none	1065	482	0	0	8	54	51	24	17	0	0	0	2	0	0	1	0	0	24
+rv64ui-p-lw	p-	none	1731	717	0	0	14	63	63	36	17	0	0	0	2	24	0	1	0	0	30
+rv64ui-p-lwu	p-	none	1797	731	0	0	14	65	63	36	17	0	0	0	2	24	0	1	0	0	30
+rv64ui-p-ma_data	p-	none	7718	3720	16	2	268	146	369	120	242	0	0	0	16	180	0	136	0	0	196
+rv64ui-p-or	p-	none	2670	1070	0	0	23	69	81	54	17	0	0	0	2	0	0	1	0	0	39
+rv64ui-p-ori	p-	none	1591	678	0	0	14	60	62	35	17	0	0	0	2	0	0	1	0	0	30
+rv64ui-p-sb	p-	none	2292	981	0	0	29	226	161	57	94	0	0	0	7	34	0	36	0	1	38
+rv64ui-p-sd	p-	none	2616	1082	0	1	29	170	130	56	64	0	0	0	9	34	0	35	0	1	38
+rv64ui-p-sh	p-	none	2362	1009	0	0	29	224	166	57	99	0	0	0	8	34	0	36	0	1	38
+rv64ui-p-simple	p-	none	1003	444	0	0	7	54	50	23	17	0	0	0	2	0	0	1	0	0	23
+rv64ui-p-sll	p-	none	2573	1028	0	0	23	71	78	51	17	0	0	0	2	0	0	1	0	0	39
+rv64ui-p-slli	p-	none	1691	700	0	0	14	60	61	34	17	0	0	0	2	0	0	1	0	0	30
+rv64ui-p-slliw	p-	none	1685	704	0	0	14	60	61	34	17	0	0	0	2	0	0	1	0	0	30
+rv64ui-p-sllw	p-	none	2577	1031	0	0	23	71	78	51	17	0	0	0	2	0	0	1	0	0	39
+rv64ui-p-slt	p-	none	2431	994	0	0	23	71	78	51	17	0	0	0	2	0	0	1	0	0	39
+rv64ui-p-slti	p-	none	1617	683	0	0	14	60	61	34	17	0	0	0	2	0	0	1	0	0	30
+rv64ui-p-sltiu	p-	none	1617	683	0	0	14	60	61	34	17	0	0	0	2	0	0	1	0	0	30
+rv64ui-p-sltu	p-	none	2469	1000	0	0	23	68	76	49	17	0	0	0	2	0	0	1	0	0	39
+rv64ui-p-sra	p-	none	2523	1014	0	0	23	71	78	51	17	0	0	0	2	0	0	1	0	0	39
+rv64ui-p-srai	p-	none	1654	698	0	0	14	62	62	35	17	0	0	0	2	0	0	1	0	0	30
+rv64ui-p-sraiw	p-	none	1755	721	0	0	14	61	62	35	17	0	0	0	2	0	0	1	0	0	30
+rv64ui-p-sraw	p-	none	2595	1034	0	0	23	71	78	51	17	0	0	0	2	0	0	1	0	0	39
+rv64ui-p-srl	p-	none	2619	1045	0	0	23	73	80	53	17	0	0	0	2	0	0	1	0	0	39
+rv64ui-p-srli	p-	none	1715	710	0	0	14	61	62	35	17	0	0	0	2	0	0	1	0	0	30
+rv64ui-p-srliw	p-	none	1703	705	0	0	14	57	60	33	17	0	0	0	2	0	0	1	0	0	30
+rv64ui-p-srlw	p-	none	2583	1025	0	0	23	73	79	52	17	0	0	0	2	0	0	1	0	0	39
+rv64ui-p-st_ld	p-	none	1993	709	0	0	8	54	51	24	17	0	0	0	2	70	0	71	0	0	24
+rv64ui-p-sub	p-	none	2437	994	0	0	23	73	79	52	17	0	0	0	2	0	0	1	0	0	39
+rv64ui-p-subw	p-	none	2429	993	0	0	23	73	79	52	17	0	0	0	2	0	0	1	0	0	39
+rv64ui-p-sw	p-	none	2382	1006	0	1	29	215	158	56	92	0	0	0	7	34	0	35	0	1	38
+rv64ui-p-xor	p-	none	2664	1068	0	0	23	70	81	54	17	0	0	0	2	0	0	1	0	0	39
+rv64ui-p-xori	p-	none	1595	681	0	0	14	59	61	34	17	0	0	0	2	0	0	1	0	0	30
+rv64um-p-div	p-	none	1157	522	0	0	8	54	51	24	17	0	0	0	2	0	0	1	0	0	24
+rv64um-p-divu	p-	none	1167	525	0	0	8	54	51	24	17	0	0	0	2	0	0	1	0	0	24
+rv64um-p-divuw	p-	none	1147	515	0	0	8	54	51	24	17	0	0	0	2	0	0	1	0	0	24
+rv64um-p-divw	p-	none	1139	513	0	0	8	54	51	24	17	0	0	0	2	0	0	1	0	0	24
+rv64um-p-mul	p-	none	2461	999	0	0	23	68	76	49	17	0	0	0	2	0	0	1	0	0	39
+rv64um-p-mulh	p-	none	2471	1002	0	0	23	74	81	54	17	0	0	0	2	0	0	1	0	0	39
+rv64um-p-mulhsu	p-	none	2471	1002	0	0	23	74	81	54	17	0	0	0	2	0	0	1	0	0	39
+rv64um-p-mulhu	p-	none	2531	1017	0	0	23	74	81	54	17	0	0	0	2	0	0	1	0	0	39
+rv64um-p-mulw	p-	none	2329	966	0	0	23	71	78	51	17	0	0	0	2	0	0	1	0	0	39
+rv64um-p-rem	p-	none	1131	513	0	0	8	54	51	24	17	0	0	0	2	0	0	1	0	0	24
+rv64um-p-remu	p-	none	1133	513	0	0	8	54	51	24	17	0	0	0	2	0	0	1	0	0	24
+rv64um-p-remuw	p-	none	1129	512	0	0	8	54	51	24	17	0	0	0	2	0	0	1	0	0	24
+rv64um-p-remw	p-	none	1139	513	0	0	8	54	51	24	17	0	0	0	2	0	0	1	0	0	24
+rv64uzba-p-add_uw	p-	none	2455	997	0	0	23	73	79	52	17	0	0	0	2	0	0	1	0	0	39
+rv64uzba-p-sh1add	p-	none	2461	1000	0	0	23	73	79	52	17	0	0	0	2	0	0	1	0	0	39
+rv64uzba-p-sh1add_uw	p-	none	2469	995	0	0	23	73	79	52	17	0	0	0	2	0	0	1	0	0	39
+rv64uzba-p-sh2add	p-	none	2461	1000	0	0	23	73	79	52	17	0	0	0	2	0	0	1	0	0	39
+rv64uzba-p-sh2add_uw	p-	none	2469	995	0	0	23	73	79	52	17	0	0	0	2	0	0	1	0	0	39
+rv64uzba-p-sh3add	p-	none	2461	1000	0	0	23	73	79	52	17	0	0	0	2	0	0	1	0	0	39
+rv64uzba-p-sh3add_uw	p-	none	2469	995	0	0	23	73	79	52	17	0	0	0	2	0	0	1	0	0	39
+rv64uzba-p-slli_uw	p-	none	1719	711	0	0	14	61	62	35	17	0	0	0	2	0	0	1	0	0	30
+rv64uzbb-p-andn	p-	none	2655	1059	0	0	23	73	81	54	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbb-p-clz	p-	none	1497	634	0	0	11	56	56	29	17	0	0	0	2	0	0	1	0	0	27
+rv64uzbb-p-clzw	p-	none	1465	624	0	0	11	56	56	29	17	0	0	0	2	0	0	1	0	0	27
+rv64uzbb-p-cpop	p-	none	1497	634	0	0	11	56	56	29	17	0	0	0	2	0	0	1	0	0	27
+rv64uzbb-p-cpopw	p-	none	1465	624	0	0	11	56	56	29	17	0	0	0	2	0	0	1	0	0	27
+rv64uzbb-p-ctz	p-	none	1497	634	0	0	11	56	56	29	17	0	0	0	2	0	0	1	0	0	27
+rv64uzbb-p-ctzw	p-	none	1467	624	0	0	11	57	56	29	17	0	0	0	2	0	0	1	0	0	27
+rv64uzbb-p-max	p-	none	2441	993	0	0	23	69	77	50	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbb-p-maxu	p-	none	2503	1010	0	0	23	73	79	52	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbb-p-min	p-	none	2433	992	0	0	23	68	76	49	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbb-p-minu	p-	none	2481	999	0	0	23	73	79	52	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbb-p-orc_b	p-	none	1539	644	0	0	11	57	56	29	17	0	0	0	2	0	0	1	0	0	27
+rv64uzbb-p-orn	p-	none	2673	1052	0	0	23	72	81	54	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbb-p-rev8	p-	none	1572	653	0	0	11	56	56	29	17	0	0	0	2	0	0	1	0	0	27
+rv64uzbb-p-rol	p-	none	2583	1032	0	0	23	74	80	53	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbb-p-rolw	p-	none	2585	1030	0	0	23	71	78	51	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbb-p-ror	p-	none	2645	1049	0	0	23	70	78	51	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbb-p-rori	p-	none	1712	707	0	0	14	59	61	34	17	0	0	0	2	0	0	1	0	0	30
+rv64uzbb-p-roriw	p-	none	1625	689	0	0	14	58	60	33	17	0	0	0	2	0	0	1	0	0	30
+rv64uzbb-p-rorw	p-	none	2513	1014	0	0	23	71	78	51	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbb-p-sext_b	p-	none	1497	634	0	0	11	56	56	29	17	0	0	0	2	0	0	1	0	0	27
+rv64uzbb-p-sext_h	p-	none	1503	633	0	0	11	57	56	29	17	0	0	0	2	0	0	1	0	0	27
+rv64uzbb-p-xnor	p-	none	2671	1055	0	0	23	70	80	53	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbb-p-zext_h	p-	none	1509	638	0	0	11	57	56	29	17	0	0	0	2	0	0	1	0	0	27
+rv64uzbc-p-clmul	p-	none	2463	1002	0	0	23	73	79	52	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbc-p-clmulh	p-	none	2473	999	0	0	23	73	79	52	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbc-p-clmulr	p-	none	2469	1000	0	0	23	69	77	50	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbkb-p-brev8	p-	none	1537	639	0	0	11	58	57	30	17	0	0	0	2	0	0	1	0	0	27
+rv64uzbkb-p-pack	p-	none	2913	1139	0	0	23	71	81	54	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbkb-p-packh	p-	none	2583	1049	0	0	23	73	81	54	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbkb-p-packw	p-	none	2443	998	0	0	23	72	80	53	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbkx-p-xperm4	p-	none	2767	1098	0	0	23	73	81	54	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbkx-p-xperm8	p-	none	3598	1327	0	0	23	69	81	54	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbs-p-bclr	p-	none	2796	1107	0	0	23	71	81	54	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbs-p-bclri	p-	none	1779	728	0	0	14	60	62	35	17	0	0	0	2	0	0	1	0	0	30
+rv64uzbs-p-bext	p-	none	2661	1046	0	0	23	73	80	53	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbs-p-bexti	p-	none	1711	711	0	0	14	60	62	35	17	0	0	0	2	0	0	1	0	0	30
+rv64uzbs-p-binv	p-	none	2631	1047	0	0	23	68	77	50	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbs-p-binvi	p-	none	1715	709	0	0	14	59	61	34	17	0	0	0	2	0	0	1	0	0	30
+rv64uzbs-p-bset	p-	none	2800	1108	0	0	23	69	81	54	17	0	0	0	2	0	0	1	0	0	39
+rv64uzbs-p-bseti	p-	none	1793	727	0	0	14	61	63	36	17	0	0	0	2	0	0	1	0	0	30
+rv64uzfh-p-fadd	p-	none	1913	816	0	0	8	54	63	36	17	0	0	0	2	40	0	1	0	0	36
+rv64uzfh-p-fclass	p-	none	1218	558	0	0	8	54	53	26	17	0	0	0	2	0	0	1	0	0	26
+rv64uzfh-p-fcmp	p-	none	1565	688	0	0	8	54	59	32	17	0	0	0	2	24	0	1	0	0	32
+rv64uzfh-p-fcvt	p-	none	1803	789	0	0	8	54	63	36	17	0	0	0	2	16	0	1	0	0	36
+rv64uzfh-p-fcvt_w	p-	none	3428	1444	0	0	8	54	82	55	17	0	0	0	2	132	0	1	0	0	55
+rv64uzfh-p-fdiv	p-	none	1663	727	0	0	8	54	60	33	17	0	0	0	2	28	0	1	0	0	33
+rv64uzfh-p-fmadd	p-	none	2070	881	0	0	8	54	65	38	17	0	0	0	2	48	0	1	0	0	38
+rv64uzfh-p-fmin	p-	none	2541	1059	0	0	8	54	71	44	17	0	0	0	2	72	0	1	0	0	44
+rv64uzfh-p-ldst	p-	none	1194	537	0	0	8	54	53	26	17	0	0	0	2	4	0	3	0	0	26
+rv64uzfh-p-move	p-	none	1812	781	0	0	8	54	61	34	17	0	0	0	2	0	0	1	0	0	34
+rv64uzfh-p-recoding	p-	none	1198	539	0	0	8	54	53	26	17	0	0	0	2	2	0	1	0	0	26
+rv64uzicond-p-czero_eqz	p-	none	2389	976	0	0	23	73	79	52	17	0	0	0	2	0	0	1	0	0	39
+rv64uzicond-p-czero_nez	p-	none	2377	977	0	0	23	69	77	50	17	0	0	0	2	0	0	1	0	0	39
+rv64ua-v-amoadd_d	v-	15/18	23918	7378	240	8	184	6596	3654	1283	2347	0	0	0	23	2891	0	1987	0	0	251
+rv64ua-v-amoadd_w	v-	16/18	23957	7398	240	8	184	6595	3656	1284	2348	0	0	0	23	2891	0	1987	0	1	252
+rv64ua-v-amoand_d	v-	17/18	24016	7451	244	10	188	6627	3676	1286	2366	0	0	0	23	2895	0	1987	0	1	256
+rv64ua-v-amoand_w	v-	18/18	24016	7448	244	10	188	6627	3676	1286	2366	0	0	0	23	2895	0	1987	0	1	256
+rv64ua-v-amomax_d	v-	1/18	23870	7343	238	7	182	6578	3642	1282	2336	0	0	0	23	2889	0	1988	0	0	249
+rv64ua-v-amomax_w	v-	4/18	23898	7362	238	7	182	6577	3640	1282	2334	0	0	0	23	2890	0	1989	0	0	250
+rv64ua-v-amomaxu_d	v-	2/18	23870	7343	238	7	182	6578	3642	1282	2336	0	0	0	23	2889	0	1988	0	0	249
+rv64ua-v-amomaxu_w	v-	3/18	23898	7362	238	7	182	6577	3640	1282	2334	0	0	0	23	2890	0	1989	0	0	250
+rv64ua-v-amomin_d	v-	5/18	23870	7343	238	7	182	6578	3642	1282	2336	0	0	0	23	2889	0	1988	0	0	249
+rv64ua-v-amomin_w	v-	8/18	24042	7463	244	10	188	6631	3681	1285	2372	0	0	0	23	2896	0	1989	0	0	256
+rv64ua-v-amominu_d	v-	6/18	23919	7375	240	7	184	6594	3656	1283	2349	0	0	0	23	2891	0	1988	0	0	251
+rv64ua-v-amominu_w	v-	7/18	23947	7394	240	7	184	6593	3654	1283	2347	0	0	0	23	2892	0	1989	0	0	252
+rv64ua-v-amoor_d	v-	9/18	23897	7355	238	7	182	6579	3643	1283	2336	0	0	0	23	2889	0	1987	0	1	250
+rv64ua-v-amoor_w	v-	10/18	23897	7355	238	7	182	6579	3643	1283	2336	0	0	0	23	2889	0	1987	0	1	250
+rv64ua-v-amoswap_d	v-	11/18	24046	7464	244	10	188	6634	3686	1286	2376	0	0	0	23	2895	0	1987	0	1	256
+rv64ua-v-amoswap_w	v-	12/18	24046	7461	244	10	188	6634	3686	1286	2376	0	0	0	23	2895	0	1987	0	1	256
+rv64ua-v-amoxor_d	v-	13/18	23914	7366	238	7	182	6578	3640	1283	2333	0	0	0	23	2889	0	1987	0	1	250
+rv64ua-v-amoxor_w	v-	14/18	23923	7361	238	7	182	6579	3641	1283	2334	0	0	0	23	2889	0	1987	0	1	250
+rv64uc-v-rvc	v-	14/18	32877	9839	867	38	255	10509	4906	1987	2895	0	0	0	39	4535	0	2601	0	0	329
+rv64ud-v-fadd	v-	9/18	23593	7247	740	13	168	9041	3608	1657	1927	0	0	0	23	3395	0	1433	0	0	237
+rv64ud-v-fclass	v-	10/18	14320	4642	165	6	128	5093	2280	956	1300	0	0	0	21	1726	0	822	0	0	160
+rv64ud-v-fcmp	v-	11/18	23905	7373	740	13	168	9040	3612	1662	1926	0	0	0	23	3415	0	1433	0	0	242
+rv64ud-v-fcvt	v-	12/18	23543	7242	740	13	169	9041	3609	1657	1928	0	0	0	23	3372	0	1433	0	0	237
+rv64ud-v-fcvt_w	v-	13/18	34038	10152	1312	18	205	12986	4941	2372	2545	0	0	0	25	5136	0	2044	0	0	323
+rv64ud-v-fdiv	v-	14/18	23419	7186	740	13	168	9041	3606	1655	1927	0	0	0	23	3387	0	1433	0	0	235
+rv64ud-v-fmadd	v-	15/18	23753	7305	740	13	168	9042	3611	1659	1928	0	0	0	23	3403	0	1433	0	0	239
+rv64ud-v-fmin	v-	16/18	24224	7493	740	13	168	9041	3616	1665	1927	0	0	0	23	3427	0	1433	0	0	245
+rv64ud-v-ldst	v-	17/18	23668	7592	274	8	170	6377	3673	1346	2303	0	0	0	86	2901	0	1991	0	0	239
+rv64ud-v-move	v-	18/18	24405	7086	740	13	169	9042	3600	1647	1929	0	0	0	23	3355	0	1433	0	0	227
+rv64ud-v-recoding	v-	1/18	23956	7409	248	13	189	6567	3588	1290	2274	0	0	0	24	2908	0	1987	0	0	257
+rv64ud-v-structural	v-	2/18	14941	4983	465	7	168	5112	2303	976	1303	0	0	0	30	1726	0	822	0	0	173
+rv64uf-v-fadd	v-	16/18	23593	7247	740	13	168	9041	3608	1657	1927	0	0	0	23	3395	0	1433	0	0	237
+rv64uf-v-fclass	v-	17/18	14304	4638	165	6	128	5093	2280	956	1300	0	0	0	21	1726	0	822	0	0	160
+rv64uf-v-fcmp	v-	18/18	23905	7373	740	13	168	9040	3612	1662	1926	0	0	0	23	3415	0	1433	0	0	242
+rv64uf-v-fcvt	v-	1/18	23326	7153	740	13	168	9042	3607	1655	1928	0	0	0	23	3363	0	1433	0	0	235
+rv64uf-v-fcvt_w	v-	2/18	33684	10059	1312	18	205	12987	4938	2367	2547	0	0	0	25	5116	0	2044	0	0	318
+rv64uf-v-fdiv	v-	3/18	23345	7152	740	13	168	9043	3607	1654	1929	0	0	0	23	3383	0	1433	0	0	234
+rv64uf-v-fmadd	v-	4/18	23753	7305	740	13	168	9042	3611	1659	1928	0	0	0	23	3403	0	1433	0	0	239
+rv64uf-v-fmin	v-	5/18	24224	7493	740	13	168	9041	3616	1665	1927	0	0	0	23	3427	0	1433	0	0	245
+rv64uf-v-ldst	v-	6/18	23904	7367	245	12	184	6551	3572	1289	2259	0	0	0	23	2903	0	1988	0	0	252
+rv64uf-v-move	v-	7/18	14997	5240	211	6	122	5015	2469	1025	1420	0	0	0	84	1726	0	822	0	0	162
+rv64uf-v-recoding	v-	8/18	22884	6965	740	13	169	9041	3599	1647	1928	0	0	0	23	3357	0	1433	0	0	227
+rv64ui-v-add	v-	1/18	15553	5055	166	7	144	5107	2289	983	1282	0	0	0	22	1726	0	822	0	0	174
+rv64ui-v-addi	v-	2/18	14854	4842	165	7	134	5116	2308	966	1318	0	0	0	23	1726	0	822	0	0	165
+rv64ui-v-addiw	v-	3/18	14847	4850	166	7	136	5119	2297	966	1307	0	0	0	22	1726	0	822	0	0	165
+rv64ui-v-addw	v-	4/18	15690	5522	220	9	141	4852	2371	1045	1302	0	0	0	91	1726	0	822	0	0	169
+rv64ui-v-and	v-	7/18	15586	5133	260	7	141	5161	2363	984	1355	0	0	0	38	1726	0	822	0	0	171
+rv64ui-v-andi	v-	8/18	14820	5207	211	7	128	5022	2458	1026	1408	0	0	0	85	1726	0	822	0	0	158
+rv64ui-v-auipc	v-	12/18	14097	4558	146	6	130	5124	2275	957	1294	0	0	0	27	1726	0	822	0	0	155
+rv64ui-v-beq	v-	13/18	15508	5197	243	8	153	5141	2347	992	1331	0	0	0	33	1726	0	822	0	0	185
+rv64ui-v-bge	v-	14/18	15911	5818	213	7	158	5049	2501	1062	1415	0	0	0	86	1726	0	822	0	0	189
+rv64ui-v-bgeu	v-	15/18	16134	5802	223	8	158	5049	2501	1062	1415	0	0	0	85	1726	0	822	0	0	188
+rv64ui-v-blt	v-	16/18	15506	5192	243	8	153	5140	2344	992	1328	0	0	0	33	1726	0	822	0	0	185
+rv64ui-v-bltu	v-	17/18	15738	5264	244	6	153	5144	2350	995	1331	0	0	0	33	1726	0	822	0	0	185
+rv64ui-v-bne	v-	18/18	15680	5631	212	8	151	5037	2500	1054	1422	0	0	0	86	1726	0	822	0	0	182
+rv64ui-v-fence_i	v-	17/18	24871	7770	244	13	201	6918	3694	1392	2278	0	0	0	19	2901	0	1990	0	0	270
+rv64ui-v-jal	v-	1/18	14091	4548	165	6	130	5104	2274	957	1293	0	0	0	25	1726	0	822	0	0	155
+rv64ui-v-jalr	v-	2/18	14588	5200	216	7	143	5044	2501	1030	1447	0	0	0	89	1726	0	822	0	0	170
+rv64ui-v-lb	v-	3/18	23422	7186	742	13	176	9079	3640	1659	1957	0	0	0	25	3379	0	1433	0	0	233
+rv64ui-v-lbu	v-	4/18	23399	7175	742	13	176	9073	3631	1659	1948	0	0	0	25	3379	0	1433	0	0	233
+rv64ui-v-ld	v-	9/18	24023	7669	788	15	172	9032	3833	1719	2090	0	0	0	87	3379	0	1433	0	0	228
+rv64ui-v-ld_st	v-	14/18	44364	14156	2242	51	421	13682	6264	2876	3364	0	0	0	283	6422	0	3485	0	0	476
+rv64ui-v-lh	v-	5/18	23446	7186	743	13	176	9079	3643	1659	1960	0	0	0	25	3379	0	1433	0	0	233
+rv64ui-v-lhu	v-	6/18	23472	7225	817	13	176	9111	3673	1660	1989	0	0	0	36	3379	0	1433	0	0	233
+rv64ui-v-lui	v-	11/18	14177	4578	165	6	127	5091	2275	955	1296	0	0	0	21	1726	0	822	0	0	158
+rv64ui-v-lw	v-	7/18	23465	7195	742	15	176	9079	3643	1659	1960	0	0	0	25	3379	0	1433	0	0	233
+rv64ui-v-lwu	v-	8/18	23616	7599	786	13	170	8998	3815	1719	2072	0	0	0	86	3379	0	1433	0	0	227
+rv64ui-v-ma_data	v-	18/18	49924	25271	4563	20	472	13432	12918	4590	8304	0	0	0	1987	6327	0	3343	0	0	499
+rv64ui-v-or	v-	9/18	15900	5477	213	7	135	5034	2492	1047	1421	0	0	0	86	1726	0	822	0	0	167
+rv64ui-v-ori	v-	10/18	14785	5199	211	7	129	5017	2456	1027	1405	0	0	0	85	1726	0	822	0	0	159
+rv64ui-v-sb	v-	10/18	24528	7684	610	9	206	6162	3379	1319	2036	0	0	0	65	2921	0	2021	0	1	253
+rv64ui-v-sd	v-	13/18	33555	11668	2030	17	250	11793	5976	2197	3755	0	0	0	289	4550	0	2631	0	1	327
+rv64ui-v-sh	v-	11/18	24679	9012	1481	7	219	7952	4547	1447	3076	0	0	0	221	2921	0	2021	0	1	266
+rv64ui-v-simple	v-	16/18	14104	4536	165	6	126	4748	2037	954	1059	0	0	0	21	1726	0	822	0	0	157
+rv64ui-v-sll	v-	17/18	24424	7738	785	13	180	9000	3823	1734	2065	0	0	0	84	3355	0	1433	0	0	237
+rv64ui-v-slli	v-	18/18	14899	4854	165	6	134	5121	2311	967	1320	0	0	0	23	1726	0	822	0	0	165
+rv64ui-v-slliw	v-	1/18	15004	5249	211	6	128	5037	2484	1026	1434	0	0	0	84	1726	0	822	0	0	159
+rv64ui-v-sllw	v-	2/18	24300	7306	740	15	183	9057	3624	1673	1927	0	0	0	23	3355	0	1433	0	0	241
+rv64ui-v-slt	v-	13/18	15530	5077	166	7	144	5111	2298	984	1290	0	0	0	25	1726	0	822	0	0	174
+rv64ui-v-slti	v-	14/18	14839	4848	165	6	134	5122	2312	967	1321	0	0	0	23	1726	0	822	0	0	165
+rv64ui-v-sltiu	v-	16/18	14839	4848	165	6	134	5122	2312	967	1321	0	0	0	23	1726	0	822	0	0	165
+rv64ui-v-sltu	v-	15/18	15583	5086	244	6	142	5133	2334	982	1328	0	0	0	32	1726	0	822	0	0	174
+rv64ui-v-sra	v-	7/18	15647	5045	244	6	142	5133	2334	983	1327	0	0	0	32	1726	0	822	0	0	174
+rv64ui-v-srai	v-	8/18	14761	4810	241	6	134	5126	2320	964	1332	0	0	0	30	1726	0	822	0	0	165
+rv64ui-v-sraiw	v-	9/18	15084	5272	211	6	128	5040	2485	1026	1435	0	0	0	84	1726	0	822	0	0	159
+rv64ui-v-sraw	v-	10/18	24357	7317	740	17	187	9069	3641	1675	1942	0	0	0	26	3355	0	1433	0	0	243
+rv64ui-v-srl	v-	3/18	24439	7771	786	15	180	9014	3841	1738	2079	0	0	0	89	3355	0	1433	0	0	237
+rv64ui-v-srli	v-	4/18	14797	4792	165	6	134	5105	2292	966	1302	0	0	0	21	1726	0	822	0	0	165
+rv64ui-v-srliw	v-	5/18	15024	5257	211	6	128	5042	2490	1027	1439	0	0	0	84	1726	0	822	0	0	159
+rv64ui-v-srlw	v-	6/18	24464	7748	791	17	184	9006	3818	1736	2058	0	0	0	87	3355	0	1433	0	0	238
+rv64ui-v-st_ld	v-	15/18	32952	9577	885	14	212	10397	4811	1973	2814	0	0	0	36	4586	0	2667	0	0	305
+rv64ui-v-sub	v-	5/18	15654	5522	224	7	139	4863	2386	1047	1315	0	0	0	94	1726	0	822	0	0	168
+rv64ui-v-subw	v-	6/18	15643	5480	211	6	136	5034	2489	1044	1421	0	0	0	84	1726	0	822	0	0	168
+rv64ui-v-sw	v-	12/18	24831	8068	660	9	202	6576	3777	1377	2376	0	0	0	107	2921	0	2020	0	1	247
+rv64ui-v-xor	v-	11/18	15901	5498	211	6	135	5036	2495	1047	1424	0	0	0	86	1726	0	822	0	0	167
+rv64ui-v-xori	v-	12/18	14775	5191	210	6	127	5017	2467	1028	1415	0	0	0	84	1726	0	822	0	0	159
+rv64um-v-div	v-	5/18	14287	4628	165	6	128	5095	2283	955	1304	0	0	0	21	1726	0	822	0	0	159
+rv64um-v-divu	v-	6/18	14278	4624	165	6	128	5092	2279	955	1300	0	0	0	21	1726	0	822	0	0	159
+rv64um-v-divuw	v-	11/18	14260	4621	165	6	128	5092	2278	955	1299	0	0	0	21	1726	0	822	0	0	159
+rv64um-v-divw	v-	10/18	14266	4617	165	6	128	5093	2281	955	1302	0	0	0	21	1726	0	822	0	0	159
+rv64um-v-mul	v-	1/18	15677	5516	218	7	138	5032	2481	1044	1413	0	0	0	89	1726	0	822	0	0	167
+rv64um-v-mulh	v-	2/18	15591	5108	166	7	142	5113	2312	986	1302	0	0	0	23	1726	0	822	0	0	174
+rv64um-v-mulhsu	v-	3/18	15577	5100	166	7	142	5111	2306	986	1296	0	0	0	23	1726	0	822	0	0	174
+rv64um-v-mulhu	v-	4/18	15744	5502	210	14	137	5027	2486	1048	1414	0	0	0	87	1726	0	822	0	0	168
+rv64um-v-mulw	v-	9/18	15538	5487	212	7	138	5029	2474	1043	1407	0	0	0	85	1726	0	822	0	0	168
+rv64um-v-rem	v-	7/18	14268	4624	165	6	128	5095	2282	955	1303	0	0	0	21	1726	0	822	0	0	159
+rv64um-v-remu	v-	8/18	14268	4618	165	6	128	5093	2281	955	1302	0	0	0	21	1726	0	822	0	0	159
+rv64um-v-remuw	v-	13/18	14256	4616	165	6	128	5093	2281	955	1302	0	0	0	21	1726	0	822	0	0	159
+rv64um-v-remw	v-	12/18	14266	4617	165	6	128	5093	2281	955	1302	0	0	0	21	1726	0	822	0	0	159
+rv64uzba-v-add_uw	v-	3/18	15565	5249	280	6	143	5115	2294	982	1290	0	0	0	19	1726	0	822	0	0	176
+rv64uzba-v-sh1add	v-	4/18	15567	5239	278	6	143	5115	2293	983	1288	0	0	0	19	1726	0	822	0	0	176
+rv64uzba-v-sh1add_uw	v-	5/18	15521	5236	55	7	143	5120	2296	982	1292	0	0	0	19	1726	0	822	0	0	175
+rv64uzba-v-sh2add	v-	6/18	15567	5239	278	6	143	5115	2293	983	1288	0	0	0	19	1726	0	822	0	0	176
+rv64uzba-v-sh2add_uw	v-	7/18	15521	5236	55	7	143	5120	2296	982	1292	0	0	0	19	1726	0	822	0	0	175
+rv64uzba-v-sh3add	v-	8/18	15567	5239	278	6	143	5115	2293	983	1288	0	0	0	19	1726	0	822	0	0	176
+rv64uzba-v-sh3add_uw	v-	9/18	15521	5236	55	7	143	5120	2296	982	1292	0	0	0	19	1726	0	822	0	0	175
+rv64uzba-v-slli_uw	v-	10/18	14909	5036	54	6	135	5124	2299	966	1311	0	0	0	19	1726	0	822	0	0	167
+rv64uzbb-v-andn	v-	11/18	15759	5119	227	7	144	4866	2302	986	1292	0	0	0	31	1726	0	822	0	0	175
+rv64uzbb-v-clz	v-	12/18	14757	4835	225	13	132	4851	2289	962	1303	0	0	0	22	1726	0	822	0	0	164
+rv64uzbb-v-clzw	v-	13/18	14691	4813	157	7	133	4840	2267	961	1282	0	0	0	22	1726	0	822	0	0	163
+rv64uzbb-v-cpop	v-	14/18	14757	4835	225	13	132	4851	2289	962	1303	0	0	0	22	1726	0	822	0	0	164
+rv64uzbb-v-cpopw	v-	15/18	14691	4813	157	7	133	4840	2267	961	1282	0	0	0	22	1726	0	822	0	0	163
+rv64uzbb-v-ctz	v-	16/18	14757	4835	225	13	132	4851	2289	962	1303	0	0	0	22	1726	0	822	0	0	164
+rv64uzbb-v-ctzw	v-	17/18	14806	4875	157	9	136	4857	2294	963	1307	0	0	0	23	1726	0	822	0	0	166
+rv64uzbb-v-max	v-	18/18	15397	5042	234	13	142	4584	2099	982	1093	0	0	0	28	1726	0	822	0	0	172
+rv64uzbb-v-maxu	v-	1/18	15670	5112	157	9	145	4857	2304	986	1294	0	0	0	24	1726	0	822	0	0	177
+rv64uzbb-v-min	v-	2/18	15388	5043	232	13	142	4776	2222	984	1214	0	0	0	26	1726	0	822	0	0	172
+rv64uzbb-v-minu	v-	3/18	15430	5001	225	13	141	4775	2212	984	1204	0	0	0	22	1726	0	822	0	0	172
+rv64uzbb-v-orc_b	v-	4/18	14799	4834	156	6	132	4848	2284	961	1299	0	0	0	21	1726	0	822	0	0	164
+rv64uzbb-v-orn	v-	5/18	24467	7475	751	13	188	8350	3360	1681	1655	0	0	0	48	3355	0	1433	0	0	245
+rv64uzbb-v-rev8	v-	6/18	14729	4782	157	6	132	4835	2272	961	1287	0	0	0	21	1726	0	822	0	0	164
+rv64uzbb-v-rol	v-	7/18	24290	7328	804	23	186	8763	3580	1676	1880	0	0	0	26	3355	0	1433	0	0	243
+rv64uzbb-v-rolw	v-	8/18	24241	7313	808	21	184	8759	3574	1675	1875	0	0	0	25	3355	0	1433	0	0	242
+rv64uzbb-v-ror	v-	9/18	24423	7386	738	15	189	8826	3639	1675	1940	0	0	0	24	3355	0	1433	0	0	246
+rv64uzbb-v-rori	v-	10/18	14849	4850	226	13	135	4847	2286	967	1295	0	0	0	22	1726	0	822	0	0	167
+rv64uzbb-v-roriw	v-	11/18	14906	4923	157	9	137	4866	2306	969	1313	0	0	0	24	1726	0	822	0	0	168
+rv64uzbb-v-rorw	v-	12/18	15695	5094	226	13	144	4854	2299	984	1291	0	0	0	22	1726	0	822	0	0	177
+rv64uzbb-v-sext_b	v-	13/18	14757	4835	225	13	132	4851	2289	962	1303	0	0	0	22	1726	0	822	0	0	164
+rv64uzbb-v-sext_h	v-	14/18	14767	4873	226	6	132	4880	2315	962	1329	0	0	0	30	1726	0	822	0	0	164
+rv64uzbb-v-xnor	v-	15/18	24412	7418	730	13	186	8820	3629	1677	1928	0	0	0	23	3355	0	1433	0	0	244
+rv64uzbb-v-zext_h	v-	16/18	14772	4874	226	6	132	4877	2314	961	1329	0	0	0	30	1726	0	822	0	0	164
+rv64uzbc-v-clmul	v-	17/18	15686	5531	223	7	138	4863	2382	1047	1311	0	0	0	94	1726	0	822	0	0	167
+rv64uzbc-v-clmulh	v-	18/18	15691	5494	212	6	135	5035	2488	1045	1419	0	0	0	86	1726	0	822	0	0	167
+rv64uzbc-v-clmulr	v-	1/18	15686	5515	219	7	138	4846	2364	1042	1298	0	0	0	91	1726	0	822	0	0	167
+rv64uzbkb-v-brev8	v-	2/18	14647	4879	239	7	132	4871	2289	961	1304	0	0	0	21	1726	0	822	0	0	164
+rv64uzbkb-v-pack	v-	3/18	24681	7661	862	12	185	8957	3745	1681	2040	0	0	0	42	3355	0	1433	0	0	241
+rv64uzbkb-v-packh	v-	4/18	15730	5291	266	19	143	4909	2327	987	1316	0	0	0	25	1726	0	822	0	0	175
+rv64uzbkb-v-packw	v-	5/18	15579	5270	331	13	143	4887	2317	986	1307	0	0	0	24	1726	0	822	0	0	176
+rv64uzbkx-v-xperm4	v-	6/18	24520	7440	844	15	189	9117	3678	1677	1977	0	0	0	38	3355	0	1433	0	0	242
+rv64uzbkx-v-xperm8	v-	7/18	25393	7714	846	13	188	8600	3364	1680	1660	0	0	0	55	3355	0	1433	0	0	243
+rv64uzbs-v-bclr	v-	8/18	24546	7483	854	13	184	8865	3662	1674	1964	0	0	0	29	3355	0	1433	0	0	241
+rv64uzbs-v-bclri	v-	9/18	14886	4892	178	6	133	4854	2291	966	1301	0	0	0	19	1726	0	822	0	0	164
+rv64uzbs-v-bext	v-	10/18	24430	7662	860	15	185	8949	3753	1676	2053	0	0	0	61	3355	0	1433	0	0	242
+rv64uzbs-v-bexti	v-	11/18	14823	4886	157	6	134	4854	2290	966	1300	0	0	0	19	1726	0	822	0	0	165
+rv64uzbs-v-binv	v-	12/18	24427	7694	853	13	185	8961	3769	1676	2069	0	0	0	63	3355	0	1433	0	0	243
+rv64uzbs-v-binvi	v-	13/18	14936	4987	227	6	134	4895	2327	964	1339	0	0	0	29	1726	0	822	0	0	165
+rv64uzbs-v-bset	v-	14/18	24598	7653	781	13	185	8941	3752	1676	2052	0	0	0	50	3355	0	1433	0	0	242
+rv64uzbs-v-bseti	v-	15/18	14726	4832	224	13	129	4802	2237	965	1248	0	0	0	26	1726	0	822	0	0	160
+rv64uzfh-v-fadd	v-	16/18	23593	7247	740	13	168	9041	3608	1657	1927	0	0	0	23	3395	0	1433	0	0	237
+rv64uzfh-v-fclass	v-	17/18	14304	4638	165	6	128	5093	2280	956	1300	0	0	0	21	1726	0	822	0	0	160
+rv64uzfh-v-fcmp	v-	18/18	23240	7115	740	13	168	9040	3603	1653	1926	0	0	0	23	3379	0	1433	0	0	233
+rv64uzfh-v-fcvt	v-	1/18	23479	7213	741	15	170	9036	3593	1657	1912	0	0	0	24	3371	0	1433	0	0	237
+rv64uzfh-v-fcvt_w	v-	2/18	33684	10059	1312	18	205	12987	4938	2367	2547	0	0	0	25	5116	0	2044	0	0	318
+rv64uzfh-v-fdiv	v-	3/18	23345	7152	740	13	168	9043	3607	1654	1929	0	0	0	23	3383	0	1433	0	0	234
+rv64uzfh-v-fmadd	v-	4/18	23753	7305	740	13	168	9042	3611	1659	1928	0	0	0	23	3403	0	1433	0	0	239
+rv64uzfh-v-fmin	v-	5/18	24224	7493	740	13	168	9041	3616	1665	1927	0	0	0	23	3427	0	1433	0	0	245
+rv64uzfh-v-ldst	v-	6/18	23839	7347	245	12	184	6537	3560	1289	2247	0	0	0	23	2903	0	1988	0	0	253
+rv64uzfh-v-move	v-	7/18	14897	4827	165	6	128	5094	2289	964	1301	0	0	0	21	1726	0	822	0	0	168
+rv64uzfh-v-recoding	v-	8/18	22884	6965	740	13	169	9041	3599	1647	1928	0	0	0	23	3357	0	1433	0	0	227
+rv64uziccid-v-ziccid	v-	11/18	163785	44475	10619	79	1085	69035	23807	12960	10823	0	0	0	272	29013	0	11907	0	0	1339
+rv64uzicond-v-czero_eqz	v-	9/18	15317	5109	222	12	138	4792	2214	981	1209	0	0	0	23	1726	0	822	0	0	170
+rv64uzicond-v-czero_nez	v-	10/18	15330	5120	221	12	138	4796	2217	983	1210	0	0	0	23	1726	0	822	0	0	170
