@@ -414,8 +414,12 @@ test_commit_cl.TestNormalCommit::test_commit_retires_rob_head	PASS	block-Commit	
 test_commit_cl.TestNormalCommit::test_commit_single_instruction	PASS	block-Commit	none			0		
 test_commit_cl.TestNormalCommit::test_commit_store_sets_committed_stores	PASS	block-Commit	none			0		
 test_commit_cl.TestNormalCommit::test_commit_updates_renamemap	PASS	block-Commit	none			0		
-test_commit_cl.TestSMTArbitration::test_oldest_ready_selection	PASS	block-Commit	none			0		
-test_commit_cl.TestSMTArbitration::test_round_robin_selection	PASS	block-Commit	none			0		
+test_commit_cl.TestSMTArbitration::test_backfill_skips_empty_rob_thread	FAIL	block-Commit	none			0		IndexError: list assignment index out of range self = <Commit.test_commit_cl.TestSMTArbitration object at 0x7fad0359c140>      def test_backfill_skips_empty_rob_thread(self):         """The thread at the RR pointer has no valid head (empty ROB); the         walk skips it and backfills from the next ready thread.""" >       h, c, _, _, _, _ = make_commit(             max_threads=2, commit_policy="R
+test_commit_cl.TestSMTArbitration::test_backfill_skips_stalled_head	FAIL	block-Commit	none			0		IndexError: list assignment index out of range self = <Commit.test_commit_cl.TestSMTArbitration object at 0x7fad0359e690>      def test_backfill_skips_stalled_head(self):         """The thread at the RR pointer holds a valid but NOT-ready head         (stalled on can_commit); the walk advances past it inline and         backfills from the next ready thread.""" >       h, c, _, _, _, _ = make_commi
+test_commit_cl.TestSMTArbitration::test_no_backfill_past_squashed_head	FAIL	block-Commit	none			0		IndexError: list assignment index out of range self = <Commit.test_commit_cl.TestSMTArbitration object at 0x7fad0359d310>      def test_no_backfill_past_squashed_head(self):         """Thread 0 (at the RR pointer) has a squashed head (the squash         walk marks squashed entries can_commit, ADR 0034 §2, so it presents         ready); the walk selects it, the §3.2 step-6 bulk drain fires for     
+test_commit_cl.TestSMTArbitration::test_no_backfill_past_trap_head	FAIL	block-Commit	none			0		IndexError: list assignment index out of range self = <Commit.test_commit_cl.TestSMTArbitration object at 0x7fad0359cb60>      def test_no_backfill_past_trap_head(self):         """Thread 0 (at the RR pointer) has a ready head carrying a valid         fault; the walk selects it, the §3.6 head-time trap path fires for         thread 0 only, and thread 1's ready head is NOT packed behind it in      
+test_commit_cl.TestSMTArbitration::test_round_robin_selection	FAIL	block-Commit	none			0		IndexError: list assignment index out of range self = <Commit.test_commit_cl.TestSMTArbitration object at 0x7fad0359edb0>      def test_round_robin_selection(self): >       h, c, _, _, _, _ = make_commit(             max_threads=2, commit_policy="RoundRobin"         )  test_commit_cl.py:813:  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  conftest.py:499: in make_
+test_commit_cl.TestSMTArbitration::test_rr_pointer_rotates_across_cycles	FAIL	block-Commit	none			0		IndexError: list assignment index out of range self = <Commit.test_commit_cl.TestSMTArbitration object at 0x7fad0359d700>      def test_rr_pointer_rotates_across_cycles(self):         """RR fairness across cycles: with two ready threads the pointer         rotates — thread 0 is served the cycle it holds the pointer,         thread 1 the next. Bandwidth note: the CL commit structure issues         
 test_commit_cl.TestSquashAfter::test_squash_after_phase1_commits	PASS	block-Commit	none			0		
 test_commit_cl.TestSquashAfter::test_squash_after_phase1_sets_pending	PASS	block-Commit	none			0		
 test_commit_cl.TestSquashAfter::test_squash_after_phase2_initiates_squash	PASS	block-Commit	none			0		
@@ -583,15 +587,15 @@ src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl.TestDispatchToIQ::t
 src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl.TestDispatchToLSQ::test_load_dispatched_to_lsq	PASS	block-Dispatch	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl.TestDispatchToLSQ::test_lsq_indices_passed_to_iq_req	PASS	block-Dispatch	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl.TestDispatchToLSQ::test_store_dispatched_to_lsq	PASS	block-Dispatch	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl.TestFSMSquashTransitions::test_fsm_running_after_squash_allows_dispatch	PASS	block-Dispatch	none			0		
+src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl.TestFSMSquashTransitions::test_fsm_running_after_squash_allows_dispatch	FAIL	block-Dispatch	none			0		RuntimeError: P7: dispatch FIFO drain without a boundary position (pending_drain_pos is None) — the seqnum fallback was removed by directive self = <test_dispatch_cl.TestFSMSquashTransitions object at 0x7ffac814d010>      def test_fsm_running_after_squash_allows_dispatch(self):         """After squash recovery, the thread resumes normal dispatch."""         dut = make_dispatch(cfg_dispatch_width=4
 src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl.TestFSMSquashTransitions::test_non_squashed_thread_dispatches_normally	PASS	block-Dispatch	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl.TestFSMSquashTransitions::test_squash_keeps_fsm_running	PASS	block-Dispatch	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl.TestFSMSquashTransitions::test_squash_prevents_dispatch_in_same_cycle	PASS	block-Dispatch	none			0		
+src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl.TestFSMSquashTransitions::test_squash_keeps_fsm_running	FAIL	block-Dispatch	none			0		RuntimeError: P7: dispatch FIFO drain without a boundary position (pending_drain_pos is None) — the seqnum fallback was removed by directive self = <test_dispatch_cl.TestFSMSquashTransitions object at 0x7ffac814ff80>      def test_squash_keeps_fsm_running(self):         """After squash processing in up_process, FSM must remain RUNNING         (not stuck in a SQUASHING state that blocks future disp
+src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl.TestFSMSquashTransitions::test_squash_prevents_dispatch_in_same_cycle	FAIL	block-Dispatch	none			0		RuntimeError: P7: dispatch FIFO drain without a boundary position (pending_drain_pos is None) — the seqnum fallback was removed by directive self = <test_dispatch_cl.TestFSMSquashTransitions object at 0x7ffac814fec0>      def test_squash_prevents_dispatch_in_same_cycle(self):         """Instructions buffered in the same cycle as a squash must NOT         be dispatched — the squash prevents dispatc
 src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl.TestRenameReceive::test_rename_buffers_into_fifo	PASS	block-Dispatch	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl.TestRenameReceive::test_rename_rdy_when_fifo_not_full	PASS	block-Dispatch	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl.TestReset::test_after_reset_fifos_empty	PASS	block-Dispatch	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl.TestReset::test_after_reset_fsm_running	PASS	block-Dispatch	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl.TestSquash::test_squash_discards_younger_entries	PASS	block-Dispatch	none			0		
+src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl.TestSquash::test_squash_discards_younger_entries	FAIL	block-Dispatch	none			0		RuntimeError: P7: dispatch FIFO drain without a boundary position (pending_drain_pos is None) — the seqnum fallback was removed by directive self = <test_dispatch_cl.TestSquash object at 0x7ffac814f200>      def test_squash_discards_younger_entries(self):         # Block dispatch via IQ backpressure (not manual FSM) so the new         # FSM logic correctly detects the block and skips dispatch.    
 src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl_adr0033.TestBatchedIQDispatch::test_iq_dispatch_returns_local_indices	PASS	block-Dispatch	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl_adr0033.TestBatchedIQDispatch::test_multiple_instructions_single_batched_call	PASS	block-Dispatch	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.Dispatch.test_dispatch_cl_adr0033.TestBatchedIQDispatch::test_single_instruction_batched_call	PASS	block-Dispatch	none			0		
@@ -831,8 +835,8 @@ test_fu_pool_cl_adr0033_speculation.TestFuEarlyCompleteTiming::test_early_comple
 test_fu_pool_cl_adr0033_speculation.TestFuEarlyCompleteTiming::test_early_complete_not_fired_for_squashed	PASS	block-FUPool	none			0		
 test_fu_pool_cl_adr0033_squash_force_ack.TestSquashForceEarlyCompleteADR0033::test_fu_pool_exposes_ic_squash_port	PASS	block-FUPool	none			0		
 test_fu_pool_cl_adr0033_squash_force_ack.TestSquashForceEarlyCompleteADR0033::test_ic_squash_is_callable	PASS	block-FUPool	none			0		
-test_fu_pool_cl_adr0033_squash_force_ack.TestSquashForceEarlyCompleteADR0033::test_squash_mid_flight_fires_force_early_complete	PASS	block-FUPool	none			0		
-test_fetch_cl.TestAssertionANoBBLeftUnmarked::test_rv64ui_p_add_leaves_no_bb_unmarked	PASS	block-Fetch	none			8		
+test_fu_pool_cl_adr0033_squash_force_ack.TestSquashForceEarlyCompleteADR0033::test_squash_mid_flight_fires_force_early_complete	FAIL	block-FUPool	none			0		RuntimeError: P7: FUPool ic_squash without a boundary position — the seqnum fallback was removed by directive self = <FUPool.test_fu_pool_cl_adr0033_squash_force_ack.TestSquashForceEarlyCompleteADR0033 object at 0x7f1be974a7e0>      def test_squash_mid_flight_fires_force_early_complete(self):         """Squash event for in-flight FU fires fu_early_complete immediately.              Issues a non-sq
+test_fetch_cl.TestAssertionANoBBLeftUnmarked::test_rv64ui_p_add_leaves_no_bb_unmarked	PASS	block-Fetch	none			10		
 test_fetch_cl.TestBACResteer::test_f120_bac_resteer_req_dispatched	PASS	block-Fetch	none			0		
 test_fetch_cl.TestBACResteer::test_f121_bac_resteer_req_fields	PASS	block-Fetch	none			0		
 test_fetch_cl.TestBackwardCtrlBusRestructure::test_f320_bc_has_commit_info	PASS	block-Fetch	none			0		
@@ -1120,7 +1124,7 @@ src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestCSRWiringReadOperand::tes
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestCSRWiringWriteBack::test_wb_csr_write_committed_to_csr_file_after_tick	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestCSRWiringWriteBack::test_wb_csr_write_rdy_follows_csr_file_write_rdy	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EFloatCluster::test_fadd_s_completes_through_float_cluster	PASS	block-IEW	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EIcSquashFunctional::test_ic_squash_clears_iq_entries	PASS	block-IEW	none			0		
+src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EIcSquashFunctional::test_ic_squash_clears_iq_entries	FAIL	block-IEW	none			0		RuntimeError: P7: SRE shadow lacks position meta (max_entries=0, keys=['alloc_count', 'boundary', 'boundary_pos', 'max_entries', 'state', 'tail_ptr']) — the seqnum fallback was removed by directive self = <test_iew_cl.TestE2EIcSquashFunctional object at 0x7fbe67d77680>      def test_ic_squash_clears_iq_entries(self):         """Insert an IntALU instruction (seqnum=51), then squash with         bou
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EIcSquashFunctional::test_ic_squash_clears_lsq_load_entry	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EIntCluster::test_add_completes_through_int_cluster	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EIntCluster::test_addi_imm_completes_through_int_cluster	PASS	block-IEW	none			0		
@@ -1136,7 +1140,7 @@ src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureBackwardBusFreeEnt
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureBackwardBusIewBlock::test_iew_block_and_unblock	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureBranchClusterFUExecution::test_beq_through_branch_cluster_wires_fire	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureCSRWrite::test_csrrw_fires_wb_csr_write	PASS	block-IEW	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureCommitLoadsPath::test_commit_loads_frees_lq_entry	PASS	block-IEW	none			0		
+src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureCommitLoadsPath::test_commit_loads_frees_lq_entry	FAIL	block-IEW	none			0		RuntimeError: P7: commit_loads pop without a retire position (pending_commit_load_pos=-1) — the seqnum fallback was removed by directive self = <test_iew_cl.TestE2EPureCommitLoadsPath object at 0x7fbe67d76330>      def test_commit_loads_frees_lq_entry(self):         """Drive LW x10, 0(x11) with p11=0x1000.              Complete the load through D-Cache, then call commit_loads.         Verify the L
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureCsrWriteFullSignals::test_csrrw_wb_csr_write_all_signals	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureDependentInstructions::test_dependent_adds_raw_bypass	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureDirectCompletePath::test_faulted_lw_fires_direct_complete	PASS	block-IEW	none			0		
@@ -1144,10 +1148,10 @@ src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureDrainComplete::tes
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureDrainHoldsAfterStallsDrainDeasserts::test_drain_holds_after_deassert	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureFaultPreExecPath::test_pre_exec_fault_fires_wb_fault	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureFaultTranslationPath::test_load_translation_fault_fires_wb_fault	PASS	block-IEW	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureFenceExecution::test_fence_complete_clears_lq_sq_fence_entries	PASS	block-IEW	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureFencePassThrough::test_fence_complete_alias_and_forwarding	PASS	block-IEW	none			0		
+src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureFenceExecution::test_nonSpecInstReady_clears_sq_placeholder_non_spec	PASS	block-IEW	none			0		
+src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureFencePassThrough::test_fence_complete_alias_removed	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureFuAllocNoContentionModel::test_two_mul_ops_both_complete_no_contention	PASS	block-IEW	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureIcSquashFunctional::test_squashed_add_issues_with_squashed_flag	PASS	block-IEW	none			0		
+src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureIcSquashFunctional::test_squashed_add_issues_with_squashed_flag	FAIL	block-IEW	none			0		RuntimeError: P7: SRE shadow lacks position meta (max_entries=0, keys=['alloc_count', 'boundary', 'boundary_pos', 'max_entries', 'state', 'tail_ptr']) — the seqnum fallback was removed by directive self = <test_iew_cl.TestE2EPureIcSquashFunctional object at 0x7fbe67d7a540>      def test_squashed_add_issues_with_squashed_flag(self):         """Drive ADD x10, x10, x11 (seqnum=5, IsNonSpeculative=Tru
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureIqFullBackpressure::test_iq_full_rdy_returns_false	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureLSQLoadPath::test_lw_load_path_fires_dtlb_req	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureLSQStorePath::test_sw_store_path_fires_dtlb_req	PASS	block-IEW	none			0		
@@ -1159,8 +1163,8 @@ src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureMispredictToCommit
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureMispredictToCommit::test_bne_not_taken_pred_taken_fires_iew_to_commit	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureMispredictToCommit::test_jal_unconditional_pred_not_taken_fires_iew_to_commit	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureNonSpecInstReady::test_non_spec_inst_ready_clears_sq_entry	PASS	block-IEW	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureSCFailurePath::test_sc_fails_when_reservation_not_set	PASS	block-IEW	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureSCPath::test_lr_then_sc_succeeds_with_reservation	PASS	block-IEW	none			0		
+src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureSCFailurePath::test_sc_fails_when_reservation_not_set	FAIL	block-IEW	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <test_iew_cl.TestE2EPureSCFailurePath object at 0x7fbe67d730e0>      def test_sc_fails_when_reservation_not_set(self):         """LR x10, 0(x11) with p11=0x2000 (never completes).         SC x10, 0(x11) with p10=0xDEAD (seqnum=2).              Fl
+src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureSCPath::test_lr_then_sc_succeeds_with_reservation	FAIL	block-IEW	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <test_iew_cl.TestE2EPureSCPath object at 0x7fbe67d705c0>      def test_lr_then_sc_succeeds_with_reservation(self):         """Drive LR then SC. SC should succeed (dcache_store_pa_req fires).              Assert:         - After LR completes, stat
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureSRETFault::test_sret_u_mode_fires_wb_fault	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureSnoopInv::test_snoop_inv_reissues_inflight_load	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureSplitLoadPath::test_split_load_issues_two_dcache_reqs	PASS	block-IEW	none			0		
@@ -1168,9 +1172,9 @@ src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureSquashDuringFuComp
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureSquashDuringLsqExecute::test_load_squash_in_lsq_suppresses_rf_write	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureSquashEffect::test_add_squash_before_issue_suppresses_rf_write	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureSquashEffect::test_intmult_squash_mid_flight_suppresses_rf_write	PASS	block-IEW	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureSquashThreadIsolation::test_squash_tid0_isolates_tid1	PASS	block-IEW	none			0		
+src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureSquashThreadIsolation::test_squash_tid0_isolates_tid1	FAIL	block-IEW	none			0		RuntimeError: P7: SRE shadow lacks position meta (max_entries=0, keys=['alloc_count', 'boundary', 'boundary_pos', 'max_entries', 'state', 'tail_ptr']) — the seqnum fallback was removed by directive self = <test_iew_cl.TestE2EPureSquashThreadIsolation object at 0x7fbe67d75ca0>      def test_squash_tid0_isolates_tid1(self):         """tid=0: ADD x10,x10,x11 → p20=300 (seqnum=90).         tid=1: ADD 
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureStoreDTLBFullSignals::test_store_dtlb_req_all_signals	PASS	block-IEW	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureStrictlyOrderedLoadReplay::test_strictly_ordered_load_polls_then_issues_after_commit	PASS	block-IEW	none			0		
+src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureStrictlyOrderedLoadReplay::test_strictly_ordered_load_polls_then_issues_after_commit	FAIL	block-IEW	none			0		RuntimeError: P7: commit_loads pop without a retire position (pending_commit_load_pos=-1) — the seqnum fallback was removed by directive self = <test_iew_cl.TestE2EPureStrictlyOrderedLoadReplay object at 0x7fbe67b44410>      def test_strictly_ordered_load_polls_then_issues_after_commit(self):         """Strictly-ordered load polls in 'translated' until commit_loads         advances head to its pos
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureTLBIInv::test_tlbi_inv_marks_lq_entries_stale	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureTLBMissDefer::test_dtlb_miss_defers_load_then_reissue	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureTwoIndependentInstructions::test_two_independent_adds_both_complete	PASS	block-IEW	none			0		
@@ -1179,7 +1183,7 @@ src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureViolationAck::test
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureViolationBeatsMispredict::test_violation_beats_mispredict_same_cycle	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureWawOrdering::test_waw_both_writeback_in_order	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EPureWbFaultFullSignals::test_sret_wb_fault_all_signals	PASS	block-IEW	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EStoreMemoryPath::test_store_pa_req_fires_with_correct_signals	PASS	block-IEW	none			0		
+src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EStoreMemoryPath::test_store_pa_req_fires_with_correct_signals	FAIL	block-IEW	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <test_iew_cl.TestE2EStoreMemoryPath object at 0x7fbe67d79d60>      def test_store_pa_req_fires_with_correct_signals(self):         """Drive SW x10, 0(x11) with p11=0x2000 (base), p10=0xDEAD (data).              After natural STA/STD flow + DTLB t
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EStorePath::test_store_inserts_into_lsq_and_mem_iq	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EVAProbePath::test_dcache_va_probe_resp_accepted	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EVAProbePath::test_va_probe_pa_fires_on_dtlb_hit	PASS	block-IEW	none			0		
@@ -1193,7 +1197,7 @@ src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestE2EWbRobUpdateFullSignals
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestIcSquashFanOut::test_bc_iew_squash_clears_pending_in_parent	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestIcSquashFanOut::test_bc_iew_squash_per_thread_isolation	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestIcSquashFanOut::test_bc_iew_squash_propagates_to_writeback_pending	PASS	block-IEW	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestIcSquashFanOut::test_writeback_ic_squash_signature_is_tid_seqnum	PASS	block-IEW	none			0		
+src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestIcSquashFanOut::test_writeback_ic_squash_signature_is_tid_seqnum	FAIL	block-IEW	none			0		TypeError: TestIcSquashFanOut.test_writeback_ic_squash_signature_is_tid_seqnum.<locals>._spy() takes 3 positional arguments but 5 were given self = <test_iew_cl.TestIcSquashFanOut object at 0x7fbe67d79a60>      def test_writeback_ic_squash_signature_is_tid_seqnum(self):         dut = make_iew()         captured = []         original = dut.ic_squash_wb.method              def _spy(tid, seqnum, max_
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestInterSubBlockInterfaces::test_dispatch_to_iq_iq_dispatch_wire	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestInterSubBlockInterfaces::test_dispatch_to_lsq_insert_load_wire	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestInterSubBlockInterfaces::test_dispatch_to_lsq_insert_store_wire	PASS	block-IEW	none			0		
@@ -1247,7 +1251,7 @@ src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_int_iq_cl_adr0033.TestIssuedField::te
 src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_int_iq_cl_adr0033.TestIssuedField::test_issued_entry_does_not_block_younger_entries	PASS	block-IQ	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_int_iq_cl_adr0033.TestIssuedField::test_ready_entry_marked_issued_not_deallocated	PASS	block-IQ	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_int_iq_cl_adr0033.TestIssuedField::test_select_skips_issued_entries	PASS	block-IQ	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_int_iq_cl_adr0033.TestLazySquash::test_squashed_unready_entry_stays_in_iq	PASS	block-IQ	none			0		
+src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_int_iq_cl_adr0033.TestLazySquash::test_squashed_unready_entry_stays_in_iq	FAIL	block-IQ	none			0		RuntimeError: P7: SRE shadow lacks position meta (max_entries=0, keys=['boundary', 'counter', 'oldest', 'state', 'youngest']) — the seqnum fallback was removed by directive self = <test_int_iq_cl_adr0033.TestLazySquash object at 0x7f0104b166c0>      def test_squashed_unready_entry_stays_in_iq(self):         """Squashed entry with unready source stays valid (NOT eagerly invalidated).              P
 src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_int_iq_cl_adr0033.TestLazySquash::test_sre_shadow_dispatching_state_not_squashed	PASS	block-IQ	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_int_iq_cl_adr0033.TestLazySquash::test_sre_shadow_squashing_state_detected	PASS	block-IQ	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_int_iq_cl_adr0033.TestLegacyRemoved::test_pending_wakeup_dests_attribute_removed	PASS	block-IQ	none			0		
@@ -1328,7 +1332,7 @@ src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_mem_iq_cl_adr0033.TestIssuedField::te
 src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_mem_iq_cl_adr0033.TestIssuedField::test_select_skips_issued_lda_entries	PASS	block-IQ	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_mem_iq_cl_adr0033.TestIssuedField::test_sta_deallocated_at_issue	PASS	block-IQ	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_mem_iq_cl_adr0033.TestIssuedField::test_std_deallocated_at_issue	PASS	block-IQ	none			0		
-src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_mem_iq_cl_adr0033.TestLazySquash::test_squashed_unready_lda_entry_stays_in_iq	PASS	block-IQ	none			0		
+src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_mem_iq_cl_adr0033.TestLazySquash::test_squashed_unready_lda_entry_stays_in_iq	FAIL	block-IQ	none			0		RuntimeError: P7: SRE shadow lacks position meta (max_entries=0, keys=['boundary', 'counter', 'oldest', 'state', 'youngest']) — the seqnum fallback was removed by directive self = <test_mem_iq_cl_adr0033.TestLazySquash object at 0x7f0104574560>      def test_squashed_unready_lda_entry_stays_in_iq(self):         """Squashed LDA entry with unready source stays valid (NOT eagerly         invalidated)
 src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_mem_iq_cl_adr0033.TestLazySquash::test_sre_shadow_dispatching_state_not_squashed	PASS	block-IQ	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_mem_iq_cl_adr0033.TestLazySquash::test_sre_shadow_squashing_state_detected	PASS	block-IQ	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_mem_iq_cl_adr0033.TestLegacyRemoved::test_pending_wakeup_dests_attribute_removed	PASS	block-IQ	none			0		
@@ -1356,12 +1360,12 @@ src.cpu.pyo3.pymtl3.o3-block-tests.IQ.test_params_cluster_base::test_iq_cl_has_n
 test_lq_core_cl.TestADR0019Ports::test_dcache_load_pa_req_caller_ifc_exists	PASS	block-LQCore	none			0		
 test_lq_core_cl.TestADR0019Ports::test_dcache_load_pa_req_fires_on_translated	PASS	block-LQCore	none			0		
 test_lq_core_cl.TestADR0019Ports::test_dcache_req_removed	PASS	block-LQCore	none			0		
-test_lq_core_cl.TestCommitLoads::test_commit_loads_advances_head	PASS	block-LQCore	none			0		
-test_lq_core_cl.TestCommitLoads::test_commit_loads_all_entries	PASS	block-LQCore	none			0		
+test_lq_core_cl.TestCommitLoads::test_commit_loads_advances_head	FAIL	block-LQCore	none			0		RuntimeError: P7: commit_loads pop without a retire position (pending_commit_load_pos=-1) — the seqnum fallback was removed by directive self = <LQCore.test_lq_core_cl.TestCommitLoads object at 0x7f40ef9281a0>      def test_commit_loads_advances_head(self):         """commit_loads must advance state_lq_head past committed entries."""         dut = make_lq_core()         dut.insert(0, seqnum=1, siz
+test_lq_core_cl.TestCommitLoads::test_commit_loads_all_entries	FAIL	block-LQCore	none			0		RuntimeError: P7: commit_loads pop without a retire position (pending_commit_load_pos=-1) — the seqnum fallback was removed by directive self = <LQCore.test_lq_core_cl.TestCommitLoads object at 0x7f40ef9254c0>      def test_commit_loads_all_entries(self):         """commit_loads with youngest_seqnum >= all seqnums empties LQ."""         dut = make_lq_core()         dut.insert(0, seqnum=1, size=4, 
 test_lq_core_cl.TestCommitLoads::test_commit_loads_callee_ifc_exists	PASS	block-LQCore	none			0		
-test_lq_core_cl.TestCommitLoads::test_commit_loads_no_entries_above_threshold	PASS	block-LQCore	none			0		
-test_lq_core_cl.TestCommitLoads::test_commit_loads_per_thread	PASS	block-LQCore	none			0		
-test_lq_core_cl.TestCommitLoads::test_commit_loads_pops_head_entries_with_seqnum_le_threshold	PASS	block-LQCore	none			0		
+test_lq_core_cl.TestCommitLoads::test_commit_loads_no_entries_above_threshold	FAIL	block-LQCore	none			0		RuntimeError: P7: commit_loads pop without a retire position (pending_commit_load_pos=-1) — the seqnum fallback was removed by directive self = <LQCore.test_lq_core_cl.TestCommitLoads object at 0x7f40ef923530>      def test_commit_loads_no_entries_above_threshold(self):         """commit_loads with youngest_seqnum=0 when head has seqnum=1         should not pop anything (1 > 0)."""         dut = m
+test_lq_core_cl.TestCommitLoads::test_commit_loads_per_thread	FAIL	block-LQCore	none			0		RuntimeError: P7: commit_loads pop without a retire position (pending_commit_load_pos=-1) — the seqnum fallback was removed by directive self = <LQCore.test_lq_core_cl.TestCommitLoads object at 0x7f40ef92b380>      def test_commit_loads_per_thread(self):         """commit_loads(tid=0, ...) must not affect tid=1's entries."""         dut = make_lq_core(cfg_max_threads=2)         dut.insert(0, seqnu
+test_lq_core_cl.TestCommitLoads::test_commit_loads_pops_head_entries_with_seqnum_le_threshold	FAIL	block-LQCore	none			0		RuntimeError: P7: commit_loads pop without a retire position (pending_commit_load_pos=-1) — the seqnum fallback was removed by directive self = <LQCore.test_lq_core_cl.TestCommitLoads object at 0x7f40ef9288f0>      def test_commit_loads_pops_head_entries_with_seqnum_le_threshold(self):         """commit_loads(tid=0, youngest_seqnum=2) must free LQ head entries         with seqnum <= 2. Insert 3 lo
 test_lq_core_cl.TestDCacheResp::test_dcache_resp_completes_load	PASS	block-LQCore	none			0		
 test_lq_core_cl.TestDependentsUpdate::test_dependents_update_callee_ifc_exists	PASS	block-LQCore	none			0		
 test_lq_core_cl.TestDependentsUpdate::test_dependents_update_decrements_pending_producers	PASS	block-LQCore	none			0		
@@ -1473,33 +1477,32 @@ test_lq_core_cl_f33_shift_cancel_ordering.TestF33ShiftCancelOrdering::test_l1_sh
 test_lq_core_cl_f33_shift_cancel_ordering.TestF33ShiftCancelOrdering::test_l2_shift_pop_silent_on_completion_cancel	PASS	block-LQCore	none			0		
 test_lsq_parent_cl.TestADR0017::test_store_set_violation_fires_on_violation_detection	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestADR0017::test_violation_signal_still_fires	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_fence_complete_marks_lq_fence_entry_completed	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_fence_complete_marks_sq_fence_entry_completed	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_fence_complete_unblocks_barred_load	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_full_fence_allocates_both_lq_and_sq_entries	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_insert_load_accepts_is_fence_load_kwarg	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_insert_store_accepts_is_fence_store_kwarg	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_is_load_barred_false_when_no_fence_entries	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_is_load_barred_scans_lq_fence_entries	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_is_store_barred_false_when_no_fence_entries	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_is_store_barred_scans_sq_fence_entries	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_lq_entry_has_is_fence_load_field	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_no_separate_barrier_sets_or_insert_fence	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestADR0029FenceViaLsqEntries::test_sq_entry_has_is_fence_store_field	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestADR0041BarrierPlaceholder::test_active_placeholder_holds_younger_load_positionally	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestADR0041BarrierPlaceholder::test_aq_disable_barrier_releases_held_load	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestADR0041BarrierPlaceholder::test_disabled_placeholder_not_counted_by_dispatch_walk	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestADR0041BarrierPlaceholder::test_fence_placeholder_is_commit_gated_and_stores_nothing	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestADR0041BarrierPlaceholder::test_insert_load_no_longer_accepts_is_fence_load_kwarg	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestADR0041BarrierPlaceholder::test_insert_store_accepts_is_fence_store_and_barrier_kwargs	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestADR0041BarrierPlaceholder::test_lq_entry_has_no_is_fence_load_field	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestADR0041BarrierPlaceholder::test_no_barrier_entries_no_hold	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestADR0041BarrierPlaceholder::test_no_fence_complete_chain_anywhere	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestADR0041BarrierPlaceholder::test_no_separate_barrier_sets_or_insert_fence	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestADR0041BarrierPlaceholder::test_placeholder_commit_marks_completed_and_clears_barrier	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestADR0041BarrierPlaceholder object at 0x7fb89b7738f0>      def test_placeholder_commit_marks_completed_and_clears_barrier(self):         """The FENCE placeholder's commit path (commit_stores → canWB →         skip-
+test_lsq_parent_cl.TestADR0041BarrierPlaceholder::test_sq_entry_has_is_fence_store_and_barrier_fields	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestAmoLqSqPair::test_amo_lq_forwards_from_different_seqnum_store	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestAmoLqSqPair::test_amo_lq_skips_own_sq_goes_to_dcache	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestAmoLqSqPair::test_is_atomic_defaults_false_on_lq_entry	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestAmoLqSqPair::test_is_atomic_field_set_on_lq_entry	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestAmoLqSqPair::test_normal_load_stalls_on_amo_sq	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestCommitLoads::test_commit_loads_callee_ifc_exists	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestCommitLoads::test_commit_loads_pops_lq_head_entries	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestCommitLoads::test_commit_loads_pops_lq_head_entries	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_loads pop without a retire position (pending_commit_load_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestCommitLoads object at 0x7fb89b560980>      def test_commit_loads_pops_lq_head_entries(self):         """commit_loads(tid=0, youngest_seqnum=2) frees LQ entries with         seqnum <= 2. End-to-end: execute_load x3 → commit
 test_lsq_parent_cl.TestDependentLoadsIntegration::test_dependents_broadcast_wired_to_dependents_update	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestDependentLoadsIntegration::test_end_to_end_load_stalls_until_producer_executes	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestDependentLoadsIntegration::test_insert_load_no_producer_leaves_pending_producers_zero	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestDependentLoadsIntegration::test_insert_load_sets_dependents_bit_on_producer_sq_entry	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestDependentLoadsIntegration::test_insert_load_sets_pending_producers_when_producer_predicted	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestDependentLoadsIntegration::test_squash_clears_dependents_on_sq_entries	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestDependentLoadsIntegration::test_squash_clears_pending_producers_on_lq_entries	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestDependentLoadsIntegration::test_squash_clears_dependents_on_sq_entries	FAIL	block-LSQParent	none			0		RuntimeError: P7: LQ force_ack_squashed_speculation without a boundary position — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestDependentLoadsIntegration object at 0x7fb89b559040>      def test_squash_clears_dependents_on_sq_entries(self):         """On squash, invalidated SQ entries have their dependents bit vector         cleared (prevents spurious broadca
+test_lsq_parent_cl.TestDependentLoadsIntegration::test_squash_clears_pending_producers_on_lq_entries	FAIL	block-LSQParent	none			0		RuntimeError: P7: LQ force_ack_squashed_speculation without a boundary position — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestDependentLoadsIntegration object at 0x7fb89b55ac00>      def test_squash_clears_pending_producers_on_lq_entries(self):         """On squash, invalidated LQ entries have pending_producers cleared         (entry reuse safety — a freed
 test_lsq_parent_cl.TestDrainStatus::test_drain_done_exists	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestDrainStatus::test_drain_done_when_empty	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestDrainStatus::test_free_lq_entries_exists	PASS	block-LSQParent	none			0		
@@ -1515,35 +1518,35 @@ test_lsq_parent_cl.TestEndToEndIntegration.TestSTA_STD_StoreDecomposition::test_
 test_lsq_parent_cl.TestEndToEndIntegration.TestSTA_STD_StoreDecomposition::test_std_arrival_unstalls_dependent_load	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration.TestSTA_STD_StoreDecomposition::test_std_before_sta	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration.TestSTA_STD_StoreDecomposition::test_std_transitions_waiting_data_to_executed	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_atomic_amo_lq_sq_pair	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_cbo_as_store_via_parent	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_commit_loads_via_parent	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_atomic_amo_lq_sq_pair	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestEndToEndIntegration object at 0x7fb89b776a20>      def test_e2e_atomic_amo_lq_sq_pair(self):         """AMO as LQ+SQ pair (ADR 0024 D3): insert_load with is_atomic=True         AND insert_store with is_atomic=Tru
+test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_cbo_as_store_via_parent	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestEndToEndIntegration object at 0x7fb89b775400>      def test_e2e_cbo_as_store_via_parent(self):         """CBO.FLUSH (cbo_type=2) allocates an SQ entry with         cache_maintenance=True. At commit-writeback, dca
+test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_commit_loads_via_parent	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_loads pop without a retire position (pending_commit_load_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestEndToEndIntegration object at 0x7fb89b835fd0>      def test_e2e_commit_loads_via_parent(self):         """commit_loads via parent pops completed LQ head entries.         Parent interfaces only: insert_load, execute_load,  
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_data_prefetch_skip_cam	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_dcache_resp_fifo	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_dtlb_port_arbitration	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_fence_barrier_gating	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_fence_full_barrier_via_parent	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_fence_barrier_gating	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_loads pop without a retire position (pending_commit_load_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestEndToEndIntegration object at 0x7fb89b559490>      def test_e2e_fence_barrier_gating(self):         """ADR 0041 re-expectationing (was ADR 0029 fence_complete flow):         FENCE anchors on ONE SQ barrier placeholder (is_
+test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_fence_full_barrier_via_parent	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestEndToEndIntegration object at 0x7fb89b774c20>      def test_e2e_fence_full_barrier_via_parent(self):         """ADR 0041 re-expectationing (was ADR 0029 dual-entry flow):         FENCE (any variant) allocates exa
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_ic_drain_via_parent	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_ignored_responses_counter	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_ll_sc_reservation_set_path	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_ll_sc_success	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_load_on_load_violation_tso_force_squash_via_parent	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_lsq_dep_check_shift	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_multi_thread_independent	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_multi_thread_independent	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestEndToEndIntegration object at 0x7fb89b8374d0>      def test_e2e_multi_thread_independent(self):         """Two threads: thread 0 does a load, thread 1 does a store. Both         complete independently. Verify per
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_multi_thread_smoke	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_non_spec_gating	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_predicated_false_fast_path	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_sc_failure_fast_complete	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_simple_load_completion	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_simple_store_completion	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_simple_store_completion	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestEndToEndIntegration object at 0x7fb89b7743e0>      def test_e2e_simple_store_completion(self):         """Full flow: insert_store -> execute_store -> DTLB -> fsm=executed         -> commit_stores -> writeback -> 
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_snoop_lr_clears_reservation_via_parent	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_snoop_reexec_via_parent	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_split_load_via_parent	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_split_store_non_forwardable_via_parent	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_split_store_via_parent	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_squash_and_replay	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_split_store_via_parent	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestEndToEndIntegration object at 0x7fb89b7776b0>      def test_e2e_split_store_via_parent(self):         """Split store crosses a 4KB page boundary. Parent detects the         split at execute_store_addr (STA) time,
+test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_squash_and_replay	FAIL	block-LSQParent	none			0		RuntimeError: P7: LQ force_ack_squashed_speculation without a boundary position — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestEndToEndIntegration object at 0x7fb89b776ba0>      def test_e2e_squash_and_replay(self):         """Load is squashed after execute but before completion. ic_squash         invalidates the LQ entry. A new load (re-executed) is insert
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_squashed_bypass	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_store_backpressure_retry	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_store_backpressure_retry	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestEndToEndIntegration object at 0x7fb89b775f70>      def test_e2e_store_backpressure_retry(self):         """Store writeback with D-Cache backpressure:         dcache_store_pa_req.rdy() returns False first cycle, T
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_store_forwarding_to_load	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_storeset_prediction_full_cycle	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_strictly_ordered_internal_poll	PASS	block-LSQParent	none			0		
@@ -1552,7 +1555,7 @@ test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_tlbi_full_flow	PASS	block-L
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_violation_ack_handshake_via_parent	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_violation_flow	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_vipt_speculative_l1_load_via_parent	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_zero_size_store_via_parent	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestEndToEndIntegration::test_e2e_zero_size_store_via_parent	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestEndToEndIntegration object at 0x7fb89b7746b0>      def test_e2e_zero_size_store_via_parent(self):         """Zero-size store (mem_size=0) skips D-Cache send and completes         immediately at commit_stores time
 test_lsq_parent_cl.TestExecuteLoad::test_exec_load_processed_after_tick	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestExecuteLoad::test_exec_load_sets_pending	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestExecuteLoadStoreRefined::test_combined_insert_then_execute_load_preserves_size_vaddr	PASS	block-LSQParent	none			0		
@@ -1580,7 +1583,7 @@ test_lsq_parent_cl.TestMultiThread::test_exec_load_tid0_allocates_in_partition0	
 test_lsq_parent_cl.TestMultiThread::test_exec_load_tid1_allocates_in_partition1	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestMultiThread::test_free_lq_entries_per_thread	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestMultiThread::test_free_sq_entries_per_thread	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestMultiThread::test_squash_tid0_does_not_invalidate_tid1	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestMultiThread::test_squash_tid0_does_not_invalidate_tid1	FAIL	block-LSQParent	none			0		RuntimeError: P7: LQ force_ack_squashed_speculation without a boundary position — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestMultiThread object at 0x7fb89b55b2f0>      def test_squash_tid0_does_not_invalidate_tid1(self):         """Squash walk only invalidates entries in the squashed thread's partition."""         dut = make_lsq_parent(cfg_lq_size=8, cfg_
 test_lsq_parent_cl.TestMultiThread::test_state_lq_alloc_is_per_thread_array	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestMultiThread::test_state_sq_alloc_is_per_thread_array	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestMultiThread::test_subblocks_get_max_threads	PASS	block-LSQParent	none			0		
@@ -1600,18 +1603,19 @@ test_lsq_parent_cl.TestN2DecodeInfoAtInsert::test_insert_load_takes_mem_size_and
 test_lsq_parent_cl.TestN2DecodeInfoAtInsert::test_insert_store_is_sc_defaults_to_false	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestN2DecodeInfoAtInsert::test_insert_store_takes_mem_size_and_is_sc	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestN2DecodeInfoAtInsert::test_sc_fast_complete_path_via_parent	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestNonSpeculativeHandling::test_fence_complete_callee_ifc_exists	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestNonSpeculativeHandling::test_active_placeholder_holds_younger_load	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestNonSpeculativeHandling::test_aq_load_execute_disables_placeholder	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestNonSpeculativeHandling::test_disable_barrier_ifc_exists_fence_complete_removed	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestNonSpeculativeHandling::test_disabled_placeholder_transparent_to_new_loads	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestNonSpeculativeHandling::test_insert_store_non_atomic_has_non_spec_false	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestNonSpeculativeHandling::test_is_load_barred_blocks_younger_loads	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestNonSpeculativeHandling::test_is_load_barred_false_when_no_barriers	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestNonSpeculativeHandling::test_is_store_barred_blocks_younger_stores	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestNonSpeculativeHandling::test_is_store_barred_false_when_no_barriers	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestNonSpeculativeHandling::test_load_execute_stalled_by_barrier	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestNonSpeculativeHandling::test_load_execute_unblocks_after_fence_complete	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestNonSpeculativeHandling::test_no_placeholder_no_hold	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestNonSpeculativeHandling::test_nonSpecInstReady_callee_ifc_exists	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestNonSpeculativeHandling::test_nonSpecInstReady_clears_sq_non_spec	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestNonSpeculativeHandling::test_store_execute_stalled_by_barrier	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestNonSpeculativeHandling::test_store_execute_unblocks_after_fence_complete	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestNonSpeculativeHandling::test_placeholder_commit_drains_storesToWB_accounting	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestNonSpeculativeHandling object at 0x7fb89b779910>      def test_placeholder_commit_drains_storesToWB_accounting(self):         """ADR 0041: the placeholder's commit path preserves the fence.i /         iew_has_sto
+test_lsq_parent_cl.TestNonSpeculativeHandling::test_placeholder_commit_releases_held_load	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestNonSpeculativeHandling object at 0x7fb89b8366f0>      def test_placeholder_commit_releases_held_load(self):         """ADR 0041: the FENCE placeholder's COMMIT is its disable event —         commit_stores sets ca
+test_lsq_parent_cl.TestNonSpeculativeHandling::test_placeholder_squash_invalidates_like_any_sq_entry	FAIL	block-LSQParent	none			0		RuntimeError: P7: LQ force_ack_squashed_speculation without a boundary position — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestNonSpeculativeHandling object at 0x7fb89b835cd0>      def test_placeholder_squash_invalidates_like_any_sq_entry(self):         """ADR 0041: squash invalidates the placeholder like any SQ entry —         no special barrier logic; you
+test_lsq_parent_cl.TestNonSpeculativeHandling::test_younger_load_proceeds_at_execute_while_held	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestNonSpeculativeHandling::test_younger_store_not_execute_gated_commit_order_release	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestNonSpeculativeHandling object at 0x7fb89b8360c0>      def test_younger_store_not_execute_gated_commit_order_release(self):         """ADR 0041: younger stores are NOT gated at execute (the old         is_store_ba
 test_lsq_parent_cl.TestParentDcacheResp::test_dcache_resp_lq_tag_forwards_to_lq_core	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestParentDcacheResp::test_dcache_resp_sq_frag0_tag_calls_store_complete	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestParentDcacheResp::test_dcache_resp_sq_frag1_tag_calls_store_complete_is_frag1	PASS	block-LSQParent	none			0		
@@ -1620,10 +1624,10 @@ test_lsq_parent_cl.TestParentDcacheResp::test_parent_dcache_resp_callee_ifc_exis
 test_lsq_parent_cl.TestPerPortExecuteArrays::test_execute_load_rdy_false_when_all_slots_full	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestPerPortExecuteArrays::test_execute_load_rdy_when_all_slots_free	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestPerPortExecuteArrays::test_existing_single_load_still_works	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestPerPortExecuteArrays::test_fence_barred_load_retries_next_cycle	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestPerPortExecuteArrays::test_first_free_slot_reused_after_tick	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestPerPortExecuteArrays::test_load_ports_capacity	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestPerPortExecuteArrays::test_load_slot_dict_fields	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestPerPortExecuteArrays::test_load_under_active_barrier_executes_first_cycle	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestPerPortExecuteArrays object at 0x7fb89b837d10>      def test_load_under_active_barrier_executes_first_cycle(self):         """ADR 0041 re-expectationing of the C4 fence-barred load retry         pattern: the is_l
 test_lsq_parent_cl.TestPerPortExecuteArrays::test_multiple_loads_accepted_per_cycle	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestPerPortExecuteArrays::test_multiple_stores_accepted_per_cycle	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestPerPortExecuteArrays::test_squashed_bypass_multiple_ports	PASS	block-LSQParent	none			0		
@@ -1646,21 +1650,21 @@ test_lsq_parent_cl.TestSplitUnaligned::test_split_load_crossing_page_boundary	PA
 test_lsq_parent_cl.TestSplitUnaligned::test_split_load_issues_two_dtlb_requests	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestSquashHandling::test_ic_squash_callee_ifc_exists	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestSquashHandling::test_squash_complete_caller_ifc_exists	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestSquashHandling::test_squash_complete_pulses	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestSquashHandling::test_squash_invalidates_lq_entries	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestSquashHandling::test_squash_complete_pulses	FAIL	block-LSQParent	none			0		RuntimeError: P7: LQ force_ack_squashed_speculation without a boundary position — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestSquashHandling object at 0x7fb89b568890>      def test_squash_complete_pulses(self):         """squash_complete fires when squash walk finishes."""         dut = make_lsq_parent()         lq_idx = dut.insert_load(seqnum=1, tid=0, pc
+test_lsq_parent_cl.TestSquashHandling::test_squash_invalidates_lq_entries	FAIL	block-LSQParent	none			0		RuntimeError: P7: LQ force_ack_squashed_speculation without a boundary position — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestSquashHandling object at 0x7fb89b568d40>      def test_squash_invalidates_lq_entries(self):         """Squash invalidates LQ entries with seqnum > squashed_num."""         dut = make_lsq_parent()         lq_idx = dut.insert_load(seq
 test_lsq_parent_cl.TestSquashedBypass::test_squashed_load_bypass	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestSquashedBypass::test_squashed_load_does_not_set_eff_addr_valid	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestSquashedBypass::test_squashed_load_entry_freed_by_squash_walk	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestSquashedBypass::test_squashed_load_entry_freed_by_squash_walk	FAIL	block-LSQParent	none			0		RuntimeError: P7: LQ force_ack_squashed_speculation without a boundary position — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestSquashedBypass object at 0x7fb89b5583e0>      def test_squashed_load_entry_freed_by_squash_walk(self):         """C6: squashed-bypass entry is freed by the normal squash walk         (Spec §3.8, §3.11).  The bypass fires execute_res
 test_lsq_parent_cl.TestSquashedBypass::test_squashed_store_bypass	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestSquashedBypass::test_squashed_store_does_not_set_canWB	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestStatusSignalsM2::test_ldstq_count_after_insert_load	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestStatusSignalsM2::test_ldstq_count_after_insert_store	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestStatusSignalsM2::test_ldstq_count_combined	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestStatusSignalsM2::test_ldstq_count_decreases_on_commit	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestStatusSignalsM2::test_ldstq_count_decreases_on_commit	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_loads pop without a retire position (pending_commit_load_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestStatusSignalsM2 object at 0x7fb89b779070>      def test_ldstq_count_decreases_on_commit(self):         """Commit a load → ldstq_count decreases by 1 (only the store remains).              Insert 1 load + 1 store (count=2),
 test_lsq_parent_cl.TestStatusSignalsM2::test_ldstq_count_zero_after_reset	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestStatusSignalsM2::test_update_next_cycle_false_after_reset	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestStatusSignalsM2::test_update_next_cycle_false_when_no_store_popped	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestStatusSignalsM2::test_update_next_cycle_true_when_store_popped	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestStatusSignalsM2::test_update_next_cycle_true_when_store_popped	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestStatusSignalsM2 object at 0x7fb89b77b1d0>      def test_update_next_cycle_true_when_store_popped(self):         """Full store lifecycle: the SQ head pop pulses update_next_cycle=True         on the pop cycle, the
 test_lsq_parent_cl.TestStoreCommit::test_commit_stores_forwards_to_sq_store	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestStoreSetIntegration::test_insert_load_calls_check_inst	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestStoreSetIntegration::test_store_set_subblock_exists	PASS	block-LSQParent	none			0		
@@ -1674,11 +1678,11 @@ test_lsq_parent_cl.TestTLBISyncComp::test_tlbi_sync_comp_fires_after_tlbi_inv_re
 test_lsq_parent_cl.TestTranslationFault::test_no_fault_load_proceeds_normally	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestTranslationFault::test_translation_fault_load_completes_with_fault	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestTranslationFault::test_translation_fault_load_no_dcache_req	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestTranslationFault::test_translation_fault_store_completes_with_fault	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestTwoStageStoreWriteback::test_commit_stores_sets_canwb	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestTranslationFault::test_translation_fault_store_completes_with_fault	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestTranslationFault object at 0x7fb89b559850>      def test_translation_fault_store_completes_with_fault(self):         """When translate_result returns fault != 0 for a store, the SQ entry         must be marked co
+test_lsq_parent_cl.TestTwoStageStoreWriteback::test_commit_stores_sets_canwb	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestTwoStageStoreWriteback object at 0x7fb89b55ac60>      def test_commit_stores_sets_canwb(self):         """C6: commit_stores sets canWB on SQ entries (Spec §3.6, Stage 1).              After commit_stores(tid=0, y
 test_lsq_parent_cl.TestTwoStageStoreWriteback::test_parent_sq_commit_wired_to_commit_stores	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestTwoStageStoreWriteback::test_store_writeback_not_directly_called	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl.TestTwoStageStoreWriteback::test_two_stage_pipeline_commit_then_writeback	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl.TestTwoStageStoreWriteback::test_two_stage_pipeline_commit_then_writeback	FAIL	block-LSQParent	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl.TestTwoStageStoreWriteback object at 0x7fb89b55b5c0>      def test_two_stage_pipeline_commit_then_writeback(self):         """C6: two-stage pipeline — commit_stores sets canWB (stage 1), then         up_once_writebac
 test_lsq_parent_cl.TestVaddrPropagation::test_execute_load_passes_vaddr_to_lq_insert	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestVaddrPropagation::test_execute_store_passes_vaddr_to_sq_insert	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestViolationAckParent::test_violation_ack_exists_on_parent	PASS	block-LSQParent	none			0		
@@ -1730,12 +1734,12 @@ test_lsq_parent_cl_adr0033_speculation.TestSpeculationInterface::test_fu_early_c
 test_lsq_parent_cl_adr0033_speculation.TestSpeculationInterface::test_fu_nack_alias_shares_lq_core_object	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl_adr0033_speculation.TestSpeculationInterface::test_fu_nack_is_callable	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl_adr0033_speculation.TestSpeculationInterface::test_fu_nack_port_exists	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL1::test_squash_clears_l1_shift_reg_slot_silent_pop	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL1::test_squash_does_not_fire_and_clears_l1_slot	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL2::test_squash_clears_l2_shift_reg_slot_silent_pop	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL2::test_squash_does_not_fire_and_clears_l2_slot	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckNegativeCases::test_squash_walks_only_matching_seqnum	PASS	block-LSQParent	none			0		
-test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckNegativeCases::test_squash_with_empty_shift_regs_does_not_fire	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL1::test_squash_clears_l1_shift_reg_slot_silent_pop	FAIL	block-LSQParent	none			0		RuntimeError: P7: LQ force_ack_squashed_speculation without a boundary position — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL1 object at 0x7fb89b76f380>      def test_squash_clears_l1_shift_reg_slot_silent_pop(self):         """After squash, the L1 slot is cleared — natural pop is silent.              Witho
+test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL1::test_squash_does_not_fire_and_clears_l1_slot	FAIL	block-LSQParent	none			0		RuntimeError: P7: LQ force_ack_squashed_speculation without a boundary position — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL1 object at 0x7fb89b76f710>      def test_squash_does_not_fire_and_clears_l1_slot(self):         """L1 shift reg has pending entry → ic_squash fires NOTHING and         clears the slo
+test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL2::test_squash_clears_l2_shift_reg_slot_silent_pop	FAIL	block-LSQParent	none			0		RuntimeError: P7: LQ force_ack_squashed_speculation without a boundary position — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL2 object at 0x7fb89b76ce60>      def test_squash_clears_l2_shift_reg_slot_silent_pop(self):         """After squash, the L2 slot is cleared — natural pop is silent."""         dut = m
+test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL2::test_squash_does_not_fire_and_clears_l2_slot	FAIL	block-LSQParent	none			0		RuntimeError: P7: LQ force_ack_squashed_speculation without a boundary position — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL2 object at 0x7fb89b76f9b0>      def test_squash_does_not_fire_and_clears_l2_slot(self):         """L2 shift reg has pending entry → ic_squash fires NOTHING and         clears the slo
+test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckNegativeCases::test_squash_walks_only_matching_seqnum	FAIL	block-LSQParent	none			0		RuntimeError: P7: LQ force_ack_squashed_speculation without a boundary position — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckNegativeCases object at 0x7fb89b76ea80>      def test_squash_walks_only_matching_seqnum(self):         """Only LQ entries with seqnum > squashed_num get their shift-reg         slot cl
+test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckNegativeCases::test_squash_with_empty_shift_regs_does_not_fire	FAIL	block-LSQParent	none			0		RuntimeError: P7: LQ force_ack_squashed_speculation without a boundary position — the seqnum fallback was removed by directive self = <LSQParent.test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckNegativeCases object at 0x7fb89b76f0b0>      def test_squash_with_empty_shift_regs_does_not_fire(self):         """No pending entries → ic_squash does not fire fu_early_complete."""   
 test_o3_control_cl.TestBackwardBusPropagation::test_backward_ctrl_in_forwards_to_commit	PASS	block-O3Control	none			0		
 test_o3_control_cl.TestBackwardBusPropagation::test_rename_to_iew_accessible	PASS	block-O3Control	none			0		
 test_o3_control_cl.TestBackwardBusPropagation::test_rob_empty_reaches_rename	PASS	block-O3Control	none			0		
@@ -1842,27 +1846,27 @@ test_rob_cl.TestSMTArbitration::test_dynamic_multi_thread	PASS	block-ROB	none			
 test_rob_cl.TestSMTArbitration::test_partitioned_capacity	PASS	block-ROB	none			0		
 test_rob_cl.TestSquash::test_squash_done_signal	PASS	block-ROB	none			0		
 test_rob_cl.TestSquash::test_squash_empty_fast_path	PASS	block-ROB	none			0		
-test_rob_cl.TestSquash::test_squash_marks_entries	PASS	block-ROB	none			0		
+test_rob_cl.TestSquash::test_squash_marks_entries	FAIL	block-ROB	none			0		assert not True  +  where True = <o3.rob_cl.ROBEntry object at 0x7f0b990cb9a0>.is_squashed  +    where <o3.rob_cl.ROBEntry object at 0x7f0b990cb9a0> = <function ROBCL.construct.<locals>.get_entry at 0x7f0b991b9f80>(0)  +      where <function ROBCL.construct.<locals>.get_entry at 0x7f0b991b9f80> = s.get_entry self = <ROB.test_rob_cl.TestSquash object at 0x7f0b99ac73e0>      def test_squash_marks_en
 test_rob_cl.TestSquash::test_squash_new_request_restarts	PASS	block-ROB	none			0		
 test_rob_cl.TestSquash::test_squash_no_head_tail_count_change	PASS	block-ROB	none			0		
 test_rob_cl.TestSquash::test_squash_updates_youngest_seqnum	PASS	block-ROB	none			0		
 test_rob_cl.TestSquash::test_thread_exiting_override	PASS	block-ROB	none			0		
 test_rob_cl.TestSquash::test_youngest_seqnum_squash_overrides_insert	PASS	block-ROB	none			0		
-test_rob_cl.TestSquashRecoveryWalk::test_cmt_fip_full_stall	PASS	block-ROB	none			0		
+test_rob_cl.TestSquashRecoveryWalk::test_cmt_fip_full_stall	FAIL	block-ROB	none			0		assert 4 == 2  +  where 4 = sum([True, True, True, True, False, False, ...])  +    where [True, True, True, True, False, False, ...] = RenameROBSquashWalkResp(rob_squash_walk_valid=[True, True, True, True, False, False, False, False], rob_squash_walk_se...reg_class=0, index=0, flat_index=0)]], rob_replay_walk_done=True, rob_free_walk_done=True, rob_squash_walk_abort=False).rob_squash_walk_valid se
 test_rob_cl.TestSquashRecoveryWalk::test_walk_abort	PASS	block-ROB	none			0		
-test_rob_cl.TestSquashRecoveryWalk::test_walk_done_with_last_beat	PASS	block-ROB	none			0		
+test_rob_cl.TestSquashRecoveryWalk::test_walk_done_with_last_beat	FAIL	block-ROB	none			0		assert 4 == 3 self = <ROB.test_rob_cl.TestSquashRecoveryWalk object at 0x7f0b99ac9ac0>      def test_walk_done_with_last_beat(self):         """free_walk_done asserted with last valid Phase 3 beat."""         rob = make_rob()         insts = [make_inst(i + 1) for i in range(4)]         req = make_insert_req([True] * 4, thread=0, inst_list=insts)         rob.rob_insert(req)         rob.sim_tick()  
 test_rob_cl.TestSquashRecoveryWalk::test_walk_fields	PASS	block-ROB	none			0		
-test_rob_cl.TestSquashRecoveryWalk::test_walk_youngest_to_oldest	PASS	block-ROB	none			0		
-test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_ckpt_metadata_save_restore	PASS	block-ROB	none			0		
+test_rob_cl.TestSquashRecoveryWalk::test_walk_youngest_to_oldest	FAIL	block-ROB	none			0		assert False  +  where False = RenameROBSquashWalkResp(rob_squash_walk_valid=[True, True, True, True, False, False, False, False], rob_squash_walk_se...eg_class=0, index=0, flat_index=0)]], rob_replay_walk_done=True, rob_free_walk_done=False, rob_squash_walk_abort=False).rob_free_walk_done self = <ROB.test_rob_cl.TestSquashRecoveryWalk object at 0x7f0b99aca540>      def test_walk_youngest_to_oldes
+test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_ckpt_metadata_save_restore	FAIL	block-ROB	none			0		assert 1 == 3  +  where 1 = <function ROBCL.construct.<locals>.get_ckpt_slot_index at 0x7f0b991bac00>(0)  +    where <function ROBCL.construct.<locals>.get_ckpt_slot_index at 0x7f0b991bac00> = s.get_ckpt_slot_index self = <ROB.test_rob_cl.TestSquashRecoveryWalkADR0005 object at 0x7f0b99ac5610>      def test_rob_ckpt_metadata_save_restore(self):         """ADR 0005: checkpoint save/restore metadata
 test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_ckpt_restore_falls_back_to_head_ptr	PASS	block-ROB	none			0		
 test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_ckpt_save_reset_to_zero	PASS	block-ROB	none			0		
 test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_insert_stores_allocated_new	PASS	block-ROB	none			0		
 test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_squash_walk_abort_superseding	PASS	block-ROB	none			0		
-test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_squash_walk_cmt_fip_full_stalls_phase3_only	PASS	block-ROB	none			0		
+test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_squash_walk_cmt_fip_full_stalls_phase3_only	FAIL	block-ROB	none			0		assert 5 == 8 self = <ROB.test_rob_cl.TestSquashRecoveryWalkADR0005 object at 0x7f0b99ac5e20>      def test_rob_squash_walk_cmt_fip_full_stalls_phase3_only(self):         """cmt_fip_full stalls Phase 3 only; Phase 2 continues.              With ckpt_seqnum=1, SQ=4, entries 1..8:           Phase 2 walks 2,3,4 (3 beats, NOT FIP-limited)           Phase 3 walks 8,7,6,5 (4 beats, FIP-limited)         
 test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_squash_walk_empty_rob_fast_path	PASS	block-ROB	none			0		
-test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_squash_walk_phase2_replay	PASS	block-ROB	none			0		
-test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_squash_walk_phase3_free	PASS	block-ROB	none			0		
-test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_squash_walk_simultaneous	PASS	block-ROB	none			0		
+test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_squash_walk_phase2_replay	FAIL	block-ROB	none			0		assert 4 == 2 self = <ROB.test_rob_cl.TestSquashRecoveryWalkADR0005 object at 0x7f0b99ac67b0>      def test_rob_squash_walk_phase2_replay(self):         """Phase 2: forward replay walks ckpt_seqnum < seqnum <= SQ.              With 4 entries (seqnums 1..4), SQ=3, ckpt_seqnum=1:           Phase 2 walks entries 2,3 (1 < seqnum <= 3), oldest→youngest           Phase 3 walks entry 4 (seqnum > 3), youn
+test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_squash_walk_phase3_free	FAIL	block-ROB	none			0		assert False  +  where False = RenameROBSquashWalkResp(rob_squash_walk_valid=[True, True, True, True, False, False, False, False], rob_squash_walk_se...eg_class=0, index=0, flat_index=0)]], rob_replay_walk_done=True, rob_free_walk_done=False, rob_squash_walk_abort=False).rob_free_walk_done self = <ROB.test_rob_cl.TestSquashRecoveryWalkADR0005 object at 0x7f0b99ac6600>      def test_rob_squash_walk
+test_rob_cl.TestSquashRecoveryWalkADR0005::test_rob_squash_walk_simultaneous	FAIL	block-ROB	none			0		assert 8 == 2 self = <ROB.test_rob_cl.TestSquashRecoveryWalkADR0005 object at 0x7f0b99ac6330>      def test_rob_squash_walk_simultaneous(self):         """Both phases produce beats in the same response.              With 8 entries (seqnums 1..8), SQ=4, ckpt_seqnum=1:           Phase 2 walks 2,3,4 (oldest→youngest) → 3 beats           Phase 3 walks 8,7,6,5 (youngest→oldest) → 4 beats         Squash
 test_rob_cl.TestWBUpdate::test_wb_discarded_if_squashed	PASS	block-ROB	none			0		
 test_rob_cl.TestWBUpdate::test_wb_fault_stored	PASS	block-ROB	none			0		
 test_rob_cl.TestWBUpdate::test_wb_set_can_commit	PASS	block-ROB	none			0		
@@ -1964,10 +1968,10 @@ test_rename_cl.TestADR0005CheckpointSaveTrigger::test_indirect_branch_triggers_c
 test_rename_cl.TestADR0005CheckpointSaveTrigger::test_interval_counter_increments_on_rename	PASS	block-Rename	none			0		
 test_rename_cl.TestADR0005CheckpointState::test_branch_confidence_high_default_false	PASS	block-Rename	none			0		
 test_rename_cl.TestADR0005CheckpointState::test_ckpt_state_reset	PASS	block-Rename	none			0		
-test_rename_cl.TestADR0005ForwardReplay::test_allocated_new_false_skips_fip_write	PASS	block-Rename	none			0		
-test_rename_cl.TestADR0005ForwardReplay::test_phase3_walk_triggers_fip_write	PASS	block-Rename	none			0		
-test_rename_cl.TestADR0005SquashRecovery::test_squash_exits_on_both_walks_done	PASS	block-Rename	none			0		
-test_rename_cl.TestADR0005SquashRecovery::test_walk_done_flags_reset_on_squash	PASS	block-Rename	none			0		
+test_rename_cl.TestADR0005ForwardReplay::test_allocated_new_false_skips_fip_write	FAIL	block-Rename	none			0		RuntimeError: P7: rename received walk beat (slot=0, seq=10) without a phase bit (rob_squash_walk_phase=-1) — the seqnum fallback was removed by directive self = <Rename.test_rename_cl.TestADR0005ForwardReplay object at 0x7f3e0ea74590>      def test_allocated_new_false_skips_fip_write(self):         """allocated_new=False skips Phase 3 FIP write (pinned-register-         reuse entries, Spec §3.8, 
+test_rename_cl.TestADR0005ForwardReplay::test_phase3_walk_triggers_fip_write	FAIL	block-Rename	none			0		RuntimeError: P7: rename received walk beat (slot=0, seq=10) without a phase bit (rob_squash_walk_phase=-1) — the seqnum fallback was removed by directive self = <Rename.test_rename_cl.TestADR0005ForwardReplay object at 0x7f3e0ea70c20>      def test_phase3_walk_triggers_fip_write(self):         """Phase 3 walk entry (seqnum > SQ) triggers cmt_fip_write and         captures cmt_fip_full (Spec §3.8 
+test_rename_cl.TestADR0005SquashRecovery::test_squash_exits_on_both_walks_done	FAIL	block-Rename	none			0		RuntimeError: P7: rename received walk beat (slot=0, seq=10) without a phase bit (rob_squash_walk_phase=-1) — the seqnum fallback was removed by directive self = <Rename.test_rename_cl.TestADR0005SquashRecovery object at 0x7f3e0ea714f0>      def test_squash_exits_on_both_walks_done(self):         """Squashing state exits only when both replay_walk_done and         free_walk_done are True (Spec §3.
+test_rename_cl.TestADR0005SquashRecovery::test_walk_done_flags_reset_on_squash	FAIL	block-Rename	none			0		RuntimeError: P7: rename received walk beat (slot=0, seq=10) without a phase bit (rob_squash_walk_phase=-1) — the seqnum fallback was removed by directive self = <Rename.test_rename_cl.TestADR0005SquashRecovery object at 0x7f3e0ea71130>      def test_walk_done_flags_reset_on_squash(self):         """A new squash resets replay_walk_done and free_walk_done flags         (Spec §3.8, ADR 0005)."""    
 test_rename_cl.TestBlockUnblock::test_block_on_iq_full	PASS	block-Rename	none			0		
 test_rename_cl.TestBlockUnblock::test_block_on_rob_full	PASS	block-Rename	none			0		
 test_rename_cl.TestBlockUnblock::test_unblock_when_resources_available	PASS	block-Rename	none			0		
@@ -1977,10 +1981,10 @@ test_rename_cl.TestConstructionAndReset::test_rename_map_initialized	PASS	block-
 test_rename_cl.TestConstructionAndReset::test_reset_empty_queues	PASS	block-Rename	none			0		
 test_rename_cl.TestConstructionAndReset::test_reset_no_block_signals	PASS	block-Rename	none			0		
 test_rename_cl.TestConstructionAndReset::test_reset_status_idle	PASS	block-Rename	none			0		
-test_rename_cl.TestFIPBackPressure::test_fip_back_pressure_stalls_walk	PASS	block-Rename	none			0		
-test_rename_cl.TestFIPBackPressure::test_fip_clear_on_new_squash	PASS	block-Rename	none			0		
+test_rename_cl.TestFIPBackPressure::test_fip_back_pressure_stalls_walk	FAIL	block-Rename	none			0		RuntimeError: P7: rename received walk beat (slot=0, seq=10) without a phase bit (rob_squash_walk_phase=-1) — the seqnum fallback was removed by directive self = <Rename.test_rename_cl.TestFIPBackPressure object at 0x7f3e0ea6d1c0>      def test_fip_back_pressure_stalls_walk(self):         """When _state_fip_full is True, the next walk beat is stalled:         the pending walk is not consumed and r
+test_rename_cl.TestFIPBackPressure::test_fip_clear_on_new_squash	FAIL	block-Rename	none			0		RuntimeError: P7: rename received walk beat (slot=0, seq=10) without a phase bit (rob_squash_walk_phase=-1) — the seqnum fallback was removed by directive self = <Rename.test_rename_cl.TestFIPBackPressure object at 0x7f3e0ea6c980>      def test_fip_clear_on_new_squash(self):         """A new squash clears the FIP full flag (Spec 3.8, 1.8).              The new-squash handler sets _next_fip_full=Fa
 test_rename_cl.TestFIPBackPressure::test_fip_full_reset_false	PASS	block-Rename	none			0		
-test_rename_cl.TestFIPBackPressure::test_fip_full_set_on_walk	PASS	block-Rename	none			0		
+test_rename_cl.TestFIPBackPressure::test_fip_full_set_on_walk	FAIL	block-Rename	none			0		RuntimeError: P7: rename received walk beat (slot=0, seq=10) without a phase bit (rob_squash_walk_phase=-1) — the seqnum fallback was removed by directive self = <Rename.test_rename_cl.TestFIPBackPressure object at 0x7f3e0ea6db50>      def test_fip_full_set_on_walk(self):         """cmt_fip_write response with cmt_fip_full=True sets the flag         for the next cycle (Spec 1.8, ADR 0002).        
 test_rename_cl.TestMultiInstructionRename::test_intra_bundle_dependency	PASS	block-Rename	none			0		
 test_rename_cl.TestMultiInstructionRename::test_two_instructions_same_cycle	PASS	block-Rename	none			0		
 test_rename_cl.TestNormalRename::test_instruction_with_source_reg	PASS	block-Rename	none			0		
@@ -2013,6 +2017,13 @@ test_rename_map_cl.TestForwardReplayPhase2::test_forward_replay_phase2_set_entry
 test_rename_map_cl.TestIntraBundleBypass::test_inst1_source_sees_inst0_dest_rename	PASS	block-Rename	none			0		
 test_rename_map_cl.TestMiscReg::test_misc_reg_identity_mapping	PASS	block-Rename	none			0		
 test_rename_map_cl.TestMiscReg::test_misc_reg_rename_returns_identity	PASS	block-Rename	none			0		
+test_rename_map_cl.TestP8RobIdxTagCAM::test_d7_out_of_window_tag_never_outranks_in_window	PASS	block-Rename	none			0		
+test_rename_map_cl.TestP8RobIdxTagCAM::test_distance_ordering_selects_youngest_qualifying	PASS	block-Rename	none			0		
+test_rename_map_cl.TestP8RobIdxTagCAM::test_duplicate_tag_assert_still_fires	PASS	block-Rename	none			0		
+test_rename_map_cl.TestP8RobIdxTagCAM::test_restore_no_valid_slots_cam_miss	PASS	block-Rename	none			0		
+test_rename_map_cl.TestP8RobIdxTagCAM::test_slot0_duplicate_save_exempt	PASS	block-Rename	none			0		
+test_rename_map_cl.TestP8RobIdxTagCAM::test_trap_reseed_resets_next_free_first_save_overwrites	PASS	block-Rename	none			0		
+test_rename_map_cl.TestP8RobIdxTagCAM::test_younger_invalidation_by_extended_distance	PASS	block-Rename	none			0		
 test_rename_map_cl.TestPinnedWrites::test_pin_count_zero_allocates_normally	PASS	block-Rename	none			0		
 test_rename_map_cl.TestPinnedWrites::test_pin_counter_not_decremented_in_cl	PASS	block-Rename	none			0		
 test_rename_map_cl.TestPinnedWrites::test_pinned_register_reuses_mapping	PASS	block-Rename	none			0		
@@ -2020,22 +2031,22 @@ test_rename_map_cl.TestRenameBundle::test_basic_lookup	PASS	block-Rename	none			
 test_rename_map_cl.TestRenameBundle::test_basic_rename	PASS	block-Rename	none			0		
 test_rename_map_cl.TestSetEntry::test_set_entry_updates_spec_map_only	PASS	block-Rename	none			0		
 test_sq_store_cl.TestADR0019Ports::test_dcache_store_pa_req_caller_ifc_exists	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestADR0019Ports::test_dcache_store_pa_req_fires_on_writeback	PASS	block-SQStore	none			0		
+test_sq_store_cl.TestADR0019Ports::test_dcache_store_pa_req_fires_on_writeback	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestADR0019Ports object at 0x7f26201878c0>      def test_dcache_store_pa_req_fires_on_writeback(self):         """Autonomous writeback fires dcache_store_pa_req with         StoreToDCacheReq (ADR 0019 + ADR 0018)."""    
 test_sq_store_cl.TestADR0019Ports::test_dcache_store_write_removed	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestBarrierFence::test_is_release_flag_exists	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestBitFieldTagScheme::test_cfg_tag_n_field_exists	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestBitFieldTagScheme::test_dcache_store_pa_req_includes_tag	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestBitFieldTagScheme::test_dcache_store_pa_req_tag_value_idx0	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestBitFieldTagScheme::test_dcache_store_pa_req_tag_value_idx1	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestCBOType::test_cbo_clean_writeback	PASS	block-SQStore	none			0		
+test_sq_store_cl.TestBitFieldTagScheme::test_dcache_store_pa_req_includes_tag	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestBitFieldTagScheme object at 0x7f2620181fa0>      def test_dcache_store_pa_req_includes_tag(self):         """dcache_store_pa_req carries StoreToDCacheReq with idx and is_frag1.         For a non-split store at idx=0:
+test_sq_store_cl.TestBitFieldTagScheme::test_dcache_store_pa_req_tag_value_idx0	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestBitFieldTagScheme object at 0x7f2620181ee0>      def test_dcache_store_pa_req_tag_value_idx0(self):         """For SQ index 0: idx=0, is_frag1=False."""         dut = make_sq_store()         dut.insert(0, seqnum=1, s
+test_sq_store_cl.TestBitFieldTagScheme::test_dcache_store_pa_req_tag_value_idx1	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestBitFieldTagScheme object at 0x7f2620189160>      def test_dcache_store_pa_req_tag_value_idx1(self):         """For SQ index 1: idx=1, is_frag1=False."""         dut = make_sq_store()         # Insert two stores so th
+test_sq_store_cl.TestCBOType::test_cbo_clean_writeback	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestCBOType object at 0x7f2620186090>      def test_cbo_clean_writeback(self):         """CBO.CLEAN (cbo_type=1) → dcache_store_write with cbo_type=1.              CBOs write to D-Cache at commit, carrying cbo_type (ADR 
 test_sq_store_cl.TestCBOType::test_cbo_excluded_from_forwarding	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestCBOType::test_cbo_flush_writeback	PASS	block-SQStore	none			0		
+test_sq_store_cl.TestCBOType::test_cbo_flush_writeback	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestCBOType object at 0x7f2620185dc0>      def test_cbo_flush_writeback(self):         """CBO.FLUSH (cbo_type=2) → dcache_store_write with cbo_type=2."""         dut = make_sq_store()         dut.insert(             0, s
 test_sq_store_cl.TestCBOType::test_cbo_no_violation_scan_on_translated	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestCBOType::test_cbo_participates_in_tso	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestCBOType::test_cbo_two_stage_writeback_path	PASS	block-SQStore	none			0		
+test_sq_store_cl.TestCBOType::test_cbo_participates_in_tso	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestCBOType object at 0x7f26201850d0>      def test_cbo_participates_in_tso(self):         """CBO in writeback pipeline → storeInFlight set (ADR 0018).              CBOs participate in TSO store ordering: one CBO in flig
+test_sq_store_cl.TestCBOType::test_cbo_two_stage_writeback_path	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestCBOType object at 0x7f2620184a40>      def test_cbo_two_stage_writeback_path(self):         """CBO via two-stage pipeline → dcache_store_write called.         GAP-4D: store_writeback removed; use commit_stores + up_o
 test_sq_store_cl.TestCBOType::test_cbo_type_field_exists	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestCBOType::test_cbo_zero_writeback	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestCBOType::test_dcache_store_write_carries_cbo_type	PASS	block-SQStore	none			0		
+test_sq_store_cl.TestCBOType::test_cbo_zero_writeback	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestCBOType object at 0x7f26201859d0>      def test_cbo_zero_writeback(self):         """CBO.ZERO (cbo_type=3) → dcache_store_write with cbo_type=3."""         dut = make_sq_store()         dut.insert(             0, seq
+test_sq_store_cl.TestCBOType::test_dcache_store_write_carries_cbo_type	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestCBOType object at 0x7f2620187f50>      def test_dcache_store_write_carries_cbo_type(self):         """dcache_store_write carries cbo_type as 4th tuple element (ADR 0018).              Normal store writeback → (phys_a
 test_sq_store_cl.TestCBOType::test_insert_accepts_cbo_type	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestCBOType::test_normal_store_cbo_type_zero	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestCacheMaintenance::test_cache_maintenance_flag_exists	PASS	block-SQStore	none			0		
@@ -2049,13 +2060,13 @@ test_sq_store_cl.TestDependentsBroadcast::test_dependents_broadcast_caller_ifc_e
 test_sq_store_cl.TestDependentsBroadcast::test_insert_clears_dependents_and_broadcast_flag	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestDependentsBroadcast::test_sq_entry_has_dependents_broadcast_flag	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestDependentsBroadcast::test_sq_entry_has_dependents_field	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestFenceOrdering::test_has_stores_to_wb_false_after_drain	PASS	block-SQStore	none			0		
+test_sq_store_cl.TestFenceOrdering::test_has_stores_to_wb_false_after_drain	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestFenceOrdering object at 0x7f2620188440>      def test_has_stores_to_wb_false_after_drain(self):         """After all stores written back AND D-Cache ack'd → storesToWB == 0.              rv64ua: the writeback engine'
 test_sq_store_cl.TestFenceOrdering::test_has_stores_to_wb_false_when_empty	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestFenceOrdering::test_has_stores_to_wb_true_when_stores_pending	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestFenceOrdering::test_normal_store_not_blocked_by_sq_head	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestFenceOrdering::test_release_store_blocked_while_a_in_flight	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestFenceOrdering::test_release_store_fires_after_batch_pop	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestFenceOrdering::test_sc_store_fires_after_batch_pop	PASS	block-SQStore	none			0		
+test_sq_store_cl.TestFenceOrdering::test_has_stores_to_wb_true_when_stores_pending	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestFenceOrdering object at 0x7f2620188fe0>      def test_has_stores_to_wb_true_when_stores_pending(self):         """After commit_stores, storesToWB > 0 (drain gate holds).              Two stores committed: first fires
+test_sq_store_cl.TestFenceOrdering::test_normal_store_not_blocked_by_sq_head	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestFenceOrdering object at 0x7f26201857c0>      def test_normal_store_not_blocked_by_sq_head(self):         """Normal store B fires after batch-pop advances head (ADR 0021 C7).              Two normal stores: A at 0, B 
+test_sq_store_cl.TestFenceOrdering::test_release_store_blocked_while_a_in_flight	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestFenceOrdering object at 0x7f2620184650>      def test_release_store_blocked_while_a_in_flight(self):         """Release store B is blocked while A is in flight (TSO §3.5).              Two stores: A (normal) at index
+test_sq_store_cl.TestFenceOrdering::test_release_store_fires_after_batch_pop	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestFenceOrdering object at 0x7f2620184e00>      def test_release_store_fires_after_batch_pop(self):         """Release store B fires after batch-pop advances head (ADR 0021 C7).              Same setup as blocked test, 
+test_sq_store_cl.TestFenceOrdering::test_sc_store_fires_after_batch_pop	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestFenceOrdering object at 0x7f2620185280>      def test_sc_store_fires_after_batch_pop(self):         """SC store B fires after batch-pop advances head (ADR 0021 C7).              Two stores: A (normal) at 0, B (SC) at
 test_sq_store_cl.TestFenceOrdering::test_state_stores_to_wb_exists	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestForwardQuery::test_forward_full_coverage_hit	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestForwardQuery::test_forward_no_match	PASS	block-SQStore	none			0		
@@ -2067,14 +2078,14 @@ test_sq_store_cl.TestInsert::test_insert_advances_tail	PASS	block-SQStore	none		
 test_sq_store_cl.TestInterfaces::test_callee_ports_exist	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestInterfaces::test_caller_ports_exist	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestM4PrefetchZeroSizeSkip::test_is_data_prefetch_field_exists	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestM4PrefetchZeroSizeSkip::test_normal_store_still_sends_to_dcache	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestM4PrefetchZeroSizeSkip::test_prefetch_does_not_set_storeInFlight	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestM4PrefetchZeroSizeSkip::test_prefetch_store_skips_dcache	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestM4PrefetchZeroSizeSkip::test_zero_size_store_skips_dcache	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestM5StoreBackpressure::test_blocked_store_retries_same_packet	PASS	block-SQStore	none			0		
+test_sq_store_cl.TestM4PrefetchZeroSizeSkip::test_normal_store_still_sends_to_dcache	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestM4PrefetchZeroSizeSkip object at 0x7f261ffa2c60>      def test_normal_store_still_sends_to_dcache(self):         """Regression: a normal store (size=4, is_data_prefetch=False,         is_all_zeros=False) still sends 
+test_sq_store_cl.TestM4PrefetchZeroSizeSkip::test_prefetch_does_not_set_storeInFlight	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestM4PrefetchZeroSizeSkip object at 0x7f261ffa2ff0>      def test_prefetch_does_not_set_storeInFlight(self):         """Prefetch store skip must NOT set state_storeInFlight (no D-Cache         access to wait for)."""   
+test_sq_store_cl.TestM4PrefetchZeroSizeSkip::test_prefetch_store_skips_dcache	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestM4PrefetchZeroSizeSkip object at 0x7f261ffa20c0>      def test_prefetch_store_skips_dcache(self):         """is_data_prefetch store -> dcache_store_pa_req NOT called, WBIt         advances (store consumed)."""       
+test_sq_store_cl.TestM4PrefetchZeroSizeSkip::test_zero_size_store_skips_dcache	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestM4PrefetchZeroSizeSkip object at 0x7f261ffa2960>      def test_zero_size_store_skips_dcache(self):         """size==0 store -> dcache_store_pa_req NOT called, WBIt advances."""         dut = make_sq_store()         d
+test_sq_store_cl.TestM5StoreBackpressure::test_blocked_store_retries_same_packet	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestM5StoreBackpressure object at 0x7f261ffa3c80>      def test_blocked_store_retries_same_packet(self):         """A blocked store retries the SAME packet (same phys_addr, same         data) when rdy() becomes True — no
 test_sq_store_cl.TestM5StoreBackpressure::test_isStoreBlocked_resets	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestM5StoreBackpressure::test_store_blocked_when_dcache_not_ready	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestM5StoreBackpressure::test_store_unblocks_when_dcache_ready	PASS	block-SQStore	none			0		
+test_sq_store_cl.TestM5StoreBackpressure::test_store_blocked_when_dcache_not_ready	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestM5StoreBackpressure object at 0x7f261ffa3680>      def test_store_blocked_when_dcache_not_ready(self):         """rdy()==False -> dcache NOT called, isStoreBlocked=True, WBIt         not advanced (store retries next 
+test_sq_store_cl.TestM5StoreBackpressure::test_store_unblocks_when_dcache_ready	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestM5StoreBackpressure object at 0x7f261ffa3980>      def test_store_unblocks_when_dcache_ready(self):         """After rdy()==False then rdy()==True: dcache IS called,         isStoreBlocked=False, WBIt advanced."""   
 test_sq_store_cl.TestMultiThreadInsert::test_construct_accepts_max_threads_param	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestMultiThreadInsert::test_default_max_threads_is_one_backward_compat	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestMultiThreadInsert::test_insert_both_threads_independent	PASS	block-SQStore	none			0		
@@ -2108,34 +2119,34 @@ test_sq_store_cl.TestSQStoreClearReservation::test_clear_reservation_clears_stat
 test_sq_store_cl.TestSQStoreClearReservation::test_clear_reservation_mismatched_addr_no_clear	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestSetPhysAddr::test_set_phys_addr_sets_eff_addr_valid	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestSplitStoreNonForwardable::test_split_store_skipped_by_forward_query	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestSplitStoreWriteback::test_split_store_completion_requires_both_acks	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestSplitStoreWriteback::test_split_store_issues_two_dcache_reqs	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestSplitStoreWriteback::test_split_store_marks_committed_on_writeback	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestSplitStoreWriteback::test_split_store_sets_storeInFlight_on_writeback	PASS	block-SQStore	none			0		
+test_sq_store_cl.TestSplitStoreWriteback::test_split_store_completion_requires_both_acks	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestSplitStoreWriteback object at 0x7f2620180cb0>      def test_split_store_completion_requires_both_acks(self):         """After both D-Cache reqs fire, completed is False until BOTH         fragment acks arrive via sto
+test_sq_store_cl.TestSplitStoreWriteback::test_split_store_issues_two_dcache_reqs	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestSplitStoreWriteback object at 0x7f2620182900>      def test_split_store_issues_two_dcache_reqs(self):         """up_once_writeback_stores issues TWO dcache_store_pa_req calls for         a split store: one for frag0 
+test_sq_store_cl.TestSplitStoreWriteback::test_split_store_marks_committed_on_writeback	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestSplitStoreWriteback object at 0x7f2620181a00>      def test_split_store_marks_committed_on_writeback(self):         """Split-store writeback marks entry committed=True (so the         writeback engine doesn't re-fire
+test_sq_store_cl.TestSplitStoreWriteback::test_split_store_sets_storeInFlight_on_writeback	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestSplitStoreWriteback object at 0x7f26201836e0>      def test_split_store_sets_storeInFlight_on_writeback(self):         """Split-store writeback sets storeInFlight=True (TSO single store         in flight — both fragm
 test_sq_store_cl.TestStoreCompleteBatchPop::test_batch_pop_multiple_consecutive_completed	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestStoreCompleteBatchPop::test_batch_pop_respects_writeback_width	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestStoreCompleteBatchPop::test_batch_pop_single_completed_entry	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestStoreCompleteBatchPop::test_batch_pop_stops_at_non_completed	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestStoreCompleteBatchPop::test_retire_store_removed	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestStoreCompleteBatchPop::test_store_complete_batch_pop_in_up_clear_exists	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestStoreCompleteNotify::test_store_complete_fires_notify_with_head_seqnum	PASS	block-SQStore	none			0		
+test_sq_store_cl.TestStoreCompleteNotify::test_store_complete_fires_notify_with_head_seqnum	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestStoreCompleteNotify object at 0x7f26201879e0>      def test_store_complete_fires_notify_with_head_seqnum(self):         """store_complete(tid) fires store_complete_notify with the SQ head's seqnum."""         dut = m
 test_sq_store_cl.TestStoreCompleteNotify::test_store_complete_notify_caller_ifc_exists	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestStoreCompleteSignature::test_completed_not_set_at_send_time	PASS	block-SQStore	none			0		
+test_sq_store_cl.TestStoreCompleteSignature::test_completed_not_set_at_send_time	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestStoreCompleteSignature object at 0x7f2620185b80>      def test_completed_not_set_at_send_time(self):         """ADR 0023: completed=True must NOT be set when the writeback         engine fires dcache_store_pa_req (se
 test_sq_store_cl.TestStoreCompleteSignature::test_split_store_complete_requires_both_acks	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestStoreCompleteSignature::test_split_store_pending_flags_only_after_both_acks	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestStoreCompleteSignature::test_store_complete_accepts_sq_idx_and_is_frag1	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestStoreCompleteSignature::test_store_complete_sets_completed	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestStoreCompleteSignature::test_store_complete_sets_pending_flags_only_on_completion	PASS	block-SQStore	none			0		
+test_sq_store_cl.TestStoreCompleteSignature::test_store_complete_accepts_sq_idx_and_is_frag1	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestStoreCompleteSignature object at 0x7f2620185100>      def test_store_complete_accepts_sq_idx_and_is_frag1(self):         """store_complete(tid, sq_idx, is_frag1) signature is accepted."""         dut = make_sq_store(
+test_sq_store_cl.TestStoreCompleteSignature::test_store_complete_sets_completed	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestStoreCompleteSignature object at 0x7f2620187080>      def test_store_complete_sets_completed(self):         """store_complete(tid, sq_idx, is_frag1=False) sets         entry["completed"]=True for a non-split store.""
+test_sq_store_cl.TestStoreCompleteSignature::test_store_complete_sets_pending_flags_only_on_completion	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestStoreCompleteSignature object at 0x7f2620186930>      def test_store_complete_sets_pending_flags_only_on_completion(self):         """The pending_store_complete / pending_store_inflight_clear /         pending_store_
 test_sq_store_cl.TestStoreTranslatedContinuation::test_translated_to_executed	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestTwoStageWriteback::test_canwb_set_by_commit_stores	PASS	block-SQStore	none			0		
+test_sq_store_cl.TestTwoStageWriteback::test_canwb_set_by_commit_stores	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestTwoStageWriteback object at 0x7f2620189f70>      def test_canwb_set_by_commit_stores(self):         """commit_stores sets canWB (Spec §3.5)."""         dut = make_sq_store()         dut.insert(0, seqnum=1, size=4, sq
 test_sq_store_cl.TestTwoStageWriteback::test_storeInFlight_register_exists	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestTwoStageWriteback::test_storeWBIt_iterator_exists	PASS	block-SQStore	none			0		
 test_sq_store_cl.TestTwoStageWriteback::test_storesToWB_counter_exists	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestWritebackEngine::test_canWB_store_sent_to_dcache_autonomously	PASS	block-SQStore	none			0		
+test_sq_store_cl.TestWritebackEngine::test_canWB_store_sent_to_dcache_autonomously	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestWritebackEngine object at 0x7f2620186630>      def test_canWB_store_sent_to_dcache_autonomously(self):         """After commit_stores sets canWB, writeback_stores autonomously         issues dcache_store_write and se
 test_sq_store_cl.TestWritebackEngine::test_non_canWB_store_not_sent	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestWritebackEngine::test_storeInFlight_blocks_second_store	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestWritebackEngine::test_store_complete_allows_next_store	PASS	block-SQStore	none			0		
-test_sq_store_cl.TestWritebackEngine::test_store_complete_clears_storeInFlight	PASS	block-SQStore	none			0		
+test_sq_store_cl.TestWritebackEngine::test_storeInFlight_blocks_second_store	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestWritebackEngine object at 0x7f26201880e0>      def test_storeInFlight_blocks_second_store(self):         """TSO: while storeInFlight is True, no new store is sent."""         dut = make_sq_store()         dut.insert(
+test_sq_store_cl.TestWritebackEngine::test_store_complete_allows_next_store	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestWritebackEngine object at 0x7f2620189c70>      def test_store_complete_allows_next_store(self):         """After store_complete clears storeInFlight, the next canWB store is sent."""         dut = make_sq_store()    
+test_sq_store_cl.TestWritebackEngine::test_store_complete_clears_storeInFlight	FAIL	block-SQStore	none			0		RuntimeError: P7: commit_stores canWB pass without a retire position (pending_commit_stores_pos=-1) — the seqnum fallback was removed by directive self = <SQStore.test_sq_store_cl.TestWritebackEngine object at 0x7f262018a5d0>      def test_store_complete_clears_storeInFlight(self):         """store_complete CalleeIfcCL clears storeInFlight, allowing next store."""         dut = make_sq_store()    
 test_scoreboard_cl.TestDesignParams::test_misc_base_after_renameable	PASS	block-Scoreboard	none			0		
 test_scoreboard_cl.TestDesignParams::test_num_phys_regs_total	PASS	block-Scoreboard	none			0		
 test_scoreboard_cl.TestIntraGroupRAW::test_earlier_unset_makes_getReg_return_0_same_cycle	PASS	block-Scoreboard	none			0		
@@ -2233,6 +2244,9 @@ test_store_set_cl.TestSquash::test_squash_callee_ifc_exists	PASS	block-StoreSet	
 test_store_set_cl.TestSquash::test_squash_invalidates_lfst_when_no_survivors	PASS	block-StoreSet	none			0		
 test_store_set_cl.TestSquash::test_squash_invalidates_younger_stores	PASS	block-StoreSet	none			0		
 test_store_set_cl.TestSquash::test_squash_noop_when_no_younger_stores	PASS	block-StoreSet	none			0		
+test_store_set_cl.TestSquash::test_squash_recompute_multi_ssid	PASS	block-StoreSet	none			0		
+test_store_set_cl.TestSquash::test_squash_recompute_positional_youngest_survivor	PASS	block-StoreSet	none			0		
+test_store_set_cl.TestSquash::test_squash_recompute_wraparound	PASS	block-StoreSet	none			0		
 test_store_set_cl.TestViolation::test_violation_callee_ifc_exists	PASS	block-StoreSet	none			0		
 test_store_set_cl.TestViolation::test_violation_increments_clear_counter	PASS	block-StoreSet	none			0		
 test_store_set_cl.TestViolation::test_violation_sets_ssit_entries	PASS	block-StoreSet	none			0		
@@ -2301,57 +2315,57 @@ test_o3_core_v2.TestCoreBuildsV2Frontend::test_core_frontend_carries_the_v2_bloc
 test_o3_core_v2.TestCoreBuildsV2Frontend::test_core_frontend_is_frontend_v2	PASS	block-Testbench	none			0		
 test_o3_core_v2.TestCoreBuildsV2Frontend::test_v2_core_exposes_the_testbench_surface	PASS	block-Testbench	none			0		L9b ACCEPTANCE SCAFFOLD — the v2 core schedules now (F-41 fixed: `FrontendV2` no longer carries the `M(decode_bpu_correction_sink) < M(backward_ctrl)` edge, so the same-cycle loop `M(sink) < M(backward_ctrl) < U(decode.up_dispatch) < M(decode_bpu_correction) = M(sink)` has no leg 2 -- the sink itself stays, and `bac_backward_ctrl` is now an alias of the merging `backward_ctrl` CalleeIfcCL), but `r
 test_o3_core_v2.TestElfOnV2Core::test_rv64ui_p_add_passes_on_v2	PASS	block-Testbench	none			9		
-test_o3_core_v2.TestElfOnV2Core::test_v2_core_commits_instructions_and_retires_stores	PASS	block-Testbench	none			7		
-test_o3_core_v2.TestNackChainOrdering::test_elf_reaches_exit_on_every_schedule_seed	PASS	block-Testbench	none			51		
-test_o3_core_v2.TestNackChainOrdering::test_no_seed_stalls_the_frontend	PASS	block-Testbench	none			51		
+test_o3_core_v2.TestElfOnV2Core::test_v2_core_commits_instructions_and_retires_stores	PASS	block-Testbench	none			9		
+test_o3_core_v2.TestNackChainOrdering::test_elf_reaches_exit_on_every_schedule_seed	PASS	block-Testbench	none			54		
+test_o3_core_v2.TestNackChainOrdering::test_no_seed_stalls_the_frontend	PASS	block-Testbench	none			53		
 test_o3_core_v2.TestNackChainOrdering::test_the_sweep_actually_executed_the_frontend	PASS	block-Testbench	none			10		
 test_riscv_tests_isa::test_riscv_tests_smoke_add	PASS	block-Testbench	none			9		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition]	PASS	block-Testbench	none			9		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate]	PASS	block-Testbench	none			5		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND]	PASS	block-Testbench	none			10		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND]	PASS	block-Testbench	none			9		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate]	PASS	block-Testbench	none			6		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-auipc:add upper immediate to PC]	PASS	block-Testbench	none			4		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal]	PASS	block-Testbench	none			9		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal]	PASS	block-Testbench	none			10		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned]	PASS	block-Testbench	none			11		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned]	PASS	block-Testbench	none			10		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned]	PASS	block-Testbench	none			8		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal]	PASS	block-Testbench	none			9		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence]	PASS	block-Testbench	none			7		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link]	PASS	block-Testbench	none			4		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jalr:jump and link register]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jalr:jump and link register]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte]	PASS	block-Testbench	none			5		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double]	PASS	block-Testbench	none			7		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned]	PASS	block-Testbench	none			5		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lui:load upper immediate]	PASS	block-Testbench	none			4		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			10		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte]	PASS	block-Testbench	none			8		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double]	PASS	block-Testbench	none			9		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate]	PASS	block-Testbench	none			5		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than]	PASS	block-Testbench	none			7		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate]	PASS	block-Testbench	none			6		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned]	PASS	block-Testbench	none			6		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned]	PASS	block-Testbench	none			9		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic]	PASS	block-Testbench	none			9		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srai:shift right arithmetic immediate]	PASS	block-Testbench	none			6		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sraw:shift right arithmetic word]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical]	PASS	block-Testbench	none			10		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical]	PASS	block-Testbench	none			7		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word]	PASS	block-Testbench	none			10		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word]	PASS	block-Testbench	none			7		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word]	PASS	block-Testbench	none			9		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR]	PASS	block-Testbench	none			10		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR]	PASS	block-Testbench	none			9		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate]	PASS	block-Testbench	none			6		
 test_tlbi_controller_cl.TestEdgeCases::test_second_tlbi_req_after_first_completes	PASS	block-TlbiController	none			0		
 test_tlbi_controller_cl.TestEdgeCases::test_sync_comp_before_inv_sent_ignored_or_buffered	PASS	block-TlbiController	none			0		
@@ -2410,7 +2424,7 @@ test_write_back_cl.TestLSQExecuteResp::test_lsq_execute_resp_callee_exists	PASS	
 test_write_back_cl.TestLSQExecuteResp::test_lsq_load_completion_calls_rf_write	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestLSQExecuteResp::test_lsq_store_completion_no_rf_write	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestPendingWBQueue::test_fifo_order_preserved	PASS	block-WriteBack	none			0		
-test_write_back_cl.TestPendingWBQueue::test_pop_time_squash_with_writeback_width	PASS	block-WriteBack	none			0		
+test_write_back_cl.TestPendingWBQueue::test_pop_time_squash_with_writeback_width	FAIL	block-WriteBack	none			0		RuntimeError: P7: WB main-loop active window without its position twin (bnd=15) — the seqnum fallback was removed by directive self = <WriteBack.test_write_back_cl.TestPendingWBQueue object at 0x7ffa7af3d580>      def test_pop_time_squash_with_writeback_width(self):         """ADR 0014 + ADR 0025: pop-time squash check works with bandwidth limiting.              ic_squash does NOT walk the queue. 
 test_write_back_cl.TestPendingWBQueue::test_writeback_width_does_not_drop_completions	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestPendingWBQueue::test_writeback_width_limits_processing_per_cycle	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestPerClassCrossbar::test_class_of_phys_reg_helper	PASS	block-WriteBack	none			0		
@@ -2431,10 +2445,10 @@ test_write_back_cl.TestRfWriteSetReg::test_multi_dest_completion_calls_rf_write_
 test_write_back_cl.TestRfWriteSetReg::test_normal_completion_calls_rf_write_with_dest_phys_reg	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestRfWriteSetReg::test_normal_completion_does_not_fire_sb_setreg	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestRfWriteSetReg::test_squashed_completion_skips_rf_write	PASS	block-WriteBack	none			0		
-test_write_back_cl.TestSquashAtCompletion::test_seqnum_above_boundary_skips_rf_write	PASS	block-WriteBack	none			0		
-test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_cleared_after_all_inflight_drained	PASS	block-WriteBack	none			0		
-test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_not_cleared_while_completion_in_buffer	PASS	block-WriteBack	none			0		
-test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_not_cleared_while_inflight_remaining	PASS	block-WriteBack	none			0		
+test_write_back_cl.TestSquashAtCompletion::test_seqnum_above_boundary_skips_rf_write	FAIL	block-WriteBack	none			0		RuntimeError: P7: WB main-loop active window without its position twin (bnd=50) — the seqnum fallback was removed by directive self = <WriteBack.test_write_back_cl.TestSquashAtCompletion object at 0x7ffa7af314f0>      def test_seqnum_above_boundary_skips_rf_write(self):         """Completion with seqnum > boundary → skip rf_write (no wakeup per ADR 0033)."""         dut = make_write_back()        
+test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_cleared_after_all_inflight_drained	FAIL	block-WriteBack	none			0		RuntimeError: P7: WB main-loop active window without its position twin (bnd=5) — the seqnum fallback was removed by directive self = <WriteBack.test_write_back_cl.TestSquashBoundaryAutoClear object at 0x7ffa7af2ed50>      def test_boundary_cleared_after_all_inflight_drained(self):         """WB-NEW-4 RED: boundary auto-clears when counter hits 0 and buffer empty.              Setup: issue 1 instru
+test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_not_cleared_while_completion_in_buffer	FAIL	block-WriteBack	none			0		RuntimeError: P7: WB main-loop active window without its position twin (bnd=5) — the seqnum fallback was removed by directive self = <WriteBack.test_write_back_cl.TestSquashBoundaryAutoClear object at 0x7ffa7af3d6a0>      def test_boundary_not_cleared_while_completion_in_buffer(self):         """WB-NEW-4: boundary preserved while unprocessed completion in buffer.              Even if counter == 0,
+test_write_back_cl.TestSquashBoundaryAutoClear::test_boundary_not_cleared_while_inflight_remaining	FAIL	block-WriteBack	none			0		RuntimeError: P7: WB main-loop active window without its position twin (bnd=5) — the seqnum fallback was removed by directive self = <WriteBack.test_write_back_cl.TestSquashBoundaryAutoClear object at 0x7ffa7af2cd70>      def test_boundary_not_cleared_while_inflight_remaining(self):         """WB-NEW-4: boundary preserved while in-flight instructions remain.              If state_in_flight_count >
 test_write_back_cl.TestSquashedBypass::test_squashed_marks_slot_processed	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestWBInfo::test_wbinfo_construct_with_values	PASS	block-WriteBack	none			0		
 test_write_back_cl.TestWBInfo::test_wbinfo_dest_phys_reg_defaults_to_zero	PASS	block-WriteBack	none			0		
@@ -2453,380 +2467,380 @@ test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_r
 test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_returns_miss_when_buf_empty	PASS	block-WriteBack	none			0		
 test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_normal_completion_does_not_fire_sb_setReg	PASS	block-WriteBack	none			0		
 test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_sb_setReg_caller_ifc_removed	PASS	block-WriteBack	none			0		
-hypervisor-p-2-stage_translation	PASS	p-	none		1374	14	51446414	(14s) cyc=1374
-hypervisor-p-2-stage_translation_implicit_load_error	PASS	p-	none		1652	15	699154115	(15s) cyc=1652
-hypervisor-p-2-stage_translation_implicit_load_error_hs	PASS	p-	none		1827	17	323800836	(17s) cyc=1827
-hypervisor-svadu-p-2-stage_translation_implicit_store_error	PASS	p-	none		1777	16	694346023	(16s) cyc=1777
-hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs	PASS	p-	none		1940	15	779950018	(15s) cyc=1940
-rv64mi-p-breakpoint	PASS	p-	none		3460	27	453254399	(27s) cyc=3460
-rv64mi-p-csr	PASS	p-	none		3506	27	131658826	(27s) cyc=3506
-rv64mi-p-illegal	PASS	p-	none		4573	34	150108808	(34s) cyc=4573
-rv64mi-p-instret_overflow	PASS	p-	none		1258	11	931568906	(11s) cyc=1258
-rv64mi-p-ld-misaligned	PASS	p-	none		1386	12	17867952	(12s) cyc=1386
-rv64mi-p-lh-misaligned	PASS	p-	none		1102	10	194816798	(10s) cyc=1102
-rv64mi-p-lw-misaligned	PASS	p-	none		1171	10	747052579	(10s) cyc=1171
-rv64mi-p-ma_addr	PASS	p-	none		1540	13	787917470	(13s) cyc=1540
-rv64mi-p-ma_fetch	PASS	p-	none		1882	15	140438726	(15s) cyc=1882
-rv64mi-p-mcsr	PASS	p-	none		1339	11	371545119	(11s) cyc=1339
-rv64mi-p-pmpaddr	PASS	p-	none		1185	11	399294185	(11s) cyc=1185
-rv64mi-p-sbreak	PASS	p-	none		1312	12	756046116	(12s) cyc=1312
-rv64mi-p-scall	PASS	p-	none		1259	10	990339053	(10s) cyc=1259
-rv64mi-p-sd-misaligned	PASS	p-	none		1436	13	723689579	(13s) cyc=1436
-rv64mi-p-sh-misaligned	PASS	p-	none		1109	9	195410230	(9s) cyc=1109
-rv64mi-p-sw-misaligned	PASS	p-	none		1150	10	41165368	(10s) cyc=1150
-rv64mi-p-zicntr	PASS	p-	none		1424	12	113267756	(12s) cyc=1424
-rv64mzicbo-p-zero	PASS	p-	none		1158	10	219883772	(10s) cyc=1158
-rv64si-p-csr	PASS	p-	none		2249	18	109761383	(18s) cyc=2249
-rv64si-p-dirty	PASS	p-	none		2309	18	10538091	(18s) cyc=2309
-rv64si-p-icache-alias	PASS	p-	none		2459	19	314509491	(19s) cyc=2459
-rv64si-p-ma_fetch	PASS	p-	none		1376	11	142352196	(11s) cyc=1376
-rv64si-p-sbreak	PASS	p-	none		1325	11	549859545	(11s) cyc=1325
-rv64si-p-scall	PASS	p-	none		1443	12	560312018	(12s) cyc=1443
-rv64si-p-wfi	PASS	p-	none		1173	10	98670664	(10s) cyc=1173
-rv64ssvnapot-p-napot	PASS	p-	none		1658	14	794051733	(14s) cyc=1658
-rv64ua-p-amoadd_d	PASS	p-	none		1081	10	377891	(10s) cyc=1081
-rv64ua-p-amoadd_w	PASS	p-	none		1120	10	637875548	(10s) cyc=1120
-rv64ua-p-amoand_d	PASS	p-	none		1121	10	495365674	(10s) cyc=1121
-rv64ua-p-amoand_w	PASS	p-	none		1117	9	932655985	(9s) cyc=1117
-rv64ua-p-amomax_d	PASS	p-	none		1077	10	784460951	(10s) cyc=1077
-rv64ua-p-amomax_w	PASS	p-	none		1100	10	282975952	(10s) cyc=1100
-rv64ua-p-amomaxu_d	PASS	p-	none		1077	9	229783690	(9s) cyc=1077
-rv64ua-p-amomaxu_w	PASS	p-	none		1100	10	795718467	(10s) cyc=1100
-rv64ua-p-amomin_d	PASS	p-	none		1077	9	624257159	(9s) cyc=1077
-rv64ua-p-amomin_w	PASS	p-	none		1100	10	114273607	(10s) cyc=1100
-rv64ua-p-amominu_d	PASS	p-	none		1077	10	559999932	(10s) cyc=1077
-rv64ua-p-amominu_w	PASS	p-	none		1100	10	909952010	(10s) cyc=1100
-rv64ua-p-amoor_d	PASS	p-	none		1117	10	123458940	(10s) cyc=1117
-rv64ua-p-amoor_w	PASS	p-	none		1117	10	615343171	(10s) cyc=1117
-rv64ua-p-amoswap_d	PASS	p-	none		1121	10	46970161	(10s) cyc=1121
-rv64ua-p-amoswap_w	PASS	p-	none		1117	10	396067967	(10s) cyc=1117
-rv64ua-p-amoxor_d	PASS	p-	none		1125	10	609823725	(10s) cyc=1125
-rv64ua-p-amoxor_w	PASS	p-	none		1129	10	94627757	(10s) cyc=1129
-rv64ua-p-lrsc	PASS	p-	none		17416	121	530079970	(121s) cyc=17416
-rv64uc-p-rvc	PASS	p-	none		1586	13	295076172	(13s) cyc=1586
-rv64ud-p-fadd	PASS	p-	none		1913	16	128100928	(16s) cyc=1913
-rv64ud-p-fclass	PASS	p-	none		1233	10	870732515	(10s) cyc=1233
-rv64ud-p-fcmp	PASS	p-	none		2201	17	560672131	(17s) cyc=2201
-rv64ud-p-fcvt	PASS	p-	none		1825	15	822632354	(15s) cyc=1825
-rv64ud-p-fcvt_w	PASS	p-	none		3735	29	137375560	(29s) cyc=3735
-rv64ud-p-fdiv	PASS	p-	none		1739	14	534663501	(14s) cyc=1739
-rv64ud-p-fmadd	PASS	p-	none		2070	17	730588401	(17s) cyc=2070
-rv64ud-p-fmin	PASS	p-	none		2541	21	497946207	(21s) cyc=2541
-rv64ud-p-ldst	PASS	p-	none		1172	10	182591466	(10s) cyc=1172
-rv64ud-p-move	PASS	p-	none		2696	21	853467230	(21s) cyc=2696
-rv64ud-p-recoding	PASS	p-	none		1245	11	402055081	(11s) cyc=1245
-rv64ud-p-structural	PASS	p-	none		2030	16	178019847	(16s) cyc=2030
-rv64uf-p-fadd	PASS	p-	none		1913	16	587021026	(16s) cyc=1913
-rv64uf-p-fclass	PASS	p-	none		1217	11	101256019	(11s) cyc=1217
-rv64uf-p-fcmp	PASS	p-	none		2201	17	84974247	(17s) cyc=2201
-rv64uf-p-fcvt	PASS	p-	none		1612	13	494389384	(13s) cyc=1612
-rv64uf-p-fcvt_w	PASS	p-	none		3372	26	829988598	(26s) cyc=3372
-rv64uf-p-fdiv	PASS	p-	none		1663	14	985191389	(14s) cyc=1663
-rv64uf-p-fmadd	PASS	p-	none		2070	17	812395050	(17s) cyc=2070
-rv64uf-p-fmin	PASS	p-	none		2541	20	186513859	(20s) cyc=2541
-rv64uf-p-ldst	PASS	p-	none		1183	11	437059377	(11s) cyc=1183
-rv64uf-p-move	PASS	p-	none		1798	15	99551180	(15s) cyc=1798
-rv64uf-p-recoding	PASS	p-	none		1198	11	266560839	(11s) cyc=1198
-rv64ui-p-add	PASS	p-	none		2453	19	290693860	(19s) cyc=2453
-rv64ui-p-addi	PASS	p-	none		1630	13	977292218	(13s) cyc=1630
-rv64ui-p-addiw	PASS	p-	none		1621	13	974922292	(13s) cyc=1621
-rv64ui-p-addw	PASS	p-	none		2404	19	976291049	(19s) cyc=2404
-rv64ui-p-and	PASS	p-	none		2613	21	103272434	(21s) cyc=2613
-rv64ui-p-andi	PASS	p-	none		1609	14	948602382	(14s) cyc=1609
-rv64ui-p-auipc	PASS	p-	none		1053	10	570717959	(10s) cyc=1053
-rv64ui-p-beq	PASS	p-	none		2427	19	657543536	(19s) cyc=2427
-rv64ui-p-bge	PASS	p-	none		2726	21	948943115	(21s) cyc=2726
-rv64ui-p-bgeu	PASS	p-	none		2956	22	408965971	(22s) cyc=2956
-rv64ui-p-blt	PASS	p-	none		2429	19	941331992	(19s) cyc=2429
-rv64ui-p-bltu	PASS	p-	none		2643	21	517701814	(21s) cyc=2643
-rv64ui-p-bne	PASS	p-	none		2482	20	728952942	(20s) cyc=2482
-rv64ui-p-fence_i	PASS	p-	none		2089	17	141233800	(17s) cyc=2089
-rv64ui-p-jal	PASS	p-	none		1049	9	506631559	(9s) cyc=1049
-rv64ui-p-jalr	PASS	p-	none		1575	13	720768058	(13s) cyc=1575
-rv64ui-p-lb	PASS	p-	none		1671	14	540684676	(14s) cyc=1671
-rv64ui-p-lbu	PASS	p-	none		1671	14	199336525	(14s) cyc=1671
-rv64ui-p-ld	PASS	p-	none		2066	17	188713173	(17s) cyc=2066
-rv64ui-p-ld_st	PASS	p-	none		4467	33	190985563	(33s) cyc=4467
-rv64ui-p-lh	PASS	p-	none		1711	14	115573969	(14s) cyc=1711
-rv64ui-p-lhu	PASS	p-	none		1717	14	385185059	(14s) cyc=1717
-rv64ui-p-lui	PASS	p-	none		1065	9	493703749	(9s) cyc=1065
-rv64ui-p-lw	PASS	p-	none		1731	15	610309788	(15s) cyc=1731
-rv64ui-p-lwu	PASS	p-	none		1797	14	78794616	(14s) cyc=1797
-rv64ui-p-ma_data	PASS	p-	none		7696	55	929356412	(55s) cyc=7696
-rv64ui-p-or	PASS	p-	none		2670	21	778180622	(21s) cyc=2670
-rv64ui-p-ori	PASS	p-	none		1591	13	913083989	(13s) cyc=1591
-rv64ui-p-sb	PASS	p-	none		2292	19	712874833	(19s) cyc=2292
-rv64ui-p-sd	PASS	p-	none		2616	21	486252442	(21s) cyc=2616
-rv64ui-p-sh	PASS	p-	none		2362	19	354967556	(19s) cyc=2362
-rv64ui-p-simple	PASS	p-	none		1003	9	310820822	(9s) cyc=1003
-rv64ui-p-sll	PASS	p-	none		2573	20	7441115	(20s) cyc=2573
-rv64ui-p-slli	PASS	p-	none		1691	14	541617303	(14s) cyc=1691
-rv64ui-p-slliw	PASS	p-	none		1685	14	304995961	(14s) cyc=1685
-rv64ui-p-sllw	PASS	p-	none		2577	20	702743017	(20s) cyc=2577
-rv64ui-p-slt	PASS	p-	none		2431	19	589446924	(19s) cyc=2431
-rv64ui-p-slti	PASS	p-	none		1617	14	285020255	(14s) cyc=1617
-rv64ui-p-sltiu	PASS	p-	none		1617	13	460298733	(13s) cyc=1617
-rv64ui-p-sltu	PASS	p-	none		2469	20	265643070	(20s) cyc=2469
-rv64ui-p-sra	PASS	p-	none		2523	20	164081486	(20s) cyc=2523
-rv64ui-p-srai	PASS	p-	none		1654	14	431546856	(14s) cyc=1654
-rv64ui-p-sraiw	PASS	p-	none		1755	15	697230676	(15s) cyc=1755
-rv64ui-p-sraw	PASS	p-	none		2595	20	521979092	(20s) cyc=2595
-rv64ui-p-srl	PASS	p-	none		2619	20	350048821	(20s) cyc=2619
-rv64ui-p-srli	PASS	p-	none		1715	13	301066121	(13s) cyc=1715
-rv64ui-p-srliw	PASS	p-	none		1703	14	195790846	(14s) cyc=1703
-rv64ui-p-srlw	PASS	p-	none		2583	21	650350387	(21s) cyc=2583
-rv64ui-p-st_ld	PASS	p-	none		1993	15	320319133	(15s) cyc=1993
-rv64ui-p-sub	PASS	p-	none		2437	19	922911003	(19s) cyc=2437
-rv64ui-p-subw	PASS	p-	none		2429	19	876068850	(19s) cyc=2429
-rv64ui-p-sw	PASS	p-	none		2382	19	974925281	(19s) cyc=2382
-rv64ui-p-xor	PASS	p-	none		2664	20	685451486	(20s) cyc=2664
-rv64ui-p-xori	PASS	p-	none		1595	13	787378489	(13s) cyc=1595
-rv64um-p-div	PASS	p-	none		1157	11	136270152	(11s) cyc=1157
-rv64um-p-divu	PASS	p-	none		1167	10	234653273	(10s) cyc=1167
-rv64um-p-divuw	PASS	p-	none		1147	10	62538233	(10s) cyc=1147
-rv64um-p-divw	PASS	p-	none		1139	10	921995350	(10s) cyc=1139
-rv64um-p-mul	PASS	p-	none		2461	20	48274401	(20s) cyc=2461
-rv64um-p-mulh	PASS	p-	none		2471	20	579083445	(20s) cyc=2471
-rv64um-p-mulhsu	PASS	p-	none		2471	20	242513475	(20s) cyc=2471
-rv64um-p-mulhu	PASS	p-	none		2531	19	504972931	(19s) cyc=2531
-rv64um-p-mulw	PASS	p-	none		2329	18	142601916	(18s) cyc=2329
-rv64um-p-rem	PASS	p-	none		1131	9	623149611	(9s) cyc=1131
-rv64um-p-remu	PASS	p-	none		1133	10	834877858	(10s) cyc=1133
-rv64um-p-remuw	PASS	p-	none		1129	10	504690722	(10s) cyc=1129
-rv64um-p-remw	PASS	p-	none		1139	9	153573293	(9s) cyc=1139
-rv64uzba-p-add_uw	PASS	p-	none		2455	19	931417401	(19s) cyc=2455
-rv64uzba-p-sh1add	PASS	p-	none		2461	20	955139176	(20s) cyc=2461
-rv64uzba-p-sh1add_uw	PASS	p-	none		2469	19	798434325	(19s) cyc=2469
-rv64uzba-p-sh2add	PASS	p-	none		2461	19	529839029	(19s) cyc=2461
-rv64uzba-p-sh2add_uw	PASS	p-	none		2469	20	551468352	(20s) cyc=2469
-rv64uzba-p-sh3add	PASS	p-	none		2461	19	338991929	(19s) cyc=2461
-rv64uzba-p-sh3add_uw	PASS	p-	none		2469	20	228738675	(20s) cyc=2469
-rv64uzba-p-slli_uw	PASS	p-	none		1719	14	887630853	(14s) cyc=1719
-rv64uzbb-p-andn	PASS	p-	none		2655	20	294771781	(20s) cyc=2655
-rv64uzbb-p-clz	PASS	p-	none		1497	13	504397451	(13s) cyc=1497
-rv64uzbb-p-clzw	PASS	p-	none		1465	12	51217225	(12s) cyc=1465
-rv64uzbb-p-cpop	PASS	p-	none		1497	13	750334990	(13s) cyc=1497
-rv64uzbb-p-cpopw	PASS	p-	none		1465	13	273575765	(13s) cyc=1465
-rv64uzbb-p-ctz	PASS	p-	none		1497	12	190112451	(12s) cyc=1497
-rv64uzbb-p-ctzw	PASS	p-	none		1467	12	944675241	(12s) cyc=1467
-rv64uzbb-p-max	PASS	p-	none		2441	20	80620191	(20s) cyc=2441
-rv64uzbb-p-maxu	PASS	p-	none		2503	19	899059498	(19s) cyc=2503
-rv64uzbb-p-min	PASS	p-	none		2433	20	960498967	(20s) cyc=2433
-rv64uzbb-p-minu	PASS	p-	none		2481	20	280866825	(20s) cyc=2481
-rv64uzbb-p-orc_b	PASS	p-	none		1539	12	452719215	(12s) cyc=1539
-rv64uzbb-p-orn	PASS	p-	none		2673	21	460927533	(21s) cyc=2673
-rv64uzbb-p-rev8	PASS	p-	none		1572	13	613314772	(13s) cyc=1572
-rv64uzbb-p-rol	PASS	p-	none		2583	20	102261354	(20s) cyc=2583
-rv64uzbb-p-rolw	PASS	p-	none		2585	19	42793171	(19s) cyc=2585
-rv64uzbb-p-ror	PASS	p-	none		2645	21	847123540	(21s) cyc=2645
-rv64uzbb-p-rori	PASS	p-	none		1712	14	514150183	(14s) cyc=1712
-rv64uzbb-p-roriw	PASS	p-	none		1625	14	672000474	(14s) cyc=1625
-rv64uzbb-p-rorw	PASS	p-	none		2513	20	435238793	(20s) cyc=2513
-rv64uzbb-p-sext_b	PASS	p-	none		1497	13	801673667	(13s) cyc=1497
-rv64uzbb-p-sext_h	PASS	p-	none		1503	12	424895646	(12s) cyc=1503
-rv64uzbb-p-xnor	PASS	p-	none		2671	20	361866102	(20s) cyc=2671
-rv64uzbb-p-zext_h	PASS	p-	none		1509	13	494753837	(13s) cyc=1509
-rv64uzbc-p-clmul	PASS	p-	none		2463	19	79567496	(19s) cyc=2463
-rv64uzbc-p-clmulh	PASS	p-	none		2473	20	394543447	(20s) cyc=2473
-rv64uzbc-p-clmulr	PASS	p-	none		2469	20	841974673	(20s) cyc=2469
-rv64uzbkb-p-brev8	PASS	p-	none		1537	12	448789503	(12s) cyc=1537
-rv64uzbkb-p-pack	PASS	p-	none		2913	22	55660123	(22s) cyc=2913
-rv64uzbkb-p-packh	PASS	p-	none		2583	20	918439185	(20s) cyc=2583
-rv64uzbkb-p-packw	PASS	p-	none		2443	20	807436519	(20s) cyc=2443
-rv64uzbkx-p-xperm4	PASS	p-	none		2767	21	291142213	(21s) cyc=2767
-rv64uzbkx-p-xperm8	PASS	p-	none		3598	27	996421486	(27s) cyc=3598
-rv64uzbs-p-bclr	PASS	p-	none		2796	22	847161879	(22s) cyc=2796
-rv64uzbs-p-bclri	PASS	p-	none		1779	14	2151452	(14s) cyc=1779
-rv64uzbs-p-bext	PASS	p-	none		2661	21	181291265	(21s) cyc=2661
-rv64uzbs-p-bexti	PASS	p-	none		1711	14	992586309	(14s) cyc=1711
-rv64uzbs-p-binv	PASS	p-	none		2631	21	790786595	(21s) cyc=2631
-rv64uzbs-p-binvi	PASS	p-	none		1715	14	266278257	(14s) cyc=1715
-rv64uzbs-p-bset	PASS	p-	none		2800	22	751566685	(22s) cyc=2800
-rv64uzbs-p-bseti	PASS	p-	none		1793	15	654518966	(15s) cyc=1793
-rv64uzfh-p-fadd	PASS	p-	none		1913	16	507348416	(16s) cyc=1913
-rv64uzfh-p-fclass	PASS	p-	none		1218	10	138527257	(10s) cyc=1218
-rv64uzfh-p-fcmp	PASS	p-	none		1553	12	2871300	(12s) cyc=1553
-rv64uzfh-p-fcvt	PASS	p-	none		1787	15	593689658	(15s) cyc=1787
-rv64uzfh-p-fcvt_w	PASS	p-	none		3372	27	869646836	(27s) cyc=3372
-rv64uzfh-p-fdiv	PASS	p-	none		1663	14	100719797	(14s) cyc=1663
-rv64uzfh-p-fmadd	PASS	p-	none		2070	17	826154852	(17s) cyc=2070
-rv64uzfh-p-fmin	PASS	p-	none		2541	21	919161599	(21s) cyc=2541
-rv64uzfh-p-ldst	PASS	p-	none		1194	11	676967809	(11s) cyc=1194
-rv64uzfh-p-move	PASS	p-	none		1793	16	6353615	(16s) cyc=1793
-rv64uzfh-p-recoding	PASS	p-	none		1198	11	394028324	(11s) cyc=1198
-rv64uziccid-p-ziccid	PASS	p-	none		7614	37	87322490	(37s) cyc=7614
-rv64uzicond-p-czero_eqz	PASS	p-	none		2389	16	194152954	(16s) cyc=2389
-rv64uzicond-p-czero_nez	PASS	p-	none		2377	11	98356752	(11s) cyc=2377
-rv64ua-v-amoadd_d	PASS	v-	15/18		24316	165	334293293	(165s) cyc=24316
-rv64ua-v-amoadd_w	PASS	v-	16/18		24346	117	965548067	(117s) cyc=24346
-rv64ua-v-amoand_d	PASS	v-	17/18		24444	156	325731515	(156s) cyc=24444
-rv64ua-v-amoand_w	PASS	v-	18/18		24444	117	740167476	(117s) cyc=24444
-rv64ua-v-amomax_d	PASS	v-	1/18		24239	166	986160163	(166s) cyc=24239
-rv64ua-v-amomax_w	PASS	v-	4/18		24267	156	477432278	(156s) cyc=24267
-rv64ua-v-amomaxu_d	PASS	v-	2/18		24239	152	495666361	(152s) cyc=24239
-rv64ua-v-amomaxu_w	PASS	v-	3/18		24267	154	68187499	(154s) cyc=24267
-rv64ua-v-amomin_d	PASS	v-	5/18		24239	154	154862595	(154s) cyc=24239
-rv64ua-v-amomin_w	PASS	v-	8/18		24415	158	636636161	(158s) cyc=24415
-rv64ua-v-amominu_d	PASS	v-	6/18		24288	121	830694285	(121s) cyc=24288
-rv64ua-v-amominu_w	PASS	v-	7/18		24315	157	173649809	(157s) cyc=24315
-rv64ua-v-amoor_d	PASS	v-	9/18		24265	160	93043014	(160s) cyc=24265
-rv64ua-v-amoor_w	PASS	v-	10/18		24265	162	512523466	(162s) cyc=24265
-rv64ua-v-amoswap_d	PASS	v-	11/18		24415	156	777958558	(156s) cyc=24415
-rv64ua-v-amoswap_w	PASS	v-	12/18		24415	163	123729826	(163s) cyc=24415
-rv64ua-v-amoxor_d	PASS	v-	13/18		24276	151	131186801	(151s) cyc=24276
-rv64ua-v-amoxor_w	PASS	v-	14/18		24290	98	628233741	(98s) cyc=24290
-rv64ua-v-lrsc	PASS	v-	15/18		40307	246	33888152	(246s) cyc=40307
-rv64uc-v-rvc	PASS	v-	14/18		33301	135	74295698	(135s) cyc=33301
-rv64ud-v-fadd	PASS	v-	9/18		23878	161	500525762	(161s) cyc=23878
-rv64ud-v-fclass	PASS	v-	10/18		14479	101	409310461	(101s) cyc=14479
-rv64ud-v-fcmp	PASS	v-	11/18		24156	158	220819648	(158s) cyc=24156
-rv64ud-v-fcvt	PASS	v-	12/18		23812	164	347254812	(164s) cyc=23812
-rv64ud-v-fcvt_w	PASS	v-	13/18		34251	195	747860108	(195s) cyc=34251
-rv64ud-v-fdiv	PASS	v-	14/18		23706	97	911068377	(97s) cyc=23706
-rv64ud-v-fmadd	PASS	v-	15/18		24047	165	875200003	(165s) cyc=24047
-rv64ud-v-fmin	PASS	v-	16/18		24509	116	121333213	(116s) cyc=24509
-rv64ud-v-ldst	PASS	v-	17/18		23933	131	410966631	(131s) cyc=23933
-rv64ud-v-move	PASS	v-	18/18		24751	121	185608420	(121s) cyc=24751
-rv64ud-v-recoding	PASS	v-	1/18		24256	171	62668069	(171s) cyc=24256
-rv64ud-v-structural	PASS	v-	2/18		15096	98	685056883	(98s) cyc=15096
-rv64uf-v-fadd	PASS	v-	16/18		23878	114	178700640	(114s) cyc=23878
-rv64uf-v-fclass	PASS	v-	17/18		14463	93	591581872	(93s) cyc=14463
-rv64uf-v-fcmp	PASS	v-	18/18		24156	119	528868013	(119s) cyc=24156
-rv64uf-v-fcvt	PASS	v-	1/18		23590	170	802815691	(170s) cyc=23590
-rv64uf-v-fcvt_w	PASS	v-	2/18		33909	201	218735439	(201s) cyc=33909
-rv64uf-v-fdiv	PASS	v-	3/18		23629	154	578858211	(154s) cyc=23629
-rv64uf-v-fmadd	PASS	v-	4/18		24047	160	789195050	(160s) cyc=24047
-rv64uf-v-fmin	PASS	v-	5/18		24509	159	591637896	(159s) cyc=24509
-rv64uf-v-ldst	PASS	v-	6/18		24206	120	4180744	(120s) cyc=24206
-rv64uf-v-move	PASS	v-	7/18		15045	98	795429513	(98s) cyc=15045
-rv64uf-v-recoding	PASS	v-	8/18		23167	155	325926410	(155s) cyc=23167
-rv64ui-v-add	PASS	v-	1/18		15732	118	472348755	(118s) cyc=15732
-rv64ui-v-addi	PASS	v-	2/18		14982	100	604509502	(100s) cyc=14982
-rv64ui-v-addiw	PASS	v-	3/18		14972	106	684295043	(106s) cyc=14972
-rv64ui-v-addw	PASS	v-	4/18		15722	108	642939813	(108s) cyc=15722
-rv64ui-v-and	PASS	v-	7/18		15886	106	555639413	(106s) cyc=15886
-rv64ui-v-andi	PASS	v-	8/18		14859	106	475269742	(106s) cyc=14859
-rv64ui-v-auipc	PASS	v-	12/18		14266	102	94194469	(102s) cyc=14266
-rv64ui-v-beq	PASS	v-	13/18		15656	101	746416097	(101s) cyc=15656
-rv64ui-v-bge	PASS	v-	14/18		15974	66	596726115	(66s) cyc=15974
-rv64ui-v-bgeu	PASS	v-	15/18		16190	109	8231277	(109s) cyc=16190
-rv64ui-v-blt	PASS	v-	16/18		15669	77	758595276	(77s) cyc=15669
-rv64ui-v-bltu	PASS	v-	17/18		15879	105	951956396	(105s) cyc=15879
-rv64ui-v-bne	PASS	v-	18/18		15709	78	712381472	(78s) cyc=15709
-rv64ui-v-fence_i	PASS	v-	17/18		25247	160	933232043	(160s) cyc=25247
-rv64ui-v-jal	PASS	v-	1/18		14260	105	155591926	(105s) cyc=14260
-rv64ui-v-jalr	PASS	v-	2/18		14645	99	916707043	(99s) cyc=14645
-rv64ui-v-lb	PASS	v-	3/18		23723	159	401712194	(159s) cyc=23723
-rv64ui-v-lbu	PASS	v-	4/18		23718	161	165068086	(161s) cyc=23718
-rv64ui-v-ld	PASS	v-	9/18		24240	172	802560687	(172s) cyc=24240
-rv64ui-v-ld_st	PASS	v-	14/18		44437	181	487972289	(181s) cyc=44437
-rv64ui-v-lh	PASS	v-	5/18		23747	160	98297785	(160s) cyc=23747
-rv64ui-v-lhu	PASS	v-	6/18		23772	124	79398889	(124s) cyc=23772
-rv64ui-v-lui	PASS	v-	11/18		14348	97	265928886	(97s) cyc=14348
-rv64ui-v-lw	PASS	v-	7/18		23770	159	228448941	(159s) cyc=23770
-rv64ui-v-lwu	PASS	v-	8/18		23837	170	251145246	(170s) cyc=23837
-rv64ui-v-ma_data	PASS	v-	18/18		46782	211	169293513	(211s) cyc=46782
-rv64ui-v-or	PASS	v-	9/18		15975	113	166330812	(113s) cyc=15975
-rv64ui-v-ori	PASS	v-	10/18		14862	108	820094814	(108s) cyc=14862
-rv64ui-v-sb	PASS	v-	10/18		24848	177	94255802	(177s) cyc=24848
-rv64ui-v-sd	PASS	v-	13/18		33873	216	636287897	(216s) cyc=33873
-rv64ui-v-sh	PASS	v-	11/18		24929	165	720769785	(165s) cyc=24929
-rv64ui-v-simple	PASS	v-	16/18		14273	70	754300877	(70s) cyc=14273
-rv64ui-v-sll	PASS	v-	17/18		24619	161	387364233	(161s) cyc=24619
-rv64ui-v-slli	PASS	v-	18/18		15028	76	886975677	(76s) cyc=15028
-rv64ui-v-slliw	PASS	v-	1/18		15034	111	283834369	(111s) cyc=15034
-rv64ui-v-sllw	PASS	v-	2/18		24617	163	72712971	(163s) cyc=24617
-rv64ui-v-slt	PASS	v-	13/18		15709	102	68055965	(102s) cyc=15709
-rv64ui-v-slti	PASS	v-	14/18		14966	62	598543755	(62s) cyc=14966
-rv64ui-v-sltiu	PASS	v-	16/18		14966	74	133233797	(74s) cyc=14966
-rv64ui-v-sltu	PASS	v-	15/18		15744	107	30601336	(107s) cyc=15744
-rv64ui-v-sra	PASS	v-	7/18		15806	107	198446015	(107s) cyc=15806
-rv64ui-v-srai	PASS	v-	8/18		14929	107	130503743	(107s) cyc=14929
-rv64ui-v-sraiw	PASS	v-	9/18		15117	106	976666275	(106s) cyc=15117
-rv64ui-v-sraw	PASS	v-	10/18		24634	177	114888183	(177s) cyc=24634
-rv64ui-v-srl	PASS	v-	3/18		24675	167	116862831	(167s) cyc=24675
-rv64ui-v-srli	PASS	v-	4/18		14978	104	3370277	(104s) cyc=14978
-rv64ui-v-srliw	PASS	v-	5/18		15054	101	489850261	(101s) cyc=15054
-rv64ui-v-srlw	PASS	v-	6/18		24628	127	244114705	(127s) cyc=24628
-rv64ui-v-st_ld	PASS	v-	15/18		33367	225	209892255	(225s) cyc=33367
-rv64ui-v-sub	PASS	v-	5/18		15715	106	618029706	(106s) cyc=15715
-rv64ui-v-subw	PASS	v-	6/18		15711	82	539022418	(82s) cyc=15711
-rv64ui-v-sw	PASS	v-	12/18		24985	174	996968612	(174s) cyc=24985
-rv64ui-v-xor	PASS	v-	11/18		15976	107	179781466	(107s) cyc=15976
-rv64ui-v-xori	PASS	v-	12/18		14863	106	513600179	(106s) cyc=14863
-rv64um-v-div	PASS	v-	5/18		14447	96	700677868	(96s) cyc=14447
-rv64um-v-divu	PASS	v-	6/18		14459	76	799364569	(76s) cyc=14459
-rv64um-v-divuw	PASS	v-	11/18		14446	99	534184566	(99s) cyc=14446
-rv64um-v-divw	PASS	v-	10/18		14429	105	121354803	(105s) cyc=14429
-rv64um-v-mul	PASS	v-	1/18		15786	119	822400389	(119s) cyc=15786
-rv64um-v-mulh	PASS	v-	2/18		15754	106	309065753	(106s) cyc=15754
-rv64um-v-mulhsu	PASS	v-	3/18		15754	110	738557564	(110s) cyc=15754
-rv64um-v-mulhu	PASS	v-	4/18		15814	108	78732177	(108s) cyc=15814
-rv64um-v-mulw	PASS	v-	9/18		15607	109	485960286	(109s) cyc=15607
-rv64um-v-rem	PASS	v-	7/18		14428	98	779835566	(98s) cyc=14428
-rv64um-v-remu	PASS	v-	8/18		14435	105	198682268	(105s) cyc=14435
-rv64um-v-remuw	PASS	v-	13/18		14419	95	89577100	(95s) cyc=14419
-rv64um-v-remw	PASS	v-	12/18		14429	107	886448135	(107s) cyc=14429
-rv64uzba-v-add_uw	PASS	v-	3/18		15732	103	471093634	(103s) cyc=15732
-rv64uzba-v-sh1add	PASS	v-	4/18		15739	106	550713383	(106s) cyc=15739
-rv64uzba-v-sh1add_uw	PASS	v-	5/18		15745	103	535556743	(103s) cyc=15745
-rv64uzba-v-sh2add	PASS	v-	6/18		15739	81	158033237	(81s) cyc=15739
-rv64uzba-v-sh2add_uw	PASS	v-	7/18		15745	103	280101582	(103s) cyc=15745
-rv64uzba-v-sh3add	PASS	v-	8/18		15739	106	933468912	(106s) cyc=15739
-rv64uzba-v-sh3add_uw	PASS	v-	9/18		15745	109	501465802	(109s) cyc=15745
-rv64uzba-v-slli_uw	PASS	v-	10/18		15032	107	923275390	(107s) cyc=15032
-rv64uzbb-v-andn	PASS	v-	11/18		15963	105	729464318	(105s) cyc=15963
-rv64uzbb-v-clz	PASS	v-	12/18		14871	102	152555691	(102s) cyc=14871
-rv64uzbb-v-clzw	PASS	v-	13/18		14845	95	380698889	(95s) cyc=14845
-rv64uzbb-v-cpop	PASS	v-	14/18		14871	58	21837242	(58s) cyc=14871
-rv64uzbb-v-cpopw	PASS	v-	15/18		14845	101	250339939	(101s) cyc=14845
-rv64uzbb-v-ctz	PASS	v-	16/18		14871	71	435876201	(71s) cyc=14871
-rv64uzbb-v-ctzw	PASS	v-	17/18		14845	95	239901309	(95s) cyc=14845
-rv64uzbb-v-max	PASS	v-	18/18		15698	75	254868081	(75s) cyc=15698
-rv64uzbb-v-maxu	PASS	v-	1/18		15786	115	267963375	(115s) cyc=15786
-rv64uzbb-v-min	PASS	v-	2/18		15721	102	775548017	(102s) cyc=15721
-rv64uzbb-v-minu	PASS	v-	3/18		15763	103	15656680	(103s) cyc=15763
-rv64uzbb-v-orc_b	PASS	v-	4/18		14913	100	60452721	(100s) cyc=14913
-rv64uzbb-v-orn	PASS	v-	5/18		24762	135	6459818	(135s) cyc=24762
-rv64uzbb-v-rev8	PASS	v-	6/18		14900	76	12787568	(76s) cyc=14900
-rv64uzbb-v-rol	PASS	v-	7/18		24672	145	394581723	(145s) cyc=24672
-rv64uzbb-v-rolw	PASS	v-	8/18		24664	133	844789681	(133s) cyc=24664
-rv64uzbb-v-ror	PASS	v-	9/18		24706	136	560098688	(136s) cyc=24706
-rv64uzbb-v-rori	PASS	v-	10/18		15016	108	245223274	(108s) cyc=15016
-rv64uzbb-v-roriw	PASS	v-	11/18		14984	99	915268704	(99s) cyc=14984
-rv64uzbb-v-rorw	PASS	v-	12/18		15851	102	2420346	(102s) cyc=15851
-rv64uzbb-v-sext_b	PASS	v-	13/18		14871	84	170642231	(84s) cyc=14871
-rv64uzbb-v-sext_h	PASS	v-	14/18		14880	47	891286967	(47s) cyc=14880
-rv64uzbb-v-xnor	PASS	v-	15/18		24762	141	802493269	(141s) cyc=24762
-rv64uzbb-v-zext_h	PASS	v-	16/18		14886	72	15620112	(72s) cyc=14886
-rv64uzbc-v-clmul	PASS	v-	17/18		15787	101	548142888	(101s) cyc=15787
-rv64uzbc-v-clmulh	PASS	v-	18/18		15797	52	26804287	(52s) cyc=15797
-rv64uzbc-v-clmulr	PASS	v-	1/18		15796	81	382551633	(81s) cyc=15796
-rv64uzbkb-v-brev8	PASS	v-	2/18		14838	90	70887750	(90s) cyc=14838
-rv64uzbkb-v-pack	PASS	v-	3/18		25022	96	823961281	(96s) cyc=25022
-rv64uzbkb-v-packh	PASS	v-	4/18		15902	81	626452464	(81s) cyc=15902
-rv64uzbkb-v-packw	PASS	v-	5/18		15778	96	785688185	(96s) cyc=15778
-rv64uzbkx-v-xperm4	PASS	v-	6/18		24831	75	784989660	(75s) cyc=24831
-rv64uzbkx-v-xperm8	PASS	v-	7/18		25735	138	589898503	(138s) cyc=25735
-rv64uzbs-v-bclr	PASS	v-	8/18		24859	133	472659575	(133s) cyc=24859
-rv64uzbs-v-bclri	PASS	v-	9/18		15065	95	589973336	(95s) cyc=15065
-rv64uzbs-v-bext	PASS	v-	10/18		24733	133	845863364	(133s) cyc=24733
-rv64uzbs-v-bexti	PASS	v-	11/18		15022	80	551108284	(80s) cyc=15022
-rv64uzbs-v-binv	PASS	v-	12/18		24692	122	519104925	(122s) cyc=24692
-rv64uzbs-v-binvi	PASS	v-	13/18		15083	82	267192289	(82s) cyc=15083
-rv64uzbs-v-bset	PASS	v-	14/18		24863	73	280005231	(73s) cyc=24863
-rv64uzbs-v-bseti	PASS	v-	15/18		15079	62	946995657	(62s) cyc=15079
-rv64uzfh-v-fadd	PASS	v-	16/18		23878	81	915532508	(81s) cyc=23878
-rv64uzfh-v-fclass	PASS	v-	17/18		14461	79	779814362	(79s) cyc=14461
-rv64uzfh-v-fcmp	PASS	v-	18/18		23508	73	563113847	(73s) cyc=23508
-rv64uzfh-v-fcvt	PASS	v-	1/18		23755	97	286932707	(97s) cyc=23755
-rv64uzfh-v-fcvt_w	PASS	v-	2/18		33909	155	409291313	(155s) cyc=33909
-rv64uzfh-v-fdiv	PASS	v-	3/18		23629	90	510924885	(90s) cyc=23629
-rv64uzfh-v-fmadd	PASS	v-	4/18		24047	93	789328500	(93s) cyc=24047
-rv64uzfh-v-fmin	PASS	v-	5/18		24509	110	516165670	(110s) cyc=24509
-rv64uzfh-v-ldst	PASS	v-	6/18		24203	71	106048253	(71s) cyc=24203
-rv64uzfh-v-move	PASS	v-	7/18		15038	85	304144685	(85s) cyc=15038
-rv64uzfh-v-recoding	PASS	v-	8/18		23167	110	331762155	(110s) cyc=23167
-rv64uziccid-v-ziccid	PASS	v-	11/18		165858	619	714384618	(619s) cyc=165858
-rv64uzicond-v-czero_eqz	PASS	v-	9/18		15665	79	460554825	(79s) cyc=15665
-rv64uzicond-v-czero_nez	PASS	v-	10/18		15676	73	369558556	(73s) cyc=15676
+hypervisor-p-2-stage_translation	PASS	p-	none		1374	13	255758298	(13s) cyc=1374
+hypervisor-p-2-stage_translation_implicit_load_error	PASS	p-	none		1652	15	903465999	(15s) cyc=1652
+hypervisor-p-2-stage_translation_implicit_load_error_hs	PASS	p-	none		1831	16	528112720	(16s) cyc=1831
+hypervisor-svadu-p-2-stage_translation_implicit_store_error	PASS	p-	none		1777	16	898657907	(16s) cyc=1777
+hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs	PASS	p-	none		1940	16	984261902	(16s) cyc=1940
+rv64mi-p-breakpoint	PASS	p-	none		3460	27	657566283	(27s) cyc=3460
+rv64mi-p-csr	PASS	p-	none		3506	27	335970710	(27s) cyc=3506
+rv64mi-p-illegal	PASS	p-	none		4573	34	354420692	(34s) cyc=4573
+rv64mi-p-instret_overflow	PASS	p-	none		1258	12	135880783	(12s) cyc=1258
+rv64mi-p-ld-misaligned	PASS	p-	none		1386	12	222179836	(12s) cyc=1386
+rv64mi-p-lh-misaligned	PASS	p-	none		1102	10	399128682	(10s) cyc=1102
+rv64mi-p-lw-misaligned	PASS	p-	none		1171	10	951364463	(10s) cyc=1171
+rv64mi-p-ma_addr	PASS	p-	none		1540	14	992229354	(14s) cyc=1540
+rv64mi-p-ma_fetch	PASS	p-	none		1882	15	344750610	(15s) cyc=1882
+rv64mi-p-mcsr	PASS	p-	none		1339	12	575857003	(12s) cyc=1339
+rv64mi-p-pmpaddr	PASS	p-	none		1185	11	603606069	(11s) cyc=1185
+rv64mi-p-sbreak	PASS	p-	none		1312	11	960358000	(11s) cyc=1312
+rv64mi-p-scall	PASS	p-	none		1259	11	194650930	(11s) cyc=1259
+rv64mi-p-sd-misaligned	PASS	p-	none		1436	12	928001463	(12s) cyc=1436
+rv64mi-p-sh-misaligned	PASS	p-	none		1109	11	399722114	(11s) cyc=1109
+rv64mi-p-sw-misaligned	PASS	p-	none		1150	10	245477252	(10s) cyc=1150
+rv64mi-p-zicntr	PASS	p-	none		1424	12	317579640	(12s) cyc=1424
+rv64mzicbo-p-zero	PASS	p-	none		1158	11	424195656	(11s) cyc=1158
+rv64si-p-csr	PASS	p-	none		2249	18	314073267	(18s) cyc=2249
+rv64si-p-dirty	PASS	p-	none		2309	18	214849975	(18s) cyc=2309
+rv64si-p-icache-alias	PASS	p-	none		2459	19	518821375	(19s) cyc=2459
+rv64si-p-ma_fetch	PASS	p-	none		1376	11	346664080	(11s) cyc=1376
+rv64si-p-sbreak	PASS	p-	none		1325	11	754171429	(11s) cyc=1325
+rv64si-p-scall	PASS	p-	none		1443	12	764623902	(12s) cyc=1443
+rv64si-p-wfi	PASS	p-	none		1173	10	302982548	(10s) cyc=1173
+rv64ssvnapot-p-napot	PASS	p-	none		1658	14	998363617	(14s) cyc=1658
+rv64ua-p-amoadd_d	PASS	p-	none		1081	10	204689775	(10s) cyc=1081
+rv64ua-p-amoadd_w	PASS	p-	none		1120	9	842187432	(9s) cyc=1120
+rv64ua-p-amoand_d	PASS	p-	none		1121	9	699677558	(9s) cyc=1121
+rv64ua-p-amoand_w	PASS	p-	none		1117	9	136967862	(9s) cyc=1117
+rv64ua-p-amomax_d	PASS	p-	none		1077	10	988772835	(10s) cyc=1077
+rv64ua-p-amomax_w	PASS	p-	none		1100	10	487287836	(10s) cyc=1100
+rv64ua-p-amomaxu_d	PASS	p-	none		1077	10	434095574	(10s) cyc=1077
+rv64ua-p-amomaxu_w	PASS	p-	none		1100	9	30344	(9s) cyc=1100
+rv64ua-p-amomin_d	PASS	p-	none		1077	9	828569043	(9s) cyc=1077
+rv64ua-p-amomin_w	PASS	p-	none		1100	10	318585491	(10s) cyc=1100
+rv64ua-p-amominu_d	PASS	p-	none		1077	9	764311816	(9s) cyc=1077
+rv64ua-p-amominu_w	PASS	p-	none		1100	10	114263887	(10s) cyc=1100
+rv64ua-p-amoor_d	PASS	p-	none		1117	10	327770824	(10s) cyc=1117
+rv64ua-p-amoor_w	PASS	p-	none		1117	10	819655055	(10s) cyc=1117
+rv64ua-p-amoswap_d	PASS	p-	none		1121	11	251282045	(11s) cyc=1121
+rv64ua-p-amoswap_w	PASS	p-	none		1117	10	600379851	(10s) cyc=1117
+rv64ua-p-amoxor_d	PASS	p-	none		1125	10	814135609	(10s) cyc=1125
+rv64ua-p-amoxor_w	PASS	p-	none		1129	10	298939641	(10s) cyc=1129
+rv64ua-p-lrsc	PASS	p-	none		17416	120	734391854	(120s) cyc=17416
+rv64uc-p-rvc	PASS	p-	none		1586	13	499388056	(13s) cyc=1586
+rv64ud-p-fadd	PASS	p-	none		1913	16	332412812	(16s) cyc=1913
+rv64ud-p-fclass	PASS	p-	none		1233	11	75044392	(11s) cyc=1233
+rv64ud-p-fcmp	PASS	p-	none		2201	17	764984015	(17s) cyc=2201
+rv64ud-p-fcvt	PASS	p-	none		1825	15	26944231	(15s) cyc=1825
+rv64ud-p-fcvt_w	PASS	p-	none		3735	29	341687444	(29s) cyc=3735
+rv64ud-p-fdiv	PASS	p-	none		1739	14	738975385	(14s) cyc=1739
+rv64ud-p-fmadd	PASS	p-	none		2070	17	934900285	(17s) cyc=2070
+rv64ud-p-fmin	PASS	p-	none		2541	21	702258091	(21s) cyc=2541
+rv64ud-p-ldst	PASS	p-	none		1172	10	386903350	(10s) cyc=1172
+rv64ud-p-move	PASS	p-	none		2696	21	57779107	(21s) cyc=2696
+rv64ud-p-recoding	PASS	p-	none		1245	11	606366965	(11s) cyc=1245
+rv64ud-p-structural	PASS	p-	none		2030	16	382331731	(16s) cyc=2030
+rv64uf-p-fadd	PASS	p-	none		1913	15	791332910	(15s) cyc=1913
+rv64uf-p-fclass	PASS	p-	none		1217	11	305567903	(11s) cyc=1217
+rv64uf-p-fcmp	PASS	p-	none		2201	18	289286131	(18s) cyc=2201
+rv64uf-p-fcvt	PASS	p-	none		1612	13	698701268	(13s) cyc=1612
+rv64uf-p-fcvt_w	PASS	p-	none		3372	27	34300475	(27s) cyc=3372
+rv64uf-p-fdiv	PASS	p-	none		1663	14	189503266	(14s) cyc=1663
+rv64uf-p-fmadd	PASS	p-	none		2070	17	16706927	(17s) cyc=2070
+rv64uf-p-fmin	PASS	p-	none		2541	20	390825743	(20s) cyc=2541
+rv64uf-p-ldst	PASS	p-	none		1183	10	641371261	(10s) cyc=1183
+rv64uf-p-move	PASS	p-	none		1798	15	303863064	(15s) cyc=1798
+rv64uf-p-recoding	PASS	p-	none		1198	11	470872723	(11s) cyc=1198
+rv64ui-p-add	PASS	p-	none		2453	19	495005744	(19s) cyc=2453
+rv64ui-p-addi	PASS	p-	none		1630	13	181604095	(13s) cyc=1630
+rv64ui-p-addiw	PASS	p-	none		1621	14	179234169	(14s) cyc=1621
+rv64ui-p-addw	PASS	p-	none		2443	19	180602926	(19s) cyc=2443
+rv64ui-p-and	PASS	p-	none		2613	21	307584318	(21s) cyc=2613
+rv64ui-p-andi	PASS	p-	none		1609	13	152914259	(13s) cyc=1609
+rv64ui-p-auipc	PASS	p-	none		1053	9	775029843	(9s) cyc=1053
+rv64ui-p-beq	PASS	p-	none		2427	19	861855420	(19s) cyc=2427
+rv64ui-p-bge	PASS	p-	none		2726	21	153254992	(21s) cyc=2726
+rv64ui-p-bgeu	PASS	p-	none		2956	23	613277855	(23s) cyc=2956
+rv64ui-p-blt	PASS	p-	none		2429	19	145643869	(19s) cyc=2429
+rv64ui-p-bltu	PASS	p-	none		2643	21	722013698	(21s) cyc=2643
+rv64ui-p-bne	PASS	p-	none		2482	20	933264826	(20s) cyc=2482
+rv64ui-p-fence_i	PASS	p-	none		2089	17	345545684	(17s) cyc=2089
+rv64ui-p-jal	PASS	p-	none		1049	9	710943443	(9s) cyc=1049
+rv64ui-p-jalr	PASS	p-	none		1575	13	925079942	(13s) cyc=1575
+rv64ui-p-lb	PASS	p-	none		1671	14	744996560	(14s) cyc=1671
+rv64ui-p-lbu	PASS	p-	none		1671	14	403648409	(14s) cyc=1671
+rv64ui-p-ld	PASS	p-	none		2066	16	393025057	(16s) cyc=2066
+rv64ui-p-ld_st	PASS	p-	none		4467	33	395297447	(33s) cyc=4467
+rv64ui-p-lh	PASS	p-	none		1711	14	319885853	(14s) cyc=1711
+rv64ui-p-lhu	PASS	p-	none		1717	14	589496943	(14s) cyc=1717
+rv64ui-p-lui	PASS	p-	none		1065	10	698015633	(10s) cyc=1065
+rv64ui-p-lw	PASS	p-	none		1731	14	814621672	(14s) cyc=1731
+rv64ui-p-lwu	PASS	p-	none		1797	15	283106500	(15s) cyc=1797
+rv64ui-p-ma_data	PASS	p-	none		7696	55	133668289	(55s) cyc=7696
+rv64ui-p-or	PASS	p-	none		2670	21	982492506	(21s) cyc=2670
+rv64ui-p-ori	PASS	p-	none		1591	13	117395866	(13s) cyc=1591
+rv64ui-p-sb	PASS	p-	none		2292	19	917186717	(19s) cyc=2292
+rv64ui-p-sd	PASS	p-	none		2616	21	690564326	(21s) cyc=2616
+rv64ui-p-sh	PASS	p-	none		2362	19	559279440	(19s) cyc=2362
+rv64ui-p-simple	PASS	p-	none		1003	9	515132706	(9s) cyc=1003
+rv64ui-p-sll	PASS	p-	none		2573	20	211752999	(20s) cyc=2573
+rv64ui-p-slli	PASS	p-	none		1691	14	745929187	(14s) cyc=1691
+rv64ui-p-slliw	PASS	p-	none		1685	14	509307845	(14s) cyc=1685
+rv64ui-p-sllw	PASS	p-	none		2577	20	907054901	(20s) cyc=2577
+rv64ui-p-slt	PASS	p-	none		2431	19	793758808	(19s) cyc=2431
+rv64ui-p-slti	PASS	p-	none		1617	13	489332139	(13s) cyc=1617
+rv64ui-p-sltiu	PASS	p-	none		1617	14	664610617	(14s) cyc=1617
+rv64ui-p-sltu	PASS	p-	none		2469	19	469954954	(19s) cyc=2469
+rv64ui-p-sra	PASS	p-	none		2523	21	368393370	(21s) cyc=2523
+rv64ui-p-srai	PASS	p-	none		1654	14	635858740	(14s) cyc=1654
+rv64ui-p-sraiw	PASS	p-	none		1755	14	901542560	(14s) cyc=1755
+rv64ui-p-sraw	PASS	p-	none		2595	19	726290976	(19s) cyc=2595
+rv64ui-p-srl	PASS	p-	none		2619	20	554360705	(20s) cyc=2619
+rv64ui-p-srli	PASS	p-	none		1715	15	505378005	(15s) cyc=1715
+rv64ui-p-srliw	PASS	p-	none		1703	14	400102730	(14s) cyc=1703
+rv64ui-p-srlw	PASS	p-	none		2583	19	854662271	(19s) cyc=2583
+rv64ui-p-st_ld	PASS	p-	none		1993	16	524631017	(16s) cyc=1993
+rv64ui-p-sub	PASS	p-	none		2437	19	127222880	(19s) cyc=2437
+rv64ui-p-subw	PASS	p-	none		2429	19	80380727	(19s) cyc=2429
+rv64ui-p-sw	PASS	p-	none		2382	18	179237158	(18s) cyc=2382
+rv64ui-p-xor	PASS	p-	none		2664	21	889763370	(21s) cyc=2664
+rv64ui-p-xori	PASS	p-	none		1595	13	991690373	(13s) cyc=1595
+rv64um-p-div	PASS	p-	none		1157	11	340582036	(11s) cyc=1157
+rv64um-p-divu	PASS	p-	none		1167	11	438965157	(11s) cyc=1167
+rv64um-p-divuw	PASS	p-	none		1147	10	266850117	(10s) cyc=1147
+rv64um-p-divw	PASS	p-	none		1139	11	126307227	(11s) cyc=1139
+rv64um-p-mul	PASS	p-	none		2461	20	252586285	(20s) cyc=2461
+rv64um-p-mulh	PASS	p-	none		2471	19	783395329	(19s) cyc=2471
+rv64um-p-mulhsu	PASS	p-	none		2471	19	446825359	(19s) cyc=2471
+rv64um-p-mulhu	PASS	p-	none		2531	20	709284815	(20s) cyc=2531
+rv64um-p-mulw	PASS	p-	none		2329	18	346913800	(18s) cyc=2329
+rv64um-p-rem	PASS	p-	none		1131	10	827461495	(10s) cyc=1131
+rv64um-p-remu	PASS	p-	none		1133	10	39189735	(10s) cyc=1133
+rv64um-p-remuw	PASS	p-	none		1129	10	709002606	(10s) cyc=1129
+rv64um-p-remw	PASS	p-	none		1139	10	357885177	(10s) cyc=1139
+rv64uzba-p-add_uw	PASS	p-	none		2455	20	135729278	(20s) cyc=2455
+rv64uzba-p-sh1add	PASS	p-	none		2461	19	159451053	(19s) cyc=2461
+rv64uzba-p-sh1add_uw	PASS	p-	none		2469	19	2746202	(19s) cyc=2469
+rv64uzba-p-sh2add	PASS	p-	none		2461	19	734150913	(19s) cyc=2461
+rv64uzba-p-sh2add_uw	PASS	p-	none		2469	20	755780236	(20s) cyc=2469
+rv64uzba-p-sh3add	PASS	p-	none		2461	20	543303813	(20s) cyc=2461
+rv64uzba-p-sh3add_uw	PASS	p-	none		2469	20	433050559	(20s) cyc=2469
+rv64uzba-p-slli_uw	PASS	p-	none		1719	15	91942730	(15s) cyc=1719
+rv64uzbb-p-andn	PASS	p-	none		2655	19	499083665	(19s) cyc=2655
+rv64uzbb-p-clz	PASS	p-	none		1497	12	708709335	(12s) cyc=1497
+rv64uzbb-p-clzw	PASS	p-	none		1465	11	255529109	(11s) cyc=1465
+rv64uzbb-p-cpop	PASS	p-	none		1497	12	954646874	(12s) cyc=1497
+rv64uzbb-p-cpopw	PASS	p-	none		1465	12	477887649	(12s) cyc=1465
+rv64uzbb-p-ctz	PASS	p-	none		1497	12	394424335	(12s) cyc=1497
+rv64uzbb-p-ctzw	PASS	p-	none		1467	11	148987118	(11s) cyc=1467
+rv64uzbb-p-max	PASS	p-	none		2441	19	284932075	(19s) cyc=2441
+rv64uzbb-p-maxu	PASS	p-	none		2503	18	103371375	(18s) cyc=2503
+rv64uzbb-p-min	PASS	p-	none		2433	18	164810844	(18s) cyc=2433
+rv64uzbb-p-minu	PASS	p-	none		2481	19	485178709	(19s) cyc=2481
+rv64uzbb-p-orc_b	PASS	p-	none		1539	12	657031099	(12s) cyc=1539
+rv64uzbb-p-orn	PASS	p-	none		2673	20	665239417	(20s) cyc=2673
+rv64uzbb-p-rev8	PASS	p-	none		1572	13	817626656	(13s) cyc=1572
+rv64uzbb-p-rol	PASS	p-	none		2583	19	306573238	(19s) cyc=2583
+rv64uzbb-p-rolw	PASS	p-	none		2585	19	247105055	(19s) cyc=2585
+rv64uzbb-p-ror	PASS	p-	none		2645	19	51435417	(19s) cyc=2645
+rv64uzbb-p-rori	PASS	p-	none		1712	13	718462067	(13s) cyc=1712
+rv64uzbb-p-roriw	PASS	p-	none		1625	13	876312358	(13s) cyc=1625
+rv64uzbb-p-rorw	PASS	p-	none		2513	18	639550677	(18s) cyc=2513
+rv64uzbb-p-sext_b	PASS	p-	none		1497	12	5985544	(12s) cyc=1497
+rv64uzbb-p-sext_h	PASS	p-	none		1503	12	629207530	(12s) cyc=1503
+rv64uzbb-p-xnor	PASS	p-	none		2671	20	566177986	(20s) cyc=2671
+rv64uzbb-p-zext_h	PASS	p-	none		1509	13	699065721	(13s) cyc=1509
+rv64uzbc-p-clmul	PASS	p-	none		2463	19	283879380	(19s) cyc=2463
+rv64uzbc-p-clmulh	PASS	p-	none		2473	19	598855331	(19s) cyc=2473
+rv64uzbc-p-clmulr	PASS	p-	none		2469	18	46286550	(18s) cyc=2469
+rv64uzbkb-p-brev8	PASS	p-	none		1537	12	653101387	(12s) cyc=1537
+rv64uzbkb-p-pack	PASS	p-	none		2913	21	259972007	(21s) cyc=2913
+rv64uzbkb-p-packh	PASS	p-	none		2583	19	122751062	(19s) cyc=2583
+rv64uzbkb-p-packw	PASS	p-	none		2443	18	11748396	(18s) cyc=2443
+rv64uzbkx-p-xperm4	PASS	p-	none		2767	20	495454097	(20s) cyc=2767
+rv64uzbkx-p-xperm8	PASS	p-	none		3598	26	200733363	(26s) cyc=3598
+rv64uzbs-p-bclr	PASS	p-	none		2796	21	51473756	(21s) cyc=2796
+rv64uzbs-p-bclri	PASS	p-	none		1779	14	206463336	(14s) cyc=1779
+rv64uzbs-p-bext	PASS	p-	none		2661	21	385603149	(21s) cyc=2661
+rv64uzbs-p-bexti	PASS	p-	none		1711	14	196898186	(14s) cyc=1711
+rv64uzbs-p-binv	PASS	p-	none		2631	20	995098479	(20s) cyc=2631
+rv64uzbs-p-binvi	PASS	p-	none		1715	14	470590141	(14s) cyc=1715
+rv64uzbs-p-bset	PASS	p-	none		2800	21	955878569	(21s) cyc=2800
+rv64uzbs-p-bseti	PASS	p-	none		1793	14	858830850	(14s) cyc=1793
+rv64uzfh-p-fadd	PASS	p-	none		1913	14	711660300	(14s) cyc=1913
+rv64uzfh-p-fclass	PASS	p-	none		1218	10	342839141	(10s) cyc=1218
+rv64uzfh-p-fcmp	PASS	p-	none		1553	12	207183184	(12s) cyc=1553
+rv64uzfh-p-fcvt	PASS	p-	none		1787	13	798001542	(13s) cyc=1787
+rv64uzfh-p-fcvt_w	PASS	p-	none		3372	24	73958713	(24s) cyc=3372
+rv64uzfh-p-fdiv	PASS	p-	none		1663	13	305031681	(13s) cyc=1663
+rv64uzfh-p-fmadd	PASS	p-	none		2070	15	30466729	(15s) cyc=2070
+rv64uzfh-p-fmin	PASS	p-	none		2541	18	123473476	(18s) cyc=2541
+rv64uzfh-p-ldst	PASS	p-	none		1194	9	881279693	(9s) cyc=1194
+rv64uzfh-p-move	PASS	p-	none		1793	14	210665499	(14s) cyc=1793
+rv64uzfh-p-recoding	PASS	p-	none		1198	10	598340208	(10s) cyc=1198
+rv64uziccid-p-ziccid	PASS	p-	none		7614	31	291634374	(31s) cyc=7614
+rv64uzicond-p-czero_eqz	PASS	p-	none		2389	17	398464838	(17s) cyc=2389
+rv64uzicond-p-czero_nez	PASS	p-	none		2377	16	302668636	(16s) cyc=2377
+rv64ua-v-amoadd_d	PASS	v-	15/18		24316	159	534605165	(159s) cyc=24316
+rv64ua-v-amoadd_w	PASS	v-	16/18		24321	184	167859938	(184s) cyc=24321
+rv64ua-v-amoand_d	PASS	v-	17/18		24415	121	496043297	(121s) cyc=24415
+rv64ua-v-amoand_w	PASS	v-	18/18		24444	159	942479354	(159s) cyc=24444
+rv64ua-v-amomax_d	PASS	v-	1/18		24239	153	184472022	(153s) cyc=24239
+rv64ua-v-amomax_w	PASS	v-	4/18		24267	152	675744144	(152s) cyc=24267
+rv64ua-v-amomaxu_d	PASS	v-	2/18		24239	154	696978236	(154s) cyc=24239
+rv64ua-v-amomaxu_w	PASS	v-	3/18		24267	117	269499374	(117s) cyc=24267
+rv64ua-v-amomin_d	PASS	v-	5/18		24239	123	350174452	(123s) cyc=24239
+rv64ua-v-amomin_w	PASS	v-	8/18		24415	161	836948033	(161s) cyc=24415
+rv64ua-v-amominu_d	PASS	v-	6/18		24288	118	30006147	(118s) cyc=24288
+rv64ua-v-amominu_w	PASS	v-	7/18		24315	153	375961687	(153s) cyc=24315
+rv64ua-v-amoor_d	PASS	v-	9/18		24265	92	290354877	(92s) cyc=24265
+rv64ua-v-amoor_w	PASS	v-	10/18		24265	85	709835329	(85s) cyc=24265
+rv64ua-v-amoswap_d	PASS	v-	11/18		24415	85	980270436	(85s) cyc=24415
+rv64ua-v-amoswap_w	PASS	v-	12/18		24415	123	328041710	(123s) cyc=24415
+rv64ua-v-amoxor_d	PASS	v-	13/18		24276	161	340498700	(161s) cyc=24276
+rv64ua-v-amoxor_w	PASS	v-	14/18		24290	154	825545604	(154s) cyc=24290
+rv64ua-v-lrsc	PASS	v-	15/18		40307	221	234200024	(221s) cyc=40307
+rv64uc-v-rvc	PASS	v-	14/18		33301	213	271607561	(213s) cyc=33301
+rv64ud-v-fadd	PASS	v-	9/18		23878	94	697837625	(94s) cyc=23878
+rv64ud-v-fclass	PASS	v-	10/18		14479	54	606622324	(54s) cyc=14479
+rv64ud-v-fcmp	PASS	v-	11/18		24156	90	423131526	(90s) cyc=24156
+rv64ud-v-fcvt	PASS	v-	12/18		23812	123	551566696	(123s) cyc=23812
+rv64ud-v-fcvt_w	PASS	v-	13/18		34251	215	957172007	(215s) cyc=34251
+rv64ud-v-fdiv	PASS	v-	14/18		23706	153	108380233	(153s) cyc=23706
+rv64ud-v-fmadd	PASS	v-	15/18		24047	165	75511868	(165s) cyc=24047
+rv64ud-v-fmin	PASS	v-	16/18		24509	180	323645091	(180s) cyc=24509
+rv64ud-v-ldst	PASS	v-	17/18		23933	97	581278413	(97s) cyc=23933
+rv64ud-v-move	PASS	v-	18/18		24751	160	387920298	(160s) cyc=24751
+rv64ud-v-recoding	PASS	v-	1/18		24256	157	260979935	(157s) cyc=24256
+rv64ud-v-structural	PASS	v-	2/18		15096	101	886368758	(101s) cyc=15096
+rv64uf-v-fadd	PASS	v-	16/18		23878	178	381012518	(178s) cyc=23878
+rv64uf-v-fclass	PASS	v-	17/18		14463	71	761893654	(71s) cyc=14463
+rv64uf-v-fcmp	PASS	v-	18/18		24156	156	731179891	(156s) cyc=24156
+rv64uf-v-fcvt	PASS	v-	1/18		23590	159	1127550	(159s) cyc=23590
+rv64uf-v-fcvt_w	PASS	v-	2/18		33909	207	420047314	(207s) cyc=33909
+rv64uf-v-fdiv	PASS	v-	3/18		23629	115	780170086	(115s) cyc=23629
+rv64uf-v-fmadd	PASS	v-	4/18		24047	154	987506916	(154s) cyc=24047
+rv64uf-v-fmin	PASS	v-	5/18		24509	125	786949753	(125s) cyc=24509
+rv64uf-v-ldst	PASS	v-	6/18		24206	120	203492613	(120s) cyc=24206
+rv64uf-v-move	PASS	v-	7/18		15045	98	997741391	(98s) cyc=15045
+rv64uf-v-recoding	PASS	v-	8/18		23167	157	526238282	(157s) cyc=23167
+rv64ui-v-add	PASS	v-	1/18		15732	107	670660621	(107s) cyc=15732
+rv64ui-v-addi	PASS	v-	2/18		14982	102	805821377	(102s) cyc=14982
+rv64ui-v-addiw	PASS	v-	3/18		14972	77	885606918	(77s) cyc=14972
+rv64ui-v-addw	PASS	v-	4/18		15722	104	841251679	(104s) cyc=15722
+rv64ui-v-and	PASS	v-	7/18		15886	107	757951291	(107s) cyc=15886
+rv64ui-v-andi	PASS	v-	8/18		14859	103	675581614	(103s) cyc=14859
+rv64ui-v-auipc	PASS	v-	12/18		14262	74	298506353	(74s) cyc=14262
+rv64ui-v-beq	PASS	v-	13/18		15656	110	955727996	(110s) cyc=15656
+rv64ui-v-bge	PASS	v-	14/18		15958	104	794037978	(104s) cyc=15958
+rv64ui-v-bgeu	PASS	v-	15/18		16190	108	208543149	(108s) cyc=16190
+rv64ui-v-blt	PASS	v-	16/18		15669	122	960907154	(122s) cyc=15669
+rv64ui-v-bltu	PASS	v-	17/18		15879	80	122268171	(80s) cyc=15879
+rv64ui-v-bne	PASS	v-	18/18		15709	103	914693350	(103s) cyc=15709
+rv64ui-v-fence_i	PASS	v-	17/18		25200	124	103543818	(124s) cyc=25200
+rv64ui-v-jal	PASS	v-	1/18		14260	96	353903792	(96s) cyc=14260
+rv64ui-v-jalr	PASS	v-	2/18		14645	101	118018911	(101s) cyc=14645
+rv64ui-v-lb	PASS	v-	3/18		23723	121	603024069	(121s) cyc=23723
+rv64ui-v-lbu	PASS	v-	4/18		23718	156	363379952	(156s) cyc=23718
+rv64ui-v-ld	PASS	v-	9/18		24249	97	999872550	(97s) cyc=24249
+rv64ui-v-ld_st	PASS	v-	14/18		44437	285	685284152	(285s) cyc=44437
+rv64ui-v-lh	PASS	v-	5/18		23747	125	293609642	(125s) cyc=23747
+rv64ui-v-lhu	PASS	v-	6/18		23768	122	278710758	(122s) cyc=23768
+rv64ui-v-lui	PASS	v-	11/18		14348	54	468240764	(54s) cyc=14348
+rv64ui-v-lw	PASS	v-	7/18		23770	157	430760819	(157s) cyc=23770
+rv64ui-v-lwu	PASS	v-	8/18		23841	164	451457118	(164s) cyc=23841
+rv64ui-v-ma_data	PASS	v-	18/18		46782	284	371605391	(284s) cyc=46782
+rv64ui-v-or	PASS	v-	9/18		15961	63	363642675	(63s) cyc=15961
+rv64ui-v-ori	PASS	v-	10/18		14866	55	17406670	(55s) cyc=14866
+rv64ui-v-sb	PASS	v-	10/18		24848	92	291567665	(92s) cyc=24848
+rv64ui-v-sd	PASS	v-	13/18		33879	228	845599796	(228s) cyc=33879
+rv64ui-v-sh	PASS	v-	11/18		24926	96	923081663	(96s) cyc=24926
+rv64ui-v-simple	PASS	v-	16/18		14270	112	956612755	(112s) cyc=14270
+rv64ui-v-sll	PASS	v-	17/18		24619	122	557676015	(122s) cyc=24619
+rv64ui-v-slli	PASS	v-	18/18		15032	100	89287548	(100s) cyc=15032
+rv64ui-v-slliw	PASS	v-	1/18		15034	102	482146235	(102s) cyc=15034
+rv64ui-v-sllw	PASS	v-	2/18		24617	164	274024846	(164s) cyc=24617
+rv64ui-v-slt	PASS	v-	13/18		15710	111	277367864	(111s) cyc=15710
+rv64ui-v-slti	PASS	v-	14/18		14966	99	795855618	(99s) cyc=14966
+rv64ui-v-sltiu	PASS	v-	16/18		14963	118	335545675	(118s) cyc=14963
+rv64ui-v-sltu	PASS	v-	15/18		15744	105	230913208	(105s) cyc=15744
+rv64ui-v-sra	PASS	v-	7/18		15806	106	400757893	(106s) cyc=15806
+rv64ui-v-srai	PASS	v-	8/18		14933	101	330815615	(101s) cyc=14933
+rv64ui-v-sraiw	PASS	v-	9/18		15117	58	173978131	(58s) cyc=15117
+rv64ui-v-sraw	PASS	v-	10/18		24638	92	312200046	(92s) cyc=24638
+rv64ui-v-srl	PASS	v-	3/18		24670	125	318174706	(125s) cyc=24670
+rv64ui-v-srli	PASS	v-	4/18		14978	101	201682143	(101s) cyc=14978
+rv64ui-v-srliw	PASS	v-	5/18		15054	82	685162118	(82s) cyc=15054
+rv64ui-v-srlw	PASS	v-	6/18		24628	126	443426574	(126s) cyc=24628
+rv64ui-v-st_ld	PASS	v-	15/18		33395	218	410204127	(218s) cyc=33395
+rv64ui-v-sub	PASS	v-	5/18		15715	84	813341563	(84s) cyc=15715
+rv64ui-v-subw	PASS	v-	6/18		15708	81	738334287	(81s) cyc=15708
+rv64ui-v-sw	PASS	v-	12/18		24983	124	201280489	(124s) cyc=24983
+rv64ui-v-xor	PASS	v-	11/18		15976	66	382093344	(66s) cyc=15976
+rv64ui-v-xori	PASS	v-	12/18		14863	77	717912063	(77s) cyc=14863
+rv64um-v-div	PASS	v-	5/18		14450	77	895989725	(77s) cyc=14450
+rv64um-v-divu	PASS	v-	6/18		14459	74	998676438	(74s) cyc=14459
+rv64um-v-divuw	PASS	v-	11/18		14446	54	736496444	(54s) cyc=14446
+rv64um-v-divw	PASS	v-	10/18		14429	54	318666666	(54s) cyc=14429
+rv64um-v-mul	PASS	v-	1/18		15786	107	20712248	(107s) cyc=15786
+rv64um-v-mulh	PASS	v-	2/18		15754	107	510377628	(107s) cyc=15754
+rv64um-v-mulhsu	PASS	v-	3/18		15754	81	939869439	(81s) cyc=15754
+rv64um-v-mulhu	PASS	v-	4/18		15814	106	277044043	(106s) cyc=15814
+rv64um-v-mulw	PASS	v-	9/18		15607	59	683272149	(59s) cyc=15607
+rv64um-v-rem	PASS	v-	7/18		14428	96	982147444	(96s) cyc=14428
+rv64um-v-remu	PASS	v-	8/18		14435	99	398994140	(99s) cyc=14435
+rv64um-v-remuw	PASS	v-	13/18		14419	103	298888999	(103s) cyc=14419
+rv64um-v-remw	PASS	v-	12/18		14429	75	90760012	(75s) cyc=14429
+rv64uzba-v-add_uw	PASS	v-	3/18		15732	77	672405509	(77s) cyc=15732
+rv64uzba-v-sh1add	PASS	v-	4/18		15739	101	749025249	(101s) cyc=15739
+rv64uzba-v-sh1add_uw	PASS	v-	5/18		15745	84	730868600	(84s) cyc=15745
+rv64uzba-v-sh2add	PASS	v-	6/18		15739	79	357345106	(79s) cyc=15739
+rv64uzba-v-sh2add_uw	PASS	v-	7/18		15745	103	482413460	(103s) cyc=15745
+rv64uzba-v-sh3add	PASS	v-	8/18		15739	107	133780777	(107s) cyc=15739
+rv64uzba-v-sh3add_uw	PASS	v-	9/18		15745	62	698777665	(62s) cyc=15745
+rv64uzba-v-slli_uw	PASS	v-	10/18		15032	56	120587246	(56s) cyc=15032
+rv64uzbb-v-andn	PASS	v-	11/18		15963	59	931776196	(59s) cyc=15963
+rv64uzbb-v-clz	PASS	v-	12/18		14871	74	356867575	(74s) cyc=14871
+rv64uzbb-v-clzw	PASS	v-	13/18		14845	100	590010788	(100s) cyc=14845
+rv64uzbb-v-cpop	PASS	v-	14/18		14871	98	219149105	(98s) cyc=14871
+rv64uzbb-v-cpopw	PASS	v-	15/18		14845	97	450651811	(97s) cyc=14845
+rv64uzbb-v-ctz	PASS	v-	16/18		14871	112	638188079	(112s) cyc=14871
+rv64uzbb-v-ctzw	PASS	v-	17/18		14845	73	410213091	(73s) cyc=14845
+rv64uzbb-v-max	PASS	v-	18/18		15698	102	457179959	(102s) cyc=15698
+rv64uzbb-v-maxu	PASS	v-	1/18		15786	102	466275241	(102s) cyc=15786
+rv64uzbb-v-min	PASS	v-	2/18		15721	103	976859892	(103s) cyc=15721
+rv64uzbb-v-minu	PASS	v-	3/18		15763	77	216968555	(77s) cyc=15763
+rv64uzbb-v-orc_b	PASS	v-	4/18		14913	96	258764587	(96s) cyc=14913
+rv64uzbb-v-orn	PASS	v-	5/18		24762	124	201771675	(124s) cyc=24762
+rv64uzbb-v-rev8	PASS	v-	6/18		14900	75	212099437	(75s) cyc=14900
+rv64uzbb-v-rol	PASS	v-	7/18		24672	131	596893601	(131s) cyc=24672
+rv64uzbb-v-rolw	PASS	v-	8/18		24664	162	45101546	(162s) cyc=24664
+rv64uzbb-v-ror	PASS	v-	9/18		24706	87	757410551	(87s) cyc=24706
+rv64uzbb-v-rori	PASS	v-	10/18		15016	56	442535137	(56s) cyc=15016
+rv64uzbb-v-roriw	PASS	v-	11/18		14984	56	117580575	(56s) cyc=14984
+rv64uzbb-v-rorw	PASS	v-	12/18		15851	77	206732230	(77s) cyc=15851
+rv64uzbb-v-sext_b	PASS	v-	13/18		14871	96	379954130	(96s) cyc=14871
+rv64uzbb-v-sext_h	PASS	v-	14/18		14880	79	88598823	(79s) cyc=14880
+rv64uzbb-v-xnor	PASS	v-	15/18		24762	138	2805134	(138s) cyc=24762
+rv64uzbb-v-zext_h	PASS	v-	16/18		14886	110	217931990	(110s) cyc=14886
+rv64uzbc-v-clmul	PASS	v-	17/18		15787	77	718454670	(77s) cyc=15787
+rv64uzbc-v-clmulh	PASS	v-	18/18		15797	70	229116165	(70s) cyc=15797
+rv64uzbc-v-clmulr	PASS	v-	1/18		15796	82	580863499	(82s) cyc=15796
+rv64uzbkb-v-brev8	PASS	v-	2/18		14838	82	272199625	(82s) cyc=14838
+rv64uzbkb-v-pack	PASS	v-	3/18		25022	71	25273149	(71s) cyc=25022
+rv64uzbkb-v-packh	PASS	v-	4/18		15902	79	824764330	(79s) cyc=15902
+rv64uzbkb-v-packw	PASS	v-	5/18		15778	81	981000042	(81s) cyc=15778
+rv64uzbkx-v-xperm4	PASS	v-	6/18		24831	78	984301529	(78s) cyc=24831
+rv64uzbkx-v-xperm8	PASS	v-	7/18		25735	131	792210381	(131s) cyc=25735
+rv64uzbs-v-bclr	PASS	v-	8/18		24859	142	672971447	(142s) cyc=24859
+rv64uzbs-v-bclri	PASS	v-	9/18		15065	48	787285199	(48s) cyc=15065
+rv64uzbs-v-bext	PASS	v-	10/18		24733	70	43175220	(70s) cyc=24733
+rv64uzbs-v-bexti	PASS	v-	11/18		15022	44	753420162	(44s) cyc=15022
+rv64uzbs-v-binv	PASS	v-	12/18		24692	93	723416809	(93s) cyc=24692
+rv64uzbs-v-binvi	PASS	v-	13/18		15083	79	476504188	(79s) cyc=15083
+rv64uzbs-v-bset	PASS	v-	14/18		24863	104	477317094	(104s) cyc=24863
+rv64uzbs-v-bseti	PASS	v-	15/18		15079	87	147307522	(87s) cyc=15079
+rv64uzfh-v-fadd	PASS	v-	16/18		23878	123	117844379	(123s) cyc=23878
+rv64uzfh-v-fclass	PASS	v-	17/18		14461	62	950126144	(62s) cyc=14461
+rv64uzfh-v-fcmp	PASS	v-	18/18		23508	96	765425725	(96s) cyc=23508
+rv64uzfh-v-fcvt	PASS	v-	1/18		23755	97	485244573	(97s) cyc=23755
+rv64uzfh-v-fcvt_w	PASS	v-	2/18		33909	140	610603188	(140s) cyc=33909
+rv64uzfh-v-fdiv	PASS	v-	3/18		23629	70	712236760	(70s) cyc=23629
+rv64uzfh-v-fmadd	PASS	v-	4/18		24047	91	987640366	(91s) cyc=24047
+rv64uzfh-v-fmin	PASS	v-	5/18		24509	79	711477527	(79s) cyc=24509
+rv64uzfh-v-ldst	PASS	v-	6/18		24203	70	305360122	(70s) cyc=24203
+rv64uzfh-v-move	PASS	v-	7/18		15038	90	506456563	(90s) cyc=15038
+rv64uzfh-v-recoding	PASS	v-	8/18		23167	93	532074027	(93s) cyc=23167
+rv64uziccid-v-ziccid	PASS	v-	11/18		165858	358	916696496	(358s) cyc=165858
+rv64uzicond-v-czero_eqz	PASS	v-	9/18		15665	43	657866688	(43s) cyc=15665
+rv64uzicond-v-czero_nez	PASS	v-	10/18		15676	39	566870419	(39s) cyc=15676
