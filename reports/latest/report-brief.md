@@ -2,12 +2,12 @@
 
 |  |  |
 |---|---|
-| **Result** | **FAIL** -- 4 of 2899 tests not passing |
-| Run | [rain91508-cmd/pyo3-ci#36504864111](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/36504864111) |
-| Commit | `e96ab4aaac` (pycpu) |
+| **Result** | **PASS** |
+| Run | [rain91508-cmd/pyo3-ci#36786247905](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/36786247905) |
+| Commit | `7dc6a27e25` (pycpu) |
 | Triggered by | rain91508-cmd |
-| Base seed | 1790642992, 1790642993, 1790642994, 1790642996, 1790642997, 1790642998, 1790642999, 1790643000 |
-| Generated | 2026-09-29 01:03 UTC |
+| Base seed | 1790807703, 1790807704, 1790807705, 1790807706, 1790807707, 1790807708, 1790807709 |
+| Generated | 2026-09-30 22:49 UTC |
 
 ## Suites
 
@@ -25,10 +25,10 @@
 | block-Fetch | none | 208 | 0 | 0+0 | 0 | 0 | 208 | PASS |
 | block-FrontEnd | none | 16 | 0 | 0+0 | 0 | 0 | 16 | PASS |
 | block-ICache | none | 53 | 0 | 0+0 | 0 | 0 | 53 | PASS |
-| block-IEW | none | 112 | 0 | 0+0 | 0 | 0 | 112 | PASS |
+| block-IEW | none | 113 | 0 | 0+0 | 0 | 0 | 113 | PASS |
 | block-IQ | none | 132 | 0 | 0+0 | 0 | 0 | 132 | PASS |
-| block-LQCore | none | 121 | 0 | 0+0 | 0 | 0 | 121 | PASS |
-| block-LSQParent | none | 265 | 0 | 0+0 | 0 | 0 | 265 | PASS |
+| block-LQCore | none | 127 | 0 | 0+0 | 0 | 0 | 127 | PASS |
+| block-LSQParent | none | 266 | 0 | 0+0 | 0 | 0 | 266 | PASS |
 | block-O3Control | none | 45 | 0 | 0+0 | 0 | 0 | 45 | PASS |
 | block-PhysRegFile | none | 27 | 0 | 0+0 | 0 | 0 | 27 | PASS |
 | block-ROB | none | 59 | 0 | 0+0 | 0 | 0 | 59 | PASS |
@@ -36,14 +36,14 @@
 | block-ReadOperandInt | none | 14 | 0 | 0+0 | 0 | 0 | 14 | PASS |
 | block-ReadOperandMem | none | 6 | 0 | 0+0 | 0 | 0 | 6 | PASS |
 | block-Rename | none | 91 | 0 | 0+0 | 0 | 0 | 91 | PASS |
-| block-SQStore | none | 117 | 0 | 0+0 | 0 | 0 | 117 | PASS |
+| block-SQStore | none | 119 | 0 | 0+0 | 0 | 0 | 119 | PASS |
 | block-Scoreboard | none | 54 | 0 | 0+0 | 0 | 0 | 54 | PASS |
 | block-StorageManager | none | 28 | 0 | 0+0 | 0 | 0 | 28 | PASS |
 | block-StoreSet | none | 22 | 0 | 0+0 | 0 | 0 | 22 | PASS |
 | block-Testbench | none | 116 | 0 | 0+0 | 0 | 0 | 116 | PASS |
 | block-TlbiController | none | 11 | 0 | 0+0 | 0 | 0 | 11 | PASS |
 | block-WriteBack | none | 89 | 0 | 0+0 | 0 | 0 | 89 | PASS |
-| p- | none | 200 | 0 | 0+0 | 4 | 0 | 204 | FAIL |
+| p- | none | 204 | 0 | 0+0 | 0 | 0 | 204 | PASS |
 | v- | 1/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 10/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 11/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
@@ -62,15 +62,10 @@
 | v- | 7/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 8/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 9/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
-| **all** |  | 2895 | 0 | 0+0 | 4 | 0 | 2899 | FAIL |
+| **all** |  | 2909 | 0 | 0+0 | 0 | 0 | 2909 | PASS |
 
 ## Failures
 
-| Test | Suite | Status | exit | cycles | wall | perm | detail |
-|---|---|---|---|---|---|---|---|
-| `rv64mi-p-instret_overflow` | p- | ERROR | - | - | 10s | 382453184 | exit=None cycles=-1 status=ERROR |
-| `rv64mi-p-ma_fetch` | p- | ERROR | - | - | 14s | 591323011 | exit=None cycles=-1 status=ERROR |
-| `rv64mi-p-pmpaddr` | p- | ERROR | - | - | 10s | 850178470 | exit=None cycles=-1 status=ERROR |
-| `rv64mi-p-zicntr` | p- | ERROR | - | - | 11s | 564152041 | exit=None cycles=-1 status=ERROR |
+None.
 
-_Full 2899-test table: see the `pyo3-ci-report.md` asset._
+_Full 2909-test table: see the `pyo3-ci-report.md` asset._
