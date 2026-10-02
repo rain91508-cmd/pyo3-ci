@@ -3,36 +3,36 @@
 |  |  |
 |---|---|
 | **Result** | **PASS** |
-| Run | [rain91508-cmd/pyo3-ci#36786247905](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/36786247905) |
-| Commit | `7dc6a27e25` (pycpu) |
+| Run | [rain91508-cmd/pyo3-ci#37077063810](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/37077063810) |
+| Commit | `ad1d446f66` (pycpu) |
 | Triggered by | rain91508-cmd |
-| Base seed | 1790807703, 1790807704, 1790807705, 1790807706, 1790807707, 1790807708, 1790807709 |
-| Generated | 2026-09-30 22:49 UTC |
+| Base seed | 1790983291, 1790983292, 1790983293, 1790983294, 1790983295, 1790983296, 1790983298, 1790983299, 1790983300, 1790983325 |
+| Generated | 2026-10-02 23:34 UTC |
 
 ## Suites
 
 | Suite | Shard | PASS | FAIL | TIMEOUT | ERROR | MISSING | Total | Status |
 |---|---|---|---|---|---|---|---|---|
-| block-BACV2 | none | 84 | 0 | 0+0 | 0 | 0 | 84 | PASS |
-| block-BPredUnitV2 | none | 294 | 0 | 0+0 | 0 | 0 | 294 | PASS |
+| block-BACV2 | none | 109 | 0 | 0+0 | 0 | 0 | 109 | PASS |
+| block-BPredUnitV2 | none | 443 | 0 | 0+0 | 0 | 0 | 443 | PASS |
 | block-CSRFile | none | 30 | 0 | 0+0 | 0 | 0 | 30 | PASS |
 | block-Commit | none | 70 | 0 | 0+0 | 0 | 0 | 70 | PASS |
 | block-DTLBProbe | none | 29 | 0 | 0+0 | 0 | 0 | 29 | PASS |
 | block-Decode | none | 115 | 0 | 0+0 | 0 | 0 | 115 | PASS |
 | block-Dispatch | none | 47 | 0 | 0+0 | 0 | 0 | 47 | PASS |
 | block-FTQ | none | 168 | 0 | 0+0 | 0 | 0 | 168 | PASS |
-| block-FUPool | none | 51 | 0 | 0+0 | 0 | 0 | 51 | PASS |
-| block-Fetch | none | 208 | 0 | 0+0 | 0 | 0 | 208 | PASS |
-| block-FrontEnd | none | 16 | 0 | 0+0 | 0 | 0 | 16 | PASS |
+| block-FUPool | none | 49 | 0 | 0+0 | 0 | 0 | 49 | PASS |
+| block-Fetch | none | 197 | 0 | 0+0 | 0 | 0 | 197 | PASS |
+| block-FrontEnd | none | 19 | 0 | 0+0 | 0 | 0 | 19 | PASS |
 | block-ICache | none | 53 | 0 | 0+0 | 0 | 0 | 53 | PASS |
-| block-IEW | none | 113 | 0 | 0+0 | 0 | 0 | 113 | PASS |
+| block-IEW | none | 110 | 0 | 0+0 | 0 | 0 | 110 | PASS |
 | block-IQ | none | 132 | 0 | 0+0 | 0 | 0 | 132 | PASS |
 | block-LQCore | none | 127 | 0 | 0+0 | 0 | 0 | 127 | PASS |
-| block-LSQParent | none | 266 | 0 | 0+0 | 0 | 0 | 266 | PASS |
+| block-LSQParent | none | 255 | 0 | 0+0 | 0 | 0 | 255 | PASS |
 | block-O3Control | none | 45 | 0 | 0+0 | 0 | 0 | 45 | PASS |
 | block-PhysRegFile | none | 27 | 0 | 0+0 | 0 | 0 | 27 | PASS |
 | block-ROB | none | 59 | 0 | 0+0 | 0 | 0 | 59 | PASS |
-| block-ReadOperand | none | 48 | 0 | 0+0 | 0 | 0 | 48 | PASS |
+| block-ReadOperand | none | 43 | 0 | 0+0 | 0 | 0 | 43 | PASS |
 | block-ReadOperandInt | none | 14 | 0 | 0+0 | 0 | 0 | 14 | PASS |
 | block-ReadOperandMem | none | 6 | 0 | 0+0 | 0 | 0 | 6 | PASS |
 | block-Rename | none | 91 | 0 | 0+0 | 0 | 0 | 91 | PASS |
@@ -62,10 +62,10 @@
 | v- | 7/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 8/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 9/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
-| **all** |  | 2909 | 0 | 0+0 | 0 | 0 | 2909 | PASS |
+| **all** |  | 3054 | 0 | 0+0 | 0 | 0 | 3054 | PASS |
 
 ## Failures
 
 None.
 
-_Full 2909-test table: see the `pyo3-ci-report.md` asset._
+_Full 3054-test table: see the `pyo3-ci-report.md` asset._
