@@ -3,18 +3,18 @@
 |  |  |
 |---|---|
 | **Result** | **PASS** |
-| Run | [rain91508-cmd/pyo3-ci#37077063810](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/37077063810) |
-| Commit | `ad1d446f66` (pycpu) |
+| Run | [rain91508-cmd/pyo3-ci#37213201137](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/37213201137) |
+| Commit | `7627e4d2f7` (pycpu) |
 | Triggered by | rain91508-cmd |
-| Base seed | 1790983291, 1790983292, 1790983293, 1790983294, 1790983295, 1790983296, 1790983298, 1790983299, 1790983300, 1790983325 |
-| Generated | 2026-10-02 23:34 UTC |
+| Base seed | 1791127883, 1791127884, 1791127885, 1791127886, 1791127887, 1791127888, 1791127904, 1791127917 |
+| Generated | 2026-10-04 15:44 UTC |
 
 ## Suites
 
 | Suite | Shard | PASS | FAIL | TIMEOUT | ERROR | MISSING | Total | Status |
 |---|---|---|---|---|---|---|---|---|
 | block-BACV2 | none | 109 | 0 | 0+0 | 0 | 0 | 109 | PASS |
-| block-BPredUnitV2 | none | 443 | 0 | 0+0 | 0 | 0 | 443 | PASS |
+| block-BPredUnitV2 | none | 482 | 0 | 0+0 | 0 | 0 | 482 | PASS |
 | block-CSRFile | none | 30 | 0 | 0+0 | 0 | 0 | 30 | PASS |
 | block-Commit | none | 70 | 0 | 0+0 | 0 | 0 | 70 | PASS |
 | block-DTLBProbe | none | 29 | 0 | 0+0 | 0 | 0 | 29 | PASS |
@@ -62,10 +62,10 @@
 | v- | 7/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 8/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
 | v- | 9/18 | 10 | 0 | 0+0 | 0 | 0 | 10 | PASS |
-| **all** |  | 3054 | 0 | 0+0 | 0 | 0 | 3054 | PASS |
+| **all** |  | 3093 | 0 | 0+0 | 0 | 0 | 3093 | PASS |
 
 ## Failures
 
 None.
 
-_Full 3054-test table: see the `pyo3-ci-report.md` asset._
+_Full 3093-test table: see the `pyo3-ci-report.md` asset._
