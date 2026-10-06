@@ -43,9 +43,35 @@ on:
                 required: false
                 default: '20000'
                 type: string
+            sched_mode:
+                description: >-
+                    Intra-cycle schedule family the suites run under
+                    (PYO3_SCHED_MODE). pinned (default) = pymtl3's deterministic
+                    base order + a per-test permutation seed; every number is
+                    reproducible and the Gate judges pass/fail.
+                    nondet = both knobs UNSET, so pymtl3 orders unconstrained
+                    @update_once blocks by set/dict iteration, which varies
+                    across processes -- the one family a permuted-pinned sweep
+                    provably cannot reach (measured on rv64ui-p-add: 13 perm
+                    seeds gave a single cycle family, the unpinned order gave a
+                    second ~24% faster one in about 1 of 10 processes).
+                    REPORT-ONLY: the Gate prints the same counts as a warning and
+                    exits 0, because an order that changes run-to-run is not a
+                    reproducible verdict. Each test runs in its own worker
+                    process, so a nondet run samples many orders at once; every
+                    row carries "order=<hash>" so a finding can be compared
+                    against a pinned run of the same ref.
+                required: false
+                default: pinned
+                type: choice
+                options:
+                    - pinned
+                    - nondet
 
+# The mode is part of the group: a report-only probe must not cancel a gating
+# pinned run of the same ref (cancel-in-progress is on).
 concurrency:
-    group: ${{ github.workflow }}-${{ inputs.gem5_ref || 'pycpu' }}
+    group: ${{ github.workflow }}-${{ inputs.gem5_ref || 'pycpu' }}-${{ inputs.sched_mode || 'pinned' }}
     cancel-in-progress: true
 
 jobs:
@@ -87,7 +113,7 @@ jobs:
                   if-no-files-found: error
 
     pyo3-riscv-tests-p:
-        name: pyo3 / riscv-tests -p- (machine mode)
+        name: pyo3 / riscv-tests -p- (machine mode) · ${{ inputs.sched_mode || 'pinned' }}
         runs-on: ubuntu-24.04
         timeout-minutes: ${{ inputs.enable_cosim == 'true' && 360 || 120 }}
         needs: [pyo3-riscv-tests-build]
@@ -109,6 +135,15 @@ jobs:
               working-directory: src/cpu/pyo3
               env:
                   REGRESSION_MAX_JOBS: '4'   # all 4 cores on this runner
+                  # Choice input: constrained to pinned|nondet by GitHub, and it
+                  # goes to the runner through env, never interpolated inline.
+                  PYO3_SCHED_MODE: ${{ inputs.sched_mode || 'pinned' }}
+                  # The mode is baked into the suite label, because
+                  # make_ci_report.py only parses suite/shard/tests/base_seed/
+                  # gem5_sha/gem5_ref from the persist header -- a "#
+                  # sched_mode=" line would be dropped and the report would not
+                  # say which family produced the numbers.
+                  PYO3_SUITE_NAME: ${{ inputs.sched_mode == 'nondet' && 'p-nondet' || 'p-' }}
                   PYO3_RESULTS_FILE: ${{ github.workspace }}/results/p-.txt
               run: ./run_regression_status.sh
 
@@ -121,7 +156,8 @@ jobs:
               working-directory: src/cpu/pyo3
               env:
                   COSIM_MAX_JOBS: '4'
-                  PYO3_SUITE_NAME: cosim-p
+                  PYO3_SCHED_MODE: ${{ inputs.sched_mode || 'pinned' }}
+                  PYO3_SUITE_NAME: ${{ inputs.sched_mode == 'nondet' && 'cosim-p-nondet' || 'cosim-p' }}
                   PYO3_RESULTS_FILE: ${{ github.workspace }}/results/cosim-p.txt
               run: ./run_cosim_all.sh -p 600 ${{ inputs.cosim_max_cycles || '20000' }}
 
@@ -134,7 +170,7 @@ jobs:
                   retention-days: 14
 
     pyo3-riscv-tests-v:
-        name: pyo3 / riscv-tests -v- (Sv39) shard ${{ matrix.shard }}/18
+        name: pyo3 / riscv-tests -v- (Sv39) shard ${{ matrix.shard }}/18 · ${{ inputs.sched_mode || 'pinned' }}
         runs-on: ubuntu-24.04
         timeout-minutes: ${{ inputs.enable_cosim == 'true' && 480 || 240 }}
         needs: [pyo3-riscv-tests-build]
@@ -162,6 +198,8 @@ jobs:
               env:
                   PYO3_SHARD: ${{ matrix.shard }}/18
                   VV_MAX_JOBS: '4'   # all 4 cores on this runner
+                  PYO3_SCHED_MODE: ${{ inputs.sched_mode || 'pinned' }}
+                  PYO3_SUITE_NAME: ${{ inputs.sched_mode == 'nondet' && 'v-nondet' || 'v-' }}
                   PYO3_RESULTS_FILE: ${{ github.workspace }}/results/v-${{ matrix.shard }}.txt
               run: ./run_all_vv_80000.sh
 
@@ -174,7 +212,8 @@ jobs:
                   PYO3_SHARD: ${{ matrix.shard }}/18
                   COSIM_MAX_JOBS: '4'
                   COSIM_TEST_TIMEOUT: '1500'
-                  PYO3_SUITE_NAME: cosim-v
+                  PYO3_SCHED_MODE: ${{ inputs.sched_mode || 'pinned' }}
+                  PYO3_SUITE_NAME: ${{ inputs.sched_mode == 'nondet' && 'cosim-v-nondet' || 'cosim-v' }}
                   PYO3_RESULTS_FILE: ${{ github.workspace }}/results/cosim-v-${{ matrix.shard }}.txt
               run: ./run_cosim_all.sh -v 1500 ${{ inputs.cosim_max_cycles || '20000' }}
 
@@ -286,8 +325,11 @@ jobs:
             # report is also present in the git tree, not only as a Release
             # asset. The workspace root is the gem5 clone, so clone pyo3-ci into
             # a temp dir and commit there.
+            # A report-only probe must not overwrite reports/latest/, which is
+            # the pinned record of the tested ref. Its own run page still carries
+            # the full brief (job summary) and the results artifact.
             - name: Commit the report into the pyo3-ci repo
-              if: always()
+              if: ${{ always() && inputs.sched_mode != 'nondet' }}
               run: |
                   set -euo pipefail
                   if [ ! -s "$GITHUB_WORKSPACE/pyo3-ci-report.md" ]; then
@@ -322,8 +364,10 @@ jobs:
 
             # Publish to THIS repo's pre-release (public). The default GITHUB_SHA
             # (pyo3-ci's own commit) is the release --target.
+            # Same reason: the rolling pyo3-ci-report pre-release is the pinned
+            # record. See "Commit the report into the pyo3-ci repo".
             - name: Publish the report to the pyo3-ci-report pre-release
-              if: always()
+              if: ${{ always() && inputs.sched_mode != 'nondet' }}
               run: |
                   if [ ! -s "$GITHUB_WORKSPACE/pyo3-ci-report.md" ] \
                      || [ ! -s "$GITHUB_WORKSPACE/report-brief.md" ]; then
@@ -342,7 +386,26 @@ jobs:
 
             - name: Gate on the suite results
               if: always()
+              env:
+                  SCHED_MODE: ${{ inputs.sched_mode || 'pinned' }}
               run: |
+                  # A nondeterministic intra-cycle order is not a reproducible
+                  # pass/fail signal: two dispatches of the same ref can draw
+                  # different schedules for the same test. So the probe reports
+                  # and never judges -- the user ruling was "the GATE only
+                  # judges when PYO3_SCHED_MODE is pinned".
+                  if [ "$SCHED_MODE" != "pinned" ]; then
+                      if [ -s "$GITHUB_WORKSPACE/pyo3-ci-results.tsv" ]; then
+                          bad=$(awk -F'\t' 'NR>1 && $2 != "PASS" && $3 !~ /^cosim/ {n++} END {print n+0}' \
+                              "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
+                          total=$(awk -F'\t' 'NR>1 && $3 !~ /^cosim/ {n++} END {print n+0}' \
+                              "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
+                          echo "::warning title=pyo3 sched probe (report-only)::schedule mode=$SCHED_MODE: $bad of $total functional tests did not pass under an order that varies across processes. This does NOT gate. Re-dispatch with sched_mode=pinned for a verdict; every row names its order (order=<hash>), so a finding here is comparable against a pinned run of the same ref."
+                      else
+                          echo "::warning title=pyo3 sched probe (report-only)::no results.tsv under mode=$SCHED_MODE -- nothing to report; this does NOT gate."
+                      fi
+                      exit 0
+                  fi
                   if [ ! -s "$GITHUB_WORKSPACE/pyo3-ci-results.tsv" ]; then
                       echo "::error::no results.tsv -- the suites produced no " \
                            "per-test results, so the run cannot be judged."
