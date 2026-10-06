@@ -3,11 +3,11 @@
 |  |  |
 |---|---|
 | **Result** | **PASS** |
-| Run | [rain91508-cmd/pyo3-ci#37410127787](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/37410127787) |
-| Commit | `4236ad9921` (pycpu) |
+| Run | [rain91508-cmd/pyo3-ci#37452300432](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/37452300432) |
+| Commit | `05e8cbfe5b` (pycpu) |
 | Triggered by | rain91508-cmd |
-| Base seed | 1791258165, 1791258166, 1791258167, 1791258168, 1791258169, 1791258170, 1791258171, 1791258172, 1791258173, 1791258174, 1791258176, 1791258202 |
-| Generated | 2026-10-06 03:58 UTC |
+| Base seed | 1791283859, 1791283860, 1791283861, 1791283863, 1791283864, 1791283865, 1791283868, 1791283869 |
+| Generated | 2026-10-06 11:05 UTC |
 
 ## Suites
 
