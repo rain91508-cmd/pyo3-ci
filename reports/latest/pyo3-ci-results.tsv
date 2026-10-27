@@ -1,8 +1,10 @@
 test	status	suite	shard	exit	cycles	wall_s	perm	detail
+test_bac_v2_btb_flush::test_a_non_serialize_squash_does_not_flush	PASS	block-BACV2	none			0		
+test_bac_v2_btb_flush::test_one_flush_pulse_across_a_multi_cycle_level	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2CommitEventSurvivesCommitSquash::test_a_commit_on_a_squash_cycle_still_reaches_the_bpu	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2CommitEventSurvivesCommitSquash::test_an_unknown_bb_idx_on_a_squash_cycle_dispatches_nothing	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2CommitEventSurvivesCommitSquash::test_the_squash_itself_still_issues_on_that_cycle	PASS	block-BACV2	none			0		
-test_bac_v2_cl.TestBACV2Construction::test_clear_states_flushes_the_ftq_and_clears_the_ack_slot	PASS	block-BACV2	none			0		
+test_bac_v2_cl.TestBACV2Construction::test_clear_states_flushes_the_ftq	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2Construction::test_clear_states_sets_running_at_committed_pc	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2Construction::test_default_parameters_match_spec_9	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2Construction::test_dut_constructs_its_own_bpu_and_ftq_children	PASS	block-BACV2	none			0		
@@ -13,9 +15,10 @@ test_bac_v2_cl.TestBACV2FTFormation::test_a_retry_after_a_reject_succeeds_when_a
 test_bac_v2_cl.TestBACV2FTFormation::test_branch_less_ft_ends_at_the_window_edge_and_is_not_a_bb_end	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2FTFormation::test_ft_is_exactly_one_per_cycle	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2FTFormation::test_ft_never_crosses_a_window	PASS	block-BACV2	none			0		
-test_bac_v2_cl.TestBACV2FTFormation::test_terminal_ft_end_uses_the_compressed_size	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2FTFormation::test_terminal_ft_ends_exclusive_at_the_terminal	PASS	block-BACV2	none			0		
+test_bac_v2_cl.TestBACV2FTFormation::test_the_last_slot_of_a_window_and_the_first_of_the_next	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2FTFormation::test_the_retry_re_reads_the_window	PASS	block-BACV2	none			0		
+test_bac_v2_cl.TestBACV2FTFormation::test_the_terminal_slot_alone_fixes_the_ft_end	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2FTFormation::test_window_edge_ft_for_an_all_not_taken_member_set	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2GenerationEntryTest::test_ftq_full_at_entry_emits_no_ft_and_holds_bacpc	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2GenerationEntryTest::test_ftqfull_at_entry_is_latched_even_without_a_tick_req	PASS	block-BACV2	none			0		
@@ -32,23 +35,10 @@ test_bac_v2_cl.TestBACV2LookaheadPC::test_clear_states_restores_the_lookahead_to
 test_bac_v2_cl.TestBACV2LookaheadPC::test_generation_reads_the_lookahead_pc	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2LookaheadPC::test_the_one_cycle_parity_check_raises_when_only_bacpc_moves	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2LookaheadPC::test_the_reset_mirror_includes_the_lookahead_pc	PASS	block-BACV2	none			0		
-test_bac_v2_cl.TestBACV2ResteerProtocol::test_an_invalid_resteer_request_is_a_no_op	PASS	block-BACV2	none			0		
-test_bac_v2_cl.TestBACV2ResteerProtocol::test_resteer_ack_is_a_registered_single_cycle_pulse	PASS	block-BACV2	none			0		
-test_bac_v2_cl.TestBACV2ResteerProtocol::test_resteer_ack_is_per_thread	PASS	block-BACV2	none			0		
-test_bac_v2_cl.TestBACV2ResteerProtocol::test_resteer_carries_a_bb_idx_and_bac_requires_it	PASS	block-BACV2	none			0		
-test_bac_v2_cl.TestBACV2ResteerProtocol::test_resteer_is_buffered_unconditionally	PASS	block-BACV2	none			0		
-test_bac_v2_cl.TestBACV2ResteerProtocol::test_resteer_is_consumed_after_the_auto_transition_and_overrides_it	PASS	block-BACV2	none			0		
-test_bac_v2_cl.TestBACV2ResteerProtocol::test_resteer_is_running_two_cycles_later	PASS	block-BACV2	none			0		
-test_bac_v2_cl.TestBACV2ResteerProtocol::test_resteer_redirects_bacpc_and_flushes_the_ftq	PASS	block-BACV2	none			0		
-test_bac_v2_cl.TestBACV2ResteerProtocol::test_the_ack_survives_a_higher_priority_squash	PASS	block-BACV2	none			0		
-test_bac_v2_cl.TestBACV2ResteerProtocol::test_the_first_post_resteer_ft_forms_at_the_redirected_pc	PASS	block-BACV2	none			0		
-test_bac_v2_cl.TestBACV2RetryNeverDrop::test_a_resteer_under_backpressure_is_not_discarded	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2RetryNeverDrop::test_a_squash_under_backpressure_is_not_discarded	PASS	block-BACV2	none			0		
-test_bac_v2_cl.TestBACV2RetryNeverDrop::test_the_resteer_buffer_is_the_retry_mechanism	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2SlotsAbsoluteIndexing::test_members_below_start_pc_are_pre_filtered_out	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2SlotsAbsoluteIndexing::test_records_outside_the_window_base_are_ignored	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2SlotsAbsoluteIndexing::test_slot_bits_use_the_absolute_window_offset	PASS	block-BACV2	none			0		
-test_bac_v2_cl.TestBACV2SlotsAbsoluteIndexing::test_slot_size_fields_are_indexed_absolutely_too	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2SlotsAbsoluteIndexing::test_the_prediction_records_keep_absolute_offsets	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2SquashCancelsPrediction::test_commit_squash_cancels_this_cycle_prediction	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestBACV2SquashCancelsPrediction::test_decode_squash_cancels_this_cycle_prediction	PASS	block-BACV2	none			0		
@@ -71,12 +61,13 @@ test_bac_v2_cl.TestInstSizeConventionBoundary::test_a_commit_origin_corrective_c
 test_bac_v2_cl.TestInstSizeConventionBoundary::test_a_two_byte_branch_converts_to_zero	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestL2ConfigPassThrough::test_enabling_at_bac_reaches_the_bpu	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestL2ConfigPassThrough::test_the_default_leaves_the_bpu_one_cycle	PASS	block-BACV2	none			0		
+test_bac_v2_cl.TestResolveLeg::test_a_resolve_is_delivered_while_squashing	PASS	block-BACV2	none			0		
+test_bac_v2_cl.TestResolveLeg::test_a_resolve_slot_refusal_raises_instead_of_dropping	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestSquashAnchorFreesTheFlushedRows::test_commit_mispredict_anchors_at_the_mispredicting_insts_row	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestSquashAnchorFreesTheFlushedRows::test_commit_type0_squash_anchors_at_the_latched_head_row	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestSquashAnchorFreesTheFlushedRows::test_commit_type0_unreachable_latch_raises	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestSquashAnchorFreesTheFlushedRows::test_constructed_squash_freed_younger_equals_flushed_minus_anchor	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestSquashAnchorFreesTheFlushedRows::test_decode_mispredict_anchors_at_the_dec_bb_idx	PASS	block-BACV2	none			0		
-test_bac_v2_cl.TestSquashAnchorFreesTheFlushedRows::test_resteer_anchors_at_the_row_it_carries	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestSquashMergeOldestWins::test_a_younger_squash_is_dropped_while_the_slot_is_occupied	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestSquashMergeOldestWins::test_the_outstanding_squash_survives_many_ticks_of_backpressure	PASS	block-BACV2	none			0		
 test_bac_v2_cl.TestSquashMergeOldestWins::test_the_redirect_is_applied_immediately_not_on_landing	PASS	block-BACV2	none			0		
@@ -102,7 +93,6 @@ test_bac_v2_finalize_consume.TestBACV2ProvisionalGeneration::test_the_strong_par
 test_bac_v2_finalize_consume.TestBACV2ProvisionalGeneration::test_the_two_pcs_diverge_in_flight_and_converge_on_finalize	PASS	block-BACV2	none			0		
 test_bac_v2_finalize_consume.TestBACV2ProvisionalGeneration::test_the_weak_check_has_teeth_on_a_divergence_with_nothing_in_flight	PASS	block-BACV2	none			0		
 test_bac_v2_finalize_consume.TestBACV2ProvisionalGeneration::test_the_weak_check_has_teeth_on_an_over_bound_window_count	PASS	block-BACV2	none			0		
-test_bac_v2_finalize_consume.TestBACV2SquashDiscardsTransport::test_a_resteer_voids_the_transport_too	PASS	block-BACV2	none			0		
 test_bac_v2_finalize_consume.TestBACV2SquashDiscardsTransport::test_a_squash_discards_the_record_that_was_about_to_be_consumed	PASS	block-BACV2	none			0		
 test_bac_v2_finalize_consume.TestBACV2SquashDiscardsTransport::test_clear_states_voids_the_transport_too	PASS	block-BACV2	none			0		
 test_bac_v2_finalize_consume.TestBACV2SquashDiscardsTransport::test_the_bpu_s_in_flight_window_and_latched_record_are_both_voided	PASS	block-BACV2	none			0		
@@ -190,6 +180,7 @@ test_bpred_unit_v2_cl.TestL4CatchupRelease::test_the_walk_is_bounded_per_cycle_a
 test_bpred_unit_v2_cl.TestL4Release::test_a_commit_matching_the_head_does_not_release	PASS	block-BPredUnitV2	none			0		
 test_bpred_unit_v2_cl.TestL4Release::test_a_commit_naming_a_newer_row_releases_the_head_row_and_its_ckpt	PASS	block-BPredUnitV2	none			0		
 test_bpred_unit_v2_cl.TestL4Release::test_releasing_a_row_whose_ckpt_was_never_allocated_is_safe	PASS	block-BPredUnitV2	none			0		
+test_bpred_unit_v2_cl.TestL4Release::test_the_catchup_walk_drains_every_older_row_over_successive_cycles	PASS	block-BPredUnitV2	none			0		
 test_bpred_unit_v2_cl.TestL4Release::test_two_releases_on_one_head_do_not_double_free	PASS	block-BPredUnitV2	none			0		
 test_bpred_unit_v2_cl.TestL4ReleaseNonDegeneracy::test_a_commit_naming_a_gap_row_walks_the_head_up_to_it	PASS	block-BPredUnitV2	none			0		
 test_bpred_unit_v2_cl.TestL4ReleaseNonDegeneracy::test_the_head_naming_commit_is_inert_while_rows_are_live	PASS	block-BPredUnitV2	none			0		
@@ -218,6 +209,13 @@ test_bpred_unit_v2_cl.TestSquashOrphanGate::test_a_strand_with_room_in_the_arena
 test_bpred_unit_v2_cl.TestSquashOrphanGate::test_the_anchor_and_strictly_younger_rows_are_excluded	PASS	block-BPredUnitV2	none			0		
 test_bpred_unit_v2_cl.TestSquashOrphanGate::test_the_ftq_records_the_distinct_bb_idx_it_discards_on_a_flush	PASS	block-BPredUnitV2	none			0		
 test_bpred_unit_v2_cl.TestSquashOrphanGate::test_the_gate_fires_when_a_strand_saturates_the_arena	PASS	block-BPredUnitV2	none			0		
+test_bpu_v2_btb_flush_driver::test_a_same_cycle_read_is_not_protected_but_the_next_cycle_is	PASS	block-BPredUnitV2	none			0		
+test_bpu_v2_btb_flush_driver::test_flush_pulse_clears_the_installed_record	PASS	block-BPredUnitV2	none			0		
+test_bpu_v2_btb_flush_driver::test_flush_rdy_is_false_only_while_a_pulse_is_buffered	PASS	block-BPredUnitV2	none			0		
+test_bpu_v2_btb_flush_driver::test_no_flush_control_keeps_the_installed_record	PASS	block-BPredUnitV2	none			0		
+test_bpu_v2_btb_flush_driver::test_one_pulse_clears_both_arrays	PASS	block-BPredUnitV2	none			0		
+test_bpu_v2_btb_flush_driver::test_one_pulse_clears_every_bank	PASS	block-BPredUnitV2	none			0		
+test_bpu_v2_btb_flush_driver::test_the_l1_and_l2_fan_out_and_the_and_guard	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_btb_install.TestInstallClassesAndSlots::test_a_direct_call_consumes_a_target_slot	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_btb_install.TestInstallClassesAndSlots::test_a_direct_uncond_consumes_a_target_slot_and_stores_its_target	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_btb_install.TestInstallClassesAndSlots::test_a_non_conditional_class_installs_through_the_counter_gate[1-False-False-False-Return]	PASS	block-BPredUnitV2	none			0		
@@ -238,18 +236,21 @@ test_bpu_v2_btb_install.TestInstallPathGating::test_a_bulk_squash_does_not_insta
 test_bpu_v2_btb_install.TestInstallPathGating::test_the_commit_path_does_not_install	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_btb_install.TestInstallPortDiscipline::test_the_install_is_issued_through_the_update_port	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_btb_install.TestL5BtbInstall::test_a_taken_corrective_installs_a_btb_record	PASS	block-BPredUnitV2	none			0		
-test_bpu_v2_btb_install.TestL5BtbInstall::test_the_installed_inst_size_uses_the_one_bit_convention	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_btb_install.TestL5BtbInstall::test_the_installed_record_lands_in_the_branchs_own_window	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_l2_config.TestL2ConfigurationSurface::test_a_latency_of_three_sizes_the_ring_to_three	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_l2_config.TestL2ConfigurationSurface::test_a_latency_of_two_is_constructible_and_sizes_the_ring	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_l2_config.TestL2ConfigurationSurface::test_a_zero_latency_with_l2_enabled_is_rejected	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_l2_config.TestL2ConfigurationSurface::test_enabling_builds_the_l2_geometry	PASS	block-BPredUnitV2	none			0		
+test_bpu_v2_l2_config.TestL2ConfigurationSurface::test_l2_with_fewer_ways_than_l1_is_rejected	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_l2_config.TestL2ConfigurationSurface::test_latency_below_one_without_l2_is_not_rejected	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_l2_config.TestL2ConfigurationSurface::test_predict_latency_is_stored_and_defaults_to_two	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_l2_config.TestL2ConfigurationSurface::test_the_default_configuration_builds_no_l2_array	PASS	block-BPredUnitV2	none			0		
+test_bpu_v2_l2_config.TestL2ConfigurationSurface::test_the_way_ratio_guard_is_inert_when_l2_is_dark	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_l2_config.TestL2IsInertUntilLatencyOpens::test_nothing_ever_reaches_the_l2_array	PASS	block-BPredUnitV2	none			0		
+test_bpu_v2_l2_config.TestL2IsInertUntilLatencyOpens::test_the_dual_install_is_atomic_when_the_l2_update_port_refuses	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_l2_config.TestL2IsInertUntilLatencyOpens::test_the_l2_ports_are_never_called_by_the_one_cycle_path	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_l2_config.TestL2IsInertUntilLatencyOpens::test_the_same_predict_gives_the_same_answer_either_way	PASS	block-BPredUnitV2	none			0		
+test_bpu_v2_l2_config::test_dark_accept_counts_every_accepted_predict	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_resolve_train.TestCensusIsNonVacuous::test_a_none_anchor_raises_rather_than_naming_row_zero[bimodal]	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_resolve_train.TestCensusIsNonVacuous::test_a_none_anchor_raises_rather_than_naming_row_zero[gshare]	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_resolve_train.TestCensusIsNonVacuous::test_a_resolve_for_a_dead_row_raises[bimodal]	PASS	block-BPredUnitV2	none			0		
@@ -291,16 +292,16 @@ test_bpu_v2_transport_t1.TestT1ControlIsTheSynchronousPath::test_l2_off_still_an
 test_bpu_v2_transport_t1.TestT1FinalizeAllocatesOnce::test_finalize_allocates_exactly_once_and_stamps_the_row	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_transport_t1.TestT1FinalizeAllocatesOnce::test_the_emitted_triple_is_the_records_own_one_bit_for_bit	PASS	block-BPredUnitV2	none			0		
 test_bpu_v2_transport_t1.TestT1FinalizeAllocatesOnce::test_the_finalized_record_is_ftqinsertreq_shaped	PASS	block-BPredUnitV2	none			0		
-test_bpu_v3a_skid_ring.TestT3aBoundRefusal::test_accept_up_to_the_bound_in_one_cycle_cannot_over_accept	PASS	block-BPredUnitV2	none			1		
+test_bpu_v3a_skid_ring.TestT3aBoundRefusal::test_accept_up_to_the_bound_in_one_cycle_cannot_over_accept	PASS	block-BPredUnitV2	none			0		
 test_bpu_v3a_skid_ring.TestT3aBoundRefusal::test_the_bound_plus_one_th_accept_raises_side_effect_free	PASS	block-BPredUnitV2	none			0		
 test_bpu_v3a_skid_ring.TestT3aBoundRefusal::test_the_bound_reads_the_pending_view_not_the_committed_one	PASS	block-BPredUnitV2	none			0		
 test_bpu_v3a_skid_ring.TestT3aMaxFtPerCycleCensus::test_a_cycle_with_two_accept_marks_is_counted	PASS	block-BPredUnitV2	none			0		
 test_bpu_v3a_skid_ring.TestT3aMaxFtPerCycleCensus::test_one_accept_per_cycle_leaves_the_census_at_zero	PASS	block-BPredUnitV2	none			0		
 test_bpu_v3a_skid_ring.TestT3aMaxFtPerCycleCensus::test_the_census_counts_cycles_not_windows	PASS	block-BPredUnitV2	none			0		
-test_bpu_v3a_skid_ring.TestT3aRingHoldsTheBound::test_a_window_is_due_after_predict_latency_cycles	PASS	block-BPredUnitV2	none			1		
+test_bpu_v3a_skid_ring.TestT3aRingHoldsTheBound::test_a_window_is_due_after_predict_latency_cycles	PASS	block-BPredUnitV2	none			0		
 test_bpu_v3a_skid_ring.TestT3aRingHoldsTheBound::test_an_empty_cycle_emits_nothing	PASS	block-BPredUnitV2	none			0		
 test_bpu_v3a_skid_ring.TestT3aRingHoldsTheBound::test_finalize_takes_the_head_first_and_the_tail_next	PASS	block-BPredUnitV2	none			0		
-test_bpu_v3a_skid_ring.TestT3aRingHoldsTheBound::test_the_ring_is_sized_from_the_bound_not_from_a_literal	PASS	block-BPredUnitV2	none			1		
+test_bpu_v3a_skid_ring.TestT3aRingHoldsTheBound::test_the_ring_is_sized_from_the_bound_not_from_a_literal	PASS	block-BPredUnitV2	none			0		
 test_bpu_v3a_skid_ring.TestT3aRingHoldsTheBound::test_two_distinct_windows_travel_independently_together	PASS	block-BPredUnitV2	none			0		
 test_bpu_v3a_skid_ring.TestT3aVoidEmptiesTheRing::test_a_void_also_kills_the_accepts_of_its_own_cycle	PASS	block-BPredUnitV2	none			0		
 test_bpu_v3a_skid_ring.TestT3aVoidEmptiesTheRing::test_a_void_clears_a_COMMITTED_multi_entry_ring	PASS	block-BPredUnitV2	none			0		
@@ -364,19 +365,20 @@ test_bpu_v6_cpred_l2.TestResolveTrainsBothTables::test_one_train_write_per_table
 test_bpu_v6_cpred_l2.TestResolveTrainsBothTables::test_the_l1_leg_drop_is_also_counted	PASS	block-BPredUnitV2	none			0		
 test_bpu_v6_cpred_l2.TestResolveTrainsBothTables::test_the_l2_table_trains_at_the_shared_image	PASS	block-BPredUnitV2	none			0		
 test_bpu_v7_triple_compare.TestCensusLaw::test_an_agreeing_pair_retries_for_no_reason	PASS	block-BPredUnitV2	none			0		
-test_bpu_v7_triple_compare.TestCensusLaw::test_every_finalized_window_is_compared_exactly_once	PASS	block-BPredUnitV2	none			0		
+test_bpu_v7_triple_compare.TestCensusLaw::test_every_compared_window_either_finalizes_or_retries	PASS	block-BPredUnitV2	none			0		
 test_bpu_v7_triple_compare.TestCensusLaw::test_the_two_reasons_are_exhaustive	PASS	block-BPredUnitV2	none			0		
-test_bpu_v7_triple_compare.TestCompareConsumesNothing::test_a_shape_retry_still_emits_and_drops_the_window	PASS	block-BPredUnitV2	none			0		
-test_bpu_v7_triple_compare.TestCompareConsumesNothing::test_the_emitted_record_still_carries_the_provisional_triple	PASS	block-BPredUnitV2	none			0		
+test_bpu_v7_triple_compare.TestCompareConsumesNothing::test_a_shape_retry_emits_nothing_and_kills_the_window	PASS	block-BPredUnitV2	none			0		
+test_bpu_v7_triple_compare.TestCompareConsumesNothing::test_an_agreeing_window_emits_the_provisional_triple_bit_for_bit	PASS	block-BPredUnitV2	none			0		
 test_bpu_v7_triple_compare.TestCompareConsumesNothing::test_the_transport_dark_increments_none_of_it	PASS	block-BPredUnitV2	none			0		
+test_bpu_v7_triple_compare.TestCompareHasTeeth::test_blinding_the_l2_probe_to_a_shorter_answer_still_vetoes	PASS	block-BPredUnitV2	none			0		
+test_bpu_v7_triple_compare.TestCompareHasTeeth::test_blinding_the_l2_probe_to_an_empty_window_abstains_and_emits	PASS	block-BPredUnitV2	none			0		
 test_bpu_v7_triple_compare.TestCompareHasTeeth::test_every_conditional_member_is_read_and_nothing_else_is	PASS	block-BPredUnitV2	none			0		
-test_bpu_v7_triple_compare.TestCompareHasTeeth::test_mutation_blinding_the_l2_probe_blinds_the_compare	PASS	block-BPredUnitV2	none			0		
 test_bpu_v7_triple_compare.TestCompareReadsTheFtsRange::test_a_member_behind_the_ft_start_pc_is_not_a_member_of_this_ft	PASS	block-BPredUnitV2	none			0		
 test_bpu_v7_triple_compare.TestCompareReadsTheFtsRange::test_the_l2_triple_applies_step_4bs_demote_too	PASS	block-BPredUnitV2	none			0		
 test_bpu_v7_triple_compare.TestShapeReason::test_an_interior_l2_flip_is_a_shape_retry	PASS	block-BPredUnitV2	none			0		
 test_bpu_v7_triple_compare.TestShapeReason::test_an_l2_only_not_taken_member_between_is_not_a_retry	PASS	block-BPredUnitV2	none			0		
 test_bpu_v7_triple_compare.TestShapeReason::test_an_l2_only_taken_member_between_is_a_shape_retry	PASS	block-BPredUnitV2	none			0		
-test_bpu_v7_triple_compare.TestShapeReason::test_the_shape_reason_names_end_pc_too	PASS	block-BPredUnitV2	none			0		
+test_bpu_v7_triple_compare.TestShapeReason::test_end_pc_cannot_differ_where_the_terminal_slot_agrees	PASS	block-BPredUnitV2	none			0		
 test_bpu_v7_triple_compare.TestTargetReason::test_a_different_btb_target_for_the_same_terminal_is_the_target_reason	PASS	block-BPredUnitV2	none			0		
 test_bpu_v7_triple_compare.TestTargetReason::test_a_returns_target_is_not_the_l2_stages_to_answer	PASS	block-BPredUnitV2	none			0		
 test_bpu_v7c_ready_states.TestArmedHistFullRejectRetired::test_a_window_is_accepted_even_when_the_pools_cannot_cover_it	PASS	block-BPredUnitV2	none			0		
@@ -415,27 +417,38 @@ test_bpu_v8d_train_filter::test_a_stale_bit_costs_one_step_and_the_next_train_pa
 test_bpu_v8d_train_filter::test_a_stale_bit_costs_one_step_and_the_next_train_pays_it_back[gshare]	PASS	block-BPredUnitV2	none			0		
 test_bpu_v8d_train_filter::test_an_unsaturated_cell_in_the_predicted_direction_still_trains[bimodal]	PASS	block-BPredUnitV2	none			0		
 test_bpu_v8d_train_filter::test_an_unsaturated_cell_in_the_predicted_direction_still_trains[gshare]	PASS	block-BPredUnitV2	none			0		
+test_bpu_v8d_train_filter::test_both_filter_rows_are_reachable_and_neither_carries_an_opposite_pair	PASS	block-BPredUnitV2	none			0		
 test_bpu_v8d_train_filter::test_both_tables_saturated_is_the_one_filtered_case	PASS	block-BPredUnitV2	none			0		
 test_bpu_v8d_train_filter::test_every_training_event_ends_in_exactly_one_of_three_censuses[bimodal]	PASS	block-BPredUnitV2	none			0		
 test_bpu_v8d_train_filter::test_every_training_event_ends_in_exactly_one_of_three_censuses[gshare]	PASS	block-BPredUnitV2	none			0		
 test_bpu_v8d_train_filter::test_one_table_unsaturated_clears_the_shared_bit	PASS	block-BPredUnitV2	none			0		
-test_bpu_v8d_train_filter::test_opposite_saturation_in_the_two_tables_clears_the_bit	PASS	block-BPredUnitV2	none			0		
+test_bpu_v8d_train_filter::test_opposite_saturations_do_not_stand_because_the_retry_repairs_them	PASS	block-BPredUnitV2	none			0		
+test_bpu_v8d_train_filter::test_the_mirror_pair_is_also_vetoed_before_it_can_be_filtered	PASS	block-BPredUnitV2	none			0		
 test_bpu_v8d_train_filter::test_the_one_cycle_configuration_has_no_pair_to_filter[bimodal]	PASS	block-BPredUnitV2	none			0		
 test_bpu_v8d_train_filter::test_the_one_cycle_configuration_has_no_pair_to_filter[gshare]	PASS	block-BPredUnitV2	none			0		
 test_bpu_v8d_train_filter::test_the_table_is_never_addressed_for_a_filtered_leg[bimodal]	PASS	block-BPredUnitV2	none			0		
 test_bpu_v8d_train_filter::test_the_table_is_never_addressed_for_a_filtered_leg[gshare]	PASS	block-BPredUnitV2	none			0		
+test_bpu_v9_retry_leg.TestDarkStaysDark::test_the_transport_dark_retries_supersede_and_pulses_nothing	PASS	block-BPredUnitV2	none			0		
+test_bpu_v9_retry_leg.TestFillLegs::test_a_second_disagreement_on_a_new_window_retries_again	PASS	block-BPredUnitV2	none			0		
+test_bpu_v9_retry_leg.TestFillLegs::test_the_retry_installs_l2s_cell_into_l1_as_a_write	PASS	block-BPredUnitV2	none			0		
+test_bpu_v9_retry_leg.TestRetryLeg::test_a_killed_window_leaves_the_front_view_where_it_was	PASS	block-BPredUnitV2	none			0		
+test_bpu_v9_retry_leg.TestRetryLeg::test_a_reissued_window_after_the_repair_finalizes	PASS	block-BPredUnitV2	none			0		
+test_bpu_v9_retry_leg.TestRetryLeg::test_a_triple_disagreement_kills_the_window_and_names_it_to_bac	PASS	block-BPredUnitV2	none			0		
+test_bpu_v9_retry_leg.TestRetryLeg::test_the_retry_pulse_lives_for_exactly_one_cycle	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_a_difference_in_any_compared_field_always_writes[br_type]	PASS	block-BPredUnitV2	none			0		
-test_btb_v2_cl::test_a_difference_in_any_compared_field_always_writes[inst_size]	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_a_difference_in_any_compared_field_always_writes[is_call]	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_a_difference_in_any_compared_field_always_writes[is_indirect]	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_a_difference_in_any_compared_field_always_writes[is_return]	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_a_difference_in_any_compared_field_always_writes[is_uncond]	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_a_difference_in_any_compared_field_always_writes[target]	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_a_disagreeing_reinstall_still_promotes_its_way	PASS	block-BPredUnitV2	none			0		
+test_btb_v2_cl::test_a_fill_into_a_live_way_follows_the_same_way_hit_law	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_a_full_set_evicts_the_least_recently_used_way	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_a_later_install_leaves_the_windows_sibling_records_untouched	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_a_later_install_overwrites_the_pool_slot_it_reuses	PASS	block-BPredUnitV2	none			0		
+test_btb_v2_cl::test_a_record_slot_names_the_branch_end_not_its_start	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_a_target_repair_keeps_the_slot_it_already_held	PASS	block-BPredUnitV2	none			0		
+test_btb_v2_cl::test_a_way_hit_under_pool_pressure_keeps_its_windows_other_records	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_aliasing_windows_are_distinguished_by_tag	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_all_sixteen_slots_of_a_window_may_hold_members	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_an_agreeing_reinstall_leaves_replacement_state_untouched	PASS	block-BPredUnitV2	none			0		
@@ -451,7 +464,7 @@ test_btb_v2_cl::test_pool_covers_a_real_dense_window_resident_plus_one	PASS	bloc
 test_btb_v2_cl::test_pool_depth_is_the_documented_null_plus_slots	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_pool_exhaustion_across_ways_is_reached_only_past_the_measured_max	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_record_fields_round_trip_through_an_install	PASS	block-BPredUnitV2	none			0		
-test_btb_v2_cl::test_record_pc_is_the_window_base_plus_twice_the_offset	PASS	block-BPredUnitV2	none			0		
+test_btb_v2_cl::test_record_key_is_the_window_base_plus_twice_the_offset	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_records_of_one_set_read_their_targets_from_the_shared_pool	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_retag_without_pressure_releases_the_destroyed_tenants_slots	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_retagging_a_way_without_slot_pressure_hides_the_previous_tenant	PASS	block-BPredUnitV2	none			0		
@@ -460,6 +473,7 @@ test_btb_v2_cl::test_same_address_slot_consuming_reinstall_reuses_its_slot	PASS	
 test_btb_v2_cl::test_same_window_trainings_in_one_pass_coalesce_into_one_write	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_slot_consuming_record_without_a_slot_claim_fails_the_run	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_tag_is_masked_to_cfg_tag_bits	PASS	block-BPredUnitV2	none			0		
+test_btb_v2_cl::test_the_way_hit_eviction_counter_counts_events_and_clears_on_reset	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_window_index_is_the_window_number_modulo_num_sets	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_window_read_miss_does_not_disturb_the_lru_order	PASS	block-BPredUnitV2	none			0		
 test_btb_v2_cl::test_window_read_of_an_empty_window_reports_the_base_and_no_records	PASS	block-BPredUnitV2	none			0		
@@ -493,6 +507,10 @@ test_cpred_v2_bank_ports::test_a_batch_answer_and_its_saturation_bit_come_from_t
 test_cpred_v2_bank_ports::test_a_batch_answer_and_its_saturation_bit_come_from_the_merged_value[gshare]	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_a_deferred_train_does_not_write_the_cell[bimodal]	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_a_deferred_train_does_not_write_the_cell[gshare]	PASS	block-BPredUnitV2	none			0		
+test_cpred_v2_bank_ports::test_a_fill_and_a_train_on_the_same_cell_compose_into_one_write[bimodal]	PASS	block-BPredUnitV2	none			0		
+test_cpred_v2_bank_ports::test_a_fill_and_a_train_on_the_same_cell_compose_into_one_write[gshare]	PASS	block-BPredUnitV2	none			0		
+test_cpred_v2_bank_ports::test_a_fill_that_lands_on_a_queued_train_composes_rather_than_clobbers[bimodal]	PASS	block-BPredUnitV2	none			0		
+test_cpred_v2_bank_ports::test_a_fill_that_lands_on_a_queued_train_composes_rather_than_clobbers[gshare]	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_a_k_member_batch_asks_for_k_cells_not_two_k[make_bimodal]	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_a_k_member_batch_asks_for_k_cells_not_two_k[make_gshare]	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_a_predict_and_a_train_on_one_bank_are_two_reads_not_one_of_each	PASS	block-BPredUnitV2	none			0		
@@ -504,8 +522,12 @@ test_cpred_v2_bank_ports::test_a_queued_train_lands_two_cycles_after_its_bank_fr
 test_cpred_v2_bank_ports::test_a_queued_train_lands_two_cycles_after_its_bank_frees_up[gshare]	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_a_read_and_a_write_on_the_same_bank_in_one_cycle_is_the_read_first_case[bimodal]	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_a_read_and_a_write_on_the_same_bank_in_one_cycle_is_the_read_first_case[gshare]	PASS	block-BPredUnitV2	none			0		
+test_cpred_v2_bank_ports::test_a_shared_port_refuses_a_fill_and_a_predict_read_in_one_cycle[bimodal]	PASS	block-BPredUnitV2	none			0		
+test_cpred_v2_bank_ports::test_a_shared_port_refuses_a_fill_and_a_predict_read_in_one_cycle[gshare]	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_a_stationary_window_starves_its_banks_at_any_bank_count[bimodal]	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_a_stationary_window_starves_its_banks_at_any_bank_count[gshare]	PASS	block-BPredUnitV2	none			0		
+test_cpred_v2_bank_ports::test_a_train_that_only_shares_a_bank_with_a_fill_waits_for_the_port[bimodal]	PASS	block-BPredUnitV2	none			0		
+test_cpred_v2_bank_ports::test_a_train_that_only_shares_a_bank_with_a_fill_waits_for_the_port[gshare]	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_a_train_with_no_predict_in_the_cycle_still_asks_for_a_read[make_bimodal]	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_a_train_with_no_predict_in_the_cycle_still_asks_for_a_read[make_gshare]	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_a_window_read_fits_two_read_ports_at_16_banks	PASS	block-BPredUnitV2	none			0		
@@ -523,6 +545,8 @@ test_cpred_v2_bank_ports::test_four_byte_members_reach_every_bank	PASS	block-BPr
 test_cpred_v2_bank_ports::test_grey_is_not_conflict_free_for_a_window_and_that_is_why_r10_replaced_it	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_l1_default_of_one_bank_leaves_the_index_at_sixteen_point_two	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_one_bank_turns_every_multi_member_batch_into_collisions	PASS	block-BPredUnitV2	none			0		
+test_cpred_v2_bank_ports::test_one_install_is_reported_once_however_long_the_run_continues[bimodal]	PASS	block-BPredUnitV2	none			0		
+test_cpred_v2_bank_ports::test_one_install_is_reported_once_however_long_the_run_continues[gshare]	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_raising_the_l1_count_moves_cells_within_banks_not_between_them	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_reads_equal_accesses_plus_collisions_over_a_mixed_run	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_reset_clears_the_port_census[bimodal]	PASS	block-BPredUnitV2	none			0		
@@ -533,6 +557,10 @@ test_cpred_v2_bank_ports::test_the_buffer_drains_when_the_window_moves_at_the_sh
 test_cpred_v2_bank_ports::test_the_buffer_drains_when_the_window_moves_at_the_shipped_geometry[gshare]	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_the_bypass_reads_the_committed_queue_and_not_this_passes_working_copy[bimodal]	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_the_bypass_reads_the_committed_queue_and_not_this_passes_working_copy[gshare]	PASS	block-BPredUnitV2	none			0		
+test_cpred_v2_bank_ports::test_the_collision_column_is_the_sum_of_its_two_fates[bimodal]	PASS	block-BPredUnitV2	none			0		
+test_cpred_v2_bank_ports::test_the_collision_column_is_the_sum_of_its_two_fates[gshare]	PASS	block-BPredUnitV2	none			0		
+test_cpred_v2_bank_ports::test_the_fill_leg_reports_the_burst_the_port_law_has_no_answer_for[bimodal]	PASS	block-BPredUnitV2	none			0		
+test_cpred_v2_bank_ports::test_the_fill_leg_reports_the_burst_the_port_law_has_no_answer_for[gshare]	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_the_fold_field_is_conflict_free_for_a_window_at_the_ruled_count	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_the_history_never_moves_a_member_off_its_bank	PASS	block-BPredUnitV2	none			0		
 test_cpred_v2_bank_ports::test_the_two_slots_of_one_group_reach_different_banks	PASS	block-BPredUnitV2	none			0		
@@ -619,7 +647,28 @@ test_ifc_predict_v2::test_predict_ft_req_round_trips	PASS	block-BPredUnitV2	none
 test_ifc_predict_v2::test_predict_ft_resp_carries_a_16_bit_taken_mask	PASS	block-BPredUnitV2	none			0		
 test_ifc_predict_v2::test_predict_ft_resp_field_set_matches_spec	PASS	block-BPredUnitV2	none			0		
 test_ifc_predict_v2::test_predict_ft_resp_round_trips_with_defaults	PASS	block-BPredUnitV2	none			0		
-test_v1_v2_parity::test_v1_v2_commit_value_stream_parity	PASS	block-BPredUnitV2	none			9		STANDING ACCEPTANCE GATE (plan D3/L0.4), not a normal test: the v2 core does not exist until L9. Fails at L0 for the correct reason (no v2 O3CoreCL). Flipped to REQUIRED at L9 — do NOT delete this test to make the suite green; remove the xfail instead.
+test_spec_last2byte_keying::test_adr_0051_exists_and_records_the_governance_clause	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_bac_0_2_cites_the_plan_that_audited_it	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_every_v2_frontend_spec_is_scanned[BAC_CL_v2_Block_Spec.md]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_every_v2_frontend_spec_is_scanned[BPredUnit_CL_v2_Block_Spec.md]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_every_v2_frontend_spec_is_scanned[FTQ_Fetch_Decode_CL_v2_Delta_Spec.md]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_no_spec_states_a_slot_or_end_at_the_branch_start[BAC_CL_v2_Block_Spec.md]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_no_spec_states_a_slot_or_end_at_the_branch_start[BPredUnit_CL_v2_Block_Spec.md]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_no_spec_states_a_slot_or_end_at_the_branch_start[FTQ_Fetch_Decode_CL_v2_Delta_Spec.md]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_the_law_is_stated_not_merely_implied[BAC_CL_v2_Block_Spec.md:A CONSEQUENCE OF TERMINA]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_the_law_is_stated_not_merely_implied[BAC_CL_v2_Block_Spec.md:AN FT MAY BEGIN ON AN IN]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_the_law_is_stated_not_merely_implied[BAC_CL_v2_Block_Spec.md:ITS MEMBERS ARE EXACTLY ]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_the_law_is_stated_not_merely_implied[BAC_CL_v2_Block_Spec.md:KEY-OWNING FT'S]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_the_law_is_stated_not_merely_implied[BAC_CL_v2_Block_Spec.md:REQUIRES THE USER'S AUDI]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_the_law_is_stated_not_merely_implied[BAC_CL_v2_Block_Spec.md:SUPERSEDED BY (6)]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_the_law_is_stated_not_merely_implied[BAC_CL_v2_Block_Spec.md:THE RECORD'S OFFSET IS T]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_the_law_is_stated_not_merely_implied[BPredUnit_CL_v2_Block_Spec.md:EXACTLY TWO PRODUCERS AN]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_the_law_is_stated_not_merely_implied[BPredUnit_CL_v2_Block_Spec.md:NO WIDER READ AND NO PER]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_the_law_is_stated_not_merely_implied[BPredUnit_CL_v2_Block_Spec.md:THE SLOT IS THE KEY]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_the_law_is_stated_not_merely_implied[FTQ_Fetch_Decode_CL_v2_Delta_Spec.md:(KEY - WINDOW_BASE) >> 1]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_the_law_is_stated_not_merely_implied[FTQ_Fetch_Decode_CL_v2_Delta_Spec.md:ATTRIBUTION SUPERSEDED]	PASS	block-BPredUnitV2	none			0		
+test_spec_last2byte_keying::test_the_law_is_stated_not_merely_implied[FTQ_Fetch_Decode_CL_v2_Delta_Spec.md:THE FT THAT COMPLETED TH]	PASS	block-BPredUnitV2	none			0		
+test_v1_v2_parity::test_v1_v2_commit_value_stream_parity	PASS	block-BPredUnitV2	none			10		STANDING ACCEPTANCE GATE (plan D3/L0.4), not a normal test: the v2 core does not exist until L9. Fails at L0 for the correct reason (no v2 O3CoreCL). Flipped to REQUIRED at L9 — do NOT delete this test to make the suite green; remove the xfail instead.
 test_csr_file_cl.TestConstruction::test_constructs_with_default_params	PASS	block-CSRFile	none			0		
 test_csr_file_cl.TestConstruction::test_exposes_read_callee_ifc	PASS	block-CSRFile	none			0		
 test_csr_file_cl.TestConstruction::test_exposes_write_callee_ifc	PASS	block-CSRFile	none			0		
@@ -708,12 +757,16 @@ test_commit_cl.TestNormalCommit::test_commit_retires_rob_head	PASS	block-Commit	
 test_commit_cl.TestNormalCommit::test_commit_single_instruction	PASS	block-Commit	none			0		
 test_commit_cl.TestNormalCommit::test_commit_store_sets_committed_stores	PASS	block-Commit	none			0		
 test_commit_cl.TestNormalCommit::test_commit_updates_renamemap	PASS	block-Commit	none			0		
+test_commit_cl.TestResolveSuppressionKey::test_a_foreign_squash_suppresses_the_resolve	PASS	block-Commit	none			0		
+test_commit_cl.TestResolveSuppressionKey::test_the_branches_own_squash_does_not_suppress_its_resolve	PASS	block-Commit	none			0		
 test_commit_cl.TestSMTArbitration::test_backfill_skips_empty_rob_thread	PASS	block-Commit	none			0		
 test_commit_cl.TestSMTArbitration::test_backfill_skips_stalled_head	PASS	block-Commit	none			0		
 test_commit_cl.TestSMTArbitration::test_no_backfill_past_squashed_head	PASS	block-Commit	none			0		
 test_commit_cl.TestSMTArbitration::test_no_backfill_past_trap_head	PASS	block-Commit	none			0		
 test_commit_cl.TestSMTArbitration::test_round_robin_selection	PASS	block-Commit	none			0		
 test_commit_cl.TestSMTArbitration::test_rr_pointer_rotates_across_cycles	PASS	block-Commit	none			0		
+test_commit_cl.TestSquashAfter::test_a_plain_commit_does_not_drive_the_btb_level	PASS	block-Commit	none			0		
+test_commit_cl.TestSquashAfter::test_squash_after_drives_the_serialize_after_btb_level	PASS	block-Commit	none			0		
 test_commit_cl.TestSquashAfter::test_squash_after_phase1_commits	PASS	block-Commit	none			0		
 test_commit_cl.TestSquashAfter::test_squash_after_phase1_sets_pending	PASS	block-Commit	none			0		
 test_commit_cl.TestSquashAfter::test_squash_after_phase2_initiates_squash	PASS	block-Commit	none			0		
@@ -854,6 +907,13 @@ test_decode_cl.TestThreadSelection::test_single_thread_always_selected	PASS	bloc
 test_decode_cl.TestThreadSelection::test_skip_thread_in_squashing_state	PASS	block-Decode	none			0		
 test_decode_cl.TestThreadSelection::test_skip_thread_with_dr_buffer_full	PASS	block-Decode	none			0		
 test_decode_cl.TestThreadSelection::test_skip_thread_with_rename_stall	PASS	block-Decode	none			0		
+test_decode_continuity.TestStreamContinuity::test_cross_cycle_pair_fires_once_and_record_cleared	PASS	block-Decode	none			0		
+test_decode_continuity.TestStreamContinuity::test_fault_on_a_never_anchors_the_record	PASS	block-Decode	none			0		
+test_decode_continuity.TestStreamContinuity::test_fault_on_b_skips_the_check	PASS	block-Decode	none			0		
+test_decode_continuity.TestStreamContinuity::test_pred_taken_a_continuous_to_pred_pc_does_not_fire	PASS	block-Decode	none			0		
+test_decode_continuity.TestStreamContinuity::test_pred_taken_a_discontinuous_fires_at_pred_pc	PASS	block-Decode	none			0		
+test_decode_continuity.TestStreamContinuity::test_within_cycle_continuous_negative_control	PASS	block-Decode	none			0		
+test_decode_continuity.TestStreamContinuity::test_within_cycle_discontinuity_fires_case1_acts	PASS	block-Decode	none			0		
 test_decode_v2_members.TestCorrectionPayloadHasNoKcnt::test_case1_correction_payload_has_no_k_cnt	PASS	block-Decode	none			0		
 test_decode_v2_members.TestCorrectionPayloadHasNoKcnt::test_decode_bpu_correction_req_has_no_k_cnt_field	PASS	block-Decode	none			0		
 test_decode_v2_members.TestLeadingMemberTakenDetectedByCase2::test_case2_fires_for_an_interior_member	PASS	block-Decode	none			0		
@@ -931,7 +991,6 @@ test_ftq_cl.TestConstructionAndReset::test_reset_initial_signals	PASS	block-FTQ	
 test_ftq_cl.TestConstructionAndReset::test_status_enum_values	PASS	block-FTQ	none			0		
 test_ftq_cl.TestControlSignalArbitration::test_squash_from_any_state	PASS	block-FTQ	none			0		
 test_ftq_cl.TestEdgeCases::test_bb_idx_stored_in_sram	PASS	block-FTQ	none			0		
-test_ftq_cl.TestEdgeCases::test_bpu_history_valid_lifecycle	PASS	block-FTQ	none			0		
 test_ftq_cl.TestEdgeCases::test_insert_after_squash	PASS	block-FTQ	none			0		
 test_ftq_cl.TestEdgeCases::test_multiple_squashes	PASS	block-FTQ	none			0		
 test_ftq_cl.TestEdgeCases::test_single_entry_queue	PASS	block-FTQ	none			0		
@@ -943,15 +1002,17 @@ test_ftq_cl.TestFTQEntryComputedProperties::test_entry_is_exit_branch	PASS	block
 test_ftq_cl.TestFTQEntryComputedProperties::test_entry_is_exit_inst	PASS	block-FTQ	none			0		
 test_ftq_cl.TestFTQEntryComputedProperties::test_entry_size	PASS	block-FTQ	none			0		
 test_ftq_cl.TestFTQEntryComputedProperties::test_entry_start_address	PASS	block-FTQ	none			0		
-test_ftq_cl.TestHeadRegisterAndBubble::test_head_reg_bb_idx_forwarded	PASS	block-FTQ	none			0		
-test_ftq_cl.TestHeadRegisterAndBubble::test_head_reg_bubble_after_pop	PASS	block-FTQ	none			0		
-test_ftq_cl.TestHeadRegisterAndBubble::test_head_reg_deasserted_on_squash	PASS	block-FTQ	none			0		
-test_ftq_cl.TestHeadRegisterAndBubble::test_head_reg_forward_on_insert_empty	PASS	block-FTQ	none			0		
-test_ftq_cl.TestHeadRegisterAndBubble::test_head_reg_initially_invalid	PASS	block-FTQ	none			0		
-test_ftq_cl.TestHeadRegisterAndBubble::test_head_reg_set_on_insert	PASS	block-FTQ	none			0		
-test_ftq_cl.TestHeadRegisterAndBubble::test_head_reg_valid_next_cycle	PASS	block-FTQ	none			0		
+test_ftq_cl.TestHeadViewAndDeletedSurfaces::test_head_view_appears_on_the_commit_cycle	PASS	block-FTQ	none			0		
+test_ftq_cl.TestHeadViewAndDeletedSurfaces::test_head_view_has_no_pending_state_after_a_pop	PASS	block-FTQ	none			0		
+test_ftq_cl.TestHeadViewAndDeletedSurfaces::test_head_view_initially_absent_and_no_head_surface_exists	PASS	block-FTQ	none			0		
+test_ftq_cl.TestHeadViewAndDeletedSurfaces::test_head_view_is_the_sm_chain_after_insert	PASS	block-FTQ	none			0		
+test_ftq_cl.TestHeadViewOperations::test_head_ready_signal	PASS	block-FTQ	none			0		
+test_ftq_cl.TestHeadViewOperations::test_head_view_correct_thread	PASS	block-FTQ	none			0		
+test_ftq_cl.TestHeadViewOperations::test_head_view_empty	PASS	block-FTQ	none			0		
+test_ftq_cl.TestHeadViewOperations::test_head_view_invalid	PASS	block-FTQ	none			0		
+test_ftq_cl.TestHeadViewOperations::test_head_view_not_valid_after_pop	PASS	block-FTQ	none			0		
+test_ftq_cl.TestHeadViewOperations::test_head_view_returns_entry	PASS	block-FTQ	none			0		
 test_ftq_cl.TestInsertOperations::test_insert_bb_idx_forwarding	PASS	block-FTQ	none			0		
-test_ftq_cl.TestInsertOperations::test_insert_bpu_history_valid_default	PASS	block-FTQ	none			0		
 test_ftq_cl.TestInsertOperations::test_insert_empty_makes_head_valid	PASS	block-FTQ	none			0		
 test_ftq_cl.TestInsertOperations::test_insert_fields	PASS	block-FTQ	none			0		
 test_ftq_cl.TestInsertOperations::test_insert_full_fails	PASS	block-FTQ	none			0		
@@ -960,23 +1021,14 @@ test_ftq_cl.TestInsertOperations::test_insert_invalid_fails	PASS	block-FTQ	none	
 test_ftq_cl.TestInsertOperations::test_insert_multiple	PASS	block-FTQ	none			0		
 test_ftq_cl.TestInsertOperations::test_insert_single	PASS	block-FTQ	none			0		
 test_ftq_cl.TestPopHeadOperations::test_pop_head_advances_head	PASS	block-FTQ	none			0		
-test_ftq_cl.TestPopHeadOperations::test_pop_head_bubble	PASS	block-FTQ	none			0		
-test_ftq_cl.TestPopHeadOperations::test_pop_head_case1_clears_sram_read_pending	PASS	block-FTQ	none			0		
-test_ftq_cl.TestPopHeadOperations::test_pop_head_case1_deasserts_head_valid	PASS	block-FTQ	none			0		
 test_ftq_cl.TestPopHeadOperations::test_pop_head_empties_queue	PASS	block-FTQ	none			0		
-test_ftq_cl.TestPopHeadOperations::test_pop_head_empty_queue	PASS	block-FTQ	none			0		
-test_ftq_cl.TestPopHeadOperations::test_pop_head_failure_case1	PASS	block-FTQ	none			0		
 test_ftq_cl.TestPopHeadOperations::test_pop_head_fifo_order	PASS	block-FTQ	none			0		
-test_ftq_cl.TestPopHeadOperations::test_pop_head_success	PASS	block-FTQ	none			0		
-test_ftq_cl.TestReadHeadOperations::test_head_ready_signal	PASS	block-FTQ	none			0		
-test_ftq_cl.TestReadHeadOperations::test_read_head_correct_thread	PASS	block-FTQ	none			0		
-test_ftq_cl.TestReadHeadOperations::test_read_head_empty	PASS	block-FTQ	none			0		
-test_ftq_cl.TestReadHeadOperations::test_read_head_invalid	PASS	block-FTQ	none			0		
-test_ftq_cl.TestReadHeadOperations::test_read_head_not_valid_after_pop	PASS	block-FTQ	none			0		
-test_ftq_cl.TestReadHeadOperations::test_read_head_returns_entry	PASS	block-FTQ	none			0		
+test_ftq_cl.TestPopHeadOperations::test_pop_head_is_unconditional	PASS	block-FTQ	none			0		
+test_ftq_cl.TestPopHeadOperations::test_pop_head_leaves_no_bubble	PASS	block-FTQ	none			0		
+test_ftq_cl.TestPopHeadOperations::test_pop_head_leaves_no_refusal_state	PASS	block-FTQ	none			0		
+test_ftq_cl.TestPopHeadOperations::test_pop_head_no_head_raises_caller_bug	PASS	block-FTQ	none			0		
 test_ftq_cl.TestRecoveryTiming::test_bac_initiated_squash_recovery	PASS	block-FTQ	none			0		
 test_ftq_cl.TestRecoveryTiming::test_fetch_initiated_recovery	PASS	block-FTQ	none			0		
-test_ftq_cl.TestRecoveryTiming::test_pop_head_failure_triggers_invalidate	PASS	block-FTQ	none			0		
 test_ftq_cl.TestResetStateOperations::test_reset_state_clears_entries	PASS	block-FTQ	none			0		
 test_ftq_cl.TestResetStateOperations::test_reset_state_preserves_other_thread	PASS	block-FTQ	none			0		
 test_ftq_cl.TestResetStateOperations::test_reset_state_sets_valid	PASS	block-FTQ	none			0		
@@ -984,7 +1036,7 @@ test_ftq_cl.TestSMTMultiThread::test_dequeue_correct_thread	PASS	block-FTQ	none	
 test_ftq_cl.TestSMTMultiThread::test_insert_rejected_when_invalid	PASS	block-FTQ	none			0		
 test_ftq_cl.TestSMTMultiThread::test_is_empty_per_thread	PASS	block-FTQ	none			0		
 test_ftq_cl.TestSMTMultiThread::test_is_full_per_thread	PASS	block-FTQ	none			0		
-test_ftq_cl.TestSMTMultiThread::test_per_thread_head_reg	PASS	block-FTQ	none			0		
+test_ftq_cl.TestSMTMultiThread::test_per_thread_head_view	PASS	block-FTQ	none			0		
 test_ftq_cl.TestSMTMultiThread::test_per_thread_status	PASS	block-FTQ	none			0		
 test_ftq_cl.TestSMTMultiThread::test_reset_state_preserves_other_thread	PASS	block-FTQ	none			0		
 test_ftq_cl.TestSMTMultiThread::test_squash_preserves_other_thread	PASS	block-FTQ	none			0		
@@ -992,7 +1044,7 @@ test_ftq_cl.TestSquashOperations::test_squash_clears_entries	PASS	block-FTQ	none
 test_ftq_cl.TestSquashOperations::test_squash_deasserts_head_valid	PASS	block-FTQ	none			0		
 test_ftq_cl.TestSquashOperations::test_squash_from_invalid	PASS	block-FTQ	none			0		
 test_ftq_cl.TestSquashOperations::test_squash_preserves_other_thread	PASS	block-FTQ	none			0		
-test_ftq_cl.TestSquashOperations::test_squash_preserves_other_thread_head_reg	PASS	block-FTQ	none			0		
+test_ftq_cl.TestSquashOperations::test_squash_preserves_other_thread_head_view	PASS	block-FTQ	none			0		
 test_ftq_cl.TestSquashOperations::test_squash_resets_pointers	PASS	block-FTQ	none			0		
 test_ftq_cl.TestSquashOperations::test_squash_sets_valid	PASS	block-FTQ	none			0		
 test_ftq_cl.TestSquashOperations::test_squash_single_cycle	PASS	block-FTQ	none			0		
@@ -1010,9 +1062,6 @@ test_ftq_cl_spec_alignment.TestBbIdxRename::test_ftq_insert_req_no_ftq_bpred_his
 test_ftq_cl_spec_alignment.TestBbIdxRename::test_insert_bb_idx_forwarded_to_head	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_alignment.TestBbIdxRename::test_iter_entry_resp_has_bb_idx	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_alignment.TestBbIdxRename::test_iter_entry_resp_no_bpred_hist	PASS	block-FTQ	none			0		
-test_ftq_cl_spec_alignment.TestClearHeadHistory::test_clear_head_history_clears_bpu_history_valid	PASS	block-FTQ	none			0		
-test_ftq_cl_spec_alignment.TestClearHeadHistory::test_clear_head_history_is_callable	PASS	block-FTQ	none			0		
-test_ftq_cl_spec_alignment.TestClearHeadHistory::test_clear_head_history_preserves_bb_idx	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_alignment.TestControlSignalPriority::test_squash_overrides_insert	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_alignment.TestForAllBackwardRemoved::test_for_all_backward_does_not_exist	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_alignment.TestGetOldestBpuAnchor::test_get_oldest_bpu_anchor_is_callable	PASS	block-FTQ	none			0		
@@ -1031,8 +1080,7 @@ test_ftq_cl_spec_alignment.TestRemovedMethods::test_get_count_does_not_exist	PAS
 test_ftq_cl_spec_alignment.TestRemovedMethods::test_get_status_does_not_exist	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_alignment.TestRemovedMethods::test_unlock_does_not_exist	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_alignment.TestResetStateNoReReadHead::test_reset_state_head_valid_unconditionally_false	PASS	block-FTQ	none			0		
-test_ftq_cl_spec_alignment.TestResetStateNoReReadHead::test_reset_state_no_head_reg_after_reset	PASS	block-FTQ	none			0		
-test_ftq_cl_spec_v2.TestClearHeadHistoryTriggerChange::test_clear_head_history_mentions_fetch	PASS	block-FTQ	none			0		
+test_ftq_cl_spec_alignment.TestResetStateNoReReadHead::test_reset_state_no_head_register_surface_exists	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v2.TestControlSignalPriorityChange::test_priority_is_reset_state_squash_pop_insert	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v2.TestFSMEncodingChange::test_invalid_is_0	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v2.TestFSMEncodingChange::test_locked_attribute_does_not_exist	PASS	block-FTQ	none			0		
@@ -1048,9 +1096,6 @@ test_ftq_cl_spec_v2.TestLockedStateRemoved::test_ftq_status_never_value_2	PASS	b
 test_ftq_cl_spec_v2.TestLockedStateRemoved::test_initial_status_is_valid	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v2.TestLockedStateRemoved::test_locked_attribute_does_not_exist	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v2.TestMaxThreadsDefaultChange::test_default_max_threads_is_1	PASS	block-FTQ	none			0		
-test_ftq_cl_spec_v2.TestPopHeadCase2Removed::test_pop_head_never_returns_fail_reason_1	PASS	block-FTQ	none			0		
-test_ftq_cl_spec_v2.TestPopHeadCase2Removed::test_pop_head_only_one_failure_case	PASS	block-FTQ	none			0		
-test_ftq_cl_spec_v2.TestPopHeadCase2Removed::test_pop_head_valid_and_bpu_history_valid_returns_fail_reason_0	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v3_window.TestAllNotTakenEdgeFt::test_fetchs_stop_and_jump_predicate_is_false_for_the_all_nt_ft	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v3_window.TestAllNotTakenEdgeFt::test_is_branch_with_a_zero_pred_target_is_storable_and_readable	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v3_window.TestBbIdxCoveringPc::test_end_pc_is_exclusive	PASS	block-FTQ	none			0		
@@ -1060,25 +1105,29 @@ test_ftq_cl_spec_v3_window.TestBbIdxCoveringPc::test_returns_none_when_the_cover
 test_ftq_cl_spec_v3_window.TestBbIdxCoveringPc::test_returns_the_covering_entrys_bb_idx	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v3_window.TestBrTypeEncodingIsTheLandedBranchType::test_a_return_record_consumes_no_target_slot_but_a_direct_cond_does	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v3_window.TestBrTypeEncodingIsTheLandedBranchType::test_btb_v2_type_constants_equal_the_landed_enum	PASS	block-FTQ	none			0		
-test_ftq_cl_spec_v3_window.TestClearHeadHistoryPopPairing::test_a_clear_without_a_same_cycle_pop_is_a_protocol_violation	PASS	block-FTQ	none			0		
-test_ftq_cl_spec_v3_window.TestClearHeadHistoryPopPairing::test_a_cleared_and_popped_ft_is_not_readable	PASS	block-FTQ	none			0		
-test_ftq_cl_spec_v3_window.TestClearHeadHistoryPopPairing::test_clear_and_pop_may_pair_with_an_insert_in_the_same_cycle	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v3_window.TestDuplicateBbIdxIsLegal::test_no_bb_idx_keyed_lookup_dict_exists	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v3_window.TestDuplicateBbIdxIsLegal::test_two_fts_sharing_a_bb_idx_both_queue_and_read_back	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v3_window.TestDuplicateBbIdxIsLegal::test_window_fields_survive_the_sram_read_bubble_after_a_pop	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v3_window.TestGetOldestBpuAnchorMechanism::test_returns_invalid_when_empty	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v3_window.TestGetOldestBpuAnchorMechanism::test_returns_the_head_entrys_bb_idx	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v3_window.TestGetOldestBpuAnchorMechanism::test_two_fts_of_one_bb_yield_the_same_anchor	PASS	block-FTQ	none			0		
-test_ftq_cl_spec_v3_window.TestMaxDensityWindow::test_all_sixteen_slots_valid_round_trips	PASS	block-FTQ	none			0		
-test_ftq_cl_spec_v3_window.TestMaxDensityWindow::test_all_sixteen_slots_valid_with_all_two_byte_members	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v3_window.TestNoBbIdxInheritance::test_a_bac_to_ftq_insert_also_does_not_inherit	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v3_window.TestNoBbIdxInheritance::test_a_branchless_ft_keeps_its_own_bb_idx	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v3_window.TestNoBbIdxInheritance::test_a_branchless_ft_that_omits_bb_idx_reads_back_zero	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v3_window.TestNoBbIdxInheritance::test_the_propagation_state_does_not_exist	PASS	block-FTQ	none			0		
+test_ftq_cl_spec_v3_window.TestPopRemovesTheHead::test_a_pop_may_pair_with_an_insert_in_the_same_cycle	PASS	block-FTQ	none			0		
+test_ftq_cl_spec_v3_window.TestPopRemovesTheHead::test_a_popped_ft_is_not_readable	PASS	block-FTQ	none			0		
+test_ftq_cl_spec_v3_window.TestSlotsValidIsAbsolutelyIndexed::test_all_sixteen_slots_valid_round_trips	PASS	block-FTQ	none			0		
+test_ftq_cl_spec_v3_window.TestSlotsValidIsAbsolutelyIndexed::test_all_sixteen_slots_valid_with_all_two_byte_members	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v3_window.TestSlotsValidIsAbsolutelyIndexed::test_an_ft_starting_mid_window_keeps_its_members_at_window_offsets	PASS	block-FTQ	none			0		
-test_ftq_cl_spec_v3_window.TestSlotsValidIsAbsolutelyIndexed::test_slot_size_is_indexed_by_the_same_absolute_slot	PASS	block-FTQ	none			0		
-test_ftq_cl_spec_v3_window.TestWindowFieldsRoundTrip::test_window_base_slots_valid_and_slot_size_round_trip	PASS	block-FTQ	none			0		
+test_ftq_cl_spec_v3_window.TestTakenTerminalNeedsATarget::test_a_taken_terminal_with_a_target_is_not_counted	PASS	block-FTQ	none			0		
+test_ftq_cl_spec_v3_window.TestTakenTerminalNeedsATarget::test_a_taken_terminal_without_a_target_is_counted	PASS	block-FTQ	none			0		
+test_ftq_cl_spec_v3_window.TestTakenTerminalNeedsATarget::test_an_all_not_taken_edge_with_no_target_is_not_counted	PASS	block-FTQ	none			0		
+test_ftq_cl_spec_v3_window.TestWindowFieldsRoundTrip::test_window_base_and_slots_valid_round_trip	PASS	block-FTQ	none			0		
 test_ftq_cl_spec_v3_window.TestWindowFieldsRoundTrip::test_window_fields_default_to_zero_when_a_stale_caller_omits_them	PASS	block-FTQ	none			0		
+test_ftq_pops_suppressed_witness::test_pop_alone_is_applied_so_the_counter_read_is_not_vacuous	PASS	block-FTQ	none			0		
+test_ftq_pops_suppressed_witness::test_pop_and_squash_in_one_cycle_suppresses_the_pop	PASS	block-FTQ	none			0		
+test_ftq_pops_suppressed_witness::test_squash_then_pop_in_one_cycle_suppresses_the_pop	PASS	block-FTQ	none			0		
 test_fu_pool_cl.TestClusterConfig::test_5_clusters_present	PASS	block-FUPool	none			0		
 test_fu_pool_cl.TestClusterConfig::test_float_cluster_has_fpadd_fpmult_fpdiv	PASS	block-FUPool	none			0		
 test_fu_pool_cl.TestClusterConfig::test_int_cluster_has_intalu_intmult_intdiv	PASS	block-FUPool	none			0		
@@ -1129,8 +1178,6 @@ test_fu_pool_cl_adr0033_squash_force_ack.TestSquashForceEarlyCompleteADR0033::te
 test_fu_pool_cl_adr0033_squash_force_ack.TestSquashForceEarlyCompleteADR0033::test_ic_squash_is_callable	PASS	block-FUPool	none			0		
 test_fu_pool_cl_adr0033_squash_force_ack.TestSquashForceEarlyCompleteADR0033::test_squash_mid_flight_fires_force_early_complete	PASS	block-FUPool	none			0		
 test_fetch_cl.TestAssertionANoBBLeftUnmarked::test_rv64ui_p_add_leaves_no_bb_unmarked	PASS	block-Fetch	none			8		
-test_fetch_cl.TestBACResteer::test_f120_bac_resteer_req_dispatched	PASS	block-Fetch	none			0		
-test_fetch_cl.TestBACResteer::test_f121_bac_resteer_req_fields	PASS	block-Fetch	none			0		
 test_fetch_cl.TestBackwardCtrlBusRestructure::test_f320_bc_has_commit_info	PASS	block-Fetch	none			0		
 test_fetch_cl.TestBackwardCtrlBusRestructure::test_f321_bc_no_dec_to_fetch	PASS	block-Fetch	none			0		
 test_fetch_cl.TestBackwardCtrlBusRestructure::test_f323_bc_no_old_flat_arrays	PASS	block-Fetch	none			0		
@@ -1189,10 +1236,19 @@ test_fetch_cl.TestGetFetchingThread::test_f32_no_eligible_thread	PASS	block-Fetc
 test_fetch_cl.TestGetFetchingThread::test_f33_round_robin_rotation	PASS	block-Fetch	none			0		
 test_fetch_cl.TestGetFetchingThread::test_f34_eligible_states	PASS	block-Fetch	none			0		
 test_fetch_cl.TestGetFetchingThread::test_f35_ineligible_states	PASS	block-Fetch	none			0		
+test_fetch_cl.TestHeldIcacheRequestClear::test_a_commit_squash_of_another_thread_keeps_the_hold	PASS	block-Fetch	none			0		
+test_fetch_cl.TestHeldIcacheRequestClear::test_a_squash_of_the_naming_thread_clears_the_hold	PASS	block-Fetch	none			0		
+test_fetch_cl.TestHeldIcacheRequestClear::test_a_squash_of_the_naming_thread_frees_the_unsent_entry	PASS	block-Fetch	none			0		
+test_fetch_cl.TestNoCacheLineSurfaceOnTheResponse::test_nothing_in_the_model_writes_a_cache_line_field_any_more	PASS	block-Fetch	none			0		
+test_fetch_cl.TestNoCacheLineSurfaceOnTheResponse::test_the_response_has_no_cache_line_fields	PASS	block-Fetch	none			0		
 test_fetch_cl.TestResetClear::test_f50_reset_stage	PASS	block-Fetch	none			0		
 test_fetch_cl.TestResetClear::test_f51_reset_stage_per_thread	PASS	block-Fetch	none			0		
 test_fetch_cl.TestResetClear::test_f52_clear_states	PASS	block-Fetch	none			0		
 test_fetch_cl.TestResetClear::test_f53_clear_states_preserves_other_threads	PASS	block-Fetch	none			0		
+test_fetch_cl.TestResteerLegIsDeleted::test_fetch_has_no_resteer_ports	PASS	block-Fetch	none			0		
+test_fetch_cl.TestResteerLegIsDeleted::test_per_thread_fetch_has_no_resteering_state	PASS	block-Fetch	none			0		
+test_fetch_cl.TestResteerLegIsDeleted::test_the_resteer_message_module_is_gone	PASS	block-Fetch	none			0		
+test_fetch_cl.TestResteerLegIsDeleted::test_the_tick_response_carries_no_resteer_fields	PASS	block-Fetch	none			0		
 test_fetch_cl.TestSequenceNumber::test_f11_first_seq_is_one	PASS	block-Fetch	none			0		
 test_fetch_cl.TestSequenceNumber::test_f12_seq_monotonically_increasing	PASS	block-Fetch	none			0		
 test_fetch_cl.TestSequenceNumber::test_f13_seq_counter_increments	PASS	block-Fetch	none			0		
@@ -1215,28 +1271,99 @@ test_fetch_cl.TestStallFlags::test_f21_stall_flags_set_decode	PASS	block-Fetch	n
 test_fetch_cl.TestUpdateFetchStatus::test_f40_active_when_running	PASS	block-Fetch	none			0		
 test_fetch_cl.TestUpdateFetchStatus::test_f41_active_when_icache_access_complete	PASS	block-Fetch	none			0		
 test_fetch_cl.TestUpdateFetchStatus::test_f42_inactive_when_all_idle	PASS	block-Fetch	none			0		
-test_fetch_cl.TestUpdateFetchStatus::test_f43_inactive_when_all_ftq_wait	PASS	block-Fetch	none			0		
+test_fetch_cl.TestUpdateFetchStatus::test_f43_active_when_all_squashing	PASS	block-Fetch	none			0		
 test_fetch_cl.TestWakeFromQuiesce::test_f60_wake_sets_running	PASS	block-Fetch	none			0		
 test_fetch_cl.TestWakeFromQuiesce::test_f61_wake_adds_to_priority_list	PASS	block-Fetch	none			0		
 test_fetch_cl.TestWakeFromQuiesce::test_f62_wake_no_duplicate_in_priority	PASS	block-Fetch	none			0		
+test_fetch_icache_ifc_roundtrip::test_a_full_cache_line_survives_the_response_round_trip	PASS	block-Fetch	none			0		
+test_fetch_icache_ifc_roundtrip::test_the_line_width_is_the_cache_block_and_not_sixty_four_bits	PASS	block-Fetch	none			0		
+test_fetch_icache_ifc_roundtrip::test_the_request_still_carries_only_address_and_transaction_identity	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCAbstraction::test_a_sealed_assembly_stalls_without_abandoning	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCAbstraction::test_the_forward_pass_over_of_a_range_marks_the_slot_used	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCAbstraction::test_the_straddle_completing_the_look_ahead_marks_BOTH_slots_used	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCaseTable::test_an_empty_slot_holds_no_valid_information	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCaseTable::test_c_is_per_cycle_and_is_cleared_by_the_tick_not_by_the_edge	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCaseTable::test_no_cycle_ever_performs_two_fills[C-C-True-False-False-1]	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCaseTable::test_no_cycle_ever_performs_two_fills[C-E-True-False-False-1]	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCaseTable::test_no_cycle_ever_performs_two_fills[C-V-False-True-True-1]	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCaseTable::test_no_cycle_ever_performs_two_fills[E-E-True-False-False-1]	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCaseTable::test_no_cycle_ever_performs_two_fills[E-V-True-False-False-1]	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCaseTable::test_no_cycle_ever_performs_two_fills[V-E-False-True-False-1]	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCaseTable::test_no_cycle_ever_performs_two_fills[V-V-False-False-False-0]	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCaseTable::test_the_case_table_selects_exactly_one_act[C-C-True-False-False-1]	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCaseTable::test_the_case_table_selects_exactly_one_act[C-E-True-False-False-1]	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCaseTable::test_the_case_table_selects_exactly_one_act[C-V-False-True-True-1]	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCaseTable::test_the_case_table_selects_exactly_one_act[E-E-True-False-False-1]	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCaseTable::test_the_case_table_selects_exactly_one_act[E-V-True-False-False-1]	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCaseTable::test_the_case_table_selects_exactly_one_act[V-E-False-True-False-1]	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestCaseTable::test_the_case_table_selects_exactly_one_act[V-V-False-False-False-0]	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestOnlySquashForcesEmpty::test_do_squash_forces_both_slots_empty_with_their_payload	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestRule4ThePointerIsThePosition::test_a_look_ahead_with_granules_left_continues_at_its_second_granule	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestRule4ThePointerIsThePosition::test_a_spent_look_ahead_seats_the_fill_not_a_jump	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestRule4ThePointerIsThePosition::test_a_taken_spent_look_ahead_seats_the_same_way	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestRule5Isolation::test_a_staged_target_is_not_coverage	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestTheFetchFaultSeal::test_a_fetch_fault_seals_and_a_squash_unseals	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestTheFetchFaultSeal::test_no_fault_never_seals	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestTheFillIsTheOnlyPop::test_a_stalled_walk_still_fills_and_pops_at_the_end_of_the_cycle	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestTheFillIsTheOnlyPop::test_consumption_leaves_the_slot_valid_until_the_edge_decides	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestTheFillIsTheOnlyPop::test_the_walk_consumes_a_stage_and_touches_the_queue_never_again	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestTheSeatingLaw::test_a_shift_re_seats_a_target_the_assembly_never_entered	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestTheSeatingLaw::test_a_shift_translates_only_a_target_the_assembly_has_entered	PASS	block-Fetch	none			0		
+test_fetch_v2_d14_two_slot_fill.TestTheSeatingLaw::test_the_fill_seats_the_pointer_at_the_targets_own_first_granule	PASS	block-Fetch	none			0		
+test_fetch_v2_ft_stamped_pdb.TestDeliveryIsOrdered::test_a_discarded_entry_never_delivers_although_it_still_names_an_ft	PASS	block-Fetch	none			0		
+test_fetch_v2_ft_stamped_pdb.TestDeliveryIsOrdered::test_a_later_fts_response_fills_no_stage	PASS	block-Fetch	none			0		
+test_fetch_v2_ft_stamped_pdb.TestDeliveryIsOrdered::test_a_response_fills_no_stage_and_the_fill_loads_positionally_and_pops	PASS	block-Fetch	none			0		
+test_fetch_v2_ft_stamped_pdb.TestEntryNamesItsFetchTarget::test_a_delivered_entry_names_its_target_until_its_target_is_released	PASS	block-Fetch	none			0		
+test_fetch_v2_ft_stamped_pdb.TestEntryNamesItsFetchTarget::test_a_fetch_target_stamp_cannot_be_repointed	PASS	block-Fetch	none			0		
+test_fetch_v2_ft_stamped_pdb.TestEntryNamesItsFetchTarget::test_a_prefetch_entry_names_the_ft_the_cursor_named	PASS	block-Fetch	none			0		
+test_fetch_v2_ft_stamped_pdb.TestEntryNamesItsFetchTarget::test_no_entry_is_allocated_without_a_target_presented	PASS	block-Fetch	none			0		
+test_fetch_v2_ft_stamped_pdb.TestEntryNamesItsFetchTarget::test_the_stamp_is_bound_in_the_cycle_the_request_was_made	PASS	block-Fetch	none			0		
+test_fetch_v2_ft_stamped_pdb.TestLedgerIsAWorkingCopy::test_a_second_allocation_in_one_cycle_gets_its_own_index	PASS	block-Fetch	none			0		
+test_fetch_v2_ft_stamped_pdb.TestLedgerIsAWorkingCopy::test_occupancy_and_the_free_list_move_together_at_the_release	PASS	block-Fetch	none			0		
+test_fetch_v2_ft_stamped_pdb.TestStageIdentity::test_a_re_formed_target_over_the_same_range_keeps_the_stage_usable	PASS	block-Fetch	none			0		
+test_fetch_v2_ft_stamped_pdb.TestStageIdentity::test_a_stage_the_assembly_has_walked_off_is_abandoned_not_assembled	PASS	block-Fetch	none			0		
+test_fetch_v2_geometry::test_a_window_wider_than_the_cache_line_is_refused_at_construction	PASS	block-Fetch	none			0		
+test_fetch_v2_geometry::test_the_derivation_is_the_next_power_of_two_of_a_full_dispatch_group	PASS	block-Fetch	none			0		
+test_fetch_v2_geometry::test_the_window_is_the_dispatch_width_derived_not_four_literals	PASS	block-Fetch	none			0		
+test_fetch_v2_peek_requester.TestBlockedPortRefusal::test_blocked_precedes_the_squash_rearm_logic	PASS	block-Fetch	none			0		
+test_fetch_v2_peek_requester.TestBlockedPortRefusal::test_blocked_tick_allocates_nothing_and_advances_nothing	PASS	block-Fetch	none			0		
+test_fetch_v2_peek_requester.TestBlockedPortRefusal::test_unblocked_tick_still_grants	PASS	block-Fetch	none			0		
+test_fetch_v2_peek_requester.TestNoFetchSideCoalescing::test_the_request_names_the_window_the_fetch_target_starts_in	PASS	block-Fetch	none			0		
+test_fetch_v2_peek_requester.TestNoFetchSideCoalescing::test_two_fetch_targets_naming_one_line_yield_two_requests	PASS	block-Fetch	none			0		
+test_fetch_v2_peek_requester.TestOneClaimPerFetchTarget::test_two_presentations_of_one_target_are_two_grants_only_if_both_are_seated	PASS	block-Fetch	none			0		
+test_fetch_v2_peek_requester.TestOneRequester::test_a_presented_cursor_is_asked_for_and_the_ledger_names_its_target	PASS	block-Fetch	none			0		
+test_fetch_v2_peek_requester.TestOneRequester::test_a_request_allocates_and_consumes_the_cursor_in_one_cycle	PASS	block-Fetch	none			0		
+test_fetch_v2_peek_requester.TestOneRequester::test_a_stage_holding_the_windows_bytes_does_not_stop_the_ask	PASS	block-Fetch	none			0		
+test_fetch_v2_peek_requester.TestOneRequester::test_a_vetoed_request_leaves_the_cursor_in_place	PASS	block-Fetch	none			0		
+test_fetch_v2_peek_requester.TestOneRequester::test_an_unpresented_cursor_asks_for_nothing	PASS	block-Fetch	none			0		
+test_fetch_v2_peek_requester.TestOneRequester::test_the_walk_never_asks_for_bytes_itself	PASS	block-Fetch	none			0		
+test_fetch_v2_peek_requester.TestPrefetchBufferBound::test_the_buffer_holds_its_full_entry_count	PASS	block-Fetch	none			0		
+test_fetch_v2_peek_requester.TestPrefetchBufferBound::test_txn_id_zero_is_never_issued	PASS	block-Fetch	none			0		
+test_fetch_v2_stage_handover.TestStageHandover::test_a_real_miss_still_ends_the_cycle_with_one_request	PASS	block-Fetch	none			0		
+test_fetch_v2_stage_handover.TestStageHandover::test_the_look_aheads_target_shifts_into_the_assembly_without_a_pop	PASS	block-Fetch	none			0		
+test_fetch_v2_stage_handover.TestStageHandover::test_the_target_end_outranks_the_bytes_in_hand	PASS	block-Fetch	none			0		
 test_fetch_v2_window.TestAbsoluteSlotIndex::test_member_absent_from_slots_valid_is_not_a_member	PASS	block-Fetch	none			0		
-test_fetch_v2_window.TestAbsoluteSlotIndex::test_member_at_absolute_slot_4_of_the_window	PASS	block-Fetch	none			0		
+test_fetch_v2_window.TestAbsoluteSlotIndex::test_member_at_absolute_slot_5_of_the_window	PASS	block-Fetch	none			0		
 test_fetch_v2_window.TestAttachedFactsAndKcntAbsence::test_bb_idx_is_attached_to_every_instruction_including_members	PASS	block-Fetch	none			0		
 test_fetch_v2_window.TestAttachedFactsAndKcntAbsence::test_no_k_cnt_field_exists_anywhere	PASS	block-Fetch	none			0		
 test_fetch_v2_window.TestAttachedFactsAndKcntAbsence::test_no_k_cnt_on_the_fetch_tick_request_or_response	PASS	block-Fetch	none			0		
-test_fetch_v2_window.TestControlMissReExpression::test_predicted_taken_ft_with_a_control_exit_is_not_a_control_miss	PASS	block-Fetch	none			0		
-test_fetch_v2_window.TestControlMissReExpression::test_predicted_taken_ft_with_non_control_exit_is_a_control_miss	PASS	block-Fetch	none			0		
-test_fetch_v2_window.TestControlMissReExpression::test_trigger_fires_without_the_ft_level_mark_one	PASS	block-Fetch	none			0		
 test_fetch_v2_window.TestDownstreamTerminalInference::test_a_non_branch_instruction_carries_its_bb_idx_to_the_rob	PASS	block-Fetch	none			0		
 test_fetch_v2_window.TestDownstreamTerminalInference::test_an_interior_member_carries_its_bb_idx_to_the_rob	PASS	block-Fetch	none			0		
 test_fetch_v2_window.TestDownstreamTerminalInference::test_the_rob_carries_no_terminal_bit_at_all	PASS	block-Fetch	none			0		
 test_fetch_v2_window.TestFTExitFactsForBranchlessAndMemberFTs::test_all_nt_member_ft_edge_is_fetched_and_not_taken	PASS	block-Fetch	none			0		
 test_fetch_v2_window.TestFTExitFactsForBranchlessAndMemberFTs::test_branchless_ft_exit_is_not_a_branch	PASS	block-Fetch	none			0		
+test_fetch_v2_window.TestIsExitGeTest::test_an_instruction_overrunning_the_ft_end_waits_for_the_look_ahead	PASS	block-Fetch	none			0		
 test_fetch_v2_window.TestIsExitGeTest::test_no_instruction_after_the_crossing_exit_is_fetched	PASS	block-Fetch	none			0		
-test_fetch_v2_window.TestIsExitGeTest::test_rvc_instruction_crossing_the_window_edge_is_the_exit	PASS	block-Fetch	none			0		
+test_fetch_v2_window.TestIsExitGeTest::test_the_look_ahead_completes_the_crossing_instruction_with_its_own_row	PASS	block-Fetch	none			0		
 test_fetch_v2_window.TestPredictionStaysExitScoped::test_interior_member_does_not_inherit_the_ft_prediction	PASS	block-Fetch	none			0		
-test_fetch_v2_window.TestStopAndJumpV2::test_all_nt_edge_ft_does_not_jump_and_pops	PASS	block-Fetch	none			0		
-test_fetch_v2_window.TestStopAndJumpV2::test_taken_terminal_still_jumps_to_the_predicted_target	PASS	block-Fetch	none			0		
+test_fetch_v2_window.TestStopAndJumpV2::test_all_nt_edge_ft_finishes_the_target_and_chooses_no_position	PASS	block-Fetch	none			0		
+test_fetch_v2_window.TestStopAndJumpV2::test_taken_terminal_seats_the_successor_instead_of_jumping_to_the_target	PASS	block-Fetch	none			0		
+test_fetch_v2_window.TestStraddleGranuleZeroIsKeyedByTheBase::test_a_mid_window_successor_waits_and_the_same_call_emits_at_the_key	PASS	block-Fetch	none			0		
+test_fetch_v2_window.TestTerminalIsStatedByTheProducer::test_a_no_terminal_view_selects_no_exit_at_all	PASS	block-Fetch	none			0		
+test_fetch_v2_window.TestTerminalIsStatedByTheProducer::test_the_deleted_assembly_side_demotion_is_now_the_producers_law	PASS	block-Fetch	none			0		
+test_fetch_v2_window.TestTerminalIsStatedByTheProducer::test_the_exit_is_the_stated_slot_and_not_the_end_address	PASS	block-Fetch	none			0		
+test_fetch_v2_window.TestTerminalIsStatedByTheProducer::test_the_kind_carries_the_direction_and_the_slot_only_the_position	PASS	block-Fetch	none			0		
+test_fetch_v2_window.TestTerminalIsStatedByTheProducer::test_the_same_stamp_with_the_producers_own_slot_marks_one_exit	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestBuildInstAndDrain::test_pt60_build_inst_creates_dyninst	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestBuildInstAndDrain::test_pt61_build_inst_sets_pc	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestBuildInstAndDrain::test_pt62_build_inst_sets_pred_pc	PASS	block-Fetch	none			0		
@@ -1249,11 +1376,7 @@ test_per_thread_fetch_cl.TestBuildInstAndDrain::test_pt68_drain_fetch_queue_full
 test_per_thread_fetch_cl.TestBuildInstAndDrain::test_pt69_drain_preserves_order	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestCheckSignalsPriority::test_pt110_trap_pending_overrides_running	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestCheckSignalsPriority::test_pt112_squashing_to_running	PASS	block-Fetch	none			0		
-test_per_thread_fetch_cl.TestClearHeadHistory::test_pt310_resp_has_clear_head_history	PASS	block-Fetch	none			0		
-test_per_thread_fetch_cl.TestClearHeadHistory::test_pt311_clear_head_history_default_false	PASS	block-Fetch	none			0		
-test_per_thread_fetch_cl.TestClearHeadHistory::test_pt312_clear_head_history_on_ftq_pop	PASS	block-Fetch	none			0		
-test_per_thread_fetch_cl.TestConstruction::test_pt10_initial_not_resteering	PASS	block-Fetch	none			0		
-test_per_thread_fetch_cl.TestConstruction::test_pt11_initial_no_cache_line	PASS	block-Fetch	none			0		
+test_per_thread_fetch_cl.TestConstruction::test_pt11_initial_stages_are_empty	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestConstruction::test_pt12_initial_empty_fetch_queue	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestConstruction::test_pt13_initial_not_predicted_branch	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestConstruction::test_pt14_custom_tid	PASS	block-Fetch	none			0		
@@ -1268,22 +1391,20 @@ test_per_thread_fetch_cl.TestConstruction::test_pt8_initial_no_delayed_commit	PA
 test_per_thread_fetch_cl.TestConstruction::test_pt9_initial_no_fault_pending	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestDecodeErrorHandling::test_keyerror_from_decoder_does_not_propagate	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestDecodeErrorHandling::test_typeerror_from_decoder_propagates	PASS	block-Fetch	none			0		
-test_per_thread_fetch_cl.TestDoSquash::test_pt50_squash_sets_pc	PASS	block-Fetch	none			0		
+test_per_thread_fetch_cl.TestDoSquash::test_no_assembly_position_survives_a_squash	PASS	block-Fetch	none			0		
+test_per_thread_fetch_cl.TestDoSquash::test_pt50_squash_unseats_the_pointer	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestDoSquash::test_pt51_squash_resets_fetch_offset	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestDoSquash::test_pt54_squash_sets_squashing_status	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestDoSquash::test_pt55_squash_clears_fetch_queue	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestDoSquash::test_pt56_squash_sets_delayed_commit	PASS	block-Fetch	none			0		
-test_per_thread_fetch_cl.TestDoSquash::test_pt57_squash_clears_resteering	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestDoSquash::test_pt58_squash_invalidates_buffer	PASS	block-Fetch	none			0		
-test_per_thread_fetch_cl.TestFailReason1Bit::test_pt300_pop_head_fail_reason_1bit	PASS	block-Fetch	none			0		
-test_per_thread_fetch_cl.TestFailReason1Bit::test_pt301_pop_head_no_locked_reason	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestFetchStatus::test_pt30_running_value	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestFetchStatus::test_pt31_idle_value	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestFetchStatus::test_pt32_squashing_value	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestFetchStatus::test_pt34_trap_pending_value	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestFetchStatus::test_pt35_quiesce_pending_value	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestFetchStatus::test_pt39_icache_access_complete_value	PASS	block-Fetch	none			0		
-test_per_thread_fetch_cl.TestFetchStatus::test_pt40_ftq_wait_value	PASS	block-Fetch	none			0		
+test_per_thread_fetch_cl.TestFetchStatus::test_pt40_ftq_wait_is_deleted	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestFetchStatus::test_pt41_no_good_addr_value	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestFetchStatus::test_pt42_no_fetching_state	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestInternalHelpers::test_pt140_align_to_buffer	PASS	block-Fetch	none			0		
@@ -1291,24 +1412,26 @@ test_per_thread_fetch_cl.TestInternalHelpers::test_pt141_buffer_hit_valid	PASS	b
 test_per_thread_fetch_cl.TestInternalHelpers::test_pt142_buffer_hit_invalid	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestInternalHelpers::test_pt143_buffer_hit_miss	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestInternalHelpers::test_pt144_num_insts_derived	PASS	block-Fetch	none			0		
-test_per_thread_fetch_cl.TestIsBranchFromFetch::test_pt320_is_branch_set_from_ftq_head	PASS	block-Fetch	none			0		
+test_per_thread_fetch_cl.TestIsBranchFromFetch::test_pt320_ft_level_branch_fact_rides_the_stage_stamp	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestIsBranchFromFetch::test_pt321_is_branch_default_false_without_ftq	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestIsDrained::test_pt70_drained_initially	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestIsDrained::test_pt71_not_drained_with_queue	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestIsDrained::test_pt72_not_drained_with_fault_pending	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestLatchState::test_pt120_latch_status	PASS	block-Fetch	none			0		
-test_per_thread_fetch_cl.TestLatchState::test_pt121_latch_pc	PASS	block-Fetch	none			0		
-test_per_thread_fetch_cl.TestLatchState::test_pt122_latch_fetch_offset	PASS	block-Fetch	none			0		
+test_per_thread_fetch_cl.TestLatchState::test_pt121_latch_pointer	PASS	block-Fetch	none			0		
+test_per_thread_fetch_cl.TestLatchState::test_pt122_fetch_offset_is_a_view	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestLatchState::test_pt123_latch_buffer_valid	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestNoGoodAddrAndQuiesce::test_pt280_no_good_addr_no_fetch	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestNoGoodAddrAndQuiesce::test_pt281_quiesce_pending_no_fetch	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestNoGoodAddrAndQuiesce::test_pt282_no_good_addr_exits_on_squash	PASS	block-Fetch	none			0		
+test_per_thread_fetch_cl.TestPopHasNoFailureVocabulary::test_pt300_pop_head_response_type_is_gone	PASS	block-Fetch	none			0		
+test_per_thread_fetch_cl.TestPopHasNoFailureVocabulary::test_pt310_tick_resp_has_no_clear_head_history	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestPredictedBranch::test_pt290_predicted_branch_stops_fetch	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestPredictedBranch::test_pt291_predicted_branch_cleared_after	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestResetClearStates::test_pt20_reset_stage	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestResetClearStates::test_pt21_clear_states	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestResetClearStates::test_pt22_clear_states_preserves_status	PASS	block-Fetch	none			0		
-test_per_thread_fetch_cl.TestResetClearStates::test_pt23_clear_states_preserves_pc	PASS	block-Fetch	none			0		
+test_per_thread_fetch_cl.TestResetClearStates::test_pt23_clear_states_preserves_position	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestResetClearStates::test_pt24_clear_states_preserves_fetch_queue	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestSetters::test_pt90_set_interrupt_pending	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestSetters::test_pt91_set_trap_pending	PASS	block-Fetch	none			0		
@@ -1317,7 +1440,6 @@ test_per_thread_fetch_cl.TestSquashHandling::test_pt204_trap_pending_in_tick	PAS
 test_per_thread_fetch_cl.TestSquashHandling::test_pt205_trap_pending_cleared_after_tick	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestSquashHandling::test_pt206_interrupt_pending_blocks_fetch	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestSquashHandling::test_pt207_interrupt_with_delayed_commit	PASS	block-Fetch	none			0		
-test_per_thread_fetch_cl.TestSquashHandling::test_pt210_squashing_to_ftq_wait	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestSquashHandling::test_pt212_squashing_delayed_commit_cleared	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestTickBasic::test_pt100_tick_idle_no_op	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestTickBasic::test_pt102_tick_running_with_valid_buffer	PASS	block-Fetch	none			0		
@@ -1325,8 +1447,10 @@ test_per_thread_fetch_cl.TestTickBasic::test_pt103_tick_icache_access_complete	P
 test_per_thread_fetch_cl.TestTickBasic::test_pt104_tick_squashing_no_fetch	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestWakeFromQuiesce::test_pt80_wake_sets_running	PASS	block-Fetch	none			0		
 test_per_thread_fetch_cl.TestWakeFromQuiesce::test_pt81_wake_updates_pending_status	PASS	block-Fetch	none			0		
-test_frontend_v2_compose.TestComposedPathStall::test_case2_fires_and_leaves_fetch_on_a_stale_head	PASS	block-FrontEnd	none			0		
-test_frontend_v2_compose.TestComposedPathStall::test_frontend_recovers_from_a_dropped_head	PASS	block-FrontEnd	none			0		
+test_frontend_v2_compose.TestCallerIcacheRequestHold::test_a_refused_request_survives_and_is_sent_with_the_same_txn	PASS	block-FrontEnd	none			0		
+test_frontend_v2_compose.TestCallerIcacheRequestHold::test_a_squash_clears_the_held_request	PASS	block-FrontEnd	none			0		
+test_frontend_v2_compose.TestComposedPathStall::test_case2_fires_and_destroys_fetchs_assembly_position	PASS	block-FrontEnd	none			0		
+test_frontend_v2_compose.TestComposedPathStall::test_frontend_recovers_from_a_flushed_stream	PASS	block-FrontEnd	none			0		
 test_frontend_v2_compose.TestComposedPathStall::test_mismatched_target_is_a_real_mispredict	PASS	block-FrontEnd	none			0		
 test_frontend_v2_compose.TestComposedPathStall::test_the_frontend_keeps_making_progress_after_the_redirect	PASS	block-FrontEnd	none			0		
 test_frontend_v2_compose.TestComposition::test_bb_idx_reaches_decode_to_rename	PASS	block-FrontEnd	none			0		
@@ -1342,8 +1466,8 @@ test_frontend_v2_compose.TestScheduleSeedSweep::test_sweep_reaches_a_formed_ft	P
 test_frontend_v2_compose.TestWindowAttach::test_member_bitmap_is_absolute_not_ft_relative	PASS	block-FrontEnd	none			0		
 test_frontend_v2_compose.TestWindowAttach::test_member_instruction_gets_absolute_slot	PASS	block-FrontEnd	none			0		
 test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_edge_alone_orders_the_driver_ahead_of_the_finalize	PASS	block-FrontEnd	none			0		
-test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_level_stalls_the_finalize_of_its_own_cycle_at_every_seed	PASS	block-FrontEnd	none			7		
-test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_scenario_is_not_vacuous_without_the_level	PASS	block-FrontEnd	none			2		
+test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_level_stalls_the_finalize_of_its_own_cycle_at_every_seed	PASS	block-FrontEnd	none			5		
+test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_scenario_is_not_vacuous_without_the_level	PASS	block-FrontEnd	none			1		
 test_icache_cl.TestBackpressure::test_i51_ready_after_reset	PASS	block-ICache	none			0		
 test_icache_cl.TestBackpressure::test_i52_not_ready_when_mshr_full	PASS	block-ICache	none			0		
 test_icache_cl.TestBackpressure::test_i53_ready_after_mshr_freed	PASS	block-ICache	none			0		
@@ -1397,6 +1521,16 @@ test_icache_cl.TestPLRU::test_i46_plru_replace_initial	PASS	block-ICache	none			
 test_icache_cl.TestPLRU::test_i47_plru_replace_after_access	PASS	block-ICache	none			0		
 test_icache_cl.TestPLRU::test_i48_fill_uses_plru_victim	PASS	block-ICache	none			0		
 test_icache_cl.TestPLRU::test_i49_plru_updates_on_fill	PASS	block-ICache	none			0		
+test_icache_v2_sized_read.TestRequestValidity::test_a_request_that_is_not_an_aligned_window_of_the_line_is_refused[4096-128-wider than the line]	PASS	block-ICache	none			0		
+test_icache_v2_sized_read.TestRequestValidity::test_a_request_that_is_not_an_aligned_window_of_the_line_is_refused[4096-24-not a power of two]	PASS	block-ICache	none			0		
+test_icache_v2_sized_read.TestRequestValidity::test_a_request_that_is_not_an_aligned_window_of_the_line_is_refused[4098-32-not window-aligned]	PASS	block-ICache	none			0		
+test_icache_v2_sized_read.TestSizedHit::test_a_line_request_still_returns_the_whole_line	PASS	block-ICache	none			0		
+test_icache_v2_sized_read.TestSizedHit::test_a_window_request_on_the_second_half_returns_the_upper_window	PASS	block-ICache	none			0		
+test_icache_v2_sized_read.TestSizedHit::test_a_window_request_returns_the_lower_window_of_a_hit_line	PASS	block-ICache	none			0		
+test_icache_v2_sized_read.TestSizedMiss::test_the_memory_fill_answers_with_the_window_not_the_line	PASS	block-ICache	none			0		
+test_icache_v2_sized_read.TestSizedMiss::test_the_mshr_remembers_the_width_it_was_asked_for	PASS	block-ICache	none			0		
+test_icache_v2_sized_read.TestSizedMiss::test_two_widths_for_one_line_do_not_share_an_mshr	PASS	block-ICache	none			0		
+test_icache_v2_sized_read::test_the_memory_interface_names_no_fetch_target	PASS	block-ICache	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestBranchClusterWiring::test_branch_cluster_has_dedicated_fus	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestBranchClusterWiring::test_branch_cluster_wires_are_connected	PASS	block-IEW	none			0		
 src.cpu.pyo3.pymtl3.o3-block-tests.IEW.test_iew_cl.TestCSRFileIntegration::test_csr_file_is_csr_file_cl_instance	PASS	block-IEW	none			0		
@@ -1976,6 +2110,12 @@ test_lsq_parent_cl.TestWiringIntegration::test_lsq_execute_resp_delivered_with_s
 test_lsq_parent_cl.TestWiringIntegration::test_store_set_violation_delivered_with_separate_args	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestWiringIntegration::test_violation_signal_aliased_to_lq_core	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl.TestWiringIntegration::test_violation_signal_delivered_with_separate_args	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl_122_exact_status.TestExactFreeCount::test_free_counts_equal_cap_minus_child_committed_count	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl_122_exact_status.TestExactFreeCount::test_lq_guard_is_exact_at_capacity	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl_122_exact_status.TestExactFreeCount::test_sq_guard_reads_its_own_exact_expression	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl_122_exact_status.TestHasStoresPublishIsLive::test_level_moves_query_and_bus_in_the_same_cycle	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl_122_exact_status.TestUpClearTripwire::test_status_register_surface_is_deleted	PASS	block-LSQParent	none			0		
+test_lsq_parent_cl_122_exact_status.TestUpClearTripwire::test_up_clear_reads_no_child_state	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl_adr0033.TestExecuteLoadAcceptsClusterArgs::test_execute_load_accepts_cluster_id_kwarg	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl_adr0033.TestExecuteLoadAcceptsClusterArgs::test_execute_load_defaults_cluster_args_to_zero	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl_adr0033.TestExecuteLoadAcceptsClusterArgs::test_execute_load_writes_cluster_id_to_lq_entry	PASS	block-LSQParent	none			0		
@@ -2021,6 +2161,12 @@ test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL2::test_
 test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckL2::test_squash_does_not_fire_and_clears_l2_slot	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckNegativeCases::test_squash_walks_only_matching_seqnum	PASS	block-LSQParent	none			0		
 test_lsq_parent_cl_adr0033_squash_force_ack.TestLSQParentSquashForceAckNegativeCases::test_squash_with_empty_shift_regs_does_not_fire	PASS	block-LSQParent	none			0		
+test_w0_frozen_ports.TestW0FrozenPorts::test_all_frozen_ports_carry_v1_signature	PASS	block-LSQv2	none			0		
+test_w0_frozen_ports.TestW0FrozenPorts::test_negative_added_port_fails	PASS	block-LSQv2	none			0		
+test_w0_frozen_ports.TestW0FrozenPorts::test_negative_changed_transport_fails	PASS	block-LSQv2	none			0		
+test_w0_frozen_ports.TestW0FrozenPorts::test_negative_dropped_port_fails	PASS	block-LSQv2	none			0		
+test_w0_frozen_ports.TestW0FrozenPorts::test_negative_renamed_argument_fails	PASS	block-LSQv2	none			0		
+test_w0_frozen_ports.TestW0FrozenPorts::test_negative_source_field_on_ic_squash_fails	PASS	block-LSQv2	none			0		
 test_o3_control_cl.TestBackwardBusPropagation::test_backward_ctrl_in_forwards_to_commit	PASS	block-O3Control	none			0		
 test_o3_control_cl.TestBackwardBusPropagation::test_rename_to_iew_accessible	PASS	block-O3Control	none			0		
 test_o3_control_cl.TestBackwardBusPropagation::test_rob_empty_reaches_rename	PASS	block-O3Control	none			0		
@@ -2243,9 +2389,11 @@ test_rename_cl.TestADR0005CheckpointSaveTrigger::test_cond_branch_triggers_check
 test_rename_cl.TestADR0005CheckpointSaveTrigger::test_indirect_branch_triggers_checkpoint_save	PASS	block-Rename	none			0		
 test_rename_cl.TestADR0005CheckpointSaveTrigger::test_interval_counter_increments_on_rename	PASS	block-Rename	none			0		
 test_rename_cl.TestADR0005CheckpointState::test_branch_confidence_high_default_false	PASS	block-Rename	none			0		
+test_rename_cl.TestADR0005CheckpointState::test_ckpt_pool_cap_construction_assert	PASS	block-Rename	none			0		
 test_rename_cl.TestADR0005CheckpointState::test_ckpt_state_reset	PASS	block-Rename	none			0		
 test_rename_cl.TestADR0005ForwardReplay::test_allocated_new_false_skips_fip_write	PASS	block-Rename	none			0		
 test_rename_cl.TestADR0005ForwardReplay::test_phase3_walk_triggers_fip_write	PASS	block-Rename	none			0		
+test_rename_cl.TestADR0005SquashRecovery::test_mispredict_restore_rearms_and_forces_new_target_save	PASS	block-Rename	none			0		
 test_rename_cl.TestADR0005SquashRecovery::test_squash_exits_on_both_walks_done	PASS	block-Rename	none			0		
 test_rename_cl.TestADR0005SquashRecovery::test_walk_done_flags_reset_on_squash	PASS	block-Rename	none			0		
 test_rename_cl.TestBlockUnblock::test_block_on_iq_full	PASS	block-Rename	none			0		
@@ -2278,7 +2426,7 @@ test_rename_map_cl.TestCheckpointRestore::test_restore_done_pulse	PASS	block-Ren
 test_rename_map_cl.TestCheckpointRestore::test_restore_returns_to_saved_state	PASS	block-Rename	none			0		
 test_rename_map_cl.TestCheckpointRestoreCAMLookup::test_checkpoint_restore_cam_lookup	PASS	block-Rename	none			0		
 test_rename_map_cl.TestCheckpointRestoreCAMLookup::test_checkpoint_restore_invalidates_younger	PASS	block-Rename	none			0		
-test_rename_map_cl.TestCheckpointRestoreCAMLookup::test_checkpoint_restore_no_match	PASS	block-Rename	none			0		
+test_rename_map_cl.TestCheckpointRestoreCAMLookup::test_checkpoint_restore_no_match_asserts	PASS	block-Rename	none			0		
 test_rename_map_cl.TestCheckpointSave::test_save_captures_spec_map	PASS	block-Rename	none			0		
 test_rename_map_cl.TestCheckpointSaveMetadata::test_checkpoint_save_done_pulse	PASS	block-Rename	none			0		
 test_rename_map_cl.TestCheckpointSaveMetadata::test_checkpoint_save_stores_metadata	PASS	block-Rename	none			0		
@@ -2293,10 +2441,11 @@ test_rename_map_cl.TestForwardReplayPhase2::test_forward_replay_phase2_set_entry
 test_rename_map_cl.TestIntraBundleBypass::test_inst1_source_sees_inst0_dest_rename	PASS	block-Rename	none			0		
 test_rename_map_cl.TestMiscReg::test_misc_reg_identity_mapping	PASS	block-Rename	none			0		
 test_rename_map_cl.TestMiscReg::test_misc_reg_rename_returns_identity	PASS	block-Rename	none			0		
+test_rename_map_cl.TestP8RobIdxTagCAM::test_capped_pool_ranks_across_a_full_generation_rotation	PASS	block-Rename	none			0		
 test_rename_map_cl.TestP8RobIdxTagCAM::test_d7_out_of_window_tag_never_outranks_in_window	PASS	block-Rename	none			0		
 test_rename_map_cl.TestP8RobIdxTagCAM::test_distance_ordering_selects_youngest_qualifying	PASS	block-Rename	none			0		
 test_rename_map_cl.TestP8RobIdxTagCAM::test_duplicate_tag_assert_still_fires	PASS	block-Rename	none			0		
-test_rename_map_cl.TestP8RobIdxTagCAM::test_restore_no_valid_slots_cam_miss	PASS	block-Rename	none			0		
+test_rename_map_cl.TestP8RobIdxTagCAM::test_restore_no_valid_slots_cam_miss_asserts	PASS	block-Rename	none			0		
 test_rename_map_cl.TestP8RobIdxTagCAM::test_slot0_duplicate_save_exempt	PASS	block-Rename	none			0		
 test_rename_map_cl.TestP8RobIdxTagCAM::test_trap_reseed_resets_next_free_first_save_overwrites	PASS	block-Rename	none			0		
 test_rename_map_cl.TestP8RobIdxTagCAM::test_younger_invalidation_by_extended_distance	PASS	block-Rename	none			0		
@@ -2507,6 +2656,11 @@ test_storage_manager.TestStorageManagerReset::test_reset_tid_none	PASS	block-Sto
 test_storage_manager.TestStorageManagerSquash::test_squash_to_bulk	PASS	block-StorageManager	none			0		
 test_storage_manager.TestStorageManagerSquash::test_squash_to_head_keeps_all	PASS	block-StorageManager	none			0		
 test_storage_manager.TestStorageManagerSquash::test_squash_to_invalid_anchor_asserts	PASS	block-StorageManager	none			0		
+test_storage_manager_v2_request_cursor.TestPopIsNeverRefused::test_a_pop_ahead_of_the_cursor_leaves_the_cursor_alone	PASS	block-StorageManager	none			0		
+test_storage_manager_v2_request_cursor.TestPopIsNeverRefused::test_a_pop_whose_entry_is_the_cursor_fires	PASS	block-StorageManager	none			0		
+test_storage_manager_v2_request_cursor.TestPopIsNeverRefused::test_the_cursor_follows_a_pop_that_takes_it	PASS	block-StorageManager	none			0		
+test_storage_manager_v2_request_cursor.TestReSeatIsIdempotent::test_a_peek_reset_seats_the_cursor_on_the_head	PASS	block-StorageManager	none			0		
+test_storage_manager_v2_request_cursor.TestReSeatIsIdempotent::test_a_second_peek_reset_for_a_thread_is_dropped_not_stacked	PASS	block-StorageManager	none			0		
 test_store_set_cl.TestCheckInst::test_check_inst_no_prediction_after_reset	PASS	block-StoreSet	none			0		
 test_store_set_cl.TestCheckInst::test_check_inst_no_prediction_after_training_only	PASS	block-StoreSet	none			0		
 test_store_set_cl.TestCheckInst::test_check_inst_returns_producer_after_training	PASS	block-StoreSet	none			0		
@@ -2537,6 +2691,20 @@ test_dcache_fwd_probe_lane::test_lane_merge_partial_stores_youngest_wins_with_me
 test_dcache_fwd_probe_lane::test_no_intersection_returns_none	PASS	block-Testbench	none			0		
 test_dcache_fwd_probe_lane::test_store_crossing_word_boundary_splits_across_words	PASS	block-Testbench	none			0		
 test_dcache_fwd_probe_lane::test_younger_full_store_supersedes_older_partial	PASS	block-Testbench	none			0		
+test_icache_rand_latency.TestDefaultOff::test_string_zero_is_off	PASS	block-Testbench	none			0		
+test_icache_rand_latency.TestDefaultOff::test_unset_leaves_legacy_path	PASS	block-Testbench	none			0		
+test_icache_rand_latency.TestEnabledConstruct::test_seed_and_header	PASS	block-Testbench	none			0		
+test_icache_rand_latency.TestLatencyDistribution::test_classes_are_90_9_1_within_two_points	PASS	block-Testbench	none			0		
+test_icache_rand_latency.TestLatencyDistribution::test_only_the_three_classes_exist	PASS	block-Testbench	none			0		
+test_icache_rand_latency.TestOutstandingCap::test_cap_is_inactive_when_random_is_off	PASS	block-Testbench	none			0		
+test_icache_rand_latency.TestOutstandingCap::test_cap_zero_is_unlimited	PASS	block-Testbench	none			0		
+test_icache_rand_latency.TestOutstandingCap::test_default_env_is_cap_zero	PASS	block-Testbench	none			0		
+test_icache_rand_latency.TestOutstandingCap::test_peak_outstanding_is_recorded	PASS	block-Testbench	none			0		
+test_icache_rand_latency.TestOutstandingCap::test_rdy_true_below_the_cap_and_false_at_it	PASS	block-Testbench	none			0		
+test_icache_rand_latency.TestPickReady::test_empty_queue_returns_none	PASS	block-Testbench	none			0		
+test_icache_rand_latency.TestPickReady::test_ineligible_entries_never_returned	PASS	block-Testbench	none			0		
+test_icache_rand_latency.TestPickReady::test_later_inserted_ready_entry_is_reachable	PASS	block-Testbench	none			0		
+test_icache_rand_latency.TestPickReady::test_none_eligible_returns_none_without_drawing	PASS	block-Testbench	none			0		
 test_integration_run_elf.TestIntegrationCheckpointRestore::test_bne_not_taken_no_squash	PASS	block-Testbench	none			0		
 test_integration_run_elf.TestIntegrationCheckpointRestore::test_double_beq_lifo_invalidation	PASS	block-Testbench	none			0		
 test_integration_run_elf.TestIntegrationCheckpointRestore::test_jal_then_beq_uses_correct_checkpoint	PASS	block-Testbench	none			0		
@@ -2594,57 +2762,62 @@ test_o3_core_v2.TestCoreBuildsV2Frontend::test_core_frontend_is_frontend_v2	PASS
 test_o3_core_v2.TestCoreBuildsV2Frontend::test_v2_core_exposes_the_testbench_surface	PASS	block-Testbench	none			0		L9b ACCEPTANCE SCAFFOLD — the v2 core schedules now (F-41 fixed: `FrontendV2` no longer carries the `M(decode_bpu_correction_sink) < M(backward_ctrl)` edge, so the same-cycle loop `M(sink) < M(backward_ctrl) < U(decode.up_dispatch) < M(decode_bpu_correction) = M(sink)` has no leg 2 -- the sink itself stays, and `bac_backward_ctrl` is now an alias of the merging `backward_ctrl` CalleeIfcCL), but `r
 test_o3_core_v2.TestElfOnV2Core::test_rv64ui_p_add_passes_on_v2	PASS	block-Testbench	none			8		
 test_o3_core_v2.TestElfOnV2Core::test_v2_core_commits_instructions_and_retires_stores	PASS	block-Testbench	none			8		
-test_o3_core_v2.TestNackChainOrdering::test_elf_reaches_exit_on_every_schedule_seed	PASS	block-Testbench	none			42		
-test_o3_core_v2.TestNackChainOrdering::test_no_seed_stalls_the_frontend	PASS	block-Testbench	none			42		
-test_o3_core_v2.TestNackChainOrdering::test_the_sweep_actually_executed_the_frontend	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_riscv_tests_smoke_add	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition]	PASS	block-Testbench	none			7		
+test_o3_core_v2.TestFetchTargetPairingLaw::test_d14s_act_less_row_is_never_reached	PASS	block-Testbench	none			0		
+test_o3_core_v2.TestFetchTargetPairingLaw::test_every_claim_becomes_a_stage_or_is_destroyed_once	PASS	block-Testbench	none			0		
+test_o3_core_v2.TestFetchTargetPairingLaw::test_every_queued_fetch_target_leaves_the_queue_exactly_once	PASS	block-Testbench	none			6		
+test_o3_core_v2.TestFetchTargetPairingLaw::test_one_request_per_fetch_target_presented	PASS	block-Testbench	none			0		
+test_o3_core_v2.TestFetchTargetPairingLaw::test_the_fill_is_the_only_pop	PASS	block-Testbench	none			0		
+test_o3_core_v2.TestNackChainOrdering::test_elf_reaches_exit_on_every_schedule_seed	PASS	block-Testbench	none			47		
+test_o3_core_v2.TestNackChainOrdering::test_no_seed_stalls_the_frontend	PASS	block-Testbench	none			47		
+test_o3_core_v2.TestNackChainOrdering::test_the_sweep_actually_executed_the_frontend	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_riscv_tests_smoke_add	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition]	PASS	block-Testbench	none			8		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate]	PASS	block-Testbench	none			5		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND]	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate]	PASS	block-Testbench	none			5		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-auipc:add upper immediate to PC]	PASS	block-Testbench	none			3		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned]	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned]	PASS	block-Testbench	none			10		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence]	PASS	block-Testbench	none			6		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link]	PASS	block-Testbench	none			3		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jalr:jump and link register]	PASS	block-Testbench	none			4		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jalr:jump and link register]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte]	PASS	block-Testbench	none			6		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned]	PASS	block-Testbench	none			6		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lui:load upper immediate]	PASS	block-Testbench	none			3		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word]	PASS	block-Testbench	none			6		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate]	PASS	block-Testbench	none			4		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double]	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate]	PASS	block-Testbench	none			6		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word]	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than]	PASS	block-Testbench	none			8		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned]	PASS	block-Testbench	none			4		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned]	PASS	block-Testbench	none			5		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic]	PASS	block-Testbench	none			8		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srai:shift right arithmetic immediate]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sraw:shift right arithmetic word]	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical]	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate]	PASS	block-Testbench	none			5		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word]	PASS	block-Testbench	none			6		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word]	PASS	block-Testbench	none			7		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR]	PASS	block-Testbench	none			8		
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate]	PASS	block-Testbench	none			4		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sraw:shift right arithmetic word]	PASS	block-Testbench	none			7		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word]	PASS	block-Testbench	none			6		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word]	PASS	block-Testbench	none			8		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR]	PASS	block-Testbench	none			9		
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate]	PASS	block-Testbench	none			5		
 test_tlbi_controller_cl.TestEdgeCases::test_second_tlbi_req_after_first_completes	PASS	block-TlbiController	none			0		
 test_tlbi_controller_cl.TestEdgeCases::test_sync_comp_before_inv_sent_ignored_or_buffered	PASS	block-TlbiController	none			0		
 test_tlbi_controller_cl.TestIntegrationWithLSQ::test_integration_controller_with_lsq	PASS	block-TlbiController	none			0		
@@ -2745,380 +2918,380 @@ test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_r
 test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_returns_miss_when_buf_empty	PASS	block-WriteBack	none			0		
 test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_normal_completion_does_not_fire_sb_setReg	PASS	block-WriteBack	none			0		
 test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_sb_setReg_caller_ifc_removed	PASS	block-WriteBack	none			0		
-hypervisor-p-2-stage_translation	PASS	p-	none		1367	13	370248810	(13s) cyc=1367 order=9aaa75c7df14
-hypervisor-p-2-stage_translation_implicit_load_error	PASS	p-	none		1634	15	17956504	(15s) cyc=1634 order=c2a126920bcf
-hypervisor-p-2-stage_translation_implicit_load_error_hs	PASS	p-	none		1809	16	642603232	(16s) cyc=1809 order=249de80cda99
-hypervisor-svadu-p-2-stage_translation_implicit_store_error	PASS	p-	none		1704	16	13148412	(16s) cyc=1704 order=801c84e79c0f
-hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs	PASS	p-	none		1920	15	98752407	(15s) cyc=1920 order=e10103ff7a37
-rv64mi-p-breakpoint	PASS	p-	none		3453	25	772056795	(25s) cyc=3453 order=d326703ca51c
-rv64mi-p-csr	PASS	p-	none		3513	26	450461222	(26s) cyc=3513 order=e5b4bcd9d409
-rv64mi-p-illegal	PASS	p-	none		4546	32	468911204	(32s) cyc=4546 order=540648d45149
-rv64mi-p-instret_overflow	PASS	p-	none		1258	10	250371295	(10s) cyc=1258 order=aee55162d5b9
-rv64mi-p-ld-misaligned	PASS	p-	none		1386	12	336670348	(12s) cyc=1386 order=250d5d2d343e
-rv64mi-p-lh-misaligned	PASS	p-	none		1102	10	513619194	(10s) cyc=1102 order=8acba9cfd714
-rv64mi-p-lw-misaligned	PASS	p-	none		1171	9	65854968	(9s) cyc=1171 order=c42dd8d12302
-rv64mi-p-ma_addr	PASS	p-	none		1540	13	106719859	(13s) cyc=1540 order=ed93a5a7fcf5
-rv64mi-p-ma_fetch	PASS	p-	none		1996	15	459241122	(15s) cyc=1996 order=efd1462f5bbc
-rv64mi-p-mcsr	PASS	p-	none		1337	11	690347515	(11s) cyc=1337 order=8981c16fff88
-rv64mi-p-pmpaddr	PASS	p-	none		1185	10	718096581	(10s) cyc=1185 order=277ef9e4e27e
-rv64mi-p-sbreak	PASS	p-	none		1341	11	74848505	(11s) cyc=1341 order=549e701694bd
-rv64mi-p-scall	PASS	p-	none		1259	10	309141442	(10s) cyc=1259 order=041841af5553
-rv64mi-p-sd-misaligned	PASS	p-	none		1482	12	42491968	(12s) cyc=1482 order=7a2e347cf955
-rv64mi-p-sh-misaligned	PASS	p-	none		1123	9	514212626	(9s) cyc=1123 order=c46eb48edd69
-rv64mi-p-sw-misaligned	PASS	p-	none		1164	10	359967764	(10s) cyc=1164 order=16ab2ac6788d
-rv64mi-p-zicntr	PASS	p-	none		1417	12	432070152	(12s) cyc=1417 order=b0714f8dfe1e
-rv64mzicbo-p-zero	PASS	p-	none		1157	9	538686168	(9s) cyc=1157 order=26be659b3f3f
-rv64si-p-csr	PASS	p-	none		2242	17	428563779	(17s) cyc=2242 order=06f0862ed6c8
-rv64si-p-dirty	PASS	p-	none		2310	17	329340487	(17s) cyc=2310 order=67c639fdc023
-rv64si-p-icache-alias	PASS	p-	none		2459	19	633311887	(19s) cyc=2459 order=bc70c507841a
-rv64si-p-ma_fetch	PASS	p-	none		1415	11	461154592	(11s) cyc=1415 order=31877afcd4d6
-rv64si-p-sbreak	PASS	p-	none		1354	11	868661941	(11s) cyc=1354 order=4a757c8fe3fd
-rv64si-p-scall	PASS	p-	none		1472	12	879114414	(12s) cyc=1472 order=e6ed3e1c26e6
-rv64si-p-wfi	PASS	p-	none		1173	10	417473060	(10s) cyc=1173 order=e56341800cc2
-rv64ssvnapot-p-napot	PASS	p-	none		1658	14	112854122	(14s) cyc=1658 order=dbc7d1fa1a0c
-rv64ua-p-amoadd_d	PASS	p-	none		1079	10	319180287	(10s) cyc=1079 order=fa6bf7ea3fec
-rv64ua-p-amoadd_w	PASS	p-	none		1120	10	956677944	(10s) cyc=1120 order=812d160448ba
-rv64ua-p-amoand_d	PASS	p-	none		1121	10	814168070	(10s) cyc=1121 order=5b6b96905384
-rv64ua-p-amoand_w	PASS	p-	none		1117	9	251458374	(9s) cyc=1117 order=34fa5ebfb4da
-rv64ua-p-amomax_d	PASS	p-	none		1075	9	103263340	(9s) cyc=1075 order=aefd6b5ae891
-rv64ua-p-amomax_w	PASS	p-	none		1092	9	601778348	(9s) cyc=1092 order=aa8c8221d279
-rv64ua-p-amomaxu_d	PASS	p-	none		1075	9	548586086	(9s) cyc=1075 order=df407acc3c7d
-rv64ua-p-amomaxu_w	PASS	p-	none		1092	10	114520856	(10s) cyc=1092 order=1b968846ca24
-rv64ua-p-amomin_d	PASS	p-	none		1075	9	943059555	(9s) cyc=1075 order=e723af405bd8
-rv64ua-p-amomin_w	PASS	p-	none		1092	10	433076003	(10s) cyc=1092 order=41c4f99aec4b
-rv64ua-p-amominu_d	PASS	p-	none		1075	9	878802328	(9s) cyc=1075 order=730f2420ec45
-rv64ua-p-amominu_w	PASS	p-	none		1092	9	228754399	(9s) cyc=1092 order=3f22735a9efd
-rv64ua-p-amoor_d	PASS	p-	none		1117	10	442261336	(10s) cyc=1117 order=a245725c706a
-rv64ua-p-amoor_w	PASS	p-	none		1117	10	934145567	(10s) cyc=1117 order=a5a77d35d293
-rv64ua-p-amoswap_d	PASS	p-	none		1121	10	365772557	(10s) cyc=1121 order=f97ac779fd37
-rv64ua-p-amoswap_w	PASS	p-	none		1117	10	714870363	(10s) cyc=1117 order=677fcbda4086
-rv64ua-p-amoxor_d	PASS	p-	none		1125	10	928626121	(10s) cyc=1125 order=6ab5e5d26832
-rv64ua-p-amoxor_w	PASS	p-	none		1129	9	413430153	(9s) cyc=1129 order=ccb9e760bdc6
-rv64ua-p-lrsc	PASS	p-	none		18202	120	848882366	(120s) cyc=18202 order=2310d1725901
-rv64uc-p-rvc	PASS	p-	none		1666	13	613878568	(13s) cyc=1666 order=d54a828b1fe1
-rv64ud-p-fadd	PASS	p-	none		1912	15	446903324	(15s) cyc=1912 order=cbb4a0467f5c
-rv64ud-p-fclass	PASS	p-	none		1233	11	189534904	(11s) cyc=1233 order=bbbaf70fe86e
-rv64ud-p-fcmp	PASS	p-	none		2230	17	879474527	(17s) cyc=2230 order=d9489aae893c
-rv64ud-p-fcvt	PASS	p-	none		1807	14	141434743	(14s) cyc=1807 order=ad7d1a790b4e
-rv64ud-p-fcvt_w	PASS	p-	none		3704	28	456177956	(28s) cyc=3704 order=f558dab704ae
-rv64ud-p-fdiv	PASS	p-	none		1738	14	853465897	(14s) cyc=1738 order=b0137b700457
-rv64ud-p-fmadd	PASS	p-	none		2071	17	49390790	(17s) cyc=2071 order=03cee445f90a
-rv64ud-p-fmin	PASS	p-	none		2540	19	816748603	(19s) cyc=2540 order=619f159f6417
-rv64ud-p-ldst	PASS	p-	none		1171	10	501393862	(10s) cyc=1171 order=744c0973441a
-rv64ud-p-move	PASS	p-	none		2696	20	172269619	(20s) cyc=2696 order=9fa87fd49041
-rv64ud-p-recoding	PASS	p-	none		1245	10	720857477	(10s) cyc=1245 order=9c3001db4b77
-rv64ud-p-structural	PASS	p-	none		2023	16	496822243	(16s) cyc=2023 order=dfacd8a16a79
-rv64uf-p-fadd	PASS	p-	none		1912	15	905823422	(15s) cyc=1912 order=3b001b41ea8b
-rv64uf-p-fclass	PASS	p-	none		1217	11	420058415	(11s) cyc=1217 order=5b9c6ddfea79
-rv64uf-p-fcmp	PASS	p-	none		2230	17	403776643	(17s) cyc=2230 order=7b13645dc2ad
-rv64uf-p-fcvt	PASS	p-	none		1597	13	813191780	(13s) cyc=1597 order=6cb68516747d
-rv64uf-p-fcvt_w	PASS	p-	none		3343	25	148790987	(25s) cyc=3343 order=e6a8b4109e3e
-rv64uf-p-fdiv	PASS	p-	none		1662	13	303993778	(13s) cyc=1662 order=1f5f4457764a
-rv64uf-p-fmadd	PASS	p-	none		2071	16	131197439	(16s) cyc=2071 order=3ce3345be092
-rv64uf-p-fmin	PASS	p-	none		2540	19	505316255	(19s) cyc=2540 order=3b830c754dab
-rv64uf-p-ldst	PASS	p-	none		1177	10	755861773	(10s) cyc=1177 order=52d678badb57
-rv64uf-p-move	PASS	p-	none		1779	14	418353576	(14s) cyc=1779 order=78762d7650cb
-rv64uf-p-recoding	PASS	p-	none		1198	10	585363235	(10s) cyc=1198 order=296e5ccb7c50
-rv64ui-p-add	PASS	p-	none		2453	19	609496256	(19s) cyc=2453 order=2389b9ed612d
-rv64ui-p-addi	PASS	p-	none		1630	14	296094607	(14s) cyc=1630 order=cd92d942bb40
-rv64ui-p-addiw	PASS	p-	none		1621	13	293724681	(13s) cyc=1621 order=5c0cc4ad45ba
-rv64ui-p-addw	PASS	p-	none		2443	19	295093438	(19s) cyc=2443 order=4c41287ad997
-rv64ui-p-and	PASS	p-	none		2613	20	422074830	(20s) cyc=2613 order=23a00e7b1d16
-rv64ui-p-andi	PASS	p-	none		1609	12	267404771	(12s) cyc=1609 order=b2f8d2cc59d1
-rv64ui-p-auipc	PASS	p-	none		1053	9	889520355	(9s) cyc=1053 order=fee6ae008082
-rv64ui-p-beq	PASS	p-	none		2427	18	976345932	(18s) cyc=2427 order=85e6df1321c0
-rv64ui-p-bge	PASS	p-	none		2726	20	267745504	(20s) cyc=2726 order=b953565a31f1
-rv64ui-p-bgeu	PASS	p-	none		2956	22	727768367	(22s) cyc=2956 order=6985c64fb53e
-rv64ui-p-blt	PASS	p-	none		2429	18	260134381	(18s) cyc=2429 order=737a4d4e5f85
-rv64ui-p-bltu	PASS	p-	none		2643	20	836504210	(20s) cyc=2643 order=5e4d0dddc10a
-rv64ui-p-bne	PASS	p-	none		2482	19	47755331	(19s) cyc=2482 order=8f73f5d6249b
-rv64ui-p-fence_i	PASS	p-	none		1960	16	460036196	(16s) cyc=1960 order=531f0ef79643
-rv64ui-p-jal	PASS	p-	none		1103	10	825433955	(10s) cyc=1103 order=cde62430a7a2
-rv64ui-p-jalr	PASS	p-	none		1511	12	39570447	(12s) cyc=1511 order=034b3332b635
-rv64ui-p-lb	PASS	p-	none		1671	13	859487072	(13s) cyc=1671 order=dc47031cf136
-rv64ui-p-lbu	PASS	p-	none		1671	13	518138921	(13s) cyc=1671 order=683617733c75
-rv64ui-p-ld	PASS	p-	none		2066	16	507515569	(16s) cyc=2066 order=bb9584b943af
-rv64ui-p-ld_st	PASS	p-	none		4452	32	509787959	(32s) cyc=4452 order=27271b5e3076
-rv64ui-p-lh	PASS	p-	none		1711	14	434376365	(14s) cyc=1711 order=165a46fdb5b0
-rv64ui-p-lhu	PASS	p-	none		1717	14	703987455	(14s) cyc=1717 order=c211d2aacfff
-rv64ui-p-lui	PASS	p-	none		1065	9	812506145	(9s) cyc=1065 order=18d408ef2a6d
-rv64ui-p-lw	PASS	p-	none		1731	14	929112184	(14s) cyc=1731 order=53db2c034f76
-rv64ui-p-lwu	PASS	p-	none		1797	14	397597012	(14s) cyc=1797 order=5e6ef434e02d
-rv64ui-p-ma_data	PASS	p-	none		7540	52	248158801	(52s) cyc=7540 order=672c90273c1f
-rv64ui-p-or	PASS	p-	none		2670	20	96983011	(20s) cyc=2670 order=11364a952f52
-rv64ui-p-ori	PASS	p-	none		1591	13	231886378	(13s) cyc=1591 order=41462a3d8c6a
-rv64ui-p-sb	PASS	p-	none		2306	17	31677222	(17s) cyc=2306 order=23ff4683d23d
-rv64ui-p-sd	PASS	p-	none		2656	21	805054838	(21s) cyc=2656 order=a372e877b570
-rv64ui-p-sh	PASS	p-	none		2374	19	673769952	(19s) cyc=2374 order=e043198634db
-rv64ui-p-simple	PASS	p-	none		1003	9	629623218	(9s) cyc=1003 order=65f2bf9e6c86
-rv64ui-p-sll	PASS	p-	none		2573	19	326243511	(19s) cyc=2573 order=66711d5e7897
-rv64ui-p-slli	PASS	p-	none		1691	14	860419699	(14s) cyc=1691 order=682cc3aee524
-rv64ui-p-slliw	PASS	p-	none		1685	13	623798357	(13s) cyc=1685 order=38dc0a6f1424
-rv64ui-p-sllw	PASS	p-	none		2577	19	21545406	(19s) cyc=2577 order=ae6f6552fbdb
-rv64ui-p-slt	PASS	p-	none		2431	19	908249320	(19s) cyc=2431 order=b05e7e43d1de
-rv64ui-p-slti	PASS	p-	none		1617	13	603822651	(13s) cyc=1617 order=957bbf19df64
-rv64ui-p-sltiu	PASS	p-	none		1617	13	779101129	(13s) cyc=1617 order=1f94777945e0
-rv64ui-p-sltu	PASS	p-	none		2469	19	584445466	(19s) cyc=2469 order=f1f2a81be5ab
-rv64ui-p-sra	PASS	p-	none		2523	19	482883882	(19s) cyc=2523 order=2017daf5f3cc
-rv64ui-p-srai	PASS	p-	none		1654	13	750349252	(13s) cyc=1654 order=0514a59e4a60
-rv64ui-p-sraiw	PASS	p-	none		1755	14	16033065	(14s) cyc=1755 order=374dd19ebc25
-rv64ui-p-sraw	PASS	p-	none		2595	19	840781488	(19s) cyc=2595 order=abf3ce56eaa8
-rv64ui-p-srl	PASS	p-	none		2619	19	668851217	(19s) cyc=2619 order=5f43079559f3
-rv64ui-p-srli	PASS	p-	none		1715	13	619868517	(13s) cyc=1715 order=b2f32e8f5746
-rv64ui-p-srliw	PASS	p-	none		1703	13	514593242	(13s) cyc=1703 order=729cec0fe208
-rv64ui-p-srlw	PASS	p-	none		2583	20	969152783	(20s) cyc=2583 order=2a5dba099683
-rv64ui-p-st_ld	PASS	p-	none		1993	16	639121529	(16s) cyc=1993 order=8d0e4ebb790d
-rv64ui-p-sub	PASS	p-	none		2437	19	241713392	(19s) cyc=2437 order=bf40dcab3b7d
-rv64ui-p-subw	PASS	p-	none		2429	19	194871239	(19s) cyc=2429 order=fddf0d062672
-rv64ui-p-sw	PASS	p-	none		2392	18	293727670	(18s) cyc=2392 order=1b13abef3c0d
-rv64ui-p-xor	PASS	p-	none		2664	19	4253875	(19s) cyc=2664 order=2a2c68794d7b
-rv64ui-p-xori	PASS	p-	none		1595	12	106180878	(12s) cyc=1595 order=f6a79cd672cf
-rv64um-p-div	PASS	p-	none		1157	10	455072548	(10s) cyc=1157 order=ca42fe6381c1
-rv64um-p-divu	PASS	p-	none		1167	10	553455669	(10s) cyc=1167 order=11a94ca76b63
-rv64um-p-divuw	PASS	p-	none		1147	10	381340629	(10s) cyc=1147 order=c84813e9d307
-rv64um-p-divw	PASS	p-	none		1139	10	240797739	(10s) cyc=1139 order=f692c6e501e8
-rv64um-p-mul	PASS	p-	none		2461	19	367076797	(19s) cyc=2461 order=726040530f37
-rv64um-p-mulh	PASS	p-	none		2471	18	897885841	(18s) cyc=2471 order=87343d3a8ae8
-rv64um-p-mulhsu	PASS	p-	none		2471	18	561315871	(18s) cyc=2471 order=34b027a8a298
-rv64um-p-mulhu	PASS	p-	none		2531	19	823775327	(19s) cyc=2531 order=d1facf049e21
-rv64um-p-mulw	PASS	p-	none		2329	18	461404312	(18s) cyc=2329 order=96a47c45c835
-rv64um-p-rem	PASS	p-	none		1131	10	941952007	(10s) cyc=1131 order=ca996b74b0c7
-rv64um-p-remu	PASS	p-	none		1133	10	153680247	(10s) cyc=1133 order=bd7a170cb3d3
-rv64um-p-remuw	PASS	p-	none		1129	10	823493118	(10s) cyc=1129 order=5ec1483f1e34
-rv64um-p-remw	PASS	p-	none		1139	10	472375689	(10s) cyc=1139 order=0b2c669c2b7c
-rv64uzba-p-add_uw	PASS	p-	none		2455	19	250219790	(19s) cyc=2455 order=148052ec59ec
-rv64uzba-p-sh1add	PASS	p-	none		2461	19	273941565	(19s) cyc=2461 order=0adea506a1cd
-rv64uzba-p-sh1add_uw	PASS	p-	none		2469	19	117236714	(19s) cyc=2469 order=ccf02747e84c
-rv64uzba-p-sh2add	PASS	p-	none		2461	19	848641425	(19s) cyc=2461 order=4d1abcc9b743
-rv64uzba-p-sh2add_uw	PASS	p-	none		2469	19	870270748	(19s) cyc=2469 order=c938e0649bb9
-rv64uzba-p-sh3add	PASS	p-	none		2461	19	657794325	(19s) cyc=2461 order=2e4782b5fb5a
-rv64uzba-p-sh3add_uw	PASS	p-	none		2469	19	547541071	(19s) cyc=2469 order=17f59a88618d
-rv64uzba-p-slli_uw	PASS	p-	none		1719	13	206433242	(13s) cyc=1719 order=5fd4909174af
-rv64uzbb-p-andn	PASS	p-	none		2655	20	613574177	(20s) cyc=2655 order=4ca4d12a5a6c
-rv64uzbb-p-clz	PASS	p-	none		1497	12	823199847	(12s) cyc=1497 order=ff53376324ed
-rv64uzbb-p-clzw	PASS	p-	none		1465	12	370019621	(12s) cyc=1465 order=01b0f948574a
-rv64uzbb-p-cpop	PASS	p-	none		1497	12	69137379	(12s) cyc=1497 order=d24061a5f4b5
-rv64uzbb-p-cpopw	PASS	p-	none		1465	12	592378161	(12s) cyc=1465 order=0945ff61e909
-rv64uzbb-p-ctz	PASS	p-	none		1497	12	508914847	(12s) cyc=1497 order=fc61c8ecb92f
-rv64uzbb-p-ctzw	PASS	p-	none		1467	12	263477630	(12s) cyc=1467 order=dbf054e969fc
-rv64uzbb-p-max	PASS	p-	none		2441	19	399422587	(19s) cyc=2441 order=8f6defd3294e
-rv64uzbb-p-maxu	PASS	p-	none		2503	19	217861887	(19s) cyc=2503 order=9b3492991d80
-rv64uzbb-p-min	PASS	p-	none		2433	19	279301356	(19s) cyc=2433 order=a4b134a7df36
-rv64uzbb-p-minu	PASS	p-	none		2481	19	599669221	(19s) cyc=2481 order=837f54440f67
-rv64uzbb-p-orc_b	PASS	p-	none		1539	12	771521611	(12s) cyc=1539 order=74089e37f408
-rv64uzbb-p-orn	PASS	p-	none		2673	20	779729929	(20s) cyc=2673 order=4ff6a3c30791
-rv64uzbb-p-rev8	PASS	p-	none		1572	13	932117168	(13s) cyc=1572 order=a6b46b5dd6ea
-rv64uzbb-p-rol	PASS	p-	none		2583	20	421063750	(20s) cyc=2583 order=648abcd1f2ee
-rv64uzbb-p-rolw	PASS	p-	none		2585	20	361595567	(20s) cyc=2585 order=84f5e3829044
-rv64uzbb-p-ror	PASS	p-	none		2645	20	165925929	(20s) cyc=2645 order=c559295b751c
-rv64uzbb-p-rori	PASS	p-	none		1712	14	832952579	(14s) cyc=1712 order=83d61ed8f982
-rv64uzbb-p-roriw	PASS	p-	none		1625	13	990802870	(13s) cyc=1625 order=bdda24d8814f
-rv64uzbb-p-rorw	PASS	p-	none		2513	19	754041189	(19s) cyc=2513 order=bb8f37145a29
-rv64uzbb-p-sext_b	PASS	p-	none		1497	12	120476056	(12s) cyc=1497 order=845b53475390
-rv64uzbb-p-sext_h	PASS	p-	none		1503	12	743698042	(12s) cyc=1503 order=c4f79c526ac6
-rv64uzbb-p-xnor	PASS	p-	none		2671	20	680668498	(20s) cyc=2671 order=9e7bff7441c4
-rv64uzbb-p-zext_h	PASS	p-	none		1509	12	813556233	(12s) cyc=1509 order=18133b5784b5
-rv64uzbc-p-clmul	PASS	p-	none		2463	18	398369892	(18s) cyc=2463 order=dcefcb058fc6
-rv64uzbc-p-clmulh	PASS	p-	none		2473	19	713345843	(19s) cyc=2473 order=152fccf082fc
-rv64uzbc-p-clmulr	PASS	p-	none		2469	18	160777062	(18s) cyc=2469 order=c5c327dec8c9
-rv64uzbkb-p-brev8	PASS	p-	none		1537	12	767591899	(12s) cyc=1537 order=de1e2dec490a
-rv64uzbkb-p-pack	PASS	p-	none		2913	22	374462519	(22s) cyc=2913 order=321beceef87e
-rv64uzbkb-p-packh	PASS	p-	none		2583	19	237241574	(19s) cyc=2583 order=3770e859c211
-rv64uzbkb-p-packw	PASS	p-	none		2443	19	126238908	(19s) cyc=2443 order=be2e9124f1bc
-rv64uzbkx-p-xperm4	PASS	p-	none		2767	21	609944609	(21s) cyc=2767 order=491ef87d757d
-rv64uzbkx-p-xperm8	PASS	p-	none		3598	26	315223875	(26s) cyc=3598 order=07b7ae6dff05
-rv64uzbs-p-bclr	PASS	p-	none		2796	21	165964268	(21s) cyc=2796 order=0ce7e1291cef
-rv64uzbs-p-bclri	PASS	p-	none		1779	14	320953848	(14s) cyc=1779 order=d3c91d153f7e
-rv64uzbs-p-bext	PASS	p-	none		2661	19	500093661	(19s) cyc=2661 order=9db9f30542b8
-rv64uzbs-p-bexti	PASS	p-	none		1711	13	311388698	(13s) cyc=1711 order=c4fdf4ea49d8
-rv64uzbs-p-binv	PASS	p-	none		2631	20	109588984	(20s) cyc=2631 order=da6e35df547b
-rv64uzbs-p-binvi	PASS	p-	none		1715	13	585080653	(13s) cyc=1715 order=c3b23106d621
-rv64uzbs-p-bset	PASS	p-	none		2800	21	70369074	(21s) cyc=2800 order=add4fd4d7d92
-rv64uzbs-p-bseti	PASS	p-	none		1793	14	973321362	(14s) cyc=1793 order=7bbbfc6ab609
-rv64uzfh-p-fadd	PASS	p-	none		1912	15	826150812	(15s) cyc=1912 order=1253fcfd65b7
-rv64uzfh-p-fclass	PASS	p-	none		1218	10	457329653	(10s) cyc=1218 order=eadc3651f8fb
-rv64uzfh-p-fcmp	PASS	p-	none		1564	13	321673696	(13s) cyc=1564 order=119cc2b69439
-rv64uzfh-p-fcvt	PASS	p-	none		1768	14	912492054	(14s) cyc=1768 order=acd28a057600
-rv64uzfh-p-fcvt_w	PASS	p-	none		3343	25	188449225	(25s) cyc=3343 order=4811a5b4c781
-rv64uzfh-p-fdiv	PASS	p-	none		1662	14	419522193	(14s) cyc=1662 order=53c6301b008f
-rv64uzfh-p-fmadd	PASS	p-	none		2071	16	144957241	(16s) cyc=2071 order=6c785fa3b3b5
-rv64uzfh-p-fmin	PASS	p-	none		2540	20	237963988	(20s) cyc=2540 order=10a1ab089971
-rv64uzfh-p-ldst	PASS	p-	none		1192	10	995770205	(10s) cyc=1192 order=e2c063d0ef35
-rv64uzfh-p-move	PASS	p-	none		1773	14	325156011	(14s) cyc=1773 order=e8a17dbbd62c
-rv64uzfh-p-recoding	PASS	p-	none		1198	10	712830720	(10s) cyc=1198 order=56351644fd78
-rv64uziccid-p-ziccid	PASS	p-	none		7470	33	406124886	(33s) cyc=7470 order=50374592be93
-rv64uzicond-p-czero_eqz	PASS	p-	none		2389	18	512955350	(18s) cyc=2389 order=7a876dc73bfa
-rv64uzicond-p-czero_nez	PASS	p-	none		2377	17	417159148	(17s) cyc=2377 order=e39111380346
-rv64ua-v-amoadd_d	PASS	v-	15/18		23306	143	662095716	(143s) cyc=23306 order=4ce5f01f917d
-rv64ua-v-amoadd_w	PASS	v-	16/18		23324	172	289350471	(172s) cyc=23324 order=7ee45c305bb1
-rv64ua-v-amoand_d	PASS	v-	17/18		23431	158	616533827	(158s) cyc=23431 order=57e3c46037d7
-rv64ua-v-amoand_w	PASS	v-	18/18		23433	159	56969859	(159s) cyc=23433 order=35b6c95f7fa5
-rv64ua-v-amomax_d	PASS	v-	1/18		23249	122	310962570	(122s) cyc=23249 order=4382ad5c08a8
-rv64ua-v-amomax_w	PASS	v-	4/18		23266	123	795234671	(123s) cyc=23266 order=b71f87a6547a
-rv64ua-v-amomaxu_d	PASS	v-	2/18		23249	97	818468769	(97s) cyc=23249 order=974ca7b3b9e9
-rv64ua-v-amomaxu_w	PASS	v-	3/18		23266	155	386989895	(155s) cyc=23266 order=8d31d739a5ce
-rv64ua-v-amomin_d	PASS	v-	5/18		23249	125	474664994	(125s) cyc=23249 order=016568aba825
-rv64ua-v-amomin_w	PASS	v-	8/18		23413	153	957438563	(153s) cyc=23413 order=0e8511dc4020
-rv64ua-v-amominu_d	PASS	v-	6/18		23292	151	153496686	(151s) cyc=23292 order=12ddff42885c
-rv64ua-v-amominu_w	PASS	v-	7/18		23309	151	497452220	(151s) cyc=23309 order=10c06bc51642
-rv64ua-v-amoor_d	PASS	v-	9/18		23280	150	411845410	(150s) cyc=23280 order=f2f897538a8a
-rv64ua-v-amoor_w	PASS	v-	10/18		23280	114	832325865	(114s) cyc=23280 order=ee36be06ecc1
-rv64ua-v-amoswap_d	PASS	v-	11/18		23431	99	97760950	(99s) cyc=23431 order=22d568aaa273
-rv64ua-v-amoswap_w	PASS	v-	12/18		23433	126	449532243	(126s) cyc=23433 order=7ac04966b8cc
-rv64ua-v-amoxor_d	PASS	v-	13/18		23280	152	455989215	(152s) cyc=23280 order=7c6d07573ce4
-rv64ua-v-amoxor_w	PASS	v-	14/18		23290	182	945036131	(182s) cyc=23290 order=fa577bb2443e
-rv64ua-v-lrsc	PASS	v-	15/18		40201	215	361690575	(215s) cyc=40201 order=fdcffa9804f4
-rv64uc-v-rvc	PASS	v-	14/18		32351	257	391098088	(257s) cyc=32351 order=90c08f345e56
-rv64ud-v-fadd	PASS	v-	9/18		22997	151	819328158	(151s) cyc=22997 order=e8b4062214a2
-rv64ud-v-fclass	PASS	v-	10/18		13653	68	729112860	(68s) cyc=13653 order=2d1cc8e57e72
-rv64ud-v-fcmp	PASS	v-	11/18		23296	100	540622047	(100s) cyc=23296 order=df04e6228c5e
-rv64ud-v-fcvt	PASS	v-	12/18		22900	125	673057229	(125s) cyc=22900 order=f96083014a61
-rv64ud-v-fcvt_w	PASS	v-	13/18		33269	189	72662515	(189s) cyc=33269 order=f1a2cada8350
-rv64ud-v-fdiv	PASS	v-	14/18		22825	184	227870760	(184s) cyc=22825 order=4866f7058fc8
-rv64ud-v-fmadd	PASS	v-	15/18		23159	140	203002419	(140s) cyc=23159 order=7693ae1774f6
-rv64ud-v-fmin	PASS	v-	16/18		23628	173	445135624	(173s) cyc=23628 order=f81e4beeccac
-rv64ud-v-ldst	PASS	v-	17/18		23065	130	701768943	(130s) cyc=23065 order=b6480a772d45
-rv64ud-v-move	PASS	v-	18/18		23842	165	502410810	(165s) cyc=23842 order=418f823aef93
-rv64ud-v-recoding	PASS	v-	1/18		23367	131	387470483	(131s) cyc=23367 order=d764799927fc
-rv64ud-v-structural	PASS	v-	2/18		14456	62	7859284	(62s) cyc=14456 order=779ce6ad4102
-rv64uf-v-fadd	PASS	v-	16/18		22997	165	502503051	(165s) cyc=22997 order=0a42f7dff923
-rv64uf-v-fclass	PASS	v-	17/18		13637	92	882384184	(92s) cyc=13637 order=6f531142b20b
-rv64uf-v-fcmp	PASS	v-	18/18		23296	158	845670403	(158s) cyc=23296 order=d0bf276dc3d2
-rv64uf-v-fcvt	PASS	v-	1/18		22679	125	127618098	(125s) cyc=22679 order=1a32a073f4f5
-rv64uf-v-fcvt_w	PASS	v-	2/18		32941	136	541537847	(136s) cyc=32941 order=4130fb87fc0f
-rv64uf-v-fdiv	PASS	v-	3/18		22748	151	897660607	(151s) cyc=22748 order=03db81e5e280
-rv64uf-v-fmadd	PASS	v-	4/18		23159	120	106997436	(120s) cyc=23159 order=6c63e5d05a24
-rv64uf-v-fmin	PASS	v-	5/18		23628	128	911440295	(128s) cyc=23628 order=16062e0274a1
-rv64uf-v-ldst	PASS	v-	6/18		23252	153	326983152	(153s) cyc=23252 order=e479c1feb1a2
-rv64uf-v-move	PASS	v-	7/18		14207	94	119231917	(94s) cyc=14207 order=e7fc02dcd890
-rv64uf-v-recoding	PASS	v-	8/18		22276	151	646728812	(151s) cyc=22276 order=552595fcb2bd
-rv64ui-v-add	PASS	v-	1/18		14944	84	797151169	(84s) cyc=14944 order=15f3ef37e3db
-rv64ui-v-addi	PASS	v-	2/18		14119	64	927311910	(64s) cyc=14119 order=d6df21912efe
-rv64ui-v-addiw	PASS	v-	3/18		14112	97	3097432	(97s) cyc=14112 order=18eb5f7fa8cd
-rv64ui-v-addw	PASS	v-	4/18		14936	82	960742206	(82s) cyc=14936 order=7b0e6ea81ec4
-rv64ui-v-and	PASS	v-	7/18		15125	104	879441824	(104s) cyc=15125 order=c97ee507a60b
-rv64ui-v-andi	PASS	v-	8/18		14098	97	796072144	(97s) cyc=14098 order=8a151b39d5a0
-rv64ui-v-auipc	PASS	v-	12/18		13569	77	419996886	(77s) cyc=13569 order=5e3057bbd36a
-rv64ui-v-beq	PASS	v-	13/18		14869	104	71218504	(104s) cyc=14869 order=c1a8605977e3
-rv64ui-v-bge	PASS	v-	14/18		15117	122	913528505	(122s) cyc=15117 order=045be279bd2c
-rv64ui-v-bgeu	PASS	v-	15/18		15407	98	336033700	(98s) cyc=15407 order=508ae8ade9e4
-rv64ui-v-blt	PASS	v-	16/18		14875	113	82397680	(113s) cyc=14875 order=6ac16dc372a3
-rv64ui-v-bltu	PASS	v-	17/18		15094	104	242758701	(104s) cyc=15094 order=c71f0b9381e3
-rv64ui-v-bne	PASS	v-	18/18		14926	105	29183855	(105s) cyc=14926 order=99522a7f91f5
-rv64ui-v-fence_i	PASS	v-	17/18		24092	162	224034348	(162s) cyc=24092 order=47b6c6241cde
-rv64ui-v-jal	PASS	v-	1/18		13568	78	480394340	(78s) cyc=13568 order=f38233632aae
-rv64ui-v-jalr	PASS	v-	2/18		13902	63	239509444	(63s) cyc=13902 order=f7865f0d53eb
-rv64ui-v-lb	PASS	v-	3/18		22821	156	720514590	(156s) cyc=22821 order=e9866a95363f
-rv64ui-v-lbu	PASS	v-	4/18		22821	124	482870479	(124s) cyc=22821 order=1e9a06ae7dd5
-rv64ui-v-ld	PASS	v-	9/18		23349	156	121363076	(156s) cyc=23349 order=bdff7a267e7e
-rv64ui-v-ld_st	PASS	v-	14/18		43362	339	804774679	(339s) cyc=43362 order=6bd768662fd9
-rv64ui-v-lh	PASS	v-	5/18		22848	126	418100184	(126s) cyc=22848 order=51cee22fe45e
-rv64ui-v-lhu	PASS	v-	6/18		22872	154	402201297	(154s) cyc=22872 order=b0485d6b46c2
-rv64ui-v-lui	PASS	v-	11/18		13535	60	585731285	(60s) cyc=13535 order=e7bcc817f0f7
-rv64ui-v-lw	PASS	v-	7/18		22879	155	552251352	(155s) cyc=22879 order=86118103c683
-rv64ui-v-lwu	PASS	v-	8/18		22946	157	571947648	(157s) cyc=22946 order=950e9755f636
-rv64ui-v-ma_data	PASS	v-	18/18		45459	291	486095903	(291s) cyc=45459 order=b6d884b51afa
-rv64ui-v-or	PASS	v-	9/18		15193	103	485133208	(103s) cyc=15193 order=98a1fa1b38a7
-rv64ui-v-ori	PASS	v-	10/18		14068	72	139897206	(72s) cyc=14068 order=050545b628d6
-rv64ui-v-sb	PASS	v-	10/18		24196	121	414058201	(121s) cyc=24196 order=ebcbbb789f8c
-rv64ui-v-sd	PASS	v-	13/18		33242	224	961090311	(224s) cyc=33242 order=2b84e1d273f6
-rv64ui-v-sh	PASS	v-	11/18		24291	106	40572177	(106s) cyc=24291 order=8a335682e59d
-rv64ui-v-simple	PASS	v-	16/18		13456	103	78103281	(103s) cyc=13456 order=0c54cabca528
-rv64ui-v-sll	PASS	v-	17/18		23728	161	678166545	(161s) cyc=23728 order=7b13b75a17de
-rv64ui-v-slli	PASS	v-	18/18		14164	99	203778060	(99s) cyc=14164 order=e1abf9f09b2d
-rv64ui-v-slliw	PASS	v-	1/18		14175	79	608636783	(79s) cyc=14175 order=a82fbbb46697
-rv64ui-v-sllw	PASS	v-	2/18		23728	104	395515379	(104s) cyc=23728 order=16ffbd273d43
-rv64ui-v-slt	PASS	v-	13/18		14921	104	392858379	(104s) cyc=14921 order=f5b78689d654
-rv64ui-v-slti	PASS	v-	14/18		14106	115	915346145	(115s) cyc=14106 order=ab6c404d4a55
-rv64ui-v-sltiu	PASS	v-	16/18		14106	108	457036208	(108s) cyc=14106 order=773b65dd2c76
-rv64ui-v-sltu	PASS	v-	15/18		14959	95	358403759	(95s) cyc=14959 order=448f1aea7802
-rv64ui-v-sra	PASS	v-	7/18		15018	104	522248426	(104s) cyc=15018 order=f7b6cde4a077
-rv64ui-v-srai	PASS	v-	8/18		14143	97	451306145	(97s) cyc=14143 order=b999e898572b
-rv64ui-v-sraiw	PASS	v-	9/18		14248	97	295468664	(97s) cyc=14248 order=6d4874b0b057
-rv64ui-v-sraw	PASS	v-	10/18		23742	121	434690582	(121s) cyc=23742 order=d0ffbbf3d70f
-rv64ui-v-srl	PASS	v-	3/18		23768	163	435665227	(163s) cyc=23768 order=03b9f76ed81f
-rv64ui-v-srli	PASS	v-	4/18		14187	77	321172670	(77s) cyc=14187 order=7ad3ec7b92b9
-rv64ui-v-srliw	PASS	v-	5/18		14190	78	809652660	(78s) cyc=14190 order=dc9e74815510
-rv64ui-v-srlw	PASS	v-	6/18		23741	160	566917113	(160s) cyc=23741 order=2d4f93d7f206
-rv64ui-v-st_ld	PASS	v-	15/18		32454	198	537694678	(198s) cyc=32454 order=639c46b9e9d6
-rv64ui-v-sub	PASS	v-	5/18		14923	82	937832105	(82s) cyc=14923 order=c50e486a12d9
-rv64ui-v-subw	PASS	v-	6/18		14922	102	861824826	(102s) cyc=14922 order=7e0a75e86140
-rv64ui-v-sw	PASS	v-	12/18		24310	133	322771022	(133s) cyc=24310 order=74f39f9db0d5
-rv64ui-v-xor	PASS	v-	11/18		15193	68	499583865	(68s) cyc=15193 order=ca9a18360171
-rv64ui-v-xori	PASS	v-	12/18		14071	81	839402596	(81s) cyc=14071 order=d00d4be67823
-rv64um-v-div	PASS	v-	5/18		13628	75	20480260	(75s) cyc=13628 order=c48302194fcf
-rv64um-v-divu	PASS	v-	6/18		13631	94	122166970	(94s) cyc=13631 order=fda80ad67649
-rv64um-v-divuw	PASS	v-	11/18		13615	61	853986965	(61s) cyc=13615 order=45367909c2b1
-rv64um-v-divw	PASS	v-	10/18		13608	70	441157202	(70s) cyc=13608 order=493013180f1f
-rv64um-v-mul	PASS	v-	1/18		14979	86	147202796	(86s) cyc=14979 order=e14db60c7eb7
-rv64um-v-mulh	PASS	v-	2/18		14968	68	631868161	(68s) cyc=14968 order=162c4066c29b
-rv64um-v-mulhsu	PASS	v-	3/18		14968	103	57359953	(103s) cyc=14968 order=b66e366059ad
-rv64um-v-mulhu	PASS	v-	4/18		15028	83	396534570	(83s) cyc=15028 order=eec22c9093be
-rv64um-v-mulw	PASS	v-	9/18		14815	100	804762682	(100s) cyc=14815 order=206e1533c0e3
-rv64um-v-rem	PASS	v-	7/18		13602	93	103637970	(93s) cyc=13602 order=a94aa637a731
-rv64um-v-remu	PASS	v-	8/18		13608	94	519484670	(94s) cyc=13608 order=000e1edb8195
-rv64um-v-remuw	PASS	v-	13/18		13598	95	414379514	(95s) cyc=13598 order=5fb07f09b4b7
-rv64um-v-remw	PASS	v-	12/18		13608	77	212250545	(77s) cyc=13608 order=36e2c24c0ecf
-rv64uzba-v-add_uw	PASS	v-	3/18		14985	100	789896030	(100s) cyc=14985 order=2386dc2fc6ec
-rv64uzba-v-sh1add	PASS	v-	4/18		14992	80	868515776	(80s) cyc=14992 order=e679a8c92fad
-rv64uzba-v-sh1add_uw	PASS	v-	5/18		14998	81	855359142	(81s) cyc=14998 order=abbf4375541c
-rv64uzba-v-sh2add	PASS	v-	6/18		14992	100	480835645	(100s) cyc=14992 order=bd9bd5d845bf
-rv64uzba-v-sh2add_uw	PASS	v-	7/18		14998	101	603903993	(101s) cyc=14998 order=f7acb1b49c49
-rv64uzba-v-sh3add	PASS	v-	8/18		14992	101	254271307	(101s) cyc=14992 order=737e54ba0460
-rv64uzba-v-sh3add_uw	PASS	v-	9/18		14998	99	820268198	(99s) cyc=14998 order=188e01e8ea68
-rv64uzba-v-slli_uw	PASS	v-	10/18		14216	70	243077782	(70s) cyc=14216 order=6db43924b409
-rv64uzbb-v-andn	PASS	v-	11/18		15172	66	49266710	(66s) cyc=15172 order=f6be0f11750e
-rv64uzbb-v-clz	PASS	v-	12/18		14010	76	478358108	(76s) cyc=14010 order=7ff03ed9e91d
-rv64uzbb-v-clzw	PASS	v-	13/18		13983	94	705501303	(94s) cyc=13983 order=ac19b4920fa5
-rv64uzbb-v-cpop	PASS	v-	14/18		14010	102	338639632	(102s) cyc=14010 order=7d9729838b68
-rv64uzbb-v-cpopw	PASS	v-	15/18		13983	85	578142362	(85s) cyc=13983 order=843656ef81da
-rv64uzbb-v-ctz	PASS	v-	16/18		14010	102	759678612	(102s) cyc=14010 order=fdb2a8119925
-rv64uzbb-v-ctzw	PASS	v-	17/18		13982	94	530703621	(94s) cyc=13982 order=f05476f7b969
-rv64uzbb-v-max	PASS	v-	18/18		14941	102	571670471	(102s) cyc=14941 order=0bfdab87250e
-rv64uzbb-v-maxu	PASS	v-	1/18		14997	80	592765789	(80s) cyc=14997 order=62bc3cdc9168
-rv64uzbb-v-min	PASS	v-	2/18		14930	65	98350418	(65s) cyc=14930 order=74b63335109d
-rv64uzbb-v-minu	PASS	v-	3/18		14976	99	334459076	(99s) cyc=14976 order=712f3ceb4fa9
-rv64uzbb-v-orc_b	PASS	v-	4/18		14052	75	378255114	(75s) cyc=14052 order=c81f47fd9c24
-rv64uzbb-v-orn	PASS	v-	5/18		23903	110	326262217	(110s) cyc=23903 order=259bb29b6ab5
-rv64uzbb-v-rev8	PASS	v-	6/18		14092	93	335589976	(93s) cyc=14092 order=93732ee108c9
-rv64uzbb-v-rol	PASS	v-	7/18		23812	130	718384134	(130s) cyc=23812 order=d7b8f9898c3d
-rv64uzbb-v-rolw	PASS	v-	8/18		23803	156	165592076	(156s) cyc=23803 order=c10c2155275e
-rv64uzbb-v-ror	PASS	v-	9/18		23844	131	878901084	(131s) cyc=23844 order=733255ece11f
-rv64uzbb-v-rori	PASS	v-	10/18		14210	70	565025673	(70s) cyc=14210 order=ea1755b8a8e6
-rv64uzbb-v-roriw	PASS	v-	11/18		14124	59	235071096	(59s) cyc=14124 order=73c21f2cb0dc
-rv64uzbb-v-rorw	PASS	v-	12/18		15010	77	328222763	(77s) cyc=15010 order=85ded57faab3
-rv64uzbb-v-sext_b	PASS	v-	13/18		14010	92	495444645	(92s) cyc=14010 order=154c3bec4bb8
-rv64uzbb-v-sext_h	PASS	v-	14/18		14019	85	208089350	(85s) cyc=14019 order=02b4bbe75354
-rv64uzbb-v-xnor	PASS	v-	15/18		23905	117	130295685	(117s) cyc=23905 order=4b4dea69fb0b
-rv64uzbb-v-zext_h	PASS	v-	16/18		14025	108	339422523	(108s) cyc=14025 order=efd9c83ebf0c
-rv64uzbc-v-clmul	PASS	v-	17/18		14980	102	838945200	(102s) cyc=14980 order=bbb177e3adfa
-rv64uzbc-v-clmulh	PASS	v-	18/18		14991	77	343606677	(77s) cyc=14991 order=073f2f095c99
-rv64uzbc-v-clmulr	PASS	v-	1/18		14988	69	707354047	(69s) cyc=14988 order=2bf101dc443b
-rv64uzbkb-v-brev8	PASS	v-	2/18		14036	61	393690158	(61s) cyc=14036 order=e3fb9a83d790
-rv64uzbkb-v-pack	PASS	v-	3/18		24175	96	142763670	(96s) cyc=24175 order=71db806a204b
-rv64uzbkb-v-packh	PASS	v-	4/18		15101	62	944254857	(62s) cyc=15101 order=02d1d2625539
-rv64uzbkb-v-packw	PASS	v-	5/18		14969	78	105490577	(78s) cyc=14969 order=4b2b12d8beab
-rv64uzbkx-v-xperm4	PASS	v-	6/18		23954	94	107792061	(94s) cyc=23954 order=473dcc617a64
-rv64uzbkx-v-xperm8	PASS	v-	7/18		24807	130	913700914	(130s) cyc=24807 order=994c2ae837df
-rv64uzbs-v-bclr	PASS	v-	8/18		23907	118	793461977	(118s) cyc=23907 order=2e5c15c901a1
-rv64uzbs-v-bclri	PASS	v-	9/18		14245	90	908775732	(90s) cyc=14245 order=c0e661d79de6
-rv64uzbs-v-bext	PASS	v-	10/18		23768	90	165665756	(90s) cyc=23768 order=9f5788ee3c97
-rv64uzbs-v-bexti	PASS	v-	11/18		14139	47	870910683	(47s) cyc=14139 order=350bcf3d46ce
-rv64uzbs-v-binv	PASS	v-	12/18		23721	94	844907342	(94s) cyc=23721 order=1711bc0f8705
-rv64uzbs-v-binvi	PASS	v-	13/18		14130	82	591994703	(82s) cyc=14130 order=793e2829302e
-rv64uzbs-v-bset	PASS	v-	14/18		23913	124	596807621	(124s) cyc=23913 order=701e9f331d6c
-rv64uzbs-v-bseti	PASS	v-	15/18		14229	67	274798073	(67s) cyc=14229 order=ade7e1135040
-rv64uzfh-v-fadd	PASS	v-	16/18		22997	119	239334912	(119s) cyc=22997 order=5c010c3ef410
-rv64uzfh-v-fclass	PASS	v-	17/18		13638	81	70616667	(81s) cyc=13638 order=a5703c130d7f
-rv64uzfh-v-fcmp	PASS	v-	18/18		22629	106	879916237	(106s) cyc=22629 order=1d944418c6b4
-rv64uzfh-v-fcvt	PASS	v-	1/18		22843	76	611735121	(76s) cyc=22843 order=aab9178ceb76
-rv64uzfh-v-fcvt_w	PASS	v-	2/18		32941	90	732093721	(90s) cyc=32941 order=779130600b3f
-rv64uzfh-v-fdiv	PASS	v-	3/18		22748	92	829727281	(92s) cyc=22748 order=3fdd1e519008
-rv64uzfh-v-fmadd	PASS	v-	4/18		23159	73	107130886	(73s) cyc=23159 order=7c67d3dc4475
-rv64uzfh-v-fmin	PASS	v-	5/18		23628	88	835968069	(88s) cyc=23628 order=8a3138cb8789
-rv64uzfh-v-ldst	PASS	v-	6/18		23302	90	428850661	(90s) cyc=23302 order=7f82aeae656c
-rv64uzfh-v-move	PASS	v-	7/18		14206	89	627947096	(89s) cyc=14206 order=e9ea95daed26
-rv64uzfh-v-recoding	PASS	v-	8/18		22276	117	652564557	(117s) cyc=22276 order=16bd2cb5c057
-rv64uziccid-v-ziccid	PASS	v-	11/18		164225	407	34187010	(407s) cyc=164225 order=be0160fe1fb3
-rv64uzicond-v-czero_eqz	PASS	v-	9/18		14884	74	779357221	(74s) cyc=14884 order=273a57bb8561
-rv64uzicond-v-czero_nez	PASS	v-	10/18		14893	47	689360955	(47s) cyc=14893 order=efdb438e5321
+hypervisor-p-2-stage_translation	PASS	p-	none		1390	15	114785077	(15s) cyc=1390 order=525dc12fbff7
+hypervisor-p-2-stage_translation_implicit_load_error	PASS	p-	none		1617	16	762492778	(16s) cyc=1617 order=7d0a17bbe9e6
+hypervisor-p-2-stage_translation_implicit_load_error_hs	PASS	p-	none		1805	17	387139499	(17s) cyc=1805 order=ed280dfef5cc
+hypervisor-svadu-p-2-stage_translation_implicit_store_error	PASS	p-	none		1742	17	757684686	(17s) cyc=1742 order=cd3b1631feac
+hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs	PASS	p-	none		1911	16	843288681	(16s) cyc=1911 order=65e0c97bb61c
+rv64mi-p-breakpoint	PASS	p-	none		3508	28	516593062	(28s) cyc=3508 order=00848c3d7bcc
+rv64mi-p-csr	PASS	p-	none		3571	29	194997489	(29s) cyc=3571 order=3a143a5bad1e
+rv64mi-p-illegal	PASS	p-	none		4814	37	213447471	(37s) cyc=4814 order=1b52058ce2cc
+rv64mi-p-instret_overflow	PASS	p-	none		1272	11	994907569	(11s) cyc=1272 order=21e85916babe
+rv64mi-p-ld-misaligned	PASS	p-	none		1406	13	81206615	(13s) cyc=1406 order=7e0dd42adf07
+rv64mi-p-lh-misaligned	PASS	p-	none		1119	10	258155461	(10s) cyc=1119 order=504b9e789576
+rv64mi-p-lw-misaligned	PASS	p-	none		1189	11	810391242	(11s) cyc=1189 order=20f519aa4dc4
+rv64mi-p-ma_addr	PASS	p-	none		1556	13	851256133	(13s) cyc=1556 order=09b01af210dd
+rv64mi-p-ma_fetch	PASS	p-	none		2093	16	203777389	(16s) cyc=2093 order=fa8d616e5481
+rv64mi-p-mcsr	PASS	p-	none		1354	12	434883782	(12s) cyc=1354 order=7feb3d7ce2c7
+rv64mi-p-pmpaddr	PASS	p-	none		1202	10	462632848	(10s) cyc=1202 order=a06296b78ebc
+rv64mi-p-sbreak	PASS	p-	none		1360	11	819384779	(11s) cyc=1360 order=b1c0ad7768ff
+rv64mi-p-scall	PASS	p-	none		1283	10	53677709	(10s) cyc=1283 order=b6f7d5806709
+rv64mi-p-sd-misaligned	PASS	p-	none		1498	12	787028242	(12s) cyc=1498 order=373adb9a9e86
+rv64mi-p-sh-misaligned	PASS	p-	none		1140	10	258748893	(10s) cyc=1140 order=2432b45d2666
+rv64mi-p-sw-misaligned	PASS	p-	none		1193	10	104504031	(10s) cyc=1193 order=298e25a5f0b7
+rv64mi-p-zicntr	PASS	p-	none		1439	13	176606419	(13s) cyc=1439 order=d115a29d0f6a
+rv64mzicbo-p-zero	PASS	p-	none		1171	11	283222435	(11s) cyc=1171 order=a5cabb2d0ee4
+rv64si-p-csr	PASS	p-	none		2279	19	173100046	(19s) cyc=2279 order=32c8cb3d26ae
+rv64si-p-dirty	PASS	p-	none		2389	19	73876754	(19s) cyc=2389 order=a2033057f621
+rv64si-p-icache-alias	PASS	p-	none		2591	20	377848154	(20s) cyc=2591 order=beb22e019755
+rv64si-p-ma_fetch	PASS	p-	none		1489	12	205690859	(12s) cyc=1489 order=b5ef3eaba9f4
+rv64si-p-sbreak	PASS	p-	none		1373	12	613198208	(12s) cyc=1373 order=babc996dbb1a
+rv64si-p-scall	PASS	p-	none		1496	13	623650681	(13s) cyc=1496 order=36be12398d74
+rv64si-p-wfi	PASS	p-	none		1190	11	162009327	(11s) cyc=1190 order=6817812a6c62
+rv64ssvnapot-p-napot	PASS	p-	none		1676	15	857390396	(15s) cyc=1676 order=9ad7789ff300
+rv64ua-p-amoadd_d	PASS	p-	none		1090	10	63716554	(10s) cyc=1090 order=687e8972049a
+rv64ua-p-amoadd_w	PASS	p-	none		1133	10	701214211	(10s) cyc=1133 order=b9d4aa90931c
+rv64ua-p-amoand_d	PASS	p-	none		1137	10	558704337	(10s) cyc=1137 order=db8a4d484ff2
+rv64ua-p-amoand_w	PASS	p-	none		1133	11	995994648	(11s) cyc=1133 order=bb5573cc2c24
+rv64ua-p-amomax_d	PASS	p-	none		1089	10	847799614	(10s) cyc=1089 order=b414672835ce
+rv64ua-p-amomax_w	PASS	p-	none		1107	11	346314615	(11s) cyc=1107 order=18456508ffe7
+rv64ua-p-amomaxu_d	PASS	p-	none		1089	10	293122353	(10s) cyc=1089 order=84d5790b8741
+rv64ua-p-amomaxu_w	PASS	p-	none		1107	10	859057130	(10s) cyc=1107 order=1a61b06f8276
+rv64ua-p-amomin_d	PASS	p-	none		1089	10	687595822	(10s) cyc=1089 order=3c2adeb9da0f
+rv64ua-p-amomin_w	PASS	p-	none		1107	10	177612270	(10s) cyc=1107 order=6c616754eefc
+rv64ua-p-amominu_d	PASS	p-	none		1089	10	623338595	(10s) cyc=1089 order=6f55fa01a594
+rv64ua-p-amominu_w	PASS	p-	none		1107	10	973290673	(10s) cyc=1107 order=499dc43b6712
+rv64ua-p-amoor_d	PASS	p-	none		1132	10	186797603	(10s) cyc=1132 order=6f5e4aefc211
+rv64ua-p-amoor_w	PASS	p-	none		1132	10	678681834	(10s) cyc=1132 order=9b4cf5d54416
+rv64ua-p-amoswap_d	PASS	p-	none		1137	11	110308824	(11s) cyc=1137 order=270300cadbf4
+rv64ua-p-amoswap_w	PASS	p-	none		1133	11	459406630	(11s) cyc=1133 order=5078f264bf3c
+rv64ua-p-amoxor_d	PASS	p-	none		1137	11	673162388	(11s) cyc=1137 order=52bcdf0d99a2
+rv64ua-p-amoxor_w	PASS	p-	none		1141	11	157966420	(11s) cyc=1141 order=c06c9ca344c9
+rv64ua-p-lrsc	PASS	p-	none		17282	122	593418633	(122s) cyc=17282 order=295a0ddaab31
+rv64uc-p-rvc	PASS	p-	none		1720	14	358414835	(14s) cyc=1720 order=0d1f0e6bb1d3
+rv64ud-p-fadd	PASS	p-	none		1945	16	191439591	(16s) cyc=1945 order=7c36e6664d92
+rv64ud-p-fclass	PASS	p-	none		1251	11	934071178	(11s) cyc=1251 order=8a727851809f
+rv64ud-p-fcmp	PASS	p-	none		2243	20	624010794	(20s) cyc=2243 order=5c0b2313b68a
+rv64ud-p-fcvt	PASS	p-	none		1847	17	885971017	(17s) cyc=1847 order=8b8f272a714c
+rv64ud-p-fcvt_w	PASS	p-	none		3781	33	200714223	(33s) cyc=3781 order=ae21f022a017
+rv64ud-p-fdiv	PASS	p-	none		1767	16	598002164	(16s) cyc=1767 order=e7d8623999fa
+rv64ud-p-fmadd	PASS	p-	none		2107	18	793927064	(18s) cyc=2107 order=98e60adf47d7
+rv64ud-p-fmin	PASS	p-	none		2593	23	561284870	(23s) cyc=2593 order=9176df03239b
+rv64ud-p-ldst	PASS	p-	none		1188	11	245930129	(11s) cyc=1188 order=b0c4b0972aa3
+rv64ud-p-move	PASS	p-	none		2717	25	916805893	(25s) cyc=2717 order=81fa856c0714
+rv64ud-p-recoding	PASS	p-	none		1261	12	465393744	(12s) cyc=1261 order=af430c931ea9
+rv64ud-p-structural	PASS	p-	none		2027	17	241358510	(17s) cyc=2027 order=58023cf28e8f
+rv64uf-p-fadd	PASS	p-	none		1945	17	650359689	(17s) cyc=1945 order=2dcf36d14c26
+rv64uf-p-fclass	PASS	p-	none		1235	11	164594682	(11s) cyc=1235 order=7b546334906d
+rv64uf-p-fcmp	PASS	p-	none		2243	19	148312910	(19s) cyc=2243 order=ac51554d342d
+rv64uf-p-fcvt	PASS	p-	none		1629	15	557728047	(15s) cyc=1629 order=49883781a255
+rv64uf-p-fcvt_w	PASS	p-	none		3416	31	893327261	(31s) cyc=3416 order=f2af3e17ebf2
+rv64uf-p-fdiv	PASS	p-	none		1689	15	48530045	(15s) cyc=1689 order=591becf1538d
+rv64uf-p-fmadd	PASS	p-	none		2107	19	875733713	(19s) cyc=2107 order=16df2160b972
+rv64uf-p-fmin	PASS	p-	none		2593	23	249852522	(23s) cyc=2593 order=d5598a8a9c95
+rv64uf-p-ldst	PASS	p-	none		1180	11	500398040	(11s) cyc=1180 order=df041b93c2f7
+rv64uf-p-move	PASS	p-	none		1808	16	162889843	(16s) cyc=1808 order=624581a8ba7a
+rv64uf-p-recoding	PASS	p-	none		1214	12	329899502	(12s) cyc=1214 order=f5d76b4c038c
+rv64ui-p-add	PASS	p-	none		2463	22	354032523	(22s) cyc=2463 order=c8b77bddb05b
+rv64ui-p-addi	PASS	p-	none		1645	14	40630874	(14s) cyc=1645 order=31ec05ddf33c
+rv64ui-p-addiw	PASS	p-	none		1637	15	38260948	(15s) cyc=1637 order=c070149cea05
+rv64ui-p-addw	PASS	p-	none		2453	21	39629705	(21s) cyc=2453 order=69079e49bace
+rv64ui-p-and	PASS	p-	none		2629	23	166611097	(23s) cyc=2629 order=a65eefd2d759
+rv64ui-p-andi	PASS	p-	none		1623	15	11941038	(15s) cyc=1623 order=155ae29b1b23
+rv64ui-p-auipc	PASS	p-	none		1067	10	634056622	(10s) cyc=1067 order=9a160261fd9d
+rv64ui-p-beq	PASS	p-	none		2433	22	720882199	(22s) cyc=2433 order=e9a559a263c6
+rv64ui-p-bge	PASS	p-	none		2729	24	12281771	(24s) cyc=2729 order=4c35c25fa3a9
+rv64ui-p-bgeu	PASS	p-	none		2965	26	472304634	(26s) cyc=2965 order=d4b23646f7e3
+rv64ui-p-blt	PASS	p-	none		2435	21	4670648	(21s) cyc=2435 order=22e5cf52574b
+rv64ui-p-bltu	PASS	p-	none		2657	23	581040477	(23s) cyc=2657 order=3283bb8dda8d
+rv64ui-p-bne	PASS	p-	none		2487	22	792291605	(22s) cyc=2487 order=7d3ed21e21d0
+rv64ui-p-fence_i	PASS	p-	none		1978	17	204572463	(17s) cyc=1978 order=bd7cdebf7e51
+rv64ui-p-jal	PASS	p-	none		1118	10	569970222	(10s) cyc=1118 order=aa1452bd9c56
+rv64ui-p-jalr	PASS	p-	none		1501	14	784106721	(14s) cyc=1501 order=f6dca9a7c307
+rv64ui-p-lb	PASS	p-	none		1693	15	604023339	(15s) cyc=1693 order=b50afd2c818f
+rv64ui-p-lbu	PASS	p-	none		1693	15	262675188	(15s) cyc=1693 order=9e74f0372c1e
+rv64ui-p-ld	PASS	p-	none		2082	19	252051836	(19s) cyc=2082 order=f67d52fad227
+rv64ui-p-ld_st	PASS	p-	none		4743	36	254324226	(36s) cyc=4743 order=153f51cc376a
+rv64ui-p-lh	PASS	p-	none		1719	15	178912632	(15s) cyc=1719 order=fa63abe41b60
+rv64ui-p-lhu	PASS	p-	none		1743	16	448523722	(16s) cyc=1743 order=53a4bcfa6bf6
+rv64ui-p-lui	PASS	p-	none		1078	10	557042412	(10s) cyc=1078 order=89f34fea654a
+rv64ui-p-lw	PASS	p-	none		1755	16	673648451	(16s) cyc=1755 order=ba5ddacc52b3
+rv64ui-p-lwu	PASS	p-	none		1813	17	142133279	(17s) cyc=1813 order=d154b4b3b982
+rv64ui-p-ma_data	PASS	p-	none		7459	55	992695075	(55s) cyc=7459 order=22c5086c4deb
+rv64ui-p-or	PASS	p-	none		2689	23	841519285	(23s) cyc=2689 order=75059013ab92
+rv64ui-p-ori	PASS	p-	none		1613	15	976422652	(15s) cyc=1613 order=0788c8cf6b22
+rv64ui-p-sb	PASS	p-	none		2331	19	776213496	(19s) cyc=2331 order=c79c33c645ba
+rv64ui-p-sd	PASS	p-	none		2669	23	549591105	(23s) cyc=2669 order=94b0576f1391
+rv64ui-p-sh	PASS	p-	none		2389	21	418306219	(21s) cyc=2389 order=2d9571df5f17
+rv64ui-p-simple	PASS	p-	none		1017	10	374159485	(10s) cyc=1017 order=0c934e491fc5
+rv64ui-p-sll	PASS	p-	none		2590	22	70779778	(22s) cyc=2590 order=d879cb8fb9be
+rv64ui-p-slli	PASS	p-	none		1698	15	604955966	(15s) cyc=1698 order=e0a6f6620d6b
+rv64ui-p-slliw	PASS	p-	none		1698	15	368334624	(15s) cyc=1698 order=b9eba3bcc8ba
+rv64ui-p-sllw	PASS	p-	none		2587	22	766081680	(22s) cyc=2587 order=38089f20f6ae
+rv64ui-p-slt	PASS	p-	none		2441	22	652785587	(22s) cyc=2441 order=4ecf409c756c
+rv64ui-p-slti	PASS	p-	none		1630	15	348358918	(15s) cyc=1630 order=84c0cc17443e
+rv64ui-p-sltiu	PASS	p-	none		1630	15	523637396	(15s) cyc=1630 order=6ada8f26d987
+rv64ui-p-sltu	PASS	p-	none		2483	22	328981733	(22s) cyc=2483 order=d5c17314dd91
+rv64ui-p-sra	PASS	p-	none		2540	23	227420149	(23s) cyc=2540 order=37c50b9333e1
+rv64ui-p-srai	PASS	p-	none		1670	15	494885519	(15s) cyc=1670 order=691be71ccf82
+rv64ui-p-sraiw	PASS	p-	none		1777	16	760569339	(16s) cyc=1777 order=e57c5bd27c1c
+rv64ui-p-sraw	PASS	p-	none		2612	23	585317755	(23s) cyc=2612 order=1a522a2c0f32
+rv64ui-p-srl	PASS	p-	none		2637	23	413387484	(23s) cyc=2637 order=81c22210b721
+rv64ui-p-srli	PASS	p-	none		1733	16	364404784	(16s) cyc=1733 order=ba4005891a42
+rv64ui-p-srliw	PASS	p-	none		1719	15	259129509	(15s) cyc=1719 order=2c50b9a91b31
+rv64ui-p-srlw	PASS	p-	none		2600	23	713689050	(23s) cyc=2600 order=557cfe4b12bc
+rv64ui-p-st_ld	PASS	p-	none		2007	19	383657796	(19s) cyc=2007 order=5c4a4725673f
+rv64ui-p-sub	PASS	p-	none		2447	22	986249666	(22s) cyc=2447 order=6fa3debe9200
+rv64ui-p-subw	PASS	p-	none		2439	22	939407513	(22s) cyc=2439 order=5d9b4a1d0c38
+rv64ui-p-sw	PASS	p-	none		2407	20	38263937	(20s) cyc=2407 order=0bc7a8607b82
+rv64ui-p-xor	PASS	p-	none		2683	23	748790149	(23s) cyc=2683 order=1f2a2e56845c
+rv64ui-p-xori	PASS	p-	none		1611	14	850717152	(14s) cyc=1611 order=58445712eb2e
+rv64um-p-div	PASS	p-	none		1171	11	199608815	(11s) cyc=1171 order=73b086309cda
+rv64um-p-divu	PASS	p-	none		1181	12	297991936	(12s) cyc=1181 order=17d3fae5a639
+rv64um-p-divuw	PASS	p-	none		1165	12	125876896	(12s) cyc=1165 order=8ba36a72c8c0
+rv64um-p-divw	PASS	p-	none		1149	11	985334013	(11s) cyc=1149 order=dcc1c8b16899
+rv64um-p-mul	PASS	p-	none		2478	22	111613064	(22s) cyc=2478 order=4520a153a055
+rv64um-p-mulh	PASS	p-	none		2481	21	642422108	(21s) cyc=2481 order=ee443be4438d
+rv64um-p-mulhsu	PASS	p-	none		2481	21	305852138	(21s) cyc=2481 order=34d31d94c515
+rv64um-p-mulhu	PASS	p-	none		2541	22	568311594	(22s) cyc=2541 order=f67cbece4c7f
+rv64um-p-mulw	PASS	p-	none		2339	20	205940579	(20s) cyc=2339 order=2ec9600d651d
+rv64um-p-rem	PASS	p-	none		1148	11	686488274	(11s) cyc=1148 order=fa901a6b842c
+rv64um-p-remu	PASS	p-	none		1150	11	898216521	(11s) cyc=1150 order=ac69e375d024
+rv64um-p-remuw	PASS	p-	none		1139	10	568029385	(10s) cyc=1139 order=675310a9fc03
+rv64um-p-remw	PASS	p-	none		1149	10	216911956	(10s) cyc=1149 order=b25841087b62
+rv64uzba-p-add_uw	PASS	p-	none		2472	21	994756064	(21s) cyc=2472 order=499b866b8d1b
+rv64uzba-p-sh1add	PASS	p-	none		2478	22	18477832	(22s) cyc=2478 order=0b173cd0d052
+rv64uzba-p-sh1add_uw	PASS	p-	none		2486	21	861772988	(21s) cyc=2486 order=b972ed0cb52a
+rv64uzba-p-sh2add	PASS	p-	none		2478	21	593177692	(21s) cyc=2478 order=423d831ef49a
+rv64uzba-p-sh2add_uw	PASS	p-	none		2486	21	614807015	(21s) cyc=2486 order=ad1b16721123
+rv64uzba-p-sh3add	PASS	p-	none		2478	21	402330592	(21s) cyc=2478 order=bd4ededc29f4
+rv64uzba-p-sh3add_uw	PASS	p-	none		2486	22	292077338	(22s) cyc=2486 order=a353019f9ab3
+rv64uzba-p-slli_uw	PASS	p-	none		1725	16	950969516	(16s) cyc=1725 order=30ff38c6b2bc
+rv64uzbb-p-andn	PASS	p-	none		2671	22	358110444	(22s) cyc=2671 order=904644e35424
+rv64uzbb-p-clz	PASS	p-	none		1513	14	567736114	(14s) cyc=1513 order=65d220e06805
+rv64uzbb-p-clzw	PASS	p-	none		1489	14	114555888	(14s) cyc=1489 order=3b414d830b85
+rv64uzbb-p-cpop	PASS	p-	none		1513	14	813673653	(14s) cyc=1513 order=b56a8465d35d
+rv64uzbb-p-cpopw	PASS	p-	none		1489	14	336914428	(14s) cyc=1489 order=fb080a17d088
+rv64uzbb-p-ctz	PASS	p-	none		1513	13	253451114	(13s) cyc=1513 order=545146569217
+rv64uzbb-p-ctzw	PASS	p-	none		1491	13	8013897	(13s) cyc=1491 order=f0b6177fe2a6
+rv64uzbb-p-max	PASS	p-	none		2451	21	143958854	(21s) cyc=2451 order=3b51649c7e37
+rv64uzbb-p-maxu	PASS	p-	none		2519	21	962398161	(21s) cyc=2519 order=1a8fad605bae
+rv64uzbb-p-min	PASS	p-	none		2443	22	23837623	(22s) cyc=2443 order=5ae07d423350
+rv64uzbb-p-minu	PASS	p-	none		2495	22	344205488	(22s) cyc=2495 order=741a18644ee9
+rv64uzbb-p-orc_b	PASS	p-	none		1555	14	516057878	(14s) cyc=1555 order=c3c4c1d63512
+rv64uzbb-p-orn	PASS	p-	none		2689	23	524266196	(23s) cyc=2689 order=adbc773087d1
+rv64uzbb-p-rev8	PASS	p-	none		1592	14	676653435	(14s) cyc=1592 order=da73f12919ed
+rv64uzbb-p-rol	PASS	p-	none		2600	22	165600017	(22s) cyc=2600 order=6aaadede9188
+rv64uzbb-p-rolw	PASS	p-	none		2595	21	106131834	(21s) cyc=2595 order=4075cd9e207d
+rv64uzbb-p-ror	PASS	p-	none		2667	23	910462203	(23s) cyc=2667 order=6804117b136f
+rv64uzbb-p-rori	PASS	p-	none		1729	15	577488846	(15s) cyc=1729 order=3bcc10c00351
+rv64uzbb-p-roriw	PASS	p-	none		1638	15	735339137	(15s) cyc=1638 order=a52a92c500a6
+rv64uzbb-p-rorw	PASS	p-	none		2523	21	498577456	(21s) cyc=2523 order=0dd17629e50a
+rv64uzbb-p-sext_b	PASS	p-	none		1513	14	865012330	(14s) cyc=1513 order=3231406f1571
+rv64uzbb-p-sext_h	PASS	p-	none		1519	14	488234309	(14s) cyc=1519 order=c477f55c9c08
+rv64uzbb-p-xnor	PASS	p-	none		2687	23	425204765	(23s) cyc=2687 order=bdda0bcadcea
+rv64uzbb-p-zext_h	PASS	p-	none		1525	14	558092500	(14s) cyc=1525 order=1f944444ee0f
+rv64uzbc-p-clmul	PASS	p-	none		2480	21	142906159	(21s) cyc=2480 order=073b0ebacb17
+rv64uzbc-p-clmulh	PASS	p-	none		2490	21	457882110	(21s) cyc=2490 order=b3f1df040d06
+rv64uzbc-p-clmulr	PASS	p-	none		2486	21	905313336	(21s) cyc=2486 order=8143132ca6fc
+rv64uzbkb-p-brev8	PASS	p-	none		1543	14	512128166	(14s) cyc=1543 order=c9b43ae6d49d
+rv64uzbkb-p-pack	PASS	p-	none		2927	24	118998786	(24s) cyc=2927 order=ec62f6762aef
+rv64uzbkb-p-packh	PASS	p-	none		2595	22	981777848	(22s) cyc=2595 order=1b77817e5cc9
+rv64uzbkb-p-packw	PASS	p-	none		2463	21	870775182	(21s) cyc=2463 order=a696c2cb13d8
+rv64uzbkx-p-xperm4	PASS	p-	none		2775	23	354480876	(23s) cyc=2775 order=5c37c5976567
+rv64uzbkx-p-xperm8	PASS	p-	none		3612	30	59760142	(30s) cyc=3612 order=f69075703368
+rv64uzbs-p-bclr	PASS	p-	none		2810	24	910500542	(24s) cyc=2810 order=e8d47236a88c
+rv64uzbs-p-bclri	PASS	p-	none		1795	16	65490115	(16s) cyc=1795 order=f249170fd16d
+rv64uzbs-p-bext	PASS	p-	none		2677	23	244629928	(23s) cyc=2677 order=bb2dd121ebc4
+rv64uzbs-p-bexti	PASS	p-	none		1731	16	55924965	(16s) cyc=1731 order=b0b37dfaec00
+rv64uzbs-p-binv	PASS	p-	none		2637	22	854125258	(22s) cyc=2637 order=081cf3a9547f
+rv64uzbs-p-binvi	PASS	p-	none		1731	15	329616920	(15s) cyc=1731 order=e18e78b2a3c2
+rv64uzbs-p-bset	PASS	p-	none		2814	24	814905348	(24s) cyc=2814 order=3e5065e5eded
+rv64uzbs-p-bseti	PASS	p-	none		1809	16	717857629	(16s) cyc=1809 order=1d0e24ec1a8b
+rv64uzfh-p-fadd	PASS	p-	none		1945	16	570687079	(16s) cyc=1945 order=d4ad41030d31
+rv64uzfh-p-fclass	PASS	p-	none		1232	11	201865920	(11s) cyc=1232 order=beabc7ed7631
+rv64uzfh-p-fcmp	PASS	p-	none		1577	13	66209963	(13s) cyc=1577 order=525af3e8469e
+rv64uzfh-p-fcvt	PASS	p-	none		1810	16	657028321	(16s) cyc=1810 order=300b7fac0b6e
+rv64uzfh-p-fcvt_w	PASS	p-	none		3416	28	932985499	(28s) cyc=3416 order=61fb7dd3c252
+rv64uzfh-p-fdiv	PASS	p-	none		1689	14	164058460	(14s) cyc=1689 order=80315e2a7e4d
+rv64uzfh-p-fmadd	PASS	p-	none		2107	18	889493515	(18s) cyc=2107 order=f45c9b33e6b1
+rv64uzfh-p-fmin	PASS	p-	none		2593	22	982500262	(22s) cyc=2593 order=6c3f78cff581
+rv64uzfh-p-ldst	PASS	p-	none		1211	11	740306472	(11s) cyc=1211 order=f3f9de74709b
+rv64uzfh-p-move	PASS	p-	none		1807	17	69692278	(17s) cyc=1807 order=331283396480
+rv64uzfh-p-recoding	PASS	p-	none		1214	11	457366987	(11s) cyc=1214 order=377cdf879c5d
+rv64uziccid-p-ziccid	PASS	p-	none		13284	60	150661153	(60s) cyc=13284 order=83c8b9d95c3e
+rv64uzicond-p-czero_eqz	PASS	p-	none		2403	20	257491617	(20s) cyc=2403 order=93d571770d7b
+rv64uzicond-p-czero_nez	PASS	p-	none		2401	20	161695415	(20s) cyc=2401 order=cfc45bef8d96
+rv64ua-v-amoadd_d	PASS	v-	15/18		23522	127	391631938	(127s) cyc=23522 order=1fa0146da1be
+rv64ua-v-amoadd_w	PASS	v-	16/18		23547	161	28886723	(161s) cyc=23547 order=610442de1c29
+rv64ua-v-amoand_d	PASS	v-	17/18		23565	166	358070085	(166s) cyc=23565 order=2c736aa1c070
+rv64ua-v-amoand_w	PASS	v-	18/18		23562	170	796506118	(170s) cyc=23562 order=39c1bbb026e1
+rv64ua-v-amomax_d	PASS	v-	1/18		23462	124	45498807	(124s) cyc=23462 order=31af50d7d5c2
+rv64ua-v-amomax_w	PASS	v-	4/18		23483	88	533770920	(88s) cyc=23483 order=c4e67dda12ef
+rv64ua-v-amomaxu_d	PASS	v-	2/18		23462	91	550004997	(91s) cyc=23462 order=2e1bfbf9576c
+rv64ua-v-amomaxu_w	PASS	v-	3/18		23483	159	129526156	(159s) cyc=23483 order=31f1222dda4e
+rv64ua-v-amomin_d	PASS	v-	5/18		23462	174	209201231	(174s) cyc=23462 order=0347818b3f13
+rv64ua-v-amomin_w	PASS	v-	8/18		23545	160	696974815	(160s) cyc=23545 order=47f658ba48a6
+rv64ua-v-amominu_d	PASS	v-	6/18		23572	159	898032960	(159s) cyc=23572 order=90ab4cd7af14
+rv64ua-v-amominu_w	PASS	v-	7/18		23593	95	231988457	(95s) cyc=23593 order=c4bd412f38e9
+rv64ua-v-amoor_d	PASS	v-	9/18		23491	165	154381671	(165s) cyc=23491 order=abbbf65a2536
+rv64ua-v-amoor_w	PASS	v-	10/18		23491	95	568862108	(95s) cyc=23491 order=bbfe23bc8f22
+rv64ua-v-amoswap_d	PASS	v-	11/18		23565	194	841297221	(194s) cyc=23565 order=a864e162eb9a
+rv64ua-v-amoswap_w	PASS	v-	12/18		23562	162	184068480	(162s) cyc=23562 order=453b6e9f17be
+rv64ua-v-amoxor_d	PASS	v-	13/18		23503	126	190525452	(126s) cyc=23503 order=62293d8aecd8
+rv64ua-v-amoxor_w	PASS	v-	14/18		23515	163	680572371	(163s) cyc=23515 order=f04b7c732308
+rv64ua-v-lrsc	PASS	v-	15/18		39292	199	91226797	(199s) cyc=39292 order=802681837426
+rv64uc-v-rvc	PASS	v-	14/18		32676	227	126634328	(227s) cyc=32676 order=8125c0ac4615
+rv64ud-v-fadd	PASS	v-	9/18		23067	167	561864419	(167s) cyc=23067 order=2f9c114a0c6d
+rv64ud-v-fclass	PASS	v-	10/18		13570	56	465649103	(56s) cyc=13570 order=b3abb32dd9d7
+rv64ud-v-fcmp	PASS	v-	11/18		23358	198	284158311	(198s) cyc=23358 order=55d082c66319
+rv64ud-v-fcvt	PASS	v-	12/18		22967	162	407593466	(162s) cyc=22967 order=0fbc7fa6119d
+rv64ud-v-fcvt_w	PASS	v-	13/18		33569	171	807198759	(171s) cyc=33569 order=3a62eb20e3ba
+rv64ud-v-fdiv	PASS	v-	14/18		22847	160	963407007	(160s) cyc=22847 order=2183a02fa3f9
+rv64ud-v-fmadd	PASS	v-	15/18		23190	128	932538648	(128s) cyc=23190 order=064db2d77ea6
+rv64ud-v-fmin	PASS	v-	16/18		23671	161	184671876	(161s) cyc=23671 order=b7d46a2bc890
+rv64ud-v-ldst	PASS	v-	17/18		23564	136	443305201	(136s) cyc=23564 order=6824d249c943
+rv64ud-v-move	PASS	v-	18/18		23824	174	241947062	(174s) cyc=23824 order=2075d45b46de
+rv64ud-v-recoding	PASS	v-	1/18		23858	124	122006720	(124s) cyc=23858 order=fdda3e493690
+rv64ud-v-structural	PASS	v-	2/18		14373	56	739395519	(56s) cyc=14373 order=35abc8c539e1
+rv64uf-v-fadd	PASS	v-	16/18		23067	159	242039303	(159s) cyc=23067 order=d6e184a21dd1
+rv64uf-v-fclass	PASS	v-	17/18		13554	95	623920442	(95s) cyc=13554 order=72a6a70878cd
+rv64uf-v-fcmp	PASS	v-	18/18		23358	171	585206655	(171s) cyc=23358 order=cd9c667004bb
+rv64uf-v-fcvt	PASS	v-	1/18		22738	122	862154342	(122s) cyc=22738 order=69981b80b20d
+rv64uf-v-fcvt_w	PASS	v-	2/18		33304	124	273074075	(124s) cyc=33304 order=5d2aeb0c7113
+rv64uf-v-fdiv	PASS	v-	3/18		22767	159	640196868	(159s) cyc=22767 order=3348007659ae
+rv64uf-v-fmadd	PASS	v-	4/18		23190	91	845533692	(91s) cyc=23190 order=a4735e9140ad
+rv64uf-v-fmin	PASS	v-	5/18		23715	169	645976532	(169s) cyc=23715 order=45721b2b6ac5
+rv64uf-v-ldst	PASS	v-	6/18		23731	167	71519419	(167s) cyc=23731 order=f25b32746f38
+rv64uf-v-move	PASS	v-	7/18		14122	59	853768161	(59s) cyc=14122 order=852434d98bde
+rv64uf-v-recoding	PASS	v-	8/18		22290	157	386265064	(157s) cyc=22290 order=40bc7a0447ce
+rv64ui-v-add	PASS	v-	1/18		14827	83	531687406	(83s) cyc=14827 order=b7c7393784ae
+rv64ui-v-addi	PASS	v-	2/18		13994	65	658848138	(65s) cyc=13994 order=9e2ab8d37f4e
+rv64ui-v-addiw	PASS	v-	3/18		13989	101	745633700	(101s) cyc=13989 order=f9bb827e22db
+rv64ui-v-addw	PASS	v-	4/18		14818	59	699278455	(59s) cyc=14818 order=4cc494415e57
+rv64ui-v-and	PASS	v-	7/18		15010	62	613978061	(62s) cyc=15010 order=4d74f23ba9a4
+rv64ui-v-andi	PASS	v-	8/18		13982	100	535608396	(100s) cyc=13982 order=6594e44dc053
+rv64ui-v-auipc	PASS	v-	12/18		13424	96	154533123	(96s) cyc=13424 order=e51c250ef3ac
+rv64ui-v-beq	PASS	v-	13/18		14738	85	805754748	(85s) cyc=14738 order=774704f60df1
+rv64ui-v-bge	PASS	v-	14/18		15089	108	649064745	(108s) cyc=15089 order=e1c863ee09c2
+rv64ui-v-bgeu	PASS	v-	15/18		15276	86	65569922	(86s) cyc=15276 order=97b2437f2e7b
+rv64ui-v-blt	PASS	v-	16/18		14739	105	821933939	(105s) cyc=14739 order=897ba513b77f
+rv64ui-v-bltu	PASS	v-	17/18		14972	110	984294966	(110s) cyc=14972 order=177c9bc147ad
+rv64ui-v-bne	PASS	v-	18/18		14790	109	768720114	(109s) cyc=14790 order=3b8f460ba082
+rv64ui-v-fence_i	PASS	v-	17/18		24258	171	965570613	(171s) cyc=24258 order=bbebb1b49de3
+rv64ui-v-jal	PASS	v-	1/18		13466	75	214930577	(75s) cyc=13466 order=ed08f0d1a5c5
+rv64ui-v-jalr	PASS	v-	2/18		13805	57	971045679	(57s) cyc=13805 order=f57282a077cf
+rv64ui-v-lb	PASS	v-	3/18		22885	162	463050851	(162s) cyc=22885 order=77ff15c3c831
+rv64ui-v-lbu	PASS	v-	4/18		22841	91	221406728	(91s) cyc=22841 order=e4a79406aefa
+rv64ui-v-ld	PASS	v-	9/18		23346	167	863899344	(167s) cyc=23346 order=b9cf7fe2f83f
+rv64ui-v-ld_st	PASS	v-	14/18		43757	297	540310919	(297s) cyc=43757 order=4ed9bbcc84d6
+rv64ui-v-lh	PASS	v-	5/18		22867	166	152636421	(166s) cyc=22867 order=6fc7efa5df6e
+rv64ui-v-lhu	PASS	v-	6/18		22900	162	146737564	(162s) cyc=22900 order=dc8423112ffb
+rv64ui-v-lui	PASS	v-	11/18		13448	120	329267549	(120s) cyc=13448 order=9a083939a419
+rv64ui-v-lw	PASS	v-	7/18		22953	93	286787589	(93s) cyc=22953 order=2998844582f1
+rv64ui-v-lwu	PASS	v-	8/18		23014	162	311483900	(162s) cyc=23014 order=f96795739e1a
+rv64ui-v-ma_data	PASS	v-	18/18		45538	320	225632155	(320s) cyc=45538 order=e363efb95468
+rv64ui-v-or	PASS	v-	9/18		15056	110	227669469	(110s) cyc=15056 order=87a0ac92e67d
+rv64ui-v-ori	PASS	v-	10/18		13962	60	876433456	(60s) cyc=13962 order=6b5d40002648
+rv64ui-v-sb	PASS	v-	10/18		24659	100	150594444	(100s) cyc=24659 order=990ee151511f
+rv64ui-v-sd	PASS	v-	13/18		33717	181	695626548	(181s) cyc=33717 order=53ee1f146b47
+rv64ui-v-sh	PASS	v-	11/18		24709	209	784108448	(209s) cyc=24709 order=cc6481349d47
+rv64ui-v-simple	PASS	v-	16/18		13360	95	817639540	(95s) cyc=13360 order=cc36d80770e0
+rv64ui-v-sll	PASS	v-	17/18		23719	169	419702803	(169s) cyc=23719 order=105f8b4c0d70
+rv64ui-v-slli	PASS	v-	18/18		14041	105	943314319	(105s) cyc=14041 order=4ba875a9a836
+rv64ui-v-slliw	PASS	v-	1/18		14050	79	343173020	(79s) cyc=14050 order=c26550b6b45d
+rv64ui-v-sllw	PASS	v-	2/18		23671	95	127051607	(95s) cyc=23671 order=666963de9c84
+rv64ui-v-slt	PASS	v-	13/18		14806	85	127394616	(85s) cyc=14806 order=673d61b5d47b
+rv64ui-v-slti	PASS	v-	14/18		13978	100	650882385	(100s) cyc=13978 order=a05727049619
+rv64ui-v-sltiu	PASS	v-	16/18		13978	99	196572460	(99s) cyc=13978 order=cacc98701cd7
+rv64ui-v-sltu	PASS	v-	15/18		14840	83	87939981	(83s) cyc=14840 order=8f7cc1109ded
+rv64ui-v-sra	PASS	v-	7/18		14902	58	256784663	(58s) cyc=14902 order=619a1f771f8b
+rv64ui-v-srai	PASS	v-	8/18		14036	100	190842397	(100s) cyc=14036 order=f3af10550310
+rv64ui-v-sraiw	PASS	v-	9/18		14128	103	38004925	(103s) cyc=14128 order=718fca64eea4
+rv64ui-v-sraw	PASS	v-	10/18		23721	100	171226825	(100s) cyc=23721 order=820184934362
+rv64ui-v-srl	PASS	v-	3/18		23719	168	178201488	(168s) cyc=23719 order=f8b56ef3c543
+rv64ui-v-srli	PASS	v-	4/18		14076	56	59708919	(56s) cyc=14076 order=bd801020ac41
+rv64ui-v-srliw	PASS	v-	5/18		14068	102	544188897	(102s) cyc=14068 order=765763f5e9e9
+rv64ui-v-srlw	PASS	v-	6/18		23676	165	311453380	(165s) cyc=23676 order=011631c9ddf0
+rv64ui-v-st_ld	PASS	v-	15/18		33093	181	267230900	(181s) cyc=33093 order=0cc4795a2cd6
+rv64ui-v-sub	PASS	v-	5/18		14812	108	672368342	(108s) cyc=14812 order=c8e07c0c96bb
+rv64ui-v-subw	PASS	v-	6/18		14804	106	606361093	(106s) cyc=14804 order=d07cd0a5ca18
+rv64ui-v-sw	PASS	v-	12/18		24755	173	57307259	(173s) cyc=24755 order=275f6faab556
+rv64ui-v-xor	PASS	v-	11/18		15052	131	243120129	(131s) cyc=15052 order=61f289917ca7
+rv64ui-v-xori	PASS	v-	12/18		13965	100	573938833	(100s) cyc=13965 order=084ca9ced404
+rv64um-v-div	PASS	v-	5/18		13543	98	755016504	(98s) cyc=13543 order=75a74f668054
+rv64um-v-divu	PASS	v-	6/18		13551	97	866703244	(97s) cyc=13551 order=cb579ef86bf9
+rv64um-v-divuw	PASS	v-	11/18		13533	118	597523229	(118s) cyc=13533 order=3af78b1d5865
+rv64um-v-divw	PASS	v-	10/18		13526	57	177693445	(57s) cyc=13526 order=d550e80dbfc4
+rv64um-v-mul	PASS	v-	1/18		14843	84	881739040	(84s) cyc=14843 order=7fff459f2812
+rv64um-v-mulh	PASS	v-	2/18		14851	68	363404389	(68s) cyc=14851 order=3bc2d1054568
+rv64um-v-mulhsu	PASS	v-	3/18		14851	108	799896221	(108s) cyc=14851 order=06b0e1e2eb51
+rv64um-v-mulhu	PASS	v-	4/18		14911	61	135070819	(61s) cyc=14911 order=d72f90ae7e75
+rv64um-v-mulw	PASS	v-	9/18		14704	107	547298943	(107s) cyc=14704 order=a21fd27f0b29
+rv64um-v-rem	PASS	v-	7/18		13524	55	838174214	(55s) cyc=13524 order=6e885ddb0ffb
+rv64um-v-remu	PASS	v-	8/18		13527	96	259020922	(96s) cyc=13527 order=b4d080d33158
+rv64um-v-remuw	PASS	v-	13/18		13516	78	148915751	(78s) cyc=13516 order=8cf00db7a9cf
+rv64um-v-remw	PASS	v-	12/18		13526	97	946786789	(97s) cyc=13526 order=b909825b72d7
+rv64uzba-v-add_uw	PASS	v-	3/18		14782	105	532432291	(105s) cyc=14782 order=e27eba094b2e
+rv64uzba-v-sh1add	PASS	v-	4/18		14786	58	607052025	(58s) cyc=14786 order=f4c08ce6e200
+rv64uzba-v-sh1add_uw	PASS	v-	5/18		14794	105	589895379	(105s) cyc=14794 order=459067356a93
+rv64uzba-v-sh2add	PASS	v-	6/18		14786	104	225371912	(104s) cyc=14786 order=e34ae3c56326
+rv64uzba-v-sh2add_uw	PASS	v-	7/18		14794	61	338440230	(61s) cyc=14794 order=460f81ffc323
+rv64uzba-v-sh3add	PASS	v-	8/18		14786	105	993807566	(105s) cyc=14786 order=ae0f9ae47d37
+rv64uzba-v-sh3add_uw	PASS	v-	9/18		14794	108	562804459	(108s) cyc=14794 order=93210e5687f9
+rv64uzba-v-slli_uw	PASS	v-	10/18		14020	59	979614032	(59s) cyc=14020 order=0861688ecb75
+rv64uzbb-v-andn	PASS	v-	11/18		14995	130	792802981	(130s) cyc=14995 order=95a0195afe39
+rv64uzbb-v-clz	PASS	v-	12/18		13838	99	212894345	(99s) cyc=13838 order=299cc5044444
+rv64uzbb-v-clzw	PASS	v-	13/18		13811	76	440037540	(76s) cyc=13811 order=15dca5c57c3f
+rv64uzbb-v-cpop	PASS	v-	14/18		13838	87	74175872	(87s) cyc=13838 order=70c9a9f46dba
+rv64uzbb-v-cpopw	PASS	v-	15/18		13811	76	307678584	(76s) cyc=13811 order=b12066a76bb2
+rv64uzbb-v-ctz	PASS	v-	16/18		13838	95	499214864	(95s) cyc=13838 order=d4323a578e72
+rv64uzbb-v-ctzw	PASS	v-	17/18		13811	96	272239879	(96s) cyc=13811 order=2f9092935b37
+rv64uzbb-v-max	PASS	v-	18/18		14771	110	311206723	(110s) cyc=14771 order=58ce220453f4
+rv64uzbb-v-maxu	PASS	v-	1/18		14830	80	327302026	(80s) cyc=14830 order=9a0ce7dfd98f
+rv64uzbb-v-min	PASS	v-	2/18		14764	59	829886653	(59s) cyc=14764 order=480e32948d79
+rv64uzbb-v-minu	PASS	v-	3/18		14807	104	76995337	(104s) cyc=14807 order=2c4483cd08a5
+rv64uzbb-v-orc_b	PASS	v-	4/18		13880	51	116791363	(51s) cyc=13880 order=a04d9cacb7bc
+rv64uzbb-v-orn	PASS	v-	5/18		23748	145	60798454	(145s) cyc=23748 order=bacb3117e9e7
+rv64uzbb-v-rev8	PASS	v-	6/18		13918	97	80126243	(97s) cyc=13918 order=c7962bd91ad7
+rv64uzbb-v-rol	PASS	v-	7/18		23594	92	452920371	(92s) cyc=23594 order=98a9e914711e
+rv64uzbb-v-rolw	PASS	v-	8/18		23581	152	905128335	(152s) cyc=23581 order=29fceb140ff2
+rv64uzbb-v-ror	PASS	v-	9/18		23730	149	621437345	(149s) cyc=23730 order=74d18fb6df6a
+rv64uzbb-v-rori	PASS	v-	10/18		14034	62	301561916	(62s) cyc=14034 order=fa04ac17da53
+rv64uzbb-v-roriw	PASS	v-	11/18		13950	118	978607367	(118s) cyc=13950 order=4949880596fe
+rv64uzbb-v-rorw	PASS	v-	12/18		14894	98	62759000	(98s) cyc=14894 order=14638c44af3e
+rv64uzbb-v-sext_b	PASS	v-	13/18		13838	79	229980882	(79s) cyc=13838 order=b689ae60d0ba
+rv64uzbb-v-sext_h	PASS	v-	14/18		13846	79	943625597	(79s) cyc=13846 order=464220a333b9
+rv64uzbb-v-xnor	PASS	v-	15/18		23748	91	859831914	(91s) cyc=23748 order=26c1b3edf6fc
+rv64uzbb-v-zext_h	PASS	v-	16/18		13852	95	78958775	(95s) cyc=13852 order=d50184f1aeb1
+rv64uzbc-v-clmul	PASS	v-	17/18		14846	100	580481458	(100s) cyc=14846 order=d37e52298abf
+rv64uzbc-v-clmulh	PASS	v-	18/18		14855	66	83142929	(66s) cyc=14855 order=f006818e06d3
+rv64uzbc-v-clmulr	PASS	v-	1/18		14851	67	441890284	(67s) cyc=14851 order=37539ede8544
+rv64uzbkb-v-brev8	PASS	v-	2/18		13861	55	125226386	(55s) cyc=13861 order=b66d17d3ea64
+rv64uzbkb-v-pack	PASS	v-	3/18		23933	105	885299938	(105s) cyc=23933 order=20e0a2356ebd
+rv64uzbkb-v-packh	PASS	v-	4/18		14932	46	682791106	(46s) cyc=14932 order=c8ac28462cc0
+rv64uzbkb-v-packw	PASS	v-	5/18		14791	103	840026821	(103s) cyc=14791 order=d27bc566129d
+rv64uzbkx-v-xperm4	PASS	v-	6/18		23894	101	852328335	(101s) cyc=23894 order=b46d93a1549c
+rv64uzbkx-v-xperm8	PASS	v-	7/18		24737	76	648237151	(76s) cyc=24737 order=d338f1838008
+rv64uzbs-v-bclr	PASS	v-	8/18		23934	126	532998229	(126s) cyc=23934 order=39665daffd81
+rv64uzbs-v-bclri	PASS	v-	9/18		14214	96	651311993	(96s) cyc=14214 order=5894a0bb5f66
+rv64uzbs-v-bext	PASS	v-	10/18		23858	80	902202006	(80s) cyc=23858 order=42b3979ea0f7
+rv64uzbs-v-bexti	PASS	v-	11/18		14150	93	614446947	(93s) cyc=14150 order=3eac7494b63f
+rv64uzbs-v-binv	PASS	v-	12/18		23761	121	579443579	(121s) cyc=23761 order=8380bf0127e9
+rv64uzbs-v-binvi	PASS	v-	13/18		14129	63	326530940	(63s) cyc=14129 order=7ab57f56234f
+rv64uzbs-v-bset	PASS	v-	14/18		24002	119	332343861	(119s) cyc=24002 order=12d934448b73
+rv64uzbs-v-bseti	PASS	v-	15/18		14228	74	4334295	(74s) cyc=14228 order=4d0a1439e3df
+rv64uzfh-v-fadd	PASS	v-	16/18		23067	115	978871171	(115s) cyc=23067 order=7d022c6814c0
+rv64uzfh-v-fclass	PASS	v-	17/18		13554	83	812152932	(83s) cyc=13554 order=dfa670221995
+rv64uzfh-v-fcmp	PASS	v-	18/18		22692	112	619452489	(112s) cyc=22692 order=4ebeefc191bc
+rv64uzfh-v-fcvt	PASS	v-	1/18		22865	77	346271358	(77s) cyc=22865 order=0884344310b4
+rv64uzfh-v-fcvt_w	PASS	v-	2/18		33216	82	463629949	(82s) cyc=33216 order=38d62ce2f5f2
+rv64uzfh-v-fdiv	PASS	v-	3/18		22811	99	572263542	(99s) cyc=22811 order=bd1560ec8dc5
+rv64uzfh-v-fmadd	PASS	v-	4/18		23234	54	845667142	(54s) cyc=23234 order=e084d80bb32c
+rv64uzfh-v-fmin	PASS	v-	5/18		23671	114	570504306	(114s) cyc=23671 order=2dc94b98e533
+rv64uzfh-v-ldst	PASS	v-	6/18		23766	101	173386928	(101s) cyc=23766 order=e816643e559f
+rv64uzfh-v-move	PASS	v-	7/18		14121	60	362483333	(60s) cyc=14121 order=4b39699018ea
+rv64uzfh-v-recoding	PASS	v-	8/18		22334	113	392100809	(113s) cyc=22334 order=2ee1e3b18867
+rv64uziccid-v-ziccid	PASS	v-	11/18		178142	782	777723281	(782s) cyc=178142 order=4a2f9ef76cd8
+rv64uzicond-v-czero_eqz	PASS	v-	9/18		14773	80	521893482	(80s) cyc=14773 order=8d05d2e6783c
+rv64uzicond-v-czero_nez	PASS	v-	10/18		14770	39	425897198	(39s) cyc=14770 order=fcc130356dfe
