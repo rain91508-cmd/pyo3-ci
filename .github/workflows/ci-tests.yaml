@@ -67,11 +67,35 @@ on:
                 options:
                     - pinned
                     - nondet
+            testbench:
+                description: >-
+                    Testbench for the FUNCTIONAL -p- / -v- regression (the cosim
+                    passes and the block tests always run their own harness).
+                    default = the bare-metal gate TB with its TB-side MMU
+                    (today's behavior). cachehier = the MMU-integrated
+                    cache-hierarchy TB -- both sides translate through the in-core
+                    TLB/MMU and fetches go through the real caches, so the same
+                    program burns more cycles (the gem5 runner then defaults to
+                    3600s / 60000 cycles per test instead of 1800s / 20000).
+                    Threading: the choice goes to the runners through PYO3_TB
+                    env, never interpolated inline (same law as sched_mode).
+                    REPORT-ONLY probe like nondet: the Gate warns and does not
+                    judge, and reports/latest/ + the rolling pre-release keep the
+                    default-TB record until the cachehier baseline is
+                    established. Every result row carries a "tb=" token and the
+                    suite label is suffixed (-cachehier), so the two baselines
+                    never mix silently.
+                required: false
+                default: default
+                type: choice
+                options:
+                    - default
+                    - cachehier
 
 # The mode is part of the group: a report-only probe must not cancel a gating
-# pinned run of the same ref (cancel-in-progress is on).
+# pinned run of the same ref (cancel-in-progress is on). Same for the TB.
 concurrency:
-    group: ${{ github.workflow }}-${{ inputs.gem5_ref || 'pycpu' }}-${{ inputs.sched_mode || 'pinned' }}
+    group: ${{ github.workflow }}-${{ inputs.gem5_ref || 'pycpu' }}-${{ inputs.sched_mode || 'pinned' }}-${{ inputs.testbench || 'default' }}
     cancel-in-progress: true
 
 jobs:
@@ -138,12 +162,17 @@ jobs:
                   # Choice input: constrained to pinned|nondet by GitHub, and it
                   # goes to the runner through env, never interpolated inline.
                   PYO3_SCHED_MODE: ${{ inputs.sched_mode || 'pinned' }}
+                  # Same law for the TB choice: env, never inline. The runner
+                  # validates it (default|cachehier) and re-exports it to every
+                  # worker; an unset/empty PYO3_TB is the default TB.
+                  PYO3_TB: ${{ inputs.testbench || 'default' }}
                   # The mode is baked into the suite label, because
                   # make_ci_report.py only parses suite/shard/tests/base_seed/
                   # gem5_sha/gem5_ref from the persist header -- a "#
                   # sched_mode=" line would be dropped and the report would not
-                  # say which family produced the numbers.
-                  PYO3_SUITE_NAME: ${{ inputs.sched_mode == 'nondet' && 'p-nondet' || 'p-' }}
+                  # say which family produced the numbers. The TB gets the same
+                  # treatment: -cachehier suffix, so the two baselines never mix.
+                  PYO3_SUITE_NAME: ${{ inputs.sched_mode == 'nondet' && 'p-nondet' || 'p-' }}${{ inputs.testbench == 'cachehier' && '-cachehier' || '' }}
                   PYO3_RESULTS_FILE: ${{ github.workspace }}/results/p-.txt
               run: ./run_regression_status.sh
 
@@ -199,7 +228,9 @@ jobs:
                   PYO3_SHARD: ${{ matrix.shard }}/18
                   VV_MAX_JOBS: '4'   # all 4 cores on this runner
                   PYO3_SCHED_MODE: ${{ inputs.sched_mode || 'pinned' }}
-                  PYO3_SUITE_NAME: ${{ inputs.sched_mode == 'nondet' && 'v-nondet' || 'v-' }}
+                  # TB choice: env, never inline (see the -p- job).
+                  PYO3_TB: ${{ inputs.testbench || 'default' }}
+                  PYO3_SUITE_NAME: ${{ inputs.sched_mode == 'nondet' && 'v-nondet' || 'v-' }}${{ inputs.testbench == 'cachehier' && '-cachehier' || '' }}
                   PYO3_RESULTS_FILE: ${{ github.workspace }}/results/v-${{ matrix.shard }}.txt
               run: ./run_all_vv_80000.sh
 
@@ -329,7 +360,7 @@ jobs:
             # the pinned record of the tested ref. Its own run page still carries
             # the full brief (job summary) and the results artifact.
             - name: Commit the report into the pyo3-ci repo
-              if: ${{ always() && inputs.sched_mode != 'nondet' }}
+              if: ${{ always() && inputs.sched_mode != 'nondet' && inputs.testbench != 'cachehier' }}
               run: |
                   set -euo pipefail
                   if [ ! -s "$GITHUB_WORKSPACE/pyo3-ci-report.md" ]; then
@@ -367,7 +398,7 @@ jobs:
             # Same reason: the rolling pyo3-ci-report pre-release is the pinned
             # record. See "Commit the report into the pyo3-ci repo".
             - name: Publish the report to the pyo3-ci-report pre-release
-              if: ${{ always() && inputs.sched_mode != 'nondet' }}
+              if: ${{ always() && inputs.sched_mode != 'nondet' && inputs.testbench != 'cachehier' }}
               run: |
                   if [ ! -s "$GITHUB_WORKSPACE/pyo3-ci-report.md" ] \
                      || [ ! -s "$GITHUB_WORKSPACE/report-brief.md" ]; then
@@ -388,6 +419,7 @@ jobs:
               if: always()
               env:
                   SCHED_MODE: ${{ inputs.sched_mode || 'pinned' }}
+                  TESTBENCH: ${{ inputs.testbench || 'default' }}
               run: |
                   # A nondeterministic intra-cycle order is not a reproducible
                   # pass/fail signal: two dispatches of the same ref can draw
@@ -403,6 +435,24 @@ jobs:
                           echo "::warning title=pyo3 sched probe (report-only)::schedule mode=$SCHED_MODE: $bad of $total functional tests did not pass under an order that varies across processes. This does NOT gate. Re-dispatch with sched_mode=pinned for a verdict; every row names its order (order=<hash>), so a finding here is comparable against a pinned run of the same ref."
                       else
                           echo "::warning title=pyo3 sched probe (report-only)::no results.tsv under mode=$SCHED_MODE -- nothing to report; this does NOT gate."
+                      fi
+                      exit 0
+                  fi
+                  # The cachehier TB is a REPORT-ONLY probe by the same logic
+                  # applied to a new baseline: the default-TB rows stay the
+                  # gating verdict until the cachehier baseline is established
+                  # (there is a known routed cachehier divergence on rv64ui-v-add).
+                  # Flip this branch (and the two publish steps above) to make
+                  # cachehier runs judge and publish.
+                  if [ "$TESTBENCH" = "cachehier" ]; then
+                      if [ -s "$GITHUB_WORKSPACE/pyo3-ci-results.tsv" ]; then
+                          bad=$(awk -F'\t' 'NR>1 && $2 != "PASS" && $3 !~ /^cosim/ {n++} END {print n+0}' \
+                              "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
+                          total=$(awk -F'\t' 'NR>1 && $3 !~ /^cosim/ {n++} END {print n+0}' \
+                              "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
+                          echo "::warning title=pyo3 cachehier probe (report-only)::testbench=cachehier: $bad of $total functional tests did not pass on the MMU-integrated TB. This does NOT gate and does NOT overwrite reports/latest/ or the pre-release. Re-dispatch with testbench=default for the gating verdict."
+                      else
+                          echo "::warning title=pyo3 cachehier probe (report-only)::no results.tsv under testbench=cachehier -- nothing to report; this does NOT gate."
                       fi
                       exit 0
                   fi
