@@ -803,7 +803,7 @@ test_tage_v2_transport::test_a_squash_flushes_the_tage_pipeline_before_the_next_
 test_tage_v2_transport::test_a_tage_window_flows_accept_to_finalize	PASS	block-BPredUnitV2	none			0			default
 test_tage_v2_transport::test_the_accept_gate_refuses_when_a_full_pipe_cannot_be_drained	PASS	block-BPredUnitV2	none			0			default
 test_tage_v2_transport::test_the_tage_accept_is_due_gated	PASS	block-BPredUnitV2	none			0		The block test issues predict_ft after the BPU's up_process; the composed order is BAC.up_tick (predict) BEFORE bpu.up_process.  The due gate depends on that order, so this pin belongs to the composed TAGE test (6c.4), not the block harness.	default
-test_v1_v2_parity::test_v1_v2_commit_value_stream_parity	PASS	block-BPredUnitV2	none			10		STANDING ACCEPTANCE GATE (plan D3/L0.4), not a normal test: the v2 core does not exist until L9. Fails at L0 for the correct reason (no v2 O3CoreCL). Flipped to REQUIRED at L9 — do NOT delete this test to make the suite green; remove the xfail instead.	default
+test_v1_v2_parity::test_v1_v2_commit_value_stream_parity	PASS	block-BPredUnitV2	none			8		STANDING ACCEPTANCE GATE (plan D3/L0.4), not a normal test: the v2 core does not exist until L9. Fails at L0 for the correct reason (no v2 O3CoreCL). Flipped to REQUIRED at L9 — do NOT delete this test to make the suite green; remove the xfail instead.	default
 test_csr_file_cl.TestConstruction::test_constructs_with_default_params	PASS	block-CSRFile	none			0			default
 test_csr_file_cl.TestConstruction::test_exposes_read_callee_ifc	PASS	block-CSRFile	none			0			default
 test_csr_file_cl.TestConstruction::test_exposes_write_callee_ifc	PASS	block-CSRFile	none			0			default
@@ -819,7 +819,7 @@ test_csr_file_cl.TestRead::test_read_misa_returns_default_after_reset	PASS	block
 test_csr_file_cl.TestRead::test_read_uninitialized_csr_returns_zero	PASS	block-CSRFile	none			0			default
 test_csr_file_cl.TestSStatusAlias::test_read_sstatus_returns_mstatus_view_after_reset	PASS	block-CSRFile	none			0			default
 test_csr_file_cl.TestSStatusAlias::test_write_sstatus_sie_folds_into_mstatus	PASS	block-CSRFile	none			0			default
-test_csr_file_cl.TestSStatusAlias::test_write_sstatus_zero_preserves_uxl_sxl	FAIL	block-CSRFile	none			0		assert (42949672960 & 6144) == 6144 self = <CSRFile.test_csr_file_cl.TestSStatusAlias object at 0x7f15c6920500>      def test_write_sstatus_zero_preserves_uxl_sxl(self):         """write(0x100, 0) cannot wipe the mstatus UXL/SXL WARL fields."""         dut = make_csr_file()         dut.write(tid=0, csr_num=0x100, value=0)         dut.sim_tick()         mst = dut.read(tid=0, csr_num=0x300)         	default
+test_csr_file_cl.TestSStatusAlias::test_write_sstatus_zero_preserves_uxl_sxl	PASS	block-CSRFile	none			0			default
 test_csr_file_cl.TestTriggerCSRs::test_read_triggers_snapshot	PASS	block-CSRFile	none			0			default
 test_csr_file_cl.TestTriggerCSRs::test_reset_disables_all_triggers	PASS	block-CSRFile	none			0			default
 test_csr_file_cl.TestTriggerCSRs::test_tdata1_load_and_store_triggers_round_trip	PASS	block-CSRFile	none			0			default
@@ -1355,7 +1355,7 @@ test_fu_pool_cl_adr0033_speculation.TestFuEarlyCompleteTiming::test_early_comple
 test_fu_pool_cl_adr0033_squash_force_ack.TestSquashForceEarlyCompleteADR0033::test_fu_pool_exposes_ic_squash_port	PASS	block-FUPool	none			0			default
 test_fu_pool_cl_adr0033_squash_force_ack.TestSquashForceEarlyCompleteADR0033::test_ic_squash_is_callable	PASS	block-FUPool	none			0			default
 test_fu_pool_cl_adr0033_squash_force_ack.TestSquashForceEarlyCompleteADR0033::test_squash_mid_flight_fires_force_early_complete	PASS	block-FUPool	none			0			default
-test_fetch_cl.TestAssertionANoBBLeftUnmarked::test_rv64ui_p_add_leaves_no_bb_unmarked	PASS	block-Fetch	none			9			default
+test_fetch_cl.TestAssertionANoBBLeftUnmarked::test_rv64ui_p_add_leaves_no_bb_unmarked	PASS	block-Fetch	none			8			default
 test_fetch_cl.TestBackwardCtrlBusRestructure::test_f320_bc_has_commit_info	PASS	block-Fetch	none			0			default
 test_fetch_cl.TestBackwardCtrlBusRestructure::test_f321_bc_no_dec_to_fetch	PASS	block-Fetch	none			0			default
 test_fetch_cl.TestBackwardCtrlBusRestructure::test_f323_bc_no_old_flat_arrays	PASS	block-Fetch	none			0			default
@@ -1641,12 +1641,12 @@ test_frontend_v2_compose.TestComposition::test_frontend_v2_constructs_and_resets
 test_frontend_v2_compose.TestComposition::test_ft_flows_bac_ftq_fetch_decode	PASS	block-FrontEnd	none			0			default
 test_frontend_v2_compose.TestComposition::test_ftq_head_bb_idx_comes_from_the_bpu_row_allocator	PASS	block-FrontEnd	none			0			default
 test_frontend_v2_compose.TestComposition::test_the_path_does_not_park_before_the_end_of_the_run	PASS	block-FrontEnd	none			0			default
-test_frontend_v2_compose.TestScheduleSeedSweep::test_identical_outcomes_across_schedule_seeds	PASS	block-FrontEnd	none			2			default
+test_frontend_v2_compose.TestScheduleSeedSweep::test_identical_outcomes_across_schedule_seeds	PASS	block-FrontEnd	none			1			default
 test_frontend_v2_compose.TestScheduleSeedSweep::test_sweep_reaches_a_formed_ft	PASS	block-FrontEnd	none			0			default
 test_frontend_v2_compose.TestWindowAttach::test_member_bitmap_is_absolute_not_ft_relative	PASS	block-FrontEnd	none			0			default
 test_frontend_v2_compose.TestWindowAttach::test_member_instruction_gets_absolute_slot	PASS	block-FrontEnd	none			0			default
 test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_edge_alone_orders_the_driver_ahead_of_the_finalize	PASS	block-FrontEnd	none			0			default
-test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_level_stalls_the_finalize_of_its_own_cycle_at_every_seed	PASS	block-FrontEnd	none			5			default
+test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_level_stalls_the_finalize_of_its_own_cycle_at_every_seed	PASS	block-FrontEnd	none			4			default
 test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_scenario_is_not_vacuous_without_the_level	PASS	block-FrontEnd	none			1			default
 test_icache_cl.TestBackpressure::test_i51_ready_after_reset	PASS	block-ICache	none			0			default
 test_icache_cl.TestBackpressure::test_i52_not_ready_when_mshr_full	PASS	block-ICache	none			0			default
@@ -2565,7 +2565,7 @@ test_mmu_pl2_resp_hold.TestQ29SameCycleServe::test_same_cycle_serve_two_stage_wa
 test_mmu_snapshot_retire.TestT21SatpSnapshotMidWalk::test_dside_walk_completes_under_latched_root_and_asid	PASS	block-MMU	none			0			default
 test_mmu_snapshot_retire.TestT21SatpSnapshotMidWalk::test_iside_walk_completes_under_latched_root_and_asid	PASS	block-MMU	none			0			default
 test_mmu_snapshot_retire.TestT21SatpSnapshotMidWalk::test_two_stage_fill_carries_latched_asid_and_vmid	PASS	block-MMU	none			0			default
-test_mmu_snapshot_retire.TestTBWalkerRetirement::test_tb_walk_path_not_consulted_identical_responses	PASS	block-MMU	none			2			default
+test_mmu_snapshot_retire.TestTBWalkerRetirement::test_tb_walk_path_not_consulted_identical_responses	PASS	block-MMU	none			1			default
 test_mmu_walk_cache_l2.TestT02WalkCacheResume::test_l2_hit_refills_l1_without_walk	PASS	block-MMU	none			0			default
 test_mmu_walk_cache_l2.TestT02WalkCacheResume::test_neighbouring_page_same_2m_region_one_table_read	PASS	block-MMU	none			0			default
 test_mmu_walk_cache_l2.TestT07L2One2MUnit::test_1g_leaf_native_hit_l2_holds_containing_unit	PASS	block-MMU	none			0			default
@@ -3231,65 +3231,65 @@ test_o3_core_bare_metal_tb_cl.TestVAProbeCoordinator::test_va_probe_resp_fires_2
 test_o3_core_v2.TestCoreBuildsV2Frontend::test_core_frontend_carries_the_v2_blocks	PASS	block-Testbench	none			0			default
 test_o3_core_v2.TestCoreBuildsV2Frontend::test_core_frontend_is_frontend_v2	PASS	block-Testbench	none			0			default
 test_o3_core_v2.TestCoreBuildsV2Frontend::test_v2_core_exposes_the_testbench_surface	PASS	block-Testbench	none			0		L9b ACCEPTANCE SCAFFOLD — the v2 core schedules now (F-41 fixed: `FrontendV2` no longer carries the `M(decode_bpu_correction_sink) < M(backward_ctrl)` edge, so the same-cycle loop `M(sink) < M(backward_ctrl) < U(decode.up_dispatch) < M(decode_bpu_correction) = M(sink)` has no leg 2 -- the sink itself stays, and `bac_backward_ctrl` is now an alias of the merging `backward_ctrl` CalleeIfcCL), but `r	default
-test_o3_core_v2.TestElfOnV2Core::test_rv64ui_p_add_passes_on_v2	PASS	block-Testbench	none			9			default
-test_o3_core_v2.TestElfOnV2Core::test_v2_core_commits_instructions_and_retires_stores	PASS	block-Testbench	none			9			default
+test_o3_core_v2.TestElfOnV2Core::test_rv64ui_p_add_passes_on_v2	PASS	block-Testbench	none			7			default
+test_o3_core_v2.TestElfOnV2Core::test_v2_core_commits_instructions_and_retires_stores	PASS	block-Testbench	none			7			default
 test_o3_core_v2.TestFetchTargetPairingLaw::test_d14s_act_less_row_is_never_reached	PASS	block-Testbench	none			0			default
 test_o3_core_v2.TestFetchTargetPairingLaw::test_every_claim_becomes_a_stage_or_is_destroyed_once	PASS	block-Testbench	none			0			default
-test_o3_core_v2.TestFetchTargetPairingLaw::test_every_queued_fetch_target_leaves_the_queue_exactly_once	PASS	block-Testbench	none			9			default
+test_o3_core_v2.TestFetchTargetPairingLaw::test_every_queued_fetch_target_leaves_the_queue_exactly_once	PASS	block-Testbench	none			7			default
 test_o3_core_v2.TestFetchTargetPairingLaw::test_one_request_per_fetch_target_presented	PASS	block-Testbench	none			0			default
 test_o3_core_v2.TestFetchTargetPairingLaw::test_the_fill_is_the_only_pop	PASS	block-Testbench	none			0			default
-test_o3_core_v2.TestNackChainOrdering::test_elf_reaches_exit_on_every_schedule_seed	PASS	block-Testbench	none			49			default
-test_o3_core_v2.TestNackChainOrdering::test_no_seed_stalls_the_frontend	PASS	block-Testbench	none			48			default
-test_o3_core_v2.TestNackChainOrdering::test_the_sweep_actually_executed_the_frontend	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_riscv_tests_smoke_add	PASS	block-Testbench	none			8			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition]	PASS	block-Testbench	none			8			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate]	PASS	block-Testbench	none			5			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate]	PASS	block-Testbench	none			5			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word]	PASS	block-Testbench	none			8			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND]	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate]	PASS	block-Testbench	none			5			default
+test_o3_core_v2.TestNackChainOrdering::test_elf_reaches_exit_on_every_schedule_seed	PASS	block-Testbench	none			40			default
+test_o3_core_v2.TestNackChainOrdering::test_no_seed_stalls_the_frontend	PASS	block-Testbench	none			39			default
+test_o3_core_v2.TestNackChainOrdering::test_the_sweep_actually_executed_the_frontend	PASS	block-Testbench	none			8			default
+test_riscv_tests_isa::test_riscv_tests_smoke_add	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate]	PASS	block-Testbench	none			4			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-auipc:add upper immediate to PC]	PASS	block-Testbench	none			3			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal]	PASS	block-Testbench	none			8			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal]	PASS	block-Testbench	none			10			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned]	PASS	block-Testbench	none			10			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than]	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned]	PASS	block-Testbench	none			10			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal]	PASS	block-Testbench	none			8			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal]	PASS	block-Testbench	none			8			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned]	PASS	block-Testbench	none			8			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link]	PASS	block-Testbench	none			3			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jalr:jump and link register]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned]	PASS	block-Testbench	none			5			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lui:load upper immediate]	PASS	block-Testbench	none			3			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate]	PASS	block-Testbench	none			5			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte]	PASS	block-Testbench	none			8			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double]	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]	PASS	block-Testbench	none			8			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical]	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word]	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than]	PASS	block-Testbench	none			8			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned]	PASS	block-Testbench	none			5			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned]	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic]	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srai:shift right arithmetic immediate]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			8			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srai:shift right arithmetic immediate]	PASS	block-Testbench	none			4			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sraw:shift right arithmetic word]	PASS	block-Testbench	none			7			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical]	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word]	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction]	PASS	block-Testbench	none			8			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word]	PASS	block-Testbench	none			8			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word]	PASS	block-Testbench	none			8			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR]	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate]	PASS	block-Testbench	none			5			default
-test_riscv_tests_isa::test_rv64uziccid_p_ziccid	PASS	block-Testbench	none			43			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64uziccid_p_ziccid	PASS	block-Testbench	none			36			default
 test_sbuf_fence_gate_wiring::test_absorbed_store_holds_commit_gate_through_tb_wire	PASS	block-Testbench	none			0			default
 test_tlbi_controller_cl.TestEdgeCases::test_second_tlbi_req_after_first_completes	PASS	block-TlbiController	none			0			default
 test_tlbi_controller_cl.TestEdgeCases::test_sync_comp_before_inv_sent_ignored_or_buffered	PASS	block-TlbiController	none			0			default

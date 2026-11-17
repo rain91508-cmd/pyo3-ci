@@ -2,13 +2,13 @@
 
 |  |  |
 |---|---|
-| **Result** | **FAIL** -- 1 of 3392 tests not passing |
-| Run | [rain91508-cmd/pyo3-ci#44041587852](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/44041587852) |
-| Commit | `7dd9680d43` (main) |
+| **Result** | **PASS** |
+| Run | [rain91508-cmd/pyo3-ci#44126892201](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/44126892201) |
+| Commit | `32f027e9ab` (main) |
 | Triggered by | rain91508-cmd |
 | Base seed | - |
 | Testbench | default |
-| Generated | 2026-11-17 08:04 UTC |
+| Generated | 2026-11-17 16:45 UTC |
 
 ## Suites
 
@@ -16,7 +16,7 @@
 |---|---|---|---|---|---|---|---|---|---|---|
 | block-BACV2 | none | default | 110 | 0 | 0+0 | 0 | 0 | 0 | 110 | PASS |
 | block-BPredUnitV2 | none | default | 695 | 0 | 0+0 | 0 | 0 | 0 | 695 | PASS |
-| block-CSRFile | none | default | 29 | 1 | 0+0 | 0 | 0 | 0 | 30 | FAIL |
+| block-CSRFile | none | default | 30 | 0 | 0+0 | 0 | 0 | 0 | 30 | PASS |
 | block-CacheCtrl | none | default | 27 | 0 | 0+0 | 0 | 0 | 0 | 27 | PASS |
 | block-Commit | none | default | 78 | 0 | 0+0 | 0 | 0 | 0 | 78 | PASS |
 | block-DTLBProbe | none | default | 32 | 0 | 0+0 | 0 | 0 | 0 | 32 | PASS |
@@ -51,13 +51,11 @@
 | block-Testbench | none | default | 137 | 0 | 0+0 | 0 | 0 | 0 | 137 | PASS |
 | block-TlbiController | none | default | 11 | 0 | 0+0 | 0 | 0 | 0 | 11 | PASS |
 | block-WriteBack | none | default | 89 | 0 | 0+0 | 0 | 0 | 0 | 89 | PASS |
-| **all** |  |  | 3391 | 1 | 0+0 | 0 | 0 | 0 | 3392 | FAIL |
+| **all** |  |  | 3392 | 0 | 0+0 | 0 | 0 | 0 | 3392 | PASS |
 
 ## Failures
 
-| Test | Suite | TB | Status | exit | cycles | wall | perm | detail |
-|---|---|---|---|---|---|---|---|---|
-| `test_csr_file_cl.TestSStatusAlias::test_write_sstatus_zero_preserves_uxl_sxl` | block-CSRFile | default | FAIL | - | - | 0s | - | assert (42949672960 & 6144) == 6144 self = <CSRFile.test_csr_file_cl.TestSStatusAlias object at 0x7f15c6920500>      def... |
+None.
 
 ## All 3392 results
 
@@ -870,7 +868,7 @@
 | test_tage_v2_transport::test_a_tage_window_flows_accept_to_finalize | block-BPredUnitV2 | default | PASS | - | 0 |
 | test_tage_v2_transport::test_the_accept_gate_refuses_when_a_full_pipe_cannot_be_drained | block-BPredUnitV2 | default | PASS | - | 0 |
 | test_tage_v2_transport::test_the_tage_accept_is_due_gated | block-BPredUnitV2 | default | PASS | - | 0 |
-| test_v1_v2_parity::test_v1_v2_commit_value_stream_parity | block-BPredUnitV2 | default | PASS | - | 10 |
+| test_v1_v2_parity::test_v1_v2_commit_value_stream_parity | block-BPredUnitV2 | default | PASS | - | 8 |
 | test_csr_file_cl.TestConstruction::test_constructs_with_default_params | block-CSRFile | default | PASS | - | 0 |
 | test_csr_file_cl.TestConstruction::test_exposes_read_callee_ifc | block-CSRFile | default | PASS | - | 0 |
 | test_csr_file_cl.TestConstruction::test_exposes_write_callee_ifc | block-CSRFile | default | PASS | - | 0 |
@@ -886,7 +884,7 @@
 | test_csr_file_cl.TestRead::test_read_uninitialized_csr_returns_zero | block-CSRFile | default | PASS | - | 0 |
 | test_csr_file_cl.TestSStatusAlias::test_read_sstatus_returns_mstatus_view_after_reset | block-CSRFile | default | PASS | - | 0 |
 | test_csr_file_cl.TestSStatusAlias::test_write_sstatus_sie_folds_into_mstatus | block-CSRFile | default | PASS | - | 0 |
-| test_csr_file_cl.TestSStatusAlias::test_write_sstatus_zero_preserves_uxl_sxl | block-CSRFile | default | FAIL | - | 0 |
+| test_csr_file_cl.TestSStatusAlias::test_write_sstatus_zero_preserves_uxl_sxl | block-CSRFile | default | PASS | - | 0 |
 | test_csr_file_cl.TestTriggerCSRs::test_read_triggers_snapshot | block-CSRFile | default | PASS | - | 0 |
 | test_csr_file_cl.TestTriggerCSRs::test_reset_disables_all_triggers | block-CSRFile | default | PASS | - | 0 |
 | test_csr_file_cl.TestTriggerCSRs::test_tdata1_load_and_store_triggers_round_trip | block-CSRFile | default | PASS | - | 0 |
@@ -1422,7 +1420,7 @@
 | test_fu_pool_cl_adr0033_squash_force_ack.TestSquashForceEarlyCompleteADR0033::test_fu_pool_exposes_ic_squash_port | block-FUPool | default | PASS | - | 0 |
 | test_fu_pool_cl_adr0033_squash_force_ack.TestSquashForceEarlyCompleteADR0033::test_ic_squash_is_callable | block-FUPool | default | PASS | - | 0 |
 | test_fu_pool_cl_adr0033_squash_force_ack.TestSquashForceEarlyCompleteADR0033::test_squash_mid_flight_fires_force_early_complete | block-FUPool | default | PASS | - | 0 |
-| test_fetch_cl.TestAssertionANoBBLeftUnmarked::test_rv64ui_p_add_leaves_no_bb_unmarked | block-Fetch | default | PASS | - | 9 |
+| test_fetch_cl.TestAssertionANoBBLeftUnmarked::test_rv64ui_p_add_leaves_no_bb_unmarked | block-Fetch | default | PASS | - | 8 |
 | test_fetch_cl.TestBackwardCtrlBusRestructure::test_f320_bc_has_commit_info | block-Fetch | default | PASS | - | 0 |
 | test_fetch_cl.TestBackwardCtrlBusRestructure::test_f321_bc_no_dec_to_fetch | block-Fetch | default | PASS | - | 0 |
 | test_fetch_cl.TestBackwardCtrlBusRestructure::test_f323_bc_no_old_flat_arrays | block-Fetch | default | PASS | - | 0 |
@@ -1708,12 +1706,12 @@
 | test_frontend_v2_compose.TestComposition::test_ft_flows_bac_ftq_fetch_decode | block-FrontEnd | default | PASS | - | 0 |
 | test_frontend_v2_compose.TestComposition::test_ftq_head_bb_idx_comes_from_the_bpu_row_allocator | block-FrontEnd | default | PASS | - | 0 |
 | test_frontend_v2_compose.TestComposition::test_the_path_does_not_park_before_the_end_of_the_run | block-FrontEnd | default | PASS | - | 0 |
-| test_frontend_v2_compose.TestScheduleSeedSweep::test_identical_outcomes_across_schedule_seeds | block-FrontEnd | default | PASS | - | 2 |
+| test_frontend_v2_compose.TestScheduleSeedSweep::test_identical_outcomes_across_schedule_seeds | block-FrontEnd | default | PASS | - | 1 |
 | test_frontend_v2_compose.TestScheduleSeedSweep::test_sweep_reaches_a_formed_ft | block-FrontEnd | default | PASS | - | 0 |
 | test_frontend_v2_compose.TestWindowAttach::test_member_bitmap_is_absolute_not_ft_relative | block-FrontEnd | default | PASS | - | 0 |
 | test_frontend_v2_compose.TestWindowAttach::test_member_instruction_gets_absolute_slot | block-FrontEnd | default | PASS | - | 0 |
 | test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_edge_alone_orders_the_driver_ahead_of_the_finalize | block-FrontEnd | default | PASS | - | 0 |
-| test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_level_stalls_the_finalize_of_its_own_cycle_at_every_seed | block-FrontEnd | default | PASS | - | 5 |
+| test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_level_stalls_the_finalize_of_its_own_cycle_at_every_seed | block-FrontEnd | default | PASS | - | 4 |
 | test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_scenario_is_not_vacuous_without_the_level | block-FrontEnd | default | PASS | - | 1 |
 | test_icache_cl.TestBackpressure::test_i51_ready_after_reset | block-ICache | default | PASS | - | 0 |
 | test_icache_cl.TestBackpressure::test_i52_not_ready_when_mshr_full | block-ICache | default | PASS | - | 0 |
@@ -2632,7 +2630,7 @@
 | test_mmu_snapshot_retire.TestT21SatpSnapshotMidWalk::test_dside_walk_completes_under_latched_root_and_asid | block-MMU | default | PASS | - | 0 |
 | test_mmu_snapshot_retire.TestT21SatpSnapshotMidWalk::test_iside_walk_completes_under_latched_root_and_asid | block-MMU | default | PASS | - | 0 |
 | test_mmu_snapshot_retire.TestT21SatpSnapshotMidWalk::test_two_stage_fill_carries_latched_asid_and_vmid | block-MMU | default | PASS | - | 0 |
-| test_mmu_snapshot_retire.TestTBWalkerRetirement::test_tb_walk_path_not_consulted_identical_responses | block-MMU | default | PASS | - | 2 |
+| test_mmu_snapshot_retire.TestTBWalkerRetirement::test_tb_walk_path_not_consulted_identical_responses | block-MMU | default | PASS | - | 1 |
 | test_mmu_walk_cache_l2.TestT02WalkCacheResume::test_l2_hit_refills_l1_without_walk | block-MMU | default | PASS | - | 0 |
 | test_mmu_walk_cache_l2.TestT02WalkCacheResume::test_neighbouring_page_same_2m_region_one_table_read | block-MMU | default | PASS | - | 0 |
 | test_mmu_walk_cache_l2.TestT07L2One2MUnit::test_1g_leaf_native_hit_l2_holds_containing_unit | block-MMU | default | PASS | - | 0 |
@@ -3298,65 +3296,65 @@
 | test_o3_core_v2.TestCoreBuildsV2Frontend::test_core_frontend_carries_the_v2_blocks | block-Testbench | default | PASS | - | 0 |
 | test_o3_core_v2.TestCoreBuildsV2Frontend::test_core_frontend_is_frontend_v2 | block-Testbench | default | PASS | - | 0 |
 | test_o3_core_v2.TestCoreBuildsV2Frontend::test_v2_core_exposes_the_testbench_surface | block-Testbench | default | PASS | - | 0 |
-| test_o3_core_v2.TestElfOnV2Core::test_rv64ui_p_add_passes_on_v2 | block-Testbench | default | PASS | - | 9 |
-| test_o3_core_v2.TestElfOnV2Core::test_v2_core_commits_instructions_and_retires_stores | block-Testbench | default | PASS | - | 9 |
+| test_o3_core_v2.TestElfOnV2Core::test_rv64ui_p_add_passes_on_v2 | block-Testbench | default | PASS | - | 7 |
+| test_o3_core_v2.TestElfOnV2Core::test_v2_core_commits_instructions_and_retires_stores | block-Testbench | default | PASS | - | 7 |
 | test_o3_core_v2.TestFetchTargetPairingLaw::test_d14s_act_less_row_is_never_reached | block-Testbench | default | PASS | - | 0 |
 | test_o3_core_v2.TestFetchTargetPairingLaw::test_every_claim_becomes_a_stage_or_is_destroyed_once | block-Testbench | default | PASS | - | 0 |
-| test_o3_core_v2.TestFetchTargetPairingLaw::test_every_queued_fetch_target_leaves_the_queue_exactly_once | block-Testbench | default | PASS | - | 9 |
+| test_o3_core_v2.TestFetchTargetPairingLaw::test_every_queued_fetch_target_leaves_the_queue_exactly_once | block-Testbench | default | PASS | - | 7 |
 | test_o3_core_v2.TestFetchTargetPairingLaw::test_one_request_per_fetch_target_presented | block-Testbench | default | PASS | - | 0 |
 | test_o3_core_v2.TestFetchTargetPairingLaw::test_the_fill_is_the_only_pop | block-Testbench | default | PASS | - | 0 |
-| test_o3_core_v2.TestNackChainOrdering::test_elf_reaches_exit_on_every_schedule_seed | block-Testbench | default | PASS | - | 49 |
-| test_o3_core_v2.TestNackChainOrdering::test_no_seed_stalls_the_frontend | block-Testbench | default | PASS | - | 48 |
-| test_o3_core_v2.TestNackChainOrdering::test_the_sweep_actually_executed_the_frontend | block-Testbench | default | PASS | - | 9 |
-| test_riscv_tests_isa::test_riscv_tests_smoke_add | block-Testbench | default | PASS | - | 8 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition] | block-Testbench | default | PASS | - | 8 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate] | block-Testbench | default | PASS | - | 5 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate] | block-Testbench | default | PASS | - | 5 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word] | block-Testbench | default | PASS | - | 8 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND] | block-Testbench | default | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate] | block-Testbench | default | PASS | - | 5 |
+| test_o3_core_v2.TestNackChainOrdering::test_elf_reaches_exit_on_every_schedule_seed | block-Testbench | default | PASS | - | 40 |
+| test_o3_core_v2.TestNackChainOrdering::test_no_seed_stalls_the_frontend | block-Testbench | default | PASS | - | 39 |
+| test_o3_core_v2.TestNackChainOrdering::test_the_sweep_actually_executed_the_frontend | block-Testbench | default | PASS | - | 8 |
+| test_riscv_tests_isa::test_riscv_tests_smoke_add | block-Testbench | default | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition] | block-Testbench | default | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate] | block-Testbench | default | PASS | - | 4 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate] | block-Testbench | default | PASS | - | 4 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word] | block-Testbench | default | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND] | block-Testbench | default | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate] | block-Testbench | default | PASS | - | 4 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-auipc:add upper immediate to PC] | block-Testbench | default | PASS | - | 3 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal] | block-Testbench | default | PASS | - | 8 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal] | block-Testbench | default | PASS | - | 10 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned] | block-Testbench | default | PASS | - | 10 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than] | block-Testbench | default | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned] | block-Testbench | default | PASS | - | 10 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal] | block-Testbench | default | PASS | - | 8 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence] | block-Testbench | default | PASS | - | 6 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link] | block-Testbench | default | PASS | - | 4 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal] | block-Testbench | default | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal] | block-Testbench | default | PASS | - | 8 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned] | block-Testbench | default | PASS | - | 8 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than] | block-Testbench | default | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned] | block-Testbench | default | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal] | block-Testbench | default | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence] | block-Testbench | default | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link] | block-Testbench | default | PASS | - | 3 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jalr:jump and link register] | block-Testbench | default | PASS | - | 4 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte] | block-Testbench | default | PASS | - | 6 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned] | block-Testbench | default | PASS | - | 6 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double] | block-Testbench | default | PASS | - | 6 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half] | block-Testbench | default | PASS | - | 6 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned] | block-Testbench | default | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte] | block-Testbench | default | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned] | block-Testbench | default | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double] | block-Testbench | default | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half] | block-Testbench | default | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned] | block-Testbench | default | PASS | - | 5 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lui:load upper immediate] | block-Testbench | default | PASS | - | 3 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word] | block-Testbench | default | PASS | - | 6 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned] | block-Testbench | default | PASS | - | 6 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR] | block-Testbench | default | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate] | block-Testbench | default | PASS | - | 5 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte] | block-Testbench | default | PASS | - | 8 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double] | block-Testbench | default | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half] | block-Testbench | default | PASS | - | 8 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical] | block-Testbench | default | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate] | block-Testbench | default | PASS | - | 6 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word] | block-Testbench | default | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than] | block-Testbench | default | PASS | - | 8 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate] | block-Testbench | default | PASS | - | 6 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned] | block-Testbench | default | PASS | - | 5 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned] | block-Testbench | default | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic] | block-Testbench | default | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srai:shift right arithmetic immediate] | block-Testbench | default | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word] | block-Testbench | default | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned] | block-Testbench | default | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR] | block-Testbench | default | PASS | - | 8 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate] | block-Testbench | default | PASS | - | 4 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte] | block-Testbench | default | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double] | block-Testbench | default | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half] | block-Testbench | default | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical] | block-Testbench | default | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate] | block-Testbench | default | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word] | block-Testbench | default | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than] | block-Testbench | default | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate] | block-Testbench | default | PASS | - | 4 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned] | block-Testbench | default | PASS | - | 4 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned] | block-Testbench | default | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic] | block-Testbench | default | PASS | - | 5 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srai:shift right arithmetic immediate] | block-Testbench | default | PASS | - | 4 |
 | test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sraw:shift right arithmetic word] | block-Testbench | default | PASS | - | 7 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical] | block-Testbench | default | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate] | block-Testbench | default | PASS | - | 6 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word] | block-Testbench | default | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction] | block-Testbench | default | PASS | - | 8 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word] | block-Testbench | default | PASS | - | 8 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word] | block-Testbench | default | PASS | - | 8 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR] | block-Testbench | default | PASS | - | 9 |
-| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate] | block-Testbench | default | PASS | - | 5 |
-| test_riscv_tests_isa::test_rv64uziccid_p_ziccid | block-Testbench | default | PASS | - | 43 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical] | block-Testbench | default | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate] | block-Testbench | default | PASS | - | 4 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word] | block-Testbench | default | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction] | block-Testbench | default | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word] | block-Testbench | default | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word] | block-Testbench | default | PASS | - | 6 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR] | block-Testbench | default | PASS | - | 7 |
+| test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate] | block-Testbench | default | PASS | - | 4 |
+| test_riscv_tests_isa::test_rv64uziccid_p_ziccid | block-Testbench | default | PASS | - | 36 |
 | test_sbuf_fence_gate_wiring::test_absorbed_store_holds_commit_gate_through_tb_wire | block-Testbench | default | PASS | - | 0 |
 | test_tlbi_controller_cl.TestEdgeCases::test_second_tlbi_req_after_first_completes | block-TlbiController | default | PASS | - | 0 |
 | test_tlbi_controller_cl.TestEdgeCases::test_sync_comp_before_inv_sent_ignored_or_buffered | block-TlbiController | default | PASS | - | 0 |

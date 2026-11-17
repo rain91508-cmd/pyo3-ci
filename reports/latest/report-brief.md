@@ -2,13 +2,13 @@
 
 |  |  |
 |---|---|
-| **Result** | **FAIL** -- 1 of 3392 tests not passing |
-| Run | [rain91508-cmd/pyo3-ci#44041587852](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/44041587852) |
-| Commit | `7dd9680d43` (main) |
+| **Result** | **PASS** |
+| Run | [rain91508-cmd/pyo3-ci#44126892201](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/44126892201) |
+| Commit | `32f027e9ab` (main) |
 | Triggered by | rain91508-cmd |
 | Base seed | - |
 | Testbench | default |
-| Generated | 2026-11-17 08:04 UTC |
+| Generated | 2026-11-17 16:45 UTC |
 
 ## Suites
 
@@ -16,7 +16,7 @@
 |---|---|---|---|---|---|---|---|---|---|---|
 | block-BACV2 | none | default | 110 | 0 | 0+0 | 0 | 0 | 0 | 110 | PASS |
 | block-BPredUnitV2 | none | default | 695 | 0 | 0+0 | 0 | 0 | 0 | 695 | PASS |
-| block-CSRFile | none | default | 29 | 1 | 0+0 | 0 | 0 | 0 | 30 | FAIL |
+| block-CSRFile | none | default | 30 | 0 | 0+0 | 0 | 0 | 0 | 30 | PASS |
 | block-CacheCtrl | none | default | 27 | 0 | 0+0 | 0 | 0 | 0 | 27 | PASS |
 | block-Commit | none | default | 78 | 0 | 0+0 | 0 | 0 | 0 | 78 | PASS |
 | block-DTLBProbe | none | default | 32 | 0 | 0+0 | 0 | 0 | 0 | 32 | PASS |
@@ -51,12 +51,10 @@
 | block-Testbench | none | default | 137 | 0 | 0+0 | 0 | 0 | 0 | 137 | PASS |
 | block-TlbiController | none | default | 11 | 0 | 0+0 | 0 | 0 | 0 | 11 | PASS |
 | block-WriteBack | none | default | 89 | 0 | 0+0 | 0 | 0 | 0 | 89 | PASS |
-| **all** |  |  | 3391 | 1 | 0+0 | 0 | 0 | 0 | 3392 | FAIL |
+| **all** |  |  | 3392 | 0 | 0+0 | 0 | 0 | 0 | 3392 | PASS |
 
 ## Failures
 
-| Test | Suite | TB | Status | exit | cycles | wall | perm | detail |
-|---|---|---|---|---|---|---|---|---|
-| `test_csr_file_cl.TestSStatusAlias::test_write_sstatus_zero_preserves_uxl_sxl` | block-CSRFile | default | FAIL | - | - | 0s | - | assert (42949672960 & 6144) == 6144 self = <CSRFile.test_csr_file_cl.TestSStatusAlias object at 0x7f15c6920500>      def... |
+None.
 
 _Full 3392-test table: see the `pyo3-ci-report.md` asset._
