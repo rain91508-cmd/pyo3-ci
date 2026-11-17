@@ -145,19 +145,35 @@ runs:
                       fi
                   fi
               fi
+              set -x   # trace every post-apt stage into the step log
               cd src/cpu/pyo3
               # The submodule path exists but is empty (not fetched); clone
               # the public fork's cosim branch into it.
               rmdir riscv-isa-sim 2>/dev/null || true
-              git clone --depth 1 --branch "${SPIKE_REF}" \
-                  "https://github.com/${SPIKE_REPO}.git" riscv-isa-sim
+              if ! git clone --depth 1 --branch "${SPIKE_REF}" \
+                      "https://github.com/${SPIKE_REPO}.git" riscv-isa-sim; then
+                  echo "::error::spike clone failed (${SPIKE_REPO}@${SPIKE_REF})"
+                  exit 1
+              fi
               echo "spike @ $(git -C riscv-isa-sim rev-parse --short HEAD)"
               mkdir -p spike-build && cd spike-build
-              ../riscv-isa-sim/configure \
-                  --prefix="$PWD/../spike-install" >/dev/null
-              make -j"$(nproc)"
+              if ! ../riscv-isa-sim/configure \
+                      --prefix="$PWD/../spike-install" >/tmp/spike-configure.log 2>&1; then
+                  ct=$(tail -c 500 /tmp/spike-configure.log | tr '\n' ' ' | tr '\r' ' ')
+                  echo "::error::spike configure failed -- tail: $ct"
+                  exit 1
+              fi
+              if ! make -j"$(nproc)" >/tmp/spike-make.log 2>&1; then
+                  mt=$(tail -c 800 /tmp/spike-make.log | tr '\n' ' ' | tr '\r' ' ')
+                  echo "::error::spike make failed -- tail: $mt"
+                  exit 1
+              fi
               cd ../riscv-isa-sim/pycosim
-              BOOST_INC=/usr/include ./build.sh
+              if ! BOOST_INC=/usr/include ./build.sh >/tmp/pyspike-build.log 2>&1; then
+                  bt=$(tail -c 800 /tmp/pyspike-build.log | tr '\n' ' ' | tr '\r' ' ')
+                  echo "::error::pyspike_cosim build.sh failed -- tail: $bt"
+                  exit 1
+              fi
               python3 -c 'import sys; sys.path.insert(0, "."); \
                   import pyspike_cosim; print("pyspike_cosim import OK")'
 
