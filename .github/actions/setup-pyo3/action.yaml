@@ -95,9 +95,22 @@ runs:
               SPIKE_REF: ${{ inputs.spike_ref }}
           run: |
               set -euo pipefail
-              sudo apt-get update -q
-              sudo apt-get install -y --no-install-recommends \
-                  dtc libboost-dev libboost-regex-dev python3-dev
+              # CI run 44041587852: a transient apt failure (exit code 100,
+              # ~19s in) killed the setup step of ALL 19 -p-/-v- shard jobs at
+              # once -- the first cosim-enabled dispatch. Retry a few times so
+              # a mirror hiccup cannot take down the whole matrix.
+              apt_ok=0
+              for attempt in 1 2 3; do
+                  echo "apt attempt ${attempt}/3"
+                  if sudo apt-get update -q && \
+                     sudo apt-get install -y --no-install-recommends \
+                         dtc libboost-dev libboost-regex-dev python3-dev; then
+                      apt_ok=1
+                      break
+                  fi
+                  sleep 30
+              done
+              [ "$apt_ok" = 1 ] || { echo "::error::apt failed after 3 attempts"; exit 100; }
               cd src/cpu/pyo3
               # The submodule path exists but is empty (not fetched); clone
               # the public fork's cosim branch into it.
