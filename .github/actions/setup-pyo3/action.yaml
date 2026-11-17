@@ -95,20 +95,22 @@ runs:
               SPIKE_REF: ${{ inputs.spike_ref }}
           run: |
               set -euo pipefail
-              # CI runs 44041587852 + 44126892201: apt fails on this path.
-              # 44126892201 proved it DETERMINISTIC (19/19 shards, ~110s =
-              # 3 x (update+install) + sleeps, all jobs alike) -- the classic
-              # hosted-runner signature (actions/runner-images #6486/#7067):
-              # `apt-get update` hits 403s on the image's baked-in third-party
-              # repos for multi-hour windows. v2 strategy:
-              #   1. skip whatever the image already provides (dpkg probe)
-              #   2. install directly against the baked indexes (no update)
-              #   3. only on failure: refresh ONLY the ubuntu main archive
-              #      (third-party repos excluded -- they are the flaky part),
-              #      then install again
-              #   4. on final failure, carry the apt error tail INSIDE the
-              #      ::error annotation, so the next debug round reads the
-              #      actual apt message via the API without repo-admin logs
+              # CI runs 44041587852 + 44126892201 + 44135186418: apt on the
+              # cosim path. Findings: (1) 44126892201 -- DETERMINISTIC failure
+              # (19/19 jobs at ~110s = the v1 retry loop exhausting); hosted
+              # runners' baked-in third-party apt sources 403 in multi-hour
+              # windows (actions/runner-images #6486/#7067) and apt-get update
+              # exits 100 when ANY source fails; (2) 44135186418 -- the v2
+              # ubuntu-main-only refresh did not make the packages locatable
+              # (the image evidently does not use the deb822 ubuntu.sources
+              # path that block targeted) and the annotation carried the real
+              # error: "E: Unable to locate package dtc".
+              # v3 law: a nonzero apt-get update exit poisons the whole command
+              # EVEN WHEN the ubuntu archive indexes did land -- apt refreshes
+              # each source independently. So tolerate the update's exit code,
+              # install from whatever indexes are present with Acquire
+              # retries, retry once, and carry log tails inside the
+              # annotations for diagnosis without repo-admin logs.
               pkgs="dtc libboost-dev libboost-regex-dev python3-dev"
               need=""
               for p in $pkgs; do
@@ -118,22 +120,25 @@ runs:
               done
               if [ -z "$need" ]; then
                   echo "cosim apt deps already present on the image; skipping apt"
-              elif sudo apt-get install -y --no-install-recommends $need >/tmp/apt-install-1.log 2>&1; then
-                  echo "apt install (baked indexes) OK:$need"
               else
-                  echo "apt install failed; refreshing ubuntu main indexes only"
-                  sudo apt-get update \
-                      -o Dir::Etc::sourcelist="sources.list.d/ubuntu.sources" \
-                      -o Dir::Etc::sourceparts="-" \
-                      -o APT::Get::List-Cleanup="0" \
-                      >/tmp/apt-update.log 2>&1 \
-                      || echo "::warning::ubuntu-main apt-get update failed; retrying install against baked indexes"
-                  if sudo apt-get install -y --no-install-recommends $need >/tmp/apt-install-2.log 2>&1; then
-                      echo "apt install (after ubuntu-main update) OK:$need"
+                  echo "apt-get update (nonzero tolerated: third-party sources may 403 while ubuntu indexes still land)"
+                  sudo apt-get update -o Acquire::Retries=3 >/tmp/apt-update.log 2>&1 || {
+                      ut=$(tail -c 300 /tmp/apt-update.log | tr '\n' ' ' | tr '\r' ' ')
+                      echo "::warning title=apt update partial::apt-get update exited nonzero; ubuntu indexes may still have landed. tail: $ut"
+                  }
+                  if sudo apt-get install -y --no-install-recommends -o Acquire::Retries=3 $need >/tmp/apt-install-1.log 2>&1; then
+                      echo "apt install OK:$need"
                   else
-                      tail_c=$(tail -c 500 /tmp/apt-install-2.log | tr '\n' ' ' | tr '\r' ' ')
-                      echo "::error::apt install failed twice for:$need -- apt tail: $tail_c"
-                      exit 100
+                      echo "apt install failed once; one update+install retry"
+                      sleep 20
+                      sudo apt-get update -o Acquire::Retries=3 >/tmp/apt-update2.log 2>&1 || true
+                      if sudo apt-get install -y --no-install-recommends -o Acquire::Retries=3 $need >/tmp/apt-install-2.log 2>&1; then
+                          echo "apt install OK on retry:$need"
+                      else
+                          t2=$(tail -c 500 /tmp/apt-install-2.log | tr '\n' ' ' | tr '\r' ' ')
+                          echo "::error::apt install failed twice for:$need -- install tail: $t2"
+                          exit 100
+                      fi
                   fi
               fi
               cd src/cpu/pyo3
