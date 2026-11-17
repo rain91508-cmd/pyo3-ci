@@ -3232,7 +3232,7 @@ test_o3_core_v2.TestCoreBuildsV2Frontend::test_core_frontend_carries_the_v2_bloc
 test_o3_core_v2.TestCoreBuildsV2Frontend::test_core_frontend_is_frontend_v2	PASS	block-Testbench	none			0			default
 test_o3_core_v2.TestCoreBuildsV2Frontend::test_v2_core_exposes_the_testbench_surface	PASS	block-Testbench	none			0		L9b ACCEPTANCE SCAFFOLD — the v2 core schedules now (F-41 fixed: `FrontendV2` no longer carries the `M(decode_bpu_correction_sink) < M(backward_ctrl)` edge, so the same-cycle loop `M(sink) < M(backward_ctrl) < U(decode.up_dispatch) < M(decode_bpu_correction) = M(sink)` has no leg 2 -- the sink itself stays, and `bac_backward_ctrl` is now an alias of the merging `backward_ctrl` CalleeIfcCL), but `r	default
 test_o3_core_v2.TestElfOnV2Core::test_rv64ui_p_add_passes_on_v2	PASS	block-Testbench	none			7			default
-test_o3_core_v2.TestElfOnV2Core::test_v2_core_commits_instructions_and_retires_stores	PASS	block-Testbench	none			7			default
+test_o3_core_v2.TestElfOnV2Core::test_v2_core_commits_instructions_and_retires_stores	PASS	block-Testbench	none			6			default
 test_o3_core_v2.TestFetchTargetPairingLaw::test_d14s_act_less_row_is_never_reached	PASS	block-Testbench	none			0			default
 test_o3_core_v2.TestFetchTargetPairingLaw::test_every_claim_becomes_a_stage_or_is_destroyed_once	PASS	block-Testbench	none			0			default
 test_o3_core_v2.TestFetchTargetPairingLaw::test_every_queued_fetch_target_leaves_the_queue_exactly_once	PASS	block-Testbench	none			7			default
@@ -3245,35 +3245,35 @@ test_riscv_tests_isa::test_riscv_tests_smoke_add	PASS	block-Testbench	none			7		
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition]	PASS	block-Testbench	none			7			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate]	PASS	block-Testbench	none			4			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word]	PASS	block-Testbench	none			7			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND]	PASS	block-Testbench	none			7			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate]	PASS	block-Testbench	none			4			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-auipc:add upper immediate to PC]	PASS	block-Testbench	none			3			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal]	PASS	block-Testbench	none			7			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal]	PASS	block-Testbench	none			8			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal]	PASS	block-Testbench	none			7			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned]	PASS	block-Testbench	none			8			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than]	PASS	block-Testbench	none			7			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned]	PASS	block-Testbench	none			7			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal]	PASS	block-Testbench	none			6			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence]	PASS	block-Testbench	none			5			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link]	PASS	block-Testbench	none			3			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jalr:jump and link register]	PASS	block-Testbench	none			4			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte]	PASS	block-Testbench	none			5			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned]	PASS	block-Testbench	none			5			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half]	PASS	block-Testbench	none			5			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned]	PASS	block-Testbench	none			5			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lui:load upper immediate]	PASS	block-Testbench	none			3			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word]	PASS	block-Testbench	none			5			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned]	PASS	block-Testbench	none			5			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			8			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate]	PASS	block-Testbench	none			4			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte]	PASS	block-Testbench	none			6			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double]	PASS	block-Testbench	none			7			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]	PASS	block-Testbench	none			7			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical]	PASS	block-Testbench	none			7			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate]	PASS	block-Testbench	none			5			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word]	PASS	block-Testbench	none			7			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than]	PASS	block-Testbench	none			7			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate]	PASS	block-Testbench	none			4			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned]	PASS	block-Testbench	none			4			default
@@ -3281,10 +3281,10 @@ test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned]	PASS	b
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic]	PASS	block-Testbench	none			7			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srai:shift right arithmetic immediate]	PASS	block-Testbench	none			5			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sraw:shift right arithmetic word]	PASS	block-Testbench	none			7			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical]	PASS	block-Testbench	none			7			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate]	PASS	block-Testbench	none			5			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word]	PASS	block-Testbench	none			7			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction]	PASS	block-Testbench	none			7			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word]	PASS	block-Testbench	none			7			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word]	PASS	block-Testbench	none			7			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR]	PASS	block-Testbench	none			8			default
@@ -3391,3 +3391,750 @@ test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_r
 test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_returns_miss_when_buf_empty	PASS	block-WriteBack	none			0			default
 test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_normal_completion_does_not_fire_sb_setReg	PASS	block-WriteBack	none			0			default
 test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_sb_setReg_caller_ifc_removed	PASS	block-WriteBack	none			0			default
+rv64mi-p-breakpoint	FAIL	cosim-p	none			3	757055992	(3s): rv64mi-p-breakpoint: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=b5987ed7a435	default
+rv64mi-p-csr	FAIL	cosim-p	none			3	435460419	(3s): rv64mi-p-csr: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=6bcc887a3a43	default
+rv64mi-p-illegal	FAIL	cosim-p	none			3	453910401	(3s): rv64mi-p-illegal: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=0adc5ed33611	default
+rv64mi-p-instret_overflow	FAIL	cosim-p	none			3	235370492	(3s): rv64mi-p-instret_overflow: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d0edcf113ae9	default
+rv64mi-p-ld-misaligned	FAIL	cosim-p	none			3	321669545	(3s): rv64mi-p-ld-misaligned: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=69a733dbd833	default
+rv64mi-p-lh-misaligned	FAIL	cosim-p	none			3	498618391	(3s): rv64mi-p-lh-misaligned: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=b1827165f5b9	default
+rv64mi-p-lw-misaligned	FAIL	cosim-p	none			3	50854165	(3s): rv64mi-p-lw-misaligned: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=c30b8fd7b3c3	default
+rv64mi-p-ma_addr	FAIL	cosim-p	none			3	91719056	(3s): rv64mi-p-ma_addr: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=c3553f986fe8	default
+rv64mi-p-ma_fetch	FAIL	cosim-p	none			2	444240319	(2s): rv64mi-p-ma_fetch: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=117e288d793c	default
+rv64mi-p-mcsr	FAIL	cosim-p	none			3	675346712	(3s): rv64mi-p-mcsr: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=a83cd1f35c28	default
+rv64mi-p-pmpaddr	FAIL	cosim-p	none			3	703095778	(3s): rv64mi-p-pmpaddr: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=92c4945b191d	default
+rv64mi-p-sbreak	FAIL	cosim-p	none			3	59847702	(3s): rv64mi-p-sbreak: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=6a7b37351c2f	default
+rv64mi-p-scall	FAIL	cosim-p	none			3	294140639	(3s): rv64mi-p-scall: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d5b9f37d9eb4	default
+rv64mi-p-sd-misaligned	FAIL	cosim-p	none			2	27491165	(2s): rv64mi-p-sd-misaligned: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=7caa7e8054ad	default
+rv64mi-p-sh-misaligned	FAIL	cosim-p	none			2	499211823	(2s): rv64mi-p-sh-misaligned: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=5d605ae09887	default
+rv64mi-p-sw-misaligned	FAIL	cosim-p	none			2	344966961	(2s): rv64mi-p-sw-misaligned: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=7e25c628b41c	default
+rv64mi-p-zicntr	FAIL	cosim-p	none			3	417069349	(3s): rv64mi-p-zicntr: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=a4710205e258	default
+rv64mzicbo-p-zero	FAIL	cosim-p	none			3	523685365	(3s): rv64mzicbo-p-zero: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=b7275a08238d	default
+rv64si-p-csr	FAIL	cosim-p	none			3	413562976	(3s): rv64si-p-csr: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=7dbfbf2cd327	default
+rv64si-p-dirty	FAIL	cosim-p	none			3	314339684	(3s): rv64si-p-dirty: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=1fa4ca54e98c	default
+rv64si-p-icache-alias	FAIL	cosim-p	none			3	618311084	(3s): rv64si-p-icache-alias: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=3e531d8a1471	default
+rv64si-p-ma_fetch	FAIL	cosim-p	none			3	446153789	(3s): rv64si-p-ma_fetch: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=0f2abece96c4	default
+rv64si-p-sbreak	FAIL	cosim-p	none			3	853661138	(3s): rv64si-p-sbreak: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=ff8a7642dfd9	default
+rv64si-p-scall	FAIL	cosim-p	none			3	864113611	(3s): rv64si-p-scall: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=37326e483c32	default
+rv64si-p-wfi	FAIL	cosim-p	none			2	402472257	(2s): rv64si-p-wfi: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=a0a852839ec7	default
+rv64ssvnapot-p-napot	FAIL	cosim-p	none			3	97853319	(3s): rv64ssvnapot-p-napot: MISMATCH at commit 38 pc=0x800000e4 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=c70b422f8f2d	default
+rv64ua-p-amoadd_d	FAIL	cosim-p	none			3	304179484	(3s): rv64ua-p-amoadd_d: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=9fa373f5ea7a	default
+rv64ua-p-amoadd_w	FAIL	cosim-p	none			3	941677141	(3s): rv64ua-p-amoadd_w: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=b93beb6fe5ca	default
+rv64ua-p-amoand_d	FAIL	cosim-p	none			2	799167267	(2s): rv64ua-p-amoand_d: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d340d32b6929	default
+rv64ua-p-amoand_w	FAIL	cosim-p	none			3	236457571	(3s): rv64ua-p-amoand_w: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=af852658b60b	default
+rv64ua-p-amomax_d	FAIL	cosim-p	none			3	88262537	(3s): rv64ua-p-amomax_d: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d2bfeb92d529	default
+rv64ua-p-amomax_w	FAIL	cosim-p	none			3	586777545	(3s): rv64ua-p-amomax_w: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=dd76669683e8	default
+rv64ua-p-amomaxu_d	FAIL	cosim-p	none			3	533585283	(3s): rv64ua-p-amomaxu_d: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=f7ffce96b425	default
+rv64ua-p-amomaxu_w	FAIL	cosim-p	none			3	99520053	(3s): rv64ua-p-amomaxu_w: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d4231552551d	default
+rv64ua-p-amomin_d	FAIL	cosim-p	none			3	928058752	(3s): rv64ua-p-amomin_d: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=dce45b01dde6	default
+rv64ua-p-amomin_w	FAIL	cosim-p	none			3	418075200	(3s): rv64ua-p-amomin_w: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=a1eb45dc8aa5	default
+rv64ua-p-amominu_d	FAIL	cosim-p	none			3	863801525	(3s): rv64ua-p-amominu_d: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=4758b94fbf23	default
+rv64ua-p-amominu_w	FAIL	cosim-p	none			2	213753596	(2s): rv64ua-p-amominu_w: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=64952cdde684	default
+rv64ua-p-amoor_d	FAIL	cosim-p	none			2	427260533	(2s): rv64ua-p-amoor_d: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=45285857f1d6	default
+rv64ua-p-amoor_w	FAIL	cosim-p	none			3	919144764	(3s): rv64ua-p-amoor_w: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d4846eac07be	default
+rv64ua-p-amoswap_d	FAIL	cosim-p	none			3	350771754	(3s): rv64ua-p-amoswap_d: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=6b169a0c32f6	default
+rv64ua-p-amoswap_w	FAIL	cosim-p	none			3	699869560	(3s): rv64ua-p-amoswap_w: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=28f92fab7b32	default
+rv64ua-p-amoxor_d	FAIL	cosim-p	none			3	913625318	(3s): rv64ua-p-amoxor_d: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=488e0de4962d	default
+rv64ua-p-amoxor_w	FAIL	cosim-p	none			2	398429350	(2s): rv64ua-p-amoxor_w: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=a2d1810dd890	default
+rv64ua-p-lrsc	FAIL	cosim-p	none			2	833881563	(2s): rv64ua-p-lrsc: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=f600cb7ee93f	default
+rv64uc-p-rvc	FAIL	cosim-p	none			3	598877765	(3s): rv64uc-p-rvc: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=2b9d0023ca5c	default
+rv64ud-p-fadd	FAIL	cosim-p	none			3	431902521	(3s): rv64ud-p-fadd: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=c234cbe43830	default
+rv64ud-p-fclass	FAIL	cosim-p	none			3	174534101	(3s): rv64ud-p-fclass: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=edad06ac07fd	default
+rv64ud-p-fcmp	FAIL	cosim-p	none			3	864473724	(3s): rv64ud-p-fcmp: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=769493994b4b	default
+rv64ud-p-fcvt	FAIL	cosim-p	none			3	126433940	(3s): rv64ud-p-fcvt: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=320b2dbd631e	default
+rv64ud-p-fcvt_w	FAIL	cosim-p	none			3	441177153	(3s): rv64ud-p-fcvt_w: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=23b9b4d44526	default
+rv64ud-p-fdiv	FAIL	cosim-p	none			3	838465094	(3s): rv64ud-p-fdiv: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=afab53971acb	default
+rv64ud-p-fmadd	FAIL	cosim-p	none			3	34389987	(3s): rv64ud-p-fmadd: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=ffe31729029e	default
+rv64ud-p-fmin	FAIL	cosim-p	none			3	801747800	(3s): rv64ud-p-fmin: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=2b48c1a2cdaf	default
+rv64ud-p-ldst	FAIL	cosim-p	none			3	486393059	(3s): rv64ud-p-ldst: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=fe7742276430	default
+rv64ud-p-move	FAIL	cosim-p	none			3	157268816	(3s): rv64ud-p-move: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=2059a235fab5	default
+rv64ud-p-recoding	FAIL	cosim-p	none			3	705856674	(3s): rv64ud-p-recoding: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=cfe769457051	default
+rv64ud-p-structural	FAIL	cosim-p	none			2	481821440	(2s): rv64ud-p-structural: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=6cf958a12265	default
+rv64uf-p-fadd	FAIL	cosim-p	none			3	890822619	(3s): rv64uf-p-fadd: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=5fbd144f8d8e	default
+rv64uf-p-fclass	FAIL	cosim-p	none			3	405057612	(3s): rv64uf-p-fclass: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=30dc944f5f39	default
+rv64uf-p-fcmp	FAIL	cosim-p	none			3	388775840	(3s): rv64uf-p-fcmp: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=3a0ba4cc12bc	default
+rv64uf-p-fcvt	FAIL	cosim-p	none			3	798190977	(3s): rv64uf-p-fcvt: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=8f050ab4be7e	default
+rv64uf-p-fcvt_w	FAIL	cosim-p	none			3	133790184	(3s): rv64uf-p-fcvt_w: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=87a913e5e798	default
+rv64uf-p-fdiv	FAIL	cosim-p	none			3	288992975	(3s): rv64uf-p-fdiv: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=f5229312ee6c	default
+rv64uf-p-fmadd	FAIL	cosim-p	none			3	116196636	(3s): rv64uf-p-fmadd: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=2953765bd67e	default
+rv64uf-p-fmin	FAIL	cosim-p	none			3	490315452	(3s): rv64uf-p-fmin: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=b0bbfe6efb87	default
+rv64uf-p-ldst	FAIL	cosim-p	none			3	740860970	(3s): rv64uf-p-ldst: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=56e875c25e1e	default
+rv64uf-p-move	FAIL	cosim-p	none			3	403352773	(3s): rv64uf-p-move: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=2821f2f3816d	default
+rv64uf-p-recoding	FAIL	cosim-p	none			3	570362432	(3s): rv64uf-p-recoding: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=f0b1a1d694b5	default
+rv64ui-p-add	FAIL	cosim-p	none			3	594495453	(3s): rv64ui-p-add: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=7b468bdfa39c	default
+rv64ui-p-addi	FAIL	cosim-p	none			3	281093804	(3s): rv64ui-p-addi: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=67acb3419667	default
+rv64ui-p-addiw	FAIL	cosim-p	none			3	278723878	(3s): rv64ui-p-addiw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=379822779605	default
+rv64ui-p-addw	FAIL	cosim-p	none			3	280092635	(3s): rv64ui-p-addw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=8ffd9e71615e	default
+rv64ui-p-and	FAIL	cosim-p	none			3	407074027	(3s): rv64ui-p-and: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=fed3c0eb35de	default
+rv64ui-p-andi	FAIL	cosim-p	none			2	252403968	(2s): rv64ui-p-andi: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=2805f8f75229	default
+rv64ui-p-auipc	FAIL	cosim-p	none			2	874519552	(2s): rv64ui-p-auipc: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=62693af934c8	default
+rv64ui-p-beq	FAIL	cosim-p	none			3	961345129	(3s): rv64ui-p-beq: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=a8bd166b31db	default
+rv64ui-p-bge	FAIL	cosim-p	none			3	252744701	(3s): rv64ui-p-bge: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d738f0c3f217	default
+rv64ui-p-bgeu	FAIL	cosim-p	none			3	712767564	(3s): rv64ui-p-bgeu: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=171d9485fa40	default
+rv64ui-p-blt	FAIL	cosim-p	none			3	245133578	(3s): rv64ui-p-blt: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=4eac6774a169	default
+rv64ui-p-bltu	FAIL	cosim-p	none			3	821503407	(3s): rv64ui-p-bltu: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=e5ac80b9d0b8	default
+rv64ui-p-bne	FAIL	cosim-p	none			3	32754528	(3s): rv64ui-p-bne: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=147055896d92	default
+rv64ui-p-fence_i	FAIL	cosim-p	none			3	445035393	(3s): rv64ui-p-fence_i: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=614a36bcbda7	default
+rv64ui-p-jal	FAIL	cosim-p	none			3	810433152	(3s): rv64ui-p-jal: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=21f12844de4b	default
+rv64ui-p-jalr	FAIL	cosim-p	none			2	24569644	(2s): rv64ui-p-jalr: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d6bf11d45544	default
+rv64ui-p-lb	FAIL	cosim-p	none			3	844486269	(3s): rv64ui-p-lb: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=9c7b3a70c8ba	default
+rv64ui-p-lbu	FAIL	cosim-p	none			3	503138118	(3s): rv64ui-p-lbu: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=670de5051aac	default
+rv64ui-p-ld	FAIL	cosim-p	none			3	492514766	(3s): rv64ui-p-ld: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=2cfba1ba6a96	default
+rv64ui-p-ld_st	FAIL	cosim-p	none			3	494787156	(3s): rv64ui-p-ld_st: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=5fb5514d9903	default
+rv64ui-p-lh	FAIL	cosim-p	none			3	419375562	(3s): rv64ui-p-lh: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=8f0a10112c01	default
+rv64ui-p-lhu	FAIL	cosim-p	none			3	688986652	(3s): rv64ui-p-lhu: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=51d9629dc487	default
+rv64ui-p-lui	FAIL	cosim-p	none			3	797505342	(3s): rv64ui-p-lui: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d4db7dc060db	default
+rv64ui-p-lw	FAIL	cosim-p	none			3	914111381	(3s): rv64ui-p-lw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=48a9d77da926	default
+rv64ui-p-lwu	FAIL	cosim-p	none			3	382596209	(3s): rv64ui-p-lwu: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=ac1d5db7cdd9	default
+rv64ui-p-ma_data	FAIL	cosim-p	none			3	233157998	(3s): rv64ui-p-ma_data: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=18e8889d579a	default
+rv64ui-p-or	FAIL	cosim-p	none			3	81982208	(3s): rv64ui-p-or: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=94d824e2f4e6	default
+rv64ui-p-ori	FAIL	cosim-p	none			3	216885575	(3s): rv64ui-p-ori: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=4872f4dd54c2	default
+rv64ui-p-sb	FAIL	cosim-p	none			3	16676419	(3s): rv64ui-p-sb: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=317362241c9b	default
+rv64ui-p-sd	FAIL	cosim-p	none			3	790054035	(3s): rv64ui-p-sd: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=f6c4c2a449a0	default
+rv64ui-p-sh	FAIL	cosim-p	none			3	658769149	(3s): rv64ui-p-sh: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d119e5230434	default
+rv64ui-p-simple	FAIL	cosim-p	none			3	614622415	(3s): rv64ui-p-simple: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=f5fe953b0cb0	default
+rv64ui-p-sll	FAIL	cosim-p	none			2	311242708	(2s): rv64ui-p-sll: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=9309c904cf31	default
+rv64ui-p-slli	FAIL	cosim-p	none			2	845418896	(2s): rv64ui-p-slli: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=9d9673d926c5	default
+rv64ui-p-slliw	FAIL	cosim-p	none			3	608797554	(3s): rv64ui-p-slliw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=89895a78efbf	default
+rv64ui-p-sllw	FAIL	cosim-p	none			3	6544603	(3s): rv64ui-p-sllw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=199520d45e86	default
+rv64ui-p-slt	FAIL	cosim-p	none			3	893248517	(3s): rv64ui-p-slt: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=46964da2f0ab	default
+rv64ui-p-slti	FAIL	cosim-p	none			3	588821848	(3s): rv64ui-p-slti: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=92e24bcef9fb	default
+rv64ui-p-sltiu	FAIL	cosim-p	none			3	764100326	(3s): rv64ui-p-sltiu: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=b0857d919451	default
+rv64ui-p-sltu	FAIL	cosim-p	none			2	569444663	(2s): rv64ui-p-sltu: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=798aa2edb23a	default
+rv64ui-p-sra	FAIL	cosim-p	none			3	467883079	(3s): rv64ui-p-sra: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=eeec8339090f	default
+rv64ui-p-srai	FAIL	cosim-p	none			3	735348449	(3s): rv64ui-p-srai: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=ef9bb985bef2	default
+rv64ui-p-sraiw	FAIL	cosim-p	none			3	1032262	(3s): rv64ui-p-sraiw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=ce3b3b8c1230	default
+rv64ui-p-sraw	FAIL	cosim-p	none			3	825780685	(3s): rv64ui-p-sraw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=1eb374fcc5af	default
+rv64ui-p-srl	FAIL	cosim-p	none			3	653850414	(3s): rv64ui-p-srl: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=5c09be861044	default
+rv64ui-p-srli	FAIL	cosim-p	none			3	604867714	(3s): rv64ui-p-srli: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d0db9d0141ce	default
+rv64ui-p-srliw	FAIL	cosim-p	none			2	499592439	(2s): rv64ui-p-srliw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=0218eebd1a7f	default
+rv64ui-p-srlw	FAIL	cosim-p	none			3	954151980	(3s): rv64ui-p-srlw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=6b8416523738	default
+rv64ui-p-st_ld	FAIL	cosim-p	none			3	624120726	(3s): rv64ui-p-st_ld: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=98e9f1d8e2bd	default
+rv64ui-p-sub	FAIL	cosim-p	none			3	226712589	(3s): rv64ui-p-sub: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=fc4f51f80e75	default
+rv64ui-p-subw	FAIL	cosim-p	none			2	179870436	(2s): rv64ui-p-subw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=8e9c0aba1b1b	default
+rv64ui-p-sw	FAIL	cosim-p	none			3	278726867	(3s): rv64ui-p-sw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=8ff4321bb71c	default
+rv64ui-p-xor	FAIL	cosim-p	none			3	989253079	(3s): rv64ui-p-xor: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=7252c00119dd	default
+rv64ui-p-xori	FAIL	cosim-p	none			3	91180075	(3s): rv64ui-p-xori: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d5582312eb9b	default
+rv64um-p-div	FAIL	cosim-p	none			3	440071745	(3s): rv64um-p-div: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=887f70376825	default
+rv64um-p-divu	FAIL	cosim-p	none			3	538454866	(3s): rv64um-p-divu: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=eb1d6aaa0ee5	default
+rv64um-p-divuw	FAIL	cosim-p	none			3	366339826	(3s): rv64um-p-divuw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=512d36f2d7a8	default
+rv64um-p-divw	FAIL	cosim-p	none			3	225796936	(3s): rv64um-p-divw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=1a7eb0eb7947	default
+rv64um-p-mul	FAIL	cosim-p	none			3	352075994	(3s): rv64um-p-mul: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=52830077135e	default
+rv64um-p-mulh	FAIL	cosim-p	none			3	882885038	(3s): rv64um-p-mulh: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=951a226ef476	default
+rv64um-p-mulhsu	FAIL	cosim-p	none			3	546315068	(3s): rv64um-p-mulhsu: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=fd159c32670b	default
+rv64um-p-mulhu	FAIL	cosim-p	none			3	808774524	(3s): rv64um-p-mulhu: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=bea18dffe2f9	default
+rv64um-p-mulw	FAIL	cosim-p	none			3	446403509	(3s): rv64um-p-mulw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=8df7dd92f028	default
+rv64um-p-rem	FAIL	cosim-p	none			3	926951204	(3s): rv64um-p-rem: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=9a86caeda0c8	default
+rv64um-p-remu	FAIL	cosim-p	none			3	138679444	(3s): rv64um-p-remu: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=c31f74764558	default
+rv64um-p-remuw	FAIL	cosim-p	none			3	808492315	(3s): rv64um-p-remuw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=7af617574906	default
+rv64um-p-remw	FAIL	cosim-p	none			3	457374886	(3s): rv64um-p-remw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=5df13491037b	default
+rv64uzba-p-add_uw	FAIL	cosim-p	none			2	235218987	(2s): rv64uzba-p-add_uw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=c754ac569938	default
+rv64uzba-p-sh1add	FAIL	cosim-p	none			3	258940762	(3s): rv64uzba-p-sh1add: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=daf29919843d	default
+rv64uzba-p-sh1add_uw	FAIL	cosim-p	none			3	102235911	(3s): rv64uzba-p-sh1add_uw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=99405aa84f96	default
+rv64uzba-p-sh2add	FAIL	cosim-p	none			3	833640622	(3s): rv64uzba-p-sh2add: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=21098dfe03f0	default
+rv64uzba-p-sh2add_uw	FAIL	cosim-p	none			3	855269945	(3s): rv64uzba-p-sh2add_uw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=93205a747284	default
+rv64uzba-p-sh3add	FAIL	cosim-p	none			3	642793522	(3s): rv64uzba-p-sh3add: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=828546199f2c	default
+rv64uzba-p-sh3add_uw	FAIL	cosim-p	none			3	532540268	(3s): rv64uzba-p-sh3add_uw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=955041d9407c	default
+rv64uzba-p-slli_uw	FAIL	cosim-p	none			3	191432439	(3s): rv64uzba-p-slli_uw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=19a22b23358b	default
+rv64uzbb-p-andn	FAIL	cosim-p	none			3	598573374	(3s): rv64uzbb-p-andn: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=7d450a0a303b	default
+rv64uzbb-p-clz	FAIL	cosim-p	none			3	808199044	(3s): rv64uzbb-p-clz: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=1a27e9cf338f	default
+rv64uzbb-p-clzw	FAIL	cosim-p	none			3	355018818	(3s): rv64uzbb-p-clzw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=fe3007e1ec89	default
+rv64uzbb-p-cpop	FAIL	cosim-p	none			3	54136576	(3s): rv64uzbb-p-cpop: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=6cf286f0346b	default
+rv64uzbb-p-cpopw	FAIL	cosim-p	none			3	577377358	(3s): rv64uzbb-p-cpopw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=2d1b7c2a7297	default
+rv64uzbb-p-ctz	FAIL	cosim-p	none			2	493914044	(2s): rv64uzbb-p-ctz: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=8b54519885a2	default
+rv64uzbb-p-ctzw	FAIL	cosim-p	none			3	248476827	(3s): rv64uzbb-p-ctzw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=3d288411c810	default
+rv64uzbb-p-max	FAIL	cosim-p	none			3	384421784	(3s): rv64uzbb-p-max: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=7c4dd293080b	default
+rv64uzbb-p-maxu	FAIL	cosim-p	none			3	202861084	(3s): rv64uzbb-p-maxu: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=ea1e35cda589	default
+rv64uzbb-p-min	FAIL	cosim-p	none			3	264300553	(3s): rv64uzbb-p-min: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=aadb1852f847	default
+rv64uzbb-p-minu	FAIL	cosim-p	none			2	584668418	(2s): rv64uzbb-p-minu: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=c22f65095466	default
+rv64uzbb-p-orc_b	FAIL	cosim-p	none			3	756520808	(3s): rv64uzbb-p-orc_b: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=bd55aa8fd3a0	default
+rv64uzbb-p-orn	FAIL	cosim-p	none			3	764729126	(3s): rv64uzbb-p-orn: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=a1fd8b8c6caa	default
+rv64uzbb-p-rev8	FAIL	cosim-p	none			3	917116365	(3s): rv64uzbb-p-rev8: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=08ff4adc44ef	default
+rv64uzbb-p-rol	FAIL	cosim-p	none			3	406062947	(3s): rv64uzbb-p-rol: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=849ef0cdee37	default
+rv64uzbb-p-rolw	FAIL	cosim-p	none			3	346594764	(3s): rv64uzbb-p-rolw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=7f8f85d1e908	default
+rv64uzbb-p-ror	FAIL	cosim-p	none			3	150925126	(3s): rv64uzbb-p-ror: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=82c584253e89	default
+rv64uzbb-p-rori	FAIL	cosim-p	none			3	817951776	(3s): rv64uzbb-p-rori: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=4d07952d9f64	default
+rv64uzbb-p-roriw	FAIL	cosim-p	none			3	975802067	(3s): rv64uzbb-p-roriw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=adca4dcf1b27	default
+rv64uzbb-p-rorw	FAIL	cosim-p	none			2	739040386	(2s): rv64uzbb-p-rorw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=499e6f0b34f6	default
+rv64uzbb-p-sext_b	FAIL	cosim-p	none			3	105475253	(3s): rv64uzbb-p-sext_b: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=477576035175	default
+rv64uzbb-p-sext_h	FAIL	cosim-p	none			3	728697239	(3s): rv64uzbb-p-sext_h: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=5f965fd89e47	default
+rv64uzbb-p-xnor	FAIL	cosim-p	none			3	665667695	(3s): rv64uzbb-p-xnor: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=7aecfa8142c9	default
+rv64uzbb-p-zext_h	FAIL	cosim-p	none			3	798555430	(3s): rv64uzbb-p-zext_h: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=5b1e4f5c0252	default
+rv64uzbc-p-clmul	FAIL	cosim-p	none			3	383369089	(3s): rv64uzbc-p-clmul: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=c9bf8ed0b8b4	default
+rv64uzbc-p-clmulh	FAIL	cosim-p	none			3	698345040	(3s): rv64uzbc-p-clmulh: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=80c983d8b1a2	default
+rv64uzbc-p-clmulr	FAIL	cosim-p	none			3	145776259	(3s): rv64uzbc-p-clmulr: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=ce10a9c2d92b	default
+rv64uzbkb-p-brev8	FAIL	cosim-p	none			3	752591096	(3s): rv64uzbkb-p-brev8: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d70cbe8d4eb3	default
+rv64uzbkb-p-pack	FAIL	cosim-p	none			3	359461716	(3s): rv64uzbkb-p-pack: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=86d6b661db7c	default
+rv64uzbkb-p-packh	FAIL	cosim-p	none			3	222240771	(3s): rv64uzbkb-p-packh: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=94aa6376349a	default
+rv64uzbkb-p-packw	FAIL	cosim-p	none			3	111238105	(3s): rv64uzbkb-p-packw: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=b24ec26b99a6	default
+rv64uzbkx-p-xperm4	FAIL	cosim-p	none			3	594943806	(3s): rv64uzbkx-p-xperm4: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=0c4a86b832c8	default
+rv64uzbkx-p-xperm8	FAIL	cosim-p	none			2	300223072	(2s): rv64uzbkx-p-xperm8: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=3a984fa61e12	default
+rv64uzbs-p-bclr	FAIL	cosim-p	none			3	150963465	(3s): rv64uzbs-p-bclr: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=9d265fd1a0c4	default
+rv64uzbs-p-bclri	FAIL	cosim-p	none			3	305953045	(3s): rv64uzbs-p-bclri: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=5b366ea8b441	default
+rv64uzbs-p-bext	FAIL	cosim-p	none			3	485092858	(3s): rv64uzbs-p-bext: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=0ead8e12433d	default
+rv64uzbs-p-bexti	FAIL	cosim-p	none			3	296387895	(3s): rv64uzbs-p-bexti: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=c9f128bdd7f3	default
+rv64uzbs-p-binv	FAIL	cosim-p	none			3	94588181	(3s): rv64uzbs-p-binv: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=462541e29752	default
+rv64uzbs-p-binvi	FAIL	cosim-p	none			3	570079850	(3s): rv64uzbs-p-binvi: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=21ab13d48ed1	default
+rv64uzbs-p-bset	FAIL	cosim-p	none			3	55368271	(3s): rv64uzbs-p-bset: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=1cc15f3712fd	default
+rv64uzbs-p-bseti	FAIL	cosim-p	none			3	958320559	(3s): rv64uzbs-p-bseti: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=9780b446ac3d	default
+rv64uzfh-p-fadd	FAIL	cosim-p	none			3	811150009	(3s): rv64uzfh-p-fadd: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=dd152d19a464	default
+rv64uzfh-p-fclass	FAIL	cosim-p	none			3	442328850	(3s): rv64uzfh-p-fclass: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d841bfa2e096	default
+rv64uzfh-p-fcmp	FAIL	cosim-p	none			3	306672893	(3s): rv64uzfh-p-fcmp: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=2d42dec26aae	default
+rv64uzfh-p-fcvt	FAIL	cosim-p	none			3	897491251	(3s): rv64uzfh-p-fcvt: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=47a2702ead70	default
+rv64uzfh-p-fcvt_w	FAIL	cosim-p	none			3	173448422	(3s): rv64uzfh-p-fcvt_w: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=ed8cef973d15	default
+rv64uzfh-p-fdiv	FAIL	cosim-p	none			3	404521390	(3s): rv64uzfh-p-fdiv: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=45436df3dd41	default
+rv64uzfh-p-fmadd	FAIL	cosim-p	none			3	129956438	(3s): rv64uzfh-p-fmadd: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=53593295cb44	default
+rv64uzfh-p-fmin	FAIL	cosim-p	none			3	222963185	(3s): rv64uzfh-p-fmin: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=4f1a5e769199	default
+rv64uzfh-p-ldst	FAIL	cosim-p	none			2	980769402	(2s): rv64uzfh-p-ldst: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=08df08565a69	default
+rv64uzfh-p-move	FAIL	cosim-p	none			3	310155208	(3s): rv64uzfh-p-move: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=65f77b19f08e	default
+rv64uzfh-p-recoding	FAIL	cosim-p	none			3	697829917	(3s): rv64uzfh-p-recoding: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=dd9d8d81c922	default
+rv64uzicond-p-czero_eqz	FAIL	cosim-p	none			2	497954547	(2s): rv64uzicond-p-czero_eqz: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=6dec7366e5c6	default
+rv64uzicond-p-czero_nez	FAIL	cosim-p	none			2	402158345	(2s): rv64uzicond-p-czero_nez: MISMATCH at commit 38 pc=0x800000e0 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=620a32fb8a76	default
+rv64ua-v-amoadd_d	FAIL	cosim-v	1/18			3	302093878	(3s): rv64ua-v-amoadd_d: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=3140e7e501cf	default
+rv64ua-v-amoadd_w	FAIL	cosim-v	2/18			3	140349266	(3s): rv64ua-v-amoadd_w: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=0905af460ec7	default
+rv64ua-v-amoand_d	FAIL	cosim-v	3/18			3	293532100	(3s): rv64ua-v-amoand_d: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=510690ce46ac	default
+rv64ua-v-amoand_w	FAIL	cosim-v	4/18			4	908968664	(4s): rv64ua-v-amoand_w: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=997e5976df1d	default
+rv64ua-v-amomax_d	FAIL	cosim-v	5/18			2	972960805	(2s): rv64ua-v-amomax_d: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=3974885f0e7b	default
+rv64ua-v-amomax_w	FAIL	cosim-v	6/18			2	478232962	(2s): rv64ua-v-amomax_w: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=55c37ff16084	default
+rv64ua-v-amomaxu_d	FAIL	cosim-v	7/18			4	675467582	(4s): rv64ua-v-amomaxu_d: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=af707dd55f0b	default
+rv64ua-v-amomaxu_w	FAIL	cosim-v	8/18			3	82988225	(3s): rv64ua-v-amomaxu_w: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d73d16365259	default
+rv64ua-v-amomin_d	FAIL	cosim-v	9/18			3	143663243	(3s): rv64ua-v-amomin_d: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=feb3ac6fe855	default
+rv64ua-v-amomin_w	FAIL	cosim-v	10/18			2	767437235	(2s): rv64ua-v-amomin_w: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=203dbf907392	default
+rv64ua-v-amominu_d	FAIL	cosim-v	11/18			3	402496675	(3s): rv64ua-v-amominu_d: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=fd1e7671e37d	default
+rv64ua-v-amominu_w	FAIL	cosim-v	12/18			5	324450943	(5s): rv64ua-v-amominu_w: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=163ee1e35749	default
+rv64ua-v-amoor_d	FAIL	cosim-v	13/18			3	245844154	(3s): rv64ua-v-amoor_d: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=3b0ab790bcc8	default
+rv64ua-v-amoor_w	FAIL	cosim-v	14/18			2	518324165	(2s): rv64ua-v-amoor_w: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=c4fac04dc9b9	default
+rv64ua-v-amoswap_d	FAIL	cosim-v	15/18			3	924759680	(3s): rv64ua-v-amoswap_d: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=48ef905c0449	default
+rv64ua-v-amoswap_w	FAIL	cosim-v	16/18			3	996530133	(3s): rv64ua-v-amoswap_w: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=25d9f66c5aec	default
+rv64ua-v-amoxor_d	FAIL	cosim-v	17/18			3	87987353	(3s): rv64ua-v-amoxor_d: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=e740790a9b87	default
+rv64ua-v-amoxor_w	FAIL	cosim-v	18/18			3	627034419	(3s): rv64ua-v-amoxor_w: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=a409fc9f1ef8	default
+rv64ua-v-lrsc	FAIL	cosim-v	1/18			3	1688737	(3s): rv64ua-v-lrsc: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=f1a134b315d0	default
+rv64uc-v-rvc	FAIL	cosim-v	2/18			3	243096886	(3s): rv64uc-v-rvc: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=feb30eaf4361	default
+rv64ud-v-fadd	FAIL	cosim-v	3/18			3	496326431	(3s): rv64ud-v-fadd: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=2a89e890e3d4	default
+rv64ud-v-fclass	FAIL	cosim-v	4/18			4	581111658	(4s): rv64ud-v-fclass: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=a0bf4829ccc7	default
+rv64ud-v-fcmp	FAIL	cosim-v	5/18			2	211620302	(2s): rv64ud-v-fcmp: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=16d7e74ff32e	default
+rv64ud-v-fcvt	FAIL	cosim-v	6/18			2	351055505	(2s): rv64ud-v-fcvt: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=5dc5153ffa42	default
+rv64ud-v-fcvt_w	FAIL	cosim-v	7/18			4	930661338	(4s): rv64ud-v-fcvt_w: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=33c8445f2824	default
+rv64ud-v-fdiv	FAIL	cosim-v	8/18			4	921869091	(4s): rv64ud-v-fdiv: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=ba9d62d9f7c3	default
+rv64ud-v-fmadd	FAIL	cosim-v	9/18			3	866000657	(3s): rv64ud-v-fmadd: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=274cef560132	default
+rv64ud-v-fmin	FAIL	cosim-v	10/18			2	252134287	(2s): rv64ud-v-fmin: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=61ced6cf91db	default
+rv64ud-v-ldst	FAIL	cosim-v	11/18			3	952768938	(3s): rv64ud-v-ldst: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=b7172a19df22	default
+rv64ud-v-move	FAIL	cosim-v	12/18			5	331409539	(5s): rv64ud-v-move: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=4dba3017f2d7	default
+rv64ud-v-recoding	FAIL	cosim-v	13/18			3	214469206	(3s): rv64ud-v-recoding: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=82b911957234	default
+rv64ud-v-structural	FAIL	cosim-v	14/18			2	689857579	(2s): rv64ud-v-structural: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=35dc0228dca7	default
+rv64uf-v-fadd	FAIL	cosim-v	15/18			3	324501759	(3s): rv64uf-v-fadd: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=de7c37a71d2b	default
+rv64uf-v-fclass	FAIL	cosim-v	16/18			3	432382076	(3s): rv64uf-v-fclass: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=1b806d414041	default
+rv64uf-v-fcmp	FAIL	cosim-v	17/18			3	480668550	(3s): rv64uf-v-fcmp: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=ea54f3b5df92	default
+rv64uf-v-fcvt	FAIL	cosim-v	18/18			3	804616378	(3s): rv64uf-v-fcvt: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=2473058af3d9	default
+rv64uf-v-fcvt_w	FAIL	cosim-v	1/18			3	185536021	(3s): rv64uf-v-fcvt_w: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=2a2d2978ca82	default
+rv64uf-v-fdiv	FAIL	cosim-v	2/18			3	751659411	(3s): rv64uf-v-fdiv: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=e93e674aa66d	default
+rv64uf-v-fmadd	FAIL	cosim-v	3/18			4	785995722	(4s): rv64uf-v-fmadd: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=b11ea6c4117c	default
+rv64uf-v-fmin	FAIL	cosim-v	4/18			4	761439087	(4s): rv64uf-v-fmin: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=f453c47e0dca	default
+rv64uf-v-ldst	FAIL	cosim-v	5/18			2	993981402	(2s): rv64uf-v-ldst: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=df4470101b68	default
+rv64uf-v-move	FAIL	cosim-v	6/18			2	798230203	(2s): rv64uf-v-move: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=080c5d223afa	default
+rv64uf-v-recoding	FAIL	cosim-v	7/18			4	507727637	(4s): rv64uf-v-recoding: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=0aba3f2442a9	default
+rv64ui-v-add	FAIL	cosim-v	8/18			4	486149478	(4s): rv64ui-v-add: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=79b3980ee3c2	default
+rv64ui-v-addi	FAIL	cosim-v	9/18			3	594310153	(3s): rv64ui-v-addi: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=8c9eda118d20	default
+rv64ui-v-addiw	FAIL	cosim-v	10/18			2	813096111	(2s): rv64ui-v-addiw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=581d764c7f85	default
+rv64ui-v-addw	FAIL	cosim-v	11/18			3	213742200	(3s): rv64ui-v-addw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=57a8111f0ca7	default
+rv64ui-v-and	FAIL	cosim-v	12/18			5	706440547	(5s): rv64ui-v-and: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=a04920b25495	default
+rv64ui-v-andi	FAIL	cosim-v	13/18			3	630070888	(3s): rv64ui-v-andi: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=671e1e0d1d75	default
+rv64ui-v-auipc	FAIL	cosim-v	14/18			2	102995177	(2s): rv64ui-v-auipc: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=58291756f9ad	default
+rv64ui-v-beq	FAIL	cosim-v	15/18			3	893217219	(3s): rv64ui-v-beq: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=bed3268c5c56	default
+rv64ui-v-bge	FAIL	cosim-v	16/18			3	461526391	(3s): rv64ui-v-bge: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=e833b4f9e9b8	default
+rv64ui-v-bgeu	FAIL	cosim-v	17/18			3	963031830	(3s): rv64ui-v-bgeu: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=20e1180b9201	default
+rv64ui-v-blt	FAIL	cosim-v	18/18			3	763395972	(3s): rv64ui-v-blt: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=e779d4a5209c	default
+rv64ui-v-bltu	FAIL	cosim-v	1/18			3	890756894	(3s): rv64ui-v-bltu: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=2aa0db75882a	default
+rv64ui-v-bne	FAIL	cosim-v	2/18			3	883182666	(3s): rv64ui-v-bne: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=fc379a9edd79	default
+rv64ui-v-fence_i	FAIL	cosim-v	3/18			3	901032628	(3s): rv64ui-v-fence_i: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=7a2b4482577c	default
+rv64ui-v-jal	FAIL	cosim-v	4/18			4	325393117	(4s): rv64ui-v-jal: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=5b80a35d86a9	default
+rv64ui-v-jalr	FAIL	cosim-v	5/18			2	904507688	(2s): rv64ui-v-jalr: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=bf0b66cefb00	default
+rv64ui-v-lb	FAIL	cosim-v	6/18			2	401512875	(2s): rv64ui-v-lb: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=184c6c247e7a	default
+rv64ui-v-lbu	FAIL	cosim-v	7/18			4	345869310	(4s): rv64ui-v-lbu: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=73b4296a314e	default
+rv64ui-v-ld	FAIL	cosim-v	8/18			4	817361413	(4s): rv64ui-v-ld: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=2287ca0020ae	default
+rv64ui-v-ld_st	FAIL	cosim-v	9/18			3	473772928	(3s): rv64ui-v-ld_st: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=810966ee8f7a	default
+rv64ui-v-lh	FAIL	cosim-v	10/18			2	226098850	(2s): rv64ui-v-lh: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=c1ab9dfb8019	default
+rv64ui-v-lhu	FAIL	cosim-v	11/18			3	651201286	(3s): rv64ui-v-lhu: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=0eec4bd18e85	default
+rv64ui-v-lui	FAIL	cosim-v	12/18			4	416730020	(4s): rv64ui-v-lui: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d22beb3b8935	default
+rv64ui-v-lw	FAIL	cosim-v	13/18			3	384250090	(3s): rv64ui-v-lw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=30a09eb3fb73	default
+rv64ui-v-lwu	FAIL	cosim-v	14/18			3	257945948	(3s): rv64ui-v-lwu: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=166752c3ae50	default
+rv64ui-v-ma_data	FAIL	cosim-v	15/18			3	311094620	(3s): rv64ui-v-ma_data: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=972212c7e9f4	default
+rv64ui-v-or	FAIL	cosim-v	16/18			3	35131100	(3s): rv64ui-v-or: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=810a0fa606a9	default
+rv64ui-v-ori	FAIL	cosim-v	17/18			3	774895360	(3s): rv64ui-v-ori: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=24fee93d46e7	default
+rv64ui-v-sb	FAIL	cosim-v	18/18			3	98056495	(3s): rv64ui-v-sb: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=cc9992614c78	default
+rv64ui-v-sd	FAIL	cosim-v	1/18			2	606088488	(2s): rv64ui-v-sd: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=b4a0a9536b49	default
+rv64ui-v-sh	FAIL	cosim-v	2/18			2	896570994	(2s): rv64ui-v-sh: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=0a3e0bcbc483	default
+rv64ui-v-simple	FAIL	cosim-v	3/18			3	752101552	(3s): rv64ui-v-simple: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=1419441e8235	default
+rv64ui-v-sll	FAIL	cosim-v	4/18			4	530165343	(4s): rv64ui-v-sll: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=6d495cf750c2	default
+rv64ui-v-slli	FAIL	cosim-v	5/18			3	872776316	(3s): rv64ui-v-slli: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=7fbb83cced10	default
+rv64ui-v-slliw	FAIL	cosim-v	6/18			3	282635047	(3s): rv64ui-v-slliw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=2158957beed2	default
+rv64ui-v-sllw	FAIL	cosim-v	7/18			5	252514192	(5s): rv64ui-v-sllw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=ca1ed6de408f	default
+rv64ui-v-slt	FAIL	cosim-v	8/18			3	85856700	(3s): rv64ui-v-slt: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=5b737455b9b1	default
+rv64ui-v-slti	FAIL	cosim-v	9/18			4	584344394	(4s): rv64ui-v-slti: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=ea41b68889d2	default
+rv64ui-v-sltiu	FAIL	cosim-v	10/18			3	264034871	(3s): rv64ui-v-sltiu: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=4cbe2c950492	default
+rv64ui-v-sltu	FAIL	cosim-v	11/18			3	601403730	(3s): rv64ui-v-sltu: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d1ed7770c175	default
+rv64ui-v-sra	FAIL	cosim-v	12/18			4	349247149	(4s): rv64ui-v-sra: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=3eadc6017b74	default
+rv64ui-v-srai	FAIL	cosim-v	13/18			2	285304889	(2s): rv64ui-v-srai: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=f05b13706bad	default
+rv64ui-v-sraiw	FAIL	cosim-v	14/18			3	981466971	(3s): rv64ui-v-sraiw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=f65961999c74	default
+rv64ui-v-sraw	FAIL	cosim-v	15/18			3	259689299	(3s): rv64ui-v-sraw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=3a1ba80d8a6e	default
+rv64ui-v-srl	FAIL	cosim-v	16/18			2	985663126	(2s): rv64ui-v-srl: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d85127446331	default
+rv64ui-v-srli	FAIL	cosim-v	17/18			3	958170830	(3s): rv64ui-v-srli: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=b24d972abef0	default
+rv64ui-v-srliw	FAIL	cosim-v	18/18			2	491650948	(2s): rv64ui-v-srliw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=cb0c5bc036d2	default
+rv64ui-v-srlw	FAIL	cosim-v	1/18			3	212915293	(3s): rv64ui-v-srlw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=710117463ab8	default
+rv64ui-v-st_ld	FAIL	cosim-v	2/18			2	383693458	(2s): rv64ui-v-st_ld: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=5d669741ff54	default
+rv64ui-v-sub	FAIL	cosim-v	3/18			4	612830372	(4s): rv64ui-v-sub: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=f91c92ffffea	default
+rv64ui-v-subw	FAIL	cosim-v	4/18			5	711823618	(5s): rv64ui-v-subw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=592e3d8fe554	default
+rv64ui-v-sw	FAIL	cosim-v	5/18			3	988769269	(3s): rv64ui-v-sw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=1e5ae839eec1	default
+rv64ui-v-xor	FAIL	cosim-v	6/18			3	182582156	(3s): rv64ui-v-xor: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=b207922c4e42	default
+rv64ui-v-xori	FAIL	cosim-v	7/18			5	697401412	(5s): rv64ui-v-xori: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=94a1b71c4887	default
+rv64um-v-div	FAIL	cosim-v	8/18			3	714478591	(3s): rv64um-v-div: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=f1ad7a73fa62	default
+rv64um-v-divu	FAIL	cosim-v	9/18			4	791165226	(4s): rv64um-v-divu: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=2cbad6022f8f	default
+rv64um-v-divuw	FAIL	cosim-v	10/18			3	665985643	(3s): rv64um-v-divuw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=e1de7a88048b	default
+rv64um-v-divw	FAIL	cosim-v	11/18			3	692157197	(3s): rv64um-v-divw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=3edad12541ec	default
+rv64um-v-mul	FAIL	cosim-v	12/18			4	969201511	(4s): rv64um-v-mul: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=794065a0fc8a	default
+rv64um-v-mulh	FAIL	cosim-v	13/18			3	461866893	(3s): rv64um-v-mulh: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=062fb450b120	default
+rv64um-v-mulhsu	FAIL	cosim-v	14/18			3	743358260	(3s): rv64um-v-mulhsu: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=1d5ac7d36cd7	default
+rv64um-v-mulhu	FAIL	cosim-v	15/18			3	223533293	(3s): rv64um-v-mulhu: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=a76754cc8227	default
+rv64um-v-mulw	FAIL	cosim-v	16/18			2	354760574	(2s): rv64um-v-mulw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=adb3fc47de29	default
+rv64um-v-rem	FAIL	cosim-v	17/18			3	736636118	(3s): rv64um-v-rem: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=416940cfd31d	default
+rv64um-v-remu	FAIL	cosim-v	18/18			2	203482964	(2s): rv64um-v-remu: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=86ad4bf07814	default
+rv64um-v-remuw	FAIL	cosim-v	1/18			3	59377691	(3s): rv64um-v-remuw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=416090c9281f	default
+rv64um-v-remw	FAIL	cosim-v	2/18			2	63249340	(2s): rv64um-v-remw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=fe1729aa2695	default
+rv64uzba-v-add_uw	FAIL	cosim-v	3/18			3	466894303	(3s): rv64uzba-v-add_uw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=798f8b559f63	default
+rv64uzba-v-sh1add	FAIL	cosim-v	4/18			5	722514580	(5s): rv64uzba-v-sh1add: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=9e6591672387	default
+rv64uzba-v-sh1add_uw	FAIL	cosim-v	5/18			3	522357385	(3s): rv64uzba-v-sh1add_uw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=81479b69c627	default
+rv64uzba-v-sh2add	FAIL	cosim-v	6/18			3	159833924	(3s): rv64uzba-v-sh2add: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=e415b6b4cd73	default
+rv64uzba-v-sh2add_uw	FAIL	cosim-v	7/18			5	462902812	(5s): rv64uzba-v-sh2add_uw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=b8d7971eda62	default
+rv64uzba-v-sh3add	FAIL	cosim-v	8/18			3	950269644	(3s): rv64uzba-v-sh3add: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=53c340b06c5f	default
+rv64uzba-v-sh3add_uw	FAIL	cosim-v	9/18			4	491266453	(4s): rv64uzba-v-sh3add_uw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=8b42faf1dcfc	default
+rv64uzba-v-slli_uw	FAIL	cosim-v	10/18			3	53076454	(3s): rv64uzba-v-slli_uw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=b4319c6aa231	default
+rv64uzbb-v-andn	FAIL	cosim-v	11/18			3	302266711	(3s): rv64uzbb-v-andn: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=a1da3844046f	default
+rv64uzbb-v-clz	FAIL	cosim-v	12/18			4	304356828	(4s): rv64uzbb-v-clz: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=5675b9a10576	default
+rv64uzbb-v-clzw	FAIL	cosim-v	13/18			3	536500038	(3s): rv64uzbb-v-clzw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=a5c5ea9ceb8d	default
+rv64uzbb-v-cpop	FAIL	cosim-v	14/18			3	22637926	(3s): rv64uzbb-v-cpop: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=92763b42a3bc	default
+rv64uzbb-v-cpopw	FAIL	cosim-v	15/18			2	395141055	(2s): rv64uzbb-v-cpopw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=1ac8d7a0f302	default
+rv64uzbb-v-ctz	FAIL	cosim-v	16/18			2	306676495	(2s): rv64uzbb-v-ctz: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d8ee16b57151	default
+rv64uzbb-v-ctzw	FAIL	cosim-v	17/18			3	165701768	(3s): rv64uzbb-v-ctzw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=00de8023718a	default
+rv64uzbb-v-max	FAIL	cosim-v	18/18			2	255668765	(2s): rv64uzbb-v-max: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=766951acb656	default
+rv64uzbb-v-maxu	FAIL	cosim-v	1/18			3	233763954	(3s): rv64uzbb-v-maxu: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d09dad94a452	default
+rv64uzbb-v-min	FAIL	cosim-v	2/18			2	948349217	(2s): rv64uzbb-v-min: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=89865f8b13bb	default
+rv64uzbb-v-minu	FAIL	cosim-v	3/18			3	11457349	(3s): rv64uzbb-v-minu: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=6fd870a496b6	default
+rv64uzbb-v-orc_b	FAIL	cosim-v	4/18			5	232253918	(5s): rv64uzbb-v-orc_b: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=ee40c067eb28	default
+rv64uzbb-v-orn	FAIL	cosim-v	5/18			3	993260467	(3s): rv64uzbb-v-orn: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=58214fa5d93b	default
+rv64uzbb-v-rev8	FAIL	cosim-v	6/18			3	14588255	(3s): rv64uzbb-v-rev8: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=6652d5c5bb63	default
+rv64uzbb-v-rol	FAIL	cosim-v	7/18			5	577382953	(5s): rv64uzbb-v-rol: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=ffac13fbbab7	default
+rv64uzbb-v-rolw	FAIL	cosim-v	8/18			3	861590413	(3s): rv64uzbb-v-rolw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=a35acd6a900c	default
+rv64uzbb-v-ror	FAIL	cosim-v	9/18			4	549899339	(4s): rv64uzbb-v-ror: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=ffcd4d1f1e21	default
+rv64uzbb-v-rori	FAIL	cosim-v	10/18			3	375024345	(3s): rv64uzbb-v-rori: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=80b48f6f9c3b	default
+rv64uzbb-v-roriw	FAIL	cosim-v	11/18			3	488071097	(3s): rv64uzbb-v-roriw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=14384d01c0f1	default
+rv64uzbb-v-rorw	FAIL	cosim-v	12/18			4	154221483	(4s): rv64uzbb-v-rorw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=1bd2af5fe98f	default
+rv64uzbb-v-sext_b	FAIL	cosim-v	13/18			3	326443380	(3s): rv64uzbb-v-sext_b: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=f21aa946fcf4	default
+rv64uzbb-v-sext_h	FAIL	cosim-v	14/18			2	892087651	(2s): rv64uzbb-v-sext_h: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=49a43c9c714a	default
+rv64uzbb-v-xnor	FAIL	cosim-v	15/18			3	947294385	(3s): rv64uzbb-v-xnor: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=25711794ce4c	default
+rv64uzbb-v-zext_h	FAIL	cosim-v	16/18			2	886420413	(2s): rv64uzbb-v-zext_h: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=9a5c7c9f1a28	default
+rv64uzbc-v-clmul	FAIL	cosim-v	17/18			3	473943347	(3s): rv64uzbc-v-clmul: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=3953afdbaba1	default
+rv64uzbc-v-clmulh	FAIL	cosim-v	18/18			2	27604971	(2s): rv64uzbc-v-clmulh: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=d2bd85d1cf5b	default
+rv64uzbc-v-clmulr	FAIL	cosim-v	1/18			2	348352212	(2s): rv64uzbc-v-clmulr: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=40f032da18de	default
+rv64uzbkb-v-brev8	FAIL	cosim-v	2/18			2	243688950	(2s): rv64uzbkb-v-brev8: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=48a0a2b613de	default
+rv64uzbkb-v-pack	FAIL	cosim-v	3/18			2	819761950	(2s): rv64uzbkb-v-pack: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=ccdd03f78238	default
+rv64uzbkb-v-packh	FAIL	cosim-v	4/18			2	798253661	(2s): rv64uzbkb-v-packh: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=afdf2bb27eeb	default
+rv64uzbkb-v-packw	FAIL	cosim-v	5/18			1	772488827	(1s): rv64uzbkb-v-packw: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=641ee5ba2d3d	default
+rv64uzbkx-v-xperm4	FAIL	cosim-v	6/18			2	786790347	(2s): rv64uzbkx-v-xperm4: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=e95840a5076f	default
+rv64uzbkx-v-xperm8	FAIL	cosim-v	7/18			3	772699733	(3s): rv64uzbkx-v-xperm8: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=41f9e7ec0a14	default
+rv64uzbs-v-bclr	FAIL	cosim-v	8/18			2	489460307	(2s): rv64uzbs-v-bclr: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=c84023ef777b	default
+rv64uzbs-v-bclri	FAIL	cosim-v	9/18			2	579773987	(2s): rv64uzbs-v-bclri: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=10db000bd812	default
+rv64uzbs-v-bext	FAIL	cosim-v	10/18			2	975664435	(2s): rv64uzbs-v-bext: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=83ecbddd2d0c	default
+rv64uzbs-v-bexti	FAIL	cosim-v	11/18			1	123910677	(1s): rv64uzbs-v-bexti: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=a4d8fdf5f6cb	default
+rv64uzbs-v-binv	FAIL	cosim-v	12/18			3	670906062	(3s): rv64uzbs-v-binv: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=bea4a6796339	default
+rv64uzbs-v-binvi	FAIL	cosim-v	13/18			2	422993438	(2s): rv64uzbs-v-binvi: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=70412f346c2e	default
+rv64uzbs-v-bset	FAIL	cosim-v	14/18			2	280805915	(2s): rv64uzbs-v-bset: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=ee0a4305918e	default
+rv64uzbs-v-bseti	FAIL	cosim-v	15/18			2	91796766	(2s): rv64uzbs-v-bseti: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=22f036dde682	default
+rv64uzfh-v-fadd	FAIL	cosim-v	16/18			2	786332802	(2s): rv64uzfh-v-fadd: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=6d0d1579a5ba	default
+rv64uzfh-v-fclass	FAIL	cosim-v	17/18			2	705614821	(2s): rv64uzfh-v-fclass: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=36c7f93b6761	default
+rv64uzfh-v-fcmp	FAIL	cosim-v	18/18			2	563914531	(2s): rv64uzfh-v-fcmp: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=483df77f6a8d	default
+rv64uzfh-v-fcvt	FAIL	cosim-v	1/18			1	252733286	(1s): rv64uzfh-v-fcvt: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=fb22f251c34e	default
+rv64uzfh-v-fcvt_w	FAIL	cosim-v	2/18			2	582092513	(2s): rv64uzfh-v-fcvt_w: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=4370bcd0d790	default
+rv64uzfh-v-fdiv	FAIL	cosim-v	3/18			2	506725554	(2s): rv64uzfh-v-fdiv: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=574231cd7030	default
+rv64uzfh-v-fmadd	FAIL	cosim-v	4/18			2	961129697	(2s): rv64uzfh-v-fmadd: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=4fc939894b23	default
+rv64uzfh-v-fmin	FAIL	cosim-v	5/18			2	502966312	(2s): rv64uzfh-v-fmin: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=3a686b451563	default
+rv64uzfh-v-ldst	FAIL	cosim-v	6/18			2	107848940	(2s): rv64uzfh-v-ldst: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=c218819b905a	default
+rv64uzfh-v-move	FAIL	cosim-v	7/18			3	486945915	(3s): rv64uzfh-v-move: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=a93af1d5e67c	default
+rv64uzfh-v-recoding	FAIL	cosim-v	8/18			2	348562887	(2s): rv64uzfh-v-recoding: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=a34674f442a4	default
+rv64uzicond-v-czero_eqz	FAIL	cosim-v	9/18			2	450355476	(2s): rv64uzicond-v-czero_eqz: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=3859059723ca	default
+rv64uzicond-v-czero_nez	FAIL	cosim-v	10/18			2	499359627	(2s): rv64uzicond-v-czero_nez: MISMATCH at commit 36 pc=0x80000094 field=trap.tval | [1] trap.tval: CL 0x0 | Spike 0x74445073 order=6aeaa905d4e2	default
+hypervisor-p-2-stage_translation	PASS	p-	none		1390	9	776246277	(9s) cyc=1390 order=6530da603f86	default
+hypervisor-p-2-stage_translation_implicit_load_error	PASS	p-	none		1620	10	423953971	(10s) cyc=1620 order=973fd832be2c	default
+hypervisor-p-2-stage_translation_implicit_load_error_hs	PASS	p-	none		1808	11	48600692	(11s) cyc=1808 order=e541997616cd	default
+hypervisor-svadu-p-2-stage_translation_implicit_store_error	PASS	p-	none		1745	10	419145879	(10s) cyc=1745 order=8c74355b8553	default
+hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs	PASS	p-	none		1914	10	504749874	(10s) cyc=1914 order=fd5efdedccaf	default
+rv64mi-p-breakpoint	PASS	p-	none		3508	17	178054255	(17s) cyc=3508 order=775568211671	default
+rv64mi-p-csr	PASS	p-	none		3571	18	856458689	(18s) cyc=3571 order=3df729e0c5d1	default
+rv64mi-p-illegal	PASS	p-	none		4814	22	874908671	(22s) cyc=4814 order=a6833bced100	default
+rv64mi-p-instret_overflow	PASS	p-	none		1272	7	656368762	(7s) cyc=1272 order=46bcaafc2178	default
+rv64mi-p-ld-misaligned	PASS	p-	none		1406	7	742667815	(7s) cyc=1406 order=d7c47bfdf76d	default
+rv64mi-p-lh-misaligned	PASS	p-	none		1119	6	919616661	(6s) cyc=1119 order=2b2f1e9d3633	default
+rv64mi-p-lw-misaligned	PASS	p-	none		1189	7	471852435	(7s) cyc=1189 order=69206f0bfe8f	default
+rv64mi-p-ma_addr	PASS	p-	none		1559	9	512717326	(9s) cyc=1559 order=7d67b7ff8e9a	default
+rv64mi-p-ma_fetch	PASS	p-	none		2029	10	865238589	(10s) cyc=2029 order=888775e9245d	default
+rv64mi-p-mcsr	PASS	p-	none		1354	8	96344975	(8s) cyc=1354 order=c3cbc381137c	default
+rv64mi-p-pmpaddr	PASS	p-	none		1202	6	124094041	(6s) cyc=1202 order=6613a7de596c	default
+rv64mi-p-sbreak	PASS	p-	none		1360	7	480845972	(7s) cyc=1360 order=00dd246f1728	default
+rv64mi-p-scall	PASS	p-	none		1283	7	715138909	(7s) cyc=1283 order=bd560388643c	default
+rv64mi-p-sd-misaligned	PASS	p-	none		1498	8	448489435	(8s) cyc=1498 order=1848b2010eb0	default
+rv64mi-p-sh-misaligned	PASS	p-	none		1140	6	920210093	(6s) cyc=1140 order=a1528703745e	default
+rv64mi-p-sw-misaligned	PASS	p-	none		1193	7	765965231	(7s) cyc=1193 order=12d15b44a557	default
+rv64mi-p-zicntr	PASS	p-	none		1439	8	838067619	(8s) cyc=1439 order=657a745a01fe	default
+rv64mzicbo-p-zero	PASS	p-	none		1171	7	944683635	(7s) cyc=1171 order=2f08a298598f	default
+rv64si-p-csr	PASS	p-	none		2279	12	834561246	(12s) cyc=2279 order=94d79cb777ea	default
+rv64si-p-dirty	PASS	p-	none		2393	12	735337954	(12s) cyc=2393 order=64c89dd4ae36	default
+rv64si-p-icache-alias	PASS	p-	none		2607	13	39309347	(13s) cyc=2607 order=54512b301f30	default
+rv64si-p-ma_fetch	PASS	p-	none		1489	8	867152059	(8s) cyc=1489 order=05a5d501e037	default
+rv64si-p-sbreak	PASS	p-	none		1373	7	274659401	(7s) cyc=1373 order=838dca6d3395	default
+rv64si-p-scall	PASS	p-	none		1496	8	285111874	(8s) cyc=1496 order=5cdd0e97e15a	default
+rv64si-p-wfi	PASS	p-	none		1190	6	823470527	(6s) cyc=1190 order=991d97aeb3da	default
+rv64ssvnapot-p-napot	PASS	p-	none		1678	9	518851589	(9s) cyc=1678 order=dee95318ef43	default
+rv64ua-p-amoadd_d	PASS	p-	none		1090	6	725177754	(6s) cyc=1090 order=360d2536e2d2	default
+rv64ua-p-amoadd_w	PASS	p-	none		1133	6	362675404	(6s) cyc=1133 order=f90f5cc7a747	default
+rv64ua-p-amoand_d	PASS	p-	none		1137	6	220165530	(6s) cyc=1137 order=9ebd63268504	default
+rv64ua-p-amoand_w	PASS	p-	none		1133	6	657455841	(6s) cyc=1133 order=336780930b82	default
+rv64ua-p-amomax_d	PASS	p-	none		1089	6	509260807	(6s) cyc=1089 order=c08406a1ea8e	default
+rv64ua-p-amomax_w	PASS	p-	none		1107	6	7775808	(6s) cyc=1107 order=cd6104946aab	default
+rv64ua-p-amomaxu_d	PASS	p-	none		1089	7	954583553	(7s) cyc=1089 order=fe796e608373	default
+rv64ua-p-amomaxu_w	PASS	p-	none		1107	7	520518323	(7s) cyc=1107 order=b4314277cfc8	default
+rv64ua-p-amomin_d	PASS	p-	none		1089	6	349057015	(6s) cyc=1089 order=7f3de6415ac8	default
+rv64ua-p-amomin_w	PASS	p-	none		1107	7	839073470	(7s) cyc=1107 order=35383258f1ff	default
+rv64ua-p-amominu_d	PASS	p-	none		1089	6	284799788	(6s) cyc=1089 order=8800e9ab1798	default
+rv64ua-p-amominu_w	PASS	p-	none		1107	6	634751866	(6s) cyc=1107 order=33b794e06711	default
+rv64ua-p-amoor_d	PASS	p-	none		1132	7	848258803	(7s) cyc=1132 order=f2cd2bca06f8	default
+rv64ua-p-amoor_w	PASS	p-	none		1132	6	340143027	(6s) cyc=1132 order=1217dfd5c7be	default
+rv64ua-p-amoswap_d	PASS	p-	none		1137	6	771770024	(6s) cyc=1137 order=e448da8b667e	default
+rv64ua-p-amoswap_w	PASS	p-	none		1133	6	120867823	(6s) cyc=1133 order=0c73588bc4d7	default
+rv64ua-p-amoxor_d	PASS	p-	none		1137	6	334623581	(6s) cyc=1137 order=16f12a625a45	default
+rv64ua-p-amoxor_w	PASS	p-	none		1141	6	819427620	(6s) cyc=1141 order=cd499a3476c5	default
+rv64ua-p-lrsc	PASS	p-	none		17282	77	254879826	(77s) cyc=17282 order=153cb7c26401	default
+rv64uc-p-rvc	PASS	p-	none		1720	9	19876028	(9s) cyc=1720 order=fb293a0fe86f	default
+rv64ud-p-fadd	PASS	p-	none		1945	10	852900791	(10s) cyc=1945 order=e9066bb35b6f	default
+rv64ud-p-fclass	PASS	p-	none		1251	7	595532371	(7s) cyc=1251 order=04f26fdc500d	default
+rv64ud-p-fcmp	PASS	p-	none		2243	12	285471987	(12s) cyc=2243 order=1e629ddb9a40	default
+rv64ud-p-fcvt	PASS	p-	none		1847	10	547432210	(10s) cyc=1847 order=d00d6b783ae0	default
+rv64ud-p-fcvt_w	PASS	p-	none		3781	20	862175423	(20s) cyc=3781 order=36245696a461	default
+rv64ud-p-fdiv	PASS	p-	none		1767	10	259463357	(10s) cyc=1767 order=a8831a13a0ac	default
+rv64ud-p-fmadd	PASS	p-	none		2107	11	455388257	(11s) cyc=2107 order=640ecdee4e96	default
+rv64ud-p-fmin	PASS	p-	none		2593	13	222746063	(13s) cyc=2593 order=d8ef68aadfd9	default
+rv64ud-p-ldst	PASS	p-	none		1188	7	907391329	(7s) cyc=1188 order=4d99d6a99655	default
+rv64ud-p-move	PASS	p-	none		2717	14	578267086	(14s) cyc=2717 order=46efd388b210	default
+rv64ud-p-recoding	PASS	p-	none		1261	7	126854937	(7s) cyc=1261 order=5e8a051f2793	default
+rv64ud-p-structural	PASS	p-	none		2027	10	902819710	(10s) cyc=2027 order=2989e3cb383d	default
+rv64uf-p-fadd	PASS	p-	none		1945	10	311820882	(10s) cyc=1945 order=0f637d60eccd	default
+rv64uf-p-fclass	PASS	p-	none		1235	7	826055882	(7s) cyc=1235 order=8cbf41432ffd	default
+rv64uf-p-fcmp	PASS	p-	none		2243	12	809774110	(12s) cyc=2243 order=68e9c7983d34	default
+rv64uf-p-fcvt	PASS	p-	none		1629	9	219189240	(9s) cyc=1629 order=dbe2e6da2674	default
+rv64uf-p-fcvt_w	PASS	p-	none		3416	18	554788454	(18s) cyc=3416 order=34d8c70e1021	default
+rv64uf-p-fdiv	PASS	p-	none		1689	9	709991245	(9s) cyc=1689 order=57812bccd3f3	default
+rv64uf-p-fmadd	PASS	p-	none		2107	11	537194906	(11s) cyc=2107 order=fc1720a73723	default
+rv64uf-p-fmin	PASS	p-	none		2593	14	911313722	(14s) cyc=2593 order=b2be8ffac9b6	default
+rv64uf-p-ldst	PASS	p-	none		1180	6	161859233	(6s) cyc=1180 order=d494d7bd43a9	default
+rv64uf-p-move	PASS	p-	none		1808	10	824351043	(10s) cyc=1808 order=e2902e0f11fc	default
+rv64uf-p-recoding	PASS	p-	none		1214	7	991360702	(7s) cyc=1214 order=959ea0f4e66d	default
+rv64ui-p-add	PASS	p-	none		2463	13	15493716	(13s) cyc=2463 order=d459acf8b0b4	default
+rv64ui-p-addi	PASS	p-	none		1645	9	702092074	(9s) cyc=1645 order=ccb13d7b47e9	default
+rv64ui-p-addiw	PASS	p-	none		1637	9	699722148	(9s) cyc=1637 order=02b48e7ce346	default
+rv64ui-p-addw	PASS	p-	none		2453	12	701090905	(12s) cyc=2453 order=38e2c470255d	default
+rv64ui-p-and	PASS	p-	none		2629	13	828072297	(13s) cyc=2629 order=625450018647	default
+rv64ui-p-andi	PASS	p-	none		1623	9	673402238	(9s) cyc=1623 order=cc8fedad5e43	default
+rv64ui-p-auipc	PASS	p-	none		1067	6	295517815	(6s) cyc=1067 order=89e562fa3ada	default
+rv64ui-p-beq	PASS	p-	none		2433	13	382343392	(13s) cyc=2433 order=d18cdc18aa0a	default
+rv64ui-p-bge	PASS	p-	none		2729	14	673742971	(14s) cyc=2729 order=de2e2e8c42ff	default
+rv64ui-p-bgeu	PASS	p-	none		2965	15	133765827	(15s) cyc=2965 order=bd9be11291d5	default
+rv64ui-p-blt	PASS	p-	none		2435	13	666131848	(13s) cyc=2435 order=f3b62252adeb	default
+rv64ui-p-bltu	PASS	p-	none		2657	14	242501670	(14s) cyc=2657 order=d4de2af34df5	default
+rv64ui-p-bne	PASS	p-	none		2487	13	453752798	(13s) cyc=2487 order=ffedc7e7b10f	default
+rv64ui-p-fence_i	PASS	p-	none		1978	10	866033663	(10s) cyc=1978 order=8e5e2eec1018	default
+rv64ui-p-jal	PASS	p-	none		1118	6	231431415	(6s) cyc=1118 order=6ade1390657c	default
+rv64ui-p-jalr	PASS	p-	none		1501	8	445567914	(8s) cyc=1501 order=8e29f1cceec0	default
+rv64ui-p-lb	PASS	p-	none		1693	9	265484532	(9s) cyc=1693 order=ac6f4b9713f1	default
+rv64ui-p-lbu	PASS	p-	none		1693	9	924136388	(9s) cyc=1693 order=1b7151f953f7	default
+rv64ui-p-ld	PASS	p-	none		2082	11	913513036	(11s) cyc=2082 order=045bd4592ffe	default
+rv64ui-p-ld_st	PASS	p-	none		4743	22	915785426	(22s) cyc=4743 order=30c2a129c593	default
+rv64ui-p-lh	PASS	p-	none		1719	9	840373832	(9s) cyc=1719 order=40ec4c802977	default
+rv64ui-p-lhu	PASS	p-	none		1743	9	109984915	(9s) cyc=1743 order=96dc608fc5fa	default
+rv64ui-p-lui	PASS	p-	none		1078	6	218503605	(6s) cyc=1078 order=a0f45136d322	default
+rv64ui-p-lw	PASS	p-	none		1755	10	335109644	(10s) cyc=1755 order=89cbbc59858a	default
+rv64ui-p-lwu	PASS	p-	none		1813	9	803594479	(9s) cyc=1813 order=94b3a805e5fa	default
+rv64ui-p-ma_data	PASS	p-	none		9390	45	654156268	(45s) cyc=9390 order=fdc33234453f	default
+rv64ui-p-or	PASS	p-	none		2689	13	502980478	(13s) cyc=2689 order=174d29b41176	default
+rv64ui-p-ori	PASS	p-	none		1613	9	637883845	(9s) cyc=1613 order=826a556f3f0f	default
+rv64ui-p-sb	PASS	p-	none		2331	12	437674689	(12s) cyc=2331 order=200da4a6cbc9	default
+rv64ui-p-sd	PASS	p-	none		2669	13	211052298	(13s) cyc=2669 order=2c3ee62f5b32	default
+rv64ui-p-sh	PASS	p-	none		2389	12	79767412	(12s) cyc=2389 order=c4816121f9b4	default
+rv64ui-p-simple	PASS	p-	none		1017	6	35620678	(6s) cyc=1017 order=7e0403d71281	default
+rv64ui-p-sll	PASS	p-	none		2590	14	732240978	(14s) cyc=2590 order=0f01b02a516d	default
+rv64ui-p-slli	PASS	p-	none		1698	9	266417159	(9s) cyc=1698 order=e3e9911fa99e	default
+rv64ui-p-slliw	PASS	p-	none		1698	9	29795817	(9s) cyc=1698 order=7195f8561e36	default
+rv64ui-p-sllw	PASS	p-	none		2587	14	427542873	(14s) cyc=2587 order=8d255b04cacd	default
+rv64ui-p-slt	PASS	p-	none		2441	12	314246780	(12s) cyc=2441 order=6ff6689a3892	default
+rv64ui-p-slti	PASS	p-	none		1630	8	9820111	(8s) cyc=1630 order=300282c385ce	default
+rv64ui-p-sltiu	PASS	p-	none		1630	9	185098589	(9s) cyc=1630 order=1d9a335479bd	default
+rv64ui-p-sltu	PASS	p-	none		2483	13	990442933	(13s) cyc=2483 order=9aecd5f4478c	default
+rv64ui-p-sra	PASS	p-	none		2540	14	888881349	(14s) cyc=2540 order=4424d1db36d3	default
+rv64ui-p-srai	PASS	p-	none		1670	9	156346712	(9s) cyc=1670 order=145b41ca124b	default
+rv64ui-p-sraiw	PASS	p-	none		1777	9	422030532	(9s) cyc=1777 order=c49cbdcaa5da	default
+rv64ui-p-sraw	PASS	p-	none		2612	13	246778948	(13s) cyc=2612 order=b39166b90479	default
+rv64ui-p-srl	PASS	p-	none		2637	14	74848677	(14s) cyc=2637 order=8190b9a23422	default
+rv64ui-p-srli	PASS	p-	none		1733	10	25865977	(10s) cyc=1733 order=da7371fcac26	default
+rv64ui-p-srliw	PASS	p-	none		1719	9	920590709	(9s) cyc=1719 order=b23d931327c3	default
+rv64ui-p-srlw	PASS	p-	none		2600	13	375150243	(13s) cyc=2600 order=d9204b60758d	default
+rv64ui-p-st_ld	PASS	p-	none		2007	10	45118989	(10s) cyc=2007 order=22871b3ea1c6	default
+rv64ui-p-sub	PASS	p-	none		2447	13	647710859	(13s) cyc=2447 order=809718b06fd8	default
+rv64ui-p-subw	PASS	p-	none		2439	13	600868706	(13s) cyc=2439 order=6fca8e2c83af	default
+rv64ui-p-sw	PASS	p-	none		2407	13	699725137	(13s) cyc=2407 order=c00c50f84ced	default
+rv64ui-p-xor	PASS	p-	none		2683	14	410251342	(14s) cyc=2683 order=7b19d8d551bf	default
+rv64ui-p-xori	PASS	p-	none		1611	9	512178345	(9s) cyc=1611 order=02708bf338cd	default
+rv64um-p-div	PASS	p-	none		1171	6	861070015	(6s) cyc=1171 order=e56bdb55b1b6	default
+rv64um-p-divu	PASS	p-	none		1181	7	959453136	(7s) cyc=1181 order=7c4e3153feb1	default
+rv64um-p-divuw	PASS	p-	none		1165	6	787338096	(6s) cyc=1165 order=9c6a1d758077	default
+rv64um-p-divw	PASS	p-	none		1149	6	646795206	(6s) cyc=1149 order=ccff2e1cb8dc	default
+rv64um-p-mul	PASS	p-	none		2478	13	773074264	(13s) cyc=2478 order=d00e35879165	default
+rv64um-p-mulh	PASS	p-	none		2481	13	303883301	(13s) cyc=2481 order=3c7391e96adb	default
+rv64um-p-mulhsu	PASS	p-	none		2481	13	967313338	(13s) cyc=2481 order=f32807b61cec	default
+rv64um-p-mulhu	PASS	p-	none		2541	13	229772787	(13s) cyc=2541 order=cb148a2030a7	default
+rv64um-p-mulw	PASS	p-	none		2339	12	867401779	(12s) cyc=2339 order=540c2421c760	default
+rv64um-p-rem	PASS	p-	none		1148	6	347949467	(6s) cyc=1148 order=2d5ee2fb95a1	default
+rv64um-p-remu	PASS	p-	none		1150	7	559677714	(7s) cyc=1150 order=de2ef820df84	default
+rv64um-p-remuw	PASS	p-	none		1139	6	229490578	(6s) cyc=1139 order=7e03e9ef635c	default
+rv64um-p-remw	PASS	p-	none		1149	7	878373156	(7s) cyc=1149 order=0de8e5b4b20f	default
+rv64uzba-p-add_uw	PASS	p-	none		2472	12	656217257	(12s) cyc=2472 order=9df5930f8de1	default
+rv64uzba-p-sh1add	PASS	p-	none		2478	13	679939032	(13s) cyc=2478 order=8eb53d64c33c	default
+rv64uzba-p-sh1add_uw	PASS	p-	none		2486	13	523234181	(13s) cyc=2486 order=ac7edec5292d	default
+rv64uzba-p-sh2add	PASS	p-	none		2478	13	254638885	(13s) cyc=2478 order=47f31bceaf6b	default
+rv64uzba-p-sh2add_uw	PASS	p-	none		2486	13	276268208	(13s) cyc=2486 order=0da70c3e0730	default
+rv64uzba-p-sh3add	PASS	p-	none		2478	13	63791785	(13s) cyc=2478 order=1a043f043fc5	default
+rv64uzba-p-sh3add_uw	PASS	p-	none		2486	13	953538538	(13s) cyc=2486 order=1ca63113a01c	default
+rv64uzba-p-slli_uw	PASS	p-	none		1725	9	612430709	(9s) cyc=1725 order=a17efc4c49bb	default
+rv64uzbb-p-andn	PASS	p-	none		2671	14	19571637	(14s) cyc=2671 order=c1d9e381eaf4	default
+rv64uzbb-p-clz	PASS	p-	none		1513	9	229197307	(9s) cyc=1513 order=43bd1ad59d71	default
+rv64uzbb-p-clzw	PASS	p-	none		1489	8	776017088	(8s) cyc=1489 order=58712fefce33	default
+rv64uzbb-p-cpop	PASS	p-	none		1513	8	475134846	(8s) cyc=1513 order=2ea728dbad3f	default
+rv64uzbb-p-cpopw	PASS	p-	none		1489	8	998375628	(8s) cyc=1489 order=0113ba8fb9ab	default
+rv64uzbb-p-ctz	PASS	p-	none		1513	8	914912314	(8s) cyc=1513 order=fa1fbc267655	default
+rv64uzbb-p-ctzw	PASS	p-	none		1491	8	669475097	(8s) cyc=1491 order=b8374a4248e7	default
+rv64uzbb-p-max	PASS	p-	none		2451	13	805420054	(13s) cyc=2451 order=28c6922c6775	default
+rv64uzbb-p-maxu	PASS	p-	none		2519	13	623859354	(13s) cyc=2519 order=cb7f38cbb922	default
+rv64uzbb-p-min	PASS	p-	none		2443	12	685298823	(12s) cyc=2443 order=25d661e3c165	default
+rv64uzbb-p-minu	PASS	p-	none		2495	13	5666681	(13s) cyc=2495 order=0988a2c4b1b3	default
+rv64uzbb-p-orc_b	PASS	p-	none		1555	8	177519071	(8s) cyc=1555 order=6ac750de3bba	default
+rv64uzbb-p-orn	PASS	p-	none		2689	14	185727389	(14s) cyc=2689 order=df20fda0cd9b	default
+rv64uzbb-p-rev8	PASS	p-	none		1592	9	338114628	(9s) cyc=1592 order=2bf093baa94e	default
+rv64uzbb-p-rol	PASS	p-	none		2600	14	827061217	(14s) cyc=2600 order=a7c46b01fc0b	default
+rv64uzbb-p-rolw	PASS	p-	none		2595	14	767593034	(14s) cyc=2595 order=3fd8f311a4bd	default
+rv64uzbb-p-ror	PASS	p-	none		2667	14	571923396	(14s) cyc=2667 order=3fa8276715e2	default
+rv64uzbb-p-rori	PASS	p-	none		1729	10	238950039	(10s) cyc=1729 order=25277c913a83	default
+rv64uzbb-p-roriw	PASS	p-	none		1638	9	396800330	(9s) cyc=1638 order=56c55361d917	default
+rv64uzbb-p-rorw	PASS	p-	none		2523	13	160038649	(13s) cyc=2523 order=88d44107120f	default
+rv64uzbb-p-sext_b	PASS	p-	none		1513	8	526473523	(8s) cyc=1513 order=2338e6d13790	default
+rv64uzbb-p-sext_h	PASS	p-	none		1519	8	149695502	(8s) cyc=1519 order=9fb5d1599dca	default
+rv64uzbb-p-xnor	PASS	p-	none		2687	13	86665958	(13s) cyc=2687 order=9b0abb353917	default
+rv64uzbb-p-zext_h	PASS	p-	none		1525	9	219553693	(9s) cyc=1525 order=b4baaaaadb4f	default
+rv64uzbc-p-clmul	PASS	p-	none		2480	13	804367359	(13s) cyc=2480 order=86fbd689f3e7	default
+rv64uzbc-p-clmulh	PASS	p-	none		2490	13	119343303	(13s) cyc=2490 order=09e2881d1bb7	default
+rv64uzbc-p-clmulr	PASS	p-	none		2486	14	566774529	(14s) cyc=2486 order=cc9f24ac396a	default
+rv64uzbkb-p-brev8	PASS	p-	none		1543	8	173589359	(8s) cyc=1543 order=073a6238d8e6	default
+rv64uzbkb-p-pack	PASS	p-	none		2927	15	780459986	(15s) cyc=2927 order=0a0c2a66463f	default
+rv64uzbkb-p-packh	PASS	p-	none		2595	13	643239041	(13s) cyc=2595 order=891f15f6914b	default
+rv64uzbkb-p-packw	PASS	p-	none		2463	13	532236375	(13s) cyc=2463 order=364514c0dcdf	default
+rv64uzbkx-p-xperm4	PASS	p-	none		2775	14	15942069	(14s) cyc=2775 order=a3088e7b5e56	default
+rv64uzbkx-p-xperm8	PASS	p-	none		3612	19	721221342	(19s) cyc=3612 order=038d79af795f	default
+rv64uzbs-p-bclr	PASS	p-	none		2810	15	571961735	(15s) cyc=2810 order=bf539ea2bb68	default
+rv64uzbs-p-bclri	PASS	p-	none		1795	10	726951315	(10s) cyc=1795 order=49124dc550c2	default
+rv64uzbs-p-bext	PASS	p-	none		2677	14	906091128	(14s) cyc=2677 order=9a8da34bc407	default
+rv64uzbs-p-bexti	PASS	p-	none		1731	9	717386165	(9s) cyc=1731 order=66cf3eb44334	default
+rv64uzbs-p-binv	PASS	p-	none		2637	14	515586451	(14s) cyc=2637 order=63a5029c2a30	default
+rv64uzbs-p-binvi	PASS	p-	none		1731	9	991078120	(9s) cyc=1731 order=362c33a6fc4d	default
+rv64uzbs-p-bset	PASS	p-	none		2814	14	476366541	(14s) cyc=2814 order=c4b43f59420d	default
+rv64uzbs-p-bseti	PASS	p-	none		1809	10	379318822	(10s) cyc=1809 order=630ff1c45ac7	default
+rv64uzfh-p-fadd	PASS	p-	none		1945	10	232148272	(10s) cyc=1945 order=2ab743b03c3d	default
+rv64uzfh-p-fclass	PASS	p-	none		1232	6	863327120	(6s) cyc=1232 order=32e0ec1b9b19	default
+rv64uzfh-p-fcmp	PASS	p-	none		1577	9	727671163	(9s) cyc=1577 order=1e0e9ef0cb46	default
+rv64uzfh-p-fcvt	PASS	p-	none		1810	10	318489514	(10s) cyc=1810 order=a46e93e923f5	default
+rv64uzfh-p-fcvt_w	PASS	p-	none		3416	19	594446692	(19s) cyc=3416 order=c80a69110c35	default
+rv64uzfh-p-fdiv	PASS	p-	none		1689	9	825519660	(9s) cyc=1689 order=18a58ada6893	default
+rv64uzfh-p-fmadd	PASS	p-	none		2107	11	550954708	(11s) cyc=2107 order=456b8327d07b	default
+rv64uzfh-p-fmin	PASS	p-	none		2593	14	643961455	(14s) cyc=2593 order=dbcc129fad00	default
+rv64uzfh-p-ldst	PASS	p-	none		1211	7	401767665	(7s) cyc=1211 order=f34b8b191362	default
+rv64uzfh-p-move	PASS	p-	none		1807	10	731153478	(10s) cyc=1807 order=19cc5f412304	default
+rv64uzfh-p-recoding	PASS	p-	none		1214	7	118828180	(7s) cyc=1214 order=669a1fac7499	default
+rv64uziccid-p-ziccid	PASS	p-	none		13284	41	812122353	(41s) cyc=13284 order=2104bd560e64	default
+rv64uzicond-p-czero_eqz	PASS	p-	none		2403	11	918952817	(11s) cyc=2403 order=cb028aa85292	default
+rv64uzicond-p-czero_nez	PASS	p-	none		2401	8	823156615	(8s) cyc=2401 order=d876a74602f5	default
+rv64ua-v-amoadd_d	PASS	v-	15/18		23550	108	234093674	(108s) cyc=23550 order=632cb437b3ea	default
+rv64ua-v-amoadd_w	PASS	v-	16/18		23579	100	634347755	(100s) cyc=23579 order=297139f1cc71	default
+rv64ua-v-amoand_d	PASS	v-	17/18		23594	130	13531260	(130s) cyc=23594 order=7bf4e789ab6a	default
+rv64ua-v-amoand_w	PASS	v-	18/18		23592	109	485967395	(109s) cyc=23592 order=f621d56f7c79	default
+rv64ua-v-amomax_d	PASS	v-	1/18		23492	104	718960043	(104s) cyc=23492 order=13659d5f0971	default
+rv64ua-v-amomax_w	PASS	v-	4/18		23513	166	281232371	(166s) cyc=23513 order=ac6007a7f1e8	default
+rv64ua-v-amomaxu_d	PASS	v-	2/18		23492	105	402466763	(105s) cyc=23492 order=1f06df50a1cb	default
+rv64ua-v-amomaxu_w	PASS	v-	3/18		23513	125	773987305	(125s) cyc=23513 order=b172955dd938	default
+rv64ua-v-amomin_d	PASS	v-	5/18		23492	105	895662506	(105s) cyc=23492 order=609e1f68e81d	default
+rv64ua-v-amomin_w	PASS	v-	8/18		23575	131	361436017	(131s) cyc=23575 order=6825419255e7	default
+rv64ua-v-amominu_d	PASS	v-	6/18		23539	106	593494255	(106s) cyc=23539 order=151101aee6d2	default
+rv64ua-v-amominu_w	PASS	v-	7/18		23560	178	983449927	(178s) cyc=23560 order=6a48782ab4cc	default
+rv64ua-v-amoor_d	PASS	v-	9/18		23519	130	808842850	(130s) cyc=23519 order=8076e101636c	default
+rv64ua-v-amoor_w	PASS	v-	10/18		23519	105	426323889	(105s) cyc=23519 order=881d5170f439	default
+rv64ua-v-amoswap_d	PASS	v-	11/18		23594	106	689758975	(106s) cyc=23594 order=5848e5fb3329	default
+rv64ua-v-amoswap_w	PASS	v-	12/18		23592	167	941529968	(167s) cyc=23592 order=ca667d7f1ae2	default
+rv64ua-v-amoxor_d	PASS	v-	13/18		23535	105	75987317	(105s) cyc=23535 order=908c8c1764fb	default
+rv64ua-v-amoxor_w	PASS	v-	14/18		23546	104	380033678	(104s) cyc=23546 order=c02355415dcb	default
+rv64ua-v-lrsc	PASS	v-	15/18		39328	150	933688540	(150s) cyc=39328 order=01fbdbb438c4	default
+rv64uc-v-rvc	PASS	v-	14/18		32690	147	826095642	(147s) cyc=32690 order=83279b2f8bc0	default
+rv64ud-v-fadd	PASS	v-	9/18		23077	132	216325591	(132s) cyc=23077 order=a845d49ffdfe	default
+rv64ud-v-fclass	PASS	v-	10/18		13573	63	323110884	(63s) cyc=13573 order=5e2e7425d3dd	default
+rv64ud-v-fcmp	PASS	v-	11/18		23327	108	132620065	(108s) cyc=23327 order=e3ad86dc827f	default
+rv64ud-v-fcvt	PASS	v-	12/18		22975	168	165054947	(168s) cyc=22975 order=ef966422ae6b	default
+rv64ud-v-fcvt_w	PASS	v-	13/18		33673	133	692660624	(133s) cyc=33673 order=c0398d49a0ff	default
+rv64ud-v-fdiv	PASS	v-	14/18		22900	105	662868314	(105s) cyc=22900 order=49b407fb041a	default
+rv64ud-v-fmadd	PASS	v-	15/18		23242	107	775000384	(107s) cyc=23242 order=0d42723d5de7	default
+rv64ud-v-fmin	PASS	v-	16/18		23681	104	790132908	(104s) cyc=23681 order=4e2bd95c7936	default
+rv64ud-v-ldst	PASS	v-	17/18		23550	108	98766376	(108s) cyc=23550 order=7dd99e4ad9c6	default
+rv64ud-v-move	PASS	v-	18/18		23826	112	931408346	(112s) cyc=23826 order=155a44532853	default
+rv64ud-v-recoding	PASS	v-	1/18		23877	105	795467956	(105s) cyc=23877 order=c402b901e7d1	default
+rv64ud-v-structural	PASS	v-	2/18		14374	66	591857285	(66s) cyc=14374 order=0cc7bc7c59f6	default
+rv64uf-v-fadd	PASS	v-	16/18		23077	102	847500335	(102s) cyc=23077 order=2e212a38ea6e	default
+rv64uf-v-fclass	PASS	v-	17/18		13556	77	279381617	(77s) cyc=13556 order=634125c05500	default
+rv64uf-v-fcmp	PASS	v-	18/18		23327	109	274667932	(109s) cyc=23327 order=1e1fe96e72d2	default
+rv64uf-v-fcvt	PASS	v-	1/18		22702	106	535615571	(106s) cyc=22702 order=fe111c0053e3	default
+rv64uf-v-fcvt_w	PASS	v-	2/18		33231	145	125535841	(145s) cyc=33231 order=0fa4e109911f	default
+rv64uf-v-fdiv	PASS	v-	3/18		22822	123	284658010	(123s) cyc=22822 order=a2eba20c60bd	default
+rv64uf-v-fmadd	PASS	v-	4/18		23242	166	592995143	(166s) cyc=23242 order=a5fb2a1d7817	default
+rv64uf-v-fmin	PASS	v-	5/18		23725	108	332437800	(108s) cyc=23725 order=17de652a2fa4	default
+rv64uf-v-ldst	PASS	v-	6/18		23754	107	766980721	(107s) cyc=23754 order=e1a944fa83a6	default
+rv64uf-v-move	PASS	v-	7/18		14124	111	605229624	(111s) cyc=14124 order=d5fb8d68f130	default
+rv64uf-v-recoding	PASS	v-	8/18		22302	132	50726266	(132s) cyc=22302 order=000a4c04fec0	default
+rv64ui-v-add	PASS	v-	1/18		14830	70	205148635	(70s) cyc=14830 order=10f2e5b2af98	default
+rv64ui-v-addi	PASS	v-	2/18		13997	65	511309904	(65s) cyc=13997 order=fa3cc37dfbff	default
+rv64ui-v-addiw	PASS	v-	3/18		13991	79	390094842	(79s) cyc=13991 order=9e75f17046b9	default
+rv64ui-v-addw	PASS	v-	4/18		14820	112	446739906	(112s) cyc=14820 order=29cd97119670	default
+rv64ui-v-and	PASS	v-	7/18		15013	114	365439524	(114s) cyc=15013 order=4af095667c89	default
+rv64ui-v-andi	PASS	v-	8/18		13984	78	200069598	(78s) cyc=13984 order=d4eeed941a98	default
+rv64ui-v-auipc	PASS	v-	12/18		13427	99	911994611	(99s) cyc=13427 order=b2b8a6598aeb	default
+rv64ui-v-beq	PASS	v-	13/18		14739	72	691216613	(72s) cyc=14739 order=f118cc2a664f	default
+rv64ui-v-bge	PASS	v-	14/18		15092	70	348526052	(70s) cyc=15092 order=91463e5f1548	default
+rv64ui-v-bgeu	PASS	v-	15/18		15277	73	908031665	(73s) cyc=15277 order=a18606e0e615	default
+rv64ui-v-blt	PASS	v-	16/18		14741	65	427394964	(65s) cyc=14741 order=0bcb7034b558	default
+rv64ui-v-bltu	PASS	v-	17/18		14973	85	639756141	(85s) cyc=14973 order=3c8a7e50a22f	default
+rv64ui-v-bne	PASS	v-	18/18		14793	71	458181391	(71s) cyc=14793 order=6891b101c32f	default
+rv64ui-v-fence_i	PASS	v-	17/18		24283	133	621031788	(133s) cyc=24283 order=20520ee2b9d3	default
+rv64ui-v-jal	PASS	v-	1/18		13469	63	888391813	(63s) cyc=13469 order=56be35370d2a	default
+rv64ui-v-jalr	PASS	v-	2/18		13808	64	823507445	(64s) cyc=13808 order=4905b15a03ce	default
+rv64ui-v-lb	PASS	v-	3/18		22903	130	107511993	(130s) cyc=22903 order=4365fbac5cb4	default
+rv64ui-v-lbu	PASS	v-	4/18		22859	168	968868186	(168s) cyc=22859 order=b707d1dca5c3	default
+rv64ui-v-ld	PASS	v-	9/18		23357	136	518360516	(136s) cyc=23357 order=995ebc342795	default
+rv64ui-v-ld_st	PASS	v-	14/18		43753	195	239772226	(195s) cyc=43753 order=8229bbcc2edc	default
+rv64ui-v-lh	PASS	v-	5/18		22884	105	839097696	(105s) cyc=22884 order=42a258c2e968	default
+rv64ui-v-lhu	PASS	v-	6/18		22914	107	842198866	(107s) cyc=22914 order=b4734cff2bdc	default
+rv64ui-v-lui	PASS	v-	11/18		13449	62	177729303	(62s) cyc=13449 order=412d09df0141	default
+rv64ui-v-lw	PASS	v-	7/18		22923	172	38249052	(172s) cyc=22923 order=5a69fd2ccdbc	default
+rv64ui-v-lwu	PASS	v-	8/18		22984	128	975945109	(128s) cyc=22984 order=501a4eee17fa	default
+rv64ui-v-ma_data	PASS	v-	18/18		47044	213	915093439	(213s) cyc=47044 order=737547670dd4	default
+rv64ui-v-or	PASS	v-	9/18		15060	89	882130648	(89s) cyc=15060 order=3eb9584e3120	default
+rv64ui-v-ori	PASS	v-	10/18		13965	67	733895237	(67s) cyc=13965 order=d8bbb75381ec	default
+rv64ui-v-sb	PASS	v-	10/18		24686	114	8056225	(114s) cyc=24686 order=71d69e75454f	default
+rv64ui-v-sd	PASS	v-	13/18		33751	153	581088413	(153s) cyc=33751 order=1059b90a0b31	default
+rv64ui-v-sh	PASS	v-	11/18		24738	112	632570202	(112s) cyc=24738 order=12f1bbaa5d8b	default
+rv64ui-v-simple	PASS	v-	16/18		13362	59	423100565	(59s) cyc=13362 order=d6885e3bbaea	default
+rv64ui-v-sll	PASS	v-	17/18		23685	133	75163978	(133s) cyc=23685 order=bc4246877063	default
+rv64ui-v-slli	PASS	v-	18/18		14043	67	632775596	(67s) cyc=14043 order=3eb1daf9178f	default
+rv64ui-v-slliw	PASS	v-	1/18		14053	66	16634249	(66s) cyc=14053 order=a0d6eaf8dfae	default
+rv64ui-v-sllw	PASS	v-	2/18		23679	109	979513380	(109s) cyc=23679 order=786e00266cb1	default
+rv64ui-v-slt	PASS	v-	13/18		14808	69	12856481	(69s) cyc=14808 order=10247f56767b	default
+rv64ui-v-slti	PASS	v-	14/18		13981	66	350343692	(66s) cyc=13981 order=239e9a30c956	default
+rv64ui-v-sltiu	PASS	v-	16/18		13981	62	802033492	(62s) cyc=13981 order=87f887f3434f	default
+rv64ui-v-sltu	PASS	v-	15/18		14842	70	930401724	(70s) cyc=14842 order=d1df926f62cc	default
+rv64ui-v-sra	PASS	v-	7/18		14905	111	8246126	(111s) cyc=14905 order=4a7679b13565	default
+rv64ui-v-srai	PASS	v-	8/18		14038	79	855303606	(79s) cyc=14038 order=8bfd6b86efa3	default
+rv64ui-v-sraiw	PASS	v-	9/18		14129	81	692466104	(81s) cyc=14129 order=845403f2b6e6	default
+rv64ui-v-sraw	PASS	v-	10/18		23684	113	28688606	(113s) cyc=23684 order=8fc591b52c65	default
+rv64ui-v-srl	PASS	v-	3/18		23724	130	822662637	(130s) cyc=23724 order=2a4f6afb6348	default
+rv64ui-v-srli	PASS	v-	4/18		14080	105	807170377	(105s) cyc=14080 order=317986f3660e	default
+rv64ui-v-srliw	PASS	v-	5/18		14069	67	230650165	(67s) cyc=14069 order=28df5a055659	default
+rv64ui-v-srlw	PASS	v-	6/18		23726	109	6914675	(109s) cyc=23726 order=37e6f86fa601	default
+rv64ui-v-st_ld	PASS	v-	15/18		33085	153	109692636	(153s) cyc=33085 order=23c7f71303e8	default
+rv64ui-v-sub	PASS	v-	5/18		14815	69	358829610	(69s) cyc=14815 order=adfb76a30cdd	default
+rv64ui-v-subw	PASS	v-	6/18		14806	69	301822388	(69s) cyc=14806 order=9cc684008675	default
+rv64ui-v-sw	PASS	v-	12/18		24782	175	814768747	(175s) cyc=24782 order=0f2d2a6370f7	default
+rv64ui-v-xor	PASS	v-	11/18		15055	70	91581883	(70s) cyc=15055 order=d7c0d6067311	default
+rv64ui-v-xori	PASS	v-	12/18		13968	103	331400314	(103s) cyc=13968 order=772ca0691c31	default
+rv64um-v-div	PASS	v-	5/18		13543	63	441477772	(63s) cyc=13543 order=91dd5d86ad65	default
+rv64um-v-divu	PASS	v-	6/18		13552	63	562164539	(63s) cyc=13552 order=e4b0c8930652	default
+rv64um-v-divuw	PASS	v-	11/18		13534	63	445984983	(63s) cyc=13534 order=3a999ce98a93	default
+rv64um-v-divw	PASS	v-	10/18		13528	64	35155226	(64s) cyc=13528 order=ba3a35422f26	default
+rv64um-v-mul	PASS	v-	1/18		14847	70	555200269	(70s) cyc=14847 order=7edea3bfe3c2	default
+rv64um-v-mulh	PASS	v-	2/18		14855	69	215866155	(69s) cyc=14855 order=4d3f99ade485	default
+rv64um-v-mulhsu	PASS	v-	3/18		14855	87	444357363	(87s) cyc=14855 order=aa277ceeaa3b	default
+rv64um-v-mulhu	PASS	v-	4/18		14915	110	882532277	(110s) cyc=14915 order=ea9c22d339e6	default
+rv64um-v-mulw	PASS	v-	9/18		14706	84	201760115	(84s) cyc=14706 order=36dc77a04b15	default
+rv64um-v-rem	PASS	v-	7/18		13526	102	589635677	(102s) cyc=13526 order=6d66a7bc800d	default
+rv64um-v-remu	PASS	v-	8/18		13529	77	923482131	(77s) cyc=13529 order=9bebbfdac187	default
+rv64um-v-remuw	PASS	v-	13/18		13518	63	34377616	(63s) cyc=13518 order=4bb408991c39	default
+rv64um-v-remw	PASS	v-	12/18		13528	101	704248270	(101s) cyc=13528 order=2e49cd1b9e7b	default
+rv64uzba-v-add_uw	PASS	v-	3/18		14780	81	176893433	(81s) cyc=14780 order=5d4cb702c946	default
+rv64uzba-v-sh1add	PASS	v-	4/18		14786	107	354513476	(107s) cyc=14786 order=073f2a045456	default
+rv64uzba-v-sh1add_uw	PASS	v-	5/18		14794	67	276356647	(67s) cyc=14794 order=dadc767953e3	default
+rv64uzba-v-sh2add	PASS	v-	6/18		14786	68	920833214	(68s) cyc=14786 order=2ad43cba6537	default
+rv64uzba-v-sh2add_uw	PASS	v-	7/18		14794	118	89901693	(118s) cyc=14794 order=f1a8e3d9e81d	default
+rv64uzba-v-sh3add	PASS	v-	8/18		14786	85	658268768	(85s) cyc=14786 order=c5fce48d528f	default
+rv64uzba-v-sh3add_uw	PASS	v-	9/18		14794	86	217265631	(86s) cyc=14794 order=780985f7b9eb	default
+rv64uzba-v-slli_uw	PASS	v-	10/18		14019	65	837075813	(65s) cyc=14019 order=4c84662ff858	default
+rv64uzbb-v-andn	PASS	v-	11/18		14998	68	641264735	(68s) cyc=14998 order=468db9327505	default
+rv64uzbb-v-clz	PASS	v-	12/18		13841	104	970355833	(104s) cyc=13841 order=0d6d33904add	default
+rv64uzbb-v-clzw	PASS	v-	13/18		13811	64	325499405	(64s) cyc=13811 order=c947c160dba9	default
+rv64uzbb-v-cpop	PASS	v-	14/18		13841	63	773637186	(63s) cyc=13841 order=4fbdad0b7e56	default
+rv64uzbb-v-cpopw	PASS	v-	15/18		13811	65	150140320	(65s) cyc=13811 order=00f460cd1805	default
+rv64uzbb-v-ctz	PASS	v-	16/18		13841	62	104675889	(62s) cyc=13841 order=600d25175f23	default
+rv64uzbb-v-ctzw	PASS	v-	17/18		13814	76	927701061	(76s) cyc=13814 order=058e062b4653	default
+rv64uzbb-v-max	PASS	v-	18/18		14774	70	668000	(70s) cyc=14774 order=c53535b88699	default
+rv64uzbb-v-maxu	PASS	v-	1/18		14832	68	763255	(68s) cyc=14832 order=c6db395fa4ce	default
+rv64uzbb-v-min	PASS	v-	2/18		14766	68	682348419	(68s) cyc=14766 order=63e65aca6332	default
+rv64uzbb-v-minu	PASS	v-	3/18		14810	81	721456486	(81s) cyc=14810 order=e78a13a62522	default
+rv64uzbb-v-orc_b	PASS	v-	4/18		13883	101	864252821	(101s) cyc=13883 order=2315431713ac	default
+rv64uzbb-v-orn	PASS	v-	5/18		23709	93	747259729	(93s) cyc=23709 order=4f3e6f12bf4d	default
+rv64uzbb-v-rev8	PASS	v-	6/18		13921	64	775587545	(64s) cyc=13921 order=9c0b8addb737	default
+rv64uzbb-v-rol	PASS	v-	7/18		23638	151	204381834	(151s) cyc=23638 order=43a92b05d1f9	default
+rv64uzbb-v-rolw	PASS	v-	8/18		23635	127	569589537	(127s) cyc=23635 order=467725008d26	default
+rv64uzbb-v-ror	PASS	v-	9/18		23737	123	275898517	(123s) cyc=23737 order=4e3f86cb8d9d	default
+rv64uzbb-v-rori	PASS	v-	10/18		14037	64	159023697	(64s) cyc=14037 order=a23259af694d	default
+rv64uzbb-v-roriw	PASS	v-	11/18		13953	62	827069121	(62s) cyc=13953 order=6120db524201	default
+rv64uzbb-v-rorw	PASS	v-	12/18		14896	103	820220488	(103s) cyc=14896 order=de442eeb4618	default
+rv64uzbb-v-sext_b	PASS	v-	13/18		13841	64	115442747	(64s) cyc=13841 order=6f52d04fd390	default
+rv64uzbb-v-sext_h	PASS	v-	14/18		13848	54	643086904	(54s) cyc=13848 order=4950a3412b89	default
+rv64uzbb-v-xnor	PASS	v-	15/18		23709	92	702293650	(92s) cyc=23709 order=0cddc3d2ceff	default
+rv64uzbb-v-zext_h	PASS	v-	16/18		13855	62	684419807	(62s) cyc=13855 order=126f6d4ea584	default
+rv64uzbc-v-clmul	PASS	v-	17/18		14850	82	235942633	(82s) cyc=14850 order=2e9c8baf6c3b	default
+rv64uzbc-v-clmulh	PASS	v-	18/18		14859	44	772604213	(44s) cyc=14859 order=7c94c5ed8766	default
+rv64uzbc-v-clmulr	PASS	v-	1/18		14855	55	115351513	(55s) cyc=14855 order=b12c9102e7fa	default
+rv64uzbkb-v-brev8	PASS	v-	2/18		13862	64	977688159	(64s) cyc=13862 order=b0c15cc718e7	default
+rv64uzbkb-v-pack	PASS	v-	3/18		23982	83	529761080	(83s) cyc=23982 order=62f198517693	default
+rv64uzbkb-v-packh	PASS	v-	4/18		14935	86	430252557	(86s) cyc=14935 order=444b799abcb9	default
+rv64uzbkb-v-packw	PASS	v-	5/18		14793	65	526488089	(65s) cyc=14793 order=8ae2cd11cf04	default
+rv64uzbkx-v-xperm4	PASS	v-	6/18		23900	68	547789630	(68s) cyc=23900 order=6fd33ac4732d	default
+rv64uzbkx-v-xperm8	PASS	v-	7/18		24741	150	399698614	(150s) cyc=24741 order=24f1c202eee2	default
+rv64uzbs-v-bclr	PASS	v-	8/18		24004	121	197459431	(121s) cyc=24004 order=27400c00f00c	default
+rv64uzbs-v-bclri	PASS	v-	9/18		14262	66	305773165	(66s) cyc=14262 order=084639759444	default
+rv64uzbs-v-bext	PASS	v-	10/18		23864	85	759663787	(85s) cyc=23864 order=a31c2be02162	default
+rv64uzbs-v-bexti	PASS	v-	11/18		14152	54	462908701	(54s) cyc=14152 order=21a0ab177357	default
+rv64uzbs-v-binv	PASS	v-	12/18		23811	127	336905060	(127s) cyc=23811 order=0635208dfd19	default
+rv64uzbs-v-binvi	PASS	v-	13/18		14131	58	211992805	(58s) cyc=14131 order=ced0431320ff	default
+rv64uzbs-v-bset	PASS	v-	14/18		23964	74	31805168	(74s) cyc=23964 order=b7fda8280c34	default
+rv64uzbs-v-bseti	PASS	v-	15/18		14230	59	846796038	(59s) cyc=14230 order=1f5a6275e049	default
+rv64uzfh-v-fadd	PASS	v-	16/18		23077	75	584332196	(75s) cyc=23077 order=43dc49f1945d	default
+rv64uzfh-v-fclass	PASS	v-	17/18		13557	67	467614107	(67s) cyc=13557 order=e5c4ae67ca4b	default
+rv64uzfh-v-fcmp	PASS	v-	18/18		22705	76	308913766	(76s) cyc=22705 order=98fe7626e213	default
+rv64uzfh-v-fcvt	PASS	v-	1/18		22872	66	19732587	(66s) cyc=22872 order=0daf9af6bd92	default
+rv64uzfh-v-fcvt_w	PASS	v-	2/18		33231	97	316091715	(97s) cyc=33231 order=7abb9cdf39d6	default
+rv64uzfh-v-fdiv	PASS	v-	3/18		22778	80	216724684	(80s) cyc=22778 order=725851a19526	default
+rv64uzfh-v-fmadd	PASS	v-	4/18		23198	99	593128593	(99s) cyc=23198 order=c3c127fb3535	default
+rv64uzfh-v-fmin	PASS	v-	5/18		23681	78	256965574	(78s) cyc=23681 order=62886a06561c	default
+rv64uzfh-v-ldst	PASS	v-	6/18		23832	66	868848230	(66s) cyc=23832 order=c787ed99f63f	default
+rv64uzfh-v-move	PASS	v-	7/18		14123	102	113944796	(102s) cyc=14123 order=c4291567af98	default
+rv64uzfh-v-recoding	PASS	v-	8/18		22302	84	56562011	(84s) cyc=22302 order=195394ceb776	default
+rv64uziccid-v-ziccid	PASS	v-	11/18		178968	493	626185035	(493s) cyc=178968 order=2a84b46af6e9	default
+rv64uzicond-v-czero_eqz	PASS	v-	9/18		14776	63	176354654	(63s) cyc=14776 order=30da6cdae5bb	default
+rv64uzicond-v-czero_nez	PASS	v-	10/18		14773	45	283358979	(45s) cyc=14773 order=8fec906ae1a0	default
