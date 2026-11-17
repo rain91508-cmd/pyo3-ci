@@ -111,7 +111,11 @@ runs:
               # install from whatever indexes are present with Acquire
               # retries, retry once, and carry log tails inside the
               # annotations for diagnosis without repo-admin logs.
-              pkgs="dtc libboost-dev libboost-regex-dev python3-dev"
+              # "dtc" is the COMMAND, not the binary package; the package is
+              # device-tree-compiler (Launchpad: published in noble/amd64 main;
+              # binary name "dtc" does not exist on noble or jammy -- the root
+              # cause of runs 44041587852/44126892201/44135186418/44179403109).
+              pkgs="device-tree-compiler libboost-dev libboost-regex-dev python3-dev"
               need=""
               for p in $pkgs; do
                   if ! dpkg -s "$p" >/dev/null 2>&1; then
