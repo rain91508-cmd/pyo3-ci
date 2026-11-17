@@ -313,6 +313,7 @@ jobs:
         permissions:
             contents: write   # publish the pyo3-ci-report pre-release
         needs:
+            - pyo3-riscv-tests-build
             - pyo3-riscv-tests-p
             - pyo3-riscv-tests-v
             - pyo3-block-tests
@@ -420,7 +421,38 @@ jobs:
               env:
                   SCHED_MODE: ${{ inputs.sched_mode || 'pinned' }}
                   TESTBENCH: ${{ inputs.testbench || 'default' }}
+                  BUILD_RES: ${{ needs.pyo3-riscv-tests-build.result }}
+                  P_RES: ${{ needs.pyo3-riscv-tests-p.result }}
+                  V_RES: ${{ needs.pyo3-riscv-tests-v.result }}
+                  BLOCK_RES: ${{ needs.pyo3-block-tests.result }}
               run: |
+                  # Run-integrity gate (run 44126892201): a failed/skipped
+                  # group makes the run PARTIAL -- results.tsv then covers
+                  # only the surviving suites, and the row-count check below
+                  # silently PASSes on a fraction of the matrix (that run
+                  # went green on block-only rows while the ISA regression
+                  # never ran). Judge the group results first, in every
+                  # mode: a probe that never reached its suites must fail
+                  # loudly, not report an empty finding set.
+                  bad_groups=""
+                  for pair in "build:$BUILD_RES" "p:$P_RES" "v:$V_RES" "block:$BLOCK_RES"; do
+                      gname=${pair%%:*}
+                      gres=${pair##*:}
+                      if [ "$gres" != "success" ]; then
+                          bad_groups="$bad_groups $gname"
+                      fi
+                  done
+                  if [ -n "$bad_groups" ]; then
+                      # Report-only probes (nondet / cachehier) must keep the
+                      # user ruling: they report and never judge. The pinned
+                      # gate is the verdict and cannot pass a partial run.
+                      if [ "$SCHED_MODE" != "pinned" ] || [ "$TESTBENCH" = "cachehier" ]; then
+                          echo "::warning title=pyo3 run integrity (report-only)::suite group(s)$bad_groups did not succeed -- the run is partial; this probe does NOT gate."
+                          exit 0
+                      fi
+                      echo "::error::suite group(s)$bad_groups did not succeed -- the run is partial and the gate cannot judge it"
+                      exit 1
+                  fi
                   # A nondeterministic intra-cycle order is not a reproducible
                   # pass/fail signal: two dispatches of the same ref can draw
                   # different schedules for the same test. So the probe reports

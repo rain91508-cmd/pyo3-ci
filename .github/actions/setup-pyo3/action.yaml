@@ -95,22 +95,47 @@ runs:
               SPIKE_REF: ${{ inputs.spike_ref }}
           run: |
               set -euo pipefail
-              # CI run 44041587852: a transient apt failure (exit code 100,
-              # ~19s in) killed the setup step of ALL 19 -p-/-v- shard jobs at
-              # once -- the first cosim-enabled dispatch. Retry a few times so
-              # a mirror hiccup cannot take down the whole matrix.
-              apt_ok=0
-              for attempt in 1 2 3; do
-                  echo "apt attempt ${attempt}/3"
-                  if sudo apt-get update -q && \
-                     sudo apt-get install -y --no-install-recommends \
-                         dtc libboost-dev libboost-regex-dev python3-dev; then
-                      apt_ok=1
-                      break
+              # CI runs 44041587852 + 44126892201: apt fails on this path.
+              # 44126892201 proved it DETERMINISTIC (19/19 shards, ~110s =
+              # 3 x (update+install) + sleeps, all jobs alike) -- the classic
+              # hosted-runner signature (actions/runner-images #6486/#7067):
+              # `apt-get update` hits 403s on the image's baked-in third-party
+              # repos for multi-hour windows. v2 strategy:
+              #   1. skip whatever the image already provides (dpkg probe)
+              #   2. install directly against the baked indexes (no update)
+              #   3. only on failure: refresh ONLY the ubuntu main archive
+              #      (third-party repos excluded -- they are the flaky part),
+              #      then install again
+              #   4. on final failure, carry the apt error tail INSIDE the
+              #      ::error annotation, so the next debug round reads the
+              #      actual apt message via the API without repo-admin logs
+              pkgs="dtc libboost-dev libboost-regex-dev python3-dev"
+              need=""
+              for p in $pkgs; do
+                  if ! dpkg -s "$p" >/dev/null 2>&1; then
+                      need="$need $p"
                   fi
-                  sleep 30
               done
-              [ "$apt_ok" = 1 ] || { echo "::error::apt failed after 3 attempts"; exit 100; }
+              if [ -z "$need" ]; then
+                  echo "cosim apt deps already present on the image; skipping apt"
+              elif sudo apt-get install -y --no-install-recommends $need >/tmp/apt-install-1.log 2>&1; then
+                  echo "apt install (baked indexes) OK:$need"
+              else
+                  echo "apt install failed; refreshing ubuntu main indexes only"
+                  sudo apt-get update \
+                      -o Dir::Etc::sourcelist="sources.list.d/ubuntu.sources" \
+                      -o Dir::Etc::sourceparts="-" \
+                      -o APT::Get::List-Cleanup="0" \
+                      >/tmp/apt-update.log 2>&1 \
+                      || echo "::warning::ubuntu-main apt-get update failed; retrying install against baked indexes"
+                  if sudo apt-get install -y --no-install-recommends $need >/tmp/apt-install-2.log 2>&1; then
+                      echo "apt install (after ubuntu-main update) OK:$need"
+                  else
+                      tail_c=$(tail -c 500 /tmp/apt-install-2.log | tr '\n' ' ' | tr '\r' ' ')
+                      echo "::error::apt install failed twice for:$need -- apt tail: $tail_c"
+                      exit 100
+                  fi
+              fi
               cd src/cpu/pyo3
               # The submodule path exists but is empty (not fetched); clone
               # the public fork's cosim branch into it.
