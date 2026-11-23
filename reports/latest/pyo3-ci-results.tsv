@@ -803,7 +803,7 @@ test_tage_v2_transport::test_a_squash_flushes_the_tage_pipeline_before_the_next_
 test_tage_v2_transport::test_a_tage_window_flows_accept_to_finalize	PASS	block-BPredUnitV2	none			0			default
 test_tage_v2_transport::test_the_accept_gate_refuses_when_a_full_pipe_cannot_be_drained	PASS	block-BPredUnitV2	none			0			default
 test_tage_v2_transport::test_the_tage_accept_is_due_gated	PASS	block-BPredUnitV2	none			0		The block test issues predict_ft after the BPU's up_process; the composed order is BAC.up_tick (predict) BEFORE bpu.up_process.  The due gate depends on that order, so this pin belongs to the composed TAGE test (6c.4), not the block harness.	default
-test_v1_v2_parity::test_v1_v2_commit_value_stream_parity	PASS	block-BPredUnitV2	none			7		STANDING ACCEPTANCE GATE (plan D3/L0.4), not a normal test: the v2 core does not exist until L9. Fails at L0 for the correct reason (no v2 O3CoreCL). Flipped to REQUIRED at L9 — do NOT delete this test to make the suite green; remove the xfail instead.	default
+test_v1_v2_parity::test_v1_v2_commit_value_stream_parity	PASS	block-BPredUnitV2	none			11		STANDING ACCEPTANCE GATE (plan D3/L0.4), not a normal test: the v2 core does not exist until L9. Fails at L0 for the correct reason (no v2 O3CoreCL). Flipped to REQUIRED at L9 — do NOT delete this test to make the suite green; remove the xfail instead.	default
 test_csr_file_cl.TestConstruction::test_constructs_with_default_params	PASS	block-CSRFile	none			0			default
 test_csr_file_cl.TestConstruction::test_exposes_read_callee_ifc	PASS	block-CSRFile	none			0			default
 test_csr_file_cl.TestConstruction::test_exposes_write_callee_ifc	PASS	block-CSRFile	none			0			default
@@ -1358,6 +1358,9 @@ test_fu_pool_cl.TestPyisaIntegration::test_real_add_instruction_category	PASS	bl
 test_fu_pool_cl.TestPyisaIntegration::test_real_add_instruction_compute	PASS	block-FUPool	none			0			default
 test_fu_pool_cl.TestReset::test_after_reset_all_pipelines_empty	PASS	block-FUPool	none			0			default
 test_fu_pool_cl.TestReset::test_after_reset_rr_ptrs_zero	PASS	block-FUPool	none			0			default
+test_fu_pool_cl.TestZfhHBox16::test_fcvt_h_w_result_nan_boxed_16bit	PASS	block-FUPool	none			0			default
+test_fu_pool_cl.TestZfhHBox16::test_fmv_x_h_read_unbox_bad_box_is_canonical_hnan	PASS	block-FUPool	none			0			default
+test_fu_pool_cl.TestZfhHBox16::test_nan_box_fp_operand_width_rules	PASS	block-FUPool	none			0			default
 test_fu_pool_cl_adr0033.TestFuRealCompletePort::test_fu_real_complete_is_callable	PASS	block-FUPool	none			0			default
 test_fu_pool_cl_adr0033.TestFuRealCompletePort::test_fu_real_complete_port_exists	PASS	block-FUPool	none			0			default
 test_fu_pool_cl_adr0033.TestLDACompletionNoFuRealComplete::test_lda_does_not_fire_fu_real_complete_from_fupool	PASS	block-FUPool	none			0			default
@@ -1666,13 +1669,13 @@ test_frontend_v2_compose.TestComposition::test_frontend_v2_constructs_and_resets
 test_frontend_v2_compose.TestComposition::test_ft_flows_bac_ftq_fetch_decode	PASS	block-FrontEnd	none			0			default
 test_frontend_v2_compose.TestComposition::test_ftq_head_bb_idx_comes_from_the_bpu_row_allocator	PASS	block-FrontEnd	none			0			default
 test_frontend_v2_compose.TestComposition::test_the_path_does_not_park_before_the_end_of_the_run	PASS	block-FrontEnd	none			0			default
-test_frontend_v2_compose.TestScheduleSeedSweep::test_identical_outcomes_across_schedule_seeds	PASS	block-FrontEnd	none			1			default
+test_frontend_v2_compose.TestScheduleSeedSweep::test_identical_outcomes_across_schedule_seeds	PASS	block-FrontEnd	none			2			default
 test_frontend_v2_compose.TestScheduleSeedSweep::test_sweep_reaches_a_formed_ft	PASS	block-FrontEnd	none			0			default
 test_frontend_v2_compose.TestWindowAttach::test_member_bitmap_is_absolute_not_ft_relative	PASS	block-FrontEnd	none			0			default
 test_frontend_v2_compose.TestWindowAttach::test_member_instruction_gets_absolute_slot	PASS	block-FrontEnd	none			0			default
 test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_edge_alone_orders_the_driver_ahead_of_the_finalize	PASS	block-FrontEnd	none			0			default
-test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_level_stalls_the_finalize_of_its_own_cycle_at_every_seed	PASS	block-FrontEnd	none			4			default
-test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_scenario_is_not_vacuous_without_the_level	PASS	block-FrontEnd	none			1			default
+test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_level_stalls_the_finalize_of_its_own_cycle_at_every_seed	PASS	block-FrontEnd	none			6			default
+test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_scenario_is_not_vacuous_without_the_level	PASS	block-FrontEnd	none			2			default
 test_icache_cl.TestBackpressure::test_i51_ready_after_reset	PASS	block-ICache	none			0			default
 test_icache_cl.TestBackpressure::test_i52_not_ready_when_mshr_full	PASS	block-ICache	none			0			default
 test_icache_cl.TestBackpressure::test_i53_ready_after_mshr_freed	PASS	block-ICache	none			0			default
@@ -2124,6 +2127,8 @@ test_lq_core_cl.TestDesignBComputeAgeKey::test_oldest_younger_wins_and_older_loa
 test_lq_core_cl.TestFSMTranslated::test_dcache_req_caller_ifc_exists	PASS	block-LQCore	none			0			default
 test_lq_core_cl.TestFSMTranslated::test_translated_to_waiting_resp	PASS	block-LQCore	none			0			default
 test_lq_core_cl.TestFSMTranslated::test_waiting_resp_to_complete_on_dcache_resp	PASS	block-LQCore	none			0			default
+test_lq_core_cl.TestFlhNaNBox16::test_flh_float_dest_nan_boxed	PASS	block-LQCore	none			0			default
+test_lq_core_cl.TestFlhNaNBox16::test_lh_int_dest_not_boxed	PASS	block-LQCore	none			0			default
 test_lq_core_cl.TestInsert::test_insert_adds_entry	PASS	block-LQCore	none			0			default
 test_lq_core_cl.TestInterfaces::test_callee_ports_exist	PASS	block-LQCore	none			0			default
 test_lq_core_cl.TestInterfaces::test_caller_ports_exist	PASS	block-LQCore	none			0			default
@@ -2191,8 +2196,10 @@ test_lq_core_cl.TestTLBIStaleRetranslation::test_has_stale_returns_true_when_sta
 test_lq_core_cl.TestTLBIStaleRetranslation::test_lq_entry_has_stale_translation_field	PASS	block-LQCore	none			0			default
 test_lq_core_cl.TestTLBIStaleRetranslation::test_lq_entry_has_vaddr_field	PASS	block-LQCore	none			0			default
 test_lq_core_cl.TestTLBIStaleRetranslation::test_non_stale_entry_does_not_trigger_translate_req	PASS	block-LQCore	none			0			default
+test_lq_core_cl.TestTLBIStaleRetranslation::test_stale_amo_lq_half_retranslates_store_typed	PASS	block-LQCore	none			0			default
 test_lq_core_cl.TestTLBIStaleRetranslation::test_stale_entry_triggers_translate_req	PASS	block-LQCore	none			0			default
 test_lq_core_cl.TestTLBIStaleRetranslation::test_stale_flag_cleared_on_dcache_resp	PASS	block-LQCore	none			0			default
+test_lq_core_cl.TestTLBIStaleRetranslation::test_stale_lr_retranslates_load_typed	PASS	block-LQCore	none			0			default
 test_lq_core_cl.TestTLBIStaleRetranslation::test_tlbi_inv_callee_ifc_exists	PASS	block-LQCore	none			0			default
 test_lq_core_cl.TestTLBIStaleRetranslation::test_tlbi_inv_is_per_thread	PASS	block-LQCore	none			0			default
 test_lq_core_cl.TestTLBIStaleRetranslation::test_tlbi_inv_marks_inflight_entry_stale	PASS	block-LQCore	none			0			default
@@ -2243,6 +2250,10 @@ test_lsq_parent_cl.TestAmoLqSqPair::test_amo_lq_skips_own_sq_goes_to_dcache	PASS
 test_lsq_parent_cl.TestAmoLqSqPair::test_is_atomic_defaults_false_on_lq_entry	PASS	block-LSQParent	none			0			default
 test_lsq_parent_cl.TestAmoLqSqPair::test_is_atomic_field_set_on_lq_entry	PASS	block-LSQParent	none			0			default
 test_lsq_parent_cl.TestAmoLqSqPair::test_normal_load_stalls_on_amo_sq	PASS	block-LSQParent	none			0			default
+test_lsq_parent_cl.TestC3AmoTranslateTyping::test_amo_lq_half_requests_store_amo_translation	PASS	block-LSQParent	none			0			default
+test_lsq_parent_cl.TestC3AmoTranslateTyping::test_amo_readonly_fault_no_partial_result	PASS	block-LSQParent	none			0			default
+test_lsq_parent_cl.TestC3AmoTranslateTyping::test_lr_requests_load_translation	PASS	block-LSQParent	none			0			default
+test_lsq_parent_cl.TestC3AmoTranslateTyping::test_sc_sta_requests_store_translation	PASS	block-LSQParent	none			0			default
 test_lsq_parent_cl.TestCommitLoads::test_commit_loads_callee_ifc_exists	PASS	block-LSQParent	none			0			default
 test_lsq_parent_cl.TestCommitLoads::test_commit_loads_pops_lq_head_entries	PASS	block-LSQParent	none			0			default
 test_lsq_parent_cl.TestDependentLoadsIntegration::test_dependents_broadcast_wired_to_dependents_update	PASS	block-LSQParent	none			0			default
@@ -2590,7 +2601,7 @@ test_mmu_pl2_resp_hold.TestQ29SameCycleServe::test_same_cycle_serve_two_stage_wa
 test_mmu_snapshot_retire.TestT21SatpSnapshotMidWalk::test_dside_walk_completes_under_latched_root_and_asid	PASS	block-MMU	none			0			default
 test_mmu_snapshot_retire.TestT21SatpSnapshotMidWalk::test_iside_walk_completes_under_latched_root_and_asid	PASS	block-MMU	none			0			default
 test_mmu_snapshot_retire.TestT21SatpSnapshotMidWalk::test_two_stage_fill_carries_latched_asid_and_vmid	PASS	block-MMU	none			0			default
-test_mmu_snapshot_retire.TestTBWalkerRetirement::test_tb_walk_path_not_consulted_identical_responses	PASS	block-MMU	none			1			default
+test_mmu_snapshot_retire.TestTBWalkerRetirement::test_tb_walk_path_not_consulted_identical_responses	PASS	block-MMU	none			2			default
 test_mmu_walk_cache_l2.TestT02WalkCacheResume::test_l2_hit_refills_l1_without_walk	PASS	block-MMU	none			0			default
 test_mmu_walk_cache_l2.TestT02WalkCacheResume::test_neighbouring_page_same_2m_region_one_table_read	PASS	block-MMU	none			0			default
 test_mmu_walk_cache_l2.TestT07L2One2MUnit::test_1g_leaf_native_hit_l2_holds_containing_unit	PASS	block-MMU	none			0			default
@@ -2937,6 +2948,8 @@ test_rename_map_cl.TestForwardReplayPhase2::test_forward_replay_phase2_set_entry
 test_rename_map_cl.TestIntraBundleBypass::test_inst1_source_sees_inst0_dest_rename	PASS	block-Rename	none			0			default
 test_rename_map_cl.TestMiscReg::test_misc_reg_identity_mapping	PASS	block-Rename	none			0			default
 test_rename_map_cl.TestMiscReg::test_misc_reg_rename_returns_identity	PASS	block-Rename	none			0			default
+test_rename_map_cl.TestP6WrapProofBoundaryKey::test_empty_rob_boot_squash_restores_boot_snapshot	PASS	block-Rename	none			0			default
+test_rename_map_cl.TestP6WrapProofBoundaryKey::test_slot0_wrap_mem_violation_restores_strictly_older	PASS	block-Rename	none			0			default
 test_rename_map_cl.TestP8RobIdxTagCAM::test_capped_pool_ranks_across_a_full_generation_rotation	PASS	block-Rename	none			0			default
 test_rename_map_cl.TestP8RobIdxTagCAM::test_d7_out_of_window_tag_never_outranks_in_window	PASS	block-Rename	none			0			default
 test_rename_map_cl.TestP8RobIdxTagCAM::test_distance_ordering_selects_youngest_qualifying	PASS	block-Rename	none			0			default
@@ -3256,65 +3269,65 @@ test_o3_core_bare_metal_tb_cl.TestVAProbeCoordinator::test_va_probe_resp_fires_2
 test_o3_core_v2.TestCoreBuildsV2Frontend::test_core_frontend_carries_the_v2_blocks	PASS	block-Testbench	none			0			default
 test_o3_core_v2.TestCoreBuildsV2Frontend::test_core_frontend_is_frontend_v2	PASS	block-Testbench	none			0			default
 test_o3_core_v2.TestCoreBuildsV2Frontend::test_v2_core_exposes_the_testbench_surface	PASS	block-Testbench	none			0		L9b ACCEPTANCE SCAFFOLD — the v2 core schedules now (F-41 fixed: `FrontendV2` no longer carries the `M(decode_bpu_correction_sink) < M(backward_ctrl)` edge, so the same-cycle loop `M(sink) < M(backward_ctrl) < U(decode.up_dispatch) < M(decode_bpu_correction) = M(sink)` has no leg 2 -- the sink itself stays, and `bac_backward_ctrl` is now an alias of the merging `backward_ctrl` CalleeIfcCL), but `r	default
-test_o3_core_v2.TestElfOnV2Core::test_rv64ui_p_add_passes_on_v2	PASS	block-Testbench	none			6			default
-test_o3_core_v2.TestElfOnV2Core::test_v2_core_commits_instructions_and_retires_stores	PASS	block-Testbench	none			6			default
+test_o3_core_v2.TestElfOnV2Core::test_rv64ui_p_add_passes_on_v2	PASS	block-Testbench	none			10			default
+test_o3_core_v2.TestElfOnV2Core::test_v2_core_commits_instructions_and_retires_stores	PASS	block-Testbench	none			10			default
 test_o3_core_v2.TestFetchTargetPairingLaw::test_d14s_act_less_row_is_never_reached	PASS	block-Testbench	none			0			default
 test_o3_core_v2.TestFetchTargetPairingLaw::test_every_claim_becomes_a_stage_or_is_destroyed_once	PASS	block-Testbench	none			0			default
-test_o3_core_v2.TestFetchTargetPairingLaw::test_every_queued_fetch_target_leaves_the_queue_exactly_once	PASS	block-Testbench	none			4			default
+test_o3_core_v2.TestFetchTargetPairingLaw::test_every_queued_fetch_target_leaves_the_queue_exactly_once	PASS	block-Testbench	none			9			default
 test_o3_core_v2.TestFetchTargetPairingLaw::test_one_request_per_fetch_target_presented	PASS	block-Testbench	none			0			default
 test_o3_core_v2.TestFetchTargetPairingLaw::test_the_fill_is_the_only_pop	PASS	block-Testbench	none			0			default
-test_o3_core_v2.TestNackChainOrdering::test_elf_reaches_exit_on_every_schedule_seed	PASS	block-Testbench	none			35			default
-test_o3_core_v2.TestNackChainOrdering::test_no_seed_stalls_the_frontend	PASS	block-Testbench	none			35			default
-test_o3_core_v2.TestNackChainOrdering::test_the_sweep_actually_executed_the_frontend	PASS	block-Testbench	none			7			default
-test_riscv_tests_isa::test_riscv_tests_smoke_add	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate]	PASS	block-Testbench	none			3			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate]	PASS	block-Testbench	none			3			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate]	PASS	block-Testbench	none			2			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-auipc:add upper immediate to PC]	PASS	block-Testbench	none			2			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal]	PASS	block-Testbench	none			3			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than]	PASS	block-Testbench	none			3			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal]	PASS	block-Testbench	none			5			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence]	PASS	block-Testbench	none			5			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link]	PASS	block-Testbench	none			2			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jalr:jump and link register]	PASS	block-Testbench	none			2			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double]	PASS	block-Testbench	none			5			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned]	PASS	block-Testbench	none			4			default
+test_o3_core_v2.TestNackChainOrdering::test_elf_reaches_exit_on_every_schedule_seed	PASS	block-Testbench	none			52			default
+test_o3_core_v2.TestNackChainOrdering::test_no_seed_stalls_the_frontend	PASS	block-Testbench	none			53			default
+test_o3_core_v2.TestNackChainOrdering::test_the_sweep_actually_executed_the_frontend	PASS	block-Testbench	none			10			default
+test_riscv_tests_isa::test_riscv_tests_smoke_add	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition]	PASS	block-Testbench	none			9			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word]	PASS	block-Testbench	none			10			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND]	PASS	block-Testbench	none			10			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-auipc:add upper immediate to PC]	PASS	block-Testbench	none			3			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal]	PASS	block-Testbench	none			8			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal]	PASS	block-Testbench	none			9			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than]	PASS	block-Testbench	none			8			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned]	PASS	block-Testbench	none			9			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal]	PASS	block-Testbench	none			8			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link]	PASS	block-Testbench	none			3			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jalr:jump and link register]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double]	PASS	block-Testbench	none			8			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned]	PASS	block-Testbench	none			6			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lui:load upper immediate]	PASS	block-Testbench	none			2			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word]	PASS	block-Testbench	none			6			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			7			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate]	PASS	block-Testbench	none			2			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte]	PASS	block-Testbench	none			5			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double]	PASS	block-Testbench	none			7			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word]	PASS	block-Testbench	none			7			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			10			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]	PASS	block-Testbench	none			9			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word]	PASS	block-Testbench	none			10			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than]	PASS	block-Testbench	none			9			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned]	PASS	block-Testbench	none			9			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic]	PASS	block-Testbench	none			10			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srai:shift right arithmetic immediate]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sraw:shift right arithmetic word]	PASS	block-Testbench	none			7			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sraw:shift right arithmetic word]	PASS	block-Testbench	none			10			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical]	PASS	block-Testbench	none			10			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word]	PASS	block-Testbench	none			7			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate]	PASS	block-Testbench	none			3			default
-test_riscv_tests_isa::test_rv64uziccid_p_ziccid	PASS	block-Testbench	none			18			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word]	PASS	block-Testbench	none			10			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction]	PASS	block-Testbench	none			9			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word]	PASS	block-Testbench	none			9			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR]	PASS	block-Testbench	none			10			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64uziccid_p_ziccid	PASS	block-Testbench	none			29			default
 test_sbuf_fence_gate_wiring::test_absorbed_store_holds_commit_gate_through_tb_wire	PASS	block-Testbench	none			0			default
 test_tlbi_controller_cl.TestEdgeCases::test_second_tlbi_req_after_first_completes	PASS	block-TlbiController	none			0			default
 test_tlbi_controller_cl.TestEdgeCases::test_sync_comp_before_inv_sent_ignored_or_buffered	PASS	block-TlbiController	none			0			default
@@ -3423,552 +3436,552 @@ test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_r
 test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_returns_miss_when_buf_empty	PASS	block-WriteBack	none			0			default
 test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_normal_completion_does_not_fire_sb_setReg	PASS	block-WriteBack	none			0			default
 test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_sb_setReg_caller_ifc_removed	PASS	block-WriteBack	none			0			default
-rv64ua-v-amoadd_d	FAIL	cosim-v	1/18			18	704585936	(18s): rv64ua-v-amoadd_d: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=0cb4b907782f	default
-rv64ua-v-amoadd_w	FAIL	cosim-v	2/18			22	520841258	(22s): rv64ua-v-amoadd_w: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=59356c7da53a	default
-rv64ua-v-amoand_d	FAIL	cosim-v	3/18			14	644024002	(14s): rv64ua-v-amoand_d: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=2b5aae4d6f93	default
-rv64ua-v-amoand_w	FAIL	cosim-v	4/18			15	64459974	(15s): rv64ua-v-amoand_w: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=5fde7fa8439e	default
-rv64ua-v-amomax_d	FAIL	cosim-v	5/18			15	535453336	(15s): rv64ua-v-amomax_d: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=85fab3846454	default
-rv64ua-v-amomax_w	FAIL	cosim-v	6/18			15	747724621	(15s): rv64ua-v-amomax_w: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=2e210949f0be	default
-rv64ua-v-amomaxu_d	FAIL	cosim-v	7/18			15	28959486	(15s): rv64ua-v-amomaxu_d: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=d5a92c0d606a	default
-rv64ua-v-amomaxu_w	FAIL	cosim-v	8/18			15	423480097	(15s): rv64ua-v-amomaxu_w: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=e977b6f7ce1b	default
-rv64ua-v-amomin_d	FAIL	cosim-v	9/18			14	439154980	(14s): rv64ua-v-amomin_d: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=0274abcf6687	default
-rv64ua-v-amomin_w	FAIL	cosim-v	10/18			15	972928702	(15s): rv64ua-v-amomin_w: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=9791325e1f8d	default
-rv64ua-v-amominu_d	FAIL	cosim-v	11/18			24	924989093	(24s): rv64ua-v-amominu_d: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=548348554565	default
-rv64ua-v-amominu_w	FAIL	cosim-v	12/18			14	472942239	(14s): rv64ua-v-amominu_w: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=66b313c44563	default
-rv64ua-v-amoor_d	FAIL	cosim-v	13/18			23	603336077	(23s): rv64ua-v-amoor_d: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=f71438850e5a	default
-rv64ua-v-amoor_w	FAIL	cosim-v	14/18			24	124816828	(24s): rv64ua-v-amoor_w: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=193f2d594b10	default
-rv64ua-v-amoswap_d	FAIL	cosim-v	15/18			14	109251077	(14s): rv64ua-v-amoswap_d: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=b0f2bcd30fe9	default
-rv64ua-v-amoswap_w	FAIL	cosim-v	16/18			15	442022313	(15s): rv64ua-v-amoswap_w: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=9a53f0c7f06c	default
-rv64ua-v-amoxor_d	FAIL	cosim-v	17/18			15	650479891	(15s): rv64ua-v-amoxor_d: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=db339b0bbdc2	default
-rv64ua-v-amoxor_w	FAIL	cosim-v	18/18			14	974526312	(14s): rv64ua-v-amoxor_w: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=82bb276a06a3	default
-rv64ua-v-lrsc	FAIL	cosim-v	1/18			19	404180795	(19s): rv64ua-v-lrsc: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=ce3c298948b8	default
-rv64uc-v-rvc	FAIL	cosim-v	2/18			22	623588878	(22s): rv64uc-v-rvc: MISMATCH at commit 1053 pc=0x3014 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x3014; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=5cddf8ef017c	default
-rv64ud-v-fadd	FAIL	cosim-v	3/18			14	846818333	(14s): rv64ud-v-fadd: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=c40216d301c0	default
-rv64ud-v-fclass	FAIL	cosim-v	4/18			15	736602975	(15s): rv64ud-v-fclass: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=6869e4630de8	default
-rv64ud-v-fcmp	FAIL	cosim-v	5/18			15	774112840	(15s): rv64ud-v-fcmp: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=d260c6a75fe8	default
-rv64ud-v-fcvt	FAIL	cosim-v	6/18			15	620547164	(15s): rv64ud-v-fcvt: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=ba19872d76a4	default
-rv64ud-v-fcvt_w	FAIL	cosim-v	7/18			15	284153242	(15s): rv64ud-v-fcvt_w: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=29ab673f0ef0	default
-rv64ud-v-fdiv	FAIL	cosim-v	8/18			14	262360956	(14s): rv64ud-v-fdiv: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=b05bb09cfc1b	default
-rv64ud-v-fmadd	FAIL	cosim-v	9/18			14	161492387	(14s): rv64ud-v-fmadd: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=cea67d9b28b6	default
-rv64ud-v-fmin	FAIL	cosim-v	10/18			15	457625754	(15s): rv64ud-v-fmin: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=41fafebb86e8	default
-rv64ud-v-ldst	FAIL	cosim-v	11/18			23	475261349	(23s): rv64ud-v-ldst: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=8568536afc79	default
-rv64ud-v-move	FAIL	cosim-v	12/18			15	479900835	(15s): rv64ud-v-move: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=ef1a73aaedcc	default
-rv64ud-v-recoding	FAIL	cosim-v	13/18			23	571961129	(23s): rv64ud-v-recoding: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=95b913764633	default
-rv64ud-v-structural	FAIL	cosim-v	14/18			24	296350242	(24s): rv64ud-v-structural: MISMATCH at commit 1053 pc=0x2a14 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a14; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=2e720827f507	default
-rv64uf-v-fadd	FAIL	cosim-v	15/18			14	508993163	(14s): rv64uf-v-fadd: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=1d2f51d9ec56	default
-rv64uf-v-fclass	FAIL	cosim-v	16/18			15	877874263	(15s): rv64uf-v-fclass: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=be1549399aa5	default
-rv64uf-v-fcmp	FAIL	cosim-v	17/18			15	43161081	(15s): rv64uf-v-fcmp: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=a53c6542736b	default
-rv64uf-v-fcvt	FAIL	cosim-v	18/18			14	152108264	(14s): rv64uf-v-fcvt: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=19a6ae218258	default
-rv64uf-v-fcvt_w	FAIL	cosim-v	1/18			19	588028079	(19s): rv64uf-v-fcvt_w: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=d038b7f85393	default
-rv64uf-v-fdiv	FAIL	cosim-v	2/18			22	132151396	(22s): rv64uf-v-fdiv: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=a6493f579ffd	default
-rv64uf-v-fmadd	FAIL	cosim-v	3/18			14	136487617	(14s): rv64uf-v-fmadd: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=8a3e89dd66b7	default
-rv64uf-v-fmin	FAIL	cosim-v	4/18			15	916930404	(15s): rv64uf-v-fmin: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=faec198d14d9	default
-rv64uf-v-ldst	FAIL	cosim-v	5/18			15	556473933	(15s): rv64uf-v-ldst: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=5121daddedc0	default
-rv64uf-v-move	FAIL	cosim-v	6/18			15	67721855	(15s): rv64uf-v-move: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=cf18fee9d5ca	default
-rv64uf-v-recoding	FAIL	cosim-v	7/18			15	861219548	(15s): rv64uf-v-recoding: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=b98c23fa195a	default
-rv64ui-v-add	FAIL	cosim-v	8/18			15	826641350	(15s): rv64ui-v-add: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=a217d9256cde	default
-rv64ui-v-addi	FAIL	cosim-v	9/18			14	889801890	(14s): rv64ui-v-addi: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=2ec93b2efb53	default
-rv64ui-v-addiw	FAIL	cosim-v	10/18			15	18587571	(15s): rv64ui-v-addiw: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=ffc5052a39f5	default
-rv64ui-v-addw	FAIL	cosim-v	11/18			24	736234618	(24s): rv64ui-v-addw: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=6befcbd1a781	default
-rv64ui-v-and	FAIL	cosim-v	12/18			15	854931843	(15s): rv64ui-v-and: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=b11576681de3	default
-rv64ui-v-andi	FAIL	cosim-v	13/18			24	987562811	(24s): rv64ui-v-andi: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=66a856d64044	default
-rv64ui-v-auipc	FAIL	cosim-v	14/18			24	709487847	(24s): rv64ui-v-auipc: MISMATCH at commit 1053 pc=0x2a04 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a04; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=be22b28abd0e	default
-rv64ui-v-beq	FAIL	cosim-v	15/18			14	77708616	(14s): rv64ui-v-beq: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=f1a15574ac1c	default
-rv64ui-v-bge	FAIL	cosim-v	16/18			15	907018578	(15s): rv64ui-v-bge: MISMATCH at commit 1052 pc=0x29fc field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x29fc; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=310826de562a	default
-rv64ui-v-bgeu	FAIL	cosim-v	17/18			15	525524361	(15s): rv64ui-v-bgeu: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=1397865389b2	default
-rv64ui-v-blt	FAIL	cosim-v	18/18			14	110887858	(14s): rv64ui-v-blt: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=2fed6175d746	default
-rv64ui-v-bltu	FAIL	cosim-v	1/18			18	293248945	(18s): rv64ui-v-bltu: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=bc7b396ead45	default
-rv64ui-v-bne	FAIL	cosim-v	2/18			22	263674651	(22s): rv64ui-v-bne: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=f8c3c5f18e15	default
-rv64ui-v-fence_i	FAIL	cosim-v	3/18			14	251524523	(14s): rv64ui-v-fence_i: MISMATCH at commit 1053 pc=0x2a14 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a14; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=f21f0622b3c4	default
-rv64ui-v-jal	FAIL	cosim-v	4/18			14	480884434	(14s): rv64ui-v-jal: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=a106ae555ff3	default
-rv64ui-v-jalr	FAIL	cosim-v	5/18			15	467000219	(15s): rv64ui-v-jalr: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=d3c3aab33739	default
-rv64ui-v-lb	FAIL	cosim-v	6/18			15	671004534	(15s): rv64ui-v-lb: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=79e6a89727a0	default
-rv64ui-v-lbu	FAIL	cosim-v	7/18			15	699361221	(15s): rv64ui-v-lbu: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=26551bcf7dc9	default
-rv64ui-v-ld	FAIL	cosim-v	8/18			15	157853278	(15s): rv64ui-v-ld: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=04bc7ec867b3	default
-rv64ui-v-ld_st	FAIL	cosim-v	9/18			14	769264665	(14s): rv64ui-v-ld_st: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=bf0c9e3761e3	default
-rv64ui-v-lh	FAIL	cosim-v	10/18			15	431590317	(15s): rv64ui-v-lh: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=49429d296fc2	default
-rv64ui-v-lhu	FAIL	cosim-v	11/18			24	173693697	(24s): rv64ui-v-lhu: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=0d1ae859d459	default
-rv64ui-v-lui	FAIL	cosim-v	12/18			14	565221316	(14s): rv64ui-v-lui: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=91a6ad8f172e	default
-rv64ui-v-lw	FAIL	cosim-v	13/18			24	741742013	(24s): rv64ui-v-lw: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=5317b2e5d3d9	default
-rv64ui-v-lwu	FAIL	cosim-v	14/18			25	864438618	(25s): rv64ui-v-lwu: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=ef9838c7b01a	default
-rv64ui-v-ma_data	FAIL	cosim-v	15/18			14	495586024	(14s): rv64ui-v-ma_data: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=19dfc2a9bcfb	default
-rv64ui-v-or	FAIL	cosim-v	16/18			16	480623287	(16s): rv64ui-v-or: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=bbe38a6dc304	default
-rv64ui-v-ori	FAIL	cosim-v	17/18			16	337387891	(16s): rv64ui-v-ori: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=c6049995990b	default
-rv64ui-v-sb	FAIL	cosim-v	18/18			14	445548388	(14s): rv64ui-v-sb: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=67d6e1a382ab	default
-rv64ui-v-sd	FAIL	cosim-v	1/18			19	8580539	(19s): rv64ui-v-sd: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=db053dd719d4	default
-rv64ui-v-sh	FAIL	cosim-v	2/18			23	277062979	(23s): rv64ui-v-sh: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=da105b99eb7c	default
-rv64ui-v-simple	FAIL	cosim-v	3/18			14	102593447	(14s): rv64ui-v-simple: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=e79d1b14f93c	default
-rv64ui-v-sll	FAIL	cosim-v	4/18			15	685656660	(15s): rv64ui-v-sll: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=863c85db026a	default
-rv64ui-v-slli	FAIL	cosim-v	5/18			14	435268847	(14s): rv64ui-v-slli: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=294296c4837a	default
-rv64ui-v-slliw	FAIL	cosim-v	6/18			15	552126706	(15s): rv64ui-v-slliw: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=a53e78ca4521	default
-rv64ui-v-sllw	FAIL	cosim-v	7/18			15	606006103	(15s): rv64ui-v-sllw: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=544805bea88a	default
-rv64ui-v-slt	FAIL	cosim-v	8/18			15	426348572	(15s): rv64ui-v-slt: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=c346d1db2763	default
-rv64ui-v-slti	FAIL	cosim-v	9/18			14	879836131	(14s): rv64ui-v-slti: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=00bdf4d7be30	default
-rv64ui-v-sltiu	FAIL	cosim-v	10/18			15	469526338	(15s): rv64ui-v-sltiu: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=94d7eb960fc0	default
-rv64ui-v-sltu	FAIL	cosim-v	11/18			24	123896141	(24s): rv64ui-v-sltu: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=75645b32f26c	default
-rv64ui-v-sra	FAIL	cosim-v	12/18			15	497738445	(15s): rv64ui-v-sra: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=b79ca727bc97	default
-rv64ui-v-srai	FAIL	cosim-v	13/18			24	642796812	(24s): rv64ui-v-srai: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=26573516b692	default
-rv64ui-v-sraiw	FAIL	cosim-v	14/18			24	587959634	(24s): rv64ui-v-sraiw: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=61c3027a716b	default
-rv64ui-v-sraw	FAIL	cosim-v	15/18			15	444180703	(15s): rv64ui-v-sraw: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=ada105826969	default
-rv64ui-v-srl	FAIL	cosim-v	16/18			15	431155306	(15s): rv64ui-v-srl: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=67b851097aae	default
-rv64ui-v-srli	FAIL	cosim-v	17/18			16	520663361	(16s): rv64ui-v-srli: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=1c1074c607a1	default
-rv64ui-v-srliw	FAIL	cosim-v	18/18			15	839142841	(15s): rv64ui-v-srliw: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=5bcc98f98f40	default
-rv64ui-v-srlw	FAIL	cosim-v	1/18			19	615407351	(19s): rv64ui-v-srlw: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=4f2952d2f1a4	default
-rv64ui-v-st_ld	FAIL	cosim-v	2/18			23	764185450	(23s): rv64ui-v-st_ld: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=b0d7aacda4d1	default
-rv64ui-v-sub	FAIL	cosim-v	3/18			15	963322274	(15s): rv64ui-v-sub: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=9f0aa237ea8d	default
-rv64ui-v-subw	FAIL	cosim-v	4/18			15	867314935	(15s): rv64ui-v-subw: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=2c6a88d27b97	default
-rv64ui-v-sw	FAIL	cosim-v	5/18			15	551261800	(15s): rv64ui-v-sw: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=3d54cc7d641a	default
-rv64ui-v-xor	FAIL	cosim-v	6/18			17	452073815	(17s): rv64ui-v-xor: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=667cf71035b7	default
-rv64ui-v-xori	FAIL	cosim-v	7/18			15	50893316	(15s): rv64ui-v-xori: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=fca409949cb1	default
-rv64um-v-div	FAIL	cosim-v	8/18			14	54970456	(14s): rv64um-v-div: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=53be80e77a7f	default
-rv64um-v-divu	FAIL	cosim-v	9/18			13	86656956	(13s): rv64um-v-divu: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=b149b42344ba	default
-rv64um-v-divuw	FAIL	cosim-v	10/18			15	871477110	(15s): rv64um-v-divuw: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=00fed701dfd9	default
-rv64um-v-divw	FAIL	cosim-v	11/18			23	214649608	(23s): rv64um-v-divw: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=42f53e06119b	default
-rv64um-v-mul	FAIL	cosim-v	12/18			16	117692800	(16s): rv64um-v-mul: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=464f2eba2f87	default
-rv64um-v-mulh	FAIL	cosim-v	13/18			23	819358816	(23s): rv64um-v-mulh: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=f7573d7bd191	default
-rv64um-v-mulhsu	FAIL	cosim-v	14/18			24	349850923	(24s): rv64um-v-mulhsu: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=84b8f05c4063	default
-rv64um-v-mulhu	FAIL	cosim-v	15/18			15	408024697	(15s): rv64um-v-mulhu: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=62115de8de3b	default
-rv64um-v-mulw	FAIL	cosim-v	16/18			15	800252761	(15s): rv64um-v-mulw: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=0aa63a830aa7	default
-rv64um-v-rem	FAIL	cosim-v	17/18			15	299128649	(15s): rv64um-v-rem: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=86b4365b2749	default
-rv64um-v-remu	FAIL	cosim-v	18/18			15	550974857	(15s): rv64um-v-remu: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=404b101dd047	default
-rv64um-v-remuw	FAIL	cosim-v	1/18			18	461869749	(18s): rv64um-v-remuw: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=0ee9b2200952	default
-rv64um-v-remw	FAIL	cosim-v	2/18			23	443741332	(23s): rv64um-v-remw: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=9d5e96b54895	default
-rv64uzba-v-add_uw	FAIL	cosim-v	3/18			15	817386205	(15s): rv64uzba-v-add_uw: MISMATCH at commit 1053 pc=0x29e4 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x29e4; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=8e21e1b2f85c	default
-rv64uzba-v-sh1add	FAIL	cosim-v	4/18			15	878005897	(15s): rv64uzba-v-sh1add: MISMATCH at commit 1053 pc=0x29e4 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x29e4; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=ecbc9a1b5083	default
-rv64uzba-v-sh1add_uw	FAIL	cosim-v	5/18			15	84849916	(15s): rv64uzba-v-sh1add_uw: MISMATCH at commit 1053 pc=0x29e4 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x29e4; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=5695fb323738	default
-rv64uzba-v-sh2add	FAIL	cosim-v	6/18			15	429325583	(15s): rv64uzba-v-sh2add: MISMATCH at commit 1053 pc=0x29e4 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x29e4; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=0a530c401977	default
-rv64uzba-v-sh2add_uw	FAIL	cosim-v	7/18			14	816394723	(14s): rv64uzba-v-sh2add_uw: MISMATCH at commit 1053 pc=0x29e4 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x29e4; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=6d08e357211f	default
-rv64uzba-v-sh3add	FAIL	cosim-v	8/18			15	290761509	(15s): rv64uzba-v-sh3add: MISMATCH at commit 1053 pc=0x29e4 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x29e4; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=eed33edb32dd	default
-rv64uzba-v-sh3add_uw	FAIL	cosim-v	9/18			14	786758190	(14s): rv64uzba-v-sh3add_uw: MISMATCH at commit 1053 pc=0x29e4 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x29e4; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=7d1260d99783	default
-rv64uzba-v-slli_uw	FAIL	cosim-v	10/18			15	258567921	(15s): rv64uzba-v-slli_uw: MISMATCH at commit 1053 pc=0x29e4 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x29e4; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=26c88823d159	default
-rv64uzbb-v-andn	FAIL	cosim-v	11/18			24	824759129	(24s): rv64uzbb-v-andn: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=65396904a278	default
-rv64uzbb-v-clz	FAIL	cosim-v	12/18			15	452848124	(15s): rv64uzbb-v-clz: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=2bdd2466cbc6	default
-rv64uzbb-v-clzw	FAIL	cosim-v	13/18			23	893991961	(23s): rv64uzbb-v-clzw: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=e3c10db2bcfa	default
-rv64uzbb-v-cpop	FAIL	cosim-v	14/18			24	629130596	(24s): rv64uzbb-v-cpop: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=349f6f4a3379	default
-rv64uzbb-v-cpopw	FAIL	cosim-v	15/18			15	579632459	(15s): rv64uzbb-v-cpopw: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=5f4354c9a40f	default
-rv64uzbb-v-ctz	FAIL	cosim-v	16/18			15	752168682	(15s): rv64uzbb-v-ctz: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=af52f7660fb1	default
-rv64uzbb-v-ctzw	FAIL	cosim-v	17/18			15	728194306	(15s): rv64uzbb-v-ctzw: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=e6c37c2ef5a3	default
-rv64uzbb-v-max	FAIL	cosim-v	18/18			15	603160658	(15s): rv64uzbb-v-max: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=169dd556b113	default
-rv64uzbb-v-maxu	FAIL	cosim-v	1/18			19	636256012	(19s): rv64uzbb-v-maxu: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=552eab209ed8	default
-rv64uzbb-v-min	FAIL	cosim-v	2/18			23	328841202	(23s): rv64uzbb-v-min: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=e93942cee56d	default
-rv64uzbb-v-minu	FAIL	cosim-v	3/18			14	361949251	(14s): rv64uzbb-v-minu: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=eba612b2c10b	default
-rv64uzbb-v-orc_b	FAIL	cosim-v	4/18			15	387745235	(15s): rv64uzbb-v-orc_b: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=9472d3b8485f	default
-rv64uzbb-v-orn	FAIL	cosim-v	5/18			15	555752998	(15s): rv64uzbb-v-orn: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=b0cd86c2820a	default
-rv64uzbb-v-rev8	FAIL	cosim-v	6/18			17	284079914	(17s): rv64uzbb-v-rev8: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=71d6ad20fd28	default
-rv64uzbb-v-rol	FAIL	cosim-v	7/18			15	930874864	(15s): rv64uzbb-v-rol: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=3fc8dcd1fe9b	default
-rv64uzbb-v-rolw	FAIL	cosim-v	8/18			15	202082278	(15s): rv64uzbb-v-rolw: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=04799c0f02b2	default
-rv64uzbb-v-ror	FAIL	cosim-v	9/18			14	845391076	(14s): rv64uzbb-v-ror: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=132ea80b00dc	default
-rv64uzbb-v-rori	FAIL	cosim-v	10/18			15	580515812	(15s): rv64uzbb-v-rori: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=fe739547cd30	default
-rv64uzbb-v-roriw	FAIL	cosim-v	11/18			23	10563508	(23s): rv64uzbb-v-roriw: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=f94684fde5f6	default
-rv64uzbb-v-rorw	FAIL	cosim-v	12/18			15	302712779	(15s): rv64uzbb-v-rorw: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=7ea71788c7e2	default
-rv64uzbb-v-sext_b	FAIL	cosim-v	13/18			24	683935303	(24s): rv64uzbb-v-sext_b: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=dcbd8eeb3cd6	default
-rv64uzbb-v-sext_h	FAIL	cosim-v	14/18			24	498580314	(24s): rv64uzbb-v-sext_h: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=41aaf94f23bb	default
-rv64uzbb-v-xnor	FAIL	cosim-v	15/18			15	131785782	(15s): rv64uzbb-v-xnor: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=2e488fa0d31d	default
-rv64uzbb-v-zext_h	FAIL	cosim-v	16/18			14	331912593	(14s): rv64uzbb-v-zext_h: MISMATCH at commit 1054 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=c27028b2d1f3	default
-rv64uzbc-v-clmul	FAIL	cosim-v	17/18			15	36435878	(15s): rv64uzbc-v-clmul: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=e7ef48ecf8c1	default
-rv64uzbc-v-clmulh	FAIL	cosim-v	18/18			15	375096864	(15s): rv64uzbc-v-clmulh: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=abe92cb4bd2d	default
-rv64uzbc-v-clmulr	FAIL	cosim-v	1/18			10	750844270	(10s): rv64uzbc-v-clmulr: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=f813ce5fd5a3	default
-rv64uzbkb-v-brev8	FAIL	cosim-v	2/18			13	624180942	(13s): rv64uzbkb-v-brev8: MISMATCH at commit 1052 pc=0x29f8 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x29f8; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=0e16c3829c2f	default
-rv64uzbkb-v-pack	FAIL	cosim-v	3/18			10	170253845	(10s): rv64uzbkb-v-pack: MISMATCH at commit 1052 pc=0x29f8 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x29f8; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=c36cf2f6cff5	default
-rv64uzbkb-v-packh	FAIL	cosim-v	4/18			10	953744978	(10s): rv64uzbkb-v-packh: MISMATCH at commit 1052 pc=0x29f8 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x29f8; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=f23134abdb54	default
-rv64uzbkb-v-packw	FAIL	cosim-v	5/18			10	334981358	(10s): rv64uzbkb-v-packw: MISMATCH at commit 1052 pc=0x29f8 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x29f8; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=f13399fcb9d6	default
-rv64uzbkx-v-xperm4	FAIL	cosim-v	6/18			10	56281999	(10s): rv64uzbkx-v-xperm4: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=f3a05409d5af	default
-rv64uzbkx-v-xperm8	FAIL	cosim-v	7/18			10	126191637	(10s): rv64uzbkx-v-xperm8: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=c500ddee9169	default
-rv64uzbs-v-bclr	FAIL	cosim-v	8/18			3	829952179	(3s): rv64uzbs-v-bclr: MISMATCH at commit 80 pc=0x8000284c field=trapped | [1] trapped: CL False | Spike True   (one side took a trap here and the other did not) order=be62f482c14b	default
-rv64uzbs-v-bclri	FAIL	cosim-v	9/18			3	875265724	(3s): rv64uzbs-v-bclri: MISMATCH at commit 80 pc=0x8000284c field=trapped | [1] trapped: CL False | Spike True   (one side took a trap here and the other did not) order=d3263131e934	default
-rv64uzbs-v-bext	FAIL	cosim-v	10/18			3	181155895	(3s): rv64uzbs-v-bext: MISMATCH at commit 80 pc=0x8000284c field=trapped | [1] trapped: CL False | Spike True   (one side took a trap here and the other did not) order=ec1df615f8d7	default
-rv64uzbs-v-bexti	FAIL	cosim-v	11/18			4	646403095	(4s): rv64uzbs-v-bexti: MISMATCH at commit 80 pc=0x8000284c field=trapped | [1] trapped: CL False | Spike True   (one side took a trap here and the other did not) order=48e12981996d	default
-rv64uzbs-v-binv	FAIL	cosim-v	12/18			3	819397358	(3s): rv64uzbs-v-binv: MISMATCH at commit 80 pc=0x8000284c field=trapped | [1] trapped: CL False | Spike True   (one side took a trap here and the other did not) order=1b59f1ccad8a	default
-rv64uzbs-v-binvi	FAIL	cosim-v	13/18			3	780485361	(3s): rv64uzbs-v-binvi: MISMATCH at commit 80 pc=0x8000284c field=trapped | [1] trapped: CL False | Spike True   (one side took a trap here and the other did not) order=9c9bb518d296	default
-rv64uzbs-v-bset	FAIL	cosim-v	14/18			4	887298585	(4s): rv64uzbs-v-bset: MISMATCH at commit 80 pc=0x8000284c field=trapped | [1] trapped: CL False | Spike True   (one side took a trap here and the other did not) order=fb487bfde38d	default
-rv64uzbs-v-bseti	FAIL	cosim-v	15/18			2	276288170	(2s): rv64uzbs-v-bseti: MISMATCH at commit 80 pc=0x8000284c field=trapped | [1] trapped: CL False | Spike True   (one side took a trap here and the other did not) order=feab0aa2bcd1	default
-rv64uzfh-v-fadd	FAIL	cosim-v	16/18			9	231824982	(9s): rv64uzfh-v-fadd: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=429cb8392b5c	default
-rv64uzfh-v-fclass	FAIL	cosim-v	17/18			10	268107352	(10s): rv64uzfh-v-fclass: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=09f75b95c682	default
-rv64uzfh-v-fcmp	FAIL	cosim-v	18/18			9	911406424	(9s): rv64uzfh-v-fcmp: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=9e5b85b9ceb4	default
-rv64uzfh-v-fcvt	FAIL	cosim-v	1/18			10	655225344	(10s): rv64uzfh-v-fcvt: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=033a1b9a243b	default
-rv64uzfh-v-fcvt_w	FAIL	cosim-v	2/18			13	962584505	(13s): rv64uzfh-v-fcvt_w: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=6483dd9b2d15	default
-rv64uzfh-v-fdiv	FAIL	cosim-v	3/18			9	857217456	(9s): rv64uzfh-v-fdiv: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=b157988a69da	default
-rv64uzfh-v-fmadd	FAIL	cosim-v	4/18			9	116621007	(9s): rv64uzfh-v-fmadd: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=8eb55d63c13d	default
-rv64uzfh-v-fmin	FAIL	cosim-v	5/18			9	65458843	(9s): rv64uzfh-v-fmin: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=a0a60112faba	default
-rv64uzfh-v-ldst	FAIL	cosim-v	6/18			10	377340599	(10s): rv64uzfh-v-ldst: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=756b47667889	default
-rv64uzfh-v-move	FAIL	cosim-v	7/18			8	840437826	(8s): rv64uzfh-v-move: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=a793cad4d1cc	default
-rv64uzfh-v-recoding	FAIL	cosim-v	8/18			10	689054759	(10s): rv64uzfh-v-recoding: MISMATCH at commit 1053 pc=0x2a00 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x2a00; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=5ac13e6c0142	default
-rv64uzicond-v-czero_eqz	FAIL	cosim-v	9/18			8	745847213	(8s): rv64uzicond-v-czero_eqz: MISMATCH at commit 1053 pc=0x29fc field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x29fc; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=196fcf4c83c8	default
-rv64uzicond-v-czero_nez	FAIL	cosim-v	10/18			9	704851094	(9s): rv64uzicond-v-czero_nez: MISMATCH at commit 1053 pc=0x29fc field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x29fc; Spike retired pc=0x80000150 insn=0x10200073 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000150 insn=0x10200073 len=4 priv=3 regs=6 stores=0 loads=0 TRAPPED absorbed=0> order=fe2025f7dca2	default
-hypervisor-p-2-stage_translation	PASS	p-	none		1059	7	160738274	(7s) cyc=1059 order=ac95ae935b02	default
-hypervisor-p-2-stage_translation_implicit_load_error	PASS	p-	none		1303	8	808445975	(8s) cyc=1303 order=c720b5234be7	default
-hypervisor-p-2-stage_translation_implicit_load_error_hs	PASS	p-	none		1460	9	433092696	(9s) cyc=1460 order=b1ed603939f5	default
-hypervisor-svadu-p-2-stage_translation_implicit_store_error	PASS	p-	none		1417	9	803637883	(9s) cyc=1417 order=fc0b8a162e64	default
-hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs	PASS	p-	none		1609	9	889241878	(9s) cyc=1609 order=bd6921ee7153	default
-rv64mi-p-breakpoint	PASS	p-	none		2280	12	562546259	(12s) cyc=2280 order=05ef64ba583d	default
-rv64mi-p-csr	PASS	p-	none		2254	11	240950686	(11s) cyc=2254 order=caf273aafdfa	default
-rv64mi-p-illegal	PASS	p-	none		2688	13	259400668	(13s) cyc=2688 order=d97cc6c72c17	default
-rv64mi-p-instret_overflow	PASS	p-	none		813	5	40860759	(5s) cyc=813 order=c6ae21e7f946	default
-rv64mi-p-ld-misaligned	PASS	p-	none		1056	6	127159812	(6s) cyc=1056 order=252482480eb7	default
-rv64mi-p-lh-misaligned	PASS	p-	none		793	5	304108658	(5s) cyc=793 order=2c555a7bbffd	default
-rv64mi-p-lw-misaligned	PASS	p-	none		843	5	856344439	(5s) cyc=843 order=3b1381b9bb6d	default
-rv64mi-p-ma_addr	PASS	p-	none		1182	7	897209330	(7s) cyc=1182 order=70f242917d95	default
-rv64mi-p-ma_fetch	PASS	p-	none		1174	7	249730586	(7s) cyc=1174 order=f2f31b3bd695	default
-rv64mi-p-mcsr	PASS	p-	none		910	6	480836979	(6s) cyc=910 order=6ae93fbc0b01	default
-rv64mi-p-pmpaddr	PASS	p-	none		729	5	508586045	(5s) cyc=729 order=9b35ca5fcf72	default
-rv64mi-p-sbreak	PASS	p-	none		829	5	865337976	(5s) cyc=829 order=2824a31fab19	default
-rv64mi-p-scall	PASS	p-	none		808	5	99630906	(5s) cyc=808 order=d7483066cb73	default
-rv64mi-p-sd-misaligned	PASS	p-	none		1140	6	832981439	(6s) cyc=1140 order=c70d52c637ad	default
-rv64mi-p-sh-misaligned	PASS	p-	none		811	5	304702090	(5s) cyc=811 order=7fbe2f54b952	default
-rv64mi-p-sw-misaligned	PASS	p-	none		867	5	150457228	(5s) cyc=867 order=41039d8fe854	default
-rv64mi-p-zicntr	PASS	p-	none		905	6	222559616	(6s) cyc=905 order=94af1ced1849	default
-rv64mzicbo-p-zero	PASS	p-	none		851	5	329175632	(5s) cyc=851 order=6032941cbec3	default
-rv64si-p-csr	PASS	p-	none		1531	9	219053243	(9s) cyc=1531 order=3b4fec615a5d	default
-rv64si-p-dirty	PASS	p-	none		1607	9	119829951	(9s) cyc=1607 order=89e663a20c89	default
-rv64si-p-icache-alias	PASS	p-	none		1867	10	423801351	(10s) cyc=1867 order=7994365fef38	default
-rv64si-p-ma_fetch	PASS	p-	none		873	5	251644056	(5s) cyc=873 order=a335fd4b82dd	default
-rv64si-p-sbreak	PASS	p-	none		881	6	659151405	(6s) cyc=881 order=61b3d97392cd	default
-rv64si-p-scall	PASS	p-	none		939	5	669603878	(5s) cyc=939 order=2dd4b1395b59	default
-rv64si-p-wfi	PASS	p-	none		803	5	207962524	(5s) cyc=803 order=68bee06fcc13	default
-rv64ssvnapot-p-napot	PASS	p-	none		1245	8	903343593	(8s) cyc=1245 order=2c7cd89a0e38	default
-rv64ua-p-amoadd_d	PASS	p-	none		764	4	109669751	(4s) cyc=764 order=aae00996748d	default
-rv64ua-p-amoadd_w	PASS	p-	none		806	5	747167408	(5s) cyc=806 order=5d3c36278f64	default
-rv64ua-p-amoand_d	PASS	p-	none		808	5	604657534	(5s) cyc=808 order=01a1a0f9022b	default
-rv64ua-p-amoand_w	PASS	p-	none		800	5	41947838	(5s) cyc=800 order=df31e8d575f3	default
-rv64ua-p-amomax_d	PASS	p-	none		752	5	893752811	(5s) cyc=752 order=ce0745630d79	default
-rv64ua-p-amomax_w	PASS	p-	none		768	5	392267812	(5s) cyc=768 order=a868e5dac656	default
-rv64ua-p-amomaxu_d	PASS	p-	none		752	5	339075550	(5s) cyc=752 order=1b9f946c6a59	default
-rv64ua-p-amomaxu_w	PASS	p-	none		768	5	905010327	(5s) cyc=768 order=c602ce7a5b48	default
-rv64ua-p-amomin_d	PASS	p-	none		752	5	733549019	(5s) cyc=752 order=4888b4893a03	default
-rv64ua-p-amomin_w	PASS	p-	none		768	5	223565467	(5s) cyc=768 order=3795406b9096	default
-rv64ua-p-amominu_d	PASS	p-	none		752	5	669291792	(5s) cyc=752 order=bb781637aa1b	default
-rv64ua-p-amominu_w	PASS	p-	none		768	5	19243863	(5s) cyc=768 order=eb703ea3e210	default
-rv64ua-p-amoor_d	PASS	p-	none		802	5	232750800	(5s) cyc=802 order=302710ff0c80	default
-rv64ua-p-amoor_w	PASS	p-	none		802	5	724635031	(5s) cyc=802 order=f77f83f1f4ac	default
-rv64ua-p-amoswap_d	PASS	p-	none		808	5	156262021	(5s) cyc=808 order=6bb7ffaf6a51	default
-rv64ua-p-amoswap_w	PASS	p-	none		800	5	505359827	(5s) cyc=800 order=d6a60bab77df	default
-rv64ua-p-amoxor_d	PASS	p-	none		814	5	719115585	(5s) cyc=814 order=7c084d23d479	default
-rv64ua-p-amoxor_w	PASS	p-	none		822	6	203919617	(6s) cyc=822 order=aa04e49e12ef	default
-rv64ua-p-lrsc	PASS	p-	none		16338	75	639371830	(75s) cyc=16338 order=ce7e41e245f4	default
-rv64uc-p-rvc	PASS	p-	none		1148	7	404368032	(7s) cyc=1148 order=0831c75af73f	default
-rv64ud-p-fadd	PASS	p-	none		1321	8	237392788	(8s) cyc=1321 order=e3a1a770bc1a	default
-rv64ud-p-fclass	PASS	p-	none		880	5	980024375	(5s) cyc=880 order=01713db1a324	default
-rv64ud-p-fcmp	PASS	p-	none		1505	9	669963991	(9s) cyc=1505 order=3446d1175d69	default
-rv64ud-p-fcvt	PASS	p-	none		1219	7	931924214	(7s) cyc=1219 order=31a3222cf6bb	default
-rv64ud-p-fcvt_w	PASS	p-	none		2585	15	246667420	(15s) cyc=2585 order=8f05c4085088	default
-rv64ud-p-fdiv	PASS	p-	none		1191	7	643955361	(7s) cyc=1191 order=71f6bb6c7003	default
-rv64ud-p-fmadd	PASS	p-	none		1437	8	839880261	(8s) cyc=1437 order=14847d9ef590	default
-rv64ud-p-fmin	PASS	p-	none		1777	10	607238067	(10s) cyc=1777 order=9d8851221d26	default
-rv64ud-p-ldst	PASS	p-	none		800	5	291883326	(5s) cyc=800 order=30d2d09a7745	default
-rv64ud-p-move	PASS	p-	none		2335	13	962759090	(13s) cyc=2335 order=caa285765a9a	default
-rv64ud-p-recoding	PASS	p-	none		855	5	511346941	(5s) cyc=855 order=cdd50efffd33	default
-rv64ud-p-structural	PASS	p-	none		1315	7	287311707	(7s) cyc=1315 order=f7590b3723e7	default
-rv64uf-p-fadd	PASS	p-	none		1321	8	696312886	(8s) cyc=1321 order=b38f5da4856f	default
-rv64uf-p-fclass	PASS	p-	none		864	5	210547879	(5s) cyc=864 order=d4fad30d6e05	default
-rv64uf-p-fcmp	PASS	p-	none		1505	9	194266107	(9s) cyc=1505 order=1c5d3c5d85bb	default
-rv64uf-p-fcvt	PASS	p-	none		1049	6	603681244	(6s) cyc=1049 order=a38a2a5053a7	default
-rv64uf-p-fcvt_w	PASS	p-	none		2340	14	939280458	(14s) cyc=2340 order=002b245e3844	default
-rv64uf-p-fdiv	PASS	p-	none		1137	7	94483242	(7s) cyc=1137 order=835b5c535e4c	default
-rv64uf-p-fmadd	PASS	p-	none		1437	9	921686910	(9s) cyc=1437 order=fa2df5be1a61	default
-rv64uf-p-fmin	PASS	p-	none		1777	10	295805719	(10s) cyc=1777 order=75238f40ca74	default
-rv64uf-p-ldst	PASS	p-	none		814	5	546351237	(5s) cyc=814 order=dcda268d64e9	default
-rv64uf-p-move	PASS	p-	none		1310	8	208843040	(8s) cyc=1310 order=b454eee04065	default
-rv64uf-p-recoding	PASS	p-	none		808	5	375852699	(5s) cyc=808 order=af53734968e7	default
-rv64ui-p-add	PASS	p-	none		2140	12	399985720	(12s) cyc=2140 order=a3f01233d7e5	default
-rv64ui-p-addi	PASS	p-	none		1322	8	86584071	(8s) cyc=1322 order=12ac421a1a4d	default
-rv64ui-p-addiw	PASS	p-	none		1316	8	84214145	(8s) cyc=1316 order=ef32230f69e8	default
-rv64ui-p-addw	PASS	p-	none		2132	12	85582902	(12s) cyc=2132 order=8e19afc8108c	default
-rv64ui-p-and	PASS	p-	none		2292	13	212564294	(13s) cyc=2292 order=e447bcf8d992	default
-rv64ui-p-andi	PASS	p-	none		1290	8	57894235	(8s) cyc=1290 order=8d780dafdca9	default
-rv64ui-p-auipc	PASS	p-	none		701	4	680009819	(4s) cyc=701 order=2e058e7d65ff	default
-rv64ui-p-beq	PASS	p-	none		1851	11	766835396	(11s) cyc=1851 order=499867f36b8a	default
-rv64ui-p-bge	PASS	p-	none		1988	11	58234968	(11s) cyc=1988 order=d73fb392152e	default
-rv64ui-p-bgeu	PASS	p-	none		2252	12	518257831	(12s) cyc=2252 order=55aca346f2dd	default
-rv64ui-p-blt	PASS	p-	none		1853	10	50623845	(10s) cyc=1853 order=b24cd3106a80	default
-rv64ui-p-bltu	PASS	p-	none		2108	11	626993674	(11s) cyc=2108 order=5fcfaae218a3	default
-rv64ui-p-bne	PASS	p-	none		1873	10	838244802	(10s) cyc=1873 order=c4e81f6bdebc	default
-rv64ui-p-fence_i	PASS	p-	none		1694	9	250525660	(9s) cyc=1694 order=401bfe6f49e9	default
-rv64ui-p-jal	PASS	p-	none		714	5	615923419	(5s) cyc=714 order=9549801143ef	default
-rv64ui-p-jalr	PASS	p-	none		1395	7	830059918	(7s) cyc=1395 order=096c5caa2f74	default
-rv64ui-p-lb	PASS	p-	none		1364	8	649976536	(8s) cyc=1364 order=78f1a9a3d22a	default
-rv64ui-p-lbu	PASS	p-	none		1364	8	308628385	(8s) cyc=1364 order=18c1d8c7233a	default
-rv64ui-p-ld	PASS	p-	none		1742	10	298005033	(10s) cyc=1742 order=141271b08587	default
-rv64ui-p-ld_st	PASS	p-	none		4779	23	300277423	(23s) cyc=4779 order=33ddb0ab2b71	default
-rv64ui-p-lh	PASS	p-	none		1386	8	224865829	(8s) cyc=1386 order=0a12dee914a3	default
-rv64ui-p-lhu	PASS	p-	none		1408	8	494476919	(8s) cyc=1408 order=19571b8bb888	default
-rv64ui-p-lui	PASS	p-	none		756	5	602995609	(5s) cyc=756 order=2cf8707dc4e7	default
-rv64ui-p-lw	PASS	p-	none		1416	8	719601648	(8s) cyc=1416 order=e80824952b2d	default
-rv64ui-p-lwu	PASS	p-	none		1466	8	188086476	(8s) cyc=1466 order=9d6c6d734d20	default
-rv64ui-p-ma_data	ERROR	p-	none			37	38648265	exit=None cycles=-1 status=ERROR l2=0 l2type=gshare order=c9a07e34ca6a EXC AssertionError: BGE_DBG PHYS_REG_INVARIANT: DOUBLE-ALLOC class=0 phys_regs={102} free_count=224 mapped_count=32 arch_src=[(0, 28)] fl_head=218 fl_tail=186 pend_bypass=False pend_set=False pend_commit=False pend_ckpt_restore=False pend_arch_restore=False restore_done=False save_done=False ckpt_valid=[False, False, False, True, True, False, False, False, False, False, False, False, False, False, False, False, False, True, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, True, False, False, False, False, False, False, False, True, False, False]	default
-rv64ui-p-or	PASS	p-	none		2352	12	887472482	(12s) cyc=2352 order=40ca602247f6	default
-rv64ui-p-ori	PASS	p-	none		1280	8	22375842	(8s) cyc=1280 order=3823aac9c66a	default
-rv64ui-p-sb	PASS	p-	none		1944	10	822166693	(10s) cyc=1944 order=b026e3652484	default
-rv64ui-p-sd	PASS	p-	none		2314	12	595544302	(12s) cyc=2314 order=09358badc644	default
-rv64ui-p-sh	PASS	p-	none		2004	11	464259416	(11s) cyc=2004 order=4578b20db31b	default
-rv64ui-p-simple	PASS	p-	none		680	5	420112682	(5s) cyc=680 order=7bc781b782c2	default
-rv64ui-p-sll	PASS	p-	none		2268	12	116732975	(12s) cyc=2268 order=6b4d9fbcecb1	default
-rv64ui-p-slli	PASS	p-	none		1372	7	650909163	(7s) cyc=1372 order=0cd617c49651	default
-rv64ui-p-slliw	PASS	p-	none		1378	7	414287821	(7s) cyc=1378 order=126f4cb00952	default
-rv64ui-p-sllw	PASS	p-	none		2266	12	812034877	(12s) cyc=2266 order=3f241bbd157a	default
-rv64ui-p-slt	PASS	p-	none		2120	12	698738784	(12s) cyc=2120 order=395a5e0c836f	default
-rv64ui-p-slti	PASS	p-	none		1308	8	394312115	(8s) cyc=1308 order=0ef41172dad8	default
-rv64ui-p-sltiu	PASS	p-	none		1308	7	569590593	(7s) cyc=1308 order=6e19e3b81683	default
-rv64ui-p-sltu	PASS	p-	none		2158	11	374934930	(11s) cyc=2158 order=aefcc4443fcb	default
-rv64ui-p-sra	PASS	p-	none		2218	12	273373346	(12s) cyc=2218 order=598b1677fa25	default
-rv64ui-p-srai	PASS	p-	none		1350	7	540838716	(7s) cyc=1350 order=3618778a23c0	default
-rv64ui-p-sraiw	PASS	p-	none		1444	7	806522536	(7s) cyc=1444 order=53cc7ccd3664	default
-rv64ui-p-sraw	PASS	p-	none		2290	12	631270952	(12s) cyc=2290 order=cde47ff23d25	default
-rv64ui-p-srl	PASS	p-	none		2292	12	459340681	(12s) cyc=2292 order=d6e8bd0f0acd	default
-rv64ui-p-srli	PASS	p-	none		1390	7	410357981	(7s) cyc=1390 order=8c84243f1e96	default
-rv64ui-p-srliw	PASS	p-	none		1398	8	305082706	(8s) cyc=1398 order=e487a2660867	default
-rv64ui-p-srlw	PASS	p-	none		2278	12	759642247	(12s) cyc=2278 order=1020cc0e9da1	default
-rv64ui-p-st_ld	PASS	p-	none		1678	9	429610993	(9s) cyc=1678 order=0bc6f59a416b	default
-rv64ui-p-sub	PASS	p-	none		2126	12	32202856	(12s) cyc=2126 order=a17c5cdb914b	default
-rv64ui-p-subw	PASS	p-	none		2118	12	985360710	(12s) cyc=2118 order=e60359809a0c	default
-rv64ui-p-sw	PASS	p-	none		2054	11	84217134	(11s) cyc=2054 order=c4d3454a58df	default
-rv64ui-p-xor	PASS	p-	none		2346	13	794743346	(13s) cyc=2346 order=c754116147e9	default
-rv64ui-p-xori	PASS	p-	none		1280	7	896670349	(7s) cyc=1280 order=b87598c93df4	default
-rv64um-p-div	PASS	p-	none		842	5	245562012	(5s) cyc=842 order=61f03db8df7c	default
-rv64um-p-divu	PASS	p-	none		842	5	343945133	(5s) cyc=842 order=6a4b7fc9433d	default
-rv64um-p-divuw	PASS	p-	none		830	5	171830093	(5s) cyc=830 order=8fc657ab8b90	default
-rv64um-p-divw	PASS	p-	none		826	5	31287203	(5s) cyc=826 order=8ea697bd0190	default
-rv64um-p-mul	PASS	p-	none		2128	11	157566261	(11s) cyc=2128 order=f4fc5fb1675f	default
-rv64um-p-mulh	PASS	p-	none		2158	12	688375305	(12s) cyc=2158 order=ab5c91e518e1	default
-rv64um-p-mulhsu	PASS	p-	none		2158	12	351805335	(12s) cyc=2158 order=945771d3cffa	default
-rv64um-p-mulhu	PASS	p-	none		2218	11	614264791	(11s) cyc=2218 order=d94188dceca7	default
-rv64um-p-mulw	PASS	p-	none		2018	11	251893776	(11s) cyc=2018 order=826df5d54f8c	default
-rv64um-p-rem	PASS	p-	none		826	5	732441471	(5s) cyc=826 order=59adf0392bb1	default
-rv64um-p-remu	PASS	p-	none		828	5	944169718	(5s) cyc=828 order=cc1298e88582	default
-rv64um-p-remuw	PASS	p-	none		818	6	613982582	(6s) cyc=818 order=138522bf9027	default
-rv64um-p-remw	PASS	p-	none		826	5	262865153	(5s) cyc=826 order=97ee3ec1455d	default
-rv64uzba-p-add_uw	PASS	p-	none		2150	12	40709254	(12s) cyc=2150 order=4eee7daa87dd	default
-rv64uzba-p-sh1add	PASS	p-	none		2156	11	64431029	(11s) cyc=2156 order=c021166e571b	default
-rv64uzba-p-sh1add_uw	PASS	p-	none		2164	11	907726185	(11s) cyc=2164 order=658bf1edab15	default
-rv64uzba-p-sh2add	PASS	p-	none		2156	12	639130889	(12s) cyc=2156 order=988d0637c4f5	default
-rv64uzba-p-sh2add_uw	PASS	p-	none		2164	11	660760212	(11s) cyc=2164 order=24a108df91fc	default
-rv64uzba-p-sh3add	PASS	p-	none		2156	11	448283789	(11s) cyc=2156 order=c089529b63c3	default
-rv64uzba-p-sh3add_uw	PASS	p-	none		2164	12	338030535	(12s) cyc=2164 order=51cd928dc6b7	default
-rv64uzba-p-slli_uw	PASS	p-	none		1394	7	996922713	(7s) cyc=1394 order=6956dc0953ca	default
-rv64uzbb-p-andn	PASS	p-	none		2336	12	404063641	(12s) cyc=2336 order=0485b9dff3bc	default
-rv64uzbb-p-clz	PASS	p-	none		1188	7	613689311	(7s) cyc=1188 order=7571aeee3d51	default
-rv64uzbb-p-clzw	PASS	p-	none		1158	6	160509085	(6s) cyc=1158 order=6fed681ccd68	default
-rv64uzbb-p-cpop	PASS	p-	none		1188	6	859626850	(6s) cyc=1188 order=9e618361ec78	default
-rv64uzbb-p-cpopw	PASS	p-	none		1158	7	382867625	(7s) cyc=1158 order=519da8002627	default
-rv64uzbb-p-ctz	PASS	p-	none		1188	7	299404311	(7s) cyc=1188 order=a6d384922605	default
-rv64uzbb-p-ctzw	PASS	p-	none		1158	7	53967094	(7s) cyc=1158 order=cdc23c4e16e6	default
-rv64uzbb-p-max	PASS	p-	none		2130	12	189912051	(12s) cyc=2130 order=9b987775ceaa	default
-rv64uzbb-p-maxu	PASS	p-	none		2188	12	8351351	(12s) cyc=2188 order=9f2c54bf236b	default
-rv64uzbb-p-min	PASS	p-	none		2122	12	69790820	(12s) cyc=2122 order=f07dd84dc880	default
-rv64uzbb-p-minu	PASS	p-	none		2170	12	390158685	(12s) cyc=2170 order=134af823fac2	default
-rv64uzbb-p-orc_b	PASS	p-	none		1230	7	562011075	(7s) cyc=1230 order=d205efc5f7d0	default
-rv64uzbb-p-orn	PASS	p-	none		2356	12	570219393	(12s) cyc=2356 order=73f6cd5f23fb	default
-rv64uzbb-p-rev8	PASS	p-	none		1266	7	722606632	(7s) cyc=1266 order=4ff83e2e7ab2	default
-rv64uzbb-p-rol	PASS	p-	none		2278	12	211553214	(12s) cyc=2278 order=4bc3670e2020	default
-rv64uzbb-p-rolw	PASS	p-	none		2274	12	152085031	(12s) cyc=2274 order=4b70953fbc25	default
-rv64uzbb-p-ror	PASS	p-	none		2334	12	956415400	(12s) cyc=2334 order=94184c47e2a6	default
-rv64uzbb-p-rori	PASS	p-	none		1406	8	623442043	(8s) cyc=1406 order=fbefca14d581	default
-rv64uzbb-p-roriw	PASS	p-	none		1318	7	781292334	(7s) cyc=1318 order=d6e929d3ad52	default
-rv64uzbb-p-rorw	PASS	p-	none		2202	11	544530653	(11s) cyc=2202 order=2018e3251d68	default
-rv64uzbb-p-sext_b	PASS	p-	none		1188	7	910965527	(7s) cyc=1188 order=829fd5b1c42a	default
-rv64uzbb-p-sext_h	PASS	p-	none		1194	7	534187506	(7s) cyc=1194 order=05db51f5306c	default
-rv64uzbb-p-xnor	PASS	p-	none		2354	12	471157962	(12s) cyc=2354 order=e480035d4888	default
-rv64uzbb-p-zext_h	PASS	p-	none		1200	7	604045697	(7s) cyc=1200 order=bfaf108414a1	default
-rv64uzbc-p-clmul	PASS	p-	none		2130	12	188859356	(12s) cyc=2130 order=7caca6685209	default
-rv64uzbc-p-clmulh	PASS	p-	none		2140	11	503835307	(11s) cyc=2140 order=bbb20772737d	default
-rv64uzbc-p-clmulr	PASS	p-	none		2136	11	951266533	(11s) cyc=2136 order=aedc48409996	default
-rv64uzbkb-p-brev8	PASS	p-	none		1218	7	558081363	(7s) cyc=1218 order=6161369afffb	default
-rv64uzbkb-p-pack	PASS	p-	none		2588	13	164951983	(13s) cyc=2588 order=a165a44f0d45	default
-rv64uzbkb-p-packh	PASS	p-	none		2258	11	27731038	(11s) cyc=2258 order=500c03f56ed4	default
-rv64uzbkb-p-packw	PASS	p-	none		2128	12	916728379	(12s) cyc=2128 order=688d24067c70	default
-rv64uzbkx-p-xperm4	PASS	p-	none		2428	13	400434073	(13s) cyc=2428 order=918a894cd5b5	default
-rv64uzbkx-p-xperm8	PASS	p-	none		3276	17	105713339	(17s) cyc=3276 order=f1938aaf15e3	default
-rv64uzbs-p-bclr	PASS	p-	none		2474	13	956453739	(13s) cyc=2474 order=1a18284133b9	default
-rv64uzbs-p-bclri	PASS	p-	none		1462	8	111443312	(8s) cyc=1462 order=cbac8508b36c	default
-rv64uzbs-p-bext	PASS	p-	none		2340	12	290583125	(12s) cyc=2340 order=7d433d0b3424	default
-rv64uzbs-p-bexti	PASS	p-	none		1396	8	101878162	(8s) cyc=1396 order=b13d20cd9797	default
-rv64uzbs-p-binv	PASS	p-	none		2308	12	900078455	(12s) cyc=2308 order=444ada9bfa29	default
-rv64uzbs-p-binvi	PASS	p-	none		1400	8	375570117	(8s) cyc=1400 order=85267dc46f54	default
-rv64uzbs-p-bset	PASS	p-	none		2478	13	860858545	(13s) cyc=2478 order=a1b8fff761da	default
-rv64uzbs-p-bseti	PASS	p-	none		1476	8	763810826	(8s) cyc=1476 order=ee470587407f	default
-rv64uzfh-p-fadd	PASS	p-	none		1321	7	616640276	(7s) cyc=1321 order=f4a8dca4e7ef	default
-rv64uzfh-p-fclass	PASS	p-	none		866	6	247819117	(6s) cyc=866 order=f27de91c85c9	default
-rv64uzfh-p-fcmp	PASS	p-	none		1055	6	112163160	(6s) cyc=1055 order=a5c7624b4d60	default
-rv64uzfh-p-fcvt	PASS	p-	none		1189	7	702981518	(7s) cyc=1189 order=48e90487205a	default
-rv64uzfh-p-fcvt_w	PASS	p-	none		2340	13	978938696	(13s) cyc=2340 order=3a3fbf2891ac	default
-rv64uzfh-p-fdiv	PASS	p-	none		1137	7	210011657	(7s) cyc=1137 order=852a67d77c74	default
-rv64uzfh-p-fmadd	PASS	p-	none		1437	9	935446712	(9s) cyc=1437 order=75c1c674fc3e	default
-rv64uzfh-p-fmin	PASS	p-	none		1777	10	28453452	(10s) cyc=1777 order=0fbd0e94a88d	default
-rv64uzfh-p-ldst	PASS	p-	none		830	5	786259669	(5s) cyc=830 order=fa7cd6f2a255	default
-rv64uzfh-p-move	PASS	p-	none		1309	7	115645475	(7s) cyc=1309 order=4e8a714b24bf	default
-rv64uzfh-p-recoding	PASS	p-	none		808	5	503320184	(5s) cyc=808 order=9b798c47e6e0	default
-rv64uziccid-p-ziccid	PASS	p-	none		7137	23	196614350	(23s) cyc=7137 order=254715410cd8	default
-rv64uzicond-p-czero_eqz	PASS	p-	none		2064	10	303444814	(10s) cyc=2064 order=cd32d7c8964a	default
-rv64uzicond-p-czero_nez	PASS	p-	none		2064	7	207648612	(7s) cyc=2064 order=162afd963f93	default
-rv64ua-v-amoadd_d	PASS	v-	15/18		21103	102	430585114	(102s) cyc=21103 order=cf7ac1b06574	default
-rv64ua-v-amoadd_w	PASS	v-	16/18		21066	98	93839977	(98s) cyc=21066 order=54ef1f015daa	default
-rv64ua-v-amoand_d	PASS	v-	17/18		21061	97	633023969	(97s) cyc=21061 order=7352ff043866	default
-rv64ua-v-amoand_w	PASS	v-	18/18		21082	95	860459369	(95s) cyc=21082 order=c54095232fe2	default
-rv64ua-v-amomax_d	PASS	v-	1/18		21053	127	79451968	(127s) cyc=21053 order=79253f058303	default
-rv64ua-v-amomax_w	PASS	v-	4/18		21055	96	590724150	(96s) cyc=21055 order=32190bb079ab	default
-rv64ua-v-amomaxu_d	PASS	v-	2/18		21052	152	683958458	(152s) cyc=21052 order=a6af60ed81e3	default
-rv64ua-v-amomaxu_w	PASS	v-	3/18		21055	94	199479425	(94s) cyc=21055 order=76af41a68f2a	default
-rv64ua-v-amomin_d	PASS	v-	5/18		21053	96	480155103	(96s) cyc=21053 order=e9a285dcb467	default
-rv64ua-v-amomin_w	PASS	v-	8/18		21098	96	774928108	(96s) cyc=21098 order=b2656078db53	default
-rv64ua-v-amominu_d	PASS	v-	6/18		21077	83	909986055	(83s) cyc=21077 order=effbc0cf3556	default
-rv64ua-v-amominu_w	PASS	v-	7/18		21080	94	503942332	(94s) cyc=21080 order=311dd8fd32c7	default
-rv64ua-v-amoor_d	PASS	v-	9/18		21017	98	183334817	(98s) cyc=21017 order=23b9d7043eb2	default
-rv64ua-v-amoor_w	PASS	v-	10/18		21018	96	652815419	(96s) cyc=21018 order=d4f70b17d5b4	default
-rv64ua-v-amoswap_d	PASS	v-	11/18		21060	152	983250706	(152s) cyc=21060 order=af6c294c2125	default
-rv64ua-v-amoswap_w	PASS	v-	12/18		21081	96	233021686	(96s) cyc=21081 order=7e9c9a30dabf	default
-rv64ua-v-amoxor_d	PASS	v-	13/18		21037	149	353479000	(149s) cyc=21037 order=69b603c13268	default
-rv64ua-v-amoxor_w	PASS	v-	14/18		21003	158	861525973	(158s) cyc=21003 order=d2a73b0f1dc6	default
-rv64ua-v-lrsc	PASS	v-	15/18		36147	166	130179973	(166s) cyc=36147 order=1bd9180d7c79	default
-rv64uc-v-rvc	PASS	v-	14/18		29128	221	307587930	(221s) cyc=29128 order=951c268cb923	default
-rv64ud-v-fadd	PASS	v-	9/18		20544	98	590817565	(98s) cyc=20544 order=3e83e5ae4e59	default
-rv64ud-v-fclass	PASS	v-	10/18		11950	57	549602414	(57s) cyc=11950 order=bcb190937fe3	default
-rv64ud-v-fcmp	PASS	v-	11/18		20711	151	426111796	(151s) cyc=20711 order=03d7fc243c32	default
-rv64ud-v-fcvt	PASS	v-	12/18		20305	95	456546672	(95s) cyc=20305 order=657b0eb491a7	default
-rv64ud-v-fcvt_w	PASS	v-	13/18		29818	195	970152307	(195s) cyc=29818 order=d2088f3ceebe	default
-rv64ud-v-fdiv	PASS	v-	14/18		20385	157	144360602	(157s) cyc=20385 order=fa2c819a9877	default
-rv64ud-v-fmadd	PASS	v-	15/18		20647	117	971491824	(117s) cyc=20647 order=c1b9838bb9b6	default
-rv64ud-v-fmin	PASS	v-	16/18		20970	96	249625130	(96s) cyc=20970 order=6fa9e494fd78	default
-rv64ud-v-ldst	PASS	v-	17/18		20926	84	718259085	(84s) cyc=20926 order=8e7ba67d1da4	default
-rv64ud-v-move	PASS	v-	18/18		21545	99	305900313	(99s) cyc=21545 order=327563429932	default
-rv64ud-v-recoding	PASS	v-	1/18		21004	127	155959881	(127s) cyc=21004 order=2548174df17f	default
-rv64ud-v-structural	PASS	v-	2/18		12392	88	873348980	(88s) cyc=12392 order=aa18cf5aa548	default
-rv64uf-v-fadd	PASS	v-	16/18		20544	95	306992557	(95s) cyc=20544 order=2b919f680a00	default
-rv64uf-v-fclass	PASS	v-	17/18		11933	57	898874326	(57s) cyc=11933 order=bc64e51856a5	default
-rv64uf-v-fcmp	PASS	v-	18/18		20681	95	649159906	(95s) cyc=20681 order=df3507101af2	default
-rv64uf-v-fcvt	PASS	v-	1/18		20134	125	896107503	(125s) cyc=20134 order=27795d55d858	default
-rv64uf-v-fcvt_w	PASS	v-	2/18		29605	198	407027536	(198s) cyc=29605 order=172a3545de32	default
-rv64uf-v-fdiv	PASS	v-	3/18		20355	92	710150137	(92s) cyc=20355 order=fbdee8042693	default
-rv64uf-v-fmadd	PASS	v-	4/18		20677	95	902486922	(95s) cyc=20677 order=771d9b7f07ad	default
-rv64uf-v-fmin	PASS	v-	5/18		21000	98	916930404	(98s) cyc=21000 order=faec198d14d9	default
-rv64uf-v-ldst	PASS	v-	6/18		21090	85	83472514	(85s) cyc=21090 order=ee154a3b06de	default
-rv64uf-v-move	PASS	v-	7/18		12370	57	125722029	(57s) cyc=12370 order=eb5f967182cc	default
-rv64uf-v-recoding	PASS	v-	8/18		19950	93	464218357	(93s) cyc=19950 order=1f9b02024896	default
-rv64ui-v-add	PASS	v-	1/18		13254	85	565640567	(85s) cyc=13254 order=96b03d1c6890	default
-rv64ui-v-addi	PASS	v-	2/18		12395	92	792801599	(92s) cyc=12395 order=5f24cb7ec0c8	default
-rv64ui-v-addiw	PASS	v-	3/18		12396	58	815586969	(58s) cyc=12396 order=c52b944a9950	default
-rv64ui-v-addw	PASS	v-	4/18		13246	63	756231685	(63s) cyc=13246 order=beac983749dd	default
-rv64ui-v-and	PASS	v-	7/18		13496	63	885931936	(63s) cyc=13496 order=cd2181d192d9	default
-rv64ui-v-andi	PASS	v-	8/18		12458	59	613561689	(59s) cyc=12458 order=4cc2f19fd6a5	default
-rv64ui-v-auipc	PASS	v-	12/18		11816	56	203486329	(56s) cyc=11816 order=4a0cf8d930ae	default
-rv64ui-v-beq	PASS	v-	13/18		12878	96	968708296	(96s) cyc=12878 order=055328ccb498	default
-rv64ui-v-bge	PASS	v-	14/18		13011	105	830018347	(105s) cyc=13011 order=fd2a67171e12	default
-rv64ui-v-bgeu	PASS	v-	15/18		13285	67	104523098	(67s) cyc=13285 order=01bff5441f26	default
-rv64ui-v-blt	PASS	v-	16/18		12879	61	886887193	(61s) cyc=12879 order=d2299c298cad	default
-rv64ui-v-bltu	PASS	v-	17/18		13138	64	259248843	(64s) cyc=13138 order=80418221c303	default
-rv64ui-v-bne	PASS	v-	18/18		12886	61	832673365	(61s) cyc=12886 order=d5ddabf71aa1	default
-rv64ui-v-fence_i	PASS	v-	17/18		21850	101	240524490	(101s) cyc=21850 order=27eb58cbeb45	default
-rv64ui-v-jal	PASS	v-	1/18		11817	77	248883738	(77s) cyc=11817 order=559fcbf131d6	default
-rv64ui-v-jalr	PASS	v-	2/18		12246	89	104999133	(89s) cyc=12246 order=0bf69a7b9ad6	default
-rv64ui-v-lb	PASS	v-	3/18		20630	96	533004120	(96s) cyc=20630 order=a2bd46c1c5c3	default
-rv64ui-v-lbu	PASS	v-	4/18		20630	96	278359958	(96s) cyc=20630 order=07e2ae1e19ff	default
-rv64ui-v-ld	PASS	v-	9/18		21104	94	892852490	(94s) cyc=21104 order=ef6d20fd652a	default
-rv64ui-v-ld_st	PASS	v-	14/18		40031	299	721264521	(299s) cyc=40031 order=2dc4c61c97ef	default
-rv64ui-v-lh	PASS	v-	5/18		20713	97	423590293	(97s) cyc=20713 order=6694b8e24745	default
-rv64ui-v-lhu	PASS	v-	6/18		20748	85	158690659	(85s) cyc=20748 order=bd14390c58eb	default
-rv64ui-v-lui	PASS	v-	11/18		11867	90	471221034	(90s) cyc=11867 order=e299ee1977e9	default
-rv64ui-v-lw	PASS	v-	7/18		20694	96	558741464	(96s) cyc=20694 order=4fa01405c16c	default
-rv64ui-v-lwu	PASS	v-	8/18		20754	97	389437193	(97s) cyc=20754 order=644e4a597411	default
-rv64ui-v-ma_data	PASS	v-	18/18		43064	194	289585406	(194s) cyc=43064 order=4b662cd7fff6	default
-rv64ui-v-or	PASS	v-	9/18		13571	61	256622615	(61s) cyc=13571 order=ebc104e49b76	default
-rv64ui-v-ori	PASS	v-	10/18		12403	61	960386767	(61s) cyc=12403 order=74dd1301e1f4	default
-rv64ui-v-sb	PASS	v-	10/18		22031	103	234547755	(103s) cyc=22031 order=476a45dfe65d	default
-rv64ui-v-sd	PASS	v-	13/18		30520	220	858580096	(220s) cyc=30520 order=8d0c811b19aa	default
-rv64ui-v-sh	PASS	v-	11/18		22129	163	926061933	(163s) cyc=22129 order=c897bcd6115f	default
-rv64ui-v-simple	PASS	v-	16/18		11761	55	882592794	(55s) cyc=11761 order=465b9f0460e6	default
-rv64ui-v-sll	PASS	v-	17/18		21429	101	694656687	(101s) cyc=21429 order=f1c3fc816747	default
-rv64ui-v-slli	PASS	v-	18/18		12448	59	7267563	(59s) cyc=12448 order=ac2016026dfe	default
-rv64ui-v-slliw	PASS	v-	1/18		12450	81	377126181	(81s) cyc=12450 order=bf4e3385927c	default
-rv64ui-v-sllw	PASS	v-	2/18		21424	153	261005068	(153s) cyc=21424 order=15266a3d79a9	default
-rv64ui-v-slt	PASS	v-	13/18		13233	99	290348164	(99s) cyc=13233 order=0c9ced2408d3	default
-rv64ui-v-slti	PASS	v-	14/18		12384	97	831835987	(97s) cyc=12384 order=a28c369ae5c8	default
-rv64ui-v-sltiu	PASS	v-	16/18		12385	59	261525714	(59s) cyc=12385 order=8aea0969940c	default
-rv64ui-v-sltu	PASS	v-	15/18		13265	65	126893157	(65s) cyc=13265 order=6a022908232c	default
-rv64ui-v-sra	PASS	v-	7/18		13332	63	528738538	(63s) cyc=13332 order=61add7a3d152	default
-rv64ui-v-srai	PASS	v-	8/18		12444	59	268795690	(59s) cyc=12444 order=853e9810a078	default
-rv64ui-v-sraiw	PASS	v-	9/18		12548	55	66958071	(55s) cyc=12548 order=f6ef07fd4484	default
-rv64ui-v-sraw	PASS	v-	10/18		21409	102	255180136	(102s) cyc=21409 order=f508e02e5629	default
-rv64ui-v-srl	PASS	v-	3/18		21492	99	248154757	(99s) cyc=21492 order=3f599561a187	default
-rv64ui-v-srli	PASS	v-	4/18		12514	60	116662149	(60s) cyc=12514 order=fd9693ee87b7	default
-rv64ui-v-srliw	PASS	v-	5/18		12479	59	815142769	(59s) cyc=12479 order=4ffbf3cb5d99	default
-rv64ui-v-srlw	PASS	v-	6/18		21424	87	323406475	(87s) cyc=21424 order=5eaf8eec471b	default
-rv64ui-v-st_ld	PASS	v-	15/18		30003	151	306184076	(151s) cyc=30003 order=62bf32de6395	default
-rv64ui-v-sub	PASS	v-	5/18		13240	63	943322214	(63s) cyc=13240 order=17484796f5c6	default
-rv64ui-v-subw	PASS	v-	6/18		13232	59	618314188	(59s) cyc=13232 order=b6b0006ffc00	default
-rv64ui-v-sw	PASS	v-	12/18		22165	102	106260465	(102s) cyc=22165 order=9209aaf1996b	default
-rv64ui-v-xor	PASS	v-	11/18		13570	101	385073614	(101s) cyc=13570 order=346fbbe10dbc	default
-rv64ui-v-xori	PASS	v-	12/18		12406	60	622892039	(60s) cyc=12406 order=07e08fa77258	default
-rv64um-v-div	PASS	v-	5/18		11973	57	25970369	(57s) cyc=11973 order=02623eb9ad7e	default
-rv64um-v-divu	PASS	v-	6/18		12008	53	878656339	(53s) cyc=12008 order=0942d4f29cc2	default
-rv64um-v-divuw	PASS	v-	11/18		11988	89	739476714	(89s) cyc=11988 order=dc177e37e71b	default
-rv64um-v-divw	PASS	v-	10/18		11953	59	261646756	(59s) cyc=11953 order=eb1c9e158afe	default
-rv64um-v-mul	PASS	v-	1/18		13354	88	915692201	(88s) cyc=13354 order=718e0f285257	default
-rv64um-v-mulh	PASS	v-	2/18		13277	98	497357850	(98s) cyc=13277 order=f1c022321fe3	default
-rv64um-v-mulhsu	PASS	v-	3/18		13278	62	869849490	(62s) cyc=13278 order=ff1d1eac3b9d	default
-rv64um-v-mulhu	PASS	v-	4/18		13337	64	192024049	(64s) cyc=13337 order=b07049d488fd	default
-rv64um-v-mulw	PASS	v-	9/18		13131	58	576252089	(58s) cyc=13131 order=e4573b220cc5	default
-rv64um-v-rem	PASS	v-	7/18		11951	56	110128082	(56s) cyc=11951 order=be62ac05de55	default
-rv64um-v-remu	PASS	v-	8/18		11958	57	336974215	(57s) cyc=11958 order=efb27229e5cf	default
-rv64um-v-remuw	PASS	v-	13/18		11944	88	311869299	(88s) cyc=11944 order=f43f33884a55	default
-rv64um-v-remw	PASS	v-	12/18		11953	57	995739995	(57s) cyc=11953 order=519594a1d5c2	default
-rv64uzba-v-add_uw	PASS	v-	3/18		13299	60	602385560	(60s) cyc=13299 order=65e722f1b832	default
-rv64uzba-v-sh1add	PASS	v-	4/18		13304	62	664005255	(62s) cyc=13304 order=eda508e6879d	default
-rv64uzba-v-sh1add_uw	PASS	v-	5/18		13312	62	860849251	(62s) cyc=13312 order=5de35572c17a	default
-rv64uzba-v-sh2add	PASS	v-	6/18		13303	55	237325007	(55s) cyc=13303 order=423b778bf9d3	default
-rv64uzba-v-sh2add_uw	PASS	v-	7/18		13312	62	610394105	(62s) cyc=13312 order=9a5022fe6d47	default
-rv64uzba-v-sh3add	PASS	v-	8/18		13304	62	71760852	(62s) cyc=13304 order=1841977d0e29	default
-rv64uzba-v-sh3add_uw	PASS	v-	9/18		13311	63	591757605	(63s) cyc=13311 order=279945689ca4	default
-rv64uzba-v-slli_uw	PASS	v-	10/18		12503	58	63567336	(58s) cyc=12503 order=1b0fb2c77861	default
-rv64uzbb-v-andn	PASS	v-	11/18		13590	99	934756466	(99s) cyc=13590 order=960a108d7ef2	default
-rv64uzbb-v-clz	PASS	v-	12/18		12324	56	261847551	(56s) cyc=12324 order=8d9b01112bfd	default
-rv64uzbb-v-clzw	PASS	v-	13/18		12296	89	602991088	(89s) cyc=12296 order=19af64f40689	default
-rv64uzbb-v-cpop	PASS	v-	14/18		12324	87	255129474	(87s) cyc=12324 order=6fba9c1d0087	default
-rv64uzbb-v-cpopw	PASS	v-	15/18		12296	66	346631760	(66s) cyc=12296 order=e737a3e26aee	default
-rv64uzbb-v-ctz	PASS	v-	16/18		12324	57	564168118	(57s) cyc=12324 order=32c14b1531ff	default
-rv64uzbb-v-ctzw	PASS	v-	17/18		12294	58	547193763	(58s) cyc=12294 order=458fd6b7873d	default
-rv64uzbb-v-max	PASS	v-	18/18		13267	62	375159974	(62s) cyc=13267 order=05bb55682c70	default
-rv64uzbb-v-maxu	PASS	v-	1/18		13327	83	361255187	(83s) cyc=13327 order=445da83d0965	default
-rv64uzbb-v-min	PASS	v-	2/18		13260	94	963840114	(94s) cyc=13260 order=2f55d3107697	default
-rv64uzbb-v-minu	PASS	v-	3/18		13304	59	146948606	(59s) cyc=13304 order=1eb8b273066f	default
-rv64uzbb-v-orc_b	PASS	v-	4/18		12372	58	173744593	(58s) cyc=12372 order=fd73666afc35	default
-rv64uzbb-v-orn	PASS	v-	5/18		21604	85	331752326	(85s) cyc=21604 order=cda4c780845d	default
-rv64uzbb-v-rev8	PASS	v-	6/18		12420	51	92079338	(51s) cyc=12420 order=a985d09879d6	default
-rv64uzbb-v-rol	PASS	v-	7/18		21474	81	724874246	(81s) cyc=21474 order=ff1109d02ba4	default
-rv64uzbb-v-rolw	PASS	v-	8/18		21466	83	983081628	(83s) cyc=21466 order=343604a6974a	default
-rv64uzbb-v-ror	PASS	v-	9/18		21536	83	650390491	(83s) cyc=21536 order=2f4c7db80c28	default
-rv64uzbb-v-rori	PASS	v-	10/18		12517	58	385515227	(58s) cyc=12517 order=75c195719efd	default
-rv64uzbb-v-roriw	PASS	v-	11/18		12423	91	120560845	(91s) cyc=12423 order=336a35fdd3ca	default
-rv64uzbb-v-rorw	PASS	v-	12/18		13392	58	111712206	(58s) cyc=13392 order=8b2e7d040f10	default
-rv64uzbb-v-sext_b	PASS	v-	13/18		12324	74	392934430	(74s) cyc=12324 order=18db9ad4fbc2	default
-rv64uzbb-v-sext_h	PASS	v-	14/18		12335	77	124579192	(77s) cyc=12335 order=af84621b3c9f	default
-rv64uzbb-v-xnor	PASS	v-	15/18		21605	82	898785090	(82s) cyc=21605 order=f59b3956e26d	default
-rv64uzbb-v-zext_h	PASS	v-	16/18		12343	55	143912029	(55s) cyc=12343 order=617effb4f0a5	default
-rv64uzbc-v-clmul	PASS	v-	17/18		13358	63	855435342	(63s) cyc=13358 order=a4ed840121d1	default
-rv64uzbc-v-clmulh	PASS	v-	18/18		13366	40	147096180	(40s) cyc=13366 order=29d7c385fc65	default
-rv64uzbc-v-clmulr	PASS	v-	1/18		13363	62	475843445	(62s) cyc=13363 order=f46ddcba7948	default
-rv64uzbkb-v-brev8	PASS	v-	2/18		12381	88	259179847	(88s) cyc=12381 order=63c41c7eccfb	default
-rv64uzbkb-v-pack	PASS	v-	3/18		21934	63	955253207	(63s) cyc=21934 order=d13b462eadb8	default
-rv64uzbkb-v-packh	PASS	v-	4/18		13549	51	739744336	(51s) cyc=13549 order=da0f2a0a476d	default
-rv64uzbkb-v-packw	PASS	v-	5/18		13332	60	110980686	(60s) cyc=13332 order=005b541e711e	default
-rv64uzbkx-v-xperm4	PASS	v-	6/18		21733	55	864281430	(55s) cyc=21733 order=f892143c9010	default
-rv64uzbkx-v-xperm8	PASS	v-	7/18		22599	86	920191026	(86s) cyc=22599 order=407849925ecc	default
-rv64uzbs-v-bclr	PASS	v-	8/18		21720	85	610951522	(85s) cyc=21720 order=ed31540a8fc2	default
-rv64uzbs-v-bclri	PASS	v-	9/18		12656	56	680265139	(56s) cyc=12656 order=e2d4eea3b126	default
-rv64uzbs-v-bext	PASS	v-	10/18		21532	77	986155317	(77s) cyc=21532 order=8731488f8ef6	default
-rv64uzbs-v-bexti	PASS	v-	11/18		12552	73	756400432	(73s) cyc=12552 order=bf4d46059e7e	default
-rv64uzbs-v-binv	PASS	v-	12/18		21416	75	628396785	(75s) cyc=21416 order=888f39ab9bd2	default
-rv64uzbs-v-binvi	PASS	v-	13/18		12486	70	489484488	(70s) cyc=12486 order=0772ee9699f5	default
-rv64uzbs-v-bset	PASS	v-	14/18		21724	112	513297463	(112s) cyc=21724 order=8df9eceb48f1	default
-rv64uzbs-v-bseti	PASS	v-	15/18		12625	42	43287471	(42s) cyc=12625 order=2a45a05bd08e	default
-rv64uzfh-v-fadd	PASS	v-	16/18		20544	70	43824418	(70s) cyc=20544 order=8b882cd8a4ff	default
-rv64uzfh-v-fclass	PASS	v-	17/18		11935	50	87106809	(50s) cyc=11935 order=5ff40a544bca	default
-rv64uzfh-v-fcmp	PASS	v-	18/18		20231	71	683405740	(71s) cyc=20231 order=cab7131c7a67	default
-rv64uzfh-v-fcvt	PASS	v-	1/18		20265	71	380224519	(71s) cyc=20265 order=5c09b420d0ae	default
-rv64uzfh-v-fcvt_w	PASS	v-	2/18		29562	124	597583410	(124s) cyc=29562 order=c39aff615cf2	default
-rv64uzfh-v-fdiv	PASS	v-	3/18		20325	58	642216811	(58s) cyc=20325 order=c8266bdbd45c	default
-rv64uzfh-v-fmadd	PASS	v-	4/18		20677	60	902620372	(60s) cyc=20677 order=d07fa2d277bd	default
-rv64uzfh-v-fmin	PASS	v-	5/18		21000	71	841458178	(71s) cyc=21000 order=b76d5bbee58f	default
-rv64uzfh-v-ldst	PASS	v-	6/18		21006	54	185340023	(54s) cyc=21006 order=7ee5ded1ffad	default
-rv64uzfh-v-move	PASS	v-	7/18		12384	56	634437208	(56s) cyc=12384 order=1ac0b20f1c3c	default
-rv64uzfh-v-recoding	PASS	v-	8/18		19980	67	470054102	(67s) cyc=19980 order=f345d88ee91f	default
-rv64uziccid-v-ziccid	PASS	v-	11/18		157752	649	919676766	(649s) cyc=157752 order=45c894e1cbc9	default
-rv64uzicond-v-czero_eqz	PASS	v-	9/18		13218	42	550846628	(42s) cyc=13218 order=a90b0708ce8c	default
-rv64uzicond-v-czero_nez	PASS	v-	10/18		13282	39	509850509	(39s) cyc=13282 order=2d78af96fced	default
+rv64ua-v-amoadd_d	PASS	cosim-v	1/18			116	943571347	(116s) order=e271914002b9 cosim-GREEN	default
+rv64ua-v-amoadd_w	PASS	cosim-v	2/18			115	598826186	(115s) order=e8c9b8c8db2b cosim-GREEN	default
+rv64ua-v-amoand_d	PASS	cosim-v	3/18			158	121010120	(158s) order=0caa5bc41b0e cosim-GREEN	default
+rv64ua-v-amoand_w	PASS	cosim-v	4/18			171	480445916	(171s) order=54296ed749a8 cosim-GREEN	default
+rv64ua-v-amomax_d	PASS	cosim-v	5/18			185	843438954	(185s) order=1726e5474dfb cosim-GREEN	default
+rv64ua-v-amomax_w	PASS	cosim-v	6/18			115	87710328	(115s) order=9cfc636353e3 cosim-GREEN	default
+rv64ua-v-amomaxu_d	PASS	cosim-v	7/18			116	120944456	(116s) order=09f48914a5d0 cosim-GREEN	default
+rv64ua-v-amomaxu_w	PASS	cosim-v	8/18			121	689465589	(121s) order=143030d1b63a cosim-GREEN	default
+rv64ua-v-amomin_d	PASS	cosim-v	9/18			170	915141102	(170s) order=573f37e28c1f cosim-GREEN	default
+rv64ua-v-amomin_w	PASS	cosim-v	10/18			117	160913953	(117s) order=876be442bf57 cosim-GREEN	default
+rv64ua-v-amominu_d	PASS	cosim-v	11/18			189	229974695	(189s) order=a270caee971a cosim-GREEN	default
+rv64ua-v-amominu_w	PASS	cosim-v	12/18			114	772927833	(114s) order=5ea3964de904 cosim-GREEN	default
+rv64ua-v-amoor_d	PASS	cosim-v	13/18			119	698321056	(119s) order=9872a10ee308 cosim-GREEN	default
+rv64ua-v-amoor_w	PASS	cosim-v	14/18			157	225801825	(157s) order=a6aae253caee cosim-GREEN	default
+rv64ua-v-amoswap_d	PASS	cosim-v	15/18			118	632237340	(118s) order=072dc410d9db cosim-GREEN	default
+rv64ua-v-amoswap_w	PASS	cosim-v	16/18			118	720007841	(118s) order=469245ae2130 cosim-GREEN	default
+rv64ua-v-amoxor_d	PASS	cosim-v	17/18			115	710464765	(115s) order=a1107ac418d8 cosim-GREEN	default
+rv64ua-v-amoxor_w	PASS	cosim-v	18/18			181	449512424	(181s) order=d03a189a5db3 cosim-GREEN	default
+rv64ua-v-lrsc	PASS	cosim-v	1/18			214	643166206	(214s) order=e4b09e24307c cosim-GREEN	default
+rv64uc-v-rvc	PASS	cosim-v	2/18			168	701573806	(168s) order=84287e09f544 cosim-GREEN	default
+rv64ud-v-fadd	PASS	cosim-v	3/18			174	323804451	(174s) order=d6357417beee cosim-GREEN	default
+rv64ud-v-fclass	PASS	cosim-v	4/18			92	152588910	(92s) order=5c5add393e40 cosim-GREEN	default
+rv64ud-v-fcmp	PASS	cosim-v	5/18			196	82098451	(196s) order=2a82d062947b cosim-GREEN	default
+rv64ud-v-fcvt	PASS	cosim-v	6/18			117	960532878	(117s) order=6ec50fc1106e cosim-GREEN	default
+rv64ud-v-fcvt_w	PASS	cosim-v	7/18			186	376138212	(186s) order=946a4a9f5140 cosim-GREEN	default
+rv64ud-v-fdiv	PASS	cosim-v	8/18			126	528346448	(126s) order=c83cc139aee5 cosim-GREEN	default
+rv64ud-v-fmadd	PASS	cosim-v	9/18			177	637478509	(177s) order=fc29a2407b1b cosim-GREEN	default
+rv64ud-v-fmin	PASS	cosim-v	10/18			113	645611012	(113s) order=0e325154c74d cosim-GREEN	default
+rv64ud-v-ldst	PASS	cosim-v	11/18			191	780246958	(191s) order=9e9e439a81de cosim-GREEN	default
+rv64ud-v-move	PASS	cosim-v	12/18			126	779886429	(126s) order=479245e27167 cosim-GREEN	default
+rv64ud-v-recoding	PASS	cosim-v	13/18			119	666946108	(119s) order=5b5c9c64ca5d cosim-GREEN	default
+rv64ud-v-structural	PASS	cosim-v	14/18			90	397335239	(90s) order=e1c84f7d92a3 cosim-GREEN	default
+rv64uf-v-fadd	PASS	cosim-v	15/18			123	31979419	(123s) order=9fc5d75b6a0c cosim-GREEN	default
+rv64uf-v-fclass	PASS	cosim-v	16/18			65	155859784	(65s) order=dc604f9e2954 cosim-GREEN	default
+rv64uf-v-fcmp	PASS	cosim-v	17/18			121	103145955	(121s) order=9ffb3a92f3db cosim-GREEN	default
+rv64uf-v-fcvt	PASS	cosim-v	18/18			183	627094383	(183s) order=383d1595a0b8 cosim-GREEN	default
+rv64uf-v-fcvt_w	PASS	cosim-v	1/18			190	827013490	(190s) order=cf78b187b97a cosim-GREEN	default
+rv64uf-v-fdiv	PASS	cosim-v	2/18			117	210136324	(117s) order=8ce88ad89bb3 cosim-GREEN	default
+rv64uf-v-fmadd	PASS	cosim-v	3/18			171	613473742	(171s) order=edba1be8f518 cosim-GREEN	default
+rv64uf-v-fmin	PASS	cosim-v	4/18			186	332916339	(186s) order=225d75ae738c cosim-GREEN	default
+rv64uf-v-ldst	PASS	cosim-v	5/18			183	864459551	(183s) order=48c5b12069a7 cosim-GREEN	default
+rv64uf-v-move	PASS	cosim-v	6/18			67	407707569	(67s) order=dedbbbd15a05 cosim-GREEN	default
+rv64uf-v-recoding	PASS	cosim-v	7/18			116	953204518	(116s) order=d46ec568cc50 cosim-GREEN	default
+rv64ui-v-add	PASS	cosim-v	8/18			75	92626835	(75s) order=2eaf0dc20ef9 cosim-GREEN	default
+rv64ui-v-addi	PASS	cosim-v	9/18			99	365788005	(99s) order=cfd8ce28b0b4 cosim-GREEN	default
+rv64ui-v-addiw	PASS	cosim-v	10/18			75	206572829	(75s) order=841210cd2132 cosim-GREEN	default
+rv64ui-v-addw	PASS	cosim-v	11/18			120	41220220	(120s) order=9e3b4c7ac316 cosim-GREEN	default
+rv64ui-v-and	PASS	cosim-v	12/18			72	154917430	(72s) order=ff45a2de4ab1 cosim-GREEN	default
+rv64ui-v-andi	PASS	cosim-v	13/18			68	82547783	(68s) order=f65decd1bb9f cosim-GREEN	default
+rv64ui-v-auipc	PASS	cosim-v	14/18			87	810472844	(87s) order=54550d36eefc cosim-GREEN	default
+rv64ui-v-beq	PASS	cosim-v	15/18			71	600694879	(71s) order=694fa7a048a8 cosim-GREEN	default
+rv64ui-v-bge	PASS	cosim-v	16/18			71	185004099	(71s) order=a6697333f5d8 cosim-GREEN	default
+rv64ui-v-bgeu	PASS	cosim-v	17/18			72	585509235	(72s) order=a1326249cd73 cosim-GREEN	default
+rv64ui-v-blt	PASS	cosim-v	18/18			110	585873977	(110s) order=de9832c8533d cosim-GREEN	default
+rv64ui-v-bltu	PASS	cosim-v	1/18			73	532234356	(73s) order=b4e3aebca6c5 cosim-GREEN	default
+rv64ui-v-bne	PASS	cosim-v	2/18			70	341659579	(70s) order=a8713aab2380 cosim-GREEN	default
+rv64ui-v-fence_i	PASS	cosim-v	3/18			169	728510648	(169s) order=8cae799e0d84 cosim-GREEN	default
+rv64ui-v-jal	PASS	cosim-v	4/18			91	896870376	(91s) order=d15e3ef1dfab cosim-GREEN	default
+rv64ui-v-jalr	PASS	cosim-v	5/18			104	774985837	(104s) order=99ece4817f8b cosim-GREEN	default
+rv64ui-v-lb	PASS	cosim-v	6/18			117	10990241	(117s) order=5021cdadbe5d cosim-GREEN	default
+rv64ui-v-lbu	PASS	cosim-v	7/18			120	791346191	(120s) order=a63c9a7074c1 cosim-GREEN	default
+rv64ui-v-ld	PASS	cosim-v	8/18			130	423838770	(130s) order=992ba4cd502e cosim-GREEN	default
+rv64ui-v-ld_st	PASS	cosim-v	9/18			364	245250780	(364s) order=151bd0221bbf cosim-GREEN	default
+rv64ui-v-lh	PASS	cosim-v	10/18			125	619575575	(125s) order=2107a6dd2125 cosim-GREEN	default
+rv64ui-v-lhu	PASS	cosim-v	11/18			199	478679306	(199s) order=7d05a7ccf12d cosim-GREEN	default
+rv64ui-v-lui	PASS	cosim-v	12/18			63	865206910	(63s) order=349003800bdb cosim-GREEN	default
+rv64ui-v-lw	PASS	cosim-v	13/18			125	836726992	(125s) order=c37faa1be685 cosim-GREEN	default
+rv64ui-v-lwu	PASS	cosim-v	14/18			161	965423615	(161s) order=8e17986436a1 cosim-GREEN	default
+rv64ui-v-ma_data	PASS	cosim-v	15/18			271	18572280	(271s) order=059ed77d5a95 cosim-GREEN	default
+rv64ui-v-or	PASS	cosim-v	16/18			74	758608815	(74s) order=635d59cf3a3f cosim-GREEN	default
+rv64ui-v-ori	PASS	cosim-v	17/18			67	397372765	(67s) order=96bf3535c16b cosim-GREEN	default
+rv64ui-v-sb	PASS	cosim-v	18/18			188	920534507	(188s) order=6ba325ba540c cosim-GREEN	default
+rv64ui-v-sd	PASS	cosim-v	1/18			179	247565950	(179s) order=45b816d98396 cosim-GREEN	default
+rv64ui-v-sh	PASS	cosim-v	2/18			118	355047907	(118s) order=bb41b203b36a cosim-GREEN	default
+rv64ui-v-simple	PASS	cosim-v	3/18			82	579579572	(82s) order=63100a2cdddf cosim-GREEN	default
+rv64ui-v-sll	PASS	cosim-v	4/18			175	101642595	(175s) order=847f4039ba8b cosim-GREEN	default
+rv64ui-v-slli	PASS	cosim-v	5/18			108	743254465	(108s) order=802f439fdab8 cosim-GREEN	default
+rv64ui-v-slliw	PASS	cosim-v	6/18			66	892112420	(66s) order=330452b97fb2 cosim-GREEN	default
+rv64ui-v-sllw	PASS	cosim-v	7/18			123	697991073	(123s) order=8bb5dff61f1c cosim-GREEN	default
+rv64ui-v-slt	PASS	cosim-v	8/18			74	692334064	(74s) order=d9ebee2ea04d cosim-GREEN	default
+rv64ui-v-slti	PASS	cosim-v	9/18			100	355822246	(100s) order=8cdaab08a901 cosim-GREEN	default
+rv64ui-v-sltiu	PASS	cosim-v	10/18			72	657511596	(72s) order=ea3987f89c77 cosim-GREEN	default
+rv64ui-v-sltu	PASS	cosim-v	11/18			118	428881750	(118s) order=1f1c84ba7271 cosim-GREEN	default
+rv64ui-v-sra	PASS	cosim-v	12/18			71	797724039	(71s) order=60b73139178e cosim-GREEN	default
+rv64ui-v-srai	PASS	cosim-v	13/18			69	737781791	(69s) order=c1b7b3f096d2 cosim-GREEN	default
+rv64ui-v-sraiw	PASS	cosim-v	14/18			88	688944631	(88s) order=9e63893047ca cosim-GREEN	default
+rv64ui-v-sraw	PASS	cosim-v	15/18			129	967166966	(129s) order=ee151b19094e cosim-GREEN	default
+rv64ui-v-srl	PASS	cosim-v	16/18			109	709140834	(109s) order=0960cbe3d17c cosim-GREEN	default
+rv64ui-v-srli	PASS	cosim-v	17/18			68	580648235	(68s) order=957025cf2aa4 cosim-GREEN	default
+rv64ui-v-srliw	PASS	cosim-v	18/18			105	314128953	(105s) order=3abe57ae502c cosim-GREEN	default
+rv64ui-v-srlw	PASS	cosim-v	1/18			126	854392762	(126s) order=e20014b747b8 cosim-GREEN	default
+rv64ui-v-st_ld	PASS	cosim-v	2/18			160	842170378	(160s) order=4c7049f4e7c9 cosim-GREEN	default
+rv64ui-v-sub	PASS	cosim-v	3/18			92	440308392	(92s) order=686f24b35f47 cosim-GREEN	default
+rv64ui-v-subw	PASS	cosim-v	4/18			99	283300870	(99s) order=b4ba34ba51b1 cosim-GREEN	default
+rv64ui-v-sw	PASS	cosim-v	5/18			173	859247418	(173s) order=d6faf8fc3c0e cosim-GREEN	default
+rv64ui-v-xor	PASS	cosim-v	6/18			71	792059529	(71s) order=5f1c59784a0c cosim-GREEN	default
+rv64ui-v-xori	PASS	cosim-v	7/18			67	142878286	(67s) order=6ac637d34f61 cosim-GREEN	default
+rv64um-v-div	PASS	cosim-v	8/18			67	320955948	(67s) order=def9da2d7acc cosim-GREEN	default
+rv64um-v-divu	PASS	cosim-v	9/18			96	562643078	(96s) order=7756e3d6315e cosim-GREEN	default
+rv64um-v-divuw	PASS	cosim-v	10/18			71	59462361	(71s) order=548e0e1e2f57 cosim-GREEN	default
+rv64um-v-divw	PASS	cosim-v	11/18			106	519635217	(106s) order=67ee7a344e0f cosim-GREEN	default
+rv64um-v-mul	PASS	cosim-v	12/18			72	417678394	(72s) order=552ad4ff26d5 cosim-GREEN	default
+rv64um-v-mulh	PASS	cosim-v	13/18			73	914343795	(73s) order=d535082298da cosim-GREEN	default
+rv64um-v-mulhsu	PASS	cosim-v	14/18			89	450835920	(89s) order=73ad53f308ea cosim-GREEN	default
+rv64um-v-mulhu	PASS	cosim-v	15/18			74	931010960	(74s) order=af3249e4f359 cosim-GREEN	default
+rv64um-v-mulw	PASS	cosim-v	16/18			72	78238282	(72s) order=3fa9bd91c836 cosim-GREEN	default
+rv64um-v-rem	PASS	cosim-v	17/18			64	359113523	(64s) order=f1d44b674a4c cosim-GREEN	default
+rv64um-v-remu	PASS	cosim-v	18/18			101	25960969	(101s) order=38f56427182d cosim-GREEN	default
+rv64um-v-remuw	PASS	cosim-v	1/18			63	700855160	(63s) order=708652a84858 cosim-GREEN	default
+rv64um-v-remw	PASS	cosim-v	2/18			64	521726260	(64s) order=36847de35a76 cosim-GREEN	default
+rv64uzba-v-add_uw	PASS	cosim-v	3/18			91	294372323	(91s) order=99ad38de13dc cosim-GREEN	default
+rv64uzba-v-sh1add	PASS	cosim-v	4/18			95	293991832	(95s) order=5ba3fecc9cdc cosim-GREEN	default
+rv64uzba-v-sh1add_uw	PASS	cosim-v	5/18			114	392835534	(114s) order=bb343cf69084 cosim-GREEN	default
+rv64uzba-v-sh2add	PASS	cosim-v	6/18			71	769311297	(71s) order=83227d457f87 cosim-GREEN	default
+rv64uzba-v-sh2add_uw	PASS	cosim-v	7/18			71	908379693	(71s) order=38da4a566de0 cosim-GREEN	default
+rv64uzba-v-sh3add	PASS	cosim-v	8/18			74	556747001	(74s) order=cf785f1f8c49 cosim-GREEN	default
+rv64uzba-v-sh3add_uw	PASS	cosim-v	9/18			106	262744305	(106s) order=e713fa0b16ce cosim-GREEN	default
+rv64uzba-v-slli_uw	PASS	cosim-v	10/18			65	446553179	(65s) order=ea8d307c48b9 cosim-GREEN	default
+rv64uzbb-v-andn	PASS	cosim-v	11/18			119	129744731	(119s) order=700b502f95fd cosim-GREEN	default
+rv64uzbb-v-clz	PASS	cosim-v	12/18			67	752833718	(67s) order=a76dfddc0d2b cosim-GREEN	default
+rv64uzbb-v-clzw	PASS	cosim-v	13/18			68	988976940	(68s) order=2a934d0653bd cosim-GREEN	default
+rv64uzbb-v-cpop	PASS	cosim-v	14/18			63	730115593	(63s) order=cb44dac8f4c0 cosim-GREEN	default
+rv64uzbb-v-cpopw	PASS	cosim-v	15/18			69	102618715	(69s) order=90dcbd3837a4 cosim-GREEN	default
+rv64uzbb-v-ctz	PASS	cosim-v	16/18			68	30154203	(68s) order=324951e5f36c cosim-GREEN	default
+rv64uzbb-v-ctzw	PASS	cosim-v	17/18			63	788179180	(63s) order=2c9942a7bf6a cosim-GREEN	default
+rv64uzbb-v-max	PASS	cosim-v	18/18			112	78146770	(112s) order=e4afb13ce3ab cosim-GREEN	default
+rv64uzbb-v-maxu	PASS	cosim-v	1/18			72	875241423	(72s) order=4273be1231a9 cosim-GREEN	default
+rv64uzbb-v-min	PASS	cosim-v	2/18			71	406826130	(71s) order=9c5d5da09c66 cosim-GREEN	default
+rv64uzbb-v-minu	PASS	cosim-v	3/18			93	838935376	(93s) order=6a5d101a2e7b cosim-GREEN	default
+rv64uzbb-v-orc_b	PASS	cosim-v	4/18			86	803731177	(86s) order=797ab80549f6 cosim-GREEN	default
+rv64uzbb-v-orn	PASS	cosim-v	5/18			184	863738616	(184s) order=a27f153eefe0 cosim-GREEN	default
+rv64uzbb-v-rev8	PASS	cosim-v	6/18			66	624065628	(66s) order=8c3fd754a612 cosim-GREEN	default
+rv64uzbb-v-rol	PASS	cosim-v	7/18			105	22859827	(105s) order=35557058b69f cosim-GREEN	default
+rv64uzbb-v-rolw	PASS	cosim-v	8/18			111	468067770	(111s) order=3e7bcbb24af9 cosim-GREEN	default
+rv64uzbb-v-ror	PASS	cosim-v	9/18			178	321377191	(178s) order=a5b75ce19802 cosim-GREEN	default
+rv64uzbb-v-rori	PASS	cosim-v	10/18			74	768501070	(74s) order=f6c14f916610 cosim-GREEN	default
+rv64uzbb-v-roriw	PASS	cosim-v	11/18			109	315549117	(109s) order=54a56b13de5e cosim-GREEN	default
+rv64uzbb-v-rorw	PASS	cosim-v	12/18			66	602698373	(66s) order=32e385c89929 cosim-GREEN	default
+rv64uzbb-v-sext_b	PASS	cosim-v	13/18			68	778920282	(68s) order=6e00517e594d cosim-GREEN	default
+rv64uzbb-v-sext_h	PASS	cosim-v	14/18			78	599565311	(78s) order=75b419e9a0bc cosim-GREEN	default
+rv64uzbb-v-xnor	PASS	cosim-v	15/18			82	654772045	(82s) order=ee75a3b60b96 cosim-GREEN	default
+rv64uzbb-v-zext_h	PASS	cosim-v	16/18			64	609898121	(64s) order=1fef44c993db cosim-GREEN	default
+rv64uzbc-v-clmul	PASS	cosim-v	17/18			51	96420752	(51s) order=a648e6b50df6 cosim-GREEN	default
+rv64uzbc-v-clmulh	PASS	cosim-v	18/18			109	850082983	(109s) order=7cc0d7130a25 cosim-GREEN	default
+rv64uzbc-v-clmulr	PASS	cosim-v	1/18			61	989829681	(61s) order=bc00848f24fc cosim-GREEN	default
+rv64uzbkb-v-brev8	PASS	cosim-v	2/18			66	702165870	(66s) order=e84c96c42784 cosim-GREEN	default
+rv64uzbkb-v-pack	PASS	cosim-v	3/18			106	647239970	(106s) order=d988ec0e7523 cosim-GREEN	default
+rv64uzbkb-v-packh	PASS	cosim-v	4/18			89	369730913	(89s) order=2559ec6908a1 cosim-GREEN	default
+rv64uzbkb-v-packw	PASS	cosim-v	5/18			113	642966976	(113s) order=337d71294c74 cosim-GREEN	default
+rv64uzbkx-v-xperm4	PASS	cosim-v	6/18			98	396267713	(98s) order=6744d23b09e6 cosim-GREEN	default
+rv64uzbkx-v-xperm8	PASS	cosim-v	7/18			108	218176607	(108s) order=50c3003e8b0a cosim-GREEN	default
+rv64uzbs-v-bclr	PASS	cosim-v	8/18			114	95937664	(114s) order=18b34769382f cosim-GREEN	default
+rv64uzbs-v-bclri	PASS	cosim-v	9/18			101	351251839	(101s) order=eb7a638f55a0 cosim-GREEN	default
+rv64uzbs-v-bext	PASS	cosim-v	10/18			80	369141153	(80s) order=40684c937d1b cosim-GREEN	default
+rv64uzbs-v-bexti	PASS	cosim-v	11/18			89	951388704	(89s) order=b4b2f1d3c968 cosim-GREEN	default
+rv64uzbs-v-binv	PASS	cosim-v	12/18			82	119382945	(82s) order=45fdaae2c145 cosim-GREEN	default
+rv64uzbs-v-binvi	PASS	cosim-v	13/18			62	875470340	(62s) order=6822ec121591 cosim-GREEN	default
+rv64uzbs-v-bset	PASS	cosim-v	14/18			128	988283582	(128s) order=8de1270c16c8 cosim-GREEN	default
+rv64uzbs-v-bseti	PASS	cosim-v	15/18			68	799274433	(68s) order=d26a787dd733 cosim-GREEN	default
+rv64uzfh-v-fadd	PASS	cosim-v	16/18			87	509810510	(87s) order=87718f264174 cosim-GREEN	default
+rv64uzfh-v-fclass	PASS	cosim-v	17/18			54	328092226	(54s) order=1496d35018d3 cosim-GREEN	default
+rv64uzfh-v-fcmp	PASS	cosim-v	18/18			134	386392536	(134s) order=13583240f704 cosim-GREEN	default
+rv64uzfh-v-fcvt	PASS	cosim-v	1/18			73	894210755	(73s) order=077f6c2ceb64 cosim-GREEN	default
+rv64uzfh-v-fcvt_w	PASS	cosim-v	2/18			135	40569426	(135s) order=a0ba00a6b1ac cosim-GREEN	default
+rv64uzfh-v-fdiv	PASS	cosim-v	3/18			95	334203574	(95s) order=2c97bd4166f9 cosim-GREEN	default
+rv64uzfh-v-fmadd	PASS	cosim-v	4/18			96	532606949	(96s) order=b27797884554 cosim-GREEN	default
+rv64uzfh-v-fmin	PASS	cosim-v	5/18			136	373444461	(136s) order=7446f57775eb cosim-GREEN	default
+rv64uzfh-v-ldst	PASS	cosim-v	6/18			72	717326313	(72s) order=048a25b3f5a2 cosim-GREEN	default
+rv64uzfh-v-move	PASS	cosim-v	7/18			61	932422796	(61s) order=b0dd693571cb cosim-GREEN	default
+rv64uzfh-v-recoding	PASS	cosim-v	8/18			95	955040251	(95s) order=5c26950b0c94 cosim-GREEN	default
+rv64uzicond-v-czero_eqz	PASS	cosim-v	9/18			97	221833328	(97s) order=3264387a5145 cosim-GREEN	default
+rv64uzicond-v-czero_nez	PASS	cosim-v	10/18			53	892836352	(53s) order=15561af447cc cosim-GREEN	default
+hypervisor-p-2-stage_translation	PASS	p-	none		1059	12	523724057	(12s) cyc=1059 order=df86ba935cab	default
+hypervisor-p-2-stage_translation_implicit_load_error	PASS	p-	none		1303	13	171431751	(13s) cyc=1303 order=10040d2a5936	default
+hypervisor-p-2-stage_translation_implicit_load_error_hs	PASS	p-	none		1460	15	796078479	(15s) cyc=1460 order=091f66e0c558	default
+hypervisor-svadu-p-2-stage_translation_implicit_store_error	PASS	p-	none		1417	14	166623659	(14s) cyc=1417 order=d9d8405ca3fc	default
+hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs	PASS	p-	none		1609	13	252227654	(13s) cyc=1609 order=24838e69b90f	default
+rv64mi-p-breakpoint	PASS	p-	none		2280	19	925532042	(19s) cyc=2280 order=68a32c9dcae5	default
+rv64mi-p-csr	PASS	p-	none		2254	19	603936469	(19s) cyc=2254 order=2a3c1382e563	default
+rv64mi-p-illegal	PASS	p-	none		2688	21	622386451	(21s) cyc=2688 order=9907bc7249e5	default
+rv64mi-p-instret_overflow	PASS	p-	none		813	7	403846542	(7s) cyc=813 order=58f46b874cdb	default
+rv64mi-p-ld-misaligned	PASS	p-	none		1056	10	490145595	(10s) cyc=1056 order=5aa4a908a937	default
+rv64mi-p-lh-misaligned	PASS	p-	none		793	8	667094441	(8s) cyc=793 order=819300daca72	default
+rv64mi-p-lw-misaligned	PASS	p-	none		843	9	219330215	(9s) cyc=843 order=e1eee6ab8144	default
+rv64mi-p-ma_addr	PASS	p-	none		1182	10	260195106	(10s) cyc=1182 order=42a9ac7d03c6	default
+rv64mi-p-ma_fetch	PASS	p-	none		1174	10	612716369	(10s) cyc=1174 order=3c2e900a2f9a	default
+rv64mi-p-mcsr	PASS	p-	none		910	8	843822762	(8s) cyc=910 order=756c586aba67	default
+rv64mi-p-pmpaddr	PASS	p-	none		729	7	871571828	(7s) cyc=729 order=8e417e8fbc50	default
+rv64mi-p-sbreak	PASS	p-	none		829	8	228323752	(8s) cyc=829 order=94b89393a582	default
+rv64mi-p-scall	PASS	p-	none		808	8	462616689	(8s) cyc=808 order=6637f3b27210	default
+rv64mi-p-sd-misaligned	PASS	p-	none		1140	11	195967215	(11s) cyc=1140 order=8b295a415ecd	default
+rv64mi-p-sh-misaligned	PASS	p-	none		811	8	667687873	(8s) cyc=811 order=c3a7774236d9	default
+rv64mi-p-sw-misaligned	PASS	p-	none		867	8	513443011	(8s) cyc=867 order=8c1565550b99	default
+rv64mi-p-zicntr	PASS	p-	none		905	9	585545399	(9s) cyc=905 order=c6338d6b03c8	default
+rv64mzicbo-p-zero	PASS	p-	none		851	9	692161415	(9s) cyc=851 order=c39e9a266a5e	default
+rv64si-p-csr	PASS	p-	none		1531	13	582039026	(13s) cyc=1531 order=20e040caf6f8	default
+rv64si-p-dirty	PASS	p-	none		1607	13	482815734	(13s) cyc=1607 order=b3ca644a24c4	default
+rv64si-p-icache-alias	PASS	p-	none		1867	15	786787134	(15s) cyc=1867 order=f2abdaecdf64	default
+rv64si-p-ma_fetch	PASS	p-	none		873	8	614629839	(8s) cyc=873 order=d4c2c92e8248	default
+rv64si-p-sbreak	PASS	p-	none		881	9	22137181	(9s) cyc=881 order=6aeb9288377c	default
+rv64si-p-scall	PASS	p-	none		939	9	32589654	(9s) cyc=939 order=982dc91b998e	default
+rv64si-p-wfi	PASS	p-	none		803	8	570948307	(8s) cyc=803 order=f543b87b8850	default
+rv64ssvnapot-p-napot	PASS	p-	none		1245	12	266329369	(12s) cyc=1245 order=f098cddb7c61	default
+rv64ua-p-amoadd_d	PASS	p-	none		764	7	472655534	(7s) cyc=764 order=8f37899364c6	default
+rv64ua-p-amoadd_w	PASS	p-	none		806	8	110153184	(8s) cyc=806 order=9d3fae3cb14f	default
+rv64ua-p-amoand_d	PASS	p-	none		808	8	967643317	(8s) cyc=808 order=1bca15a32056	default
+rv64ua-p-amoand_w	PASS	p-	none		800	8	404933621	(8s) cyc=800 order=ae37ab557064	default
+rv64ua-p-amomax_d	PASS	p-	none		752	8	256738587	(8s) cyc=752 order=3dd75fcb8797	default
+rv64ua-p-amomax_w	PASS	p-	none		768	7	755253595	(7s) cyc=768 order=35a2862700b8	default
+rv64ua-p-amomaxu_d	PASS	p-	none		752	8	702061333	(8s) cyc=752 order=2b5796e06e1b	default
+rv64ua-p-amomaxu_w	PASS	p-	none		768	8	267996103	(8s) cyc=768 order=934c53f7499e	default
+rv64ua-p-amomin_d	PASS	p-	none		752	7	96534795	(7s) cyc=752 order=f9b7b7af39c7	default
+rv64ua-p-amomin_w	PASS	p-	none		768	7	586551250	(7s) cyc=768 order=c4abc4e1f6d3	default
+rv64ua-p-amominu_d	PASS	p-	none		752	8	32277568	(8s) cyc=752 order=f68e4bc4f6d9	default
+rv64ua-p-amominu_w	PASS	p-	none		768	8	382229646	(8s) cyc=768 order=3e5a070b97d1	default
+rv64ua-p-amoor_d	PASS	p-	none		802	7	595736583	(7s) cyc=802 order=dc2f8b49d5dc	default
+rv64ua-p-amoor_w	PASS	p-	none		802	8	87620807	(8s) cyc=802 order=c98e34b2c2b8	default
+rv64ua-p-amoswap_d	PASS	p-	none		808	8	519247804	(8s) cyc=808 order=54a5562013fb	default
+rv64ua-p-amoswap_w	PASS	p-	none		800	8	868345610	(8s) cyc=800 order=46587b96d38d	default
+rv64ua-p-amoxor_d	PASS	p-	none		814	8	82101361	(8s) cyc=814 order=7a47c6b00aae	default
+rv64ua-p-amoxor_w	PASS	p-	none		822	8	566905400	(8s) cyc=822 order=6dd17bea7304	default
+rv64ua-p-lrsc	PASS	p-	none		16338	112	2357606	(112s) cyc=16338 order=7b9d0d619ae3	default
+rv64uc-p-rvc	PASS	p-	none		1148	10	767353815	(10s) cyc=1148 order=45b2cfbe4152	default
+rv64ud-p-fadd	PASS	p-	none		1321	12	600378571	(12s) cyc=1321 order=90299767a89d	default
+rv64ud-p-fclass	PASS	p-	none		880	9	343010151	(9s) cyc=880 order=45968b16707a	default
+rv64ud-p-fcmp	PASS	p-	none		1505	13	32949767	(13s) cyc=1505 order=809b87c3bf00	default
+rv64ud-p-fcvt	PASS	p-	none		1219	12	294909990	(12s) cyc=1219 order=95d3c8ed010b	default
+rv64ud-p-fcvt_w	PASS	p-	none		2585	22	609653203	(22s) cyc=2585 order=62179e82ec99	default
+rv64ud-p-fdiv	PASS	p-	none		1191	11	6941137	(11s) cyc=1191 order=f302c0413912	default
+rv64ud-p-fmadd	PASS	p-	none		1437	13	202866037	(13s) cyc=1437 order=b5bc3bc58e2a	default
+rv64ud-p-fmin	PASS	p-	none		1777	15	970223850	(15s) cyc=1777 order=0323de7ddfdb	default
+rv64ud-p-ldst	PASS	p-	none		800	8	654869109	(8s) cyc=800 order=f76e8f27b9ad	default
+rv64ud-p-move	PASS	p-	none		2335	19	325744866	(19s) cyc=2335 order=73dd49d19c3a	default
+rv64ud-p-recoding	PASS	p-	none		855	9	874332724	(9s) cyc=855 order=6d665864869d	default
+rv64ud-p-structural	PASS	p-	none		1315	12	650297490	(12s) cyc=1315 order=28ad7c806e1f	default
+rv64uf-p-fadd	PASS	p-	none		1321	12	59298662	(12s) cyc=1321 order=fba761c87c2e	default
+rv64uf-p-fclass	PASS	p-	none		864	9	573533662	(9s) cyc=864 order=3a8dc7e8d9a1	default
+rv64uf-p-fcmp	PASS	p-	none		1505	13	557251890	(13s) cyc=1505 order=540b475b6506	default
+rv64uf-p-fcvt	PASS	p-	none		1049	10	966667027	(10s) cyc=1049 order=0c6bc19cdbb6	default
+rv64uf-p-fcvt_w	PASS	p-	none		2340	21	302266234	(21s) cyc=2340 order=5b1bb047344d	default
+rv64uf-p-fdiv	PASS	p-	none		1137	10	457469025	(10s) cyc=1137 order=1b123bd54d4a	default
+rv64uf-p-fmadd	PASS	p-	none		1437	13	284672686	(13s) cyc=1437 order=a195fc2100f7	default
+rv64uf-p-fmin	PASS	p-	none		1777	16	658791502	(16s) cyc=1777 order=4e94355c5ff2	default
+rv64uf-p-ldst	PASS	p-	none		814	8	909337020	(8s) cyc=814 order=47efd76c0480	default
+rv64uf-p-move	PASS	p-	none		1310	12	571828823	(12s) cyc=1310 order=4d5083bbc2e1	default
+rv64uf-p-recoding	PASS	p-	none		808	8	738838482	(8s) cyc=808 order=0d55d77c0e6f	default
+rv64ui-p-add	PASS	p-	none		2140	18	762971503	(18s) cyc=2140 order=09d7108b07e0	default
+rv64ui-p-addi	PASS	p-	none		1322	12	449569854	(12s) cyc=1322 order=dbeb20182282	default
+rv64ui-p-addiw	PASS	p-	none		1316	12	447199928	(12s) cyc=1316 order=98d1f42d52ed	default
+rv64ui-p-addw	PASS	p-	none		2132	18	448568685	(18s) cyc=2132 order=200a9089493b	default
+rv64ui-p-and	PASS	p-	none		2292	18	575550077	(18s) cyc=2292 order=418617f98420	default
+rv64ui-p-andi	PASS	p-	none		1290	11	420880018	(11s) cyc=1290 order=e42e79050b6c	default
+rv64ui-p-auipc	PASS	p-	none		701	7	42995595	(7s) cyc=701 order=332a8d21335c	default
+rv64ui-p-beq	PASS	p-	none		1851	15	129821172	(15s) cyc=1851 order=f120a7dc5547	default
+rv64ui-p-bge	PASS	p-	none		1988	17	421220751	(17s) cyc=1988 order=b1daf2645e4b	default
+rv64ui-p-bgeu	PASS	p-	none		2252	18	881243614	(18s) cyc=2252 order=07393fb44cc6	default
+rv64ui-p-blt	PASS	p-	none		1853	16	413609628	(16s) cyc=1853 order=b1a786b9a39e	default
+rv64ui-p-bltu	PASS	p-	none		2108	18	989979457	(18s) cyc=2108 order=b97b35825549	default
+rv64ui-p-bne	PASS	p-	none		1873	16	201230578	(16s) cyc=1873 order=7a4b4101a0cd	default
+rv64ui-p-fence_i	PASS	p-	none		1694	14	613511443	(14s) cyc=1694 order=a4d87ca8232e	default
+rv64ui-p-jal	PASS	p-	none		714	7	978909202	(7s) cyc=714 order=a371ad01040d	default
+rv64ui-p-jalr	PASS	p-	none		1395	12	193045694	(12s) cyc=1395 order=17f98fd6b3f9	default
+rv64ui-p-lb	PASS	p-	none		1364	12	12962312	(12s) cyc=1364 order=4482f1d555cc	default
+rv64ui-p-lbu	PASS	p-	none		1364	12	671614168	(12s) cyc=1364 order=1ed34fe5c5ff	default
+rv64ui-p-ld	PASS	p-	none		1742	15	660990816	(15s) cyc=1742 order=2b1ff17eb902	default
+rv64ui-p-ld_st	PASS	p-	none		4779	35	663263206	(35s) cyc=4779 order=a7c747e368bb	default
+rv64ui-p-lh	PASS	p-	none		1386	12	587851612	(12s) cyc=1386 order=bef98811f6eb	default
+rv64ui-p-lhu	PASS	p-	none		1408	12	857462702	(12s) cyc=1408 order=f63d0533bfcd	default
+rv64ui-p-lui	PASS	p-	none		756	8	965981392	(8s) cyc=756 order=8c8f1b67d825	default
+rv64ui-p-lw	PASS	p-	none		1416	12	82587424	(12s) cyc=1416 order=aba61715e282	default
+rv64ui-p-lwu	PASS	p-	none		1466	13	551072259	(13s) cyc=1466 order=56d2588d8562	default
+rv64ui-p-ma_data	TIMEOUT	p-	none			72	401634048	(72s) order=506e4e23a172	default
+rv64ui-p-or	PASS	p-	none		2352	20	250458258	(20s) cyc=2352 order=e4da747e79e4	default
+rv64ui-p-ori	PASS	p-	none		1280	12	385361625	(12s) cyc=1280 order=546bc681c379	default
+rv64ui-p-sb	PASS	p-	none		1944	16	185152469	(16s) cyc=1944 order=0dbbd96593c0	default
+rv64ui-p-sd	PASS	p-	none		2314	19	958530085	(19s) cyc=2314 order=74d5be7ff982	default
+rv64ui-p-sh	PASS	p-	none		2004	16	827245199	(16s) cyc=2004 order=18e6bad02e09	default
+rv64ui-p-simple	PASS	p-	none		680	7	783098465	(7s) cyc=680 order=638d1eac476a	default
+rv64ui-p-sll	PASS	p-	none		2268	19	479718758	(19s) cyc=2268 order=73de3395b6e8	default
+rv64ui-p-slli	PASS	p-	none		1372	12	13894939	(12s) cyc=1372 order=2a2fcca951ed	default
+rv64ui-p-slliw	PASS	p-	none		1378	12	777273604	(12s) cyc=1378 order=7f3c7f431454	default
+rv64ui-p-sllw	PASS	p-	none		2266	18	175020653	(18s) cyc=2266 order=e9cd29944228	default
+rv64ui-p-slt	PASS	p-	none		2120	18	61724560	(18s) cyc=2120 order=406c9e868845	default
+rv64ui-p-slti	PASS	p-	none		1308	11	757297898	(11s) cyc=1308 order=55c936d55ab0	default
+rv64ui-p-sltiu	PASS	p-	none		1308	12	932576376	(12s) cyc=1308 order=d446c14520e4	default
+rv64ui-p-sltu	PASS	p-	none		2158	18	737920713	(18s) cyc=2158 order=20fdc4b344e4	default
+rv64ui-p-sra	PASS	p-	none		2218	18	636359129	(18s) cyc=2218 order=f706db2f1b42	default
+rv64ui-p-srai	PASS	p-	none		1350	12	903824499	(12s) cyc=1350 order=eac1f4b7a8d7	default
+rv64ui-p-sraiw	PASS	p-	none		1444	12	169508312	(12s) cyc=1444 order=7a69ae1ba969	default
+rv64ui-p-sraw	PASS	p-	none		2290	19	994256735	(19s) cyc=2290 order=649737f8f332	default
+rv64ui-p-srl	PASS	p-	none		2292	19	822326464	(19s) cyc=2292 order=4d23c7159960	default
+rv64ui-p-srli	PASS	p-	none		1390	12	773343764	(12s) cyc=1390 order=e77dfc8e0416	default
+rv64ui-p-srliw	PASS	p-	none		1398	13	668068489	(13s) cyc=1398 order=49f5a2e920c1	default
+rv64ui-p-srlw	PASS	p-	none		2278	19	122628023	(19s) cyc=2278 order=0760eacc78d2	default
+rv64ui-p-st_ld	PASS	p-	none		1678	14	792596776	(14s) cyc=1678 order=faa27407f4ad	default
+rv64ui-p-sub	PASS	p-	none		2126	18	395188639	(18s) cyc=2126 order=d350730a08a0	default
+rv64ui-p-subw	PASS	p-	none		2118	17	348346486	(17s) cyc=2118 order=a0a573e92256	default
+rv64ui-p-sw	PASS	p-	none		2040	17	447202917	(17s) cyc=2040 order=92c15f43f48b	default
+rv64ui-p-xor	PASS	p-	none		2346	19	157729122	(19s) cyc=2346 order=fee275ce1f34	default
+rv64ui-p-xori	PASS	p-	none		1280	11	259656125	(11s) cyc=1280 order=09e23dbd0de0	default
+rv64um-p-div	PASS	p-	none		842	8	608547795	(8s) cyc=842 order=01021dc55c14	default
+rv64um-p-divu	PASS	p-	none		842	9	706930916	(9s) cyc=842 order=1c1d62a46c00	default
+rv64um-p-divuw	PASS	p-	none		830	8	534815876	(8s) cyc=830 order=ecfd0b3dd901	default
+rv64um-p-divw	PASS	p-	none		826	8	394272986	(8s) cyc=826 order=7a8694ec552b	default
+rv64um-p-mul	PASS	p-	none		2128	18	520552044	(18s) cyc=2128 order=7dfdf059cedc	default
+rv64um-p-mulh	PASS	p-	none		2158	18	51361081	(18s) cyc=2158 order=2bd5482fdc2c	default
+rv64um-p-mulhsu	PASS	p-	none		2158	18	714791118	(18s) cyc=2158 order=8c08bf5c0f90	default
+rv64um-p-mulhu	PASS	p-	none		2218	18	977250574	(18s) cyc=2218 order=3a05b51e6466	default
+rv64um-p-mulw	PASS	p-	none		2018	17	614879559	(17s) cyc=2018 order=6c9fef68c5ec	default
+rv64um-p-rem	PASS	p-	none		826	8	95427247	(8s) cyc=826 order=6f9773f36d97	default
+rv64um-p-remu	PASS	p-	none		828	8	307155494	(8s) cyc=828 order=e8a52ba8cb50	default
+rv64um-p-remuw	PASS	p-	none		818	8	976968365	(8s) cyc=818 order=20b2fce9bc1b	default
+rv64um-p-remw	PASS	p-	none		826	8	625850936	(8s) cyc=826 order=73dea1cc5d66	default
+rv64uzba-p-add_uw	PASS	p-	none		2150	18	403695037	(18s) cyc=2150 order=329b64e10094	default
+rv64uzba-p-sh1add	PASS	p-	none		2156	18	427416812	(18s) cyc=2156 order=030aac5f8644	default
+rv64uzba-p-sh1add_uw	PASS	p-	none		2164	18	270711961	(18s) cyc=2164 order=93047009fb49	default
+rv64uzba-p-sh2add	PASS	p-	none		2156	18	2116665	(18s) cyc=2156 order=860d88a659e2	default
+rv64uzba-p-sh2add_uw	PASS	p-	none		2164	18	23745988	(18s) cyc=2164 order=95ec5fb11f51	default
+rv64uzba-p-sh3add	PASS	p-	none		2156	18	811269572	(18s) cyc=2156 order=ef2c105b0f5e	default
+rv64uzba-p-sh3add_uw	PASS	p-	none		2164	18	701016318	(18s) cyc=2164 order=b8f1510a0838	default
+rv64uzba-p-slli_uw	PASS	p-	none		1394	12	359908489	(12s) cyc=1394 order=867fec90e9d9	default
+rv64uzbb-p-andn	PASS	p-	none		2336	19	767049424	(19s) cyc=2336 order=00fdfe3c7f35	default
+rv64uzbb-p-clz	PASS	p-	none		1188	11	976675094	(11s) cyc=1188 order=02964e28d39f	default
+rv64uzbb-p-clzw	PASS	p-	none		1158	11	523494868	(11s) cyc=1158 order=26de09ec230c	default
+rv64uzbb-p-cpop	PASS	p-	none		1188	11	222612626	(11s) cyc=1188 order=f500b6c9592d	default
+rv64uzbb-p-cpopw	PASS	p-	none		1158	11	745853408	(11s) cyc=1158 order=30cf561d86c7	default
+rv64uzbb-p-ctz	PASS	p-	none		1188	11	662390094	(11s) cyc=1188 order=b433f7cc9363	default
+rv64uzbb-p-ctzw	PASS	p-	none		1158	10	416952877	(10s) cyc=1158 order=1182d3af0744	default
+rv64uzbb-p-max	PASS	p-	none		2130	18	552897834	(18s) cyc=2130 order=a09710961560	default
+rv64uzbb-p-maxu	PASS	p-	none		2188	18	371337134	(18s) cyc=2188 order=2613c71e4e88	default
+rv64uzbb-p-min	PASS	p-	none		2122	17	432776603	(17s) cyc=2122 order=66a2146e16d4	default
+rv64uzbb-p-minu	PASS	p-	none		2170	18	753144468	(18s) cyc=2170 order=9612180ab459	default
+rv64uzbb-p-orc_b	PASS	p-	none		1230	11	924996858	(11s) cyc=1230 order=2b3385d54158	default
+rv64uzbb-p-orn	PASS	p-	none		2356	19	933205176	(19s) cyc=2356 order=a70cf3aaf933	default
+rv64uzbb-p-rev8	PASS	p-	none		1266	12	85592408	(12s) cyc=1266 order=30316c9070b7	default
+rv64uzbb-p-rol	PASS	p-	none		2278	19	574538997	(19s) cyc=2278 order=a1bc16c3f26c	default
+rv64uzbb-p-rolw	PASS	p-	none		2274	19	515070814	(19s) cyc=2274 order=7c0790bcc43c	default
+rv64uzbb-p-ror	PASS	p-	none		2334	19	319401176	(19s) cyc=2334 order=e3ecd79223db	default
+rv64uzbb-p-rori	PASS	p-	none		1406	12	986427826	(12s) cyc=1406 order=1ca53608b7b6	default
+rv64uzbb-p-roriw	PASS	p-	none		1318	12	144278110	(12s) cyc=1318 order=8f9b291026c3	default
+rv64uzbb-p-rorw	PASS	p-	none		2202	18	907516436	(18s) cyc=2202 order=a4828c071e9b	default
+rv64uzbb-p-sext_b	PASS	p-	none		1188	11	273951303	(11s) cyc=1188 order=1adae39ed0b4	default
+rv64uzbb-p-sext_h	PASS	p-	none		1194	11	897173289	(11s) cyc=1194 order=b54fb22ea41f	default
+rv64uzbb-p-xnor	PASS	p-	none		2354	19	834143745	(19s) cyc=2354 order=909239ed72cf	default
+rv64uzbb-p-zext_h	PASS	p-	none		1200	11	967031480	(11s) cyc=1200 order=5a5bc9e958bf	default
+rv64uzbc-p-clmul	PASS	p-	none		2130	17	551845139	(17s) cyc=2130 order=7d7d6dfb9ba1	default
+rv64uzbc-p-clmulh	PASS	p-	none		2140	18	866821090	(18s) cyc=2140 order=7bf59a6a7363	default
+rv64uzbc-p-clmulr	PASS	p-	none		2136	18	314252309	(18s) cyc=2136 order=95005f105171	default
+rv64uzbkb-p-brev8	PASS	p-	none		1218	11	921067146	(11s) cyc=1218 order=89bb9d3dc9a7	default
+rv64uzbkb-p-pack	PASS	p-	none		2588	21	527937766	(21s) cyc=2588 order=1e637034cab9	default
+rv64uzbkb-p-packh	PASS	p-	none		2258	19	390716821	(19s) cyc=2258 order=a96b4d73ae56	default
+rv64uzbkb-p-packw	PASS	p-	none		2128	18	279714155	(18s) cyc=2128 order=0e94cad76702	default
+rv64uzbkx-p-xperm4	PASS	p-	none		2428	19	763419856	(19s) cyc=2428 order=508c176a9f8c	default
+rv64uzbkx-p-xperm8	PASS	p-	none		3276	26	468699122	(26s) cyc=3276 order=613c2180dbfe	default
+rv64uzbs-p-bclr	PASS	p-	none		2474	20	319439515	(20s) cyc=2474 order=f99784113af8	default
+rv64uzbs-p-bclri	PASS	p-	none		1462	12	474429095	(12s) cyc=1462 order=26aaecacc524	default
+rv64uzbs-p-bext	PASS	p-	none		2340	19	653568908	(19s) cyc=2340 order=24b32a71e962	default
+rv64uzbs-p-bexti	PASS	p-	none		1396	13	464863945	(13s) cyc=1396 order=a0fc0b44950e	default
+rv64uzbs-p-binv	PASS	p-	none		2308	19	263064231	(19s) cyc=2308 order=9d428955ba18	default
+rv64uzbs-p-binvi	PASS	p-	none		1400	12	738555900	(12s) cyc=1400 order=e898daa674b6	default
+rv64uzbs-p-bset	PASS	p-	none		2478	20	223844321	(20s) cyc=2478 order=ffd3bbdc0e0e	default
+rv64uzbs-p-bseti	PASS	p-	none		1476	13	126796602	(13s) cyc=1476 order=6be78e5f22fe	default
+rv64uzfh-p-fadd	PASS	p-	none		1321	12	979626059	(12s) cyc=1321 order=4f7d6ecafd2f	default
+rv64uzfh-p-fclass	PASS	p-	none		866	8	610804900	(8s) cyc=866 order=08bdbf00f392	default
+rv64uzfh-p-fcmp	PASS	p-	none		1055	10	475148943	(10s) cyc=1055 order=104c4a7cc091	default
+rv64uzfh-p-fcvt	PASS	p-	none		1189	11	65967294	(11s) cyc=1189 order=cb159bed314a	default
+rv64uzfh-p-fcvt_w	PASS	p-	none		2340	21	341924472	(21s) cyc=2340 order=834c7f942fb1	default
+rv64uzfh-p-fdiv	PASS	p-	none		1137	11	572997440	(11s) cyc=1137 order=5ba976a06807	default
+rv64uzfh-p-fmadd	PASS	p-	none		1437	13	298432488	(13s) cyc=1437 order=098098c9d26a	default
+rv64uzfh-p-fmin	PASS	p-	none		1777	16	391439235	(16s) cyc=1777 order=ad9c2be2fb38	default
+rv64uzfh-p-ldst	PASS	p-	none		830	8	149245445	(8s) cyc=830 order=a25830e4ab9f	default
+rv64uzfh-p-move	PASS	p-	none		1309	12	478631258	(12s) cyc=1309 order=3172858cd6c5	default
+rv64uzfh-p-recoding	PASS	p-	none		808	8	866305967	(8s) cyc=808 order=b367bdf1220f	default
+rv64uziccid-p-ziccid	PASS	p-	none		7137	35	559600133	(35s) cyc=7137 order=08981cd36a8e	default
+rv64uzicond-p-czero_eqz	PASS	p-	none		2064	11	666430597	(11s) cyc=2064 order=5a2ca08cbbd4	default
+rv64uzicond-p-czero_nez	PASS	p-	none		2064	14	570634395	(14s) cyc=2064 order=a4773b683944	default
+rv64ua-v-amoadd_d	PASS	v-	15/18		21103	99	962571404	(99s) cyc=21103 order=060eed0a7dba	default
+rv64ua-v-amoadd_w	PASS	v-	16/18		21065	97	369825499	(97s) cyc=21065 order=331cbb52934f	default
+rv64ua-v-amoand_d	PASS	v-	17/18		21060	96	695008849	(96s) cyc=21060 order=b712264ccba5	default
+rv64ua-v-amoand_w	PASS	v-	18/18		21082	154	219445133	(154s) cyc=21082 order=fc0ef79a22b4	default
+rv64ua-v-amomax_d	PASS	v-	1/18		21052	98	379437562	(98s) cyc=21052 order=cbdb8e100c40	default
+rv64ua-v-amomax_w	PASS	v-	4/18		21056	132	933709873	(132s) cyc=21056 order=cf923d43cb7b	default
+rv64ua-v-amomaxu_d	PASS	v-	2/18		21052	95	881943746	(95s) cyc=21052 order=83d292a216d8	default
+rv64ua-v-amomaxu_w	PASS	v-	3/18		21055	118	614465364	(118s) cyc=21055 order=489d3b3c27c8	default
+rv64ua-v-amomin_d	PASS	v-	5/18		21053	148	659140334	(148s) cyc=21053 order=f3dd523c781f	default
+rv64ua-v-amomin_w	PASS	v-	8/18		21098	100	33913572	(100s) cyc=21098 order=923d8a2549fa	default
+rv64ua-v-amominu_d	PASS	v-	6/18		21116	95	226971693	(95s) cyc=21116 order=568c20dd91ce	default
+rv64ua-v-amominu_w	PASS	v-	7/18		21119	98	599927314	(98s) cyc=21119 order=4229e3a3331a	default
+rv64ua-v-amoor_d	PASS	v-	9/18		21018	144	554320624	(144s) cyc=21018 order=17701c9a4853	default
+rv64ua-v-amoor_w	PASS	v-	10/18		21018	90	855800722	(90s) cyc=21018 order=4a2dc3302017	default
+rv64ua-v-amoswap_d	PASS	v-	11/18		21061	153	272236260	(153s) cyc=21061 order=6c9d60ed97bd	default
+rv64ua-v-amoswap_w	PASS	v-	12/18		21081	96	532007277	(96s) cyc=21081 order=e5eaad8b8c1f	default
+rv64ua-v-amoxor_d	PASS	v-	13/18		21038	98	545464270	(98s) cyc=21038 order=b6fadcbd2af5	default
+rv64ua-v-amoxor_w	PASS	v-	14/18		21003	127	39511194	(127s) cyc=21003 order=884cc115adac	default
+rv64ua-v-lrsc	PASS	v-	15/18		36155	152	662166263	(152s) cyc=36155 order=63f771c8c013	default
+rv64uc-v-rvc	PASS	v-	14/18		29180	175	485573158	(175s) cyc=29180 order=eaad68871152	default
+rv64ud-v-fadd	PASS	v-	9/18		20514	144	961803372	(144s) cyc=20514 order=6cedebdc60ed	default
+rv64ud-v-fclass	PASS	v-	10/18		11950	54	752587717	(54s) cyc=11950 order=448fa53b0f72	default
+rv64ud-v-fcmp	PASS	v-	11/18		20711	154	715097357	(154s) cyc=20711 order=16109d5c4d96	default
+rv64ud-v-fcvt	PASS	v-	12/18		20305	95	755532263	(95s) cyc=20305 order=03815c720380	default
+rv64ud-v-fcvt_w	PASS	v-	13/18		29861	132	162137570	(132s) cyc=29861 order=c76410e6a19b	default
+rv64ud-v-fdiv	PASS	v-	14/18		20385	125	322345830	(125s) cyc=20385 order=c7dda5f44b7c	default
+rv64ud-v-fmadd	PASS	v-	15/18		20647	98	503478107	(98s) cyc=20647 order=3a85b63f5861	default
+rv64ud-v-fmin	PASS	v-	16/18		20970	97	525610652	(97s) cyc=20970 order=7af24044acd8	default
+rv64ud-v-ldst	PASS	v-	17/18		20926	83	780243965	(83s) cyc=20926 order=73679a4d8169	default
+rv64ud-v-move	PASS	v-	18/18		21545	157	664886084	(157s) cyc=21545 order=5a34f7988b20	default
+rv64ud-v-recoding	PASS	v-	1/18		21034	97	455945475	(97s) cyc=21034 order=4df46f90881c	default
+rv64ud-v-structural	PASS	v-	2/18		12392	58	71334261	(58s) cyc=12392 order=937658e8027e	default
+rv64uf-v-fadd	PASS	v-	16/18		20544	96	582978079	(96s) cyc=20544 order=72b9788fc9db	default
+rv64uf-v-fclass	PASS	v-	17/18		11934	56	960859206	(56s) cyc=11934 order=fd74b408178d	default
+rv64uf-v-fcmp	PASS	v-	18/18		20711	147	8145670	(147s) cyc=20711 order=b49e228bda08	default
+rv64uf-v-fcvt	PASS	v-	1/18		20164	94	196093090	(94s) cyc=20164 order=ca46ab26f1f4	default
+rv64uf-v-fcvt_w	PASS	v-	2/18		29562	128	605012824	(128s) cyc=29562 order=98b8fb0619b8	default
+rv64uf-v-fdiv	PASS	v-	3/18		20325	120	125136069	(120s) cyc=20325 order=e76bb6155952	default
+rv64uf-v-fmadd	PASS	v-	4/18		20677	130	245472638	(130s) cyc=20677 order=fa252319c3e4	default
+rv64uf-v-fmin	PASS	v-	5/18		21000	152	95915628	(152s) cyc=21000 order=cf1b60fe76a7	default
+rv64uf-v-ldst	PASS	v-	6/18		21090	94	400458159	(94s) cyc=21090 order=fd2e0f046d4b	default
+rv64uf-v-move	PASS	v-	7/18		12369	59	221707011	(59s) cyc=12369 order=a183bac3d5d3	default
+rv64uf-v-recoding	PASS	v-	8/18		19950	95	723203828	(95s) cyc=19950 order=2e8bac87afd6	default
+rv64ui-v-add	PASS	v-	1/18		13253	64	865626161	(64s) cyc=13253 order=eb8bcde568b8	default
+rv64ui-v-addi	PASS	v-	2/18		12395	60	990786887	(60s) cyc=12395 order=392488349a7b	default
+rv64ui-v-addiw	PASS	v-	3/18		12397	74	230572901	(74s) cyc=12397 order=4c80da27a7cf	default
+rv64ui-v-addw	PASS	v-	4/18		13245	88	99217401	(88s) cyc=13245 order=fb843c88ab00	default
+rv64ui-v-and	PASS	v-	7/18		13496	65	981916918	(65s) cyc=13496 order=ad88ad685740	default
+rv64ui-v-andi	PASS	v-	8/18		12457	62	872547160	(62s) cyc=12457 order=9342f370b388	default
+rv64ui-v-auipc	PASS	v-	12/18		11815	57	502471920	(57s) cyc=11815 order=ca87017f4be5	default
+rv64ui-v-beq	PASS	v-	13/18		12879	62	160693559	(62s) cyc=12879 order=a7379437ecbe	default
+rv64ui-v-bge	PASS	v-	14/18		13010	82	8003568	(82s) cyc=13010 order=41679b76831c	default
+rv64ui-v-bgeu	PASS	v-	15/18		13286	65	636509388	(65s) cyc=13286 order=3e445e3593ac	default
+rv64ui-v-blt	PASS	v-	16/18		12879	62	162872708	(62s) cyc=12879 order=60235888af6c	default
+rv64ui-v-bltu	PASS	v-	17/18		13137	62	321233723	(62s) cyc=13137 order=d505f4b65a1e	default
+rv64ui-v-bne	PASS	v-	18/18		12887	96	191659129	(96s) cyc=12887 order=620ad084bdbd	default
+rv64ui-v-fence_i	PASS	v-	17/18		21858	102	302509370	(102s) cyc=21858 order=bb9bfbae2f80	default
+rv64ui-v-jal	PASS	v-	1/18		11817	56	548869332	(56s) cyc=11817 order=9d4d5bc5498a	default
+rv64ui-v-jalr	PASS	v-	2/18		12246	59	302984421	(59s) cyc=12246 order=982e2faf614b	default
+rv64ui-v-lb	PASS	v-	3/18		20660	124	947990059	(124s) cyc=20660 order=10f12998b716	default
+rv64ui-v-lbu	PASS	v-	4/18		20660	131	621345681	(131s) cyc=20660 order=b3b86f1fbf3b	default
+rv64ui-v-ld	PASS	v-	9/18		21125	149	263838290	(149s) cyc=21125 order=4748e0673715	default
+rv64ui-v-ld_st	PASS	v-	14/18		40083	236	899249749	(236s) cyc=40083 order=d5ff155abaf9	default
+rv64ui-v-lh	PASS	v-	5/18		20713	152	602575524	(152s) cyc=20713 order=84b9f9631016	default
+rv64ui-v-lhu	PASS	v-	6/18		20748	96	475676304	(96s) cyc=20748 order=12df776d11f4	default
+rv64ui-v-lui	PASS	v-	11/18		11867	91	760206595	(91s) cyc=11867 order=1830fb5490d1	default
+rv64ui-v-lw	PASS	v-	7/18		20664	99	654726446	(99s) cyc=20664 order=366ec26f50b7	default
+rv64ui-v-lwu	PASS	v-	8/18		20784	101	648422664	(101s) cyc=20784 order=50ba521f6140	default
+rv64ui-v-ma_data	PASS	v-	18/18		43064	290	648571177	(290s) cyc=43064 order=f3069935f50d	default
+rv64ui-v-or	PASS	v-	9/18		13572	97	627608422	(97s) cyc=13572 order=dcbfa85c52f9	default
+rv64ui-v-ori	PASS	v-	10/18		12402	59	163372063	(59s) cyc=12402 order=7d5e38fa3a64	default
+rv64ui-v-sb	PASS	v-	10/18		22031	95	437533058	(95s) cyc=22031 order=6e42af0f6e5a	default
+rv64ui-v-sd	PASS	v-	13/18		30499	142	50565359	(142s) cyc=30499 order=1c31c7656231	default
+rv64ui-v-sh	PASS	v-	11/18		22128	163	215047487	(163s) cyc=22128 order=68a73f20a476	default
+rv64ui-v-simple	PASS	v-	16/18		11761	56	158578309	(56s) cyc=11761 order=2998fb430bc3	default
+rv64ui-v-sll	PASS	v-	17/18		21429	102	756641567	(102s) cyc=21429 order=ae93afcc1f94	default
+rv64ui-v-slli	PASS	v-	18/18		12449	93	366253334	(93s) cyc=12449 order=dc6e636b5950	default
+rv64ui-v-slliw	PASS	v-	1/18		12451	59	677111775	(59s) cyc=12451 order=0f155b9f088b	default
+rv64ui-v-sllw	PASS	v-	2/18		21424	100	458990356	(100s) cyc=21424 order=c1de102a2a80	default
+rv64ui-v-slt	PASS	v-	13/18		13234	64	482333434	(64s) cyc=13234 order=92a16daf1718	default
+rv64ui-v-slti	PASS	v-	14/18		12384	79	9821208	(79s) cyc=12384 order=8b20027a549a	default
+rv64ui-v-sltiu	PASS	v-	16/18		12384	59	537511236	(59s) cyc=12384 order=859cf3721966	default
+rv64ui-v-sltu	PASS	v-	15/18		13266	64	658879447	(64s) cyc=13266 order=6705ddf5ff14	default
+rv64ui-v-sra	PASS	v-	7/18		13331	65	624723520	(65s) cyc=13331 order=4d0c02600d10	default
+rv64ui-v-srai	PASS	v-	8/18		12443	62	527781161	(62s) cyc=12443 order=b13798ac9ea1	default
+rv64ui-v-sraiw	PASS	v-	9/18		12549	90	437943878	(90s) cyc=12549 order=abc85ed769cf	default
+rv64ui-v-sraw	PASS	v-	10/18		21409	97	458165439	(97s) cyc=21409 order=99b5613eb437	default
+rv64ui-v-srl	PASS	v-	3/18		21462	135	663140696	(135s) cyc=21462 order=ca47147be444	default
+rv64ui-v-srli	PASS	v-	4/18		12513	84	459647872	(84s) cyc=12513 order=62170226c485	default
+rv64ui-v-srliw	PASS	v-	5/18		12479	93	994128000	(93s) cyc=12479 order=ae9d7f64eed9	default
+rv64ui-v-srlw	PASS	v-	6/18		21424	99	640392120	(99s) cyc=21424 order=9935508f2fc4	default
+rv64ui-v-st_ld	PASS	v-	15/18		30024	142	838170366	(142s) cyc=30024 order=469aa27bb9dc	default
+rv64ui-v-sub	PASS	v-	5/18		13239	99	122307438	(99s) cyc=13239 order=348a76a27690	default
+rv64ui-v-subw	PASS	v-	6/18		13232	63	935299833	(63s) cyc=13232 order=7be5b1b3e398	default
+rv64ui-v-sw	PASS	v-	12/18		22166	102	405246056	(102s) cyc=22166 order=29f0dc947098	default
+rv64ui-v-xor	PASS	v-	11/18		13571	102	674059175	(102s) cyc=13571 order=207d574cb813	default
+rv64ui-v-xori	PASS	v-	12/18		12406	60	921877630	(60s) cyc=12406 order=23bfc3aa4657	default
+rv64um-v-div	PASS	v-	5/18		11973	90	204955600	(90s) cyc=11973 order=b8653af43708	default
+rv64um-v-divu	PASS	v-	6/18		12008	56	195641977	(56s) cyc=12008 order=fd2b609d8f5b	default
+rv64um-v-divuw	PASS	v-	11/18		11987	94	28462268	(94s) cyc=11987 order=aa6c9c2ed681	default
+rv64um-v-divw	PASS	v-	10/18		11953	54	464632059	(54s) cyc=11953 order=1e689e0b0c99	default
+rv64um-v-mul	PASS	v-	1/18		13354	65	215677788	(65s) cyc=13354 order=96843f83c462	default
+rv64um-v-mulh	PASS	v-	2/18		13278	64	695343138	(64s) cyc=13278 order=8c4c469d2cd2	default
+rv64um-v-mulhsu	PASS	v-	3/18		13277	79	284835422	(79s) cyc=13277 order=3974e6bd94b1	default
+rv64um-v-mulhu	PASS	v-	4/18		13338	89	535009772	(89s) cyc=13338 order=6b2d0c42bdbd	default
+rv64um-v-mulw	PASS	v-	9/18		13132	93	947237896	(93s) cyc=13132 order=d88644706413	default
+rv64um-v-rem	PASS	v-	7/18		11952	59	206113064	(59s) cyc=11952 order=54546d20e43f	default
+rv64um-v-remu	PASS	v-	8/18		11958	58	595959686	(58s) cyc=11958 order=feb31b8b0e72	default
+rv64um-v-remuw	PASS	v-	13/18		11944	57	503854569	(57s) cyc=11944 order=1770e7e3e32e	default
+rv64um-v-remw	PASS	v-	12/18		11953	57	294725579	(57s) cyc=11953 order=660a19b74112	default
+rv64uzba-v-add_uw	PASS	v-	3/18		13299	77	17371492	(77s) cyc=13299 order=4e936aefd0be	default
+rv64uzba-v-sh1add	PASS	v-	4/18		13304	86	6990971	(86s) cyc=13304 order=149e58a42e41	default
+rv64uzba-v-sh1add_uw	PASS	v-	5/18		13311	97	39834475	(97s) cyc=13311 order=1f5b63871c7f	default
+rv64uzba-v-sh2add	PASS	v-	6/18		13304	62	554310652	(62s) cyc=13304 order=a2965bd616f9	default
+rv64uzba-v-sh2add_uw	PASS	v-	7/18		13311	64	706379087	(64s) cyc=13311 order=c19b55934166	default
+rv64uzba-v-sh3add	PASS	v-	8/18		13303	65	330746323	(65s) cyc=13303 order=8813bdd838b4	default
+rv64uzba-v-sh3add_uw	PASS	v-	9/18		13312	93	962743412	(93s) cyc=13312 order=19d7023bf367	default
+rv64uzba-v-slli_uw	PASS	v-	10/18		12502	54	266552639	(54s) cyc=12502 order=cb4c5e5f8385	default
+rv64uzbb-v-andn	PASS	v-	11/18		13590	101	223742020	(101s) cyc=13590 order=63ef7c4b6117	default
+rv64uzbb-v-clz	PASS	v-	12/18		12324	58	560833142	(58s) cyc=12324 order=5bc6e735440e	default
+rv64uzbb-v-clzw	PASS	v-	13/18		12297	58	794976358	(58s) cyc=12297 order=b75d5ca8b671	default
+rv64uzbb-v-cpop	PASS	v-	14/18		12325	75	433114702	(75s) cyc=12325 order=324587379609	default
+rv64uzbb-v-cpopw	PASS	v-	15/18		12296	59	878618050	(59s) cyc=12296 order=817136d07b75	default
+rv64uzbb-v-ctz	PASS	v-	16/18		12324	57	840153640	(57s) cyc=12324 order=0bde55c34a75	default
+rv64uzbb-v-ctzw	PASS	v-	17/18		12295	57	609178643	(57s) cyc=12295 order=6e744360441c	default
+rv64uzbb-v-max	PASS	v-	18/18		13267	100	734145745	(100s) cyc=13267 order=21a1b2de6448	default
+rv64uzbb-v-maxu	PASS	v-	1/18		13327	63	661240781	(63s) cyc=13327 order=78c9179faaf4	default
+rv64uzbb-v-min	PASS	v-	2/18		13260	63	161825395	(63s) cyc=13260 order=059e68ec812d	default
+rv64uzbb-v-minu	PASS	v-	3/18		13304	79	561934545	(79s) cyc=13304 order=7b46e36d6fc9	default
+rv64uzbb-v-orc_b	PASS	v-	4/18		12373	78	516730316	(78s) cyc=12373 order=af295d4daf3d	default
+rv64uzbb-v-orn	PASS	v-	5/18		21634	141	510737557	(141s) cyc=21634 order=d05417644ddc	default
+rv64uzbb-v-rev8	PASS	v-	6/18		12419	58	409064983	(58s) cyc=12419 order=bbec66ac0166	default
+rv64uzbb-v-rol	PASS	v-	7/18		21474	96	820859228	(96s) cyc=21474 order=91ddfe89b972	default
+rv64uzbb-v-rolw	PASS	v-	8/18		21436	85	242067092	(85s) cyc=21436 order=348f80029479	default
+rv64uzbb-v-ror	PASS	v-	9/18		21536	134	21376291	(134s) cyc=21536 order=50cf34af597e	default
+rv64uzbb-v-rori	PASS	v-	10/18		12518	54	588500530	(54s) cyc=12518 order=78cbf8c99316	default
+rv64uzbb-v-roriw	PASS	v-	11/18		12422	91	409546406	(91s) cyc=12422 order=f644de67c587	default
+rv64uzbb-v-rorw	PASS	v-	12/18		13391	58	410697797	(58s) cyc=13391 order=c9fb71f90909	default
+rv64uzbb-v-sext_b	PASS	v-	13/18		12324	59	584919700	(59s) cyc=12324 order=a71a83ecb289	default
+rv64uzbb-v-sext_h	PASS	v-	14/18		12334	61	302564420	(61s) cyc=12334 order=1f13c6fcc9b5	default
+rv64uzbb-v-xnor	PASS	v-	15/18		21605	82	430771373	(82s) cyc=21605 order=8dc08142872b	default
+rv64uzbb-v-zext_h	PASS	v-	16/18		12343	57	419897551	(57s) cyc=12343 order=db68db6ad626	default
+rv64uzbc-v-clmul	PASS	v-	17/18		13359	62	917420222	(62s) cyc=13359 order=e63d57f65203	default
+rv64uzbc-v-clmulh	PASS	v-	18/18		13367	76	506081951	(76s) cyc=13367 order=fb4bed8d784a	default
+rv64uzbc-v-clmulr	PASS	v-	1/18		13363	48	775829039	(48s) cyc=13363 order=29ef5438b241	default
+rv64uzbkb-v-brev8	PASS	v-	2/18		12382	52	457165135	(52s) cyc=12382 order=2e8f90976aac	default
+rv64uzbkb-v-pack	PASS	v-	3/18		21964	85	370239139	(85s) cyc=21964 order=a2c5141f9504	default
+rv64uzbkb-v-packh	PASS	v-	4/18		13548	69	82730052	(69s) cyc=13548 order=becfda3ce415	default
+rv64uzbkb-v-packw	PASS	v-	5/18		13332	78	289965917	(78s) cyc=13332 order=b0cfb233d064	default
+rv64uzbkx-v-xperm4	PASS	v-	6/18		21703	64	181267068	(64s) cyc=21703 order=991038ea2bd5	default
+rv64uzbkx-v-xperm8	PASS	v-	7/18		22599	78	16176001	(78s) cyc=22599 order=14ef17f83fbb	default
+rv64uzbs-v-bclr	PASS	v-	8/18		21720	85	869936993	(85s) cyc=21720 order=b58d20e77b42	default
+rv64uzbs-v-bclri	PASS	v-	9/18		12657	71	51250939	(71s) cyc=12657 order=0101de3359c5	default
+rv64uzbs-v-bext	PASS	v-	10/18		21502	67	189140613	(67s) cyc=21502 order=aff81f59b30a	default
+rv64uzbs-v-bexti	PASS	v-	11/18		12552	75	45385986	(75s) cyc=12552 order=73a776cc225a	default
+rv64uzbs-v-binv	PASS	v-	12/18		21416	74	927382376	(74s) cyc=21416 order=30ba86f88789	default
+rv64uzbs-v-binvi	PASS	v-	13/18		12486	40	681469758	(40s) cyc=12486 order=4418e24c21ab	default
+rv64uzbs-v-bset	PASS	v-	14/18		21754	90	691282691	(90s) cyc=21754 order=3cffbcd6c3de	default
+rv64uzbs-v-bseti	PASS	v-	15/18		12625	38	575273761	(38s) cyc=12625 order=dfe410247418	default
+rv64uzfh-v-fadd	PASS	v-	16/18		20514	70	319809940	(70s) cyc=20514 order=ae709ecfec93	default
+rv64uzfh-v-fclass	PASS	v-	17/18		11935	51	149091689	(51s) cyc=11935 order=c6a40dfa2f64	default
+rv64uzfh-v-fcmp	PASS	v-	18/18		20231	91	42391504	(91s) cyc=20231 order=1739b64394af	default
+rv64uzfh-v-fcvt	PASS	v-	1/18		20295	61	680210113	(61s) cyc=20295 order=bb831b0908fa	default
+rv64uzfh-v-fcvt_w	PASS	v-	2/18		29605	91	795568698	(91s) cyc=29605 order=5ebe0087d82a	default
+rv64uzfh-v-fdiv	PASS	v-	3/18		20355	77	57202743	(77s) cyc=20355 order=88f7d226e7fb	default
+rv64uzfh-v-fmadd	PASS	v-	4/18		20647	78	245606088	(78s) cyc=20647 order=8fca4464f56e	default
+rv64uzfh-v-fmin	PASS	v-	5/18		20970	115	20443402	(115s) cyc=20970 order=845c7a1b17d3	default
+rv64uzfh-v-ldst	PASS	v-	6/18		21036	58	502325668	(58s) cyc=21036 order=759a9832805d	default
+rv64uzfh-v-move	PASS	v-	7/18		12385	58	730422190	(58s) cyc=12385 order=9484849b7931	default
+rv64uzfh-v-recoding	PASS	v-	8/18		19950	69	729039573	(69s) cyc=19950 order=2204114adfb8	default
+rv64uziccid-v-ziccid	PASS	v-	11/18		158125	662	208662320	(662s) cyc=158125 order=e2aed5d73b77	default
+rv64uzicond-v-czero_eqz	PASS	v-	9/18		13218	65	921832435	(65s) cyc=13218 order=7f26591cd079	default
+rv64uzicond-v-czero_nez	PASS	v-	10/18		13282	35	712835812	(35s) cyc=13282 order=11a332b79e50	default
