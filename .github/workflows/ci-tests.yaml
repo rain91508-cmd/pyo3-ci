@@ -25,11 +25,14 @@ on:
                 type: string
             enable_cosim:
                 description: >-
-                    Also run the strict-lockstep Spike co-simulation (ADR 0013)
+                    Run ONLY the strict-lockstep Spike co-simulation (ADR 0013)
                     INSIDE the existing o3-core riscv-tests jobs (same ELFs,
-                    same shards -- no extra jobs). Adds a libriscv+binding
-                    build per runner. REPORT-ONLY: a cosim mismatch is a
-                    finding + ::warning, it NEVER gates.
+                    same shards -- no extra jobs): the functional -p-/-v-
+                    regression steps and the block-level suites are SKIPPED,
+                    and the run's pass/fail is decided by the co-simulation
+                    results -- the cosim-* rows GATE (ADR 0013 D22 promoted
+                    from report-only lens to verdict, 2026-11-24). Adds a
+                    libriscv+binding build per runner.
                 required: false
                 default: 'false'
                 type: choice
@@ -155,7 +158,10 @@ jobs:
 
             # All 204 *-p-* ELFs: rv64ui/um/uc/ua/uf/ud/uz*, mi, si,
             # ssvnapot, mzicbo and hypervisor/svadu. One runner, all 4 cores.
+            # Skipped in cosim mode: with enable_cosim=true the co-sim step
+            # below IS the regression and its rows decide the verdict.
             - name: Run the -p- regression
+              if: ${{ inputs.enable_cosim != 'true' }}
               working-directory: src/cpu/pyo3
               env:
                   REGRESSION_MAX_JOBS: '4'   # all 4 cores on this runner
@@ -176,11 +182,13 @@ jobs:
                   PYO3_RESULTS_FILE: ${{ github.workspace }}/results/p-.txt
               run: ./run_regression_status.sh
 
-            # Co-sim the SAME *-p-* ELFs in this job (no extra runner). Runs
-            # after the functional pass so a green functional suite is always
-            # reported even if the cosim pass is cut off by the job cap.
-            # Report-only: suite=cosim-p rows are excluded by the Gate step.
-            - name: Co-sim the -p- tests (report-only, ADR 0013)
+            # Co-sim the SAME *-p-* ELFs in this job (no extra runner). With
+            # enable_cosim=false (a functional run) it rides after the
+            # functional pass so a green functional suite is always reported
+            # even if the co-sim is cut off by the job cap; with
+            # enable_cosim=true this step IS the regression and the
+            # suite=cosim-p rows GATE (the Gate step judges them).
+            - name: Co-sim the -p- tests (ADR 0013)
               if: ${{ inputs.enable_cosim == 'true' }}
               working-directory: src/cpu/pyo3
               env:
@@ -222,7 +230,10 @@ jobs:
                   path: src/cpu/pyo3/riscv-tests/isa
 
             # Every 8th of the 173 *-v-* ELFs at the 200K-cycle cap.
+            # Skipped in cosim mode: with enable_cosim=true the co-sim step
+            # below IS the regression and its rows decide the verdict.
             - name: Run the -v- regression (this shard)
+              if: ${{ inputs.enable_cosim != 'true' }}
               working-directory: src/cpu/pyo3
               env:
                   PYO3_SHARD: ${{ matrix.shard }}/18
@@ -235,8 +246,9 @@ jobs:
               run: ./run_all_vv_80000.sh
 
             # Co-sim THIS SHARD's *-v-* ELFs (same split as the functional run:
-            # run_cosim_all.sh honours PYO3_SHARD). Report-only (suite=cosim-v).
-            - name: Co-sim the -v- tests (report-only, ADR 0013)
+            # run_cosim_all.sh honours PYO3_SHARD). With enable_cosim=true this
+            # step IS the shard's regression and the suite=cosim-v rows GATE.
+            - name: Co-sim the -v- tests (ADR 0013)
               if: ${{ inputs.enable_cosim == 'true' }}
               working-directory: src/cpu/pyo3
               env:
@@ -256,8 +268,12 @@ jobs:
                   path: ${{ github.workspace }}/results
                   retention-days: 14
 
+    # Pure-cosim mode (enable_cosim=true) runs ONLY the co-simulation: the
+    # functional regression steps and these block suites are skipped, and the
+    # cosim rows decide the run's verdict.
     pyo3-block-tests:
         name: pyo3 / block-level unit tests
+        if: ${{ inputs.enable_cosim != 'true' }}
         runs-on: ubuntu-24.04
         timeout-minutes: 120
         needs: [pyo3-riscv-tests-build]
@@ -421,6 +437,7 @@ jobs:
               env:
                   SCHED_MODE: ${{ inputs.sched_mode || 'pinned' }}
                   TESTBENCH: ${{ inputs.testbench || 'default' }}
+                  ENABLE_COSIM: ${{ inputs.enable_cosim || 'false' }}
                   BUILD_RES: ${{ needs.pyo3-riscv-tests-build.result }}
                   P_RES: ${{ needs.pyo3-riscv-tests-p.result }}
                   V_RES: ${{ needs.pyo3-riscv-tests-v.result }}
@@ -435,7 +452,14 @@ jobs:
                   # mode: a probe that never reached its suites must fail
                   # loudly, not report an empty finding set.
                   bad_groups=""
-                  for pair in "build:$BUILD_RES" "p:$P_RES" "v:$V_RES" "block:$BLOCK_RES"; do
+                  # In cosim mode the block suite is skipped by design and the
+                  # co-sim steps ride inside the p/v jobs, so build+p+v is the
+                  # complete group set there.
+                  pairs="build:$BUILD_RES p:$P_RES v:$V_RES"
+                  if [ "$ENABLE_COSIM" != "true" ]; then
+                      pairs="$pairs block:$BLOCK_RES"
+                  fi
+                  for pair in $pairs; do
                       gname=${pair%%:*}
                       gres=${pair##*:}
                       if [ "$gres" != "success" ]; then
@@ -470,6 +494,31 @@ jobs:
                       fi
                       exit 0
                   fi
+                  # enable_cosim=true is a PURE co-simulation run: the
+                  # functional -p-/-v- steps and the block suites are skipped
+                  # and the cosim-* rows ARE the regression. ADR 0013 D22
+                  # promoted from report-only lens to verdict (2026-11-24):
+                  # these rows decide the gate.
+                  if [ "$ENABLE_COSIM" = "true" ]; then
+                      if [ ! -s "$GITHUB_WORKSPACE/pyo3-ci-results.tsv" ]; then
+                          echo "::error::no results.tsv -- the co-sim produced no per-test results, so the run cannot be judged."
+                          exit 1
+                      fi
+                      total=$(awk -F'\t' 'NR>1 && $3 ~ /^cosim/ {n++} END {print n+0}' \
+                          "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
+                      bad=$(awk -F'\t' 'NR>1 && $3 ~ /^cosim/ && $2 != "PASS" {n++} END {print n+0}' \
+                          "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
+                      echo "co-sim non-passing: $bad of $total tests"
+                      if [ "$total" -eq 0 ]; then
+                          echo "::error::enable_cosim=true but zero cosim-* rows reached the report -- nothing was judged."
+                          exit 1
+                      fi
+                      if [ "$bad" -ne 0 ]; then
+                          echo "::error::$bad of $total co-sim tests did not pass -- see the pyo3-ci-report release"
+                          exit 1
+                      fi
+                      exit 0
+                  fi
                   # The cachehier TB is a REPORT-ONLY probe by the same logic
                   # applied to a new baseline: the default-TB rows stay the
                   # gating verdict until the cachehier baseline is established
@@ -493,9 +542,11 @@ jobs:
                            "per-test results, so the run cannot be judged."
                       exit 1
                   fi
-                  # The co-sim suites (cosim-*, ADR 0013 D22) are report-only
-                  # BY DECISION: a lens, not a gate. Exclude them from the
-                  # pass/fail count and surface their findings as a warning.
+                  # In the FUNCTIONAL mode (enable_cosim=false) the co-sim
+                  # suites (cosim-*, ADR 0013 D22) are report-only BY DECISION:
+                  # a lens, not a gate. Exclude them from the pass/fail count
+                  # and surface their findings as a warning. (In cosim mode the
+                  # branch above already judged the cosim rows and exited.)
                   bad=$(awk -F'\t' 'NR>1 && $2 != "PASS" && $3 !~ /^cosim/ {n++} END {print n+0}' \
                       "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
                   total=$(awk -F'\t' 'NR>1 && $3 !~ /^cosim/ {n++} END {print n+0}' \
