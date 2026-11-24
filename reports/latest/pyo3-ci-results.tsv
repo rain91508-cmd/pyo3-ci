@@ -803,7 +803,7 @@ test_tage_v2_transport::test_a_squash_flushes_the_tage_pipeline_before_the_next_
 test_tage_v2_transport::test_a_tage_window_flows_accept_to_finalize	PASS	block-BPredUnitV2	none			0			default
 test_tage_v2_transport::test_the_accept_gate_refuses_when_a_full_pipe_cannot_be_drained	PASS	block-BPredUnitV2	none			0			default
 test_tage_v2_transport::test_the_tage_accept_is_due_gated	PASS	block-BPredUnitV2	none			0		The block test issues predict_ft after the BPU's up_process; the composed order is BAC.up_tick (predict) BEFORE bpu.up_process.  The due gate depends on that order, so this pin belongs to the composed TAGE test (6c.4), not the block harness.	default
-test_v1_v2_parity::test_v1_v2_commit_value_stream_parity	PASS	block-BPredUnitV2	none			11		STANDING ACCEPTANCE GATE (plan D3/L0.4), not a normal test: the v2 core does not exist until L9. Fails at L0 for the correct reason (no v2 O3CoreCL). Flipped to REQUIRED at L9 — do NOT delete this test to make the suite green; remove the xfail instead.	default
+test_v1_v2_parity::test_v1_v2_commit_value_stream_parity	PASS	block-BPredUnitV2	none			7		STANDING ACCEPTANCE GATE (plan D3/L0.4), not a normal test: the v2 core does not exist until L9. Fails at L0 for the correct reason (no v2 O3CoreCL). Flipped to REQUIRED at L9 — do NOT delete this test to make the suite green; remove the xfail instead.	default
 test_csr_file_cl.TestConstruction::test_constructs_with_default_params	PASS	block-CSRFile	none			0			default
 test_csr_file_cl.TestConstruction::test_exposes_read_callee_ifc	PASS	block-CSRFile	none			0			default
 test_csr_file_cl.TestConstruction::test_exposes_write_callee_ifc	PASS	block-CSRFile	none			0			default
@@ -1669,13 +1669,13 @@ test_frontend_v2_compose.TestComposition::test_frontend_v2_constructs_and_resets
 test_frontend_v2_compose.TestComposition::test_ft_flows_bac_ftq_fetch_decode	PASS	block-FrontEnd	none			0			default
 test_frontend_v2_compose.TestComposition::test_ftq_head_bb_idx_comes_from_the_bpu_row_allocator	PASS	block-FrontEnd	none			0			default
 test_frontend_v2_compose.TestComposition::test_the_path_does_not_park_before_the_end_of_the_run	PASS	block-FrontEnd	none			0			default
-test_frontend_v2_compose.TestScheduleSeedSweep::test_identical_outcomes_across_schedule_seeds	PASS	block-FrontEnd	none			2			default
+test_frontend_v2_compose.TestScheduleSeedSweep::test_identical_outcomes_across_schedule_seeds	PASS	block-FrontEnd	none			1			default
 test_frontend_v2_compose.TestScheduleSeedSweep::test_sweep_reaches_a_formed_ft	PASS	block-FrontEnd	none			0			default
 test_frontend_v2_compose.TestWindowAttach::test_member_bitmap_is_absolute_not_ft_relative	PASS	block-FrontEnd	none			0			default
 test_frontend_v2_compose.TestWindowAttach::test_member_instruction_gets_absolute_slot	PASS	block-FrontEnd	none			0			default
 test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_edge_alone_orders_the_driver_ahead_of_the_finalize	PASS	block-FrontEnd	none			0			default
-test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_level_stalls_the_finalize_of_its_own_cycle_at_every_seed	PASS	block-FrontEnd	none			6			default
-test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_scenario_is_not_vacuous_without_the_level	PASS	block-FrontEnd	none			2			default
+test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_level_stalls_the_finalize_of_its_own_cycle_at_every_seed	PASS	block-FrontEnd	none			4			default
+test_frontend_v2_finalize_level_edge.TestFinalizeLevelEdge::test_the_scenario_is_not_vacuous_without_the_level	PASS	block-FrontEnd	none			1			default
 test_icache_cl.TestBackpressure::test_i51_ready_after_reset	PASS	block-ICache	none			0			default
 test_icache_cl.TestBackpressure::test_i52_not_ready_when_mshr_full	PASS	block-ICache	none			0			default
 test_icache_cl.TestBackpressure::test_i53_ready_after_mshr_freed	PASS	block-ICache	none			0			default
@@ -2601,7 +2601,7 @@ test_mmu_pl2_resp_hold.TestQ29SameCycleServe::test_same_cycle_serve_two_stage_wa
 test_mmu_snapshot_retire.TestT21SatpSnapshotMidWalk::test_dside_walk_completes_under_latched_root_and_asid	PASS	block-MMU	none			0			default
 test_mmu_snapshot_retire.TestT21SatpSnapshotMidWalk::test_iside_walk_completes_under_latched_root_and_asid	PASS	block-MMU	none			0			default
 test_mmu_snapshot_retire.TestT21SatpSnapshotMidWalk::test_two_stage_fill_carries_latched_asid_and_vmid	PASS	block-MMU	none			0			default
-test_mmu_snapshot_retire.TestTBWalkerRetirement::test_tb_walk_path_not_consulted_identical_responses	PASS	block-MMU	none			2			default
+test_mmu_snapshot_retire.TestTBWalkerRetirement::test_tb_walk_path_not_consulted_identical_responses	PASS	block-MMU	none			1			default
 test_mmu_walk_cache_l2.TestT02WalkCacheResume::test_l2_hit_refills_l1_without_walk	PASS	block-MMU	none			0			default
 test_mmu_walk_cache_l2.TestT02WalkCacheResume::test_neighbouring_page_same_2m_region_one_table_read	PASS	block-MMU	none			0			default
 test_mmu_walk_cache_l2.TestT07L2One2MUnit::test_1g_leaf_native_hit_l2_holds_containing_unit	PASS	block-MMU	none			0			default
@@ -3269,65 +3269,65 @@ test_o3_core_bare_metal_tb_cl.TestVAProbeCoordinator::test_va_probe_resp_fires_2
 test_o3_core_v2.TestCoreBuildsV2Frontend::test_core_frontend_carries_the_v2_blocks	PASS	block-Testbench	none			0			default
 test_o3_core_v2.TestCoreBuildsV2Frontend::test_core_frontend_is_frontend_v2	PASS	block-Testbench	none			0			default
 test_o3_core_v2.TestCoreBuildsV2Frontend::test_v2_core_exposes_the_testbench_surface	PASS	block-Testbench	none			0		L9b ACCEPTANCE SCAFFOLD — the v2 core schedules now (F-41 fixed: `FrontendV2` no longer carries the `M(decode_bpu_correction_sink) < M(backward_ctrl)` edge, so the same-cycle loop `M(sink) < M(backward_ctrl) < U(decode.up_dispatch) < M(decode_bpu_correction) = M(sink)` has no leg 2 -- the sink itself stays, and `bac_backward_ctrl` is now an alias of the merging `backward_ctrl` CalleeIfcCL), but `r	default
-test_o3_core_v2.TestElfOnV2Core::test_rv64ui_p_add_passes_on_v2	PASS	block-Testbench	none			10			default
-test_o3_core_v2.TestElfOnV2Core::test_v2_core_commits_instructions_and_retires_stores	PASS	block-Testbench	none			10			default
+test_o3_core_v2.TestElfOnV2Core::test_rv64ui_p_add_passes_on_v2	PASS	block-Testbench	none			6			default
+test_o3_core_v2.TestElfOnV2Core::test_v2_core_commits_instructions_and_retires_stores	PASS	block-Testbench	none			6			default
 test_o3_core_v2.TestFetchTargetPairingLaw::test_d14s_act_less_row_is_never_reached	PASS	block-Testbench	none			0			default
 test_o3_core_v2.TestFetchTargetPairingLaw::test_every_claim_becomes_a_stage_or_is_destroyed_once	PASS	block-Testbench	none			0			default
-test_o3_core_v2.TestFetchTargetPairingLaw::test_every_queued_fetch_target_leaves_the_queue_exactly_once	PASS	block-Testbench	none			9			default
+test_o3_core_v2.TestFetchTargetPairingLaw::test_every_queued_fetch_target_leaves_the_queue_exactly_once	PASS	block-Testbench	none			6			default
 test_o3_core_v2.TestFetchTargetPairingLaw::test_one_request_per_fetch_target_presented	PASS	block-Testbench	none			0			default
 test_o3_core_v2.TestFetchTargetPairingLaw::test_the_fill_is_the_only_pop	PASS	block-Testbench	none			0			default
-test_o3_core_v2.TestNackChainOrdering::test_elf_reaches_exit_on_every_schedule_seed	PASS	block-Testbench	none			52			default
-test_o3_core_v2.TestNackChainOrdering::test_no_seed_stalls_the_frontend	PASS	block-Testbench	none			53			default
-test_o3_core_v2.TestNackChainOrdering::test_the_sweep_actually_executed_the_frontend	PASS	block-Testbench	none			10			default
-test_riscv_tests_isa::test_riscv_tests_smoke_add	PASS	block-Testbench	none			5			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition]	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word]	PASS	block-Testbench	none			10			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND]	PASS	block-Testbench	none			10			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate]	PASS	block-Testbench	none			5			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-auipc:add upper immediate to PC]	PASS	block-Testbench	none			3			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal]	PASS	block-Testbench	none			8			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal]	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned]	PASS	block-Testbench	none			7			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than]	PASS	block-Testbench	none			8			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned]	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal]	PASS	block-Testbench	none			8			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence]	PASS	block-Testbench	none			7			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link]	PASS	block-Testbench	none			3			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jalr:jump and link register]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double]	PASS	block-Testbench	none			8			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned]	PASS	block-Testbench	none			6			default
+test_o3_core_v2.TestNackChainOrdering::test_elf_reaches_exit_on_every_schedule_seed	PASS	block-Testbench	none			35			default
+test_o3_core_v2.TestNackChainOrdering::test_no_seed_stalls_the_frontend	PASS	block-Testbench	none			35			default
+test_o3_core_v2.TestNackChainOrdering::test_the_sweep_actually_executed_the_frontend	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_riscv_tests_smoke_add	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-add:R-type addition]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addi:I-type add immediate]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addiw:IW-type add immediate]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-addw:R-type add word]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-and:R-type AND]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-andi:I-type AND immediate]	PASS	block-Testbench	none			3			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-auipc:add upper immediate to PC]	PASS	block-Testbench	none			2			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-beq:branch equal]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bge:branch greater equal]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bgeu:branch greater equal unsigned]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-blt:branch less than]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bltu:branch less than unsigned]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-bne:branch not equal]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-fence_i:instruction fence]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jal:jump and link]	PASS	block-Testbench	none			1			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-jalr:jump and link register]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lb:load byte]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lbu:load byte unsigned]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ld:load double]	PASS	block-Testbench	none			5			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lh:load half]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lhu:load half unsigned]	PASS	block-Testbench	none			4			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lui:load upper immediate]	PASS	block-Testbench	none			2			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lw:load word]	PASS	block-Testbench	none			4			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-lwu:load word unsigned]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			10			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate]	PASS	block-Testbench	none			5			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-or:R-type OR]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-ori:I-type OR immediate]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sb:store byte]	PASS	block-Testbench	none			5			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sd:store double]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]	PASS	block-Testbench	none			9			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sh:store half]	PASS	block-Testbench	none			6			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sll:shift left logical]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word]	PASS	block-Testbench	none			10			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than]	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned]	PASS	block-Testbench	none			5			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned]	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic]	PASS	block-Testbench	none			10			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slli:shift left logical immediate]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sllw:shift left logical word]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slt:set less than]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-slti:set less than immediate]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltiu:set less than immediate unsigned]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sltu:set less than unsigned]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sra:shift right arithmetic]	PASS	block-Testbench	none			6			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srai:shift right arithmetic immediate]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sraw:shift right arithmetic word]	PASS	block-Testbench	none			10			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical]	PASS	block-Testbench	none			10			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sraw:shift right arithmetic word]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srl:shift right logical]	PASS	block-Testbench	none			7			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srli:shift right logical immediate]	PASS	block-Testbench	none			4			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word]	PASS	block-Testbench	none			10			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction]	PASS	block-Testbench	none			9			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-srlw:shift right logical word]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sub:R-type subtraction]	PASS	block-Testbench	none			4			default
 test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-subw:R-type sub word]	PASS	block-Testbench	none			6			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word]	PASS	block-Testbench	none			9			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR]	PASS	block-Testbench	none			10			default
-test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate]	PASS	block-Testbench	none			5			default
-test_riscv_tests_isa::test_rv64uziccid_p_ziccid	PASS	block-Testbench	none			29			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-sw:store word]	PASS	block-Testbench	none			6			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xor:R-type XOR]	PASS	block-Testbench	none			7			default
+test_riscv_tests_isa::test_rv64ui_p[rv64ui-p-xori:I-type XOR immediate]	PASS	block-Testbench	none			4			default
+test_riscv_tests_isa::test_rv64uziccid_p_ziccid	PASS	block-Testbench	none			19			default
 test_sbuf_fence_gate_wiring::test_absorbed_store_holds_commit_gate_through_tb_wire	PASS	block-Testbench	none			0			default
 test_tlbi_controller_cl.TestEdgeCases::test_second_tlbi_req_after_first_completes	PASS	block-TlbiController	none			0			default
 test_tlbi_controller_cl.TestEdgeCases::test_sync_comp_before_inv_sent_ignored_or_buffered	PASS	block-TlbiController	none			0			default
@@ -3436,552 +3436,750 @@ test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_r
 test_write_back_cl_adr0033_primary.TestBypassQueryInterface::test_bypass_query_returns_miss_when_buf_empty	PASS	block-WriteBack	none			0			default
 test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_normal_completion_does_not_fire_sb_setReg	PASS	block-WriteBack	none			0			default
 test_write_back_cl_adr0033_primary.TestSbSetRegRemovedFromWriteBack::test_sb_setReg_caller_ifc_removed	PASS	block-WriteBack	none			0			default
-rv64ua-v-amoadd_d	PASS	cosim-v	1/18			116	943571347	(116s) order=e271914002b9 cosim-GREEN	default
-rv64ua-v-amoadd_w	PASS	cosim-v	2/18			115	598826186	(115s) order=e8c9b8c8db2b cosim-GREEN	default
-rv64ua-v-amoand_d	PASS	cosim-v	3/18			158	121010120	(158s) order=0caa5bc41b0e cosim-GREEN	default
-rv64ua-v-amoand_w	PASS	cosim-v	4/18			171	480445916	(171s) order=54296ed749a8 cosim-GREEN	default
-rv64ua-v-amomax_d	PASS	cosim-v	5/18			185	843438954	(185s) order=1726e5474dfb cosim-GREEN	default
-rv64ua-v-amomax_w	PASS	cosim-v	6/18			115	87710328	(115s) order=9cfc636353e3 cosim-GREEN	default
-rv64ua-v-amomaxu_d	PASS	cosim-v	7/18			116	120944456	(116s) order=09f48914a5d0 cosim-GREEN	default
-rv64ua-v-amomaxu_w	PASS	cosim-v	8/18			121	689465589	(121s) order=143030d1b63a cosim-GREEN	default
-rv64ua-v-amomin_d	PASS	cosim-v	9/18			170	915141102	(170s) order=573f37e28c1f cosim-GREEN	default
-rv64ua-v-amomin_w	PASS	cosim-v	10/18			117	160913953	(117s) order=876be442bf57 cosim-GREEN	default
-rv64ua-v-amominu_d	PASS	cosim-v	11/18			189	229974695	(189s) order=a270caee971a cosim-GREEN	default
-rv64ua-v-amominu_w	PASS	cosim-v	12/18			114	772927833	(114s) order=5ea3964de904 cosim-GREEN	default
-rv64ua-v-amoor_d	PASS	cosim-v	13/18			119	698321056	(119s) order=9872a10ee308 cosim-GREEN	default
-rv64ua-v-amoor_w	PASS	cosim-v	14/18			157	225801825	(157s) order=a6aae253caee cosim-GREEN	default
-rv64ua-v-amoswap_d	PASS	cosim-v	15/18			118	632237340	(118s) order=072dc410d9db cosim-GREEN	default
-rv64ua-v-amoswap_w	PASS	cosim-v	16/18			118	720007841	(118s) order=469245ae2130 cosim-GREEN	default
-rv64ua-v-amoxor_d	PASS	cosim-v	17/18			115	710464765	(115s) order=a1107ac418d8 cosim-GREEN	default
-rv64ua-v-amoxor_w	PASS	cosim-v	18/18			181	449512424	(181s) order=d03a189a5db3 cosim-GREEN	default
-rv64ua-v-lrsc	PASS	cosim-v	1/18			214	643166206	(214s) order=e4b09e24307c cosim-GREEN	default
-rv64uc-v-rvc	PASS	cosim-v	2/18			168	701573806	(168s) order=84287e09f544 cosim-GREEN	default
-rv64ud-v-fadd	PASS	cosim-v	3/18			174	323804451	(174s) order=d6357417beee cosim-GREEN	default
-rv64ud-v-fclass	PASS	cosim-v	4/18			92	152588910	(92s) order=5c5add393e40 cosim-GREEN	default
-rv64ud-v-fcmp	PASS	cosim-v	5/18			196	82098451	(196s) order=2a82d062947b cosim-GREEN	default
-rv64ud-v-fcvt	PASS	cosim-v	6/18			117	960532878	(117s) order=6ec50fc1106e cosim-GREEN	default
-rv64ud-v-fcvt_w	PASS	cosim-v	7/18			186	376138212	(186s) order=946a4a9f5140 cosim-GREEN	default
-rv64ud-v-fdiv	PASS	cosim-v	8/18			126	528346448	(126s) order=c83cc139aee5 cosim-GREEN	default
-rv64ud-v-fmadd	PASS	cosim-v	9/18			177	637478509	(177s) order=fc29a2407b1b cosim-GREEN	default
-rv64ud-v-fmin	PASS	cosim-v	10/18			113	645611012	(113s) order=0e325154c74d cosim-GREEN	default
-rv64ud-v-ldst	PASS	cosim-v	11/18			191	780246958	(191s) order=9e9e439a81de cosim-GREEN	default
-rv64ud-v-move	PASS	cosim-v	12/18			126	779886429	(126s) order=479245e27167 cosim-GREEN	default
-rv64ud-v-recoding	PASS	cosim-v	13/18			119	666946108	(119s) order=5b5c9c64ca5d cosim-GREEN	default
-rv64ud-v-structural	PASS	cosim-v	14/18			90	397335239	(90s) order=e1c84f7d92a3 cosim-GREEN	default
-rv64uf-v-fadd	PASS	cosim-v	15/18			123	31979419	(123s) order=9fc5d75b6a0c cosim-GREEN	default
-rv64uf-v-fclass	PASS	cosim-v	16/18			65	155859784	(65s) order=dc604f9e2954 cosim-GREEN	default
-rv64uf-v-fcmp	PASS	cosim-v	17/18			121	103145955	(121s) order=9ffb3a92f3db cosim-GREEN	default
-rv64uf-v-fcvt	PASS	cosim-v	18/18			183	627094383	(183s) order=383d1595a0b8 cosim-GREEN	default
-rv64uf-v-fcvt_w	PASS	cosim-v	1/18			190	827013490	(190s) order=cf78b187b97a cosim-GREEN	default
-rv64uf-v-fdiv	PASS	cosim-v	2/18			117	210136324	(117s) order=8ce88ad89bb3 cosim-GREEN	default
-rv64uf-v-fmadd	PASS	cosim-v	3/18			171	613473742	(171s) order=edba1be8f518 cosim-GREEN	default
-rv64uf-v-fmin	PASS	cosim-v	4/18			186	332916339	(186s) order=225d75ae738c cosim-GREEN	default
-rv64uf-v-ldst	PASS	cosim-v	5/18			183	864459551	(183s) order=48c5b12069a7 cosim-GREEN	default
-rv64uf-v-move	PASS	cosim-v	6/18			67	407707569	(67s) order=dedbbbd15a05 cosim-GREEN	default
-rv64uf-v-recoding	PASS	cosim-v	7/18			116	953204518	(116s) order=d46ec568cc50 cosim-GREEN	default
-rv64ui-v-add	PASS	cosim-v	8/18			75	92626835	(75s) order=2eaf0dc20ef9 cosim-GREEN	default
-rv64ui-v-addi	PASS	cosim-v	9/18			99	365788005	(99s) order=cfd8ce28b0b4 cosim-GREEN	default
-rv64ui-v-addiw	PASS	cosim-v	10/18			75	206572829	(75s) order=841210cd2132 cosim-GREEN	default
-rv64ui-v-addw	PASS	cosim-v	11/18			120	41220220	(120s) order=9e3b4c7ac316 cosim-GREEN	default
-rv64ui-v-and	PASS	cosim-v	12/18			72	154917430	(72s) order=ff45a2de4ab1 cosim-GREEN	default
-rv64ui-v-andi	PASS	cosim-v	13/18			68	82547783	(68s) order=f65decd1bb9f cosim-GREEN	default
-rv64ui-v-auipc	PASS	cosim-v	14/18			87	810472844	(87s) order=54550d36eefc cosim-GREEN	default
-rv64ui-v-beq	PASS	cosim-v	15/18			71	600694879	(71s) order=694fa7a048a8 cosim-GREEN	default
-rv64ui-v-bge	PASS	cosim-v	16/18			71	185004099	(71s) order=a6697333f5d8 cosim-GREEN	default
-rv64ui-v-bgeu	PASS	cosim-v	17/18			72	585509235	(72s) order=a1326249cd73 cosim-GREEN	default
-rv64ui-v-blt	PASS	cosim-v	18/18			110	585873977	(110s) order=de9832c8533d cosim-GREEN	default
-rv64ui-v-bltu	PASS	cosim-v	1/18			73	532234356	(73s) order=b4e3aebca6c5 cosim-GREEN	default
-rv64ui-v-bne	PASS	cosim-v	2/18			70	341659579	(70s) order=a8713aab2380 cosim-GREEN	default
-rv64ui-v-fence_i	PASS	cosim-v	3/18			169	728510648	(169s) order=8cae799e0d84 cosim-GREEN	default
-rv64ui-v-jal	PASS	cosim-v	4/18			91	896870376	(91s) order=d15e3ef1dfab cosim-GREEN	default
-rv64ui-v-jalr	PASS	cosim-v	5/18			104	774985837	(104s) order=99ece4817f8b cosim-GREEN	default
-rv64ui-v-lb	PASS	cosim-v	6/18			117	10990241	(117s) order=5021cdadbe5d cosim-GREEN	default
-rv64ui-v-lbu	PASS	cosim-v	7/18			120	791346191	(120s) order=a63c9a7074c1 cosim-GREEN	default
-rv64ui-v-ld	PASS	cosim-v	8/18			130	423838770	(130s) order=992ba4cd502e cosim-GREEN	default
-rv64ui-v-ld_st	PASS	cosim-v	9/18			364	245250780	(364s) order=151bd0221bbf cosim-GREEN	default
-rv64ui-v-lh	PASS	cosim-v	10/18			125	619575575	(125s) order=2107a6dd2125 cosim-GREEN	default
-rv64ui-v-lhu	PASS	cosim-v	11/18			199	478679306	(199s) order=7d05a7ccf12d cosim-GREEN	default
-rv64ui-v-lui	PASS	cosim-v	12/18			63	865206910	(63s) order=349003800bdb cosim-GREEN	default
-rv64ui-v-lw	PASS	cosim-v	13/18			125	836726992	(125s) order=c37faa1be685 cosim-GREEN	default
-rv64ui-v-lwu	PASS	cosim-v	14/18			161	965423615	(161s) order=8e17986436a1 cosim-GREEN	default
-rv64ui-v-ma_data	PASS	cosim-v	15/18			271	18572280	(271s) order=059ed77d5a95 cosim-GREEN	default
-rv64ui-v-or	PASS	cosim-v	16/18			74	758608815	(74s) order=635d59cf3a3f cosim-GREEN	default
-rv64ui-v-ori	PASS	cosim-v	17/18			67	397372765	(67s) order=96bf3535c16b cosim-GREEN	default
-rv64ui-v-sb	PASS	cosim-v	18/18			188	920534507	(188s) order=6ba325ba540c cosim-GREEN	default
-rv64ui-v-sd	PASS	cosim-v	1/18			179	247565950	(179s) order=45b816d98396 cosim-GREEN	default
-rv64ui-v-sh	PASS	cosim-v	2/18			118	355047907	(118s) order=bb41b203b36a cosim-GREEN	default
-rv64ui-v-simple	PASS	cosim-v	3/18			82	579579572	(82s) order=63100a2cdddf cosim-GREEN	default
-rv64ui-v-sll	PASS	cosim-v	4/18			175	101642595	(175s) order=847f4039ba8b cosim-GREEN	default
-rv64ui-v-slli	PASS	cosim-v	5/18			108	743254465	(108s) order=802f439fdab8 cosim-GREEN	default
-rv64ui-v-slliw	PASS	cosim-v	6/18			66	892112420	(66s) order=330452b97fb2 cosim-GREEN	default
-rv64ui-v-sllw	PASS	cosim-v	7/18			123	697991073	(123s) order=8bb5dff61f1c cosim-GREEN	default
-rv64ui-v-slt	PASS	cosim-v	8/18			74	692334064	(74s) order=d9ebee2ea04d cosim-GREEN	default
-rv64ui-v-slti	PASS	cosim-v	9/18			100	355822246	(100s) order=8cdaab08a901 cosim-GREEN	default
-rv64ui-v-sltiu	PASS	cosim-v	10/18			72	657511596	(72s) order=ea3987f89c77 cosim-GREEN	default
-rv64ui-v-sltu	PASS	cosim-v	11/18			118	428881750	(118s) order=1f1c84ba7271 cosim-GREEN	default
-rv64ui-v-sra	PASS	cosim-v	12/18			71	797724039	(71s) order=60b73139178e cosim-GREEN	default
-rv64ui-v-srai	PASS	cosim-v	13/18			69	737781791	(69s) order=c1b7b3f096d2 cosim-GREEN	default
-rv64ui-v-sraiw	PASS	cosim-v	14/18			88	688944631	(88s) order=9e63893047ca cosim-GREEN	default
-rv64ui-v-sraw	PASS	cosim-v	15/18			129	967166966	(129s) order=ee151b19094e cosim-GREEN	default
-rv64ui-v-srl	PASS	cosim-v	16/18			109	709140834	(109s) order=0960cbe3d17c cosim-GREEN	default
-rv64ui-v-srli	PASS	cosim-v	17/18			68	580648235	(68s) order=957025cf2aa4 cosim-GREEN	default
-rv64ui-v-srliw	PASS	cosim-v	18/18			105	314128953	(105s) order=3abe57ae502c cosim-GREEN	default
-rv64ui-v-srlw	PASS	cosim-v	1/18			126	854392762	(126s) order=e20014b747b8 cosim-GREEN	default
-rv64ui-v-st_ld	PASS	cosim-v	2/18			160	842170378	(160s) order=4c7049f4e7c9 cosim-GREEN	default
-rv64ui-v-sub	PASS	cosim-v	3/18			92	440308392	(92s) order=686f24b35f47 cosim-GREEN	default
-rv64ui-v-subw	PASS	cosim-v	4/18			99	283300870	(99s) order=b4ba34ba51b1 cosim-GREEN	default
-rv64ui-v-sw	PASS	cosim-v	5/18			173	859247418	(173s) order=d6faf8fc3c0e cosim-GREEN	default
-rv64ui-v-xor	PASS	cosim-v	6/18			71	792059529	(71s) order=5f1c59784a0c cosim-GREEN	default
-rv64ui-v-xori	PASS	cosim-v	7/18			67	142878286	(67s) order=6ac637d34f61 cosim-GREEN	default
-rv64um-v-div	PASS	cosim-v	8/18			67	320955948	(67s) order=def9da2d7acc cosim-GREEN	default
-rv64um-v-divu	PASS	cosim-v	9/18			96	562643078	(96s) order=7756e3d6315e cosim-GREEN	default
-rv64um-v-divuw	PASS	cosim-v	10/18			71	59462361	(71s) order=548e0e1e2f57 cosim-GREEN	default
-rv64um-v-divw	PASS	cosim-v	11/18			106	519635217	(106s) order=67ee7a344e0f cosim-GREEN	default
-rv64um-v-mul	PASS	cosim-v	12/18			72	417678394	(72s) order=552ad4ff26d5 cosim-GREEN	default
-rv64um-v-mulh	PASS	cosim-v	13/18			73	914343795	(73s) order=d535082298da cosim-GREEN	default
-rv64um-v-mulhsu	PASS	cosim-v	14/18			89	450835920	(89s) order=73ad53f308ea cosim-GREEN	default
-rv64um-v-mulhu	PASS	cosim-v	15/18			74	931010960	(74s) order=af3249e4f359 cosim-GREEN	default
-rv64um-v-mulw	PASS	cosim-v	16/18			72	78238282	(72s) order=3fa9bd91c836 cosim-GREEN	default
-rv64um-v-rem	PASS	cosim-v	17/18			64	359113523	(64s) order=f1d44b674a4c cosim-GREEN	default
-rv64um-v-remu	PASS	cosim-v	18/18			101	25960969	(101s) order=38f56427182d cosim-GREEN	default
-rv64um-v-remuw	PASS	cosim-v	1/18			63	700855160	(63s) order=708652a84858 cosim-GREEN	default
-rv64um-v-remw	PASS	cosim-v	2/18			64	521726260	(64s) order=36847de35a76 cosim-GREEN	default
-rv64uzba-v-add_uw	PASS	cosim-v	3/18			91	294372323	(91s) order=99ad38de13dc cosim-GREEN	default
-rv64uzba-v-sh1add	PASS	cosim-v	4/18			95	293991832	(95s) order=5ba3fecc9cdc cosim-GREEN	default
-rv64uzba-v-sh1add_uw	PASS	cosim-v	5/18			114	392835534	(114s) order=bb343cf69084 cosim-GREEN	default
-rv64uzba-v-sh2add	PASS	cosim-v	6/18			71	769311297	(71s) order=83227d457f87 cosim-GREEN	default
-rv64uzba-v-sh2add_uw	PASS	cosim-v	7/18			71	908379693	(71s) order=38da4a566de0 cosim-GREEN	default
-rv64uzba-v-sh3add	PASS	cosim-v	8/18			74	556747001	(74s) order=cf785f1f8c49 cosim-GREEN	default
-rv64uzba-v-sh3add_uw	PASS	cosim-v	9/18			106	262744305	(106s) order=e713fa0b16ce cosim-GREEN	default
-rv64uzba-v-slli_uw	PASS	cosim-v	10/18			65	446553179	(65s) order=ea8d307c48b9 cosim-GREEN	default
-rv64uzbb-v-andn	PASS	cosim-v	11/18			119	129744731	(119s) order=700b502f95fd cosim-GREEN	default
-rv64uzbb-v-clz	PASS	cosim-v	12/18			67	752833718	(67s) order=a76dfddc0d2b cosim-GREEN	default
-rv64uzbb-v-clzw	PASS	cosim-v	13/18			68	988976940	(68s) order=2a934d0653bd cosim-GREEN	default
-rv64uzbb-v-cpop	PASS	cosim-v	14/18			63	730115593	(63s) order=cb44dac8f4c0 cosim-GREEN	default
-rv64uzbb-v-cpopw	PASS	cosim-v	15/18			69	102618715	(69s) order=90dcbd3837a4 cosim-GREEN	default
-rv64uzbb-v-ctz	PASS	cosim-v	16/18			68	30154203	(68s) order=324951e5f36c cosim-GREEN	default
-rv64uzbb-v-ctzw	PASS	cosim-v	17/18			63	788179180	(63s) order=2c9942a7bf6a cosim-GREEN	default
-rv64uzbb-v-max	PASS	cosim-v	18/18			112	78146770	(112s) order=e4afb13ce3ab cosim-GREEN	default
-rv64uzbb-v-maxu	PASS	cosim-v	1/18			72	875241423	(72s) order=4273be1231a9 cosim-GREEN	default
-rv64uzbb-v-min	PASS	cosim-v	2/18			71	406826130	(71s) order=9c5d5da09c66 cosim-GREEN	default
-rv64uzbb-v-minu	PASS	cosim-v	3/18			93	838935376	(93s) order=6a5d101a2e7b cosim-GREEN	default
-rv64uzbb-v-orc_b	PASS	cosim-v	4/18			86	803731177	(86s) order=797ab80549f6 cosim-GREEN	default
-rv64uzbb-v-orn	PASS	cosim-v	5/18			184	863738616	(184s) order=a27f153eefe0 cosim-GREEN	default
-rv64uzbb-v-rev8	PASS	cosim-v	6/18			66	624065628	(66s) order=8c3fd754a612 cosim-GREEN	default
-rv64uzbb-v-rol	PASS	cosim-v	7/18			105	22859827	(105s) order=35557058b69f cosim-GREEN	default
-rv64uzbb-v-rolw	PASS	cosim-v	8/18			111	468067770	(111s) order=3e7bcbb24af9 cosim-GREEN	default
-rv64uzbb-v-ror	PASS	cosim-v	9/18			178	321377191	(178s) order=a5b75ce19802 cosim-GREEN	default
-rv64uzbb-v-rori	PASS	cosim-v	10/18			74	768501070	(74s) order=f6c14f916610 cosim-GREEN	default
-rv64uzbb-v-roriw	PASS	cosim-v	11/18			109	315549117	(109s) order=54a56b13de5e cosim-GREEN	default
-rv64uzbb-v-rorw	PASS	cosim-v	12/18			66	602698373	(66s) order=32e385c89929 cosim-GREEN	default
-rv64uzbb-v-sext_b	PASS	cosim-v	13/18			68	778920282	(68s) order=6e00517e594d cosim-GREEN	default
-rv64uzbb-v-sext_h	PASS	cosim-v	14/18			78	599565311	(78s) order=75b419e9a0bc cosim-GREEN	default
-rv64uzbb-v-xnor	PASS	cosim-v	15/18			82	654772045	(82s) order=ee75a3b60b96 cosim-GREEN	default
-rv64uzbb-v-zext_h	PASS	cosim-v	16/18			64	609898121	(64s) order=1fef44c993db cosim-GREEN	default
-rv64uzbc-v-clmul	PASS	cosim-v	17/18			51	96420752	(51s) order=a648e6b50df6 cosim-GREEN	default
-rv64uzbc-v-clmulh	PASS	cosim-v	18/18			109	850082983	(109s) order=7cc0d7130a25 cosim-GREEN	default
-rv64uzbc-v-clmulr	PASS	cosim-v	1/18			61	989829681	(61s) order=bc00848f24fc cosim-GREEN	default
-rv64uzbkb-v-brev8	PASS	cosim-v	2/18			66	702165870	(66s) order=e84c96c42784 cosim-GREEN	default
-rv64uzbkb-v-pack	PASS	cosim-v	3/18			106	647239970	(106s) order=d988ec0e7523 cosim-GREEN	default
-rv64uzbkb-v-packh	PASS	cosim-v	4/18			89	369730913	(89s) order=2559ec6908a1 cosim-GREEN	default
-rv64uzbkb-v-packw	PASS	cosim-v	5/18			113	642966976	(113s) order=337d71294c74 cosim-GREEN	default
-rv64uzbkx-v-xperm4	PASS	cosim-v	6/18			98	396267713	(98s) order=6744d23b09e6 cosim-GREEN	default
-rv64uzbkx-v-xperm8	PASS	cosim-v	7/18			108	218176607	(108s) order=50c3003e8b0a cosim-GREEN	default
-rv64uzbs-v-bclr	PASS	cosim-v	8/18			114	95937664	(114s) order=18b34769382f cosim-GREEN	default
-rv64uzbs-v-bclri	PASS	cosim-v	9/18			101	351251839	(101s) order=eb7a638f55a0 cosim-GREEN	default
-rv64uzbs-v-bext	PASS	cosim-v	10/18			80	369141153	(80s) order=40684c937d1b cosim-GREEN	default
-rv64uzbs-v-bexti	PASS	cosim-v	11/18			89	951388704	(89s) order=b4b2f1d3c968 cosim-GREEN	default
-rv64uzbs-v-binv	PASS	cosim-v	12/18			82	119382945	(82s) order=45fdaae2c145 cosim-GREEN	default
-rv64uzbs-v-binvi	PASS	cosim-v	13/18			62	875470340	(62s) order=6822ec121591 cosim-GREEN	default
-rv64uzbs-v-bset	PASS	cosim-v	14/18			128	988283582	(128s) order=8de1270c16c8 cosim-GREEN	default
-rv64uzbs-v-bseti	PASS	cosim-v	15/18			68	799274433	(68s) order=d26a787dd733 cosim-GREEN	default
-rv64uzfh-v-fadd	PASS	cosim-v	16/18			87	509810510	(87s) order=87718f264174 cosim-GREEN	default
-rv64uzfh-v-fclass	PASS	cosim-v	17/18			54	328092226	(54s) order=1496d35018d3 cosim-GREEN	default
-rv64uzfh-v-fcmp	PASS	cosim-v	18/18			134	386392536	(134s) order=13583240f704 cosim-GREEN	default
-rv64uzfh-v-fcvt	PASS	cosim-v	1/18			73	894210755	(73s) order=077f6c2ceb64 cosim-GREEN	default
-rv64uzfh-v-fcvt_w	PASS	cosim-v	2/18			135	40569426	(135s) order=a0ba00a6b1ac cosim-GREEN	default
-rv64uzfh-v-fdiv	PASS	cosim-v	3/18			95	334203574	(95s) order=2c97bd4166f9 cosim-GREEN	default
-rv64uzfh-v-fmadd	PASS	cosim-v	4/18			96	532606949	(96s) order=b27797884554 cosim-GREEN	default
-rv64uzfh-v-fmin	PASS	cosim-v	5/18			136	373444461	(136s) order=7446f57775eb cosim-GREEN	default
-rv64uzfh-v-ldst	PASS	cosim-v	6/18			72	717326313	(72s) order=048a25b3f5a2 cosim-GREEN	default
-rv64uzfh-v-move	PASS	cosim-v	7/18			61	932422796	(61s) order=b0dd693571cb cosim-GREEN	default
-rv64uzfh-v-recoding	PASS	cosim-v	8/18			95	955040251	(95s) order=5c26950b0c94 cosim-GREEN	default
-rv64uzicond-v-czero_eqz	PASS	cosim-v	9/18			97	221833328	(97s) order=3264387a5145 cosim-GREEN	default
-rv64uzicond-v-czero_nez	PASS	cosim-v	10/18			53	892836352	(53s) order=15561af447cc cosim-GREEN	default
-hypervisor-p-2-stage_translation	PASS	p-	none		1059	12	523724057	(12s) cyc=1059 order=df86ba935cab	default
-hypervisor-p-2-stage_translation_implicit_load_error	PASS	p-	none		1303	13	171431751	(13s) cyc=1303 order=10040d2a5936	default
-hypervisor-p-2-stage_translation_implicit_load_error_hs	PASS	p-	none		1460	15	796078479	(15s) cyc=1460 order=091f66e0c558	default
-hypervisor-svadu-p-2-stage_translation_implicit_store_error	PASS	p-	none		1417	14	166623659	(14s) cyc=1417 order=d9d8405ca3fc	default
-hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs	PASS	p-	none		1609	13	252227654	(13s) cyc=1609 order=24838e69b90f	default
-rv64mi-p-breakpoint	PASS	p-	none		2280	19	925532042	(19s) cyc=2280 order=68a32c9dcae5	default
-rv64mi-p-csr	PASS	p-	none		2254	19	603936469	(19s) cyc=2254 order=2a3c1382e563	default
-rv64mi-p-illegal	PASS	p-	none		2688	21	622386451	(21s) cyc=2688 order=9907bc7249e5	default
-rv64mi-p-instret_overflow	PASS	p-	none		813	7	403846542	(7s) cyc=813 order=58f46b874cdb	default
-rv64mi-p-ld-misaligned	PASS	p-	none		1056	10	490145595	(10s) cyc=1056 order=5aa4a908a937	default
-rv64mi-p-lh-misaligned	PASS	p-	none		793	8	667094441	(8s) cyc=793 order=819300daca72	default
-rv64mi-p-lw-misaligned	PASS	p-	none		843	9	219330215	(9s) cyc=843 order=e1eee6ab8144	default
-rv64mi-p-ma_addr	PASS	p-	none		1182	10	260195106	(10s) cyc=1182 order=42a9ac7d03c6	default
-rv64mi-p-ma_fetch	PASS	p-	none		1174	10	612716369	(10s) cyc=1174 order=3c2e900a2f9a	default
-rv64mi-p-mcsr	PASS	p-	none		910	8	843822762	(8s) cyc=910 order=756c586aba67	default
-rv64mi-p-pmpaddr	PASS	p-	none		729	7	871571828	(7s) cyc=729 order=8e417e8fbc50	default
-rv64mi-p-sbreak	PASS	p-	none		829	8	228323752	(8s) cyc=829 order=94b89393a582	default
-rv64mi-p-scall	PASS	p-	none		808	8	462616689	(8s) cyc=808 order=6637f3b27210	default
-rv64mi-p-sd-misaligned	PASS	p-	none		1140	11	195967215	(11s) cyc=1140 order=8b295a415ecd	default
-rv64mi-p-sh-misaligned	PASS	p-	none		811	8	667687873	(8s) cyc=811 order=c3a7774236d9	default
-rv64mi-p-sw-misaligned	PASS	p-	none		867	8	513443011	(8s) cyc=867 order=8c1565550b99	default
-rv64mi-p-zicntr	PASS	p-	none		905	9	585545399	(9s) cyc=905 order=c6338d6b03c8	default
-rv64mzicbo-p-zero	PASS	p-	none		851	9	692161415	(9s) cyc=851 order=c39e9a266a5e	default
-rv64si-p-csr	PASS	p-	none		1531	13	582039026	(13s) cyc=1531 order=20e040caf6f8	default
-rv64si-p-dirty	PASS	p-	none		1607	13	482815734	(13s) cyc=1607 order=b3ca644a24c4	default
-rv64si-p-icache-alias	PASS	p-	none		1867	15	786787134	(15s) cyc=1867 order=f2abdaecdf64	default
-rv64si-p-ma_fetch	PASS	p-	none		873	8	614629839	(8s) cyc=873 order=d4c2c92e8248	default
-rv64si-p-sbreak	PASS	p-	none		881	9	22137181	(9s) cyc=881 order=6aeb9288377c	default
-rv64si-p-scall	PASS	p-	none		939	9	32589654	(9s) cyc=939 order=982dc91b998e	default
-rv64si-p-wfi	PASS	p-	none		803	8	570948307	(8s) cyc=803 order=f543b87b8850	default
-rv64ssvnapot-p-napot	PASS	p-	none		1245	12	266329369	(12s) cyc=1245 order=f098cddb7c61	default
-rv64ua-p-amoadd_d	PASS	p-	none		764	7	472655534	(7s) cyc=764 order=8f37899364c6	default
-rv64ua-p-amoadd_w	PASS	p-	none		806	8	110153184	(8s) cyc=806 order=9d3fae3cb14f	default
-rv64ua-p-amoand_d	PASS	p-	none		808	8	967643317	(8s) cyc=808 order=1bca15a32056	default
-rv64ua-p-amoand_w	PASS	p-	none		800	8	404933621	(8s) cyc=800 order=ae37ab557064	default
-rv64ua-p-amomax_d	PASS	p-	none		752	8	256738587	(8s) cyc=752 order=3dd75fcb8797	default
-rv64ua-p-amomax_w	PASS	p-	none		768	7	755253595	(7s) cyc=768 order=35a2862700b8	default
-rv64ua-p-amomaxu_d	PASS	p-	none		752	8	702061333	(8s) cyc=752 order=2b5796e06e1b	default
-rv64ua-p-amomaxu_w	PASS	p-	none		768	8	267996103	(8s) cyc=768 order=934c53f7499e	default
-rv64ua-p-amomin_d	PASS	p-	none		752	7	96534795	(7s) cyc=752 order=f9b7b7af39c7	default
-rv64ua-p-amomin_w	PASS	p-	none		768	7	586551250	(7s) cyc=768 order=c4abc4e1f6d3	default
-rv64ua-p-amominu_d	PASS	p-	none		752	8	32277568	(8s) cyc=752 order=f68e4bc4f6d9	default
-rv64ua-p-amominu_w	PASS	p-	none		768	8	382229646	(8s) cyc=768 order=3e5a070b97d1	default
-rv64ua-p-amoor_d	PASS	p-	none		802	7	595736583	(7s) cyc=802 order=dc2f8b49d5dc	default
-rv64ua-p-amoor_w	PASS	p-	none		802	8	87620807	(8s) cyc=802 order=c98e34b2c2b8	default
-rv64ua-p-amoswap_d	PASS	p-	none		808	8	519247804	(8s) cyc=808 order=54a5562013fb	default
-rv64ua-p-amoswap_w	PASS	p-	none		800	8	868345610	(8s) cyc=800 order=46587b96d38d	default
-rv64ua-p-amoxor_d	PASS	p-	none		814	8	82101361	(8s) cyc=814 order=7a47c6b00aae	default
-rv64ua-p-amoxor_w	PASS	p-	none		822	8	566905400	(8s) cyc=822 order=6dd17bea7304	default
-rv64ua-p-lrsc	PASS	p-	none		16338	112	2357606	(112s) cyc=16338 order=7b9d0d619ae3	default
-rv64uc-p-rvc	PASS	p-	none		1148	10	767353815	(10s) cyc=1148 order=45b2cfbe4152	default
-rv64ud-p-fadd	PASS	p-	none		1321	12	600378571	(12s) cyc=1321 order=90299767a89d	default
-rv64ud-p-fclass	PASS	p-	none		880	9	343010151	(9s) cyc=880 order=45968b16707a	default
-rv64ud-p-fcmp	PASS	p-	none		1505	13	32949767	(13s) cyc=1505 order=809b87c3bf00	default
-rv64ud-p-fcvt	PASS	p-	none		1219	12	294909990	(12s) cyc=1219 order=95d3c8ed010b	default
-rv64ud-p-fcvt_w	PASS	p-	none		2585	22	609653203	(22s) cyc=2585 order=62179e82ec99	default
-rv64ud-p-fdiv	PASS	p-	none		1191	11	6941137	(11s) cyc=1191 order=f302c0413912	default
-rv64ud-p-fmadd	PASS	p-	none		1437	13	202866037	(13s) cyc=1437 order=b5bc3bc58e2a	default
-rv64ud-p-fmin	PASS	p-	none		1777	15	970223850	(15s) cyc=1777 order=0323de7ddfdb	default
-rv64ud-p-ldst	PASS	p-	none		800	8	654869109	(8s) cyc=800 order=f76e8f27b9ad	default
-rv64ud-p-move	PASS	p-	none		2335	19	325744866	(19s) cyc=2335 order=73dd49d19c3a	default
-rv64ud-p-recoding	PASS	p-	none		855	9	874332724	(9s) cyc=855 order=6d665864869d	default
-rv64ud-p-structural	PASS	p-	none		1315	12	650297490	(12s) cyc=1315 order=28ad7c806e1f	default
-rv64uf-p-fadd	PASS	p-	none		1321	12	59298662	(12s) cyc=1321 order=fba761c87c2e	default
-rv64uf-p-fclass	PASS	p-	none		864	9	573533662	(9s) cyc=864 order=3a8dc7e8d9a1	default
-rv64uf-p-fcmp	PASS	p-	none		1505	13	557251890	(13s) cyc=1505 order=540b475b6506	default
-rv64uf-p-fcvt	PASS	p-	none		1049	10	966667027	(10s) cyc=1049 order=0c6bc19cdbb6	default
-rv64uf-p-fcvt_w	PASS	p-	none		2340	21	302266234	(21s) cyc=2340 order=5b1bb047344d	default
-rv64uf-p-fdiv	PASS	p-	none		1137	10	457469025	(10s) cyc=1137 order=1b123bd54d4a	default
-rv64uf-p-fmadd	PASS	p-	none		1437	13	284672686	(13s) cyc=1437 order=a195fc2100f7	default
-rv64uf-p-fmin	PASS	p-	none		1777	16	658791502	(16s) cyc=1777 order=4e94355c5ff2	default
-rv64uf-p-ldst	PASS	p-	none		814	8	909337020	(8s) cyc=814 order=47efd76c0480	default
-rv64uf-p-move	PASS	p-	none		1310	12	571828823	(12s) cyc=1310 order=4d5083bbc2e1	default
-rv64uf-p-recoding	PASS	p-	none		808	8	738838482	(8s) cyc=808 order=0d55d77c0e6f	default
-rv64ui-p-add	PASS	p-	none		2140	18	762971503	(18s) cyc=2140 order=09d7108b07e0	default
-rv64ui-p-addi	PASS	p-	none		1322	12	449569854	(12s) cyc=1322 order=dbeb20182282	default
-rv64ui-p-addiw	PASS	p-	none		1316	12	447199928	(12s) cyc=1316 order=98d1f42d52ed	default
-rv64ui-p-addw	PASS	p-	none		2132	18	448568685	(18s) cyc=2132 order=200a9089493b	default
-rv64ui-p-and	PASS	p-	none		2292	18	575550077	(18s) cyc=2292 order=418617f98420	default
-rv64ui-p-andi	PASS	p-	none		1290	11	420880018	(11s) cyc=1290 order=e42e79050b6c	default
-rv64ui-p-auipc	PASS	p-	none		701	7	42995595	(7s) cyc=701 order=332a8d21335c	default
-rv64ui-p-beq	PASS	p-	none		1851	15	129821172	(15s) cyc=1851 order=f120a7dc5547	default
-rv64ui-p-bge	PASS	p-	none		1988	17	421220751	(17s) cyc=1988 order=b1daf2645e4b	default
-rv64ui-p-bgeu	PASS	p-	none		2252	18	881243614	(18s) cyc=2252 order=07393fb44cc6	default
-rv64ui-p-blt	PASS	p-	none		1853	16	413609628	(16s) cyc=1853 order=b1a786b9a39e	default
-rv64ui-p-bltu	PASS	p-	none		2108	18	989979457	(18s) cyc=2108 order=b97b35825549	default
-rv64ui-p-bne	PASS	p-	none		1873	16	201230578	(16s) cyc=1873 order=7a4b4101a0cd	default
-rv64ui-p-fence_i	PASS	p-	none		1694	14	613511443	(14s) cyc=1694 order=a4d87ca8232e	default
-rv64ui-p-jal	PASS	p-	none		714	7	978909202	(7s) cyc=714 order=a371ad01040d	default
-rv64ui-p-jalr	PASS	p-	none		1395	12	193045694	(12s) cyc=1395 order=17f98fd6b3f9	default
-rv64ui-p-lb	PASS	p-	none		1364	12	12962312	(12s) cyc=1364 order=4482f1d555cc	default
-rv64ui-p-lbu	PASS	p-	none		1364	12	671614168	(12s) cyc=1364 order=1ed34fe5c5ff	default
-rv64ui-p-ld	PASS	p-	none		1742	15	660990816	(15s) cyc=1742 order=2b1ff17eb902	default
-rv64ui-p-ld_st	PASS	p-	none		4779	35	663263206	(35s) cyc=4779 order=a7c747e368bb	default
-rv64ui-p-lh	PASS	p-	none		1386	12	587851612	(12s) cyc=1386 order=bef98811f6eb	default
-rv64ui-p-lhu	PASS	p-	none		1408	12	857462702	(12s) cyc=1408 order=f63d0533bfcd	default
-rv64ui-p-lui	PASS	p-	none		756	8	965981392	(8s) cyc=756 order=8c8f1b67d825	default
-rv64ui-p-lw	PASS	p-	none		1416	12	82587424	(12s) cyc=1416 order=aba61715e282	default
-rv64ui-p-lwu	PASS	p-	none		1466	13	551072259	(13s) cyc=1466 order=56d2588d8562	default
-rv64ui-p-ma_data	TIMEOUT	p-	none			72	401634048	(72s) order=506e4e23a172	default
-rv64ui-p-or	PASS	p-	none		2352	20	250458258	(20s) cyc=2352 order=e4da747e79e4	default
-rv64ui-p-ori	PASS	p-	none		1280	12	385361625	(12s) cyc=1280 order=546bc681c379	default
-rv64ui-p-sb	PASS	p-	none		1944	16	185152469	(16s) cyc=1944 order=0dbbd96593c0	default
-rv64ui-p-sd	PASS	p-	none		2314	19	958530085	(19s) cyc=2314 order=74d5be7ff982	default
-rv64ui-p-sh	PASS	p-	none		2004	16	827245199	(16s) cyc=2004 order=18e6bad02e09	default
-rv64ui-p-simple	PASS	p-	none		680	7	783098465	(7s) cyc=680 order=638d1eac476a	default
-rv64ui-p-sll	PASS	p-	none		2268	19	479718758	(19s) cyc=2268 order=73de3395b6e8	default
-rv64ui-p-slli	PASS	p-	none		1372	12	13894939	(12s) cyc=1372 order=2a2fcca951ed	default
-rv64ui-p-slliw	PASS	p-	none		1378	12	777273604	(12s) cyc=1378 order=7f3c7f431454	default
-rv64ui-p-sllw	PASS	p-	none		2266	18	175020653	(18s) cyc=2266 order=e9cd29944228	default
-rv64ui-p-slt	PASS	p-	none		2120	18	61724560	(18s) cyc=2120 order=406c9e868845	default
-rv64ui-p-slti	PASS	p-	none		1308	11	757297898	(11s) cyc=1308 order=55c936d55ab0	default
-rv64ui-p-sltiu	PASS	p-	none		1308	12	932576376	(12s) cyc=1308 order=d446c14520e4	default
-rv64ui-p-sltu	PASS	p-	none		2158	18	737920713	(18s) cyc=2158 order=20fdc4b344e4	default
-rv64ui-p-sra	PASS	p-	none		2218	18	636359129	(18s) cyc=2218 order=f706db2f1b42	default
-rv64ui-p-srai	PASS	p-	none		1350	12	903824499	(12s) cyc=1350 order=eac1f4b7a8d7	default
-rv64ui-p-sraiw	PASS	p-	none		1444	12	169508312	(12s) cyc=1444 order=7a69ae1ba969	default
-rv64ui-p-sraw	PASS	p-	none		2290	19	994256735	(19s) cyc=2290 order=649737f8f332	default
-rv64ui-p-srl	PASS	p-	none		2292	19	822326464	(19s) cyc=2292 order=4d23c7159960	default
-rv64ui-p-srli	PASS	p-	none		1390	12	773343764	(12s) cyc=1390 order=e77dfc8e0416	default
-rv64ui-p-srliw	PASS	p-	none		1398	13	668068489	(13s) cyc=1398 order=49f5a2e920c1	default
-rv64ui-p-srlw	PASS	p-	none		2278	19	122628023	(19s) cyc=2278 order=0760eacc78d2	default
-rv64ui-p-st_ld	PASS	p-	none		1678	14	792596776	(14s) cyc=1678 order=faa27407f4ad	default
-rv64ui-p-sub	PASS	p-	none		2126	18	395188639	(18s) cyc=2126 order=d350730a08a0	default
-rv64ui-p-subw	PASS	p-	none		2118	17	348346486	(17s) cyc=2118 order=a0a573e92256	default
-rv64ui-p-sw	PASS	p-	none		2040	17	447202917	(17s) cyc=2040 order=92c15f43f48b	default
-rv64ui-p-xor	PASS	p-	none		2346	19	157729122	(19s) cyc=2346 order=fee275ce1f34	default
-rv64ui-p-xori	PASS	p-	none		1280	11	259656125	(11s) cyc=1280 order=09e23dbd0de0	default
-rv64um-p-div	PASS	p-	none		842	8	608547795	(8s) cyc=842 order=01021dc55c14	default
-rv64um-p-divu	PASS	p-	none		842	9	706930916	(9s) cyc=842 order=1c1d62a46c00	default
-rv64um-p-divuw	PASS	p-	none		830	8	534815876	(8s) cyc=830 order=ecfd0b3dd901	default
-rv64um-p-divw	PASS	p-	none		826	8	394272986	(8s) cyc=826 order=7a8694ec552b	default
-rv64um-p-mul	PASS	p-	none		2128	18	520552044	(18s) cyc=2128 order=7dfdf059cedc	default
-rv64um-p-mulh	PASS	p-	none		2158	18	51361081	(18s) cyc=2158 order=2bd5482fdc2c	default
-rv64um-p-mulhsu	PASS	p-	none		2158	18	714791118	(18s) cyc=2158 order=8c08bf5c0f90	default
-rv64um-p-mulhu	PASS	p-	none		2218	18	977250574	(18s) cyc=2218 order=3a05b51e6466	default
-rv64um-p-mulw	PASS	p-	none		2018	17	614879559	(17s) cyc=2018 order=6c9fef68c5ec	default
-rv64um-p-rem	PASS	p-	none		826	8	95427247	(8s) cyc=826 order=6f9773f36d97	default
-rv64um-p-remu	PASS	p-	none		828	8	307155494	(8s) cyc=828 order=e8a52ba8cb50	default
-rv64um-p-remuw	PASS	p-	none		818	8	976968365	(8s) cyc=818 order=20b2fce9bc1b	default
-rv64um-p-remw	PASS	p-	none		826	8	625850936	(8s) cyc=826 order=73dea1cc5d66	default
-rv64uzba-p-add_uw	PASS	p-	none		2150	18	403695037	(18s) cyc=2150 order=329b64e10094	default
-rv64uzba-p-sh1add	PASS	p-	none		2156	18	427416812	(18s) cyc=2156 order=030aac5f8644	default
-rv64uzba-p-sh1add_uw	PASS	p-	none		2164	18	270711961	(18s) cyc=2164 order=93047009fb49	default
-rv64uzba-p-sh2add	PASS	p-	none		2156	18	2116665	(18s) cyc=2156 order=860d88a659e2	default
-rv64uzba-p-sh2add_uw	PASS	p-	none		2164	18	23745988	(18s) cyc=2164 order=95ec5fb11f51	default
-rv64uzba-p-sh3add	PASS	p-	none		2156	18	811269572	(18s) cyc=2156 order=ef2c105b0f5e	default
-rv64uzba-p-sh3add_uw	PASS	p-	none		2164	18	701016318	(18s) cyc=2164 order=b8f1510a0838	default
-rv64uzba-p-slli_uw	PASS	p-	none		1394	12	359908489	(12s) cyc=1394 order=867fec90e9d9	default
-rv64uzbb-p-andn	PASS	p-	none		2336	19	767049424	(19s) cyc=2336 order=00fdfe3c7f35	default
-rv64uzbb-p-clz	PASS	p-	none		1188	11	976675094	(11s) cyc=1188 order=02964e28d39f	default
-rv64uzbb-p-clzw	PASS	p-	none		1158	11	523494868	(11s) cyc=1158 order=26de09ec230c	default
-rv64uzbb-p-cpop	PASS	p-	none		1188	11	222612626	(11s) cyc=1188 order=f500b6c9592d	default
-rv64uzbb-p-cpopw	PASS	p-	none		1158	11	745853408	(11s) cyc=1158 order=30cf561d86c7	default
-rv64uzbb-p-ctz	PASS	p-	none		1188	11	662390094	(11s) cyc=1188 order=b433f7cc9363	default
-rv64uzbb-p-ctzw	PASS	p-	none		1158	10	416952877	(10s) cyc=1158 order=1182d3af0744	default
-rv64uzbb-p-max	PASS	p-	none		2130	18	552897834	(18s) cyc=2130 order=a09710961560	default
-rv64uzbb-p-maxu	PASS	p-	none		2188	18	371337134	(18s) cyc=2188 order=2613c71e4e88	default
-rv64uzbb-p-min	PASS	p-	none		2122	17	432776603	(17s) cyc=2122 order=66a2146e16d4	default
-rv64uzbb-p-minu	PASS	p-	none		2170	18	753144468	(18s) cyc=2170 order=9612180ab459	default
-rv64uzbb-p-orc_b	PASS	p-	none		1230	11	924996858	(11s) cyc=1230 order=2b3385d54158	default
-rv64uzbb-p-orn	PASS	p-	none		2356	19	933205176	(19s) cyc=2356 order=a70cf3aaf933	default
-rv64uzbb-p-rev8	PASS	p-	none		1266	12	85592408	(12s) cyc=1266 order=30316c9070b7	default
-rv64uzbb-p-rol	PASS	p-	none		2278	19	574538997	(19s) cyc=2278 order=a1bc16c3f26c	default
-rv64uzbb-p-rolw	PASS	p-	none		2274	19	515070814	(19s) cyc=2274 order=7c0790bcc43c	default
-rv64uzbb-p-ror	PASS	p-	none		2334	19	319401176	(19s) cyc=2334 order=e3ecd79223db	default
-rv64uzbb-p-rori	PASS	p-	none		1406	12	986427826	(12s) cyc=1406 order=1ca53608b7b6	default
-rv64uzbb-p-roriw	PASS	p-	none		1318	12	144278110	(12s) cyc=1318 order=8f9b291026c3	default
-rv64uzbb-p-rorw	PASS	p-	none		2202	18	907516436	(18s) cyc=2202 order=a4828c071e9b	default
-rv64uzbb-p-sext_b	PASS	p-	none		1188	11	273951303	(11s) cyc=1188 order=1adae39ed0b4	default
-rv64uzbb-p-sext_h	PASS	p-	none		1194	11	897173289	(11s) cyc=1194 order=b54fb22ea41f	default
-rv64uzbb-p-xnor	PASS	p-	none		2354	19	834143745	(19s) cyc=2354 order=909239ed72cf	default
-rv64uzbb-p-zext_h	PASS	p-	none		1200	11	967031480	(11s) cyc=1200 order=5a5bc9e958bf	default
-rv64uzbc-p-clmul	PASS	p-	none		2130	17	551845139	(17s) cyc=2130 order=7d7d6dfb9ba1	default
-rv64uzbc-p-clmulh	PASS	p-	none		2140	18	866821090	(18s) cyc=2140 order=7bf59a6a7363	default
-rv64uzbc-p-clmulr	PASS	p-	none		2136	18	314252309	(18s) cyc=2136 order=95005f105171	default
-rv64uzbkb-p-brev8	PASS	p-	none		1218	11	921067146	(11s) cyc=1218 order=89bb9d3dc9a7	default
-rv64uzbkb-p-pack	PASS	p-	none		2588	21	527937766	(21s) cyc=2588 order=1e637034cab9	default
-rv64uzbkb-p-packh	PASS	p-	none		2258	19	390716821	(19s) cyc=2258 order=a96b4d73ae56	default
-rv64uzbkb-p-packw	PASS	p-	none		2128	18	279714155	(18s) cyc=2128 order=0e94cad76702	default
-rv64uzbkx-p-xperm4	PASS	p-	none		2428	19	763419856	(19s) cyc=2428 order=508c176a9f8c	default
-rv64uzbkx-p-xperm8	PASS	p-	none		3276	26	468699122	(26s) cyc=3276 order=613c2180dbfe	default
-rv64uzbs-p-bclr	PASS	p-	none		2474	20	319439515	(20s) cyc=2474 order=f99784113af8	default
-rv64uzbs-p-bclri	PASS	p-	none		1462	12	474429095	(12s) cyc=1462 order=26aaecacc524	default
-rv64uzbs-p-bext	PASS	p-	none		2340	19	653568908	(19s) cyc=2340 order=24b32a71e962	default
-rv64uzbs-p-bexti	PASS	p-	none		1396	13	464863945	(13s) cyc=1396 order=a0fc0b44950e	default
-rv64uzbs-p-binv	PASS	p-	none		2308	19	263064231	(19s) cyc=2308 order=9d428955ba18	default
-rv64uzbs-p-binvi	PASS	p-	none		1400	12	738555900	(12s) cyc=1400 order=e898daa674b6	default
-rv64uzbs-p-bset	PASS	p-	none		2478	20	223844321	(20s) cyc=2478 order=ffd3bbdc0e0e	default
-rv64uzbs-p-bseti	PASS	p-	none		1476	13	126796602	(13s) cyc=1476 order=6be78e5f22fe	default
-rv64uzfh-p-fadd	PASS	p-	none		1321	12	979626059	(12s) cyc=1321 order=4f7d6ecafd2f	default
-rv64uzfh-p-fclass	PASS	p-	none		866	8	610804900	(8s) cyc=866 order=08bdbf00f392	default
-rv64uzfh-p-fcmp	PASS	p-	none		1055	10	475148943	(10s) cyc=1055 order=104c4a7cc091	default
-rv64uzfh-p-fcvt	PASS	p-	none		1189	11	65967294	(11s) cyc=1189 order=cb159bed314a	default
-rv64uzfh-p-fcvt_w	PASS	p-	none		2340	21	341924472	(21s) cyc=2340 order=834c7f942fb1	default
-rv64uzfh-p-fdiv	PASS	p-	none		1137	11	572997440	(11s) cyc=1137 order=5ba976a06807	default
-rv64uzfh-p-fmadd	PASS	p-	none		1437	13	298432488	(13s) cyc=1437 order=098098c9d26a	default
-rv64uzfh-p-fmin	PASS	p-	none		1777	16	391439235	(16s) cyc=1777 order=ad9c2be2fb38	default
-rv64uzfh-p-ldst	PASS	p-	none		830	8	149245445	(8s) cyc=830 order=a25830e4ab9f	default
-rv64uzfh-p-move	PASS	p-	none		1309	12	478631258	(12s) cyc=1309 order=3172858cd6c5	default
-rv64uzfh-p-recoding	PASS	p-	none		808	8	866305967	(8s) cyc=808 order=b367bdf1220f	default
-rv64uziccid-p-ziccid	PASS	p-	none		7137	35	559600133	(35s) cyc=7137 order=08981cd36a8e	default
-rv64uzicond-p-czero_eqz	PASS	p-	none		2064	11	666430597	(11s) cyc=2064 order=5a2ca08cbbd4	default
-rv64uzicond-p-czero_nez	PASS	p-	none		2064	14	570634395	(14s) cyc=2064 order=a4773b683944	default
-rv64ua-v-amoadd_d	PASS	v-	15/18		21103	99	962571404	(99s) cyc=21103 order=060eed0a7dba	default
-rv64ua-v-amoadd_w	PASS	v-	16/18		21065	97	369825499	(97s) cyc=21065 order=331cbb52934f	default
-rv64ua-v-amoand_d	PASS	v-	17/18		21060	96	695008849	(96s) cyc=21060 order=b712264ccba5	default
-rv64ua-v-amoand_w	PASS	v-	18/18		21082	154	219445133	(154s) cyc=21082 order=fc0ef79a22b4	default
-rv64ua-v-amomax_d	PASS	v-	1/18		21052	98	379437562	(98s) cyc=21052 order=cbdb8e100c40	default
-rv64ua-v-amomax_w	PASS	v-	4/18		21056	132	933709873	(132s) cyc=21056 order=cf923d43cb7b	default
-rv64ua-v-amomaxu_d	PASS	v-	2/18		21052	95	881943746	(95s) cyc=21052 order=83d292a216d8	default
-rv64ua-v-amomaxu_w	PASS	v-	3/18		21055	118	614465364	(118s) cyc=21055 order=489d3b3c27c8	default
-rv64ua-v-amomin_d	PASS	v-	5/18		21053	148	659140334	(148s) cyc=21053 order=f3dd523c781f	default
-rv64ua-v-amomin_w	PASS	v-	8/18		21098	100	33913572	(100s) cyc=21098 order=923d8a2549fa	default
-rv64ua-v-amominu_d	PASS	v-	6/18		21116	95	226971693	(95s) cyc=21116 order=568c20dd91ce	default
-rv64ua-v-amominu_w	PASS	v-	7/18		21119	98	599927314	(98s) cyc=21119 order=4229e3a3331a	default
-rv64ua-v-amoor_d	PASS	v-	9/18		21018	144	554320624	(144s) cyc=21018 order=17701c9a4853	default
-rv64ua-v-amoor_w	PASS	v-	10/18		21018	90	855800722	(90s) cyc=21018 order=4a2dc3302017	default
-rv64ua-v-amoswap_d	PASS	v-	11/18		21061	153	272236260	(153s) cyc=21061 order=6c9d60ed97bd	default
-rv64ua-v-amoswap_w	PASS	v-	12/18		21081	96	532007277	(96s) cyc=21081 order=e5eaad8b8c1f	default
-rv64ua-v-amoxor_d	PASS	v-	13/18		21038	98	545464270	(98s) cyc=21038 order=b6fadcbd2af5	default
-rv64ua-v-amoxor_w	PASS	v-	14/18		21003	127	39511194	(127s) cyc=21003 order=884cc115adac	default
-rv64ua-v-lrsc	PASS	v-	15/18		36155	152	662166263	(152s) cyc=36155 order=63f771c8c013	default
-rv64uc-v-rvc	PASS	v-	14/18		29180	175	485573158	(175s) cyc=29180 order=eaad68871152	default
-rv64ud-v-fadd	PASS	v-	9/18		20514	144	961803372	(144s) cyc=20514 order=6cedebdc60ed	default
-rv64ud-v-fclass	PASS	v-	10/18		11950	54	752587717	(54s) cyc=11950 order=448fa53b0f72	default
-rv64ud-v-fcmp	PASS	v-	11/18		20711	154	715097357	(154s) cyc=20711 order=16109d5c4d96	default
-rv64ud-v-fcvt	PASS	v-	12/18		20305	95	755532263	(95s) cyc=20305 order=03815c720380	default
-rv64ud-v-fcvt_w	PASS	v-	13/18		29861	132	162137570	(132s) cyc=29861 order=c76410e6a19b	default
-rv64ud-v-fdiv	PASS	v-	14/18		20385	125	322345830	(125s) cyc=20385 order=c7dda5f44b7c	default
-rv64ud-v-fmadd	PASS	v-	15/18		20647	98	503478107	(98s) cyc=20647 order=3a85b63f5861	default
-rv64ud-v-fmin	PASS	v-	16/18		20970	97	525610652	(97s) cyc=20970 order=7af24044acd8	default
-rv64ud-v-ldst	PASS	v-	17/18		20926	83	780243965	(83s) cyc=20926 order=73679a4d8169	default
-rv64ud-v-move	PASS	v-	18/18		21545	157	664886084	(157s) cyc=21545 order=5a34f7988b20	default
-rv64ud-v-recoding	PASS	v-	1/18		21034	97	455945475	(97s) cyc=21034 order=4df46f90881c	default
-rv64ud-v-structural	PASS	v-	2/18		12392	58	71334261	(58s) cyc=12392 order=937658e8027e	default
-rv64uf-v-fadd	PASS	v-	16/18		20544	96	582978079	(96s) cyc=20544 order=72b9788fc9db	default
-rv64uf-v-fclass	PASS	v-	17/18		11934	56	960859206	(56s) cyc=11934 order=fd74b408178d	default
-rv64uf-v-fcmp	PASS	v-	18/18		20711	147	8145670	(147s) cyc=20711 order=b49e228bda08	default
-rv64uf-v-fcvt	PASS	v-	1/18		20164	94	196093090	(94s) cyc=20164 order=ca46ab26f1f4	default
-rv64uf-v-fcvt_w	PASS	v-	2/18		29562	128	605012824	(128s) cyc=29562 order=98b8fb0619b8	default
-rv64uf-v-fdiv	PASS	v-	3/18		20325	120	125136069	(120s) cyc=20325 order=e76bb6155952	default
-rv64uf-v-fmadd	PASS	v-	4/18		20677	130	245472638	(130s) cyc=20677 order=fa252319c3e4	default
-rv64uf-v-fmin	PASS	v-	5/18		21000	152	95915628	(152s) cyc=21000 order=cf1b60fe76a7	default
-rv64uf-v-ldst	PASS	v-	6/18		21090	94	400458159	(94s) cyc=21090 order=fd2e0f046d4b	default
-rv64uf-v-move	PASS	v-	7/18		12369	59	221707011	(59s) cyc=12369 order=a183bac3d5d3	default
-rv64uf-v-recoding	PASS	v-	8/18		19950	95	723203828	(95s) cyc=19950 order=2e8bac87afd6	default
-rv64ui-v-add	PASS	v-	1/18		13253	64	865626161	(64s) cyc=13253 order=eb8bcde568b8	default
-rv64ui-v-addi	PASS	v-	2/18		12395	60	990786887	(60s) cyc=12395 order=392488349a7b	default
-rv64ui-v-addiw	PASS	v-	3/18		12397	74	230572901	(74s) cyc=12397 order=4c80da27a7cf	default
-rv64ui-v-addw	PASS	v-	4/18		13245	88	99217401	(88s) cyc=13245 order=fb843c88ab00	default
-rv64ui-v-and	PASS	v-	7/18		13496	65	981916918	(65s) cyc=13496 order=ad88ad685740	default
-rv64ui-v-andi	PASS	v-	8/18		12457	62	872547160	(62s) cyc=12457 order=9342f370b388	default
-rv64ui-v-auipc	PASS	v-	12/18		11815	57	502471920	(57s) cyc=11815 order=ca87017f4be5	default
-rv64ui-v-beq	PASS	v-	13/18		12879	62	160693559	(62s) cyc=12879 order=a7379437ecbe	default
-rv64ui-v-bge	PASS	v-	14/18		13010	82	8003568	(82s) cyc=13010 order=41679b76831c	default
-rv64ui-v-bgeu	PASS	v-	15/18		13286	65	636509388	(65s) cyc=13286 order=3e445e3593ac	default
-rv64ui-v-blt	PASS	v-	16/18		12879	62	162872708	(62s) cyc=12879 order=60235888af6c	default
-rv64ui-v-bltu	PASS	v-	17/18		13137	62	321233723	(62s) cyc=13137 order=d505f4b65a1e	default
-rv64ui-v-bne	PASS	v-	18/18		12887	96	191659129	(96s) cyc=12887 order=620ad084bdbd	default
-rv64ui-v-fence_i	PASS	v-	17/18		21858	102	302509370	(102s) cyc=21858 order=bb9bfbae2f80	default
-rv64ui-v-jal	PASS	v-	1/18		11817	56	548869332	(56s) cyc=11817 order=9d4d5bc5498a	default
-rv64ui-v-jalr	PASS	v-	2/18		12246	59	302984421	(59s) cyc=12246 order=982e2faf614b	default
-rv64ui-v-lb	PASS	v-	3/18		20660	124	947990059	(124s) cyc=20660 order=10f12998b716	default
-rv64ui-v-lbu	PASS	v-	4/18		20660	131	621345681	(131s) cyc=20660 order=b3b86f1fbf3b	default
-rv64ui-v-ld	PASS	v-	9/18		21125	149	263838290	(149s) cyc=21125 order=4748e0673715	default
-rv64ui-v-ld_st	PASS	v-	14/18		40083	236	899249749	(236s) cyc=40083 order=d5ff155abaf9	default
-rv64ui-v-lh	PASS	v-	5/18		20713	152	602575524	(152s) cyc=20713 order=84b9f9631016	default
-rv64ui-v-lhu	PASS	v-	6/18		20748	96	475676304	(96s) cyc=20748 order=12df776d11f4	default
-rv64ui-v-lui	PASS	v-	11/18		11867	91	760206595	(91s) cyc=11867 order=1830fb5490d1	default
-rv64ui-v-lw	PASS	v-	7/18		20664	99	654726446	(99s) cyc=20664 order=366ec26f50b7	default
-rv64ui-v-lwu	PASS	v-	8/18		20784	101	648422664	(101s) cyc=20784 order=50ba521f6140	default
-rv64ui-v-ma_data	PASS	v-	18/18		43064	290	648571177	(290s) cyc=43064 order=f3069935f50d	default
-rv64ui-v-or	PASS	v-	9/18		13572	97	627608422	(97s) cyc=13572 order=dcbfa85c52f9	default
-rv64ui-v-ori	PASS	v-	10/18		12402	59	163372063	(59s) cyc=12402 order=7d5e38fa3a64	default
-rv64ui-v-sb	PASS	v-	10/18		22031	95	437533058	(95s) cyc=22031 order=6e42af0f6e5a	default
-rv64ui-v-sd	PASS	v-	13/18		30499	142	50565359	(142s) cyc=30499 order=1c31c7656231	default
-rv64ui-v-sh	PASS	v-	11/18		22128	163	215047487	(163s) cyc=22128 order=68a73f20a476	default
-rv64ui-v-simple	PASS	v-	16/18		11761	56	158578309	(56s) cyc=11761 order=2998fb430bc3	default
-rv64ui-v-sll	PASS	v-	17/18		21429	102	756641567	(102s) cyc=21429 order=ae93afcc1f94	default
-rv64ui-v-slli	PASS	v-	18/18		12449	93	366253334	(93s) cyc=12449 order=dc6e636b5950	default
-rv64ui-v-slliw	PASS	v-	1/18		12451	59	677111775	(59s) cyc=12451 order=0f155b9f088b	default
-rv64ui-v-sllw	PASS	v-	2/18		21424	100	458990356	(100s) cyc=21424 order=c1de102a2a80	default
-rv64ui-v-slt	PASS	v-	13/18		13234	64	482333434	(64s) cyc=13234 order=92a16daf1718	default
-rv64ui-v-slti	PASS	v-	14/18		12384	79	9821208	(79s) cyc=12384 order=8b20027a549a	default
-rv64ui-v-sltiu	PASS	v-	16/18		12384	59	537511236	(59s) cyc=12384 order=859cf3721966	default
-rv64ui-v-sltu	PASS	v-	15/18		13266	64	658879447	(64s) cyc=13266 order=6705ddf5ff14	default
-rv64ui-v-sra	PASS	v-	7/18		13331	65	624723520	(65s) cyc=13331 order=4d0c02600d10	default
-rv64ui-v-srai	PASS	v-	8/18		12443	62	527781161	(62s) cyc=12443 order=b13798ac9ea1	default
-rv64ui-v-sraiw	PASS	v-	9/18		12549	90	437943878	(90s) cyc=12549 order=abc85ed769cf	default
-rv64ui-v-sraw	PASS	v-	10/18		21409	97	458165439	(97s) cyc=21409 order=99b5613eb437	default
-rv64ui-v-srl	PASS	v-	3/18		21462	135	663140696	(135s) cyc=21462 order=ca47147be444	default
-rv64ui-v-srli	PASS	v-	4/18		12513	84	459647872	(84s) cyc=12513 order=62170226c485	default
-rv64ui-v-srliw	PASS	v-	5/18		12479	93	994128000	(93s) cyc=12479 order=ae9d7f64eed9	default
-rv64ui-v-srlw	PASS	v-	6/18		21424	99	640392120	(99s) cyc=21424 order=9935508f2fc4	default
-rv64ui-v-st_ld	PASS	v-	15/18		30024	142	838170366	(142s) cyc=30024 order=469aa27bb9dc	default
-rv64ui-v-sub	PASS	v-	5/18		13239	99	122307438	(99s) cyc=13239 order=348a76a27690	default
-rv64ui-v-subw	PASS	v-	6/18		13232	63	935299833	(63s) cyc=13232 order=7be5b1b3e398	default
-rv64ui-v-sw	PASS	v-	12/18		22166	102	405246056	(102s) cyc=22166 order=29f0dc947098	default
-rv64ui-v-xor	PASS	v-	11/18		13571	102	674059175	(102s) cyc=13571 order=207d574cb813	default
-rv64ui-v-xori	PASS	v-	12/18		12406	60	921877630	(60s) cyc=12406 order=23bfc3aa4657	default
-rv64um-v-div	PASS	v-	5/18		11973	90	204955600	(90s) cyc=11973 order=b8653af43708	default
-rv64um-v-divu	PASS	v-	6/18		12008	56	195641977	(56s) cyc=12008 order=fd2b609d8f5b	default
-rv64um-v-divuw	PASS	v-	11/18		11987	94	28462268	(94s) cyc=11987 order=aa6c9c2ed681	default
-rv64um-v-divw	PASS	v-	10/18		11953	54	464632059	(54s) cyc=11953 order=1e689e0b0c99	default
-rv64um-v-mul	PASS	v-	1/18		13354	65	215677788	(65s) cyc=13354 order=96843f83c462	default
-rv64um-v-mulh	PASS	v-	2/18		13278	64	695343138	(64s) cyc=13278 order=8c4c469d2cd2	default
-rv64um-v-mulhsu	PASS	v-	3/18		13277	79	284835422	(79s) cyc=13277 order=3974e6bd94b1	default
-rv64um-v-mulhu	PASS	v-	4/18		13338	89	535009772	(89s) cyc=13338 order=6b2d0c42bdbd	default
-rv64um-v-mulw	PASS	v-	9/18		13132	93	947237896	(93s) cyc=13132 order=d88644706413	default
-rv64um-v-rem	PASS	v-	7/18		11952	59	206113064	(59s) cyc=11952 order=54546d20e43f	default
-rv64um-v-remu	PASS	v-	8/18		11958	58	595959686	(58s) cyc=11958 order=feb31b8b0e72	default
-rv64um-v-remuw	PASS	v-	13/18		11944	57	503854569	(57s) cyc=11944 order=1770e7e3e32e	default
-rv64um-v-remw	PASS	v-	12/18		11953	57	294725579	(57s) cyc=11953 order=660a19b74112	default
-rv64uzba-v-add_uw	PASS	v-	3/18		13299	77	17371492	(77s) cyc=13299 order=4e936aefd0be	default
-rv64uzba-v-sh1add	PASS	v-	4/18		13304	86	6990971	(86s) cyc=13304 order=149e58a42e41	default
-rv64uzba-v-sh1add_uw	PASS	v-	5/18		13311	97	39834475	(97s) cyc=13311 order=1f5b63871c7f	default
-rv64uzba-v-sh2add	PASS	v-	6/18		13304	62	554310652	(62s) cyc=13304 order=a2965bd616f9	default
-rv64uzba-v-sh2add_uw	PASS	v-	7/18		13311	64	706379087	(64s) cyc=13311 order=c19b55934166	default
-rv64uzba-v-sh3add	PASS	v-	8/18		13303	65	330746323	(65s) cyc=13303 order=8813bdd838b4	default
-rv64uzba-v-sh3add_uw	PASS	v-	9/18		13312	93	962743412	(93s) cyc=13312 order=19d7023bf367	default
-rv64uzba-v-slli_uw	PASS	v-	10/18		12502	54	266552639	(54s) cyc=12502 order=cb4c5e5f8385	default
-rv64uzbb-v-andn	PASS	v-	11/18		13590	101	223742020	(101s) cyc=13590 order=63ef7c4b6117	default
-rv64uzbb-v-clz	PASS	v-	12/18		12324	58	560833142	(58s) cyc=12324 order=5bc6e735440e	default
-rv64uzbb-v-clzw	PASS	v-	13/18		12297	58	794976358	(58s) cyc=12297 order=b75d5ca8b671	default
-rv64uzbb-v-cpop	PASS	v-	14/18		12325	75	433114702	(75s) cyc=12325 order=324587379609	default
-rv64uzbb-v-cpopw	PASS	v-	15/18		12296	59	878618050	(59s) cyc=12296 order=817136d07b75	default
-rv64uzbb-v-ctz	PASS	v-	16/18		12324	57	840153640	(57s) cyc=12324 order=0bde55c34a75	default
-rv64uzbb-v-ctzw	PASS	v-	17/18		12295	57	609178643	(57s) cyc=12295 order=6e744360441c	default
-rv64uzbb-v-max	PASS	v-	18/18		13267	100	734145745	(100s) cyc=13267 order=21a1b2de6448	default
-rv64uzbb-v-maxu	PASS	v-	1/18		13327	63	661240781	(63s) cyc=13327 order=78c9179faaf4	default
-rv64uzbb-v-min	PASS	v-	2/18		13260	63	161825395	(63s) cyc=13260 order=059e68ec812d	default
-rv64uzbb-v-minu	PASS	v-	3/18		13304	79	561934545	(79s) cyc=13304 order=7b46e36d6fc9	default
-rv64uzbb-v-orc_b	PASS	v-	4/18		12373	78	516730316	(78s) cyc=12373 order=af295d4daf3d	default
-rv64uzbb-v-orn	PASS	v-	5/18		21634	141	510737557	(141s) cyc=21634 order=d05417644ddc	default
-rv64uzbb-v-rev8	PASS	v-	6/18		12419	58	409064983	(58s) cyc=12419 order=bbec66ac0166	default
-rv64uzbb-v-rol	PASS	v-	7/18		21474	96	820859228	(96s) cyc=21474 order=91ddfe89b972	default
-rv64uzbb-v-rolw	PASS	v-	8/18		21436	85	242067092	(85s) cyc=21436 order=348f80029479	default
-rv64uzbb-v-ror	PASS	v-	9/18		21536	134	21376291	(134s) cyc=21536 order=50cf34af597e	default
-rv64uzbb-v-rori	PASS	v-	10/18		12518	54	588500530	(54s) cyc=12518 order=78cbf8c99316	default
-rv64uzbb-v-roriw	PASS	v-	11/18		12422	91	409546406	(91s) cyc=12422 order=f644de67c587	default
-rv64uzbb-v-rorw	PASS	v-	12/18		13391	58	410697797	(58s) cyc=13391 order=c9fb71f90909	default
-rv64uzbb-v-sext_b	PASS	v-	13/18		12324	59	584919700	(59s) cyc=12324 order=a71a83ecb289	default
-rv64uzbb-v-sext_h	PASS	v-	14/18		12334	61	302564420	(61s) cyc=12334 order=1f13c6fcc9b5	default
-rv64uzbb-v-xnor	PASS	v-	15/18		21605	82	430771373	(82s) cyc=21605 order=8dc08142872b	default
-rv64uzbb-v-zext_h	PASS	v-	16/18		12343	57	419897551	(57s) cyc=12343 order=db68db6ad626	default
-rv64uzbc-v-clmul	PASS	v-	17/18		13359	62	917420222	(62s) cyc=13359 order=e63d57f65203	default
-rv64uzbc-v-clmulh	PASS	v-	18/18		13367	76	506081951	(76s) cyc=13367 order=fb4bed8d784a	default
-rv64uzbc-v-clmulr	PASS	v-	1/18		13363	48	775829039	(48s) cyc=13363 order=29ef5438b241	default
-rv64uzbkb-v-brev8	PASS	v-	2/18		12382	52	457165135	(52s) cyc=12382 order=2e8f90976aac	default
-rv64uzbkb-v-pack	PASS	v-	3/18		21964	85	370239139	(85s) cyc=21964 order=a2c5141f9504	default
-rv64uzbkb-v-packh	PASS	v-	4/18		13548	69	82730052	(69s) cyc=13548 order=becfda3ce415	default
-rv64uzbkb-v-packw	PASS	v-	5/18		13332	78	289965917	(78s) cyc=13332 order=b0cfb233d064	default
-rv64uzbkx-v-xperm4	PASS	v-	6/18		21703	64	181267068	(64s) cyc=21703 order=991038ea2bd5	default
-rv64uzbkx-v-xperm8	PASS	v-	7/18		22599	78	16176001	(78s) cyc=22599 order=14ef17f83fbb	default
-rv64uzbs-v-bclr	PASS	v-	8/18		21720	85	869936993	(85s) cyc=21720 order=b58d20e77b42	default
-rv64uzbs-v-bclri	PASS	v-	9/18		12657	71	51250939	(71s) cyc=12657 order=0101de3359c5	default
-rv64uzbs-v-bext	PASS	v-	10/18		21502	67	189140613	(67s) cyc=21502 order=aff81f59b30a	default
-rv64uzbs-v-bexti	PASS	v-	11/18		12552	75	45385986	(75s) cyc=12552 order=73a776cc225a	default
-rv64uzbs-v-binv	PASS	v-	12/18		21416	74	927382376	(74s) cyc=21416 order=30ba86f88789	default
-rv64uzbs-v-binvi	PASS	v-	13/18		12486	40	681469758	(40s) cyc=12486 order=4418e24c21ab	default
-rv64uzbs-v-bset	PASS	v-	14/18		21754	90	691282691	(90s) cyc=21754 order=3cffbcd6c3de	default
-rv64uzbs-v-bseti	PASS	v-	15/18		12625	38	575273761	(38s) cyc=12625 order=dfe410247418	default
-rv64uzfh-v-fadd	PASS	v-	16/18		20514	70	319809940	(70s) cyc=20514 order=ae709ecfec93	default
-rv64uzfh-v-fclass	PASS	v-	17/18		11935	51	149091689	(51s) cyc=11935 order=c6a40dfa2f64	default
-rv64uzfh-v-fcmp	PASS	v-	18/18		20231	91	42391504	(91s) cyc=20231 order=1739b64394af	default
-rv64uzfh-v-fcvt	PASS	v-	1/18		20295	61	680210113	(61s) cyc=20295 order=bb831b0908fa	default
-rv64uzfh-v-fcvt_w	PASS	v-	2/18		29605	91	795568698	(91s) cyc=29605 order=5ebe0087d82a	default
-rv64uzfh-v-fdiv	PASS	v-	3/18		20355	77	57202743	(77s) cyc=20355 order=88f7d226e7fb	default
-rv64uzfh-v-fmadd	PASS	v-	4/18		20647	78	245606088	(78s) cyc=20647 order=8fca4464f56e	default
-rv64uzfh-v-fmin	PASS	v-	5/18		20970	115	20443402	(115s) cyc=20970 order=845c7a1b17d3	default
-rv64uzfh-v-ldst	PASS	v-	6/18		21036	58	502325668	(58s) cyc=21036 order=759a9832805d	default
-rv64uzfh-v-move	PASS	v-	7/18		12385	58	730422190	(58s) cyc=12385 order=9484849b7931	default
-rv64uzfh-v-recoding	PASS	v-	8/18		19950	69	729039573	(69s) cyc=19950 order=2204114adfb8	default
-rv64uziccid-v-ziccid	PASS	v-	11/18		158125	662	208662320	(662s) cyc=158125 order=e2aed5d73b77	default
-rv64uzicond-v-czero_eqz	PASS	v-	9/18		13218	65	921832435	(65s) cyc=13218 order=7f26591cd079	default
-rv64uzicond-v-czero_nez	PASS	v-	10/18		13282	35	712835812	(35s) cyc=13282 order=11a332b79e50	default
+rv64mi-p-breakpoint	FAIL	cosim-p	none			6	810639445	(6s): rv64mi-p-breakpoint: MISMATCH at commit 95 pc=0x800001f0 field=absorbed-record-not-NOP | [1] absorbed-record-not-NOP: CL CL never committed pc=0x800001f0; Spike retired pc=0x80000004 insn=0x34202f73 with a NON-EMPTY write set or a non-fall-through next pc — a lost CL commit cannot be laundered as a dropped NOP (D11) | Spike <StepRecord valid pc=0x80000004 insn=0x34202f73 len=4 priv=3 regs=1 stores=0 loads=0 retired TRAPPED absorbed=0> order=ea31235d2dd1	default
+rv64mi-p-csr	FAIL	cosim-p	none			8	489043872	(8s): rv64mi-p-csr: MISMATCH at commit 167 pc=0x80000328 field=x10 | [1] x10: CL 0x800000000014112d | Spike 0x800000000014112f   (raw 64-bit compare (D10) — a NaN-boxing difference is a CL finding, not a mask) order=dba6cda3b124	default
+rv64mi-p-illegal	FAIL	cosim-p	none			6	507493854	(6s): rv64mi-p-illegal: MISMATCH at commit 111 pc=0x800001d0 field=csr344 | [1] csr344: CL 0x2 | Spike 0x82   (CL source=wb_write) order=c62c71fe0b0c	default
+rv64mi-p-instret_overflow	PASS	cosim-p	none			5	288953945	(5s) order=281574257a20 cosim-GREEN	default
+rv64mi-p-ld-misaligned	PASS	cosim-p	none			7	375252998	(7s) order=395bd7ae909d cosim-GREEN	default
+rv64mi-p-lh-misaligned	PASS	cosim-p	none			5	552201844	(5s) order=4000cbe682ca cosim-GREEN	default
+rv64mi-p-lw-misaligned	PASS	cosim-p	none			6	104437618	(6s) order=93aa6d6317cb cosim-GREEN	default
+rv64mi-p-ma_addr	PASS	cosim-p	none			7	145302509	(7s) order=1da647fe18e7 cosim-GREEN	default
+rv64mi-p-ma_fetch	FAIL	cosim-p	none			5	497823772	(5s): rv64mi-p-ma_fetch: MISMATCH at commit 108 pc=0x8000023c field=csr301 | [1] csr301: CL 0x800000000014112d | Spike 0x800000000014112f   (CL source=wb_write) order=d7527a42e6b3	default
+rv64mi-p-mcsr	FAIL	cosim-p	none			4	728930165	(4s): rv64mi-p-mcsr: MISMATCH at commit 77 pc=0x800001a0 field=x10 | [1] x10: CL 0x800000000014112d | Spike 0x800000000014112f   (raw 64-bit compare (D10) — a NaN-boxing difference is a CL finding, not a mask) order=a7ead1af2423	default
+rv64mi-p-pmpaddr	FAIL	cosim-p	none			5	756679231	(5s): rv64mi-p-pmpaddr: MISMATCH at commit 79 pc=0x800001ac field=csr3b0 | [1] csr3b0: CL 0xffffffffffffffff | Spike 0x3fffffffffffff   (CL source=wb_write) order=f37a22d9a6ae	default
+rv64mi-p-sbreak	PASS	cosim-p	none			5	113431155	(5s) order=6d71dfa7131a cosim-GREEN	default
+rv64mi-p-scall	FAIL	cosim-p	none			5	347724092	(5s): rv64mi-p-scall: MISMATCH at commit 100 pc=0x0 field=store-stream: unmatched tail | [1] store-stream: unmatched tail: CL CL unmatched=0 | Spike Spike unmatched=4: Spike lane pa=0x80001004 byte=0x00 (commit=99 va=0x80001004 pa=0x80001004 size=4 data=0x0)   (the two store streams do not agree at end of run) order=ac58f1ed5588	default
+rv64mi-p-sd-misaligned	PASS	cosim-p	none			7	81074618	(7s) order=4b26a82d1023 cosim-GREEN	default
+rv64mi-p-sh-misaligned	PASS	cosim-p	none			5	552795276	(5s) order=f07af6871dcf cosim-GREEN	default
+rv64mi-p-sw-misaligned	PASS	cosim-p	none			6	398550414	(6s) order=0e37ffdd2cc8 cosim-GREEN	default
+rv64mi-p-zicntr	PASS	cosim-p	none			6	470652802	(6s) order=ee592a8cbff6 cosim-GREEN	default
+rv64mzicbo-p-zero	PASS	cosim-p	none			5	577268818	(5s) order=b679323c0c90 cosim-GREEN	default
+rv64si-p-csr	FAIL	cosim-p	none			4	467146429	(4s): rv64si-p-csr: MISMATCH at commit 71 pc=0x80000178 field=csr302 | [1] csr302: CL 0xb109 | Spike 0xb108   (CL source=wb_write) order=8fc433724b48	default
+rv64si-p-dirty	PASS	cosim-p	none			9	367923137	(9s) order=8b70bd2ab4ef cosim-GREEN	default
+rv64si-p-icache-alias	FAIL	cosim-p	none			10	671894537	(10s): rv64si-p-icache-alias: MISMATCH at commit 232 pc=0x0 field=store-stream: unmatched tail | [1] store-stream: unmatched tail: CL CL unmatched=0 | Spike Spike unmatched=4: Spike lane pa=0x80001004 byte=0x00 (commit=231 va=0x80001004 pa=0x80001004 size=4 data=0x0)   (the two store streams do not agree at end of run) order=32480c3f0475	default
+rv64si-p-ma_fetch	FAIL	cosim-p	none			4	499737242	(4s): rv64si-p-ma_fetch: MISMATCH at commit 71 pc=0x80000178 field=csr302 | [1] csr302: CL 0xb109 | Spike 0xb108   (CL source=wb_write) order=d888ca74ab9a	default
+rv64si-p-sbreak	FAIL	cosim-p	none			4	907244591	(4s): rv64si-p-sbreak: MISMATCH at commit 71 pc=0x80000178 field=csr302 | [1] csr302: CL 0xb109 | Spike 0xb108   (CL source=wb_write) order=81df8ead181e	default
+rv64si-p-scall	FAIL	cosim-p	none			4	917697064	(4s): rv64si-p-scall: MISMATCH at commit 71 pc=0x80000178 field=csr302 | [1] csr302: CL 0xb109 | Spike 0xb108   (CL source=wb_write) order=fa316326a289	default
+rv64si-p-wfi	FAIL	cosim-p	none			5	456055710	(5s): rv64si-p-wfi: MISMATCH at commit 79 pc=0x800001a8 field=csr104 | [1] csr104: CL no write, committed=0x0 | Spike wrote 0x2 committed=0x2   (M11: one-sided write and the committed CSRs disagree — a real architectural difference) order=7fe20d20331a	default
+rv64ssvnapot-p-napot	PASS	cosim-p	none			8	151436772	(8s) order=25800e80482d cosim-GREEN	default
+rv64ua-p-amoadd_d	PASS	cosim-p	none			5	357762937	(5s) order=49bdcfcc7d81 cosim-GREEN	default
+rv64ua-p-amoadd_w	PASS	cosim-p	none			5	995260594	(5s) order=661e88d86c0e cosim-GREEN	default
+rv64ua-p-amoand_d	PASS	cosim-p	none			5	852750720	(5s) order=f4315232ca2a cosim-GREEN	default
+rv64ua-p-amoand_w	PASS	cosim-p	none			5	290041024	(5s) order=8ad08892cfa4 cosim-GREEN	default
+rv64ua-p-amomax_d	PASS	cosim-p	none			5	141845990	(5s) order=93de7b8f7f7d cosim-GREEN	default
+rv64ua-p-amomax_w	PASS	cosim-p	none			5	640360998	(5s) order=40dd95266d2b cosim-GREEN	default
+rv64ua-p-amomaxu_d	PASS	cosim-p	none			5	587168736	(5s) order=b4e4899a550a cosim-GREEN	default
+rv64ua-p-amomaxu_w	PASS	cosim-p	none			5	153103506	(5s) order=0d1f53b42660 cosim-GREEN	default
+rv64ua-p-amomin_d	PASS	cosim-p	none			5	981642205	(5s) order=7181b8a6668e cosim-GREEN	default
+rv64ua-p-amomin_w	PASS	cosim-p	none			5	471658653	(5s) order=9322488225cb cosim-GREEN	default
+rv64ua-p-amominu_d	PASS	cosim-p	none			5	917384978	(5s) order=402a3f375398 cosim-GREEN	default
+rv64ua-p-amominu_w	PASS	cosim-p	none			6	267337049	(6s) order=c3d523cbd3b5 cosim-GREEN	default
+rv64ua-p-amoor_d	PASS	cosim-p	none			5	480843986	(5s) order=350108e3ec68 cosim-GREEN	default
+rv64ua-p-amoor_w	PASS	cosim-p	none			5	972728217	(5s) order=d1c7479cb359 cosim-GREEN	default
+rv64ua-p-amoswap_d	PASS	cosim-p	none			5	404355207	(5s) order=ab971fb6cc45 cosim-GREEN	default
+rv64ua-p-amoswap_w	PASS	cosim-p	none			5	753453013	(5s) order=47995ba2a18a cosim-GREEN	default
+rv64ua-p-amoxor_d	PASS	cosim-p	none			6	967208771	(6s) order=9df7552de801 cosim-GREEN	default
+rv64ua-p-amoxor_w	PASS	cosim-p	none			5	452012803	(5s) order=83e00b553aa7 cosim-GREEN	default
+rv64ua-p-lrsc	PASS	cosim-p	none			82	887465016	(82s) order=90a04fd8cce4 cosim-GREEN	default
+rv64uc-p-rvc	PASS	cosim-p	none			7	652461218	(7s) order=f8008bf6a8ef cosim-GREEN	default
+rv64ud-p-fadd	PASS	cosim-p	none			8	485485974	(8s) order=7017e3ff5508 cosim-GREEN	default
+rv64ud-p-fclass	PASS	cosim-p	none			6	228117554	(6s) order=ad72c6fa372f cosim-GREEN	default
+rv64ud-p-fcmp	PASS	cosim-p	none			8	918057177	(8s) order=2e69e2344661 cosim-GREEN	default
+rv64ud-p-fcvt	PASS	cosim-p	none			8	180017393	(8s) order=63fb4e010ffc cosim-GREEN	default
+rv64ud-p-fcvt_w	PASS	cosim-p	none			15	494760606	(15s) order=746d20cc7fb4 cosim-GREEN	default
+rv64ud-p-fdiv	PASS	cosim-p	none			7	892048547	(7s) order=600ff2f7cde4 cosim-GREEN	default
+rv64ud-p-fmadd	PASS	cosim-p	none			8	87973440	(8s) order=82e214b29adc cosim-GREEN	default
+rv64ud-p-fmin	PASS	cosim-p	none			10	855331253	(10s) order=bf5072fd85e7 cosim-GREEN	default
+rv64ud-p-ldst	PASS	cosim-p	none			5	539976512	(5s) order=6d57bf095715 cosim-GREEN	default
+rv64ud-p-move	PASS	cosim-p	none			13	210852269	(13s) order=8d489cf6159f cosim-GREEN	default
+rv64ud-p-recoding	PASS	cosim-p	none			6	759440127	(6s) order=eb3a55f684e4 cosim-GREEN	default
+rv64ud-p-structural	PASS	cosim-p	none			8	535404893	(8s) order=d2fa5797a131 cosim-GREEN	default
+rv64uf-p-fadd	PASS	cosim-p	none			8	944406072	(8s) order=055c5f05f942 cosim-GREEN	default
+rv64uf-p-fclass	PASS	cosim-p	none			6	458641065	(6s) order=6f7475993559 cosim-GREEN	default
+rv64uf-p-fcmp	PASS	cosim-p	none			9	442359293	(9s) order=1aa3863585f2 cosim-GREEN	default
+rv64uf-p-fcvt	PASS	cosim-p	none			7	851774430	(7s) order=51c9c20ed65a cosim-GREEN	default
+rv64uf-p-fcvt_w	PASS	cosim-p	none			14	187373637	(14s) order=04fd758af25e cosim-GREEN	default
+rv64uf-p-fdiv	PASS	cosim-p	none			7	342576428	(7s) order=d6be53ac0244 cosim-GREEN	default
+rv64uf-p-fmadd	PASS	cosim-p	none			9	169780089	(9s) order=d72251692ab2 cosim-GREEN	default
+rv64uf-p-fmin	PASS	cosim-p	none			10	543898905	(10s) order=33aec3e9bbea cosim-GREEN	default
+rv64uf-p-ldst	PASS	cosim-p	none			5	794444423	(5s) order=bc3c5279c564 cosim-GREEN	default
+rv64uf-p-move	PASS	cosim-p	none			8	456936226	(8s) order=29515309134b cosim-GREEN	default
+rv64uf-p-recoding	PASS	cosim-p	none			6	623945885	(6s) order=537f8ce6e031 cosim-GREEN	default
+rv64ui-p-add	PASS	cosim-p	none			12	648078906	(12s) order=46e48b339e95 cosim-GREEN	default
+rv64ui-p-addi	PASS	cosim-p	none			8	334677257	(8s) order=df3475669bc8 cosim-GREEN	default
+rv64ui-p-addiw	PASS	cosim-p	none			8	332307331	(8s) order=68bfd4a92176 cosim-GREEN	default
+rv64ui-p-addw	PASS	cosim-p	none			12	333676088	(12s) order=4122cfad6346 cosim-GREEN	default
+rv64ui-p-and	PASS	cosim-p	none			12	460657480	(12s) order=b4b8d5e2e231 cosim-GREEN	default
+rv64ui-p-andi	PASS	cosim-p	none			7	305987421	(7s) order=e338ee38a827 cosim-GREEN	default
+rv64ui-p-auipc	PASS	cosim-p	none			5	928103005	(5s) order=d9a14a1cd31a cosim-GREEN	default
+rv64ui-p-beq	PASS	cosim-p	none			10	14928575	(10s) order=2e12f9c278bc cosim-GREEN	default
+rv64ui-p-bge	PASS	cosim-p	none			11	306328154	(11s) order=aea06ac87c8e cosim-GREEN	default
+rv64ui-p-bgeu	PASS	cosim-p	none			12	766351017	(12s) order=685da56bdf14 cosim-GREEN	default
+rv64ui-p-blt	PASS	cosim-p	none			11	298717031	(11s) order=9113cdc357aa cosim-GREEN	default
+rv64ui-p-bltu	PASS	cosim-p	none			12	875086860	(12s) order=171a9b895dcc cosim-GREEN	default
+rv64ui-p-bne	PASS	cosim-p	none			11	86337981	(11s) order=8cd413bef290 cosim-GREEN	default
+rv64ui-p-fence_i	PASS	cosim-p	none			9	498618846	(9s) order=1066a03e152f cosim-GREEN	default
+rv64ui-p-jal	PASS	cosim-p	none			5	864016605	(5s) order=6859a54dbc42 cosim-GREEN	default
+rv64ui-p-jalr	PASS	cosim-p	none			8	78153097	(8s) order=2543af9f5b3b cosim-GREEN	default
+rv64ui-p-lb	PASS	cosim-p	none			8	898069722	(8s) order=749e92d6dd4f cosim-GREEN	default
+rv64ui-p-lbu	PASS	cosim-p	none			8	556721571	(8s) order=62c4f7a76378 cosim-GREEN	default
+rv64ui-p-ld	PASS	cosim-p	none			10	546098219	(10s) order=b0f3cadf39ce cosim-GREEN	default
+rv64ui-p-ld_st	PASS	cosim-p	none			24	548370609	(24s) order=27b7eca607fc cosim-GREEN	default
+rv64ui-p-lh	PASS	cosim-p	none			8	472959015	(8s) order=03cfb5d56372 cosim-GREEN	default
+rv64ui-p-lhu	PASS	cosim-p	none			9	742570105	(9s) order=2b41a972df00 cosim-GREEN	default
+rv64ui-p-lui	PASS	cosim-p	none			5	851088795	(5s) order=cd9e6398382f cosim-GREEN	default
+rv64ui-p-lw	PASS	cosim-p	none			9	967694834	(9s) order=1f95e242da56 cosim-GREEN	default
+rv64ui-p-lwu	PASS	cosim-p	none			9	436179662	(9s) order=74cbb36a0534 cosim-GREEN	default
+rv64ui-p-ma_data	PASS	cosim-p	none			51	286741451	(51s) order=7f3e6f6d99eb cosim-GREEN	default
+rv64ui-p-or	PASS	cosim-p	none			13	135565661	(13s) order=03ee87424628 cosim-GREEN	default
+rv64ui-p-ori	PASS	cosim-p	none			7	270469028	(7s) order=b68e76e7e6ad cosim-GREEN	default
+rv64ui-p-sb	PASS	cosim-p	none			11	70259872	(11s) order=d52ccf5c2045 cosim-GREEN	default
+rv64ui-p-sd	PASS	cosim-p	none			13	843637488	(13s) order=5fa8570efcce cosim-GREEN	default
+rv64ui-p-sh	PASS	cosim-p	none			11	712352602	(11s) order=d0a9989a3b5a cosim-GREEN	default
+rv64ui-p-simple	PASS	cosim-p	none			5	668205868	(5s) order=350707f18ee3 cosim-GREEN	default
+rv64ui-p-sll	PASS	cosim-p	none			12	364826161	(12s) order=0b5de89c3a10 cosim-GREEN	default
+rv64ui-p-slli	PASS	cosim-p	none			8	899002349	(8s) order=df200087833b cosim-GREEN	default
+rv64ui-p-slliw	PASS	cosim-p	none			8	662381007	(8s) order=0d9e28794338 cosim-GREEN	default
+rv64ui-p-sllw	PASS	cosim-p	none			13	60128056	(13s) order=c3af15efa09c cosim-GREEN	default
+rv64ui-p-slt	PASS	cosim-p	none			12	946831970	(12s) order=8e4538014acb cosim-GREEN	default
+rv64ui-p-slti	PASS	cosim-p	none			8	642405301	(8s) order=c72d82c57a3a cosim-GREEN	default
+rv64ui-p-sltiu	PASS	cosim-p	none			8	817683779	(8s) order=ba5114c00b14 cosim-GREEN	default
+rv64ui-p-sltu	PASS	cosim-p	none			12	623028116	(12s) order=43338ee65afd cosim-GREEN	default
+rv64ui-p-sra	PASS	cosim-p	none			12	521466532	(12s) order=72bde3cbe7bd cosim-GREEN	default
+rv64ui-p-srai	PASS	cosim-p	none			8	788931902	(8s) order=dabfeb107b06 cosim-GREEN	default
+rv64ui-p-sraiw	PASS	cosim-p	none			8	54615715	(8s) order=71f4079c45f8 cosim-GREEN	default
+rv64ui-p-sraw	PASS	cosim-p	none			13	879364138	(13s) order=7c7bdcc077bd cosim-GREEN	default
+rv64ui-p-srl	PASS	cosim-p	none			13	707433867	(13s) order=ea5fd8e4da6e cosim-GREEN	default
+rv64ui-p-srli	PASS	cosim-p	none			8	658451167	(8s) order=6a862746af8a cosim-GREEN	default
+rv64ui-p-srliw	PASS	cosim-p	none			9	553175892	(9s) order=7d0dd789f288 cosim-GREEN	default
+rv64ui-p-srlw	PASS	cosim-p	none			13	7735426	(13s) order=8cbe786f30d9 cosim-GREEN	default
+rv64ui-p-st_ld	PASS	cosim-p	none			9	677704179	(9s) order=651e4f76af7a cosim-GREEN	default
+rv64ui-p-sub	PASS	cosim-p	none			12	280296042	(12s) order=9f17b2a312c9 cosim-GREEN	default
+rv64ui-p-subw	PASS	cosim-p	none			12	233453889	(12s) order=ae3ba5032e12 cosim-GREEN	default
+rv64ui-p-sw	PASS	cosim-p	none			11	332310320	(11s) order=4cfad97bc737 cosim-GREEN	default
+rv64ui-p-xor	PASS	cosim-p	none			13	42836525	(13s) order=95aeae9d0506 cosim-GREEN	default
+rv64ui-p-xori	PASS	cosim-p	none			8	144763528	(8s) order=1de3330c461b cosim-GREEN	default
+rv64um-p-div	PASS	cosim-p	none			5	493655198	(5s) order=c794cc919477 cosim-GREEN	default
+rv64um-p-divu	PASS	cosim-p	none			6	592038319	(6s) order=9ae234b8e0e6 cosim-GREEN	default
+rv64um-p-divuw	PASS	cosim-p	none			5	419923279	(5s) order=258f830587dd cosim-GREEN	default
+rv64um-p-divw	PASS	cosim-p	none			6	279380389	(6s) order=942657a61655 cosim-GREEN	default
+rv64um-p-mul	PASS	cosim-p	none			12	405659447	(12s) order=54a7ee7eff8c cosim-GREEN	default
+rv64um-p-mulh	PASS	cosim-p	none			12	936468491	(12s) order=fe6e548c026c cosim-GREEN	default
+rv64um-p-mulhsu	PASS	cosim-p	none			12	599898521	(12s) order=ae09472765b7 cosim-GREEN	default
+rv64um-p-mulhu	PASS	cosim-p	none			12	862357977	(12s) order=8126b02bd297 cosim-GREEN	default
+rv64um-p-mulw	PASS	cosim-p	none			11	499986962	(11s) order=21c66f7e7d9b cosim-GREEN	default
+rv64um-p-rem	PASS	cosim-p	none			5	980534657	(5s) order=592e621ead52 cosim-GREEN	default
+rv64um-p-remu	PASS	cosim-p	none			6	192262897	(6s) order=3b5657c20d98 cosim-GREEN	default
+rv64um-p-remuw	PASS	cosim-p	none			5	862075768	(5s) order=1a8d1569fac5 cosim-GREEN	default
+rv64um-p-remw	PASS	cosim-p	none			5	510958339	(5s) order=80cefb25ea19 cosim-GREEN	default
+rv64uzba-p-add_uw	PASS	cosim-p	none			12	288802440	(12s) order=6e95dad0a8ca cosim-GREEN	default
+rv64uzba-p-sh1add	PASS	cosim-p	none			12	312524215	(12s) order=d1b443727125 cosim-GREEN	default
+rv64uzba-p-sh1add_uw	PASS	cosim-p	none			12	155819364	(12s) order=a1e22fabb0e6 cosim-GREEN	default
+rv64uzba-p-sh2add	PASS	cosim-p	none			12	887224075	(12s) order=11b485634b89 cosim-GREEN	default
+rv64uzba-p-sh2add_uw	PASS	cosim-p	none			12	908853398	(12s) order=20665daaa2fe cosim-GREEN	default
+rv64uzba-p-sh3add	PASS	cosim-p	none			11	696376975	(11s) order=4713ec5da216 cosim-GREEN	default
+rv64uzba-p-sh3add_uw	PASS	cosim-p	none			12	586123721	(12s) order=9e254e085022 cosim-GREEN	default
+rv64uzba-p-slli_uw	PASS	cosim-p	none			8	245015892	(8s) order=d89617f04a08 cosim-GREEN	default
+rv64uzbb-p-andn	PASS	cosim-p	none			13	652156827	(13s) order=0730666e13f6 cosim-GREEN	default
+rv64uzbb-p-clz	PASS	cosim-p	none			7	861782497	(7s) order=6ea949110f56 cosim-GREEN	default
+rv64uzbb-p-clzw	PASS	cosim-p	none			7	408602271	(7s) order=c6878019de63 cosim-GREEN	default
+rv64uzbb-p-cpop	PASS	cosim-p	none			7	107720029	(7s) order=b008baeddf6d cosim-GREEN	default
+rv64uzbb-p-cpopw	PASS	cosim-p	none			8	630960811	(8s) order=ba8342cbe0e0 cosim-GREEN	default
+rv64uzbb-p-ctz	PASS	cosim-p	none			8	547497497	(8s) order=d9a8bfc8660c cosim-GREEN	default
+rv64uzbb-p-ctzw	PASS	cosim-p	none			7	302060280	(7s) order=98455c114f66 cosim-GREEN	default
+rv64uzbb-p-max	PASS	cosim-p	none			12	438005237	(12s) order=c76f5cded30f cosim-GREEN	default
+rv64uzbb-p-maxu	PASS	cosim-p	none			12	256444537	(12s) order=32bfe3f92e05 cosim-GREEN	default
+rv64uzbb-p-min	PASS	cosim-p	none			11	317884006	(11s) order=5945b97ea3c5 cosim-GREEN	default
+rv64uzbb-p-minu	PASS	cosim-p	none			12	638251871	(12s) order=844f94d40616 cosim-GREEN	default
+rv64uzbb-p-orc_b	PASS	cosim-p	none			7	810104261	(7s) order=e215ca5ebb82 cosim-GREEN	default
+rv64uzbb-p-orn	PASS	cosim-p	none			13	818312579	(13s) order=ee6a5560b204 cosim-GREEN	default
+rv64uzbb-p-rev8	PASS	cosim-p	none			7	970699818	(7s) order=31ef83cffed0 cosim-GREEN	default
+rv64uzbb-p-rol	PASS	cosim-p	none			13	459646400	(13s) order=e08175fab691 cosim-GREEN	default
+rv64uzbb-p-rolw	PASS	cosim-p	none			13	400178217	(13s) order=f7c9df2656ef cosim-GREEN	default
+rv64uzbb-p-ror	PASS	cosim-p	none			13	204508579	(13s) order=f9c72e414aea cosim-GREEN	default
+rv64uzbb-p-rori	PASS	cosim-p	none			9	871535229	(9s) order=bec01057422d cosim-GREEN	default
+rv64uzbb-p-roriw	PASS	cosim-p	none			7	29385513	(7s) order=6de1351053a5 cosim-GREEN	default
+rv64uzbb-p-rorw	PASS	cosim-p	none			12	792623839	(12s) order=9a402ab6e1f5 cosim-GREEN	default
+rv64uzbb-p-sext_b	PASS	cosim-p	none			8	159058706	(8s) order=857a8c9b0ce9 cosim-GREEN	default
+rv64uzbb-p-sext_h	PASS	cosim-p	none			7	782280692	(7s) order=6e246f470506 cosim-GREEN	default
+rv64uzbb-p-xnor	PASS	cosim-p	none			13	719251148	(13s) order=514a4a17d85d cosim-GREEN	default
+rv64uzbb-p-zext_h	PASS	cosim-p	none			7	852138883	(7s) order=d85003c901d6 cosim-GREEN	default
+rv64uzbc-p-clmul	PASS	cosim-p	none			12	436952542	(12s) order=ba6c2a8bff6e cosim-GREEN	default
+rv64uzbc-p-clmulh	PASS	cosim-p	none			12	751928493	(12s) order=f268141ac906 cosim-GREEN	default
+rv64uzbc-p-clmulr	PASS	cosim-p	none			12	199359712	(12s) order=bdb8faddcc03 cosim-GREEN	default
+rv64uzbkb-p-brev8	PASS	cosim-p	none			8	806174549	(8s) order=919f3e190072 cosim-GREEN	default
+rv64uzbkb-p-pack	PASS	cosim-p	none			14	413045169	(14s) order=dc0d6f79f8ed cosim-GREEN	default
+rv64uzbkb-p-packh	PASS	cosim-p	none			13	275824224	(13s) order=a61546ae6197 cosim-GREEN	default
+rv64uzbkb-p-packw	PASS	cosim-p	none			12	164821558	(12s) order=49d0a0b36b0d cosim-GREEN	default
+rv64uzbkx-p-xperm4	PASS	cosim-p	none			13	648527259	(13s) order=364c4f777bd9 cosim-GREEN	default
+rv64uzbkx-p-xperm8	PASS	cosim-p	none			18	353806525	(18s) order=82d34a4a8826 cosim-GREEN	default
+rv64uzbs-p-bclr	PASS	cosim-p	none			13	204546918	(13s) order=893809de1e7c cosim-GREEN	default
+rv64uzbs-p-bclri	PASS	cosim-p	none			8	359536498	(8s) order=9b9db0078966 cosim-GREEN	default
+rv64uzbs-p-bext	PASS	cosim-p	none			13	538676311	(13s) order=5f1737134fed cosim-GREEN	default
+rv64uzbs-p-bexti	PASS	cosim-p	none			8	349971348	(8s) order=dbbaa9d33c60 cosim-GREEN	default
+rv64uzbs-p-binv	PASS	cosim-p	none			12	148171634	(12s) order=f70ca4523887 cosim-GREEN	default
+rv64uzbs-p-binvi	PASS	cosim-p	none			8	623663303	(8s) order=b343c3f15a15 cosim-GREEN	default
+rv64uzbs-p-bset	PASS	cosim-p	none			14	108951724	(14s) order=20c01d57458c cosim-GREEN	default
+rv64uzbs-p-bseti	PASS	cosim-p	none			8	11904005	(8s) order=9b00f5706af6 cosim-GREEN	default
+rv64uzfh-p-fadd	PASS	cosim-p	none			8	864733462	(8s) order=2d7fe20ce6d1 cosim-GREEN	default
+rv64uzfh-p-fclass	PASS	cosim-p	none			6	495912303	(6s) order=85810d93cb7d cosim-GREEN	default
+rv64uzfh-p-fcmp	PASS	cosim-p	none			7	360256346	(7s) order=2fa694226bbb cosim-GREEN	default
+rv64uzfh-p-fcvt	PASS	cosim-p	none			7	951074704	(7s) order=8c30f41c8886 cosim-GREEN	default
+rv64uzfh-p-fcvt_w	PASS	cosim-p	none			14	227031875	(14s) order=d853884e2530 cosim-GREEN	default
+rv64uzfh-p-fdiv	PASS	cosim-p	none			7	458104843	(7s) order=f0c6d75fcedf cosim-GREEN	default
+rv64uzfh-p-fmadd	PASS	cosim-p	none			8	183539891	(8s) order=397161616fb9 cosim-GREEN	default
+rv64uzfh-p-fmin	PASS	cosim-p	none			11	276546638	(11s) order=381340c05b75 cosim-GREEN	default
+rv64uzfh-p-ldst	PASS	cosim-p	none			6	34352848	(6s) order=4222ea7e60e3 cosim-GREEN	default
+rv64uzfh-p-move	PASS	cosim-p	none			8	363738661	(8s) order=22824237d4d8 cosim-GREEN	default
+rv64uzfh-p-recoding	PASS	cosim-p	none			5	751413370	(5s) order=8cbd09dcdc3a cosim-GREEN	default
+rv64uzicond-p-czero_eqz	PASS	cosim-p	none			9	551538000	(9s) order=96c870d5c0aa cosim-GREEN	default
+rv64uzicond-p-czero_nez	PASS	cosim-p	none			8	455741798	(8s) order=65175acfc67f cosim-GREEN	default
+rv64ua-v-amoadd_d	PASS	cosim-v	1/18			139	288677130	(139s) order=eccee6456b5f cosim-GREEN	default
+rv64ua-v-amoadd_w	PASS	cosim-v	2/18			116	81932383	(116s) order=afbc44341435 cosim-GREEN	default
+rv64ua-v-amoand_d	PASS	cosim-v	3/18			140	294115394	(140s) order=a4c236df42b9 cosim-GREEN	default
+rv64ua-v-amoand_w	PASS	cosim-v	4/18			141	708551355	(141s) order=4d1650c21c34 cosim-GREEN	default
+rv64ua-v-amomax_d	PASS	cosim-v	5/18			115	859543757	(115s) order=d74b700eff1b cosim-GREEN	default
+rv64ua-v-amomax_w	PASS	cosim-v	6/18			112	527816403	(112s) order=c228cd9e4c75 cosim-GREEN	default
+rv64ua-v-amomaxu_d	PASS	cosim-v	7/18			105	334049850	(105s) order=8e5f0d361bd2 cosim-GREEN	default
+rv64ua-v-amomaxu_w	PASS	cosim-v	8/18			114	90571540	(114s) order=4159e9f2805e cosim-GREEN	default
+rv64ua-v-amomin_d	PASS	cosim-v	9/18			107	29246192	(107s) order=c881c12e3a7c cosim-GREEN	default
+rv64ua-v-amomin_w	PASS	cosim-v	10/18			117	871020838	(117s) order=66550d8180df cosim-GREEN	default
+rv64ua-v-amominu_d	PASS	cosim-v	11/18			131	208079384	(131s) order=6ae1f1a38899 cosim-GREEN	default
+rv64ua-v-amominu_w	PASS	cosim-v	12/18			144	123033631	(144s) order=53904a654e20 cosim-GREEN	default
+rv64ua-v-amoor_d	PASS	cosim-v	13/18			113	151427163	(113s) order=d55f008b908c cosim-GREEN	default
+rv64ua-v-amoor_w	PASS	cosim-v	14/18			112	549907552	(112s) order=f5910e0492ce cosim-GREEN	default
+rv64ua-v-amoswap_d	PASS	cosim-v	15/18			136	768342503	(136s) order=97494fd8b4e0 cosim-GREEN	default
+rv64ua-v-amoswap_w	PASS	cosim-v	16/18			113	264114221	(113s) order=e0733a87e2ea cosim-GREEN	default
+rv64ua-v-amoxor_d	PASS	cosim-v	17/18			112	162570869	(112s) order=257032e43029 cosim-GREEN	default
+rv64ua-v-amoxor_w	PASS	cosim-v	18/18			116	695617917	(116s) order=9403f421eaa8 cosim-GREEN	default
+rv64ua-v-lrsc	PASS	cosim-v	1/18			259	988271996	(259s) order=d4ba5a49d99f cosim-GREEN	default
+rv64uc-v-rvc	PASS	cosim-v	2/18			172	184680003	(172s) order=3b23814a38ae cosim-GREEN	default
+rv64ud-v-fadd	PASS	cosim-v	3/18			148	496909725	(148s) order=a0a59465ead4 cosim-GREEN	default
+rv64ud-v-fclass	PASS	cosim-v	4/18			79	380694349	(79s) order=0af0f8ae9686 cosim-GREEN	default
+rv64ud-v-fcmp	PASS	cosim-v	5/18			121	98203254	(121s) order=62050a3b8d7e cosim-GREEN	default
+rv64ud-v-fcvt	PASS	cosim-v	6/18			115	400638946	(115s) order=22e49243d3fc cosim-GREEN	default
+rv64ud-v-fcvt_w	PASS	cosim-v	7/18			164	589243606	(164s) order=08ad16e4ad28 cosim-GREEN	default
+rv64ud-v-fdiv	PASS	cosim-v	8/18			116	929452406	(116s) order=9bb1e82daa79 cosim-GREEN	default
+rv64ud-v-fmadd	PASS	cosim-v	9/18			118	751583606	(118s) order=ddb21739ed18 cosim-GREEN	default
+rv64ud-v-fmin	PASS	cosim-v	10/18			121	355717890	(121s) order=4ece9e4f1511 cosim-GREEN	default
+rv64ud-v-ldst	PASS	cosim-v	11/18			129	758351647	(129s) order=85e91c0979db cosim-GREEN	default
+rv64ud-v-move	PASS	cosim-v	12/18			161	129992227	(161s) order=c48ffebdf7b1 cosim-GREEN	default
+rv64ud-v-recoding	PASS	cosim-v	13/18			114	120052215	(114s) order=f7d9126bad64 cosim-GREEN	default
+rv64ud-v-structural	PASS	cosim-v	14/18			66	721440966	(66s) order=24a852a86846 cosim-GREEN	default
+rv64uf-v-fadd	PASS	cosim-v	15/18			145	168084582	(145s) order=e12bff5c183a cosim-GREEN	default
+rv64uf-v-fclass	PASS	cosim-v	16/18			64	699966171	(64s) order=1c23bce8ebe1 cosim-GREEN	default
+rv64uf-v-fcmp	PASS	cosim-v	17/18			118	555252066	(118s) order=11db32294103 cosim-GREEN	default
+rv64uf-v-fcvt	PASS	cosim-v	18/18			118	873199876	(118s) order=32f02ebe468f cosim-GREEN	default
+rv64uf-v-fcvt_w	PASS	cosim-v	1/18			238	172119273	(238s) order=a872295cc121 cosim-GREEN	default
+rv64uf-v-fdiv	PASS	cosim-v	2/18			121	693242528	(121s) order=31d27da0b2fe cosim-GREEN	default
+rv64uf-v-fmadd	PASS	cosim-v	3/18			154	786579016	(154s) order=dce97a846af5 cosim-GREEN	default
+rv64uf-v-fmin	PASS	cosim-v	4/18			155	561021778	(155s) order=ed98f439a756 cosim-GREEN	default
+rv64uf-v-ldst	PASS	cosim-v	5/18			114	880564354	(114s) order=61146ac13da3 cosim-GREEN	default
+rv64uf-v-move	PASS	cosim-v	6/18			65	847813644	(65s) order=41a2409cb91f cosim-GREEN	default
+rv64uf-v-recoding	PASS	cosim-v	7/18			105	166309905	(105s) order=66d53fc045ff cosim-GREEN	default
+rv64ui-v-add	PASS	cosim-v	8/18			70	493732793	(70s) order=aa88d096991b cosim-GREEN	default
+rv64ui-v-addi	PASS	cosim-v	9/18			59	479893102	(59s) order=2b5785d6b207 cosim-GREEN	default
+rv64ui-v-addiw	PASS	cosim-v	10/18			65	916679714	(65s) order=e03173819d78 cosim-GREEN	default
+rv64ui-v-addw	PASS	cosim-v	11/18			81	19324909	(81s) order=61e9e002a405 cosim-GREEN	default
+rv64ui-v-and	PASS	cosim-v	12/18			87	505023235	(87s) order=18c75d7591c9 cosim-GREEN	default
+rv64ui-v-andi	PASS	cosim-v	13/18			66	535653897	(66s) order=f36453fafd9a cosim-GREEN	default
+rv64ui-v-auipc	PASS	cosim-v	14/18			62	134578564	(62s) order=3bf92f0b590f cosim-GREEN	default
+rv64ui-v-beq	PASS	cosim-v	15/18			82	736800042	(82s) order=b56b284ff7d6 cosim-GREEN	default
+rv64ui-v-bge	PASS	cosim-v	16/18			69	729110486	(69s) order=c58d8a06dd91 cosim-GREEN	default
+rv64ui-v-bgeu	PASS	cosim-v	17/18			70	37615339	(70s) order=4859b3a6974f cosim-GREEN	default
+rv64ui-v-blt	PASS	cosim-v	18/18			69	831979470	(69s) order=5aa92cec478d cosim-GREEN	default
+rv64ui-v-bltu	PASS	cosim-v	1/18			84	877340146	(84s) order=cc8807669c4c cosim-GREEN	default
+rv64ui-v-bne	PASS	cosim-v	2/18			70	824765783	(70s) order=cd047fc45361 cosim-GREEN	default
+rv64ui-v-fence_i	PASS	cosim-v	3/18			147	901615922	(147s) order=3576bc9710d5 cosim-GREEN	default
+rv64ui-v-jal	PASS	cosim-v	4/18			77	124975808	(77s) order=e4f2d8e497f3 cosim-GREEN	default
+rv64ui-v-jalr	PASS	cosim-v	5/18			63	791090640	(63s) order=431e1bd0a43e cosim-GREEN	default
+rv64ui-v-lb	PASS	cosim-v	6/18			117	451096316	(117s) order=2f31bc052296 cosim-GREEN	default
+rv64ui-v-lbu	PASS	cosim-v	7/18			103	4451578	(103s) order=ae28318923f7 cosim-GREEN	default
+rv64ui-v-ld	PASS	cosim-v	8/18			120	824944728	(120s) order=0e3a3070ad25 cosim-GREEN	default
+rv64ui-v-ld_st	PASS	cosim-v	9/18			253	359355877	(253s) order=d3d180ad66e0 cosim-GREEN	default
+rv64ui-v-lh	PASS	cosim-v	10/18			121	329682453	(121s) order=5f0bc91aa932 cosim-GREEN	default
+rv64ui-v-lhu	PASS	cosim-v	11/18			135	456783995	(135s) order=e41045c4c878 cosim-GREEN	default
+rv64ui-v-lui	PASS	cosim-v	12/18			77	215312708	(77s) order=7725d62e7c1f cosim-GREEN	default
+rv64ui-v-lw	PASS	cosim-v	13/18			118	289833099	(118s) order=24149d37bf5b cosim-GREEN	default
+rv64ui-v-lwu	PASS	cosim-v	14/18			117	289529335	(117s) order=2c8d293a2524 cosim-GREEN	default
+rv64ui-v-ma_data	PASS	cosim-v	15/18			301	154677443	(301s) order=4a82a5b547a6 cosim-GREEN	default
+rv64ui-v-or	PASS	cosim-v	16/18			72	302715195	(72s) order=17432b03c55f cosim-GREEN	default
+rv64ui-v-ori	PASS	cosim-v	17/18			67	849478876	(67s) order=cd221f9aa964 cosim-GREEN	default
+rv64ui-v-sb	PASS	cosim-v	18/18			121	166639993	(121s) order=c3b224eabd51 cosim-GREEN	default
+rv64ui-v-sd	PASS	cosim-v	1/18			218	592671740	(218s) order=75bd07edba9a cosim-GREEN	default
+rv64ui-v-sh	PASS	cosim-v	2/18			122	838154111	(122s) order=28d3bb10d97e cosim-GREEN	default
+rv64ui-v-simple	PASS	cosim-v	3/18			76	752684846	(76s) order=0c7599d786a7 cosim-GREEN	default
+rv64ui-v-sll	PASS	cosim-v	4/18			149	329748034	(149s) order=7cf79bab0439 cosim-GREEN	default
+rv64ui-v-slli	PASS	cosim-v	5/18			62	759359268	(62s) order=399e0c471457 cosim-GREEN	default
+rv64ui-v-slliw	PASS	cosim-v	6/18			67	332218488	(67s) order=b6b207313aff cosim-GREEN	default
+rv64ui-v-sllw	PASS	cosim-v	7/18			103	911096467	(103s) order=bfcd62a74528 cosim-GREEN	default
+rv64ui-v-slt	PASS	cosim-v	8/18			71	93440015	(71s) order=0ec40964453d cosim-GREEN	default
+rv64ui-v-slti	PASS	cosim-v	9/18			63	469927343	(63s) order=30ce408e8fb3 cosim-GREEN	default
+rv64ui-v-sltiu	PASS	cosim-v	10/18			67	367618474	(67s) order=8526275b0a67 cosim-GREEN	default
+rv64ui-v-sltu	PASS	cosim-v	11/18			82	406986439	(82s) order=8016b7735947 cosim-GREEN	default
+rv64ui-v-sra	PASS	cosim-v	12/18			85	147829837	(85s) order=514783fe875f cosim-GREEN	default
+rv64ui-v-srai	PASS	cosim-v	13/18			67	190887898	(67s) order=c8fafb0083e1 cosim-GREEN	default
+rv64ui-v-sraiw	PASS	cosim-v	14/18			67	13050351	(67s) order=57ba7a8a01bf cosim-GREEN	default
+rv64ui-v-sraw	PASS	cosim-v	15/18			150	103272122	(150s) order=e18caf71d99b cosim-GREEN	default
+rv64ui-v-srl	PASS	cosim-v	16/18			121	253247214	(121s) order=a5330be9e293 cosim-GREEN	default
+rv64ui-v-srli	PASS	cosim-v	17/18			66	32754339	(66s) order=6e78e80f9eb7 cosim-GREEN	default
+rv64ui-v-srliw	PASS	cosim-v	18/18			68	560234446	(68s) order=ad843f189809 cosim-GREEN	default
+rv64ui-v-srlw	PASS	cosim-v	1/18			147	199498545	(147s) order=1cfa5122a407 cosim-GREEN	default
+rv64ui-v-st_ld	PASS	cosim-v	2/18			164	325276575	(164s) order=31f1562e1164 cosim-GREEN	default
+rv64ui-v-sub	PASS	cosim-v	3/18			86	613413666	(86s) order=3b82ab31f312 cosim-GREEN	default
+rv64ui-v-subw	PASS	cosim-v	4/18			87	511406309	(87s) order=922b708b8507 cosim-GREEN	default
+rv64ui-v-sw	PASS	cosim-v	5/18			111	875352221	(111s) order=0390a26945bf cosim-GREEN	default
+rv64ui-v-xor	PASS	cosim-v	6/18			72	232165597	(72s) order=1927da762ab0 cosim-GREEN	default
+rv64ui-v-xori	PASS	cosim-v	7/18			56	355983680	(56s) order=8df74279337f cosim-GREEN	default
+rv64um-v-div	PASS	cosim-v	8/18			64	722061906	(64s) order=42c66e9aa3cd cosim-GREEN	default
+rv64um-v-divu	PASS	cosim-v	9/18			60	676748175	(60s) order=fb671e1bf99a cosim-GREEN	default
+rv64um-v-divuw	PASS	cosim-v	10/18			64	769569246	(64s) order=1d32f80af6f2 cosim-GREEN	default
+rv64um-v-divw	PASS	cosim-v	11/18			73	497739906	(73s) order=961ed6bde7c5 cosim-GREEN	default
+rv64um-v-mul	PASS	cosim-v	12/18			84	767784199	(84s) order=0169dd2df1b6 cosim-GREEN	default
+rv64um-v-mulh	PASS	cosim-v	13/18			70	367449902	(70s) order=aef28899f161 cosim-GREEN	default
+rv64um-v-mulhsu	PASS	cosim-v	14/18			70	774941647	(70s) order=ca859dc2efb9 cosim-GREEN	default
+rv64um-v-mulhu	PASS	cosim-v	15/18			86	67116116	(86s) order=d784d17e2dd3 cosim-GREEN	default
+rv64um-v-mulw	PASS	cosim-v	16/18			71	622344669	(71s) order=97f6bbb766ba cosim-GREEN	default
+rv64um-v-rem	PASS	cosim-v	17/18			63	811219634	(63s) order=90642c226292 cosim-GREEN	default
+rv64um-v-remu	PASS	cosim-v	18/18			64	272066462	(64s) order=d940cbfec5ca cosim-GREEN	default
+rv64um-v-remuw	PASS	cosim-v	1/18			75	45960943	(75s) order=34e705a5948b cosim-GREEN	default
+rv64um-v-remw	PASS	cosim-v	2/18			65	4832457	(65s) order=388b2cb94d2e cosim-GREEN	default
+rv64uzba-v-add_uw	PASS	cosim-v	3/18			87	467477597	(87s) order=db6aa442bebc cosim-GREEN	default
+rv64uzba-v-sh1add	PASS	cosim-v	4/18			85	522097271	(85s) order=c76a008dc280 cosim-GREEN	default
+rv64uzba-v-sh1add_uw	PASS	cosim-v	5/18			68	408940337	(68s) order=0b3835e7a376 cosim-GREEN	default
+rv64uzba-v-sh2add	PASS	cosim-v	6/18			71	209417365	(71s) order=d4466468df35 cosim-GREEN	default
+rv64uzba-v-sh2add_uw	PASS	cosim-v	7/18			60	121485080	(60s) order=0bd19f87a818 cosim-GREEN	default
+rv64uzba-v-sh3add	PASS	cosim-v	8/18			72	957852959	(72s) order=d9830a77b07c cosim-GREEN	default
+rv64uzba-v-sh3add_uw	PASS	cosim-v	9/18			68	376849402	(68s) order=f78ac97095b5 cosim-GREEN	default
+rv64uzba-v-slli_uw	PASS	cosim-v	10/18			67	156660057	(67s) order=d4f7633139c5 cosim-GREEN	default
+rv64uzbb-v-andn	PASS	cosim-v	11/18			81	107849420	(81s) order=9e6a6e68b21d cosim-GREEN	default
+rv64uzbb-v-clz	PASS	cosim-v	12/18			59	102939516	(59s) order=111facea27ba cosim-GREEN	default
+rv64uzbb-v-clzw	PASS	cosim-v	13/18			66	442083047	(66s) order=f2cc2818e46d cosim-GREEN	default
+rv64uzbb-v-cpop	PASS	cosim-v	14/18			65	54221313	(65s) order=62bd2d5c2bbc cosim-GREEN	default
+rv64uzbb-v-cpopw	PASS	cosim-v	15/18			76	238723878	(76s) order=de6ef0f489b0 cosim-GREEN	default
+rv64uzbb-v-ctz	PASS	cosim-v	16/18			67	574260590	(67s) order=f54b31a8493e cosim-GREEN	default
+rv64uzbb-v-ctzw	PASS	cosim-v	17/18			62	240285284	(62s) order=662abb4a4e27 cosim-GREEN	default
+rv64uzbb-v-max	PASS	cosim-v	18/18			67	324252263	(67s) order=9f0577dc2257 cosim-GREEN	default
+rv64uzbb-v-maxu	PASS	cosim-v	1/18			72	220347206	(72s) order=22d51be1d23e cosim-GREEN	default
+rv64uzbb-v-min	PASS	cosim-v	2/18			72	889932334	(72s) order=2bbacb3fb6c8 cosim-GREEN	default
+rv64uzbb-v-minu	PASS	cosim-v	3/18			85	12040643	(85s) order=f9128eb898ff cosim-GREEN	default
+rv64uzbb-v-orc_b	PASS	cosim-v	4/18			80	31836609	(80s) order=77f97eff3241 cosim-GREEN	default
+rv64uzbb-v-orn	PASS	cosim-v	5/18			108	879843419	(108s) order=c6da94c052f0 cosim-GREEN	default
+rv64uzbb-v-rev8	PASS	cosim-v	6/18			66	64171696	(66s) order=444889103e91 cosim-GREEN	default
+rv64uzbb-v-rol	PASS	cosim-v	7/18			90	235965221	(90s) order=3bf37de7e169 cosim-GREEN	default
+rv64uzbb-v-rolw	PASS	cosim-v	8/18			120	869173728	(120s) order=4207085427ee cosim-GREEN	default
+rv64uzbb-v-ror	PASS	cosim-v	9/18			124	435482288	(124s) order=35c1a7f110f0 cosim-GREEN	default
+rv64uzbb-v-rori	PASS	cosim-v	10/18			67	478607948	(67s) order=3ed8d05a7948 cosim-GREEN	default
+rv64uzbb-v-roriw	PASS	cosim-v	11/18			73	293653806	(73s) order=7280d232828c cosim-GREEN	default
+rv64uzbb-v-rorw	PASS	cosim-v	12/18			68	952804178	(68s) order=568a42022e1d cosim-GREEN	default
+rv64uzbb-v-sext_b	PASS	cosim-v	13/18			64	232026389	(64s) order=aa38ebb0101d cosim-GREEN	default
+rv64uzbb-v-sext_h	PASS	cosim-v	14/18			64	923671038	(64s) order=4f378670b696 cosim-GREEN	default
+rv64uzbb-v-xnor	PASS	cosim-v	15/18			110	790877208	(110s) order=f246a6068384 cosim-GREEN	default
+rv64uzbb-v-zext_h	PASS	cosim-v	16/18			67	154004501	(67s) order=1731d98943c9 cosim-GREEN	default
+rv64uzbc-v-clmul	PASS	cosim-v	17/18			51	548526863	(51s) order=14443ab1a328 cosim-GREEN	default
+rv64uzbc-v-clmulh	PASS	cosim-v	18/18			69	96188469	(69s) order=06cd4c49dc4f cosim-GREEN	default
+rv64uzbc-v-clmulr	PASS	cosim-v	1/18			69	334935464	(69s) order=43a01a34ad77 cosim-GREEN	default
+rv64uzbkb-v-brev8	PASS	cosim-v	2/18			67	185272067	(67s) order=cbb01cfb9ef4 cosim-GREEN	default
+rv64uzbkb-v-pack	PASS	cosim-v	3/18			103	820345244	(103s) order=37638d965b8c cosim-GREEN	default
+rv64uzbkb-v-packh	PASS	cosim-v	4/18			81	597836352	(81s) order=e0af57339b19 cosim-GREEN	default
+rv64uzbkb-v-packw	PASS	cosim-v	5/18			65	659071779	(65s) order=b936c51341a1 cosim-GREEN	default
+rv64uzbkx-v-xperm4	PASS	cosim-v	6/18			97	836373788	(97s) order=51e58699d9c2 cosim-GREEN	default
+rv64uzbkx-v-xperm8	PASS	cosim-v	7/18			92	431282001	(92s) order=25787f2ac6ec cosim-GREEN	default
+rv64uzbs-v-bclr	PASS	cosim-v	8/18			96	497043622	(96s) order=8fa580bb86a0 cosim-GREEN	default
+rv64uzbs-v-bclri	PASS	cosim-v	9/18			66	465356936	(66s) order=0044092eb2bc cosim-GREEN	default
+rv64uzbs-v-bext	PASS	cosim-v	10/18			99	79248031	(99s) order=2a23473c649b cosim-GREEN	default
+rv64uzbs-v-bexti	PASS	cosim-v	11/18			64	929493393	(64s) order=6ae113818c09 cosim-GREEN	default
+rv64uzbs-v-binv	PASS	cosim-v	12/18			103	469488750	(103s) order=3cb230a24900 cosim-GREEN	default
+rv64uzbs-v-binvi	PASS	cosim-v	13/18			60	328576447	(60s) order=c72ad2fc1523 cosim-GREEN	default
+rv64uzbs-v-bset	PASS	cosim-v	14/18			80	312389302	(80s) order=42eb93d50637 cosim-GREEN	default
+rv64uzbs-v-bseti	PASS	cosim-v	15/18			54	935379596	(54s) order=5483502ee6bc cosim-GREEN	default
+rv64uzfh-v-fadd	PASS	cosim-v	16/18			75	53916890	(75s) order=f1ba451bfba1 cosim-GREEN	default
+rv64uzfh-v-fclass	PASS	cosim-v	17/18			53	780198337	(53s) order=6b2425038b99 cosim-GREEN	default
+rv64uzfh-v-fcmp	PASS	cosim-v	18/18			92	632498029	(92s) order=b7145e5ba4a1 cosim-GREEN	default
+rv64uzfh-v-fcvt	PASS	cosim-v	1/18			95	239316538	(95s) order=4541d5d046fd cosim-GREEN	default
+rv64uzfh-v-fcvt_w	PASS	cosim-v	2/18			135	523675630	(135s) order=2f8b98dd4de3 cosim-GREEN	default
+rv64uzfh-v-fdiv	PASS	cosim-v	3/18			92	507308848	(92s) order=73ae8405f606 cosim-GREEN	default
+rv64uzfh-v-fmadd	PASS	cosim-v	4/18			88	760712388	(88s) order=7c94ad90dcb4 cosim-GREEN	default
+rv64uzfh-v-fmin	PASS	cosim-v	5/18			73	389549264	(73s) order=9e8c71e5237e cosim-GREEN	default
+rv64uzfh-v-ldst	PASS	cosim-v	6/18			71	157432381	(71s) order=45d5e163b9ce cosim-GREEN	default
+rv64uzfh-v-move	PASS	cosim-v	7/18			50	145528183	(50s) order=fbe92ab9fd72 cosim-GREEN	default
+rv64uzfh-v-recoding	PASS	cosim-v	8/18			93	356146202	(93s) order=175cf8267c06 cosim-GREEN	default
+rv64uzicond-v-czero_eqz	PASS	cosim-v	9/18			60	335938425	(60s) order=090f99150e7d cosim-GREEN	default
+rv64uzicond-v-czero_nez	PASS	cosim-v	10/18			47	602943230	(47s) order=c1876b25e33e cosim-GREEN	default
+hypervisor-p-2-stage_translation	PASS	p-	none		1059	7	937830054	(7s) cyc=1059 order=beb4a9419f8c	default
+hypervisor-p-2-stage_translation_implicit_load_error	PASS	p-	none		1303	8	585537748	(8s) cyc=1303 order=c58cd020810d	default
+hypervisor-p-2-stage_translation_implicit_load_error_hs	PASS	p-	none		1460	9	210184469	(9s) cyc=1460 order=317068deab40	default
+hypervisor-svadu-p-2-stage_translation_implicit_store_error	PASS	p-	none		1417	9	580729656	(9s) cyc=1417 order=2da035a64e6d	default
+hypervisor-svadu-p-2-stage_translation_implicit_store_error_hs	PASS	p-	none		1609	9	666333651	(9s) cyc=1609 order=1fb4a3e02335	default
+rv64mi-p-breakpoint	PASS	p-	none		2280	12	339638032	(12s) cyc=2280 order=47d6aa91fd10	default
+rv64mi-p-csr	PASS	p-	none		2254	12	18042459	(12s) cyc=2254 order=4cfea0bca616	default
+rv64mi-p-illegal	PASS	p-	none		2688	14	36492441	(14s) cyc=2688 order=5dd5de4fe8ad	default
+rv64mi-p-instret_overflow	PASS	p-	none		813	5	817952539	(5s) cyc=813 order=d15ecd026273	default
+rv64mi-p-ld-misaligned	PASS	p-	none		1056	7	904251592	(7s) cyc=1056 order=018da196697f	default
+rv64mi-p-lh-misaligned	PASS	p-	none		793	5	81200431	(5s) cyc=793 order=90d7e6d49d70	default
+rv64mi-p-lw-misaligned	PASS	p-	none		843	6	633436212	(6s) cyc=843 order=43da2ff3278e	default
+rv64mi-p-ma_addr	PASS	p-	none		1182	6	674301103	(6s) cyc=1182 order=306658dd8dbb	default
+rv64mi-p-ma_fetch	PASS	p-	none		1174	6	26822359	(6s) cyc=1174 order=392a1fa6729a	default
+rv64mi-p-mcsr	PASS	p-	none		910	5	257928752	(5s) cyc=910 order=46726424ca9e	default
+rv64mi-p-pmpaddr	PASS	p-	none		729	4	285677818	(4s) cyc=729 order=0ce432d2a2d2	default
+rv64mi-p-sbreak	PASS	p-	none		829	6	642429749	(6s) cyc=829 order=5eed8c2c1eaa	default
+rv64mi-p-scall	PASS	p-	none		808	5	876722686	(5s) cyc=808 order=b2d8ad9e9304	default
+rv64mi-p-sd-misaligned	PASS	p-	none		1140	7	610073212	(7s) cyc=1140 order=847d1e219055	default
+rv64mi-p-sh-misaligned	PASS	p-	none		811	5	81793863	(5s) cyc=811 order=0912edc32807	default
+rv64mi-p-sw-misaligned	PASS	p-	none		867	5	927549008	(5s) cyc=867 order=d142e862a078	default
+rv64mi-p-zicntr	PASS	p-	none		905	5	999651396	(5s) cyc=905 order=80fbc33b5de5	default
+rv64mzicbo-p-zero	PASS	p-	none		851	6	106267405	(6s) cyc=851 order=18b86308d04d	default
+rv64si-p-csr	PASS	p-	none		1531	9	996145023	(9s) cyc=1531 order=b9ce3d14d689	default
+rv64si-p-dirty	PASS	p-	none		1607	9	896921731	(9s) cyc=1607 order=008266f58ebb	default
+rv64si-p-icache-alias	PASS	p-	none		1867	10	200893124	(10s) cyc=1867 order=4efdb36ac090	default
+rv64si-p-ma_fetch	PASS	p-	none		873	5	28735829	(5s) cyc=873 order=3c0cbdbcd37e	default
+rv64si-p-sbreak	PASS	p-	none		881	5	436243178	(5s) cyc=881 order=fea9bb64266e	default
+rv64si-p-scall	PASS	p-	none		939	6	446695651	(6s) cyc=939 order=699b0923e5d5	default
+rv64si-p-wfi	PASS	p-	none		803	5	985054304	(5s) cyc=803 order=3326a8972915	default
+rv64ssvnapot-p-napot	PASS	p-	none		1245	8	680435366	(8s) cyc=1245 order=9a562359a466	default
+rv64ua-p-amoadd_d	PASS	p-	none		764	5	886761531	(5s) cyc=764 order=f991dec11c35	default
+rv64ua-p-amoadd_w	PASS	p-	none		806	5	524259181	(5s) cyc=806 order=a962999c7247	default
+rv64ua-p-amoand_d	PASS	p-	none		808	5	381749307	(5s) cyc=808 order=6a9d1159a9da	default
+rv64ua-p-amoand_w	PASS	p-	none		800	5	819039618	(5s) cyc=800 order=b1c61a16c4c0	default
+rv64ua-p-amomax_d	PASS	p-	none		752	5	670844584	(5s) cyc=752 order=04798490b3a6	default
+rv64ua-p-amomax_w	PASS	p-	none		768	5	169359585	(5s) cyc=768 order=31c3572fc3f7	default
+rv64ua-p-amomaxu_d	PASS	p-	none		752	5	116167323	(5s) cyc=752 order=f7be914a27ac	default
+rv64ua-p-amomaxu_w	PASS	p-	none		768	5	682102100	(5s) cyc=768 order=112b8440eea2	default
+rv64ua-p-amomin_d	PASS	p-	none		752	5	510640792	(5s) cyc=752 order=6b5d00011f7f	default
+rv64ua-p-amomin_w	PASS	p-	none		768	5	657240	(5s) cyc=768 order=1936923a07c9	default
+rv64ua-p-amominu_d	PASS	p-	none		752	5	446383565	(5s) cyc=752 order=95573fb63088	default
+rv64ua-p-amominu_w	PASS	p-	none		768	5	796335643	(5s) cyc=768 order=3ff7ff47de3d	default
+rv64ua-p-amoor_d	PASS	p-	none		802	5	9842573	(5s) cyc=802 order=6f0bfb14fd7c	default
+rv64ua-p-amoor_w	PASS	p-	none		802	5	501726804	(5s) cyc=802 order=12a79716cc0b	default
+rv64ua-p-amoswap_d	PASS	p-	none		808	5	933353801	(5s) cyc=808 order=bce717a828bf	default
+rv64ua-p-amoswap_w	PASS	p-	none		800	5	282451600	(5s) cyc=800 order=2073a86bd8e4	default
+rv64ua-p-amoxor_d	PASS	p-	none		814	5	496207358	(5s) cyc=814 order=73b625c07d4f	default
+rv64ua-p-amoxor_w	PASS	p-	none		822	6	981011397	(6s) cyc=822 order=eda5189828f5	default
+rv64ua-p-lrsc	PASS	p-	none		16338	73	416463603	(73s) cyc=16338 order=623919ef1c89	default
+rv64uc-p-rvc	PASS	p-	none		1148	7	181459805	(7s) cyc=1148 order=107293e72ace	default
+rv64ud-p-fadd	PASS	p-	none		1321	8	14484561	(8s) cyc=1321 order=e509f5e017ec	default
+rv64ud-p-fclass	PASS	p-	none		880	5	757116148	(5s) cyc=880 order=3108bc825391	default
+rv64ud-p-fcmp	PASS	p-	none		1505	8	447055764	(8s) cyc=1505 order=67cb09b3aedf	default
+rv64ud-p-fcvt	PASS	p-	none		1219	8	709015987	(8s) cyc=1219 order=4489cb2f920f	default
+rv64ud-p-fcvt_w	PASS	p-	none		2585	14	23759193	(14s) cyc=2585 order=2a2992909438	default
+rv64ud-p-fdiv	PASS	p-	none		1191	7	421047134	(7s) cyc=1191 order=8975f9c203f8	default
+rv64ud-p-fmadd	PASS	p-	none		1437	8	616972034	(8s) cyc=1437 order=e26db5a7bb72	default
+rv64ud-p-fmin	PASS	p-	none		1777	9	384329840	(9s) cyc=1777 order=c9574e890a75	default
+rv64ud-p-ldst	PASS	p-	none		800	5	68975099	(5s) cyc=800 order=2d702fb63482	default
+rv64ud-p-move	PASS	p-	none		2335	12	739850863	(12s) cyc=2335 order=8e51e67e320b	default
+rv64ud-p-recoding	PASS	p-	none		855	5	288438714	(5s) cyc=855 order=3f7806c217d3	default
+rv64ud-p-structural	PASS	p-	none		1315	8	64403480	(8s) cyc=1315 order=977d909b04f9	default
+rv64uf-p-fadd	PASS	p-	none		1321	8	473404659	(8s) cyc=1321 order=3cbe6cbba182	default
+rv64uf-p-fclass	PASS	p-	none		864	6	987639659	(6s) cyc=864 order=fc316d4af8cf	default
+rv64uf-p-fcmp	PASS	p-	none		1505	8	971357887	(8s) cyc=1505 order=8ca6719b3671	default
+rv64uf-p-fcvt	PASS	p-	none		1049	6	380773017	(6s) cyc=1049 order=395aff4e1180	default
+rv64uf-p-fcvt_w	PASS	p-	none		2340	13	716372231	(13s) cyc=2340 order=e1b10dcf6584	default
+rv64uf-p-fdiv	PASS	p-	none		1137	7	871575022	(7s) cyc=1137 order=8e13d4bc48e2	default
+rv64uf-p-fmadd	PASS	p-	none		1437	9	698778683	(9s) cyc=1437 order=a03c4aaceefe	default
+rv64uf-p-fmin	PASS	p-	none		1777	10	72897492	(10s) cyc=1777 order=0129717bb81a	default
+rv64uf-p-ldst	PASS	p-	none		814	5	323443010	(5s) cyc=814 order=24cd4452bb50	default
+rv64uf-p-move	PASS	p-	none		1310	7	985934820	(7s) cyc=1310 order=d86794aa67b9	default
+rv64uf-p-recoding	PASS	p-	none		808	5	152944472	(5s) cyc=808 order=eb1de9138c13	default
+rv64ui-p-add	PASS	p-	none		2140	11	177077493	(11s) cyc=2140 order=1db4b9d400ed	default
+rv64ui-p-addi	PASS	p-	none		1322	7	863675851	(7s) cyc=1322 order=314a46cd2a98	default
+rv64ui-p-addiw	PASS	p-	none		1316	8	861305925	(8s) cyc=1316 order=59b28116437e	default
+rv64ui-p-addw	PASS	p-	none		2132	11	862674682	(11s) cyc=2132 order=9f505cede928	default
+rv64ui-p-and	PASS	p-	none		2292	12	989656074	(12s) cyc=2292 order=d5935094b0b2	default
+rv64ui-p-andi	PASS	p-	none		1290	7	834986015	(7s) cyc=1290 order=25ab87b4aa00	default
+rv64ui-p-auipc	PASS	p-	none		701	5	457101592	(5s) cyc=701 order=89163df1a089	default
+rv64ui-p-beq	PASS	p-	none		1851	10	543927169	(10s) cyc=1851 order=fea2e72afc7c	default
+rv64ui-p-bge	PASS	p-	none		1988	11	835326748	(11s) cyc=1988 order=d959ce05366d	default
+rv64ui-p-bgeu	PASS	p-	none		2252	12	295349604	(12s) cyc=2252 order=480399f32052	default
+rv64ui-p-blt	PASS	p-	none		1853	10	827715625	(10s) cyc=1853 order=8d1079767aa1	default
+rv64ui-p-bltu	PASS	p-	none		2108	11	404085447	(11s) cyc=2108 order=da802fa67527	default
+rv64ui-p-bne	PASS	p-	none		1873	10	615336575	(10s) cyc=1873 order=cf986a326d9e	default
+rv64ui-p-fence_i	PASS	p-	none		1694	9	27617433	(9s) cyc=1694 order=b5be59a37772	default
+rv64ui-p-jal	PASS	p-	none		714	5	393015192	(5s) cyc=714 order=826c27f0bfe0	default
+rv64ui-p-jalr	PASS	p-	none		1395	8	607151691	(8s) cyc=1395 order=5131170508c3	default
+rv64ui-p-lb	PASS	p-	none		1364	8	427068309	(8s) cyc=1364 order=c5be6b3bbe6f	default
+rv64ui-p-lbu	PASS	p-	none		1364	8	85720158	(8s) cyc=1364 order=d2e0b148247b	default
+rv64ui-p-ld	PASS	p-	none		1742	10	75096806	(10s) cyc=1742 order=f4511e506670	default
+rv64ui-p-ld_st	PASS	p-	none		4779	22	77369196	(22s) cyc=4779 order=f8cc49bc694c	default
+rv64ui-p-lh	PASS	p-	none		1386	8	1957602	(8s) cyc=1386 order=dd37bae8c15b	default
+rv64ui-p-lhu	PASS	p-	none		1408	8	271568692	(8s) cyc=1408 order=a9fd01eabc8d	default
+rv64ui-p-lui	PASS	p-	none		756	5	380087382	(5s) cyc=756 order=317967ca1578	default
+rv64ui-p-lw	PASS	p-	none		1416	8	496693421	(8s) cyc=1416 order=0ad7152134c3	default
+rv64ui-p-lwu	PASS	p-	none		1466	8	965178256	(8s) cyc=1466 order=1eda079c90ca	default
+rv64ui-p-ma_data	PASS	p-	none		10346	48	815740045	(48s) cyc=10346 order=6d0ecc175762	default
+rv64ui-p-or	PASS	p-	none		2352	12	664564255	(12s) cyc=2352 order=13f91bf36bbe	default
+rv64ui-p-ori	PASS	p-	none		1280	8	799467622	(8s) cyc=1280 order=9680cfcb7974	default
+rv64ui-p-sb	PASS	p-	none		1944	10	599258466	(10s) cyc=1944 order=3a6dbce8eb83	default
+rv64ui-p-sd	PASS	p-	none		2314	12	372636075	(12s) cyc=2314 order=94c0b0b2e428	default
+rv64ui-p-sh	PASS	p-	none		2004	11	241351189	(11s) cyc=2004 order=a19ef06b9d54	default
+rv64ui-p-simple	PASS	p-	none		680	5	197204455	(5s) cyc=680 order=4ff554df8c86	default
+rv64ui-p-sll	PASS	p-	none		2268	12	893824755	(12s) cyc=2268 order=89a0d937617f	default
+rv64ui-p-slli	PASS	p-	none		1372	7	428000936	(7s) cyc=1372 order=0079787af364	default
+rv64ui-p-slliw	PASS	p-	none		1378	7	191379594	(7s) cyc=1378 order=6ea595c76f41	default
+rv64ui-p-sllw	PASS	p-	none		2266	12	589126650	(12s) cyc=2266 order=1cd78e6b3792	default
+rv64ui-p-slt	PASS	p-	none		2120	12	475830557	(12s) cyc=2120 order=347fbbd0bdb3	default
+rv64ui-p-slti	PASS	p-	none		1308	7	171403888	(7s) cyc=1308 order=eef62180db3d	default
+rv64ui-p-sltiu	PASS	p-	none		1308	8	346682366	(8s) cyc=1308 order=c41ffd82dd12	default
+rv64ui-p-sltu	PASS	p-	none		2158	12	152026703	(12s) cyc=2158 order=c4989e806d46	default
+rv64ui-p-sra	PASS	p-	none		2218	12	50465119	(12s) cyc=2218 order=47313fc7ae4c	default
+rv64ui-p-srai	PASS	p-	none		1350	7	317930489	(7s) cyc=1350 order=d46fcd28af2d	default
+rv64ui-p-sraiw	PASS	p-	none		1444	8	583614309	(8s) cyc=1444 order=6c0256e40f75	default
+rv64ui-p-sraw	PASS	p-	none		2290	12	408362725	(12s) cyc=2290 order=e490fbbd498b	default
+rv64ui-p-srl	PASS	p-	none		2292	12	236432454	(12s) cyc=2292 order=5be66d777a2c	default
+rv64ui-p-srli	PASS	p-	none		1390	8	187449754	(8s) cyc=1390 order=b1f84a6dd737	default
+rv64ui-p-srliw	PASS	p-	none		1398	8	82174479	(8s) cyc=1398 order=ae80d6ade5dc	default
+rv64ui-p-srlw	PASS	p-	none		2278	12	536734020	(12s) cyc=2278 order=1a552b4b4f22	default
+rv64ui-p-st_ld	PASS	p-	none		1678	9	206702766	(9s) cyc=1678 order=617e99627f8f	default
+rv64ui-p-sub	PASS	p-	none		2126	11	809294636	(11s) cyc=2126 order=1da071b2303c	default
+rv64ui-p-subw	PASS	p-	none		2118	11	762452483	(11s) cyc=2118 order=dee7dedb3b7a	default
+rv64ui-p-sw	PASS	p-	none		2040	11	861308914	(11s) cyc=2040 order=22ccacbf5055	default
+rv64ui-p-xor	PASS	p-	none		2346	12	571835119	(12s) cyc=2346 order=bf0644b4e709	default
+rv64ui-p-xori	PASS	p-	none		1280	7	673762122	(7s) cyc=1280 order=c35127421665	default
+rv64um-p-div	PASS	p-	none		842	5	22653785	(5s) cyc=842 order=a846e9e79721	default
+rv64um-p-divu	PASS	p-	none		842	6	121036906	(6s) cyc=842 order=d8004f022c88	default
+rv64um-p-divuw	PASS	p-	none		830	6	948921873	(6s) cyc=830 order=789c0dac0faf	default
+rv64um-p-divw	PASS	p-	none		826	5	808378983	(5s) cyc=826 order=4af5dfc68463	default
+rv64um-p-mul	PASS	p-	none		2128	11	934658041	(11s) cyc=2128 order=5536da77659e	default
+rv64um-p-mulh	PASS	p-	none		2158	12	465467078	(12s) cyc=2158 order=45950539cc74	default
+rv64um-p-mulhsu	PASS	p-	none		2158	11	128897108	(11s) cyc=2158 order=5796650a626e	default
+rv64um-p-mulhu	PASS	p-	none		2218	12	391356564	(12s) cyc=2218 order=d75852393044	default
+rv64um-p-mulw	PASS	p-	none		2018	11	28985549	(11s) cyc=2018 order=7c574d8893f4	default
+rv64um-p-rem	PASS	p-	none		826	5	509533244	(5s) cyc=826 order=10d20f7f1008	default
+rv64um-p-remu	PASS	p-	none		828	5	721261491	(5s) cyc=828 order=8fb7db5f0e99	default
+rv64um-p-remuw	PASS	p-	none		818	5	391074355	(5s) cyc=818 order=51c4a24c36be	default
+rv64um-p-remw	PASS	p-	none		826	5	39956926	(5s) cyc=826 order=40bd293f9898	default
+rv64uzba-p-add_uw	PASS	p-	none		2150	11	817801034	(11s) cyc=2150 order=6ded843b31e8	default
+rv64uzba-p-sh1add	PASS	p-	none		2156	12	841522809	(12s) cyc=2156 order=71756924ee43	default
+rv64uzba-p-sh1add_uw	PASS	p-	none		2164	11	684817958	(11s) cyc=2164 order=70dbbed1144f	default
+rv64uzba-p-sh2add	PASS	p-	none		2156	11	416222662	(11s) cyc=2156 order=983cc8fc292f	default
+rv64uzba-p-sh2add_uw	PASS	p-	none		2164	12	437851985	(12s) cyc=2164 order=3fa72bcc738f	default
+rv64uzba-p-sh3add	PASS	p-	none		2156	11	225375562	(11s) cyc=2156 order=c6d83dda474a	default
+rv64uzba-p-sh3add_uw	PASS	p-	none		2164	11	115122308	(11s) cyc=2164 order=ed8561867bc5	default
+rv64uzba-p-slli_uw	PASS	p-	none		1394	8	774014486	(8s) cyc=1394 order=47f1071a478b	default
+rv64uzbb-p-andn	PASS	p-	none		2336	12	181155414	(12s) cyc=2336 order=1b3081cc3d51	default
+rv64uzbb-p-clz	PASS	p-	none		1188	7	390781084	(7s) cyc=1188 order=181c574ebd34	default
+rv64uzbb-p-clzw	PASS	p-	none		1158	7	937600865	(7s) cyc=1158 order=db6d17969b67	default
+rv64uzbb-p-cpop	PASS	p-	none		1188	7	636718623	(7s) cyc=1188 order=c1e967569002	default
+rv64uzbb-p-cpopw	PASS	p-	none		1158	6	159959398	(6s) cyc=1158 order=7c47dd56311e	default
+rv64uzbb-p-ctz	PASS	p-	none		1188	7	76496084	(7s) cyc=1188 order=bf37e4d016ca	default
+rv64uzbb-p-ctzw	PASS	p-	none		1158	7	831058874	(7s) cyc=1158 order=0f48c5add505	default
+rv64uzbb-p-max	PASS	p-	none		2130	11	967003831	(11s) cyc=2130 order=6747478c8079	default
+rv64uzbb-p-maxu	PASS	p-	none		2188	11	785443131	(11s) cyc=2188 order=1b0906103299	default
+rv64uzbb-p-min	PASS	p-	none		2122	11	846882600	(11s) cyc=2122 order=24b279a094e6	default
+rv64uzbb-p-minu	PASS	p-	none		2170	11	167250458	(11s) cyc=2170 order=a3a1263b907a	default
+rv64uzbb-p-orc_b	PASS	p-	none		1230	7	339102848	(7s) cyc=1230 order=0116bc6e8e2b	default
+rv64uzbb-p-orn	PASS	p-	none		2356	12	347311166	(12s) cyc=2356 order=9271676a1de9	default
+rv64uzbb-p-rev8	PASS	p-	none		1266	7	499698405	(7s) cyc=1266 order=cb84680065ed	default
+rv64uzbb-p-rol	PASS	p-	none		2278	12	988644994	(12s) cyc=2278 order=13b079521d4a	default
+rv64uzbb-p-rolw	PASS	p-	none		2274	12	929176811	(12s) cyc=2274 order=43ec2de50046	default
+rv64uzbb-p-ror	PASS	p-	none		2334	13	733507173	(13s) cyc=2334 order=e7b229f478ae	default
+rv64uzbb-p-rori	PASS	p-	none		1406	8	400533816	(8s) cyc=1406 order=9f3e2b3ed45a	default
+rv64uzbb-p-roriw	PASS	p-	none		1318	7	558384107	(7s) cyc=1318 order=4002de0ae6cd	default
+rv64uzbb-p-rorw	PASS	p-	none		2202	12	321622426	(12s) cyc=2202 order=c16b6b8a4d1b	default
+rv64uzbb-p-sext_b	PASS	p-	none		1188	7	688057300	(7s) cyc=1188 order=2333165731ed	default
+rv64uzbb-p-sext_h	PASS	p-	none		1194	7	311279279	(7s) cyc=1194 order=c4175ff6d85e	default
+rv64uzbb-p-xnor	PASS	p-	none		2354	12	248249735	(12s) cyc=2354 order=fb7ef0a34792	default
+rv64uzbb-p-zext_h	PASS	p-	none		1200	6	381137470	(6s) cyc=1200 order=36aa9231f5ab	default
+rv64uzbc-p-clmul	PASS	p-	none		2130	11	965951136	(11s) cyc=2130 order=53d4d28b39e5	default
+rv64uzbc-p-clmulh	PASS	p-	none		2140	11	280927080	(11s) cyc=2140 order=05b32594fa00	default
+rv64uzbc-p-clmulr	PASS	p-	none		2136	12	728358306	(12s) cyc=2136 order=cd1b00ad1810	default
+rv64uzbkb-p-brev8	PASS	p-	none		1218	7	335173136	(7s) cyc=1218 order=1b558e850d91	default
+rv64uzbkb-p-pack	PASS	p-	none		2588	13	942043763	(13s) cyc=2588 order=047d21e3b0b8	default
+rv64uzbkb-p-packh	PASS	p-	none		2258	12	804822818	(12s) cyc=2258 order=c9e893cdb0f7	default
+rv64uzbkb-p-packw	PASS	p-	none		2128	12	693820152	(12s) cyc=2128 order=4243b3379919	default
+rv64uzbkx-p-xperm4	PASS	p-	none		2428	12	177525846	(12s) cyc=2428 order=a0b05a140816	default
+rv64uzbkx-p-xperm8	PASS	p-	none		3276	17	882805119	(17s) cyc=3276 order=a2395cc9e2fe	default
+rv64uzbs-p-bclr	PASS	p-	none		2474	13	733545512	(13s) cyc=2474 order=f58305bd7dda	default
+rv64uzbs-p-bclri	PASS	p-	none		1462	8	888535092	(8s) cyc=1462 order=259bf477127c	default
+rv64uzbs-p-bext	PASS	p-	none		2340	12	67674898	(12s) cyc=2340 order=c57b7ee4b0f1	default
+rv64uzbs-p-bexti	PASS	p-	none		1396	7	878969942	(7s) cyc=1396 order=e07d542a1942	default
+rv64uzbs-p-binv	PASS	p-	none		2308	12	677170228	(12s) cyc=2308 order=550e4c58cec0	default
+rv64uzbs-p-binvi	PASS	p-	none		1400	7	152661890	(7s) cyc=1400 order=8640a4f719e9	default
+rv64uzbs-p-bset	PASS	p-	none		2478	13	637950318	(13s) cyc=2478 order=ebafe44d48e0	default
+rv64uzbs-p-bseti	PASS	p-	none		1476	9	540902599	(9s) cyc=1476 order=947fe3cbcbb8	default
+rv64uzfh-p-fadd	PASS	p-	none		1321	8	393732049	(8s) cyc=1321 order=24c162f1e817	default
+rv64uzfh-p-fclass	PASS	p-	none		866	5	24910890	(5s) cyc=866 order=12d81dc7a1c4	default
+rv64uzfh-p-fcmp	PASS	p-	none		1055	6	889254940	(6s) cyc=1055 order=004ddaedeff4	default
+rv64uzfh-p-fcvt	PASS	p-	none		1189	8	480073291	(8s) cyc=1189 order=0a289b414081	default
+rv64uzfh-p-fcvt_w	PASS	p-	none		2340	13	756030469	(13s) cyc=2340 order=54dd8a4357b4	default
+rv64uzfh-p-fdiv	PASS	p-	none		1137	6	987103437	(6s) cyc=1137 order=18ac3143c070	default
+rv64uzfh-p-fmadd	PASS	p-	none		1437	8	712538485	(8s) cyc=1437 order=21a25e9148fc	default
+rv64uzfh-p-fmin	PASS	p-	none		1777	9	805545232	(9s) cyc=1777 order=b3fa4d9b7c95	default
+rv64uzfh-p-ldst	PASS	p-	none		830	6	563351442	(6s) cyc=830 order=6aec67e93db9	default
+rv64uzfh-p-move	PASS	p-	none		1309	7	892737255	(7s) cyc=1309 order=abbb246f9d8f	default
+rv64uzfh-p-recoding	PASS	p-	none		808	5	280411957	(5s) cyc=808 order=923e755f41ee	default
+rv64uziccid-p-ziccid	PASS	p-	none		7137	23	973706130	(23s) cyc=7137 order=e23ea43fb481	default
+rv64uzicond-p-czero_eqz	PASS	p-	none		2064	8	80536587	(8s) cyc=2064 order=420559b06ea2	default
+rv64uzicond-p-czero_nez	PASS	p-	none		2064	9	984740392	(9s) cyc=2064 order=3a8551fafea1	default
+rv64ua-v-amoadd_d	PASS	v-	15/18		21104	114	65676461	(114s) cyc=21104 order=b07697ba04f8	default
+rv64ua-v-amoadd_w	PASS	v-	16/18		21066	98	911931880	(98s) cyc=21066 order=ec4029493e6b	default
+rv64ua-v-amoand_d	PASS	v-	17/18		21060	99	145114947	(99s) cyc=21060 order=76d45f1f6e09	default
+rv64ua-v-amoand_w	PASS	v-	18/18		21082	96	587550992	(96s) cyc=21082 order=3a5ee36ad964	default
+rv64ua-v-amomax_d	PASS	v-	1/18		21052	111	694543262	(111s) cyc=21052 order=6f89724ea4a9	default
+rv64ua-v-amomax_w	PASS	v-	4/18		21056	112	198815416	(112s) cyc=21056 order=10d178dbec12	default
+rv64ua-v-amomaxu_d	PASS	v-	2/18		21052	98	365049943	(98s) cyc=21052 order=ff01ea3dd079	default
+rv64ua-v-amomaxu_w	PASS	v-	3/18		21056	117	797570668	(117s) cyc=21056 order=07dd2bc33373	default
+rv64ua-v-amomin_d	PASS	v-	5/18		21052	87	829245599	(87s) cyc=21052 order=f9e5573b6754	default
+rv64ua-v-amomin_w	PASS	v-	8/18		21097	95	444019557	(95s) cyc=21097 order=984b30aa9b98	default
+rv64ua-v-amominu_d	PASS	v-	6/18		21116	97	665077762	(97s) cyc=21116 order=d012f75e1005	default
+rv64ua-v-amominu_w	PASS	v-	7/18		21119	89	826032747	(89s) cyc=21119 order=c5b6f3777448	default
+rv64ua-v-amoor_d	PASS	v-	9/18		21017	85	797426108	(85s) cyc=21017 order=639b67e9f8f8	default
+rv64ua-v-amoor_w	PASS	v-	10/18		21018	96	552907561	(96s) cyc=21018 order=9a534cd4b52c	default
+rv64ua-v-amoswap_d	PASS	v-	11/18		21061	111	499341696	(111s) cyc=21061 order=fa207cd15773	default
+rv64ua-v-amoswap_w	PASS	v-	12/18		21081	113	850112986	(113s) cyc=21081 order=b3a30cf51c56	default
+rv64ua-v-amoxor_d	PASS	v-	13/18		21037	95	3570392	(95s) cyc=21037 order=520c80d0c1eb	default
+rv64ua-v-amoxor_w	PASS	v-	14/18		21003	95	432617128	(95s) cyc=21003 order=793a1a176b95	default
+rv64ua-v-lrsc	PASS	v-	15/18		36147	174	765271327	(174s) cyc=36147 order=1f8bb7a8da6f	default
+rv64uc-v-rvc	PASS	v-	14/18		29128	132	878679092	(132s) cyc=29128 order=85b367775cd6	default
+rv64ud-v-fadd	PASS	v-	9/18		20514	85	204908849	(85s) cyc=20514 order=85286c1a9abb	default
+rv64ud-v-fclass	PASS	v-	10/18		11949	56	449694556	(56s) cyc=11949 order=a2e01ac6b6f3	default
+rv64ud-v-fcmp	PASS	v-	11/18		20681	111	942202793	(111s) cyc=20681 order=e4668dc5f328	default
+rv64ud-v-fcvt	PASS	v-	12/18		20305	110	73637965	(110s) cyc=20305 order=da00478d0076	default
+rv64ud-v-fcvt_w	PASS	v-	13/18		29818	119	620243699	(119s) cyc=29818 order=5641f89d1bc1	default
+rv64ud-v-fdiv	PASS	v-	14/18		20385	93	715451764	(93s) cyc=20385 order=5aa1c0f8c010	default
+rv64ud-v-fmadd	PASS	v-	15/18		20677	112	606583171	(112s) cyc=20677 order=600df303f5db	default
+rv64ud-v-fmin	PASS	v-	16/18		21000	97	67717026	(97s) cyc=21000 order=9fc709f7bf0c	default
+rv64ud-v-ldst	PASS	v-	17/18		20947	82	230350063	(82s) cyc=20947 order=1a8f7c615b60	default
+rv64ud-v-move	PASS	v-	18/18		21575	100	32991936	(100s) cyc=21575 order=5cec4e17a4d1	default
+rv64ud-v-recoding	PASS	v-	1/18		21004	111	771051175	(111s) cyc=21004 order=a8c0d0a59c80	default
+rv64ud-v-structural	PASS	v-	2/18		12393	59	554440465	(59s) cyc=12393 order=68f66edd084c	default
+rv64uf-v-fadd	PASS	v-	16/18		20514	96	125084453	(96s) cyc=20514 order=eac0808cca96	default
+rv64uf-v-fclass	PASS	v-	17/18		11934	56	410965304	(56s) cyc=11934 order=7e439ed98c2e	default
+rv64uf-v-fcmp	PASS	v-	18/18		20681	95	376251529	(95s) cyc=20681 order=a7de4e923f18	default
+rv64uf-v-fcvt	PASS	v-	1/18		20134	112	511198790	(112s) cyc=20134 order=39d2417b4860	default
+rv64uf-v-fcvt_w	PASS	v-	2/18		29605	132	88119021	(132s) cyc=29605 order=a31615f42abe	default
+rv64uf-v-fdiv	PASS	v-	3/18		20355	119	308241373	(119s) cyc=20355 order=8395c9efdc23	default
+rv64uf-v-fmadd	PASS	v-	4/18		20677	113	510578188	(113s) cyc=20677 order=9755016820fc	default
+rv64uf-v-fmin	PASS	v-	5/18		21000	90	266020893	(90s) cyc=21000 order=c3d7acd8fd9f	default
+rv64uf-v-ldst	PASS	v-	6/18		21090	97	838564228	(97s) cyc=21090 order=8d9ca20d82fd	default
+rv64uf-v-move	PASS	v-	7/18		12369	55	447812444	(55s) cyc=12369 order=002e8c9361ca	default
+rv64uf-v-recoding	PASS	v-	8/18		19980	92	133309806	(92s) cyc=19980 order=26b981d80a58	default
+rv64ui-v-add	PASS	v-	1/18		13254	73	180731854	(73s) cyc=13254 order=62bd4df6a8e7	default
+rv64ui-v-addi	PASS	v-	2/18		12395	61	473893084	(61s) cyc=12395 order=0c8e878e4d93	default
+rv64ui-v-addiw	PASS	v-	3/18		12396	71	413678205	(71s) cyc=12396 order=2c7da063c0b4	default
+rv64ui-v-addw	PASS	v-	4/18		13246	73	364322951	(73s) cyc=13246 order=9e3b20f98d23	default
+rv64ui-v-and	PASS	v-	7/18		13495	57	208022344	(57s) cyc=13495 order=2a5c895e8eb0	default
+rv64ui-v-andi	PASS	v-	8/18		12458	59	282653138	(59s) cyc=12458 order=78c258f209e6	default
+rv64ui-v-auipc	PASS	v-	12/18		11815	66	820577629	(66s) cyc=11815 order=f6d45a84d4b8	default
+rv64ui-v-beq	PASS	v-	13/18		12878	62	618799688	(62s) cyc=12878 order=317ba769992b	default
+rv64ui-v-bge	PASS	v-	14/18		13010	62	401109502	(62s) cyc=13010 order=d51ae7d333d8	default
+rv64ui-v-bgeu	PASS	v-	15/18		13286	74	739614452	(74s) cyc=13286 order=243b00c0ebf1	default
+rv64ui-v-blt	PASS	v-	16/18		12879	63	704979089	(63s) cyc=12879 order=1737f5e65720	default
+rv64ui-v-bltu	PASS	v-	17/18		13137	64	771339828	(64s) cyc=13137 order=998dc54872dd	default
+rv64ui-v-bne	PASS	v-	18/18		12887	61	559764988	(61s) cyc=12887 order=b67d6b6dec6a	default
+rv64ui-v-fence_i	PASS	v-	17/18		21858	101	752615475	(101s) cyc=21858 order=33f207305a38	default
+rv64ui-v-jal	PASS	v-	1/18		11817	65	863975032	(65s) cyc=11817 order=b68ec8c7adbe	default
+rv64ui-v-jalr	PASS	v-	2/18		12246	60	786090625	(60s) cyc=12246 order=5ee1fe2ac4e0	default
+rv64ui-v-lb	PASS	v-	3/18		20660	119	131095356	(119s) cyc=20660 order=6a88ae8a1db9	default
+rv64ui-v-lbu	PASS	v-	4/18		20630	114	886451231	(114s) cyc=20630 order=f335629a86d0	default
+rv64ui-v-ld	PASS	v-	9/18		21104	84	506943774	(84s) cyc=21104 order=d5b63f3a588d	default
+rv64ui-v-ld_st	PASS	v-	14/18		40031	181	292355676	(181s) cyc=40031 order=51f1364ae72b	default
+rv64ui-v-lh	PASS	v-	5/18		20683	94	772680789	(94s) cyc=20683 order=f113a56233b7	default
+rv64ui-v-lhu	PASS	v-	6/18		20748	97	913782373	(97s) cyc=20748 order=96df66372307	default
+rv64ui-v-lui	PASS	v-	11/18		11867	65	987312031	(65s) cyc=11867 order=6bd3b840a928	default
+rv64ui-v-lw	PASS	v-	7/18		20664	90	880831879	(90s) cyc=20664 order=7d9a071286d5	default
+rv64ui-v-lwu	PASS	v-	8/18		20784	97	58528642	(97s) cyc=20784 order=daf3e7882966	default
+rv64ui-v-ma_data	PASS	v-	18/18		43064	181	16677029	(181s) cyc=43064 order=14e41727104d	default
+rv64ui-v-or	PASS	v-	9/18		13571	57	870713906	(57s) cyc=13571 order=c64d0def6849	default
+rv64ui-v-ori	PASS	v-	10/18		12402	59	860478909	(59s) cyc=12402 order=aa824ecfcbe2	default
+rv64ui-v-sb	PASS	v-	10/18		22031	102	134639897	(102s) cyc=22031 order=6753f96a804d	default
+rv64ui-v-sd	PASS	v-	13/18		30499	140	508671488	(140s) cyc=30499 order=2ce48161bd61	default
+rv64ui-v-sh	PASS	v-	11/18		22128	119	442152923	(119s) cyc=22128 order=4a6968e70eeb	default
+rv64ui-v-simple	PASS	v-	16/18		11762	57	700684690	(57s) cyc=11762 order=2915edd076ae	default
+rv64ui-v-sll	PASS	v-	17/18		21399	99	206747665	(99s) cyc=21399 order=409ba1d32119	default
+rv64ui-v-slli	PASS	v-	18/18		12449	59	734359193	(59s) cyc=12449 order=4cafdccc56eb	default
+rv64ui-v-slliw	PASS	v-	1/18		12451	69	992217475	(69s) cyc=12451 order=f1bc92cbe649	default
+rv64ui-v-sllw	PASS	v-	2/18		21394	102	942096560	(102s) cyc=21394 order=7b82a9bd197c	default
+rv64ui-v-slt	PASS	v-	13/18		13233	64	940439563	(64s) cyc=13233 order=fa60b58b75e2	default
+rv64ui-v-slti	PASS	v-	14/18		12385	58	402927142	(58s) cyc=12385 order=774f3c06f24a	default
+rv64ui-v-sltiu	PASS	v-	16/18		12384	59	79617610	(59s) cyc=12384 order=5f2e2e7cb4d5	default
+rv64ui-v-sltu	PASS	v-	15/18		13265	74	761984511	(74s) cyc=13265 order=b00064f51668	default
+rv64ui-v-sra	PASS	v-	7/18		13332	57	850828953	(57s) cyc=13332 order=4bc22d045624	default
+rv64ui-v-srai	PASS	v-	8/18		12444	58	937887146	(58s) cyc=12444 order=8ac5dd3409a9	default
+rv64ui-v-sraiw	PASS	v-	9/18		12548	52	681049362	(52s) cyc=12548 order=d29cb26d7bac	default
+rv64ui-v-sraw	PASS	v-	10/18		21379	100	155272278	(100s) cyc=21379 order=472f06d6eb1b	default
+rv64ui-v-srl	PASS	v-	3/18		21462	123	846246000	(123s) cyc=21462 order=aa77423a8c5a	default
+rv64ui-v-srli	PASS	v-	4/18		12513	70	724753422	(70s) cyc=12513 order=0f7824ea43bd	default
+rv64ui-v-srliw	PASS	v-	5/18		12478	60	164233258	(60s) cyc=12478 order=aa9555767a8a	default
+rv64ui-v-srlw	PASS	v-	6/18		21424	100	78498182	(100s) cyc=21424 order=fba58db4a949	default
+rv64ui-v-st_ld	PASS	v-	15/18		30003	162	941275430	(162s) cyc=30003 order=aa9f5a9f3231	default
+rv64ui-v-sub	PASS	v-	5/18		13239	61	292412703	(61s) cyc=13239 order=8edbf0bbf89a	default
+rv64ui-v-subw	PASS	v-	6/18		13231	63	373405895	(63s) cyc=13231 order=3f584b10c390	default
+rv64ui-v-sw	PASS	v-	12/18		22165	121	723351765	(121s) cyc=22165 order=c79f10ba86de	default
+rv64ui-v-xor	PASS	v-	11/18		13571	75	901164611	(75s) cyc=13571 order=f0f72c5fc7e2	default
+rv64ui-v-xori	PASS	v-	12/18		12407	70	239983332	(70s) cyc=12407 order=886bcf6e335c	default
+rv64um-v-div	PASS	v-	5/18		11974	57	375060865	(57s) cyc=11974 order=9e83e564c65f	default
+rv64um-v-divu	PASS	v-	6/18		12007	57	633748046	(57s) cyc=12007 order=a77bf71d8272	default
+rv64um-v-divuw	PASS	v-	11/18		11987	67	255567704	(67s) cyc=11987 order=006871441675	default
+rv64um-v-divw	PASS	v-	10/18		11953	57	161738898	(57s) cyc=11953 order=2ee62ba38204	default
+rv64um-v-mul	PASS	v-	1/18		13354	75	530783488	(75s) cyc=13354 order=ea0ad5470928	default
+rv64um-v-mulh	PASS	v-	2/18		13277	65	178449335	(65s) cyc=13277 order=8acfd658a892	default
+rv64um-v-mulhsu	PASS	v-	3/18		13277	76	467940726	(76s) cyc=13277 order=c144f0053fda	default
+rv64um-v-mulhu	PASS	v-	4/18		13337	75	800115322	(75s) cyc=13337 order=ba6a5d5c20e8	default
+rv64um-v-mulw	PASS	v-	9/18		13131	56	190343373	(56s) cyc=13131 order=9f8fa93ac7d0	default
+rv64um-v-rem	PASS	v-	7/18		11952	50	432218497	(50s) cyc=11952 order=59e9e305dec3	default
+rv64um-v-remu	PASS	v-	8/18		11957	56	6065664	(56s) cyc=11957 order=6e5b9168cdec	default
+rv64um-v-remuw	PASS	v-	13/18		11943	57	961960698	(57s) cyc=11943 order=56abe2093465	default
+rv64um-v-remw	PASS	v-	12/18		11954	68	612831288	(68s) cyc=11954 order=527e7940c6b6	default
+rv64uzba-v-add_uw	PASS	v-	3/18		13299	74	200476796	(74s) cyc=13299 order=9e47cb03048c	default
+rv64uzba-v-sh1add	PASS	v-	4/18		13303	74	272096521	(74s) cyc=13303 order=4cbc737949e9	default
+rv64uzba-v-sh1add_uw	PASS	v-	5/18		13312	57	209939740	(57s) cyc=13312 order=7a95d2adede5	default
+rv64uzba-v-sh2add	PASS	v-	6/18		13304	61	992416721	(61s) cyc=13304 order=422791de9a99	default
+rv64uzba-v-sh2add_uw	PASS	v-	7/18		13311	59	932484520	(59s) cyc=13311 order=ff3c04a0d0fd	default
+rv64uzba-v-sh3add	PASS	v-	8/18		13304	61	740852308	(61s) cyc=13304 order=c615390740d1	default
+rv64uzba-v-sh3add_uw	PASS	v-	9/18		13311	53	205848889	(53s) cyc=13311 order=76f55f36641c	default
+rv64uzba-v-slli_uw	PASS	v-	10/18		12502	58	963659485	(58s) cyc=12502 order=b9509032ae8d	default
+rv64uzbb-v-andn	PASS	v-	11/18		13589	73	450847456	(73s) cyc=13589 order=1654fdaf2f9a	default
+rv64uzbb-v-clz	PASS	v-	12/18		12324	67	878938851	(67s) cyc=12324 order=4458445a7154	default
+rv64uzbb-v-clzw	PASS	v-	13/18		12296	57	253082480	(57s) cyc=12296 order=db83283a0ef4	default
+rv64uzbb-v-cpop	PASS	v-	14/18		12324	57	826220636	(57s) cyc=12324 order=089dc75ca293	default
+rv64uzbb-v-cpopw	PASS	v-	15/18		12296	66	981723114	(66s) cyc=12296 order=d0802dbb43d9	default
+rv64uzbb-v-ctz	PASS	v-	16/18		12325	58	382260014	(58s) cyc=12325 order=4a19cb2bcf19	default
+rv64uzbb-v-ctzw	PASS	v-	17/18		12295	58	59284741	(58s) cyc=12295 order=b6648af238eb	default
+rv64uzbb-v-max	PASS	v-	18/18		13268	60	102251597	(60s) cyc=13268 order=047851644856	default
+rv64uzbb-v-maxu	PASS	v-	1/18		13327	72	976346481	(72s) cyc=13327 order=b3edfc5e9c42	default
+rv64uzbb-v-min	PASS	v-	2/18		13260	63	644931599	(63s) cyc=13260 order=87860dea6b13	default
+rv64uzbb-v-minu	PASS	v-	3/18		13304	73	745039849	(73s) cyc=13304 order=ee6b6ad2760b	default
+rv64uzbb-v-orc_b	PASS	v-	4/18		12373	67	781835866	(67s) cyc=12373 order=68718a8f7f25	default
+rv64uzbb-v-orn	PASS	v-	5/18		21634	85	680842822	(85s) cyc=21634 order=32ca4dce184f	default
+rv64uzbb-v-rev8	PASS	v-	6/18		12420	58	847171052	(58s) cyc=12420 order=5fe6c4ffc7a2	default
+rv64uzbb-v-rol	PASS	v-	7/18		21444	74	46964654	(74s) cyc=21444 order=3d2a8c4f0a0f	default
+rv64uzbb-v-rolw	PASS	v-	8/18		21466	82	652173077	(82s) cyc=21466 order=a2bd7aea3c58	default
+rv64uzbb-v-ror	PASS	v-	9/18		21566	82	264481775	(82s) cyc=21566 order=adbefd76ca36	default
+rv64uzbb-v-rori	PASS	v-	10/18		12517	57	285607369	(57s) cyc=12517 order=e2360e61bb7a	default
+rv64uzbb-v-roriw	PASS	v-	11/18		12423	67	636651842	(67s) cyc=12423 order=ab35e4c4d8fa	default
+rv64uzbb-v-rorw	PASS	v-	12/18		13391	67	728803506	(67s) cyc=13391 order=1206117d94b3	default
+rv64uzbb-v-sext_b	PASS	v-	13/18		12324	57	43025822	(57s) cyc=12324 order=236792b19833	default
+rv64uzbb-v-sext_h	PASS	v-	14/18		12334	45	695670354	(45s) cyc=12334 order=043748098aa3	default
+rv64uzbb-v-xnor	PASS	v-	15/18		21635	95	533876437	(95s) cyc=21635 order=42d04fcc9111	default
+rv64uzbb-v-zext_h	PASS	v-	16/18		12343	57	962003932	(57s) cyc=12343 order=f9999f03346a	default
+rv64uzbc-v-clmul	PASS	v-	17/18		13358	62	367526320	(62s) cyc=13358 order=426cb134c7cd	default
+rv64uzbc-v-clmulh	PASS	v-	18/18		13367	48	874187810	(48s) cyc=13367 order=4f5552d0d7ef	default
+rv64uzbc-v-clmulr	PASS	v-	1/18		13363	58	90934732	(58s) cyc=13363 order=58451b7d0b19	default
+rv64uzbkb-v-brev8	PASS	v-	2/18		12381	58	940271339	(58s) cyc=12381 order=13017cdebc88	default
+rv64uzbkb-v-pack	PASS	v-	3/18		21934	79	553344443	(79s) cyc=21934 order=9c90e0bd0789	default
+rv64uzbkb-v-packh	PASS	v-	4/18		13549	59	347835602	(59s) cyc=13549 order=dd0fcdc907df	default
+rv64uzbkb-v-packw	PASS	v-	5/18		13331	56	460071182	(56s) cyc=13331 order=e3ac039f3a52	default
+rv64uzbkx-v-xperm4	PASS	v-	6/18		21703	63	619373137	(63s) cyc=21703 order=a823067e6a86	default
+rv64uzbkx-v-xperm8	PASS	v-	7/18		22599	77	242281434	(77s) cyc=22599 order=032deea58872	default
+rv64uzbs-v-bclr	PASS	v-	8/18		21720	84	280042971	(84s) cyc=21720 order=804eee058a65	default
+rv64uzbs-v-bclri	PASS	v-	9/18		12657	51	294356423	(51s) cyc=12657 order=2b1dc6ab4b69	default
+rv64uzbs-v-bext	PASS	v-	10/18		21532	77	886247459	(77s) cyc=21532 order=ec42eb4950c2	default
+rv64uzbs-v-bexti	PASS	v-	11/18		12551	56	272491422	(56s) cyc=12551 order=d9713423539d	default
+rv64uzbs-v-binv	PASS	v-	12/18		21446	87	245488078	(87s) cyc=21446 order=5a9bd8d1b8b2	default
+rv64uzbs-v-binvi	PASS	v-	13/18		12487	49	139575880	(49s) cyc=12487 order=a19b8abe2e1e	default
+rv64uzbs-v-bset	PASS	v-	14/18		21724	73	84388618	(73s) cyc=21724 order=81fc149461aa	default
+rv64uzbs-v-bseti	PASS	v-	15/18		12625	44	678378825	(44s) cyc=12625 order=0a40934faf14	default
+rv64uzfh-v-fadd	PASS	v-	16/18		20544	71	861916321	(71s) cyc=20544 order=ada806303e85	default
+rv64uzfh-v-fclass	PASS	v-	17/18		11935	49	599197794	(49s) cyc=11935 order=9f8dc9accbee	default
+rv64uzfh-v-fcmp	PASS	v-	18/18		20261	66	410497363	(66s) cyc=20261 order=76f6ba80951f	default
+rv64uzfh-v-fcvt	PASS	v-	1/18		20265	68	995315813	(68s) cyc=20265 order=6256b95e8ad7	default
+rv64uzfh-v-fcvt_w	PASS	v-	2/18		29605	87	278674895	(87s) cyc=29605 order=aa7c40e46c9a	default
+rv64uzfh-v-fdiv	PASS	v-	3/18		20325	69	240308047	(69s) cyc=20325 order=d5601bbd5ad3	default
+rv64uzfh-v-fmadd	PASS	v-	4/18		20647	68	510711638	(68s) cyc=20647 order=3c3c263d6718	default
+rv64uzfh-v-fmin	PASS	v-	5/18		21000	55	190548667	(55s) cyc=21000 order=184b3ad63bf8	default
+rv64uzfh-v-ldst	PASS	v-	6/18		21036	57	940431737	(57s) cyc=21036 order=2e3ec88b5d43	default
+rv64uzfh-v-move	PASS	v-	7/18		12385	51	956527623	(51s) cyc=12385 order=498305b61962	default
+rv64uzfh-v-recoding	PASS	v-	8/18		19950	67	139145551	(67s) cyc=19950 order=8e1a44a2018a	default
+rv64uziccid-v-ziccid	PASS	v-	11/18		158125	481	435767756	(481s) cyc=158125 order=75074da9cb40	default
+rv64uzicond-v-czero_eqz	PASS	v-	9/18		13218	34	164937912	(34s) cyc=13218 order=dcb44ddf9118	default
+rv64uzicond-v-czero_nez	PASS	v-	10/18		13283	40	409942651	(40s) cyc=13283 order=165b3d775e25	default

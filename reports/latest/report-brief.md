@@ -2,13 +2,13 @@
 
 |  |  |
 |---|---|
-| **Result** | **FAIL** -- 1 of 3986 tests not passing |
-| Run | [rain91508-cmd/pyo3-ci#45217333649](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/45217333649) |
-| Commit | `16eb1b6613` (pycpu) |
+| **Result** | **FAIL** -- 13 of 4184 tests not passing |
+| Run | [rain91508-cmd/pyo3-ci#45311573966](https://github.com/rain91508-cmd/pyo3-ci/actions/runs/45311573966) |
+| Commit | `8d9e547b31` (pycpu) |
 | Triggered by | rain91508-cmd |
-| Base seed | 1795451872, 1795451916, 1795451924, 1795451925, 1795451927, 1795451932, 1795451934, 1795451941, 1795451945, 1795451953, 1795451985, 1795451991, 1795452001, 1795452011, 1795452021, 1795452035, 1795452052, 1795452076, 1795452106, 1795452122, 1795452126, 1795452135, 1795452138, 1795452139, 1795452151, 1795452155, 1795452157, 1795452161, 1795452242, 1795452272, 1795452291, 1795452353, 1795452355, 1795452381, 1795452388, 1795452927 |
+| Base seed | 1795487179, 1795487205, 1795487234, 1795487239, 1795487248, 1795487250, 1795487252, 1795487259, 1795487260, 1795487335, 1795487338, 1795487362, 1795487368, 1795487377, 1795487379, 1795487399, 1795487404, 1795487405, 1795487415, 1795487474, 1795487476, 1795487483, 1795487500, 1795487517, 1795487526, 1795487552, 1795487558, 1795487566, 1795487569, 1795487579, 1795487588, 1795487601, 1795487644, 1795487666, 1795487762, 1795487886, 1795487905 |
 | Testbench | default |
-| Generated | 2026-11-23 17:01 UTC |
+| Generated | 2026-11-24 02:46 UTC |
 
 ## Suites
 
@@ -51,6 +51,7 @@
 | block-Testbench | none | default | 137 | 0 | 0+0 | 0 | 0 | 0 | 137 | PASS |
 | block-TlbiController | none | default | 11 | 0 | 0+0 | 0 | 0 | 0 | 11 | PASS |
 | block-WriteBack | none | default | 96 | 0 | 0+0 | 0 | 0 | 0 | 96 | PASS |
+| cosim-p | none | default | 185 | 13 | 0+0 | 0 | 0 | 0 | 198 | FAIL |
 | cosim-v | 1/18 | default | 10 | 0 | 0+0 | 0 | 0 | 0 | 10 | PASS |
 | cosim-v | 10/18 | default | 10 | 0 | 0+0 | 0 | 0 | 0 | 10 | PASS |
 | cosim-v | 11/18 | default | 9 | 0 | 0+0 | 0 | 0 | 0 | 9 | PASS |
@@ -69,7 +70,7 @@
 | cosim-v | 7/18 | default | 10 | 0 | 0+0 | 0 | 0 | 0 | 10 | PASS |
 | cosim-v | 8/18 | default | 10 | 0 | 0+0 | 0 | 0 | 0 | 10 | PASS |
 | cosim-v | 9/18 | default | 10 | 0 | 0+0 | 0 | 0 | 0 | 10 | PASS |
-| p- | none | default | 203 | 0 | 1+0 | 0 | 0 | 0 | 204 | FAIL |
+| p- | none | default | 204 | 0 | 0+0 | 0 | 0 | 0 | 204 | PASS |
 | v- | 1/18 | default | 10 | 0 | 0+0 | 0 | 0 | 0 | 10 | PASS |
 | v- | 10/18 | default | 10 | 0 | 0+0 | 0 | 0 | 0 | 10 | PASS |
 | v- | 11/18 | default | 10 | 0 | 0+0 | 0 | 0 | 0 | 10 | PASS |
@@ -88,12 +89,24 @@
 | v- | 7/18 | default | 10 | 0 | 0+0 | 0 | 0 | 0 | 10 | PASS |
 | v- | 8/18 | default | 10 | 0 | 0+0 | 0 | 0 | 0 | 10 | PASS |
 | v- | 9/18 | default | 10 | 0 | 0+0 | 0 | 0 | 0 | 10 | PASS |
-| **all** |  |  | 3985 | 0 | 1+0 | 0 | 0 | 0 | 3986 | FAIL |
+| **all** |  |  | 4171 | 13 | 0+0 | 0 | 0 | 0 | 4184 | FAIL |
 
 ## Failures
 
 | Test | Suite | TB | Status | exit | cycles | wall | perm | detail |
 |---|---|---|---|---|---|---|---|---|
-| `rv64ui-p-ma_data` | p- | default | TIMEOUT | - | - | 72s | 401634048 | (72s) order=506e4e23a172 |
+| `rv64mi-p-breakpoint` | cosim-p | default | FAIL | - | - | 6s | 810639445 | (6s): rv64mi-p-breakpoint: MISMATCH at commit 95 pc=0x800001f0 field=absorbed-record-not-NOP | [1] absorbed-record-not-N... |
+| `rv64mi-p-csr` | cosim-p | default | FAIL | - | - | 8s | 489043872 | (8s): rv64mi-p-csr: MISMATCH at commit 167 pc=0x80000328 field=x10 | [1] x10: CL 0x800000000014112d | Spike 0x8000000000... |
+| `rv64mi-p-illegal` | cosim-p | default | FAIL | - | - | 6s | 507493854 | (6s): rv64mi-p-illegal: MISMATCH at commit 111 pc=0x800001d0 field=csr344 | [1] csr344: CL 0x2 | Spike 0x82   (CL source... |
+| `rv64mi-p-ma_fetch` | cosim-p | default | FAIL | - | - | 5s | 497823772 | (5s): rv64mi-p-ma_fetch: MISMATCH at commit 108 pc=0x8000023c field=csr301 | [1] csr301: CL 0x800000000014112d | Spike 0... |
+| `rv64mi-p-mcsr` | cosim-p | default | FAIL | - | - | 4s | 728930165 | (4s): rv64mi-p-mcsr: MISMATCH at commit 77 pc=0x800001a0 field=x10 | [1] x10: CL 0x800000000014112d | Spike 0x8000000000... |
+| `rv64mi-p-pmpaddr` | cosim-p | default | FAIL | - | - | 5s | 756679231 | (5s): rv64mi-p-pmpaddr: MISMATCH at commit 79 pc=0x800001ac field=csr3b0 | [1] csr3b0: CL 0xffffffffffffffff | Spike 0x3... |
+| `rv64mi-p-scall` | cosim-p | default | FAIL | - | - | 5s | 347724092 | (5s): rv64mi-p-scall: MISMATCH at commit 100 pc=0x0 field=store-stream: unmatched tail | [1] store-stream: unmatched tai... |
+| `rv64si-p-csr` | cosim-p | default | FAIL | - | - | 4s | 467146429 | (4s): rv64si-p-csr: MISMATCH at commit 71 pc=0x80000178 field=csr302 | [1] csr302: CL 0xb109 | Spike 0xb108   (CL source... |
+| `rv64si-p-icache-alias` | cosim-p | default | FAIL | - | - | 10s | 671894537 | (10s): rv64si-p-icache-alias: MISMATCH at commit 232 pc=0x0 field=store-stream: unmatched tail | [1] store-stream: unmat... |
+| `rv64si-p-ma_fetch` | cosim-p | default | FAIL | - | - | 4s | 499737242 | (4s): rv64si-p-ma_fetch: MISMATCH at commit 71 pc=0x80000178 field=csr302 | [1] csr302: CL 0xb109 | Spike 0xb108   (CL s... |
+| `rv64si-p-sbreak` | cosim-p | default | FAIL | - | - | 4s | 907244591 | (4s): rv64si-p-sbreak: MISMATCH at commit 71 pc=0x80000178 field=csr302 | [1] csr302: CL 0xb109 | Spike 0xb108   (CL sou... |
+| `rv64si-p-scall` | cosim-p | default | FAIL | - | - | 4s | 917697064 | (4s): rv64si-p-scall: MISMATCH at commit 71 pc=0x80000178 field=csr302 | [1] csr302: CL 0xb109 | Spike 0xb108   (CL sour... |
+| `rv64si-p-wfi` | cosim-p | default | FAIL | - | - | 5s | 456055710 | (5s): rv64si-p-wfi: MISMATCH at commit 79 pc=0x800001a8 field=csr104 | [1] csr104: CL no write, committed=0x0 | Spike wr... |
 
-_Full 3986-test table: see the `pyo3-ci-report.md` asset._
+_Full 4184-test table: see the `pyo3-ci-report.md` asset._
