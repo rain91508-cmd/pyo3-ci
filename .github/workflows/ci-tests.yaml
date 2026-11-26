@@ -101,6 +101,15 @@ concurrency:
     group: ${{ github.workflow }}-${{ inputs.gem5_ref || 'pycpu' }}-${{ inputs.sched_mode || 'pinned' }}-${{ inputs.testbench || 'default' }}
     cancel-in-progress: true
 
+env:
+    # ACT4 arch-test host count: spread the run job across this many
+    # runners -- GitHub's concurrent-runner limit. The plan job derives
+    # the shard count from the built ELF count as
+    # min(PYO3_ARCH_TEST_HOSTS, count), so all hosts are used whenever
+    # there are at least that many tests, and fewer tests simply use
+    # fewer hosts (one shard per test at most).
+    PYO3_ARCH_TEST_HOSTS: '20'
+
 jobs:
     pyo3-riscv-tests-build:
         name: pyo3 / build riscv-tests ELFs
@@ -314,8 +323,195 @@ jobs:
                   retention-days: 14
 
     # -----------------------------------------------------------------------
+    # RISC-V Architectural Certification Tests (riscv-arch-test, ACT4).
+    #
+    # The submodule ships test SOURCES only; the self-checking ELFs are
+    # generated per DUT config by the ACT4 framework (testgen -> sig.elf ->
+    # Sail 0.16 reference model computes expected results -> recompile with
+    # results baked in). The pyo3 DUT config lives at
+    # src/cpu/pyo3/arch-test-config/pyo3-o3cl-rv64/ (gem5 tree side, so the
+    # submodule stays pristine upstream). build_riscv_arch_tests.sh
+    # provisions the whole toolchain (prebuilt riscv64-elf GCC, Sail 0.16,
+    # mise/uv venv + UDB ruby gem) and runs `make`.
+    #
+    # Halt mechanism compatibility: the config's RVMODEL_HALT_* macros write
+    # tohost=1/3 -- exactly the magic-store exit the bare-metal TB detects
+    # (exit_code == 1 => PASS), so _run_one_test_worker.py runs these ELFs
+    # unmodified.
+    #
+    # Sharding: the run job is split across runners with PYO3_SHARD, like
+    # the -v- suite, except the shard count is dynamic: a plan job derives
+    # it from the built ELF count to spread the tests across up to
+    # PYO3_ARCH_TEST_HOSTS hosts -- GitHub's concurrent-runner limit
+    # (264 ELFs -> 20 hosts of 13-14 tests today). In-host, the runner
+    # still fans out nproc-wide on its own.
+    #
+    # GATE STATUS: report-only while the ACT4 suite is being brought up in
+    # this flow (its first divergences are still being worked through in
+    # the gem5 repo's own CI, where the same jobs run). The suite header
+    # `# suite=arch-test-p` lands the rows in their own report section; the
+    # gate below excludes `arch-test-` rows from its counts the same way
+    # the report-only cosim-* suites are excluded in functional mode. Flip
+    # the gate awk to include them once the suite is green.
+    #
+    # Pure-cosim mode (enable_cosim=true) skips all three jobs, exactly
+    # like the block suites: a cosim dispatch stays a pure co-simulation.
+    # -----------------------------------------------------------------------
+    pyo3-arch-tests-build:
+        name: pyo3 / build arch-test ELFs (ACT4)
+        if: ${{ inputs.enable_cosim != 'true' }}
+        runs-on: ubuntu-24.04
+        timeout-minutes: 120
+        # Consumed by pyo3-arch-tests-plan to size the run-job matrix.
+        outputs:
+            elf-count: ${{ steps.collect.outputs.elf-count }}
+        steps:
+            - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@main
+              with:
+                  gem5_ref: ${{ inputs.gem5_ref || 'pycpu' }}
+                  key_pull_repo: ${{ secrets.KEY_PULL_REPO }}
+
+            # setup-pyo3 fetches only the riscv-tests + pymtl3_submodule
+            # submodules; the ACT4 framework lives in a third one. Its
+            # .gitmodules URL is plain public https, and the depth-1 gem5
+            # clone takes a submodule update for the nested path exactly
+            # as setup-pyo3's own fetch does for its two -- done here as a
+            # job step because the shared action must not grow an
+            # arch-only fetch that every other suite would also pay for.
+            - name: Initialise the arch-test submodule
+              run: |
+                  git config --global url."https://github.com/".insteadOf "git@github.com:"
+                  git submodule update --init --recursive -- src/cpu/pyo3/riscv-arch-test
+
+            - name: Build the ACT4 self-checking ELFs
+              working-directory: src/cpu/pyo3
+              env:
+                  GITHUB_API_TOKEN: ${{ secrets.KEY_PULL_REPO }}
+                  EXTENSIONS: 'I,M,A,F,D,C'
+              run: ./build_riscv_arch_tests.sh
+
+            # Stage exactly the rv64i/ tree the runner searches, plus a
+            # top-level manifest file. The manifest is load-bearing:
+            # upload-artifact roots the artifact at the least common
+            # ancestor of all uploaded files, so with rv64i/ as the only
+            # top-level entry the root would collapse into rv64i/ itself
+            # and the run job's extraction would land one level short
+            # (elfs/I/... instead of elfs/rv64i/I/...). With the manifest
+            # present the LCA is this staging dir, the artifact contents
+            # are exactly {elf-manifest.txt, rv64i/**}, and extraction
+            # into the run job's elfs/ dir yields elfs/rv64i/**.
+            - name: Collect the ELFs
+              id: collect
+              run: |
+                  mkdir -p "$RUNNER_TEMP/arch-elfs"
+                  cp -r src/cpu/pyo3/riscv-arch-test/work/pyo3-o3cl-rv64/elfs/rv64i \
+                        "$RUNNER_TEMP/arch-elfs/rv64i"
+                  (cd "$RUNNER_TEMP/arch-elfs" && find rv64i -name '*.elf' | sort > elf-manifest.txt)
+                  count=$(find "$RUNNER_TEMP/arch-elfs" -name '*.elf' | wc -l)
+                  echo "collected $count ELFs"
+                  echo "elf-count=$count" >> "$GITHUB_OUTPUT"
+
+            - uses: actions/upload-artifact@v4
+              with:
+                  name: pyo3-arch-tests-elfs
+                  path: ${{ runner.temp }}/arch-elfs
+                  retention-days: 7
+                  if-no-files-found: error
+
+    # Sizes the run job's matrix: shard count = min(PYO3_ARCH_TEST_HOSTS,
+    # ELF count) -- spread across all available hosts, one shard per test
+    # at most -- emitted as a JSON index list for fromJSON. Pure arithmetic
+    # on the build job's output -- no checkout needed.
+    pyo3-arch-tests-plan:
+        name: pyo3 / plan arch-test shards (ACT4)
+        if: ${{ inputs.enable_cosim != 'true' }}
+        runs-on: ubuntu-24.04
+        timeout-minutes: 10
+        needs: [pyo3-arch-tests-build]
+        outputs:
+            shards: ${{ steps.plan.outputs.shards }}
+            shard-count: ${{ steps.plan.outputs.shard-count }}
+        steps:
+            - name: Compute the shard list
+              id: plan
+              env:
+                  ELF_COUNT: ${{ needs.pyo3-arch-tests-build.outputs.elf-count }}
+              run: |
+                  hosts="${PYO3_ARCH_TEST_HOSTS:-20}"
+                  count="${ELF_COUNT:-0}"
+                  # Defensive: a missing/zero count cannot reach here in
+                  # practice (the build job's upload hard-errors when no
+                  # ELFs were collected), but if it ever did, emit [1] so
+                  # one run-job instance starts and the runner's zero-test
+                  # guard fails loudly -- an empty matrix would instead
+                  # collapse the run job with a cryptic matrix error.
+                  if ! [[ "$count" =~ ^[0-9]+$ ]] || [ "$count" -lt 1 ]; then
+                      shards='[1]'
+                      n=1
+                  else
+                      n=$(( count < hosts ? count : hosts ))
+                      shards=$(printf '[%s]' "$(seq -s ',' 1 "$n")")
+                  fi
+                  echo "arch-test plan: $count ELFs, up to $hosts hosts -> $n shard(s): $shards"
+                  echo "shards=$shards" >> "$GITHUB_OUTPUT"
+                  echo "shard-count=$n" >> "$GITHUB_OUTPUT"
+
+    pyo3-arch-tests:
+        name: pyo3 / arch-test regression (ACT4, report-only) shard ${{ matrix.shard }}/${{ needs.pyo3-arch-tests-plan.outputs.shard-count }}
+        if: ${{ inputs.enable_cosim != 'true' }}
+        runs-on: ubuntu-24.04
+        # At most ceil(count/20) tests/host (14 at 264 ELFs), nproc-wide
+        # in-host (4 vCPU runner): the pathological bound is ceil(14/4) =
+        # 4 waves x the 900s per-test timeout = 60 min if every test wedged
+        # to its timeout; 75 leaves setup/download headroom. Passing tests
+        # finish far below the timeout.
+        timeout-minutes: 75
+        needs: [pyo3-arch-tests-build, pyo3-arch-tests-plan]
+        strategy:
+            fail-fast: false
+            matrix:
+                shard: ${{ fromJSON(needs.pyo3-arch-tests-plan.outputs.shards) }}
+        steps:
+            - uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@main
+              with:
+                  gem5_ref: ${{ inputs.gem5_ref || 'pycpu' }}
+                  key_pull_repo: ${{ secrets.KEY_PULL_REPO }}
+
+            - uses: actions/download-artifact@v4
+              with:
+                  name: pyo3-arch-tests-elfs
+                  path: src/cpu/pyo3/riscv-arch-test/work/pyo3-o3cl-rv64/elfs
+
+            # One ACT4 ELF per worker process (same isolation as the -p-
+            # suite). 300K-cycle cap and a 900s wall timeout per test: the
+            # ACT4 prologue is ~10x an rv64ui-p test and the known divergence
+            # wedges I-add-00-class tests into their RAM-console failure
+            # path, so a stuck row costs ~15 min instead of poisoning the
+            # job. PYO3_SHARD gives this host every S-th test (S = shard
+            # count from the plan job, at most PYO3_ARCH_TEST_HOSTS).
+            - name: Run the arch-test regression (this shard)
+              working-directory: src/cpu/pyo3
+              env:
+                  PYO3_SHARD: ${{ matrix.shard }}/${{ needs.pyo3-arch-tests-plan.outputs.shard-count }}
+                  PYO3_RESULTS_FILE: ${{ github.workspace }}/results/arch-test-${{ matrix.shard }}.txt
+                  PYO3_ARCH_RESULTS_DIR: ${{ github.workspace }}/results/rows
+              run: ./run_all_arch_tests.sh 900 300000
+
+            - name: Upload the arch-test results
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: pyo3-results-arch-test-${{ matrix.shard }}
+                  path: ${{ github.workspace }}/results
+                  retention-days: 14
+
+    # -----------------------------------------------------------------------
     # The report-and-gate job: aggregates every suite/shard result and publishes
     # the report to THIS (pyo3-ci) repo's rolling `pyo3-ci-report` pre-release.
+    #
+    # The ACT4 arch-test shards upload pyo3-results-arch-test-<k> artifacts,
+    # which the download pattern below already covers; their rows land in
+    # their own report section and are REPORT-ONLY in the Gate step.
     #
     # The report HEADER names the tested gem5 commit (GITHUB_SHA / GITHUB_REF_NAME
     # are overridden to the gem5 ref for make_ci_report.py), but the release tag
@@ -333,6 +529,9 @@ jobs:
             - pyo3-riscv-tests-p
             - pyo3-riscv-tests-v
             - pyo3-block-tests
+            - pyo3-arch-tests-build
+            - pyo3-arch-tests-plan
+            - pyo3-arch-tests
         steps:
             - id: setup
               uses: rain91508-cmd/pyo3-ci/.github/actions/setup-pyo3@main
@@ -451,6 +650,11 @@ jobs:
                   # never ran). Judge the group results first, in every
                   # mode: a probe that never reached its suites must fail
                   # loudly, not report an empty finding set.
+                  # The ACT4 arch groups are deliberately NOT judged here:
+                  # the suite is report-only (its rows are excluded from
+                  # the counts below), and in cosim mode its jobs are
+                  # skipped by design -- a "skipped" group result would
+                  # brand every cosim run partial.
                   bad_groups=""
                   # In cosim mode the block suite is skipped by design and the
                   # co-sim steps ride inside the p/v jobs, so build+p+v is the
@@ -484,9 +688,9 @@ jobs:
                   # judges when PYO3_SCHED_MODE is pinned".
                   if [ "$SCHED_MODE" != "pinned" ]; then
                       if [ -s "$GITHUB_WORKSPACE/pyo3-ci-results.tsv" ]; then
-                          bad=$(awk -F'\t' 'NR>1 && $2 != "PASS" && $3 !~ /^cosim/ {n++} END {print n+0}' \
+                          bad=$(awk -F'\t' 'NR>1 && $2 != "PASS" && $3 !~ /^cosim/ && $3 !~ /^arch-test-/ {n++} END {print n+0}' \
                               "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
-                          total=$(awk -F'\t' 'NR>1 && $3 !~ /^cosim/ {n++} END {print n+0}' \
+                          total=$(awk -F'\t' 'NR>1 && $3 !~ /^cosim/ && $3 !~ /^arch-test-/ {n++} END {print n+0}' \
                               "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
                           echo "::warning title=pyo3 sched probe (report-only)::schedule mode=$SCHED_MODE: $bad of $total functional tests did not pass under an order that varies across processes. This does NOT gate. Re-dispatch with sched_mode=pinned for a verdict; every row names its order (order=<hash>), so a finding here is comparable against a pinned run of the same ref."
                       else
@@ -527,9 +731,9 @@ jobs:
                   # cachehier runs judge and publish.
                   if [ "$TESTBENCH" = "cachehier" ]; then
                       if [ -s "$GITHUB_WORKSPACE/pyo3-ci-results.tsv" ]; then
-                          bad=$(awk -F'\t' 'NR>1 && $2 != "PASS" && $3 !~ /^cosim/ {n++} END {print n+0}' \
+                          bad=$(awk -F'\t' 'NR>1 && $2 != "PASS" && $3 !~ /^cosim/ && $3 !~ /^arch-test-/ {n++} END {print n+0}' \
                               "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
-                          total=$(awk -F'\t' 'NR>1 && $3 !~ /^cosim/ {n++} END {print n+0}' \
+                          total=$(awk -F'\t' 'NR>1 && $3 !~ /^cosim/ && $3 !~ /^arch-test-/ {n++} END {print n+0}' \
                               "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
                           echo "::warning title=pyo3 cachehier probe (report-only)::testbench=cachehier: $bad of $total functional tests did not pass on the MMU-integrated TB. This does NOT gate and does NOT overwrite reports/latest/ or the pre-release. Re-dispatch with testbench=default for the gating verdict."
                       else
@@ -547,9 +751,9 @@ jobs:
                   # a lens, not a gate. Exclude them from the pass/fail count
                   # and surface their findings as a warning. (In cosim mode the
                   # branch above already judged the cosim rows and exited.)
-                  bad=$(awk -F'\t' 'NR>1 && $2 != "PASS" && $3 !~ /^cosim/ {n++} END {print n+0}' \
+                  bad=$(awk -F'\t' 'NR>1 && $2 != "PASS" && $3 !~ /^cosim/ && $3 !~ /^arch-test-/ {n++} END {print n+0}' \
                       "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
-                  total=$(awk -F'\t' 'NR>1 && $3 !~ /^cosim/ {n++} END {print n+0}' \
+                  total=$(awk -F'\t' 'NR>1 && $3 !~ /^cosim/ && $3 !~ /^arch-test-/ {n++} END {print n+0}' \
                       "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
                   nc=$(awk -F'\t' 'NR>1 && $3 ~ /^cosim/ {n++} END {print n+0}' \
                       "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
@@ -558,6 +762,17 @@ jobs:
                   if [ "${nc:-0}" -gt 0 ]; then
                       echo "::warning title=pyo3 co-sim (report-only)::$ncb of $nc co-sim tests did not reach GREEN -- see the cosim-* rows in the report; this does NOT gate"
                   fi
+                  # arch-test-* rows are REPORT-ONLY while the ACT4 suite
+                  # is being brought up (see the jobs above): excluded from
+                  # the count above and echoed separately, the same way
+                  # the cosim-* rows are handled in this mode. Flip by
+                  # deleting the arch-test- condition once the suite is
+                  # green.
+                  atotal=$(awk -F'\t' 'NR>1 && $3 ~ /^arch-test-/ {n++} END {print n+0}' \
+                      "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
+                  abad=$(awk -F'\t' 'NR>1 && $3 ~ /^arch-test-/ && $2 != "PASS" {n++} END {print n+0}' \
+                      "$GITHUB_WORKSPACE/pyo3-ci-results.tsv")
+                  echo "arch-test (report-only): $abad non-passing of $atotal"
                   echo "non-passing: $bad of $total tests"
                   if [ "$bad" -ne 0 ]; then
                       echo "::error::$bad of $total pyo3 tests did not pass -- see the pyo3-ci-report release"
