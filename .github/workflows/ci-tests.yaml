@@ -343,14 +343,20 @@ jobs:
     # the -v- suite, except the shard count is dynamic: a plan job derives
     # it from the built ELF count to spread the tests across up to
     # PYO3_ARCH_TEST_HOSTS hosts -- GitHub's concurrent-runner limit
-    # (264 ELFs -> 20 hosts of 13-14 tests today). In-host, the runner
-    # still fans out nproc-wide on its own.
+    # (417 ELFs -> 20 hosts today). In-host, the runner still fans out
+    # nproc-wide on its own.
+    #
+    # Two DUT configs are built and run: rv64i (264 ELFs, suite
+    # arch-test-p, the model's default 32 integer registers) and rv64e
+    # (153 ELFs, suite arch-test-e, PYO3_ARCH_INT_REGS=16). Both suites
+    # are report-only: the arch-test- prefix keeps every row out of the
+    # gate counts below.
     #
     # GATE STATUS: report-only while the ACT4 suite is being brought up in
     # this flow (its first divergences are still being worked through in
-    # the gem5 repo's own CI, where the same jobs run). The suite header
-    # `# suite=arch-test-p` lands the rows in their own report section; the
-    # gate below excludes `arch-test-` rows from its counts the same way
+    # the gem5 repo's own CI, where the same jobs run). The suite headers
+    # `# suite=arch-test-p` / `# suite=arch-test-e` land the rows in
+    # their own report sections; the gate below excludes `arch-test-` rows from its counts the same way
     # the report-only cosim-* suites are excluded in functional mode. Flip
     # the gate awk to include them once the suite is green.
     #
@@ -383,32 +389,46 @@ jobs:
                   git config --global url."https://github.com/".insteadOf "git@github.com:"
                   git submodule update --init --recursive -- src/cpu/pyo3/riscv-arch-test
 
+            # BUILD_RV64E=1 asks build_riscv_arch_tests.sh for its second
+            # pass: the pyo3-o3cl-rv64e config (all suites in that UDB
+            # config, EXTENSIONS does not apply to it), staged under
+            # work/pyo3-o3cl-rv64e/elfs/rv64e. The script's UDB-E view
+            # adapter patch step is what makes that config buildable.
             - name: Build the ACT4 self-checking ELFs
               working-directory: src/cpu/pyo3
               env:
+                  BUILD_RV64E: '1'
                   GITHUB_API_TOKEN: ${{ secrets.KEY_PULL_REPO }}
                   EXTENSIONS: 'I,M,A,F,D,C'
               run: ./build_riscv_arch_tests.sh
 
-            # Stage exactly the rv64i/ tree the runner searches, plus a
-            # top-level manifest file. The manifest is load-bearing:
-            # upload-artifact roots the artifact at the least common
-            # ancestor of all uploaded files, so with rv64i/ as the only
-            # top-level entry the root would collapse into rv64i/ itself
-            # and the run job's extraction would land one level short
-            # (elfs/I/... instead of elfs/rv64i/I/...). With the manifest
-            # present the LCA is this staging dir, the artifact contents
-            # are exactly {elf-manifest.txt, rv64i/**}, and extraction
-            # into the run job's elfs/ dir yields elfs/rv64i/**.
+            # Stage exactly the rv64i/ and rv64e/ trees the runner
+            # searches, plus one top-level manifest per tree. The
+            # manifests are load-bearing: upload-artifact roots the
+            # artifact at the least common ancestor of all uploaded
+            # files, so with a tree as the only top-level entry the root
+            # would collapse into that tree itself and the run job's
+            # extraction would land one level short (elfs/I/... instead
+            # of elfs/rv64i/I/...). With the manifests present the LCA is
+            # this staging dir, the artifact contents are exactly
+            # {elf-manifest.txt, elf-manifest-rv64e.txt, rv64i/**,
+            # rv64e/**}, and extraction into the run job's elfs/ dir
+            # yields elfs/rv64i/** and elfs/rv64e/**.
+            # elf-count is the COMBINED count: the plan job sizes the
+            # shard matrix from it, and each shard then strides both
+            # trees with the same PYO3_SHARD=k/S.
             - name: Collect the ELFs
               id: collect
               run: |
                   mkdir -p "$RUNNER_TEMP/arch-elfs"
                   cp -r src/cpu/pyo3/riscv-arch-test/work/pyo3-o3cl-rv64/elfs/rv64i \
                         "$RUNNER_TEMP/arch-elfs/rv64i"
+                  cp -r src/cpu/pyo3/riscv-arch-test/work/pyo3-o3cl-rv64e/elfs/rv64e \
+                        "$RUNNER_TEMP/arch-elfs/rv64e"
                   (cd "$RUNNER_TEMP/arch-elfs" && find rv64i -name '*.elf' | sort > elf-manifest.txt)
+                  (cd "$RUNNER_TEMP/arch-elfs" && find rv64e -name '*.elf' | sort > elf-manifest-rv64e.txt)
                   count=$(find "$RUNNER_TEMP/arch-elfs" -name '*.elf' | wc -l)
-                  echo "collected $count ELFs"
+                  echo "collected $count ELFs (expect 417: 264 rv64i + 153 rv64e)"
                   echo "elf-count=$count" >> "$GITHUB_OUTPUT"
 
             - uses: actions/upload-artifact@v4
@@ -460,12 +480,13 @@ jobs:
         name: pyo3 / arch-test regression (ACT4, report-only) shard ${{ matrix.shard }}/${{ needs.pyo3-arch-tests-plan.outputs.shard-count }}
         if: ${{ inputs.enable_cosim != 'true' }}
         runs-on: ubuntu-24.04
-        # At most ceil(count/20) tests/host (14 at 264 ELFs), nproc-wide
-        # in-host (4 vCPU runner): the pathological bound is ceil(14/4) =
-        # 4 waves x the 900s per-test timeout = 60 min if every test wedged
-        # to its timeout; 75 leaves setup/download headroom. Passing tests
+        # Per host: ceil(264/20)=14 rv64i + ceil(153/20)=8 rv64e = 22
+        # tests, nproc-wide in-host (4 vCPU runner): the pathological
+        # bound is ceil(22/4) = 6 waves x the 900s per-test timeout =
+        # 90 min if every test wedged to its timeout; 120 leaves
+        # setup/download headroom for the two steps. Passing tests
         # finish far below the timeout.
-        timeout-minutes: 75
+        timeout-minutes: 120
         needs: [pyo3-arch-tests-build, pyo3-arch-tests-plan]
         strategy:
             fail-fast: false
@@ -495,6 +516,26 @@ jobs:
                   PYO3_SHARD: ${{ matrix.shard }}/${{ needs.pyo3-arch-tests-plan.outputs.shard-count }}
                   PYO3_RESULTS_FILE: ${{ github.workspace }}/results/arch-test-${{ matrix.shard }}.txt
                   PYO3_ARCH_RESULTS_DIR: ${{ github.workspace }}/results/rows
+              run: ./run_all_arch_tests.sh 900 300000
+
+            # The rv64e tree, same shard: PYO3_ARCH_ELF_DIR points the
+            # runner at elfs/rv64e, PYO3_ARCH_INT_REGS=16 selects the
+            # 16-register model in the bare-metal TB, and
+            # PYO3_SUITE_NAME=arch-test-e lands the rows in their own
+            # report section -- still matched by the gate's arch-test-
+            # exclusion, so rv64e is report-only exactly like rv64i.
+            # PYO3_ARCH_RESULTS_DIR gets its own rows-e/ dir so the
+            # per-test row-*.txt intermediates cannot collide with the
+            # rv64i step's (suite dirs E/M/Zb* share test stems).
+            - name: Run the rv64e arch-test regression (this shard)
+              working-directory: src/cpu/pyo3
+              env:
+                  PYO3_SHARD: ${{ matrix.shard }}/${{ needs.pyo3-arch-tests-plan.outputs.shard-count }}
+                  PYO3_ARCH_ELF_DIR: ${{ github.workspace }}/src/cpu/pyo3/riscv-arch-test/work/pyo3-o3cl-rv64/elfs/rv64e
+                  PYO3_ARCH_INT_REGS: '16'
+                  PYO3_SUITE_NAME: arch-test-e
+                  PYO3_RESULTS_FILE: ${{ github.workspace }}/results/arch-test-e-${{ matrix.shard }}.txt
+                  PYO3_ARCH_RESULTS_DIR: ${{ github.workspace }}/results/rows-e
               run: ./run_all_arch_tests.sh 900 300000
 
             - name: Upload the arch-test results
